@@ -1,0 +1,254 @@
+# Independence and product spaces  {#independence}
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(
+  comment= '',
+  fig.width= 12,
+  fig.asp= .75,
+  fig.align="center",
+  echo=FALSE,
+  eval=TRUE,
+  message=FALSE,
+  warning=FALSE
+)
+```
+
+## Roadmap
+
+Independence between events, random variables and more
+generally $\sigma$-algebras is at the core of many constructs
+and results in probability theory. Law of large numbers, central
+limit theorems and concentration inequalities are first
+stated and proved when handling possibly infinite collections
+of independent random variables. Results that can be
+established for collections of independent random variables
+constitute a gold standard. A large part of Martingale theory,
+or Markow chain theory is dedicated to the extension of
+laws of large numbers, central limit theorems, concentration
+inequalities.
+
+First, we recall the definition of independent events. This
+notion is elementary, helpful. In section \@ref(indepalgebras),
+the notion of independence is extended to $\sigma$-algebras.
+and to random variables. We observe that checking
+independence between $\sigma$-algebras is facilitated by The monotone class theorem (Theorem \@ref(thm:monotoneclasslemma)).
+Finally, we extend the notion of indepedence to countable collections
+of $\sigma$-algebras.
+
+
+In many circumstances, we take for granted the availability
+of a countably infinite collection of independent random variables
+over some probability space. For example,
+we consider the possibility of rolling a dice infinitely many
+times, and we assume that the outcomes are independent.  This is legitimate. But checking
+that this is legitimate, that is proving the existence of
+such rich probability spaces is non-trivial. Building
+product measures and product probability distributions
+is  a first step in this direction.
+
+In Section \@ref(productmeasures) we define  product $\sigma$-algebras
+and product measures. In Section \@ref(tonellifubini) we state the
+Tonelli-Fubini Theorem. This Theorem is a fundamental tool when
+handling multiple integrals, it plays an important role when computing
+expectations in product spaces. In Section \@ref(indepproduct),  we outline the
+way building product spaces allows to build collections of independent random
+variables. In section \@ref(indepcollectionsalgebras) we consider
+product of countable collections of probability spaces.
+We introduce the notion of cylinder $\sigma$-algebra and state
+the Kolmogorov consistency theorem. This defines
+the framework of the classical  limit results of probability theory.
+
+## Independence of two events  {#indepevents}
+
+
+
+We recall definitions from [Introductory Lesson]() \@ref(intro), Section \@ref(random-variables-and-independence)
+
+
+::: {#def  name="Independence of two events"}
+
+Let $P$ be a probability distribution on $(\Omega, \mathcal{F})$. Let $A, B \in \mathcal{F}$ be two events.
+
+Events $A$ and $B$ are said to be _independent under $P$_ ($A \perp\!\!\!\perp B$ under $P$)
+if and only if $P(A \cap B)=  P(A) \times P(B)$.
+
+:::
+
+<p></p>
+
+
+::: {#exr}
+
+Prove the following statements
+
+- $A$ and $B$ are independent if and only if $A^c = \Omega \setminus A$ and $B^c= \Omega \setminus B$ are independent.
+- $A$ and $B$ are independent if and only if $A$ and $B^c$ are independent.
+- $\emptyset$ is independent from any event.
+
+:::
+
+
+<p></p>
+
+::: {#exr}
+
+Express $P(A \cup B)$ in terms of $P(A)$  and $P(B)$ when $A \perp\!\!\!\perp B$.
+
+:::
+
+
+<p></p>
+
+<p></p>
+
+::: {#exr}
+
+In a Poissonized random allocation experiment,
+we first pick $N$ from a Poisson distribution with parameter $\mu$, then we
+we throw $N$ balls independently at random into $m$ urns. The probability
+that one ball lands into urn $j$  is $p_j$ (we have $\sum_{j=1}^n p_j=1$).
+
+Denote by $Y_j$ the number of balls in urn $j$ ($j\leq m$).
+
+Check that the events $\{Y_j \leq r\}$, and $\{ Y_k \leq s\}$  for $j\neq k$
+and $r,s \in \mathbb{N}$  are independent.
+
+:::
+
+::: {#exr}
+
+Express $P(A \cup B)$ in terms of $P(A)$  and $P(B)$ when $A \perp\!\!\!\perp B$.
+
+:::
+
+::: {#exr}
+
+Is it possible to have $A \perp\!\!\!\perp B$,  $B \perp\!\!\!\perp C$,
+and $A \perp\!\!\!\perp C$ while not having $A \cap B  \perp\!\!\!\perp C$?
+
+:::
+
+
+## Independence of $\sigma$-algebras and random variables {#indepalgebras}
+
+:::: {#def name="Independence of sigma-algebras"}
+
+Let $P$ be a probability distribution on $(\Omega, \mathcal{F})$. Let $\mathcal{G}$
+and $\mathcal{H}$ be two sub-$\sigma$-algebras of $\mathcal{F}$.
+The  sub-$\sigma$-algebra $\mathcal{G}$ and $\mathcal{H}$ are independent under $P$
+iff for any couple $A \in \mathcal{G},B \in \mathcal{H}$, $A$ is independent from $B$
+under $P$.
+
+:::
+
+The two definitions of independence are consistent. This has to be checked.
+
+::: {#exr}
+
+Given a probability space $(\Omega, \mathcal{F}, P)$ and two events $A$ and $B$, check
+that  $A$ and $B$ are independent under $P$ iff $\sigma(A)$ and $\sigma(B)$ are independent
+under $P$.
+
+:::
+
+Two random variables $X$ and $Y$ over the same probability space are independent
+iff the $\sigma$-algebras generated by the two variables are independent. We denote
+independence of $X$ and $Y$ by $X \perp\!\!\!\perp  Y$.
+Again this is consistent: two events are independent iff their indicator functions are
+independent.
+
+::: {#exr  #exoindep}
+
+Let $P$ be a probability distribution on $(\Omega, \mathcal{F})$.
+Let $B$ be an event from $\mathcal{G}$. Let $\mathcal{A} \subseteq \mathcal{F}$
+be defined by
+\[
+\mathcal{A} = \left\{ A : A \in \mathcal{F}, A \text{ is independent from } B \text{ under } P  \right\}\,.
+\]
+Prove that $\mathcal{A}$ is a $\sigma$-algebra.
+
+:::
+
+
+Checking whether two sub-$\sigma$-algebras $\mathcal{G}$ and $\mathcal{H}$
+are independent or not looks like a difficult task.
+Fortunately, we do not need to
+check the independence of every pair of events from $\mathcal{G}$  and $\mathcal{H}$.
+It suffices to check independence from $\mathcal{H}$ for a well-chosen
+collection of events that generates $\mathcal{G}$.
+
+
+```{theorem indepmonotone}
+Let $(\Omega, \mathcal{F}, P)$ be a probability space.
+Let $\mathcal{G}, \mathcal{H}$ be two sub-$\sigma$-algebras of $\mathcal{F}$.
+Let $\mathcal{C}$ and $\mathcal{C}'$ be two $\pi$-classes such that $\sigma(\mathcal{C})= \mathcal{G}$
+and $\sigma(\mathcal{C}')=\mathcal{H}$. The two statements are equivalent
+
+- $\mathcal{G} \perp\!\!\!\perp \mathcal{H}$  under $P$;
+- For every $A\in \mathcal{C}$, every $A' \in \mathcal{C}'$, $P(A \cap A') = P(A) \times P(A')$.
+
+```
+
+<p></p>
+
+The proof of Theorem \@ref(thm:indepmonotone) is another application of the monotone class lemma (Lemma \@ref(thm:monotoneclasslemma))
+
+<p></p>
+
+```{proof}
+Let $A \in \mathcal{G}$. Define $\mathcal{E}$ as \[
+\mathcal{E} = \Big\{ B : B \in \mathcal{H}, A \perp\!\!\!\perp B  \Big\} \,.
+\]
+The definition of event independence allows us to check that
+$\mathcal{E}$ is a $\lambda$-class (a monotone class).
+Hence if $A \in \mathcal{C}$, $A$ is independent from every event
+from the the smallest $\lambda$-class containing $\mathcal{C}'$.
+This entails that every event in $\mathcal{C}$ is independent from every
+event in $\mathcal{H}$. Similarly every event in $\mathcal{C}'$ is independent
+from every event in $\mathcal{G}$.
+
+Now, the set of events from $\mathcal{G}$ that is independent from every
+event in $\mathcal{H}$ is a $\lambda$-class (by the same line of reasoning as above).
+As this $\lambda$-class contains $\mathcal{C}$, by the monotone class Lemma again,
+it contains $\sigma(\mathcal{C})=\mathcal{G}$.
+
+```
+
+<br>
+<p></p>
+To check the independence of two real valued random variables, it is enough
+to check that the joint cumulative distribution function is
+the product of the two marginal distribution functions.
+<p></p>
+
+```{corollary  indepcumul}
+Let $X$ and $Y$ be two real random variables on $(\Omega, \mathcal{F}, P)$,
+$X$ and $Y$ are independent  ($X \perp\!\!\!\perp Y$) under $P$
+iff event $\{X \leq t\}$ is independent from event $\{Y \leq s\}$ under $P$  for
+all $s, t \in \mathbb{Q}$.
+```
+
+<br>
+<p></p>
+
+```{proof}
+Events of the form $\{X \leq t\}, t \in \mathbb{R}$ form a $\pi$ class
+generating $\sigma(X)$.
+
+```
+
+<br>
+<p></p>
+
+The notion of independence extends to countable collection of events, $\sigma$-algebras and random variables.
+
+```{definition, name="Independence of countable collections"}
+Let $P$ be a probability distribution on $(\Omega, \mathcal{F})$. Let $(\mathcal{G}_i)_{i \in I \subseteq \mathcal{N}}$
+be  sub-$\sigma$-algebras of $\mathcal{F}$.
+The  collection $(\mathcal{G}_i)_{i \in I \subseteq \mathcal{N}}$ is independent in
+$(\Omega, \mathcal{F}, P)$  iff for any finite sub-collection $J \subseteq I$,
+for any sequence of events $(A_j)_{j \in J}$ with $A_j \in \mathcal{G}_j$ for all $j \in J$,
+\[
+P (\cap_{j \in J} A_j) = \prod_{j \in J} P(A_j) \, .
+\]
+```

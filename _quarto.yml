@@ -1,0 +1,36 @@
+project:
+  type: book
+
+book:
+  title: "MA1AU015"
+  author: "Master ISIFAR"
+  date: "6/12/2025"
+  chapters:
+    - index.qmd
+    - 01-intro.qmd
+    - 02-language.qmd
+    - 023-discrete-condition.qmd
+    - 031-moments.qmd
+
+#    - summary.qmd
+#    - references.qmd
+
+# bibliography: references.bib
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+  pdf:
+    documentclass: memoir
+    classoption: [11pt, a4paper, twoside]
+    mainfont: EB Garamond
+    sansfont: Iwona Cond Medium
+bibliography: ["stbib.bib", "book.bib", "packages.bib"]
+biblio-style: apalike
+link-citations: true
+csl: "style/apa.csl"
+always_allow_html: true
+
+

@@ -1,0 +1,130 @@
+---
+title: "Petit cours de Probabilité"
+author: "[Master ISIFAR  Année 2025-26](http://stephane-v-boucheron.fr)"
+subtitle: 'Class notes'
+date: '`r Sys.Date()`'
+---
+
+
+
+<!-- ![](images/Universite_Paris_logo_horizontal.jpg) -->
+
+# Warm up   {#foreword}
+
+## A small undergraduate course on Probability theory in a [dual curriculum](http://master.math.univ-paris-diderot.fr/annee/m1-mi/)
+
+
+This _Probability_ course is a core part of [`Master Mathématique-Informatique Sciences des Données`](http://master.math.univ-paris-diderot.fr/annee/m1-mi/), a dual curriculum that delivers training in Mathematics and Computer Science at [Université de Paris](http://u-paris.fr).
+
+
+```{r, echo=FALSE, fig.align='right', eval=knitr::is_html_output()}
+knitr::include_url("http://master.math.univ-paris-diderot.fr/annee/m1-mi/", height = '300px')
+```
+
+
+
+The _Probability_ course is related to many other courses from the same
+curriculum.
+
+Relevant courses from the first semester are:
+
+1. [Théorie de l'information](http://master.math.univ-paris-diderot.fr/modules/m1mi-theorie-information/)
+1. [Algorithmique](http://master.math.univ-paris-diderot.fr/modules/m1info-algo/)
+1. [Complexité](http://master.math.univ-paris-diderot.fr/modules/m1math-s1-algo/)
+
+Relevant courses from second semester and second year are:
+
+1. [Statistique](http://master.math.univ-paris-diderot.fr/modules/m1math-s2-stat-fonda/)
+2. [Analyse de données](http://master.math.univ-paris-diderot.fr/modules/m1mi-s2-ana-donnees)
+3. [Algorithmique avancée](http://master.math.univ-paris-diderot.fr/modules/m1info-algo-avancee/)
+4. [Technologie Big Data](http://master.math.univ-paris-diderot.fr/modules/m1mi-big-data/)
+3. [Machine learning](http://master.math.univ-paris-diderot.fr/modules/m2mo-ml/)
+1. [Deep learning](http://master.math.univ-paris-diderot.fr/modules/m2mo-deepl/)
+2. [Renforcement](http://master.math.univ-paris-diderot.fr/modules/m2mo-renforcement/)
+3. [Données massives](http://master.math.univ-paris-diderot.fr/modules/m2mo-mmd/)
+
+This list is not exhaustive.
+
+This course is geared towards data science applications. We borrow examples
+and applications of probability theory from statistics, computer science and
+big data engineering. As we have a limited amount of time,
+we sweep a lot of dust under the carpet. We take for granted
+key results from integration and measure theory. Nevertheless, we build on rigorous
+definitions, state and invoke theorems in a consistent way.
+
+
+- `r fontawesome::fa("link")` [Homepage of the course](stephane-v-boucheron.fr/courses/probability).
+- `r fontawesome::fa("link")` [Moodle page of the course](https://moodle.u-paris.fr/mod/folder/view.php?id=81541).
+
+## Prerequisites
+
+This course builds on two Licence-level courses:
+
+- [Probabilités Licence 3](http://licence.math.univ-paris-diderot.fr/modules/l3-maths-mfa-maths-s5-probas/)
+- [Intégration](http://licence.math.univ-paris-diderot.fr/modules/l3-maths-mfa-maths-s6-Integration/)
+
+## Roadmap
+
+__Provisional schedule__
+
+|  Lesson  | Slides |  Video  |  Date  |
+|:--------|:-------|:-------:|:-------:|
+| Glossary | [`r fontawesome::fa("slideshare")`](/slides/cm-1-introduction.html) [`r fontawesome::fa("slideshare")`](/slides/cm-2-discrete-distributions.html) | [`r fontawesome::fa("video")`](https://u-paris.zoom.us/rec/share/RZAxxvkQc40MG_E94fxcEU4Aq-fF60VOPomDUCcGL5gGAYT0-UIzgUL2Z6H44-gA.KCiUkAroIr5ZhV66) | 2021-09-10 |
+| Discrete conditioning | [`r fontawesome::fa("slideshare")`](/slides/cm-3-discrete-conditionning.html) |  [`r fontawesome::fa("video")`](https://u-paris.zoom.us/rec/share/JcyRcsKxCxdeDZzrN5mOg4r3rwUyfeIsWQtj2KUUlGXjvF07_ak0W7HnICVVElbG.bxh7awRfl5-3S4K3) | 2021-09-17 |
+| Measure 101 | [`r fontawesome::fa("slideshare")`](/slides/cm-4-measure-101.html) | [`r fontawesome::fa("video")`](https://u-paris.zoom.us/rec/share/X76Rfuwy7Aa_zdBEunXAtLL08KzGiFzcc4Taupw7mD4p2OboOuRf806J2VU9ghGV.Qq8wVMZk-XXLZS7Y)| 2021-09-24 |
+| Integration 101 | [`r fontawesome::fa("slideshare")`](/slides/cm-5-integration-101.html) | [`r fontawesome::fa("video")`](https://u-paris.zoom.us/rec/share/qeXXuzV_2IsBdkG1i-_zNNqdx6wnxgVxmnBHIXsQ9OYSVPJ9WBnpYGklhnVmg_56.YnWIMpU5KB7wR4SC) | 2021-10-01 |
+| More integration and $L_p$ | [`r fontawesome::fa("slideshare")`](/slides/cm-5-integration-101.html)| | 2021-10-08 |
+| Usual suspects| [`r fontawesome::fa("slideshare")`](/slides/cm-6-AC-distributions.html)| | 2021-10-15 |
+| Product distributions | [`r fontawesome::fa("slideshare")`](/slides/cm-7-product-distributions.html)  | | 2021-10-22 |
+| Fingerprinting distributions | [`r fontawesome::fa("slideshare")`](/slides/cm-8-characterizing-distributions.html)  | | 2021-10-29 |
+| Convergences: almost sure, $L_2, L_1$, in probability| [`r fontawesome::fa("slideshare")`](/slides/cm-9-convergences.html)  || 2021-11-12 |
+| Convergence in distribution. Central Limit Theorem | [`r fontawesome::fa("slideshare")`](/slides/cm-10-CLT.html)  | | 2021-11-19|
+| Conditional Expectation | [`r fontawesome::fa("slideshare")`](/slides/cm-11-conditioning.html) || 2021-12-26 |
+| Gaussian Vectors  | [`r fontawesome::fa("slideshare")`](/slides/cm-13-gaussian-vectors.html) | | 2021-12-03 |
+| Non-asymptotic tail bounds | [`r fontawesome::fa("slideshare")`](/slides/cm-12-non-asymptotics.html) | | 2021-12-03 |
+
+
+`r fontawesome::fa("link")` __Notebooks__
+
+Throughout the course, we illustrate problems and concepts
+using `Python` notebooks. You should be able to explore the notebooks
+by yourself. My current configuration relies on:
+
+- [`Python`](https://www.python.org) (3.8.6, use [`pyenv`](), [`virtualenv`]())
+  - `Numpy`  for nice numerical arrays and random generation
+  - `Scipy`  with module `stats` for a zoo of probability distributions
+  - `Pandas`  for data analysis
+  - `Networkx` to play with random graphs
+  - `igraph` to play with random graphs (again)
+  - `Matplotlib`  for graphics
+  - `plotly` for better graphics
+  - `Jupyter`  for its interactive kernels, an easy path to literate programming, and technical reporting
+  - `Jupytext`
+  - `Dask`
+- I use [`Atom`](https://atom.io) + plugin [`Hydrogen`](https://atom.io/packages/hydrogen) as a `Python`  IDE
+
+
+The notebooks are available at the following URLs:
+
+1. [Hashing and random functions](http://stephane-v-boucheron.fr/post/2019-09-02-idealizedhashing/)
+[.ipynb](http://stephane-v-boucheron.fr/files/notebooks_proba/hashing.ipynb)
+2. [Random graphs]()
+3. [Randomized algorithms]()
+4. [Chinese Restaurant Process]()
+4. Law(s) of large numbers
+5. Central limit theorem(s)
+6. Gaussian vectors
+7. Law(s) of rare events
+8. Weak convergence
+9. [Branching processes]()
+10. Longest Common Subsequence
+11. [Longest Increasing Subsequence]()
+12. [Chinese Restaurant Process]()
+
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```

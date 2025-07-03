@@ -1,0 +1,43 @@
+# Convergence in probability  {#chapConvProba}
+
+
+
+
+##  Convergence in probability {#secConvProba}
+
+
+
+
+```{definition convproba, name="Convergence in probability"}
+A sequence $(X_n)_{n \in \mathbb{N}}$  of $\mathbb{R}^k$-valued random variables  living on the same probability space $(\Omega, \mathcal{F}, P)$  _converges in  probability_ (in $\mathbb{P}$-probability) towards a
+$\mathbb{R}^k$ random variable $X$ iff
+for every $\epsilon >0$
+
+\[
+\lim_{n \to \infty} \mathbb{P} \{ \Vert X_n -X\Vert > \epsilon \} = 0 \,.
+\]
+
+```
+
+## Weak law of large numbers {#wlln}
+
+
+```{theorem wlln, name="Weak  law of large numbers"}
+If $X_1, \ldots, X_n, \ldots$  are independently, identically distributed, integrable $\mathbb{R}^k$-valued random variables over $(\Omega, \mathcal{F}, P)$ with expectation  $\mu$ then the sequence $(\overline{X}_n)$ defined by $\overline{X}_n := \frac{1}{n} \sum_{i=1}^n X_i$ converges in $P$-probability towards $\mu$.
+```
+
+```{proof}
+TODO:
+```
+
+## Strong law of large numbers {#secslln}
+
+```{theorem slln, name="Strong  law of large numbers"}
+If $X_1, \ldots, X_n, \ldots$  are independently, identically distributed, integrable $\mathbb{R}^k$-valued random variables over $(\Omega, \mathcal{F}, P)$ with expectation  $\mu$ then $P$-a.s.
+\[
+\lim_{n \to \infty}    \overline{X}_n =   \mu \qquad\text{with} \quad \overline{X}_n := \frac{1}{n} \sum_{i=1}^n X_i  .
+\]
+
+```
+
+The law of large numbers is the cornerstone of consistency proofs.
