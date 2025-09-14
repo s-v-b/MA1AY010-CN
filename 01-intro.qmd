@@ -1,4 +1,4 @@
-# Introduction {#intro}
+# Introduction {#sec-intro}
 
 In this chapter we survey the basic definitions of Probability Theory starting
 from a simple modeling problem from computer science.
@@ -22,7 +22,7 @@ knitr::opts_chunk$set(
 
 
 
-## Hashing {#hashing}
+## Hashing {#sec-hashing}
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 # %%
@@ -62,7 +62,11 @@ theory.
 
 In the sequel, we call this framework the _random alllocations_ experiment.
 
-```{r toyhashing, echo=FALSE}
+<!-- ::: {#tbl-toyhashing} -->
+
+```{r}
+#| echo: false
+#| label: tbl-toyhashing
 # %%
 set.seed(100)
 n <- 10
@@ -80,7 +84,9 @@ tibble::as_tibble(list('$\\omega$'=omega)) %>%
 # %%
 ```
 
-In table \@ref(tab:toyhashing), line $\omega$ represents the outcome of a random allocation
+<!-- ::: -->
+
+In @tbl-toyhashing, line $\omega$ represents the outcome of a random allocation
 with $n= `r n`$, $m= `r m`$: $\omega_4= `r omega[4]`$, $\omega_5= `r omega[5]`$, ...
 
 
@@ -104,7 +110,7 @@ Recall that a _probability distribution_ $P$ maps a collection $\mathcal{F}$ of 
 1. $P(\Omega)=1$
 1. for any countable collection of pairwise disjoint events $A_1, A_2, \ldots, n, \ldots$,  $P(\cup_{n=1}^\infty A_n) = \sum_{n=1}^\infty P(A_n)$
 
-See Section \@ref(distribution).
+See @sec-distribution.
 
 This entails $P(A_1 \cup A_2 \cup \ldots \cup A_k) = \sum_{i=1}^k P(A_i)$ for all finite collection of
 pairwise disjoint subsets $A_1,  \ldots, A_k$.
@@ -112,7 +118,7 @@ pairwise disjoint subsets $A_1,  \ldots, A_k$.
 For the domain of $P$ to be well-defined, the collection of subsets $\mathcal{F}$
 has to be closed under countable unions, countable intersections and complementation, to contain
 the empty set $\emptyset$ and the universe $\Omega$. In words,
-it has to be a $\sigma$-_algebra_, see Section \@ref(tribe).
+it has to be a $\sigma$-_algebra_, see  @sec-tribe.
 
 Note that other probability distributions make sense on this simple universe. See for example the _balanced allocations_ scenario.
 
@@ -147,9 +153,9 @@ $$X_{i, j}(\omega) = \begin{cases}
 \end{cases}
 $$
 
-This function is a special case of a _random variable_ see Section \@ref(measurablefunctionsrv).
+This function is a special case of a _random variable_ see @sec-measurablefunctionsrv.
 
-In the toy example outlined in Table \@ref(tab:toyhashing),
+In the toy example outlined in [Table @tbl-toyhashing],
 we have $X_{4,1}(\omega)=1, X_{5,1}(\omega)=0, ...$.
 
 > Note that the definition of the random variable has nothing to do with the probability
@@ -162,7 +168,7 @@ $$
 	\Pr \Big\{ X_{i,j} = 1\Big\} = \frac{1}{m} \qquad \Pr \Big\{ X_{i,j} = 0\Big\}  = 1 - \frac{1}{m} \, ,
 $$
 
-see Section \@ref(bernoulli) for more on Bernoulli distributions. This comes from
+see @sec-bernoulli for more on Bernoulli distributions. This comes from
 
 $$
 	\Pr \Big\{\omega : X_{i,j}(\omega) = 1\Big\} = \frac{\Big|\{ \omega : X_{i,j}(\omega) = 1 \}\Big|}{m^n} = \frac{m^{n-1}}{m^n} = \frac{1}{m} \, .
@@ -201,7 +207,7 @@ One can check that for each fixed $j \leq m$,  $(X_{i, j})_{i \leq n}$ is a  _co
 where $E_i \in \sigma(X_{i,j})$ for each $i \in \{1, \ldots, n\}$, $E_1, E_2, \ldots, E_n$
 is an independent collection of events under $\Pr$.
 
-The notion of _independence_ is a cornerstone of probability theory, see Chapter \@ref(independence).
+The notion of _independence_ is a cornerstone of probability theory, see Chapter @sec-independence.
 
 Concretely, this means that for any sequence $b_1, \ldots, b_n \in \{0,1\}^n$ (a possible outcome for the
 sequence of random variables $X_{1,j}, X_{2,j}, \ldots, X_{n,j}$), we have
@@ -222,10 +228,15 @@ $$
 	Y_j(\omega) =  \sum_{i=1}^n X_{i, j}(\omega) \, .
 $$
 
-In the toy example described in Table \@ref(tab:toyhashing), $Y_3(\omega) = 4$ while $Y_5(\omega)=1$
+In the toy example described in [Table @tbl-toyhashing], $Y_3(\omega) = 4$ while $Y_5(\omega)=1$
 and $Y_4(\omega)=0$:
 
-```{r toyhashing2, echo=FALSE, fig.cap="Occupancy scores"}
+<!-- ::: {#fig-toyhashing2} -->
+
+```{r}
+#| echo: false
+#| fig-cap: Occupancy scores
+#| label: tbl-toyhashing2
 # %%
 foo <- omega %>%
   table() %>%
@@ -241,10 +252,11 @@ foo %>%
   kableExtra::kable_styling(full_width=FALSE)
 # %%
 ```
+<!-- ::: -->
 
 In the probability space $(\Omega, 2^\Omega, \Pr)$, the random variable $Y_j$ is distributed as a sum of
 independent, identically distributed Bernoulli random variables, that is, according to a
-_Binomial distribution_, see Section \@ref(bernoulli). 
+_Binomial distribution_, see @sec-bernoulli. 
 
 $$
 	\Pr \Big\{ Y_j = r \Big\} =  \binom{n}{r} p^r (1-p)^{n-r} \qquad \text{with} \quad p =\frac{1}{m}
@@ -253,6 +265,7 @@ $$
 for $r \in 0, \ldots, n$.
 
 Indeed, recall
+
 \begin{align*}
 \Pr \Big\{ Y_j = r \Big\}
   &  = \sum_{\omega : Y_j(\omega) = r} \Pr\Big\{\omega\Big\} \\
@@ -268,10 +281,10 @@ $$
 	\mathbb{E} Y_j =  \sum_{r=0}^n r \times \Pr \Big\{ Y_j = r \Big\} = \frac{n}{m} \, .
 $$ 
 
-See Chapter \@ref(moments) for a systematic approach to expectation, variance and higher moments,
+See [Chapter @sec-moments] for a systematic approach to expectation, variance and higher moments,
 based on Integration theory.
 
-The last chapter (Chapter \@ref(chapConcentration)) is dedicated
+The last chapter [Chapter @sec-chapConcentration]  is dedicated
 the development of _tail bounds_ for random variables like $Y_j$ that are _smooth functions of independent random variables_.
 
 For the moment recall that on a countable probability space, the expectation of
@@ -283,15 +296,18 @@ $$
 
 provided the series is absolutely convergent.
 
-This is illustrated by Figure \@ref(fig:binom-pmf). In principle,
+This is illustrated by [Figure @fig-binom-pmf]. In principle,
 a binomial random variable with parameters $n=5000$ and $p=.001$
-can take any value between $0$ and $5000$. However, most (more than $95\%$) of the probability mass
-is supported by  $\{1, \ldots, 10\}$.
+can take any value between $0$ and $5000$. However, most (more than $95\%$) of the probability mass is supported by  $\{1, \ldots, 10\}$.
 
 
+<!-- ::: {#fig-binom-pmf} -->
 
-```{r  binom-pmf, echo=FALSE, fig.cap="Probability mass function of Binomial(5000,0.001)"}
-# %%
+```{r}
+#| echo: false
+#| fig-cap: Probability mass function of Binomial(5000,0.001)
+#| label: fig-binom-pmf
+
 n <- 5000
 m <- 1000
 
@@ -305,9 +321,9 @@ data %>%
   theme_light()
 # %%
 ```
+<!-- ::: -->
 
-
-## Convergences   {#conv2poisson}
+## Convergences   {#sec-conv2poisson}
 
 
 ```{r, echo=FALSE}
@@ -318,20 +334,33 @@ m <- 50
 ```
 
 If we let $n,m$ tend to infinity while $n/m$ tends toward $c>0$, we observe that, for each fixed $r\geq 0$
-the sequence $\Pr \Big\{ Y_j = r \Big\} = \binom{n}{r} (1/m)^r (1-1/m)^{n-r}$ tends towards $$
+the sequence $\Pr \Big\{ Y_j = r \Big\} = \binom{n}{r} (1/m)^r (1-1/m)^{n-r}$ tends towards 
+$$
 \mathrm{e}^{-c}	\frac{c^r}{r !}
-$$	which is the probability that a Poisson distributed random variable with expectation $c$ equals $r$
-(see Section \@ref(poisson) for more on Poisson distributions).
-This is an instance of the _law of rare events_, a special case of _convergence in distribution_  see Chapter \@ref(chapweakdistrib).
+$$	
+which is the probability that a Poisson distributed random variable with expectation $c$equals $r$ (see @sec-poisson for more on Poisson distributions).
+
+This is an instance of the _law of rare events_, a special case of _convergence in distribution_  see [Chapter @sec-chapweakdistrib].
 
 The ability to approximate a Poisson distribution using
-an appropriate Binomial distribution is illustrated in Figure \@ref(fig:binom-poisson). The difference between the
+an appropriate Binomial distribution is illustrated in [Figure @fig-binom-poisson]. The difference between the
 probability mass functions of the Binomial distributions
 with parameters $n=`r n`, m=`r 1/m`$, and $n=`r 10*n`, m=`r 1/(10*m)`$ and the Poisson distribution
 with parameter $`r n/m`$ is small. If we chose parameters $n=`r 10*n`, m=`r 1/(10*m)`$,
 the difference between Binomial and Poisson is barely visible.
 
-```{r  binom-poisson, warning=FALSE, echo=FALSE, fig.cap="Probability mass functions of Binomial(250,0.02) (left), Binomial(2500,0.002) (middle) and Poisson(5) (right)", fig.show='hold'}
+
+<!-- ::: {#fig-binom-poisson} -->
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-binom-poisson
+#| fig.cap: |
+#|   Probability mass functions of Binomial(250,0.02) (left), 
+#|   Binomial(2500,0.002) (middle) and Poisson(5) (right)
+
 # %%
 k <- 0:20
 data <- as_tibble(list(k,
@@ -355,20 +384,29 @@ data %>%
 # %%
 ```
 
+<!-- ::: -->
+
 The proximity between  Binomial$(n, \lambda/n)$ and Poisson$(\lambda)$ can be quantified in different ways. A simple one consists in computing
 $$
 \sum_{x \in \mathbb{N}}  \Big| p_{n, \lambda/n}(x) - q_\lambda(x) \Big|
 $$
 where $p_{n, \lambda/n}$ (resp. $q_{\lambda}$) stands for Binomial (resp. Poisson).
 This quantity is called the variation distance between the two probability distributions.
-A general definition is provided in Chapter \@ref(chapweakdistrib).
-In Figure \@ref(fig:lawrareevents), this distance between
+A general definition is provided in [Chapter @sec-chapweakdistrib].
+In [Figure @fig-lawrareevents], this distance between
 Binomial distribution with parameters $n,5/n$ and Poisson(5)
 is plotted against $n$ (beware logarithmic scales). This plot suggests
-that the variation distance decays like $1/n$. This is checked in Chapter \@ref(chapweakdistrib).
+that the variation distance decays like $1/n$. This is checked in [Chapter @sec-chapweakdistrib].
 
+<!-- ::: {#fig-lawrareevents} -->
 
-```{r lawrareevents, echo=FALSE, fig.cap="Law of rare events: distance between Binomial(n, 5/n) and Poisson(5) as a function of n"}
+```{r}
+#| echo: false
+#| label: fig-lawrareevents
+#| message: false
+#| warning: false
+#| fig.cap: |
+#|   Law of rare events: distance between Binomial($n$, $5/n$) and Poisson(5) as a function of $n$
 
 lambda <- 5
 ns <- 10^(1:7)
@@ -379,13 +417,15 @@ tibble(ns, difs) %>%
   ggplot(mapping=aes(x=ns, y=difs)) +
 #  geom_line(lty=2) +
   geom_point() +
-  geom_smooth(method="lm", lty=2, size=.5) +
+  geom_smooth(method="lm", formula= y ~ x, lty=2, linewidth=.5) +
   scale_x_log10() +
   scale_y_log10() +
   xlab("n") +
   ylab("Total variation distance") +
   theme_bw()
 ```
+
+<!-- ::: -->
 
 In the probability space $(\Omega, 2^\Omega, \Pr)$, the random variables $Y_j, Y_j', j\neq j'$ are not independent. In order to show that $Y_j, Y_j', j\neq j'$ are not independent, it suffices to check that
 two  events $E_j, E_{j'}$  are not independent with $\omega \in E_j$ being a function of $Y_j$
@@ -403,37 +443,44 @@ $$
 \frac{\left(1 - \frac{2}{m}\right)^{n-2r}}{\left(1 - \frac{1}{m}\right)^{2n-2r}}
 \frac{((n-r)!)^2}{n!(n-2r)!} \neq 1 \, .
 $$
-Hence, if we define $$
+Hence, if we define 
+
+$$
 	K_{n,r}(\omega) = \sum_{j=1}^m \mathbb{I}_{Y_j(\omega)=r}
 $$
 as the number of elements of $1, \ldots, m$ that occur exactly $r$ times in $\omega$, the random variable $K_{n,r}$
 is not described as a sum of independent random  variables. Nevertheless, it is possible to gather
-a lot of information about its moments and distribution. If we let again $n,m$ tend to infinity while $n/m$ tends toward $c>0$, we observe that the distribution of $K_{n,r}/m$ tends to concentrate around $\mathrm{e}^{-c}	\frac{c^r}{r !}$. This is an example of _convergence in probability_, see Chapter \@ref(convergences1).
+a lot of information about its moments and distribution. If we let again $n,m$ tend to infinity while $n/m$ tends toward $c>0$, we observe that the distribution of $K_{n,r}/m$ tends to concentrate around $\mathrm{e}^{-c}	\frac{c^r}{r !}$. This is an example of _convergence in probability_, see [Chapter @sec-convergences1].
 
 Now, if we consider the sequence of recentered and rescaled random variables
 $(K_{n,r} - \mathbb{E}K_{n,r})/\sqrt{\operatorname{var}(K_{n,r})}$, we observe that its _distribution function_
-(see Section \@ref(distribfun))  converges pointwise towards the distribution function of the Gaussian distribution.
+(see @sec-distribfun)  converges pointwise towards the distribution function of the Gaussian distribution.
 
 
+<!-- ::: {#fig-toyhashing3} -->
 
-```{r toyhashing3, echo=FALSE}
-# %%
-Ks <- omega %>%
-  table() %>%
+
+```{r}
+#| echo: false
+
+Ks <- omega |>
+  table() |>
   table()
 
-names(Ks) <- names(Ks) %>%
+names(Ks) <- names(Ks) |>
   purrr::map_chr( ~ stringr::str_c('$K_{n,', ., '}$'))
 
-Ks %>%
-  t() %>%
+Ks |>
+  t() |>
   knitr::kable(escape=F,
                caption='Profile of example 2.1, count of empty urns is omitted',
-               booktabs=TRUE) %>%
+               booktabs=TRUE) |>
   kableExtra::kable_styling(full_width=FALSE)
 
 # %%
 ```
+
+<!-- ::: -->
 
 ## Summary {#intro-summary}
 

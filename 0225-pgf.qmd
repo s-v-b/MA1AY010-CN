@@ -28,9 +28,9 @@ cumulative distribution functions are of moderate help.
 In this lesson, we review a  way of characterizing probability
 distributions over $(\mathbb{N}, \mathcal{F}=2^{\mathbb{N}})$
 through functions defined on the real line: probability
-generating functions (Section \@ref(PGF)).
-Later, we will survey more general tools: Laplace transforms (Section \@ref(laplace)) and characteristic functions
-which extend Fourier transforms to probability distributions (Section \@ref(charfun)).
+generating functions ([Section @sec-PGF])).
+Later, we will survey more general tools: Laplace transforms ([Section @sec-laplace])) and characteristic functions
+which extend Fourier transforms to probability distributions ([Section @sec-charfun])).
 
 All  three methods are distinct in scope but they rely on the same idea and
 share common features. Indeed, probability generating functions can be seen as special case of
@@ -70,37 +70,37 @@ Another function  characterizes probability distributions and delivers
 instantaneous information about the distribution of sums of independent
 integer-valued random variables and many other things.
 
-```{definition defpgf, name="Probability Generating Function"}
+::: {#def-defpgf, name="Probability Generating Function"}
 The probability generating function (PGF) of a probability distribution over $\mathbb{N}$, defined by its probability mass function (PMF) $f$ is the function $G: [0,1] \to \mathbb{R}$ defined by:
-\[
+$$
 	G(s) =  \sum_{n=0}^\infty f(n) s^n \, .
-\]
+$$
 ```
 
 ```{example}
 The probability generating function of basic discrete distributions is easily computed. The results are useful and suggestive.
 
-- Bernoulli distribution with parameter $p$: \[
+- Bernoulli distribution with parameter $p$: $$
 	G(s) = (1 - p) s^0 + p s^1 = 1 + p (s-1)
-\]
-- Binomial distribution with parameters $n$ and $p$: \[
+$$
+- Binomial distribution with parameters $n$ and $p$: $$
 	G(s) = \sum_{k=0}^n \binom{n}{k} p^k (1-p)^{n-k} s^k =  \left(ps + 1- p\right)^n = \left( 1 + p(s-1)\right)^n
-\]
-- Poisson distribution with parameter $\mu$: \[
+$$
+- Poisson distribution with parameter $\mu$: $$
 	G(s) = \sum_{n=0}^\infty \mathrm{e}^{-\mu} \frac{\mu^n}{n!} s^n = \mathrm{e}^{\mu (s-1)} \,.
-\]
+$$
 
 Note that if $p=\mu/n$ and $n ↑ ∞$:
-\[
+$$
 \lim_{n ↑ ∞} \left( 1 + \frac{μ}{n}(s-1)\right)^n = \mathrm{e}^{\mu(s-1)} \, .
-\]
+$$
 We will come back to this observation later.
 
 ```
 
 The next observation follows almost immediately from the definition of probability generating functions.
 
-```{proposition}
+::: {#prp}
 A probability generating function $G$ satisfies the following conditions:
 
 - $G$ is non-negative over $[0,1]$;
@@ -113,7 +113,7 @@ A probability generating function $G$ satisfies the following conditions:
 <br> <p> </p>
 
 
-```{proof}
+::: {.proof}
 Properties  1), 2) and 3) are obvious: $G$ is a convex combination
 of non-negative, non-decreasing, continuous and convex functions.
 ```
@@ -129,17 +129,17 @@ distributions or that connect integrability properties of the probability
 distribution with smoothness properties of the PGF.
 
 Keep in mind that a generating function defines a function from the set of complex numbers
-$\mathbb{C}$ to $\mathbb{C}$: \[
+$\mathbb{C}$ to $\mathbb{C}$: $$
 G(z) = \sum_{n=0}^\infty p(n) z^n \qquad\text{for all } z \in \mathbb{C} \text{ such that the series converges}\, .
-\]
+$$
 
 Characterizing the domain of a function defined in that way is crucial.
 The next proposition is at the core of Power Series theory.
 
-```{proposition radius}
-The _radius of convergence_ of the generating function $G$ \[
+::: {#prp-radius
+The _radius of convergence_ of the generating function $G$ $$
 G(z) = \sum_{n\in \mathbb{N}} p(n) z^n, \qquad z \in \mathbb{C}
-\]
+$$
 is the unique  $R \in [0, \infty) \cup \{+ \infty\}$ such that:
 
 - for every $z \in \mathbb{C}$ with $|z| > R$, the series $\sum_{n\in \mathbb{N}} p(n) z^n$ diverges.
@@ -150,7 +150,7 @@ The circle $\{ z : z \in \mathbb{C}, |z| = R \}$ is called the _circle of conver
 
 ```
 
-```{proof}
+::: {.proof}
 
 TODO:
 
@@ -161,9 +161,9 @@ Hadamard's rule allows for fast determination of the radius of convergence:
 ```{proposition hadamard, name="Hadamard's rule"}
 The radius of convergence $R$ of probability generating
 function $G(z) = \sum_{n \in \mathbb{N}} p(n)z^n$ satisfies
-\[
+$$
 \frac{1}{R} =  \limsup_n (p(n))^{1/n} \, .
-\]
+$$
 The radius of convergence of a probability generating function is always at least $1$.
 ```
 
@@ -179,7 +179,7 @@ convergence is exactly $1$.
 
 ```
 
-```{proof}
+::: {.proof}
 
 TODO:
 
@@ -188,14 +188,14 @@ TODO:
 Just knowing the radius of convergence of a function defined by a Power Series expansion
 tells us about the smoothness properties of the function.
 
-```{theorem}
+::: {#thm}
 If $G$ is defined as a power series $G(z) = \sum_{n \in \mathbb{N}} a_n z^n$
 its (complex) derivative is $G'(z)=  \sum_{n \in \mathbb{N}} (n+1) a_{n+1} z^n$.
 The derivative $G'$ and $G$ have the same radius of convergence.
 
 ```
 
-```{proof}
+::: {.proof}
 
 TODO:
 
@@ -207,20 +207,20 @@ corollary for probability generating functions.
 ```{corollary invpgf, name="Inversion formula"}
 Let $g$ be the probability generating function associated with the probability mass function $f$. Then
 $g$ is infinitely many times differentiable over $[0,1)$ with derivatives
-\[
+$$
 	g^{(n)}(s) =  \sum_{k=n}^\infty \frac{k!}{(k-n)!} \times f(k) s^{k-n} \, ,
-\]
+$$
 more specifically:
-\[
+$$
 	g^{(n)}(0) =  n! \times f(n) \, .
-\]
+$$
 A probability distribution over $\mathbb{N}$ is characterized by its probability generating function.
 ```
 
 
 <br> <p> </p>
 
-```{proof}
+::: {.proof}
 The property is true for $n=0$.
 
 Assume it holds for all integers up to $n$.
@@ -232,9 +232,9 @@ is a small positive number,
     \Big(\sum_{j=0}^{k-n-1}(s+h)^{k-n-1-j} s^{j}  \Big)
 \end{align*}
 The absolute value of the internal sum is smaller
-than $(k-n) (1-\delta)^{k-n-1}$. As \[
+than $(k-n) (1-\delta)^{k-n-1}$. As $$
 \sum_{k=n}^\infty \frac{k!}{(k-n-1)!} \times p(k) \times  (1-\delta)^{k-n-1} < \infty
-\] for all $0<\delta<1$. By the Dominated Convergence Theorem,
+$$ for all $0<\delta<1$. By the Dominated Convergence Theorem,
 \begin{align*}
 \lim_{h \to 0} \frac{g^{(n)}(s+h) - g^{(n)}(s)}{h}
     & =
@@ -259,25 +259,25 @@ If we meet a probability distribution with such a PGF, we know it is a Poisson d
 
 Probability Generating Functions provide us with a handy tool to investigate  sums of independent random variables.
 
-```{proposition}
+::: {#prp}
 Let $X$, $Y$  be independent integer-valued random variable, with probability generating functions $G_X$  and $G_Y$.
 The probability generating  function $G_{X+Y}$
-of $X+Y$ is $G_X\times G_Y$: \[
+of $X+Y$ is $G_X\times G_Y$: $$
 G_{X+Y} = G_X \times G_Y \, .
-\]
+$$
 ```
 
 <br> <p> </p>
 
-```{proof}
+::: {.proof}
 The proof relies on the fact that non-negative convergent series
 are commutatively convergent.
 
 For any $n$:
-\[
+$$
 \left\{ \omega : X(\omega) + Y(\omega) = n \right\} =
 \cup_{k=0}^n \left\{ \omega : X(\omega)=k \text{ et }  Y(\omega) = n -k \right\} \,.
-\]
+$$
 The union on the right-hand-side is a disjoint union.
 \begin{align*}
 \sum_{n=0}^\infty \mathbb{P}\{ X + Y = n\}\times s^n   & =
@@ -322,16 +322,16 @@ on the circle of convergence is not prescribed by general theory.
 Let $X$  be an  integer-valued random variable, with probability generating functions $f$,
 then $\mathbb{E} X^p < \infty$ iff $f$ is $p$-times differentiable at $1$
 and
-\[
+$$
 f^{(p)}(1) = \mathbb{E}\left[X (X-1) \ldots (X-p+1)\right] \, .
-\]
+$$
 ```
 
 <br> <p> </p>
 
 
 
-```{proof}
+::: {.proof}
 Assume that $G$ is $p$-times differentiable on the left at $1$.
 
 We need to establish that $|X|$ is $p$-integrable.

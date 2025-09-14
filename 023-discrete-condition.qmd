@@ -1,4 +1,4 @@
-# Discrete Conditioning  {#conditioning4dummies}
+# Discrete Conditioning  {#sec-conditioning4dummies}
 
 
 ## Roadmap
@@ -28,9 +28,9 @@ defining conditional expectation in the general setting.
 
 
 
-## Conditioning with respect to an event {#condevent}
+## Conditioning with respect to an event {#sec-condevent}
 
-::: {#def #condevent}
+::: {#def-condevent}
 
 Let  $P$ be a  probability distribution on $(\Omega, \mathcal{F})$. Let $A \in \mathcal{F}$ be such that  $P\{A\} > 0$. Let  $B$ be another event ( $B \in \mathcal{F}$ ), the  _probability of $B$ given  $A$_ is defined as
 
@@ -102,7 +102,7 @@ possibly misleading  notation.
 <br>  <p> </p>
 
 
-::: {#exm}
+::: {#exm-condevent1}
 
 Assume $X$ is standard normally distributed. One may investigate
 the distribution of $X^2$
@@ -142,7 +142,7 @@ $$P\{B\mid A\}= P\{B\}.$$
 
 
 
-## Bayes formula {#bayesformula}
+## Bayes formula {#sec-bayesformula}
 
 <br>  <p> </p>
 
@@ -190,7 +190,7 @@ In the preceding proposition,  $P\{A_i \}$ is called the  prior probability
 of  $A_i$ and  $P\{A_i \mid B\}$ the posterior  probability.
 
 
-## Conditional expectation with respect to a discrete $\sigma$-algebra {#conddiscretealgebra}
+## Conditional expectation with respect to a discrete $\sigma$-algebra {#sec-conddiscretealgebra}
 
 While the general notion of conditional expectation requires some abstraction,
 we can introduce conditioning with respect to a discrete $\sigma$-algebra
@@ -332,13 +332,14 @@ $\mu_i= \mathbb{E}[X\mathbf{1}_{A_i}]/ P\{A_i \}.$
 
 We can now conclude  $Z = \mathbb{E}[X \mid \mathcal{G}]$.
 
+$\square$
 :::
 
 <br>
 <p> </p>
 
 
-## Conditional expectation as prediction {#condpred}
+## Conditional expectation as prediction {#sec-condpred}
 
 
 
@@ -388,6 +389,7 @@ under $P\{\cdot \mid A_i\}.$ The best prediction of $Y$, in the sense of the qua
 among the  $\mathcal{G}$-measurable functions is the conditional expectation of $Y$
 with respect to $\mathcal{G}$.
 
+$\square$
 :::
 
 
@@ -396,7 +398,7 @@ The properties identified by  propositions @prp-espercond and \@ref(prp:espercon
 serve as a definition for the conditional expectation with respect to a general $\sigma$-algebra.
 
 
-## Properties of conditional expectation {#easypropcondexp}
+## Properties of conditional expectation {#sec-easypropcondexp}
 
 We state without proof a number of useful properties of conditional expectation with respect to  discrete $\sigma$-algebras.
 We shall prove them in full generality later.
@@ -447,7 +449,7 @@ $$\mathbb{E} X = \mathbb{E}[\mathbb{E}[X \mid \mathcal{G}]] \, .$$
 
 :::
 
-## Application: Galton-Watson processes I {#gw1}
+## Application: Galton-Watson processes I {#sec-gw1}
 
 
 The size of generation $k\geq 0$ is defined recursively by

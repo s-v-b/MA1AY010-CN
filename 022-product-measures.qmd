@@ -30,7 +30,7 @@ The product $\sigma$-algebra makes the functions $X$ and $Y$ (sometimes called c
 Once we are equipped with product $\sigma$-algebras, we can proceed to the definition
 of product measures.
 
-Recall the definition of $\sigma$-finite measures from Section \@ref(dynkin). A measure $\mu$
+Recall the definition of $\sigma$-finite measures from [Section @sec-dynkin]). A measure $\mu$
 on $(\Omega, \mathcal{F})$ is $\sigma$-finite iff there exists $(A_n)_n$ with $\Omega \subseteq \cup_n A_n$
 and $\mu(A_n) < \infty$ for each $n$. Finite measures (this encompasses  probability measures) are $\sigma$-finite.
 Lebesgue measure is $\sigma$-finite. The counting measure on $\mathbb{R}$ is not $\sigma$-finite.
@@ -84,7 +84,7 @@ $$\begin{array}{rl}
 
 <br><p></p>
 
-Theorem \@ref(thm:prodmeas) contains three statements:
+[Theorem @thm-prodmeas]) contains three statements:
 
 - existence of a  measure
 over $(\mathcal{X} \times \mathcal{Y}, \mathcal{F} \otimes \mathcal{G})$ that
@@ -94,7 +94,7 @@ satisfies the product property over rectangles;
 by iterated integration in arbitrary order.
 
 The first statement is proved using an extension theorem, the second statement
-follows from a monotone class argument (Theorem \@ref(thm:monotoneclasslemma)): rectangles form
+follows from a monotone class argument ([Theorem @thm-monotoneclasslemma])): rectangles form
 a generating $\pi$-class, so the case where both $\mu$ and $\nu$ are finite measure is settled.
 If either $\mu$ or $\nu$ is just $\sigma$-finite, consider restrictions to rectangles with finite measure, and
 proceed by approximation.  The third statement trivially holds for rectangles.
@@ -109,7 +109,7 @@ it is called a  product probability distribution.
 ## Tonelli-Fubini theorem  {#tonellifubini}
 
 In this section, we consider product measures that are built
-from $\sigma$-finite measures as in Theorem \@ref(thm:prodmeas). The Tonelli-Fubini
+from $\sigma$-finite measures as in [Theorem @thm-prodmeas]). The Tonelli-Fubini
 Theorem shows that (under mild conditions) integration with respect
 to a product measure reduces to iterated integration over the component measures.
 

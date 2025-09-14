@@ -1,8 +1,10 @@
-# Refinments and extensions of thr Central Limit Theorem {#chaprevisiCLT}
+# Refinments and extensions of thr Central Limit Theorem {#sec-chaprevisiCLT}
 
 
 
-```{r load, echo=FALSE, message=FALSE}
+```{r}
+#| echo: false 
+#| message: false
 # %%
 require(tidyverse)
 require(latex2exp)
@@ -12,16 +14,15 @@ old_theme <-theme_set(theme_bw(base_size=9, base_family = "Helvetica"))
 # %%
 ```
 
-
 ## Motivation
 
 
 
-In Section \@ref(secMetrisationWeakConv), we associate convergence in distribution
+In [Section @sec-MetrisationWeakConv]), we associate convergence in distribution
 with metrics. By metrizing convergence in distribution, we can quantify rates of
 convergence.
 
-In Section \@ref(steinsmethod) we turn a relatively recent approach to weak convergence: Stein's method.
+In [Section @sec-steinsmethod]) we turn a relatively recent approach to weak convergence: Stein's method.
 This is best illustrated with variations on the Central Limit Theorem.
 Recall that a byproduct of the proof that characteristic functions identify
 probability distributions was Stein's identity.
@@ -30,50 +31,71 @@ probability distributions was Stein's identity.
 
 
 
-## Central limit theorem {#cltbis}
+## Central limit theorem {#sec-cltbis}
 
 
-```{theorem}
+::: {#thm}
 Let $X_1, \ldots, X_n, \ldots$  be i.i.d. with finite variance $\sigma^2$  and expectation $\mu$.
-Let $S_n = \sum_{i=1}^n X_i$. \[
-\sqrt{n} \left(\frac{S_n}{n} - \mu \right) \rightsquigarrow \mathcal{N}\big(0, \sigma^2 \big) \, . s
-\]
+Let $S_n = \sum_{i=1}^n X_i$. 
 
-```
+$$
+\sqrt{n} \left(\frac{S_n}{n} - \mu \right) \rightsquigarrow \mathcal{N}\big(0, \sigma^2 \big) \, . 
+$$
+:::
+::: {.proof}
 
-```{proof}
+TODO
 
-```
+$\square$
+:::
 
-(ref:cltbinom) Pointwise convergence of cumulative distribution functions towards the Gaussian cumulative distribution functions of $\mathcal{N}(0,1)$ (plain line) illustrates the Central Limit Theorem. The dotted and the dashed lines represent the cumulative distribution function of $(X_n -np)/\sqrt{n(p*(1-p))}$ where  $X_n \sim \text{Binomial}(n,p)$ for $p=.3$ and $n=30 \text(dotted), 100 \text(dashed)$.
+ 
+<!-- ::: {#fig-cltbinom} -->
 
 
-```{r cltbinom, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='(ref:cltbinom)'}
+```{r}
+#| echo: false 
+#| message: false 
+#| warning: false 
+#| label: fig-cltbinom
+#| fig-cap: |
+#|   Pointwise convergence of cumulative distribution functions towards the Gaussian cumulative 
+#|   distribution functions of $\mathcal{N}(0,1)$ (plain line) illustrates the Central Limit Theorem. 
+#|   The dotted and the dashed lines represent the cumulative distribution function of 
+#|   $(X_n -np)/\sqrt{n(p*(1-p))}$ where  $X_n \sim \text{Binomial}(n,p)$ 
+#|   for $p=.3$ and $n=30 \text(dotted), 100 \text(dashed)$.
+
 foo <- function(x, size, prob){
   pbinom(sqrt(size*prob*(1-prob))*x+size*prob, size=size, prob=prob)
 }
 
-ggplot(data=tibble(x=seq(-3,3,by=.01)),
+ggplot2::ggplot(data=tibble::tibble(x=seq(-3,3,by=.01)),
        mapping=aes(x=x)) +
-  stat_function(fun=pnorm, args=list(mean=0, sd=1), linetype=1) +
-  geom_step(mapping=aes(y=foo(x, 100, .3)), linetype='dashed') +
-  geom_step(mapping=aes(y=foo(x, 30, .3)), linetype='dotted')
+  ggplot2::stat_function(fun=pnorm, args=list(mean=0, sd=1), linetype=1) +
+  ggplot2::geom_step(mapping=aes(y=foo(x, 100, .3)), linetype='dashed') +
+  ggplot2::geom_step(mapping=aes(y=foo(x, 30, .3)), linetype='dotted')
 
 rm(foo)
 ```
 
+<!-- :::  -->
+
 ## Cramer-Wold device
 
 
-The next  theorem is a corollary  of Theorem \@ref(thm:thmLevyInj).
+The next  theorem is a corollary  of [Theorem @thm-thmLevyInj]).
 
-```{theorem cramerwold, name="Cramer-Wold"}
+::: {#thm-cramerwold}
+
+### Cramer-Wold
+
 The distribution of a $\mathbb{R}^n$-valued random vector $X = (X_1, \ldots, X_n)^T$ is completely determined
 by the collection of distributions of univariate random variables  $\langle t, X\rangle =\sum_{i=1}^n t_i X_i$ where
 $(t_1, \ldots, t_n)^T$ belongs to  $\mathbb{R}^n.$
-```
 
-## Metrizations of weak convergence {#secMetrisationWeakConv}
+:::
+
+## Metrizations of weak convergence {#sec-MetrisationWeakConv}
 
 
 
@@ -81,10 +103,10 @@ When we talk about laws on complete separable metric spaces,
 convergence in distribution can be defined in relation to a distance.
 In fact, several distances are possible and you can choose any of them according to your needs.
 The distances we are interested in are of the form
-\begin{displaymath}
+$$
 \mathrm{d}_{\mathcal{H}}(P, Q) = \sup_{h \in \mathcal{H}}
 \int h \mathrm{d}P - \int h \mathrm{d}Q
-\end{displaymath}
+$$
 where $\mathcal{H}$ is a well-chosen collection of measurable functions.
 
 
@@ -94,12 +116,16 @@ used implicitly in the formulation of Glivenko-Cantelli's theorem,
 it is controlled in the inequality of Dvoretzky-Kiefer-Wolfowitz.
 
 
-```{definition defKolLev, name="Kolmogorov-Lévy distance"}
+::: {#def-defKolLev}
+
+### Kolmogorov-Lévy distance
+
 If $W$ and $Z$ are two real random variables, the Kolmogorov-Lévy distance between their distributions is defined by
-\[
-	\mathrm{d}_K(\mathcal{L}(W), \mathcal{L}(Z)) =  \sup_{x \in \mathbb{R}} \left| \mathbb{P}\{ W \leq x\} - \mathbb{P}\{ Z \leq x\} \right| \, .
-\]
-```
+$$
+\mathrm{d}_K(\mathcal{L}(W), \mathcal{L}(Z)) =  \sup_{x \in \mathbb{R}} \left| \mathbb{P}\{ W \leq x\} - \mathbb{P}\{ Z \leq x\} \right| \, .
+$$
+
+:::
 
 The fact that the Kolmogorov-Lévy  distance metrizes the weak convergence towards
 a limiting distribution with a continuous cumulative distribution function is checked
@@ -110,10 +136,9 @@ the mass $\delta_x$, however, if $x_n \neq x$, $\mathrm{d}_K(\delta_{x_n}, \delt
 
 To metrize weak convergence  in general settings, we can use the Levy-Prokhorov distance:
 
-\begin{displaymath}
-  \inf \Big\{\epsilon : \epsilon >0,   \qquad  P(-\infty, x-\epsilon] -\epsilon \leq Q(-\infty, x] \leq P(-\infty, x-\epsilon] + \epsilon
-  \Big\} \, .
-\end{displaymath}
+$$
+\inf \Big\{\epsilon : \epsilon >0,   \qquad  P(-\infty, x-\epsilon] -\epsilon \leq Q(-\infty, x] \leq P(-\infty, x-\epsilon] + \epsilon\Big\} \, .
+$$
 
 
 The Kolmogorov-Lévy distance represents a relevant relaxation of the total variation distance
@@ -125,35 +150,43 @@ belongs to the family of distances known as Monge-Wasserstein distances, or tran
 
 
 
-```{definition, name="Wasserstein distance"}
+::: {#def}
+
+### Wasserstein distance
+
 Let $W$ and $Z$ be $\mathbb{R}^k$-valued random  variables with distributions $\mathcal{L}(W)$,
-\[
-	\mathrm{d}_M(\mathcal{L}(W), \mathcal{L}(Z)) =  \sup_{h: 1-\text{Lipschitz}} \left| \mathbb{E} h(W) - \mathbb{E} h(Z) \right| \, .
-\]
-```
+$$
+\mathrm{d}_M(\mathcal{L}(W), \mathcal{L}(Z)) =  \sup_{h: 1-\text{Lipschitz}} \left| \mathbb{E} h(W) - \mathbb{E} h(Z) \right| \, .
+$$
+
+:::
 
 When we want to evaluate the distance with respect to an absolutely continuous distribution like the Gaussian distribution,
 the use of one metric over another is not very important.
 
-```{proposition}
-  Si $P$ et $Q$ sont deux lois sur $\mathbb{R}$, et si $Q$ possède une densité
-  majorée par $C$ vis-à-vis de la mesure de Lebesgue, alors
-\[
-	\mathrm{d}_K(P,Q) \leq \sqrt{ 2 C \mathrm{d}_{M}(P,Q)} \, .
-\]
-```
+::: {#prp}
+
+Si $P$ et $Q$ sont deux lois sur $\mathbb{R}$, et si $Q$ possède une densité
+majorée par $C$ vis-à-vis de la mesure de Lebesgue, alors
+
+$$
+\mathrm{d}_K(P,Q) \leq \sqrt{ 2 C \mathrm{d}_{M}(P,Q)} \, .
+$$
+:::
 
 
-```{proof}
+::: {.proof}
 Pour $x \in \mathbb{R}$, on note $h_x = \mathbb{I}_{(-\infty,x]}$ et
-pour $\epsilon>0$, on définit $h_{x, \epsilon}$ par \begin{equation*}
-  h_{x,\epsilon}(w) =
+pour $\epsilon>0$, on définit $h_{x, \epsilon}$ par 
+
+$$ h_{x,\epsilon}(w) =
   \begin{cases}
   1 & \text{si } x\geq w\\
   0 & \text{si } w> x + \epsilon \\
   1 - \frac{w-x}{\epsilon}  & \text{si } x\leq w \leq x+ \epsilon
   \end{cases}
-\end{equation*}
+$$
+
 On note $q$ la densité de $Q$ par rapport à la mesure de Lebesgue.
 La fonction $h_{x,\epsilon}$ est $1/\epsilon$-Lipschitz et elle approche $h_x$.
 Si $W \sim P$  et $Z \sim Q$,
@@ -174,10 +207,12 @@ et
 \end{align*}
 En choisissant $\epsilon = \sqrt{2\mathrm{d}_{M}(P,Q)/C}$, et en optimisant le choix de $x$,
 on obtient le résultat désiré.
-```
+
+$\square$
+:::
 
 
-## Stein's method  {#steinsmethod}
+## Stein's method  {#sec-steinsmethod}
 
 In Stein's approach, we are interested in the approximation of a target law (normal law, Fish,
 $\chi^2_k$, \ldots) by the law of a random variable whose mode of
@@ -185,67 +220,69 @@ manufacturing (sum of independent random variables, order statistics, logarithm 
 likelihood ratio,...). The target law is characterized by an identity. In the case of
 of normal law, it's Stein's identity.
 
-```{proposition, name="Identité de Stein"}
+::: {#lem}
+
+### Stein's Identity
+
 Let the real random variable $Z$ be distributed according to $Q$.
 if for every  absolutely continuous function  $f$
 such that $f'(Z)$ is $Q$-integrable, we have
-\[    \mathbb{E}[Z f(Z)] = \mathbb{E}[f'(Z)]
-\]
+$$\mathbb{E}[Z f(Z)] = \mathbb{E}[f'(Z)]$$
 then
-\[
-  Q = \mathcal{N}(0,1) \, .
-\]
+$$Q = \mathcal{N}(0,1) \, .$$
 The converse is true.
-```
 
-```{proof}
-See  Lemmae \@ref(lem:stein) and \@ref(lem:stein:bis).
-```
+:::
+
+::: {.proof}
+See   @lem-steinslemma and @lem-steinslemma-bis. 
+:::
 
 This identity leads us to define an operator $\mathcal{A}$ that acts
 on  absolutely continuous functions: $\mathcal{A} f(x) = f'(x) - x f(x)$. This operator allows us to characterize
 $\mathcal{N}(0,1)$:
-\begin{displaymath}
-  Q = \mathcal{N}(0,1) \Longleftrightarrow \forall f \text{a.c}\quad 0 = \int \mathcal{A}f(z) Q(\mathrm{d}z) \, .
-\end{displaymath}
+$$
+Q = \mathcal{N}(0,1) \Longleftrightarrow \forall f \text{a.c}\quad 0 = \int \mathcal{A}f(z) Q(\mathrm{d}z) \, .
+$$
 
 Now, for function  $h \in \mathcal{H}$, si on peut définir $f_h$ tel que
 $$\mathcal{A} f_h(w) = h(w) - \int h(z) \phi(z) \mathrm{d}z\, ,$$
 on a
-\begin{displaymath}
+$$
 \mathbb{E}_Q h(W) - \mathbb{E}_{\mathcal{N}(0,1)} h(Z) = \mathbb{E}_Q \mathcal{A} f_h(W) \, .
-\end{displaymath}
+$$
 In order to upper bound  $d_{\mathcal{H}}(Q, \mathcal{N}(0,1))$, it suffices to upper bound the following
 collection of  expectations:
-\begin{displaymath}
+$$
 \mathbb{E}_Q \mathcal{A} f_h(W) \qquad\text{for} h \in \mathcal{H}, \text{ and } \mathcal{A} f_h(w) = h(w) - \int h(z) \phi(z) \mathrm{d}z \, .
-\end{displaymath}
+$$
 This last goal  led to the development of creative methods for approximating integrals.  In order to understand what is at stake, we have to investigate the smoothness and boundedness properties of  functions $\mathcal{A} f_h, h \in \mathcal{H}$, when $\mathcal{H}$ itself
 is defined by smoothness constraints.
 
 In the sequel, we abbreviate  $\int_{\mathbb{R}}  h(z) \phi(z)\mathrm{d}z$  to $\Phi(h)$.
 
-```{lemma ode1}
+::: {#lem-ode1}
+
 Let $f_h$  be the  solution of the differential equation
-\begin{displaymath}
+$$
 f'_h(w) - w f_h(w) =  h(w) - \Phi(h)\, .
-\end{displaymath}
+$$
 given by
-\begin{displaymath}
+$$
 f_h(w) = \begin{cases}
 \mathrm{e}^{w^2/2} \int_w^\infty \mathrm{e}^{-t^2/2}(\Phi(h)-h(t)) \mathrm{d}t & \text{if } w \geq 0 \\
 \mathrm{e}^{w^2/2} \int^w_{-\infty} \mathrm{e}^{- t^2/2} \left(h(t) -\Phi(h)\right) \mathrm{d}t & \text{if } w \leq 0  \,.
 \end{cases}
-\end{displaymath}
+$$
 If  $h$  is absolutely continuous then $f_h$ is the only bounded solution
 of the differential equation and
-\begin{equation*}
+$$
 \|f_h\|_\infty \leq 2 \|h'\|_\infty,\qquad \|f'_h\|_\infty \leq \sqrt{\frac{2}{\pi}}\|h'\|_\infty,\qquad\|f^{\prime\prime}_h\|_\infty \leq 2\|h'\|_\infty \, .
-\end{equation*}
-```
+$$
 
+:::
 
-```{proof}
+::: {.proof}
 We first check that $f_h$ is the unique bounded solution
 of the differential equation,
 
@@ -253,37 +290,38 @@ Note that adding a constant to $h$ leaves  $h - \Phi(h)$ invariant.
 So we assume  $h(0)=0$. We have  $|h(w)| \leq \|h'\|_{\infty} |w|$.
 
 For $w>0$, observe
-\begin{displaymath}
+$$
 \mathrm{e}^{w^2/2} \int_w^{\infty} t \, \mathrm{e}^{-t^2/2}  \mathrm{d}t
 = 1 \qquad
 \Phi(|h|) \leq \| h' \|_\infty \sqrt{\frac{2}{\pi}}
 \, .
-\end{displaymath}
+$$
 Function $w \mapsto \mathrm{e}^{w^2/2}$  satisfies the differential equation.
 Now look for a bounded solution like
-\[
+$$
 f(w) = g(w) \mathrm{e}^{w^2/2} \, .
-\]
-The differential equation reads  \[
+$$
+The differential equation reads  $$
 g'(w) = \mathrm{e}^{- w^2/2} \left(h(w) - \Phi(h)\right) \, .
-\]
-A solution is provied by function \[
+$$
+A solution is provied by function $$
 g(w) =  \begin{cases}
 \int_w^\infty \mathrm{e}^{- t^2/2} \left(\Phi(h) -h(t)\right) \mathrm{d}t & \text{if } w\geq 0 \\
 \int^w_{-\infty} \mathrm{e}^{- t^2/2} \left(h(t) -\Phi(h)\right) \mathrm{d}t & \text{if } w\leq 0 \, .
 \end{cases}
-\]
+$$
 (integrability assumptions about $h$ warrant that  $g$ is well-defined), hence $f_h$ is
-a  solution of the differential equation stated in Lemma \@ref(lem:ode1)
+a  solution of the differential equation stated in Lemma @lem-ode1
 
-Besides, for $w>0$ \[
+Besides, for $w>0$ 
+$$
 f_h(w) = g(w) \mathrm{e}^{w^2/2} \leq \| h'\|_\infty \left(\sqrt{\frac{2}{\pi}}\frac{\overline{\Phi}(w)}{\phi(w)} +1 \right) \, ,
-\]
+$$
 the ratio $\frac{\overline{\Phi}(w)}{\phi(w)}$ is non-increasing over $[0, \infty)$, it is always smaller than  $\sqrt{\frac{\pi}{2}}$.
 The boundedness of $f_h$ follows:
-\begin{displaymath}
+$$
 \| f_h \|_\infty \leq 2   \|h'\|_\infty  \, .
-\end{displaymath}
+$$
 The other  solutions of the differential equation are
  $f_h + c \mathrm{e}^{w^2/2}$. They are not bounded.
 
@@ -322,7 +360,10 @@ f^{\prime\prime}_h(w)
 & = (1+ w^2)f_h(w) + ww (h(w) - \Phi(h)) + h'(w) \, .
 \end{align*}
 On réutilise les calculs esquissés précédemment pour majorer $\|f^{\prime\prime}_h\|_\infty$.
-```
+
+$\square$
+
+:::
 
 Le fait que si $h$ est $1$-Lipschitz, $f_h$ soit deux fois dérivable et de dérivée seconde bounded is  convenient lorsqu'il faut majorer $\mathbb{E} \mathcal{A}f_h(W)$. La façon dont on peut tirer avantage de cette régularité
 dépend de ce qu'on sait sur la structure de $W$. Le theorem suivant qui
@@ -330,13 +371,13 @@ peut être vu comme une combinaison des theorems de Berry-Esseen et de Lindeberg
 centrées et suffisamment intégrables.
 
 
-## A Berry-Esseen bound for a Lindeberg-Feller-like Central Limit Theorem  {#secBerryLindeberg}
+## A Berry-Esseen bound for a Lindeberg-Feller-like Central Limit Theorem  {#sec-secBerryLindeberg}
 
 
 
 Le theorem suivant peut etre lu comme un résultat intermédiaire entre
-le theorem de Berry-Esseen \@ref{thm:tcl:berry} (il donne une distance à la loi normale)
-et le theorem central limite de Lindeberg-Feller \@ref{thm:tcl:lindeberg}
+le theorem de Berry-Esseen @thm-tcl-berry (il donne une distance à la loi normale)
+et le theorem central limite de Lindeberg-Feller @thm-tcl-lindeberg
 (il traite de sommes de
 variables aléatoires indépendantes mais pas nécessairement identiquement
 distribuées). Les conditions utilisées ici sont plus fortes que celles
@@ -347,22 +388,30 @@ have a finite  third moment. Ici on suppose un peu plus: les summands ont un
 kurtosis bounded.
 
 Rappelons que le kurtosis d'une loi est défini par
-$$\frac{\mathbb{E}[(X -\mathbb{E}X)^4]}{(\mathbb{E}[(X -\mathbb{E}X)^2])^2} \, .$$
+$$
+\frac{\mathbb{E}[(X -\mathbb{E}X)^4]}{(\mathbb{E}[(X -\mathbb{E}X)^2])^2} \, .
+$$
+
 The  kurtosis of Gausian est toujours égal à $3$. Pour les lois Gamma, le kurtosis ne dépend que du paramètre de forme $p$ (il vaut $3+ 6/p$).
 
-```{theorem}
+::: {#thm}
+
 Soient $X_1, \ldots, X_n$ des variables aléatoires indépendantes centrées, de
 kurtosis majoré par $\kappa$. On définit $\sigma^2 = \sum_{i=1}^n  \operatorname{var}\left(X_i\right)$
 et $W = \sum_{i=1}^n X_i / \sigma$.
-\begin{equation*}
+$$
 \mathrm{d}_M(\mathcal{L}(W), \mathcal{N}(0, 1))
 \leq \sqrt{\frac{2}{\pi}}
 \left(\frac{1}{\sigma^3} \sum_{i=1}^n \mathbb{E}|X_i|^3
 + \sqrt{\kappa \sum_{i=1}^n \frac{\operatorname{var}(X_i)^2}{\left(\sum_{i=1}^n \operatorname{var}(X_i)\right)^2}} \right) \, .
-\end{equation*}
-```
+$$
 
-```{proof, name="Proof of Theorem \@ref(thm:lindeberg:feller:stein)"}
+:::
+
+::: {.proof}
+
+### Proof of @thm-lindeberg-feller-stein
+
 Dans la preuve $h$ est une fonction $1$-Lipschitzienne, $f$ la solution
 bounded $\mathcal{A} f = h - \Phi(h)$. Pour majorer $\mathbb{E} h(W) - \Phi(h)$,
 on va majorer $|\mathbb{E} [f'_h(W) -W f(W)]|$.
@@ -370,9 +419,10 @@ on va majorer $|\mathbb{E} [f'_h(W) -W f(W)]|$.
 Dans la suite, pour $i \in 1, \ldots, n$, $W_i = \sum_{j\neq i} X_j/\sigma$.
 
 Observe first that as  $W_i$ and  $X_i$ are  independent and centered
-\begin{equation*}
-  \mathbb{E}[X_i f(W_i)]  = 0 \, .
-\end{equation*}
+$$
+\mathbb{E}[X_i f(W_i)]  = 0 \, .
+$$
+
 
 \begin{align*}
   \mathbb{E}[W f(W)] & =  \mathbb{E}\left[ \frac{1}{\sigma}\sum_{i=1}^n X_i f(W)\right] \\
@@ -407,30 +457,49 @@ Pour majorer \textsf{(ii)}, on utilise Cauchy-Schwarz et l'hypothèse de kurtosi
 & \leq \|f'\|_\infty \frac{1}{\sigma^2} \left(\kappa \sum_{i=1}^n \operatorname{var}(X_i)^2\right)^{1/2}  \\
 & \leq \|f'\|_\infty  \left(\kappa \sum_{i=1}^n \left( \frac{\operatorname{var}(X_i)}{\sum_{i=1}^n \operatorname{var}(X_i)} \right)^2\right)^{1/2}
 \end{align*}
-```
+
+$\square$
+
+:::
+
 
 
 En utilisant le fait que pour $X$ centrée,
 de kurtosis $\kappa$
-\begin{equation*}
-  \mathbb{E} |X_i|^3 \leq (\mathbb{E} |X_i|^4)^{3/4} \leq \kappa^{3/4}
-  (\mathbb{E} |X_i|^2)^{3/2} \, ,
-\end{equation*}
+$$
+\mathbb{E} |X_i|^3 \leq (\mathbb{E} |X_i|^4)^{3/4} \leq \kappa^{3/4}
+(\mathbb{E} |X_i|^2)^{3/2} \, ,
+$$
+
 le membre droit du majorant peut se majorer lui même en
-\begin{equation*}
- \kappa^{3/4} \|f^{\prime\prime}\|_\infty\left(\sum_{i=1}^n \left(\frac{\operatorname{var}(X_i)}{\sum_{j=1}^n \operatorname{var}(X_j)}\right)^{3/2}\right) +
- \kappa^{1/2} \|f'\|_\infty
- \left( \sum_{i=1}^n \left( \frac{\operatorname{var}(X_i)}{\sum_{i=1}^n \operatorname{var}(X_i)} \right)^2\right)^{1/2}
-\end{equation*}
-Si les $X_i$ sont identiquement distribuées, alors le majorant du theorem s'écrit \[
+$$
+\kappa^{3/4} \|f^{\prime\prime}\|_\infty\left(\sum_{i=1}^n \left(\frac{\operatorname{var}(X_i)}{\sum_{j=1}^n \operatorname{var}(X_j)}\right)^{3/2}\right) +
+\kappa^{1/2} \|f'\|_\infty
+\left( \sum_{i=1}^n \left( \frac{\operatorname{var}(X_i)}{\sum_{i=1}^n \operatorname{var}(X_i)} \right)^2\right)^{1/2}
+$$
+
+Si les $X_i$ sont identiquement distribuées, alors le majorant du theorem s'écrit 
+$$
 \sqrt{\frac{2}{\pi}} \frac{1}{\sqrt{n}} \left( \kappa^{3/4} + \kappa^{1/2} \right)  \, .
-\]
+$$
 
 
-(ref:quantcltbinom2) Kolmogorov distance between standard Gaussian and distribution of $(X_n - np)/\sqrt{np(1-p}$ with $X_n$  binomially distributed with parameters $n$ and $p=.3$. The rate of convergence in the central limit theorem is asymptotically of order $1/\sqrt{n}$.
 
+<!-- ::: {#fig-quantcltbinom2} -->
 
-```{r quantcltbinom2, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='(ref:quantcltbinom2)'}
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-quantcltbinom2
+#| 
+#| fig-cap: |
+#|   Kolmogorov distance between standard Gaussian 
+#|   and distribution of $(X_n - np)/\sqrt{np(1-p}$ with $X_n$ 
+#|   binomially distributed with parameters $n$ and $p=.3$. 
+#|   The rate of convergence in the central limit theorem is 
+#|   asymptotically of order $1/\sqrt{n}$.
+
 
 l_n <- c(10, 20, 40, 100, 200, 400, 800, 1600)
 names(l_n) <- as.character(l_n)
@@ -439,22 +508,23 @@ foo <- function(x, size, prob){
   pbinom(sqrt(size*prob*(1-prob))*x+size*prob, size=size, prob=prob)
 }
 
-dks <- l_n %>%
-  purrr::map_df(~ foo(x=seq(-3,3,by=.01), ., prob=.3)-pnorm(seq(-3,3,by=.01))) %>%
+dks <- l_n |>
+  purrr::map_df(~ foo(x=seq(-3,3,by=.01), ., prob=.3)-pnorm(seq(-3,3,by=.01))) |>
   purrr::map_dbl(~ max(abs(.)))
 
-tibble(n=unlist(l_n), y=dks, z=sqrt(l_n[[1]])/sqrt(unlist(l_n))) %>%
-  ggplot(mapping=aes(x=n, y=y)) +
-  geom_point() +
-  scale_x_log10() +
-  scale_y_log10() +
-  geom_line(mapping=aes(y=z*dks[1]), linetyp='dashed') +
-  xlab("n") +
-  ylab("Kolmogorov distance to standard Gaussian")
+tibble::tibble(n=unlist(l_n), y=dks, z=sqrt(l_n[[1]])/sqrt(unlist(l_n))) |>
+  ggplot2::ggplot(mapping=ggplot2::aes(x=n, y=y)) +
+  ggplot2::geom_point() +
+  ggplot2::scale_x_log10() +
+  ggplot2::scale_y_log10() +
+  ggplot2::geom_line(mapping=aes(y=z*dks[1]), linetyp='dashed') +
+  ggplot2::xlab("n") +
+  ggplot2::ylab("Kolmogorov distance to standard Gaussian")
 
 rm(foo, l_n, dks)
 ```
 
+<!-- ::: -->
 
 ## Bibliographic remarks
 
@@ -466,7 +536,7 @@ Stein's method  pour établir des versions précises et générales du theorem c
 
 A thorough yet readable treatment of Stein's method is [@MR2732624].
 
-Section \@ref() follows the first  pages of [@2011arXiv1109.1880R]
+[Section ]) follows the first  pages of [@2011arXiv1109.1880R]
 
-La démonstration complète du Lemme \@ref{lem:regu:stein}
+La démonstration complète du @lem-regu-stein}
 se trouve dans [@MR2732624].

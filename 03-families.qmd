@@ -1,40 +1,52 @@
-# Families of discrete distributions  {#families}
+# Families of discrete distributions  {#sec-families}
 
 The goal of this lesson is getting acquainted with important families of distributions and to get familiar with distributional calculus.
 Probability distributions will be presented through distribution functions, probability mass functions (discrete distribution), densities (when available).
 
-## Bernoulli and Binomial  {#bernoulli}
+## Bernoulli and Binomial  {#sec-bernoulli}
 
-```{definition bernoulli}
+::: {#def-bernoulli}
+
 A Bernoulli distribution is a probability distribution $P$  on $\Omega=\{0,1 \}$. The parameter of $P$ is $P\{1\} \in [0,1]$.
-```
+
+:::
 
 A Bernoulli distribution is completely defined by its parameter.
 
 Assume $\Omega^{\prime} = \{0,1\}^n$.
 
-```{definition binomial}
+::: {#def-binomial}
+
+### Binomial distribution
+
 A binomial distribution with parameters $n \in \mathbb{N}, p \in [0,1]$ ($n$ is size and $p$ is success)
 is a probability distribution $P$ on  $\Omega = \{0, 1, 2, \ldots, n\}$, defined
 by
-$$
-  P\{k\} = \binom{n}{k} p^k (1-p)^k
-$$
-```
+$$P\{k\} = \binom{n}{k} p^k (1-p)^k$$
+
+:::
+
 <p>
 
 The connexion between Bernoulli and Binomial distributions is obvious: a Bernoulli distribution
 is a Binomial distribution with size parameter equal to $1$. This connexion goes further: the sum
 of independent Bernoulli random  variables with same success parameter is Binomial distributed.
 
-```{proposition}
+::: {#prp}
+
 Let $X_1, X_2, \ldots, X_n$ be independent, identically distributed Bernoulli random variables with
 success parameter $p \in [0,1]$, then $Y = \sum_{i=1}^n X_i$ is distributed according
 to a Binomial disctribution with size parameter $n$ and success probability $p$.
-```
+
+:::
+
 <p>
-```{proof}
+
+::: {.proof}
+
 For $k \in 0, \ldots, n$
+
+
 \begin{align*}
 P\Big\{ \sum_{i=1}^n  X_i = k \Big\}
   & = \sum_{x_1, \ldots, x_n \in \{0,1 \}^p} \mathbb{I}_{\sum_{i=1}^n x_i=k} P \Big\{ \wedge_{i=1}^n X_i = x_i\Big\} \\
@@ -44,7 +56,7 @@ P\Big\{ \sum_{i=1}^n  X_i = k \Big\}
   & = \binom{n}{k} p^{k} (1-p)^{n-k}  \, .
 \end{align*}
 
-```
+:::
 
 <br>
 This observation facilitates the computation of moments of Binomial distribution.
@@ -62,10 +74,16 @@ old_theme <-theme_set(theme_bw(base_size=9, base_family = "Helvetica"))
 # %%
 ```
 
-(ref:witbinom) Binomial probability mass functions with $n=20$ and different values of $p$ : $.5, .7, .2$.
+<!-- ::: {#fig-witbinom} -->
 
-```{r witbinom, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='(ref:witbinom)'}
-# %%
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-witbinom
+#| fig-cap: |
+#|   Binomial probability mass functions with $n=20$ and 
+#|   different values of $p$ : $.5, .7, .2$.
+
 n <- 20
 x <-  as.integer(seq(0, 20, by=1))
 probs <-  c(.5, .7, .2)
@@ -91,40 +109,59 @@ rm(df, probs, x)
 
 More on [wikipedia](https://en.wikipedia.org/wiki/Binomial_distribution).
 
+<!-- ::: -->
+
 <p>
 
 Binomial distributions with the same success parameter
 
-```{proposition}
+::: {#prp}
+
 Let $X,Y$ be independent over probability space $(\Omega, \mathcal{F}, P)$
 and distributed according to $\text{Bin}(n_1, p)$ and $\text{Bin}(n_2, p)$.
 
 Then $X+Y$ is distributed according to $\text{Bin}(n_1+n_2, p)$.
-```
+
+:::
 
 <p>
 
-```{exercise}
-Check the preceding proposition.
-```
+::: {#exr}
 
-## Poisson {#poisson}
+Check the preceding proposition.
+
+:::
+
+## Poisson {#sec-poisson}
 
 The Poisson distribution appears as a limit of Binomial distributions in a variety
 of circumstances connected to rare events phenomena.
 
-```{definition poisson}
+::: {#def-poisson}
+
 A Poisson distribution with parameter $\lambda >0$ is a probability distribution $P$  on $\Omega=\mathbb{N}$ with
-$$
-  P\{k\} = \mathrm{e}^{-\lambda} \frac{\lambda^k}{k!}
-$$
-```
 
-(ref:witgetpoisson) Poisson probability mass functions with different values of parameter: $1, 5, 10$. Recall that the parameter of a Poisson distribution equals its expectation and its variance. The probability mass function of a Poisson distribution achieves its maximum (called the mode) close to its expectation.
+$$P\{k\} = \mathrm{e}^{-\lambda} \frac{\lambda^k}{k!}$$
+
+:::
 
 
-```{r witgetpoisson, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='(ref:witgetpoisson)'}
-# %%
+<!-- ::: {#fig-witgetpoisson} -->
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| label: fig-witgetpoisson
+#| 
+#| fig-cap: |
+#|   Poisson probability mass functions with different values
+#|   of parameter: $1, 5, 10$. Recall that the parameter of a Poisson
+#|   distribution equals its expectation and its variance. 
+#|   The probability mass function of a Poisson distribution 
+#|   achieves its maximum (called the mode) close to its expectation.
+#|   
+
 x = as.integer(seq(0, 20, by=1))
 lambdas =  c(1, 5, 10)
 
@@ -150,6 +187,8 @@ rm(df, lambdas, x)
 # %%
 ```
 
+<!-- ::: -->
+
 The expected value of the Poisson distribution with  paramenter $\lambda$ is $\lambda$.
 The variance of a Poisson distribution is equal to its expected value.
 
@@ -161,14 +200,16 @@ The variance of a Poisson distribution is equal to its expected value.
 \end{align*}
 
 
-```{proposition}
+::: {#prp}
+
 Let $X,Y$ be independent and Poisson distributed over probability space $(\Omega, \mathcal{F}, P)$,
 then $X+Y$ is Poisson distributed.
-```
+
+:::
 
 <br><p></p>
 
-```{proof}
+::: {.proof}
 We check the proposition in the simplest and   most tedious way.
 We compute the probability mass function of the distribution of $X+Y$.
 Assume $X \sim \operatorname{Po}(\lambda), Y \sim \operatorname{Po}(\mu)$.
@@ -186,25 +227,29 @@ For each $k \in \mathbb{N}$:
 & = \mathrm{e}^{-(\lambda + \mu)}  \frac{(\lambda+\mu)^k}{k!}
 \end{align*}
 The last expression if the pmf of $\operatorname{Po}(\lambda + \mu)$ at $k$.
-```
+
+:::
 
 <br><p></p>
 
 
-```{exercise}
+::: {#exr}
+
 Check that the _mode_ (maximum) of a Poisson probability mass function with parameter $\lambda$
 is achieved at $k= \lfloor \lambda \rfloor$. It is always unique?
 
-```
+:::
 
-```{exercise}
+::: {#exr}
+
 Check that the median of a Poisson distribution with integer parameter $\lambda$ is not smaller than $\lambda$.
-```
+
+:::
 
 <br><p></p>
 
 
-## Geometric   {#geometric}
+## Geometric   {#sec-geometric}
 
 A geometric distribution is a probability distribution over $\mathbb{N} \subset \{0,1\}$. It depends
 on a parameter $p>0$.
@@ -215,32 +260,40 @@ times we have to toss the coin _until_ we get a _head_ is geometrically distribu
 Let $X$ be distributed according to a geometric distribution with parameter $p$.
 The geometric probability distribution is easily defined by its tail function.
 In the event $X>k$, the first $k$ outcomes have to be _tail_.
-\[
+$$
 P \{ X > k \} = (1-p)^k
-\]
+$$
 The probability mass function of the geometric distribution follows:
-\[
+$$
 P \{X = k \} = (1-p)^{k-1} - (1-p)^k = p \times (1-p)^{k-1} \qquad \text{for } k=1, 2, \ldots
-\]
+$$
 On average, we have to toss the coin $p$ times until we get a _head_:
-\[
+$$
 \mathbb{E}X = \sum_{k=0}^\infty P \{ X > k \} = \frac{1}{p}
-\]
+$$
 
 
-```{remark}
+::: {#rem}
+
 It is also possible to define geometric random variables as
 the number of times we have to toss the coin __before__ we get a _head_.
 This requires modifying quantile function, probability mass function, expectation,
 and so on.  This is the convention `R` uses.
-```
+
+:::
 
 
-(ref:witgetgeometric) Geometric probability mass functions with different values of parameter $p$: $1/2, 1/3, 1/5$. The probability mass function equals $p \times (1-p)^{k-1}$ at $k\geq 1$. The mode is achieved at $k=1$ whatever the value of $p$. The expectation equals $1/p$.
 
-
-```{r witgetgeometric, echo=FALSE, screenshot.force = TRUE, message=FALSE, warning=FALSE, fig.cap='(ref:witgetgeometric)'}
-# %%
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| screenshot.force: true 
+#| fig-cap: |
+#|   Geometric probability mass functions with different values of
+#|   parameter $p$: $1/2, 1/3, 1/5$. The probability mass function 
+#|   equals $p \times (1-p)^{k-1}$ at $k\geq 1$. The mode is 
+#|   achieved at $k=1$ whatever the value of $p$. The expectation equals $1/p$
 
 x <- as.integer(seq(0, 9, by=1))
 probs <-  c(1/2, 1/3, 1/5)
