@@ -1,0 +1,1525 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.24">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>8&nbsp; Conditioning – MA1AY010 Class Notes</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./05-convergences-1.html" rel="next">
+<link href="./04-characterizations.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-3a70adc2469c323d0515427c5f9cb542.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">MA1AY010 Class Notes</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+    <a href="./MA1AY010-Class-Notes.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./06-conditioning.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Conditioning</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Warm up</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-language.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">A modicum of measure theory</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./031-moments.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">A modicum of integration</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-families.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Families of discrete distributions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./023-discrete-condition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Discrete Conditioning</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./032-acfamilies.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Absolutely continuous probability measures</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-characterizations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Characterizations of probability distributions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-conditioning.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Conditioning</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-convergences-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Convergences I : almost sure, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, in Probability</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-convergence-3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Convergence in distribution</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-convergence-3b.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Refinments and extensions of thr Central Limit Theorem</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-gaussian-vectors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Gaussian vectors</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-motivcondexp" id="toc-sec-motivcondexp" class="nav-link active" data-scroll-target="#sec-motivcondexp"><span class="header-section-number">8.1</span> Defining conditional expectation</a></li>
+  <li><a href="#predictpoint" id="toc-predictpoint" class="nav-link" data-scroll-target="#predictpoint"><span class="header-section-number">8.2</span> Conditional expectation in <span class="math inline">\(\mathcal{L}_2(\Omega, \mathcal{F}, P)\)</span></a></li>
+  <li><a href="#conditional-expectation-in-mathcall_1-omega-mathcalf-p" id="toc-conditional-expectation-in-mathcall_1-omega-mathcalf-p" class="nav-link" data-scroll-target="#conditional-expectation-in-mathcall_1-omega-mathcalf-p"><span class="header-section-number">8.3</span> Conditional expectation in <span class="math inline">\(\mathcal{L}_1 (\Omega, \mathcal{F}, P)\)</span></a></li>
+  <li><a href="#properties-of-general-conditional-expectation" id="toc-properties-of-general-conditional-expectation" class="nav-link" data-scroll-target="#properties-of-general-conditional-expectation"><span class="header-section-number">8.4</span> Properties of (general) conditional expectation</a></li>
+  <li><a href="#sec-condconvtheorems" id="toc-sec-condconvtheorems" class="nav-link" data-scroll-target="#sec-condconvtheorems"><span class="header-section-number">8.5</span> Conditional convergence theorems</a>
+  <ul class="collapse">
+  <li><a href="#dominated-convergence" id="toc-dominated-convergence" class="nav-link" data-scroll-target="#dominated-convergence"><span class="header-section-number">8.5.1</span> Dominated convergence</a></li>
+  <li><a href="#jensens-inequality" id="toc-jensens-inequality" class="nav-link" data-scroll-target="#jensens-inequality"><span class="header-section-number">8.5.2</span> Jensen’s inequality</a></li>
+  <li><a href="#sec-condIndependance" id="toc-sec-condIndependance" class="nav-link" data-scroll-target="#sec-condIndependance"><span class="header-section-number">8.5.3</span> Independence</a></li>
+  </ul></li>
+  <li><a href="#sec-condProbDistrib" id="toc-sec-condProbDistrib" class="nav-link" data-scroll-target="#sec-condProbDistrib"><span class="header-section-number">8.6</span> Conditional probability distributions</a>
+  <ul class="collapse">
+  <li><a href="#sec-easyregcondprob" id="toc-sec-easyregcondprob" class="nav-link" data-scroll-target="#sec-easyregcondprob"><span class="header-section-number">8.6.1</span> Easy case: conditioning with respect to a discrete <span class="math inline">\(\sigma\)</span>-algebra</a></li>
+  <li><a href="#sec-impediments" id="toc-sec-impediments" class="nav-link" data-scroll-target="#sec-impediments"><span class="header-section-number">8.6.2</span> Impediments</a></li>
+  <li><a href="#sec-jointdensity" id="toc-sec-jointdensity" class="nav-link" data-scroll-target="#sec-jointdensity"><span class="header-section-number">8.6.3</span> Joint density setting</a></li>
+  <li><a href="#sec-regconprob" id="toc-sec-regconprob" class="nav-link" data-scroll-target="#sec-regconprob"><span class="header-section-number">8.6.4</span> Regular conditional probabilities, kernels</a></li>
+  <li><a href="#conditional-probability-kernel" id="toc-conditional-probability-kernel" class="nav-link" data-scroll-target="#conditional-probability-kernel"><span class="header-section-number">8.6.5</span> Conditional probability kernel</a></li>
+  <li><a href="#regular-conditional-probability" id="toc-regular-conditional-probability" class="nav-link" data-scroll-target="#regular-conditional-probability"><span class="header-section-number">8.6.6</span> Regular conditional probability</a></li>
+  <li><a href="#existence-of-regular-conditional-probability-distributions-when-omega-mathbbr" id="toc-existence-of-regular-conditional-probability-distributions-when-omega-mathbbr" class="nav-link" data-scroll-target="#existence-of-regular-conditional-probability-distributions-when-omega-mathbbr"><span class="header-section-number">8.6.7</span> Existence of regular conditional probability distributions when <span class="math inline">\(\Omega =\mathbb{R}\)</span></a></li>
+  </ul></li>
+  <li><a href="#sec-ess" id="toc-sec-ess" class="nav-link" data-scroll-target="#sec-ess"><span class="header-section-number">8.7</span> Efron-Stein-Steele inequalities</a></li>
+  <li><a href="#sec-mcdiarmid" id="toc-sec-mcdiarmid" class="nav-link" data-scroll-target="#sec-mcdiarmid"><span class="header-section-number">8.8</span> Bounded differences inequalities</a>
+  <ul class="collapse">
+  <li><a href="#bounded-differences-inequalities" id="toc-bounded-differences-inequalities" class="nav-link" data-scroll-target="#bounded-differences-inequalities"><span class="header-section-number">8.8.1</span> Bounded differences inequalities</a></li>
+  </ul></li>
+  <li><a href="#sec-bibconditionning" id="toc-sec-bibconditionning" class="nav-link" data-scroll-target="#sec-bibconditionning"><span class="header-section-number">8.9</span> Bibliographic remarks</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-fullconditioning" class="quarto-section-identifier"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Conditioning</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="sec-motivcondexp" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="sec-motivcondexp"><span class="header-section-number">8.1</span> Defining conditional expectation</h2>
+<p>In this and the following sections, <span class="math inline">\((\Omega,\mathcal{F},P)\)</span> is a probability space, and <span class="math inline">\(\mathcal{G} \subseteq \mathcal{F}\)</span> a sub-<span class="math inline">\(\sigma\)</span>-algebra. The sub-<span class="math inline">\(\sigma\)</span>-algebra need not be <em>atomic</em> as in <a href="023-discrete-condition.html" class="quarto-xref"><span>Chapter 5</span></a>. We cannot define conditional probabilities by conditioning with respect to atoms generating <span class="math inline">\(\mathcal{G}\)</span>. Our objective is nervertheless to define conditional expectations with respect to sub-<span class="math inline">\(\sigma\)</span>-algebra <span class="math inline">\(\mathcal{G}\)</span>, while retaining the nice properties surveyed in <a href="023-discrete-condition.html" class="quarto-xref"><span>Chapter 5</span></a>.</p>
+<p>The general definition of conditional expectation starts from the property described in <a href="023-discrete-condition.html#prp-espercond" class="quarto-xref">Proposition&nbsp;<span>5.4</span></a>.</p>
+<div id="def-defCondExp" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 8.1 (Conditional expectation)</strong></span> Let <span class="math inline">\(X \in \mathcal{L}_1 (\Omega, \mathcal{F}, P)\)</span> and <span class="math inline">\(\mathcal{G}\)</span> be a sub-<span class="math inline">\(\sigma\)</span>-algebra of <span class="math inline">\(\mathcal{F}\)</span>, then a random variable <span class="math inline">\(Y\)</span> is a version of the conditional expectation of <span class="math inline">\(X\)</span> with respect to <span class="math inline">\(\mathcal{G}\)</span> iff</p>
+<ol type="i">
+<li><span class="math inline">\(Y\)</span> is <span class="math inline">\(\mathcal{G}\)</span>-measurable.</li>
+<li>For every event <span class="math inline">\(B\)</span> in <span class="math inline">\(\mathcal{G}\)</span>:</li>
+</ol>
+<p><span class="math display">\[\mathbb{E} \left[\mathbb{I}_B X \right] = \mathbb{E} \left[ \mathbb{I}_B Y \right]\,.\]</span></p>
+</div>
+<p>Leaving aside the question of the existence of a version of conditional expectation of <span class="math inline">\(X,\)</span> we first check that if there exist different versions, they differ only up to a negligible event.</p>
+<div id="prp">
+<p>Let <span class="math inline">\(X \in \mathcal{L}_1 (\Omega, \mathcal{F}, P)\)</span> and <span class="math inline">\(\mathcal{G}\)</span> a sub-<span class="math inline">\(\sigma\)</span>-algebra of <span class="math inline">\(\mathcal{F}\)</span>, then if <span class="math inline">\(Y'\)</span> and <span class="math inline">\(Y\)</span> are two versions of the conditional expectation of <span class="math inline">\(X\)</span> with respect to <span class="math inline">\(\mathcal{G}\)</span>:</p>
+<p><span class="math display">\[P \left\{ Y = Y' \right\} = 1.\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>As <span class="math inline">\(Y\)</span> and <span class="math inline">\(Y'\)</span> are <span class="math inline">\(\mathcal{G}\)</span>-measurable, the event <span class="math display">\[
+B = \left\{ \omega~:~Y(\omega) &gt;Y'(\omega)\right\}
+\]</span> belongs to <span class="math inline">\(\mathcal{G}.\)</span> Moreover, <span class="math display">\[\begin{align*}
+\mathbb{E}\left[\mathbb{I}_B\, X\right]
+&amp; =  \mathbb{E}\left[\mathbb{I}_B \, Y\right] \\
+&amp; =  \mathbb{E}\left[\mathbb{I}_B \, Y'\right]  \, .
+\end{align*}\]</span> Thus <span class="math display">\[
+\mathbb{E}\left[\mathbb{I}_B (Y-Y') \right] = 0 \, .
+\]</span> As random variable <span class="math inline">\(\mathbb{I}_B (Y-Y')\)</span> is non-negative, its expectation is zero, it is null with probability <span class="math inline">\(1\)</span>. Thus <span class="math display">\[
+P\{Y&gt;Y'\}=0 \, .
+\]</span> We can conclude by proceeding in a similar way for event <span class="math inline">\(\{Y&lt;Y'\}\)</span>.</p>
+<p><span class="math inline">\(\square\)</span></p>
+</div>
+<p>Still postponing the existence question, let us check now a few properties versions of conditional expectation of <span class="math inline">\(X\)</span> should satisfy.</p>
+<div id="prp">
+<p>Let <span class="math inline">\(X_1, X_2 \in \mathcal{L}_1 (\Omega,
+\mathcal{F}, P)\)</span>, <span class="math inline">\(\mathcal{G}\)</span> a sub-<span class="math inline">\(\sigma\)</span>-algebra of <span class="math inline">\(\mathcal{F}\)</span>, <span class="math inline">\(a_1, a_2\)</span> two real numbers, then if <span class="math inline">\(Y_1\)</span> <span class="math inline">\(Y_2\)</span> and <span class="math inline">\(Z\)</span> are respectively versions versions of conditional expectation of <span class="math inline">\(X_1, X_2\)</span> and <span class="math inline">\(a_1 X_1
++ a_2 X_2\)</span> with respect to <span class="math inline">\(\mathcal{G}\)</span>, we have <span class="math display">\[
+P\{a_1 Y_1 + a_2 Y_2 = Z\} = 1 \, .
+\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(B\)</span> be the event of <span class="math inline">\(\mathcal{G}\)</span> defined by <span class="math display">\[
+\{ a_1 Y_1 + a_2 Y_2 &gt; Z\}\, .
+\]</span> We get <span class="math display">\[\begin{eqnarray*}
+\mathbb{E}
+[\mathbb{I}_B Z] &amp; = &amp;  \mathbb{E} [\mathbb{I}_B (a_1 X_1 + a_2 X_2)]  \\
+&amp; = &amp; a _1 \mathbb{E} [\mathbb{I}_B  X_1 ]+a_2 \mathbb{E} [\mathbb{I}_B X_2] \\
+&amp; = &amp; a_1  \mathbb{E} [\mathbb{I}_B  Y_1 ]+a_2 \mathbb{E}
+[\mathbb{I}_B Y_2] \\
+&amp; = &amp; \mathbb{E} [\mathbb{I}_B (a_1 Y_1 + a_2 Y_2)]  \, ,
+\end{eqnarray*}\]</span> and thus <span class="math display">\[
+\mathbb{E}
+[\mathbb{I}_B (Z-(a_1 Y_1 + a_2 Y_2))]=  0 \, .
+\]</span> We conclude as in the proceeding proof that <span class="math inline">\(P\{B\}=0.\)</span></p>
+<p>The proof is completed by handling in a similar way the event <span class="math inline">\(\{ a_1 Y_1 + a_2 Y_2 &lt; Z\}\, .\)</span></p>
+<p><span class="math inline">\(\square\)</span></p>
+</div>
+<div id="prp-nonnegcond" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 8.1</strong></span> If <span class="math inline">\(X \in \mathcal{L}_1 (\Omega, \mathcal{F}, P)\)</span>, <span class="math inline">\(\mathcal{G}\)</span> a sub-<span class="math inline">\(\sigma\)</span> algebra of <span class="math inline">\(\mathcal{F}\)</span>. If <span class="math inline">\(Z\)</span> is a version the conditional expectation of <span class="math inline">\(X\)</span> with respect to <span class="math inline">\(\mathcal{G}\)</span> and if <span class="math inline">\(X\)</span> is <span class="math inline">\(P\)</span>-a.s. non-negative, then <span class="math display">\[
+P\{Z \geq 0\} =1 \, .
+\]</span></p>
+</div>
+<p>The proof reproduces the argument used to established that different versions of the conditional expectation are almost surely equal.</p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>For <span class="math inline">\(n \in \mathbb{N}\)</span>, let <span class="math inline">\(B_n\)</span> denote the event (from <span class="math inline">\(\mathcal{G}\)</span>) defined by <span class="math display">\[ B_n = \left\{ \mathbb{E} \left[ X \mid \mathcal{G} \right] &lt; -
+\frac{1}{n} \right\} . \]</span> To prove the proposition, it is enough to check <span class="math display">\[ P \left\{ \cup_n B_n \right\} = 0 . \]</span> As <span class="math inline">\(P \left\{ \cup_n B_n \right\} = \lim_n P\{B_n \}\)</span>, it suffices to check <span class="math inline">\(P \left\{ B_n \right\} = 0\)</span>, for all <span class="math inline">\(n\)</span>, <span class="math inline">\(P \left\{ B_n
+\right\} = 0.\)</span> For all <span class="math inline">\(n\)</span>, <span class="math display">\[\begin{align*}
+  0
+  &amp; \leq \mathbb{E}\big[\mathbb{I}_{B_n} X\big] \\
+  &amp; = \mathbb{E} \left[ \mathbb{I}_{B_n} X \right] \\
+  &amp; = \mathbb{E} \left[ \mathbb{I}_{B_n}  \mathbb{E} \left[ X \mid \mathcal{G} \right] \right] \\
+  &amp; \leq  - \frac{P\{B_n \}}{n} \, .
+\end{align*}\]</span> Hence, for all <span class="math inline">\(n\)</span>, <span class="math inline">\(P\{B_n \}= 0\)</span>.</p>
+<p><span class="math inline">\(\square\)</span></p>
+</div>
+<p>The next corollary is a consequence of <a href="#prp-nonnegcond" class="quarto-xref">Proposition&nbsp;<span>8.1</span></a>.</p>
+<div id="cor-monotonecond" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 8.1</strong></span> If <span class="math inline">\((X_n)_{n \in \mathbb{N}}\)</span> is a sequence of random variables from <span class="math inline">\(\mathcal{L}_1 (\Omega, \mathcal{F}, P)\)</span> satisfying <span class="math inline">\(X_{n + 1} \geq X_n\)</span> <span class="math inline">\(P\)</span>-a.s. then there exists an <span class="math inline">\(P\)</span>-a.s. non-decreasing sequence of versions of conditional expectations <span class="math display">\[
+\forall n \in \mathbb{N},\quad\mathbb{E} \left[ X_{n + 1} \mid \mathcal{F} \right] \geq   \mathbb{E} \left[ X_n \mid \mathcal{F} \right] .
+\]</span></p>
+</div>
+<div id="exr">
+<p>Let <span class="math inline">\(\mathcal{E}\)</span> be a <span class="math inline">\(\pi\)</span>-system generating <span class="math inline">\(\mathcal{G}\)</span> and containing <span class="math inline">\(\Omega\)</span>. Check that <span class="math inline">\(\mathbb{E} \left[ X \mid \mathcal{G} \right]\)</span> is the unique element from <span class="math inline">\(\mathcal{L}_1 \left( \Omega, \mathcal{G}, P
+\right)\)</span> which satisfies <span class="math display">\[
+\forall B \in \mathcal{E}, \quad \mathbb{E} \left[
+\mathbb{I}_B X \right] = \mathbb{E} \left[ \mathbb{I}_B
+\mathbb{E} \left[ X \mid \mathcal{G} \right] \right] .
+\]</span></p>
+</div>
+<p>For nested sub-<span class="math inline">\(\sigma\)</span>-algebras, conditional expectations satisfy the tower property:</p>
+<div id="prp">
+<p>Let <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span> be a probability space, and <span class="math inline">\(\mathcal{G} \subseteq \mathcal{H} \subseteq \mathcal{F}\)</span> be two nested sub-<span class="math inline">\(\sigma\)</span>-algebras. Then for every <span class="math inline">\(X \in \mathcal{L}_1(\Omega, \mathcal{F}, P)\)</span>: <span class="math display">\[
+\mathbb{E} \Big[ \mathbb{E}\left[ X \mid \mathcal{G} \right] \mid \mathcal{H} \Big]
+= \mathbb{E} \Big[ \mathbb{E} \, \left[ X \mid \mathcal{H} \right] \mid \mathcal{G} \Big]
+= \mathbb{E} \left[ X \mid \mathcal{G} \right]\qquad \text{a.s.}
+\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Almost sure equality <span class="math inline">\(\mathbb{E} \Big[ \mathbb{E}\left[ X \mid \mathcal{G} \right] \mid \mathcal{H} \Big]=\mathbb{E} \left[ X \mid \mathcal{G} \right]\)</span> is trivial: any <span class="math inline">\(\mathcal{G}\)</span>-measurable random variable is also <span class="math inline">\(\mathcal{H}\)</span>-measurable.</p>
+<p>Let us now check the second equality.</p>
+<p>For every <span class="math inline">\(B \in \mathcal{G}\)</span>, <span class="math display">\[\begin{eqnarray*}
+\mathbb{E} \left[ \mathbb{I}_B \mathbb{E} \left[ \mathbb{E}
+\left[ X \mid \mathcal{H} \right] \mid \mathcal{G} \right] \right] &amp; = &amp;
+\mathbb{E} \left[ \mathbb{I}_B \mathbb{E} \left[ X \mid
+\mathcal{H} \right] \right]\\
+&amp;  &amp; \text{comme } B \in \mathcal{H}\\
+&amp; = &amp; \mathbb{E} \left[ \mathbb{I}_B X \right] .
+\end{eqnarray*}\]</span></p>
+</div>
+</section>
+<section id="predictpoint" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="predictpoint"><span class="header-section-number">8.2</span> Conditional expectation in <span class="math inline">\(\mathcal{L}_2(\Omega, \mathcal{F}, P)\)</span></h2>
+<p>If we focus on square-integrable random variables, building versions of conditional expectation turn out to be easy. Recall that when the conditioning sub-<span class="math inline">\(\sigma\)</span>-algebra <span class="math inline">\(\mathcal{G}\)</span> is atomic, according to <a href="023-discrete-condition.html#prp-espercondpred" class="quarto-xref">Proposition&nbsp;<span>5.5</span></a>, the condition expectation <span class="math inline">\(\mathbb{E}[X \mid \mathcal{G}]\)</span> defines an optimal predictor of <span class="math inline">\(X\)</span> with respect to quadratic error amongst <span class="math inline">\(\mathcal{G}\)</span>-measurable random variables. This characterization remains valid for square integrable random variables even when the conditioning sub-<span class="math inline">\(\sigma\)</span>-algebra is no more atomic. This is the content of the next theorem.</p>
+<div id="thm-l2condexp" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 8.1 (Conditional expectation for square integrable random variables)</strong></span> Let be <span class="math inline">\(X \in \mathcal{L}_2 (\Omega, \mathcal{F}, P)\)</span> and <span class="math inline">\(\mathcal{G}\)</span> a sub-<span class="math inline">\(\sigma\)</span>-algebra of <span class="math inline">\(\mathcal{F}\)</span>.</p>
+<p>There exists <span class="math inline">\(Y \in \mathcal{L}_2(\Omega, \mathcal{G}, P)\)</span> that minimizes the <span class="math inline">\(L_2\)</span> distance to <span class="math inline">\(X\)</span>:</p>
+<p><span class="math display">\[\exists Y \in \mathcal{L}_2(\Omega, \mathcal{G}, P) \qquad \mathbb{E}(Y-X)^2 =  \inf \Big\{ \mathbb{E}(Z-X)^2 : Z \in \mathcal{L}_2(\Omega, \mathcal{G}, P) \Big\}\, ,\]</span></p>
+<p>that is, <span class="math inline">\(Y\)</span> represents a version of the of <span class="math inline">\(X\)</span> on <span class="math inline">\(\mathcal{L}_2(\Omega, \mathcal{G}, P)\)</span>.</p>
+<p>A version <span class="math inline">\(Y\)</span> of the of <span class="math inline">\(X\)</span> on <span class="math inline">\(\mathcal{L}_2(\Omega, \mathcal{G}, P)\)</span> is also a version of the conditional expectation of <span class="math inline">\(X\)</span> with respect to <span class="math inline">\(\mathcal{G}\)</span>:</p>
+<p><span class="math display">\[\forall B \in \mathcal{G}, \quad
+\mathbb{E} \left[
+\mathbb{I}_B X \right] = \mathbb{E} \left[ \mathbb{I}_B\, Y \right] \, .\]</span></p>
+</div>
+<p>Note that theorem contains two statements: first, there exists a minimizer of <span class="math inline">\(\mathbb{E}(X-Z)^2\)</span> in <span class="math inline">\(\mathcal{L}_2(\omega, \mathcal{F}, P)\)</span>, second, such a minimizer is a version of condition expectation defined according to <a href="#def-defCondExp" class="quarto-xref">Definition&nbsp;<span>8.1</span></a>. Checking the first statement amounts to invoke the right arguments from Hilbert spaces theory.</p>
+<p>For the sake of self-reference, we recall basics if Hilbert spaces theory.</p>
+<div id="def-hilbert" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 8.2 (Hilbert’s space)</strong></span> A real vector space <span class="math inline">\(E\)</span> equipped with a norm <span class="math inline">\(\|\cdot\|\)</span> is a Hilbert space iff <span class="math inline">\(\langle \cdot, \cdot \rangle\)</span> defined by</p>
+<p><span class="math display">\[\forall x, y \in E, \langle x, y \rangle = \frac{1}{4} \Big(\Vert x+y \Vert^2 + \Vert x-y \Vert^2\Big)\]</span></p>
+<p>is an <em>inner product</em> and <span class="math inline">\(E\)</span> is complete for the topology induced by the norm.</p>
+</div>
+<div id="thm">
+<p>Let <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span> be a probability space, then the set <span class="math inline">\(L_2(\Omega, \mathcal{F}, P)\)</span> of equivalence classes of square integrable variables, equipped with <span class="math inline">\(\Vert X\Vert^2=  (\mathbb{E} X^2)^{1/2}\)</span> is a Hilbert space.</p>
+</div>
+<div id="rem-1" class="proof remark">
+<p><span class="proof-title"><em>Remark 8.4</em>. </span>In this context,</p>
+<p><span class="math display">\[\langle X, Y \rangle  = \mathbb{E}\left[ XY \right] \, .\]</span></p>
+</div>
+<p>From Hilbert space theory, the essential tool we shall use is the projection Theorem below. Our starting point is the next observation (that follows from results in <a href="031-moments.html" class="quarto-xref"><span>Chapter 3</span></a>).</p>
+<div id="prp">
+<p>Let <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span> be a probability space, let <span class="math inline">\(\mathcal{G} \subseteq \mathcal{F}\)</span> be a sub-<span class="math inline">\(\sigma\)</span>-algebra, then <span class="math inline">\(L_2(\Omega, \mathcal{G}, P)\)</span> is a closed convex subset (subspace) of <span class="math inline">\(L_2(\Omega, \mathcal{F}, P)\)</span>.</p>
+</div>
+<p>We look for the element from <span class="math inline">\(L_2(\Omega, \mathcal{G}, P)\)</span> that is closest (in the <span class="math inline">\(L_2\)</span> sense) to a random variable from <span class="math inline">\(L_2(\Omega, \mathcal{F}, P)\)</span>. The existence and unicity of this closest <span class="math inline">\(\mathcal{G}\)</span>-measurable random variable are warranted by the Projection Theorem.</p>
+<div id="thm-hilbertProjection" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 8.2 (Projection Theorem)</strong></span> Let <span class="math inline">\(E\)</span> be a Hilbert space and <span class="math inline">\(F\)</span> a closed convex subset of <span class="math inline">\(F\)</span>. For every <span class="math inline">\(x \in E\)</span>, there exists a unique <span class="math inline">\(y \in F\)</span>, such that</p>
+<p><span class="math display">\[\|x - y\|= \inf_{z \in F} \|x - z\|.\]</span></p>
+<p>This unique closest point in <span class="math inline">\(F\)</span> is called the (orthogonal) projection of <span class="math inline">\(x\)</span> over <span class="math inline">\(F\)</span>. For any <span class="math inline">\(z \in F\)</span>, <span class="math display">\[\langle x-y, z-y\rangle \leq 0 \, .\]</span> If <span class="math inline">\(F\)</span> is a linear subspace of <span class="math inline">\(E\)</span>, the Pythagorean relationship holds: <span class="math display">\[\|x\|^2 =  \|y\|^2 + \|x - y\|^2 \,\]</span> and for any <span class="math inline">\(z \in F\)</span>, <span class="math inline">\(\langle x - y, z\rangle =0\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(d = \inf_{z \in F} \|x - z\|\)</span>. Let <span class="math inline">\((z_n)_n\)</span> be a sequence of elements from <span class="math inline">\(F\)</span> such that <span class="math display">\[\lim_n \|x - z_n \|= d .\]</span> According to the parallelogram law, <span class="math display">\[2 \left( \|x - z_n \|^2 +\|x - z_m \|^2 \right)  = \|2 x - (z_n + z_m)\|^2 + \| z_n - z_m \|^2 .\]</span> Since <span class="math inline">\(F\)</span> is convex, <span class="math inline">\((z_n + z_m) / 2 \in F\)</span>, so <span class="math display">\[\|x - (z_n + z_m) / 2\| \geq d \,.\]</span> Let <span class="math inline">\(\epsilon \in (0, 1]\)</span> and <span class="math inline">\(n_0\)</span> be such that for <span class="math inline">\(n \geq n_0\)</span>, <span class="math inline">\(\|x - z_n \| \leq d + \epsilon .\)</span> For <span class="math inline">\(n, m \geq n_0\)</span> <span class="math display">\[4 (d + \epsilon)^2 \geq 4 d^2 +\|z_n - z_m \|^2\]</span> or equivalently <span class="math display">\[\|z_n - z_m \|^2 \leq 4 (2 d + 1) \epsilon \,.\]</span> Hence, the minimizing sequence <span class="math inline">\((z_n)_n\)</span> has the Cauchy property. As <span class="math inline">\(F\)</span> is closed, it has a unique limit <span class="math inline">\(y \in F\)</span> and <span class="math inline">\(d  = \|x - y\|\)</span>.</p>
+<p>To verify uniqueness, suppose there exists <span class="math inline">\(y' \in F\)</span>, such as <span class="math inline">\(\|x - y' \|= d\)</span>. Now, let us build a new sequence <span class="math inline">\((z'_n)_{n \in
+\mathbb{N}}\)</span> such that <span class="math inline">\(z'_{2 n} = z_n\)</span> and <span class="math inline">\(z'_{2 n + 1} = y'\)</span>. This <span class="math inline">\(F\)</span>-valued sequence satisfies <span class="math inline">\(\lim_n \|z'_n - x\|= d.\)</span> By the argument above, it admits a limit <span class="math inline">\(y^{\prime\prime}\)</span> in <span class="math inline">\(F\)</span>. The limit <span class="math inline">\(y^{\prime\prime}\)</span> coincides with the limit of any sub-sequence, so it equals <span class="math inline">\(y\)</span> and <span class="math inline">\(y'.\)</span></p>
+<p>Fix <span class="math inline">\(z \in F \setminus \{y\}\)</span>, for any <span class="math inline">\(u \in (0,1]\)</span>, let <span class="math inline">\(z_u = y + u (z-y)\)</span>, then <span class="math inline">\(z_u \in F\)</span> and <span class="math display">\[\Vert  x - z_u\Vert^2 - \Vert x -y \Vert^2 = -2 u \langle x-y, z-y \rangle +  u^2 \Vert z - y \Vert^2 \, .\]</span> As this quantity is non-negative for <span class="math inline">\(u \in [0,1]\)</span>, <span class="math inline">\(\langle x-y, z-y \rangle\)</span> has to be non-positive.</p>
+<p>Now suppose that <span class="math inline">\(F\)</span> is a subspace of <span class="math inline">\(E.\)</span></p>
+<p>If there is <span class="math inline">\(y \in F\)</span> such as <span class="math inline">\(\langle x - y, z \rangle = 0\)</span> for any <span class="math inline">\(z
+\in F\)</span>, then <span class="math inline">\(y\)</span> is the orthogonal projection of <span class="math inline">\(x\)</span> on <span class="math inline">\(F\)</span> since for all <span class="math inline">\(z \in F\)</span>: <span class="math display">\[\begin{align*}
+\|x - z\|^2
+  &amp; =  \|x - y\|^2 - 2 \langle x - y, z \rangle +\|z\|^2\\
+  &amp; \geq  \|x - y\||^2 .
+\end{align*}\]</span></p>
+<p>Conversely, if <span class="math inline">\(y\)</span> is the orthogonal projection of <span class="math inline">\(x\)</span> on <span class="math inline">\(F\)</span>, for all <span class="math inline">\(z\)</span> of <span class="math inline">\(F\)</span> and all <span class="math inline">\(\lambda \in \in \mathbb{R}\)</span>: <span class="math display">\[\begin{align*}
+\|x - y\||^2
+  &amp; \leq  \|x - (y + \lambda z)\|^2 \\
+  &amp; =  \|x - y\|^2 - 2 \lambda \langle x - y, z \rangle + \lambda^2 \|z\|^2,
+\end{align*}\]</span> so <span class="math inline">\(0 \leq 2 \lambda \langle x - y, z \rangle + \lambda^2 \|z\|^2\)</span>. For this polynomial in <span class="math inline">\(\lambda\)</span> to be of constant sign, it is necessary that <span class="math inline">\(\langle x - y, z \rangle = 0.\)</span></p>
+<p><span class="math inline">\(\square\)</span></p>
+</div>
+<p>As <span class="math inline">\(\mathcal{L}_2 (\Omega, \mathcal{G}, P)\)</span> is a convex part of <span class="math inline">\(\mathcal{L}_2 (\Omega, \mathcal{F}, P)\)</span>, the existence and uniqueness of the projection on a closed convex part of a Hilbert space gives the following corollary which matches the first statement in <a href="#thm-l2condexp" class="quarto-xref">Theorem&nbsp;<span>8.1</span></a>).</p>
+<div id="cor">
+<p>Given <span class="math inline">\(X \in \mathcal{L}_2 (\Omega, \mathcal{F}, P)\)</span> and <span class="math inline">\(\mathcal{G}\)</span> a sub-<span class="math inline">\(\sigma\)</span>-algebra of <span class="math inline">\(\mathcal{F}\)</span>, there exists <span class="math inline">\(Y \in \mathcal{L}_2 (\Omega, \mathcal{G}, P)\)</span> that minimizes <span class="math display">\[
+\mathbb{E} \left[ \left( X - Z \right)^2 \right] \qquad \text{ for } Z \in
+\mathcal{L}_2 (\Omega, \mathcal{G}, P) .
+\]</span> Any other minimizer in <span class="math inline">\(\mathcal{L}_2 (\Omega, \mathcal{G},
+P)\)</span> is <span class="math inline">\(P\)</span>-almost surely equal to~<span class="math inline">\(Y.\)</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(Y\)</span> be a version of the orthogonal projection of <span class="math inline">\(X\)</span> on <span class="math inline">\(L_2(\Omega,\mathcal{G},P)\)</span> and <span class="math inline">\(B\)</span> an element of <span class="math inline">\(\mathcal{G}.\)</span></p>
+<p>The inner product of <span class="math inline">\(\mathbb{I}_B \in \mathcal{L}_2(\Omega,\mathcal{G},P)\)</span>) and <span class="math inline">\(X-Y\)</span> is <span class="math display">\[
+\langle X-Y, \mathbb{I}_B \rangle = \mathbb{E}\left[(X-Y)\mathbb{I}_B\right] \, .
+\]</span> By <a href="#thm-hilbertProjection" class="quarto-xref">Theorem&nbsp;<span>8.2</span></a>, <span class="math inline">\(\mathbb{E}\left[(X-Y)\mathbb{I}_B\right]=0\)</span>.</p>
+<p><span class="math inline">\(\square\)</span></p>
+</div>
+<p>We conclude this section with a Pythagorean theorem for the variance.</p>
+<div id="def-varcond" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 8.3 (Conditional variance)</strong></span> Let <span class="math inline">\(X \in \mathcal{L}_2(\Omega, \mathcal{F}, P)\)</span> and <span class="math inline">\(\mathcal{G} \subseteq \mathcal{F}\)</span> a sub-<span class="math inline">\(\sigma\)</span>-algebra. The <em>conditional variance</em> of <span class="math inline">\(X\)</span> with respect to <span class="math inline">\(\mathcal{G}\)</span> is defined by</p>
+<p><span class="math display">\[ \operatorname{Var} \left[ X \mid \mathcal{G} \right] = \mathbb{E} \left[\left( X - \mathbb{E} [X \mid \mathcal{G}] \right)^2 \mid \mathcal{G}\right] .\]</span></p>
+</div>
+<p>The conditional variance is a (<span class="math inline">\(\mathcal{G}\)</span>-measurable) random variable, just as the conditional expectation. It is the conditional expectation of the prediction error that is incurred when trying to predict <span class="math inline">\(X\)</span> using <span class="math inline">\(\mathbb{E}[X \mid \mathcal{G}]\)</span>.</p>
+<div id="prp-pythavariance" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 8.2</strong></span> Let <span class="math inline">\(X \in \mathcal{L}_2(\Omega, \mathcal{F}, P)\)</span> and <span class="math inline">\(\mathcal{G} \subseteq \mathcal{F}\)</span> a sub-<span class="math inline">\(\sigma\)</span>-algebra. Then</p>
+<p><span class="math display">\[\operatorname{Var} [X] = \operatorname{Var} \Big[ \mathbb{E} \left[ X \mid \mathcal{G} \right] \Big] + \mathbb{E} \Big[ \operatorname{Var} \left[ X \mid \mathcal{G} \right] \Big] \, .\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Recall that <span class="math inline">\(\mathbb{E} \left[ \mathbb{E} \left[ X \mid \mathcal{G} \right] \right] = \mathbb{E} \left[ X \right]\)</span>.</p>
+<p><span class="math display">\[\begin{align*}
+\operatorname{Var} \left[ X \right] &amp; =  \mathbb{E} \left[ \left( X -
+\mathbb{E} \left[ X \right] \right)^2 \right]\\
+&amp; =  \mathbb{E} \left[ \left( X - \mathbb{E} \left[ X \mid
+\mathcal{G} \right] + \mathbb{E} \left[ X \mid \mathcal{G} \right] -
+\mathbb{E} \left[ X \right] \right)^2 \right]\\
+&amp; =  \mathbb{E} \left[ \left( X - \mathbb{E} \left[ X \mid
+\mathcal{G} \right] \right)^2 \right]\\
+&amp;  \qquad + 2 \mathbb{E} \left[ \left( X - \mathbb{E} \left[ X \mid
+\mathcal{G} \right] \right) \left( \mathbb{E} \left[ X \mid \mathcal{G}
+\right] - \mathbb{E} \left[ X \right] \right) \right]\\
+&amp;  \qquad + \mathbb{E} \left[ \left( \mathbb{E} \left[ X \mid
+\mathcal{G} \right] - \mathbb{E} \left[ X \right] \right)^2 \right]\\
+&amp; =  \mathbb{E} \left[ \mathbb{E} \left[ \left( X - \mathbb{E}
+\left[ X \mid \mathcal{G} \right] \right)^2 \mid \mathcal{G} \right]
+\right]\\
+&amp;  \qquad + 2 \mathbb{E} \Big[ \mathbb{E} \left[ \left( X -
+\mathbb{E} \left[ X \mid \mathcal{G} \right] \right) \mid \mathcal{G}
+\right]  \left( \mathbb{E} \left[ X \mid \mathcal{G} \right] -
+\mathbb{E} \left[ X \right] \right) \Big]\\
+&amp;  \qquad + \operatorname{Var} \left[ \mathbb{E} \left[ X \mid \mathcal{G}
+\right] \right]\\
+&amp; =  \mathbb{E} \left[ \operatorname{Var} \left[ X \mid \mathcal{G} \right]
+\right] + \operatorname{Var} \left[ \mathbb{E} \left[ X \mid \mathcal{G}
+\right] \right] .
+\end{align*}\]</span></p>
+<p><span class="math inline">\(\square\)</span></p>
+</div>
+</section>
+<section id="conditional-expectation-in-mathcall_1-omega-mathcalf-p" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="conditional-expectation-in-mathcall_1-omega-mathcalf-p"><span class="header-section-number">8.3</span> Conditional expectation in <span class="math inline">\(\mathcal{L}_1 (\Omega, \mathcal{F}, P)\)</span></h2>
+<p>To construct the conditional expectation of a random variable, square-integrability is not necessary. This is the meaning of the next theorem.</p>
+<div id="thm-kolmoespcond" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 8.3</strong></span> If <span class="math inline">\(Y \in \mathcal{L}_1 (\Omega, \mathcal{F},
+P)\)</span>, then there exists an integrable <span class="math inline">\(\mathcal{G}\)</span>-measurable random variable, denoted by <span class="math inline">\(\mathbb{E} \left[ Y \mid \mathcal{G} \right]\)</span> such that</p>
+<p><span class="math display">\[\forall B \in \mathcal{G}, \mathbb{E} \left[ \mathbb{I}_B Y \right] = \mathbb{E} \left[ \mathbb{I}_B \mathbb{E} \left[ Y \mid \mathcal{G}\right] \right]  .\]</span></p>
+</div>
+<p>In words, conditional expectations according to <a href="#def-defCondExp" class="quarto-xref">Definition&nbsp;<span>8.1</span></a> exist for all integrable random variables and all sub-<span class="math inline">\(\sigma\)</span>-algebras.</p>
+<div id="exr-monotone-class-condi" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 8.1</strong></span> Let <span class="math inline">\(\mathcal{G}'\)</span> be a <span class="math inline">\(\pi\)</span>-system that contains <span class="math inline">\(\Omega\)</span> and generates <span class="math inline">\(\mathcal{G}\)</span>. If <span class="math inline">\(Z\)</span> is an integrable <span class="math inline">\(\mathcal{G}\)</span>-measurable variable that satisfies</p>
+<p><span class="math display">\[\forall B \in \mathcal{G}', \mathbb{E} \left[ \mathbb{I}_B Y \right] = \mathbb{E} \left[ \mathbb{I}_B \mathbb{E} \left[ Y \mid \mathcal{G} \right] \right]\]</span></p>
+<p>then <span class="math inline">\(Z = \mathbb{E} \left[ Y \mid \mathcal{G} \right] .\)</span></p>
+</div>
+<p>To establish the <a href="#thm-kolmoespcond" class="quarto-xref">Theorem&nbsp;<span>8.3</span></a>, we use the <em>usual machinery</em> of limiting arguments.</p>
+<div id="prp-monotech" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 8.3</strong></span> If <span class="math inline">\((Y_n)_n\)</span> is a non-decreasing sequence of non-negative square-integrable random variables such as <span class="math inline">\(Y_n \uparrow Y\)</span> a.s. then there exists a <span class="math inline">\(\mathcal{G}\)</span>-measurable random variable <span class="math inline">\(Z\)</span> such that</p>
+<p><span class="math display">\[\mathbb{E} \left[ Y_n \mid \mathcal{G} \right] \uparrow Z \qquad \text{a.s.}\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>As <span class="math inline">\((Y_n)_n\)</span> is non-decreasing, according to <a href="#prp-nonnegcond" class="quarto-xref">Proposition&nbsp;<span>8.1</span></a> <span class="math inline">\(\left( \mathbb{E} \left[ Y_n \mid \mathcal{G} \right] \right)_n\)</span> is an (a.s.) non-decreasing sequence of <span class="math inline">\(\mathcal{G}\)</span>-measurable random variables, it admits a <span class="math inline">\(\mathcal{G}\)</span>-measurable limit (finite or not).</p>
+<p><span class="math inline">\(\square\)</span></p>
+</div>
+<p>We now proceed to the proof of <a href="#thm-kolmoespcond" class="quarto-xref">Theorem&nbsp;<span>8.3</span></a>.</p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Without losing in generality, we assume <span class="math inline">\(Y \geq 0\)</span> (if this is not the case, let <span class="math inline">\(Y = (Y)_+ - (Y)_-\)</span> with <span class="math inline">\((Y)_+ = |Y| \mathbb{I}_{Y
+\geq 0}\)</span> and <span class="math inline">\((Y)_- = |Y| \mathbb{I}_{Y &lt; 0}\)</span>, handle <span class="math inline">\((Y)_+\)</span> and <span class="math inline">\((Y)_-\)</span> separately and use the linearity of conditional expectation).</p>
+<p>Let <span class="math display">\[ Y_n = Y \mathbb{I}_{|Y| \leq n}\]</span> so that <span class="math inline">\(Y_n \nearrow Y\)</span> everywhere. The random variable <span class="math inline">\(Y_n\)</span> is bounded and thus square-integrable. The random variable<br>
+<span class="math inline">\(\mathbb{E}\left[ Y_n \mid \mathcal{G} \right]\)</span> is therefore well defined for each <span class="math inline">\(n\)</span>.</p>
+<p>The sequence <span class="math inline">\(\mathbb{E} \left[ Y_n \mid \mathcal{G} \right]\)</span> is <span class="math inline">\(P\)</span>-a.s. monotonous. It converges monotonously towards a <span class="math inline">\(\mathcal{G}\)</span>-measurable random variable <span class="math inline">\(Z\)</span> which takes values in <span class="math inline">\(\mathbb{R}_+ \cup \{\infty\}\)</span>. We need to check that this random variable <span class="math inline">\(Z \in \mathcal{L}_1 (\Omega, \mathcal{F}, P)\)</span>.</p>
+<p>By monotonous convergence: <span class="math display">\[\begin{align*}
+\mathbb{E} Y
+&amp; = \mathbb{E}\big[ \lim_n  \uparrow Y_n\big] \\
+&amp; = \lim_n  \uparrow \mathbb{E}\big[  Y_n\big] \\
+&amp; = \lim_n  \uparrow \mathbb{E} \Big[ \mathbb{E} \left[ Y_n \mid \mathcal{G} \right] \Big]  \\
+&amp; = \mathbb{E} \Big[ \lim_n \uparrow  \mathbb{E} \left[ Y_n \mid \mathcal{G} \right] \Big] \\
+&amp; = \mathbb{E} Z  \, .
+\end{align*}\]</span> If <span class="math inline">\(A \in \mathcal{G}\)</span>, by monotonous convergence, <span class="math display">\[\lim_n \uparrow \mathbb{E} \left[ \mathbb{I}_A Y_n \right] = \mathbb{E}  \left[ \mathbb{I}_A Y \right]\]</span> and so <span class="math display">\[\lim_n \uparrow  \mathbb{E} \left[ \mathbb{I}_A \mathbb{E} \left[ Y_n \mid
+\mathcal{G} \right] \right] = \mathbb{E} \left[ \mathbb{I}_A
+Y \right].\]</span> By monotonous convergence again: <span class="math display">\[\lim_n \uparrow  \mathbb{E} \left[ \mathbb{I}_A \lim_n \mathbb{E} \left[ Y_n \mid
+\mathcal{G}\right] \right] = \mathbb{E} \left[ \mathbb{I}_A Z
+\right]\]</span></p>
+<p><span class="math inline">\(\square\)</span></p>
+</div>
+</section>
+<section id="properties-of-general-conditional-expectation" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="properties-of-general-conditional-expectation"><span class="header-section-number">8.4</span> Properties of (general) conditional expectation</h2>
+<div id="rem-prop-condexp" class="proof remark">
+<p><span class="proof-title"><em>Remark 8.2</em>. </span>In this Section <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span> is a probability space, <span class="math inline">\(\mathcal{G}\)</span> is a sub-<span class="math inline">\(\sigma\)</span>-algebra of <span class="math inline">\(\mathcal{F}\)</span>. Random variables <span class="math inline">\((X_n)_n, (Y_n)_n, X, Y, Z\)</span> are meant to be integrables, and a.s. means <span class="math inline">\(P\)</span>-a.s.</p>
+</div>
+<p>The easiest property is:</p>
+<div id="prp">
+<p>If <span class="math inline">\(X \in \mathcal{L}_1 (\Omega, \mathcal{F}, P)\)</span> then</p>
+<p><span class="math display">\[\mathbb{E} \left[ X \right] = \mathbb{E} \left[ \mathbb{E}   \left[ X \mid \mathcal{G} \right] \right].\]</span></p>
+</div>
+<div id="exr-tower-1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 8.2</strong></span> Prove it.</p>
+</div>
+<div id="prp">
+<p>If <span class="math inline">\(X \in \mathcal{L}_1 (\Omega, \mathcal{F}, P)\)</span> and <span class="math inline">\(X\)</span> is <span class="math inline">\(\mathcal{G}\)</span>-measurable then</p>
+<p><span class="math display">\[X = \mathbb{E} \left[ X \mid \mathcal{G} \right]  \hspace{1em} P\text{-a.s.}\]</span></p>
+</div>
+<div id="exr-condexp-measur" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 8.3</strong></span> Prove it.</p>
+</div>
+<p>Using the definition of conditional expectation and monotone approximation by simple functions (see <a href="031-moments.html#sec-simplefunctions" class="quarto-xref">Section&nbsp;<span>3.2</span></a>)), we obtain an alternative characterization of conditional expectation.</p>
+<div id="prp">
+<p>Let <span class="math inline">\(X \in \mathcal{L}_1 (\Omega, \mathcal{F}, P)\)</span> and <span class="math inline">\(\mathcal{G} \subseteq \mathcal{F}\)</span> be a sub-<span class="math inline">\(\sigma\)</span>-algebra, then for every <span class="math inline">\(Y \in\mathcal{L}_1 (\Omega, \mathcal{G}, P)\)</span>, such that <span class="math inline">\(\mathbb{E} \left[ |X Y| \right] &lt; \infty\)</span></p>
+<p><span class="math display">\[\mathbb{E} \left[ XY \right] = \mathbb{E} \left[ Y \mathbb{E} \left[ X \mid \mathcal{G} \right] \right] .\]</span></p>
+</div>
+<div id="exr-altercharac" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 8.4</strong></span> Prove it.</p>
+</div>
+<p>We pocket the next proposition for future and frequent use. We could go ahead with listing many other useful properties of conditional expectation. They are best discovered and established when needed.</p>
+<div id="prp">
+<p>If <span class="math inline">\(X, Y \in \mathcal{L}_1 (\Omega, \mathcal{F}, P)\)</span> and <span class="math inline">\(Y\)</span> is <span class="math inline">\(\mathcal{G}\)</span>-measurable then <span class="math display">\[ \mathbb{E} \left[ XY \mid \mathcal{G} \right] = Y \mathbb{E} \left[X \mid \mathcal{G} \right]  \hspace{1em} P \text{-a.s.}\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>As <span class="math inline">\(Y \mathbb{E} \left[ X \mid \mathcal{G} \right]\)</span> is <span class="math inline">\(\mathcal{G}\)</span>-measurable, it suffices to check that for every <span class="math inline">\(B \in\mathcal{G}\)</span>,</p>
+<p><span class="math display">\[ \mathbb{E} \left[ \mathbb{I}_B XY \right] = \mathbb{E} \left[\mathbb{I}_B \left( Y \mathbb{E} \left[ X \mid \mathcal{G} \right]\right) \right] .\]</span></p>
+<p>But</p>
+<p><span class="math display">\[\begin{eqnarray*}
+\mathbb{E} \left[ \mathbb{I}_B XY \right] &amp; = &amp; \mathbb{E} \left[
+( \mathbb{I}_B Y) X \right]\\
+&amp; = &amp; \mathbb{E} \left[ ( \mathbb{I}_B Y) \mathbb{E} \left[ X
+\mid \mathcal{G} \right] \right]\\
+&amp; = &amp; \mathbb{E} \left[ \mathbb{I}_B \left( Y \mathbb{E} \left[ X
+\mid \mathcal{G} \right] \right) \right] .
+\end{eqnarray*}\]</span></p>
+<p><span class="math inline">\(\square\)</span></p>
+</div>
+</section>
+<section id="sec-condconvtheorems" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="sec-condconvtheorems"><span class="header-section-number">8.5</span> Conditional convergence theorems</h2>
+<p>Limit theorems from integration theory (monotone convergence theorem, Fatou’s Lemma, Dominated convergence theorem) can be adapted to the conditional expectation setting.</p>
+<div id="thm-cmon" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 8.4 (Monotone convergence)</strong></span> Let the sequence <span class="math inline">\((X_n)_n\)</span> of non-negative random variables converge monotonously to <span class="math inline">\(X\)</span> (<span class="math inline">\(X_n \uparrow X\)</span> a.s.), with <span class="math inline">\(X\)</span> integrable, then for every sequence of versions of conditional expectations:</p>
+<p><span class="math display">\[\lim_n \uparrow \mathbb{E} \left[ X_n \mid \mathcal{G} \right] = \mathbb{E}  \left[ X \mid \mathcal{G} \right]  \text{ a.s.}\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>The sequence <span class="math inline">\(X - X_n\)</span> is non-negative and decreases to <span class="math inline">\(0\)</span> a.s. It suffices to show that <span class="math inline">\(\lim_n \downarrow \mathbb{E} \left[ X - X_n \mid
+\mathcal{G} \right] = 0\)</span> a.s. Note first that the sequence <span class="math inline">\(\mathbb{E} \left[ X - X_n \mid \mathcal{G} \right]\)</span> converges a.s. toward a non-negative limit. We need to check that this limit is a.s. zero.</p>
+<p>For <span class="math inline">\(A \in \mathcal{G}\)</span> : <span class="math display">\[\begin{align*}
+\mathbb{E} \left[ \mathbb{I}_A \lim_n \mathbb{E} \left[ X - X_n
+\mid \mathcal{G} \right] \right] &amp; =  \lim_n \mathbb{E} \left[
+\mathbb{I}_A  \mathbb{E} \left[ X - X_n \mid \mathcal{G} \right]
+\right]\\
+&amp;  \qquad \text{ monotone convergence theorem}\\
+&amp; = \lim_n \mathbb{E} \left[ \mathbb{I}_A \left( X_n - X \right)
+\right]\\
+&amp;  \qquad \text{ monotone convergence theorem}\\
+&amp; =  0 \, .
+\end{align*}\]</span></p>
+<p><span class="math inline">\(\square\)</span></p>
+</div>
+<div id="thm-condfatou" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 8.5 (Conditional Fatou’s Lemma)</strong></span> Let <span class="math inline">\((X_n)_n\)</span> be a sequence of non-negative random variables, then</p>
+<p><span class="math display">\[\mathbb{E} \left[ \liminf_n X_n \mid \mathcal{G} \right] \leq \liminf_n \mathbb{E} \left[ X_n \mid \mathcal{G} \right]  \hspace{1em} \text{a.s.}\]</span></p>
+</div>
+<p>As for the proof of Fatou’s Lemma, the argument boils down to monotone convergence arguments.</p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(B \in \mathcal{G}\)</span>. Let <span class="math inline">\(X = \liminf_n X_n\)</span>, <span class="math inline">\(X\)</span> is a non-negative random variable. Let <span class="math inline">\(Y = \liminf_n \mathbb{E} \left[
+X_n \mid \mathcal{G} \right]\)</span>, <span class="math inline">\(Y\)</span> is a <span class="math inline">\(\mathcal{G}\)</span>-measurable integrable random variable. The theorem compares <span class="math inline">\(\mathbb{E} \left[ X
+\mid \mathcal{G} \right]\)</span> and <span class="math inline">\(Y.\)</span></p>
+<p>Let <span class="math inline">\(Z_k = \inf_{n \geq k} X_n\)</span>. Thus <span class="math inline">\(\lim_k \uparrow Z_k =  \liminf_n X_n = X\)</span>. According to <a href="#thm-cmon" class="quarto-xref">Theorem&nbsp;<span>8.4</span></a>, <span class="math display">\[
+\mathbb{E} \left[ Z_k \mid \mathcal{G} \right] \uparrow_k
+\mathbb{E} \left[ \liminf_n X_n \mid \mathcal{G} \right]
+\text{ a.s.} \]</span> For every <span class="math inline">\(n \geq k\)</span>, <span class="math inline">\(X_n \geq Z_k\)</span> a.s. Hence by the comparison Theorem (<a href="#cor-monotonecond" class="quarto-xref">Corollary&nbsp;<span>8.1</span></a>)),</p>
+<p><span class="math display">\[\forall n \geq k \hspace{1em} \mathbb{E} \left[ Z_k \mid \mathcal{G} \right] \leq \mathbb{E} \left[ X_n \mid \mathcal{G}\right]   \text{ a.s.}\]</span></p>
+<p>as a countable union of <span class="math inline">\(P\)</span>-negligible events is <span class="math inline">\(P\)</span>-negligible. Hence for every <span class="math inline">\(k\)</span>, <span class="math display">\[\mathbb{E} \left[ Z_k \mid \mathcal{G} \right] \leq \liminf_n \mathbb{E} \left[ X_n \mid \mathcal{G} \right]  \hspace{1em} \text{a.s.}\]</span> This entails <span class="math display">\[\lim_k \uparrow \mathbb{E} \left[ Z_k \mid \mathcal{G} \right] \leq\liminf_n  \mathbb{E} \left[ X_n \mid \mathcal{G} \right]\quad  \text{ a.s.}\]</span></p>
+<p><span class="math inline">\(\square\)</span></p>
+</div>
+<div id="thm">
+<section id="dominated-convergence" class="level3" data-number="8.5.1">
+<h3 data-number="8.5.1" class="anchored" data-anchor-id="dominated-convergence"><span class="header-section-number">8.5.1</span> Dominated convergence</h3>
+<p>Let <span class="math inline">\(V \in \mathcal{L}_1(\Omega, \mathcal{F}, P)\)</span>. Let sequence <span class="math inline">\((X_n)_n\)</span> satisfy <span class="math inline">\(|X_n | \leq V\)</span> for every <span class="math inline">\(n\)</span> and <span class="math inline">\(X_n \rightarrow X \text{a.s.}\)</span>, then for any sequence of versions of conditional expectations of <span class="math inline">\((X_n)_n\)</span> and <span class="math inline">\(X\)</span> <span class="math display">\[\mathbb{E} \left[ X_n \mid \mathcal{G} \right] \rightarrow \mathbb{E} \left[ X \mid \mathcal{G} \right]  \hspace{1em} \text{a.s.}\]</span></p>
+</section>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(Y_n = \inf_{m \geq n} X_m\)</span> and <span class="math inline">\(Z_n = \sup_{m \geq n} X_m\)</span>. Hence <span class="math inline">\(-V \leq Y_n \leq Z_n \leq V\)</span>. As <span class="math inline">\(Y_n \uparrow X\)</span> and <span class="math inline">\(Z_n \downarrow X\)</span>. By the conditional monotone convergence Theorem (<a href="#thm-cmon" class="quarto-xref">Theorem&nbsp;<span>8.4</span></a>)), <span class="math inline">\(\mathbb{E} \left[ Y_n \mid \mathcal{G} \right] \uparrow
+\mathbb{E} [X \mid \mathcal{G}]\)</span> and &nbsp;<span class="math inline">\(\mathbb{E} \left[ Z_n \mid
+\mathcal{G} \right] \downarrow \mathbb{E} [X \mid \mathcal{G}] \text{p.s}
+.\)</span> Observe that for every <span class="math inline">\(n\)</span></p>
+<p><span class="math display">\[\mathbb{E} \left[ Y_n \mid \mathcal{G} \right] \leq \mathbb{E}
+\left[ X_n \mid \mathcal{G} \right] \leq \mathbb{E} \left[ Z_n
+\mid \mathcal{G} \right]  \hspace{1em} \text{a.s.}\]</span></p>
+<p><span class="math inline">\(\square\)</span></p>
+</div>
+<p>Jensen’s inequality also has a conditional version. The proof relies again on the variational representation of convex lower semi-comntinuous functions and on the monotonicity property of conditional expectation (<a href="#cor-monotonecond" class="quarto-xref">Corollary&nbsp;<span>8.1</span></a>)).</p>
+<div id="thm">
+<section id="jensens-inequality" class="level3" data-number="8.5.2">
+<h3 data-number="8.5.2" class="anchored" data-anchor-id="jensens-inequality"><span class="header-section-number">8.5.2</span> Jensen’s inequality</h3>
+<p>If <span class="math inline">\(g\)</span> is a lower semi-continuous convex function on <span class="math inline">\(\mathbb{R}\)</span>, with <span class="math inline">\(\mathbb{E} \left[ | g (X) | \right] &lt; \infty\)</span> then</p>
+<p><span class="math display">\[g \left( \mathbb{E} \left[ X \mid \mathcal{G} \right] \right) \leq
+\mathbb{E} \left[ g (X) \mid \mathcal{G} \right]  \text{a.s.} .\]</span></p>
+</section>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>A lower semi-continuous convex function is a countable supremum of affine functions: there exists a countable collection <span class="math inline">\((a_n, b_n)_n\)</span> such that for every <span class="math inline">\(x\)</span>: <span class="math display">\[g (x) = \sup_n  \left[ a_n x + b_n \right] .\]</span></p>
+<p><span class="math display">\[\begin{eqnarray*}
+g \left( \mathbb{E} \left[ X \mid \mathcal{G} \right] \right) &amp; = &amp;
+\sup_n \left[ a_n \mathbb{E} \left[ X \mid \mathcal{G} \right] + b_n
+\right] \\
+&amp; = &amp; \sup_n \left[ \mathbb{E} \left[ a_n X + b_n \mid \mathcal{G}
+\right] \right]\\
+&amp; \leq &amp; \mathbb{E} \left[ \sup_n \left( a_n X + b_n \right) \mid
+\mathcal{G} \right] P \text{-a.s.}\\
+\end{eqnarray*}\]</span></p>
+<p><span class="math inline">\(\square\)</span></p>
+</div>
+<section id="sec-condIndependance" class="level3" data-number="8.5.3">
+<h3 data-number="8.5.3" class="anchored" data-anchor-id="sec-condIndependance"><span class="header-section-number">8.5.3</span> Independence</h3>
+<p>When the conditioning <span class="math inline">\(\sigma\)</span>-algebra <span class="math inline">\(\mathcal{G}\)</span> is atomic, if the conditioned random variable <span class="math inline">\(X\)</span> is independent from the conditioning <span class="math inline">\(\sigma\)</span>-algebra, it is obvious that the conditional expectation is an a.s. constant random variable which value equals <span class="math inline">\(\mathbb{E}X\)</span>. This remains true in the general framework. It deserves a proof.</p>
+<div id="prp-condexpind" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 8.4</strong></span> If <span class="math inline">\(X\)</span> is independent from <span class="math inline">\(\mathcal{G}\)</span>, then</p>
+<p><span class="math display">\[\mathbb{E} \left[ X \mid \mathcal{G} \right] = \mathbb{E} \left[ X\right] .\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Note that <span class="math inline">\(\mathbb{E} \left[ X \right]\)</span> is <span class="math inline">\(\mathcal{G}\)</span>-measurable. Let <span class="math inline">\(B \in \mathcal{G}\)</span>,</p>
+<p><span class="math display">\[\begin{align*}
+\mathbb{E} \left[ \mathbb{I}_B X \right]
+&amp; =  \mathbb{E} \left[ \mathbb{I}_B \right]  \mathbb{E} \left[ X \right]\\
+&amp;  \qquad \text{by  independence} \\
+&amp; =  \mathbb{E} \left[ \mathbb{I}_B \times \mathbb{E} \left[ X
+\right] \right] .
+\end{align*}\]</span></p>
+<p>Hence <span class="math inline">\(\mathbb{E} \left[ X \right] = \mathbb{E} \left[ X \mid\mathcal{G} \right]\)</span>.</p>
+<p><span class="math inline">\(\square\)</span></p>
+</div>
+<p><a href="#prp-condexpind" class="quarto-xref">Proposition&nbsp;<span>8.4</span></a> can be generalized to a more general setting.</p>
+<div id="prp">
+<p>If sub-<span class="math inline">\(\sigma\)</span>-algebra <span class="math inline">\(\mathcal{H}\)</span> is independent from <span class="math inline">\(\sigma (\mathcal{G}, \sigma (X))\)</span> then</p>
+<p><span class="math display">\[\mathbb{E} \left[ X \mid \sigma ( \mathcal{G}, \mathcal{H}) \right] = \mathbb{E}\left[ X \mid \mathcal{G} \right] \hspace{1em} \text{a.s.}\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Recall that conditional expectation with respect to <span class="math inline">\(\sigma(
+\mathcal{G}, \mathcal{H})\)</span> can be characterized using a <span class="math inline">\(\pi\)</span>-system containing <span class="math inline">\(\Omega\)</span> and generating <span class="math inline">\(\sigma \left( \mathcal{G,
+H} \right)\)</span>, for example <span class="math inline">\(\mathcal{G} \times \mathcal{H}\)</span>. Let <span class="math inline">\(B \in
+\mathcal{G}\)</span> and <span class="math inline">\(C \in \mathcal{H}\)</span>,</p>
+<p><span class="math display">\[\begin{align*}
+\mathbb{E} \left[ \mathbb{I}_B  \mathbb{I}_C  \mathbb{E} \left[
+X \mid \mathcal{G} \right] \right]
+&amp; =  \mathbb{E} \left[\mathbb{I}_B  \mathbb{E} \left[ X \mid \mathcal{G} \right] \right]
+      \times \mathbb{E} \left[ \mathbb{I}_C  \right]\\
+&amp;   \qquad C \text{ is independent from }     \sigma ( \mathcal{G}, \sigma (X))\\
+&amp; =  \mathbb{E} \left[ \mathbb{I}_B X \right] \times \mathbb{E}\left[ \mathbb{I}_C  \right]\\
+&amp; =  \mathbb{E} \left[ \mathbb{I}_C  \mathbb{I}_B X \right] \\
+&amp;  \qquad C  \text{ is independent from }  \sigma ( \mathcal{G}, \sigma (X))\,  .
+\end{align*}\]</span></p>
+<p><span class="math inline">\(\square\)</span></p>
+</div>
+</section>
+</section>
+<section id="sec-condProbDistrib" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="sec-condProbDistrib"><span class="header-section-number">8.6</span> Conditional probability distributions</h2>
+<section id="sec-easyregcondprob" class="level3" data-number="8.6.1">
+<h3 data-number="8.6.1" class="anchored" data-anchor-id="sec-easyregcondprob"><span class="header-section-number">8.6.1</span> Easy case: conditioning with respect to a discrete <span class="math inline">\(\sigma\)</span>-algebra</h3>
+<p>We come back to the basic setting: <span class="math inline">\((\Omega,\mathcal{F},P)\)</span> refers to a probability space while <span class="math inline">\(\mathcal{G}\subseteq \mathcal{F}\)</span> denotes an <em>atomic</em> sub-<span class="math inline">\(\sigma\)</span>-algebra generated by a countable partition <span class="math inline">\((A_n)_n\)</span> of <span class="math inline">\(\Omega.\)</span></p>
+<p>Either from conditional expectations with respect to <span class="math inline">\(\mathcal{G}\)</span>, or from conditional probabilities knowing the events <span class="math inline">\(A_n,\)</span> we can define a <span class="math inline">\(N\)</span> function of <span class="math inline">\(\Omega \times \mathcal{F}\)</span> per</p>
+<p><span class="math display">\[N(\omega, B) = \mathbb{E}_{P}[\mathbb{I}_B\mid \mathcal{G}](\omega) =
+P\{B\mid A_n\}\text{  when } \omega \in A_n \, .\]</span></p>
+<p>The <span class="math inline">\(N\)</span> function has two remarkable properties:</p>
+<ol type="i">
+<li>For every <span class="math inline">\(\omega \in \Omega,\)</span> <span class="math inline">\(N(\omega,\cdot)\)</span> defines a probability on <span class="math inline">\((\Omega,\mathcal{F}).\)</span></li>
+<li>For every event <span class="math inline">\(B\in \mathcal{F},\)</span> the function <span class="math inline">\(N(\cdot,B)\)</span> is a <span class="math inline">\(\mathcal{G}\)</span>-measurable function.</li>
+</ol>
+<p>In this simple atomic setting, we observe that while it is intuitive to define conditional expectation starting from conditional probabilities, we can also proceed the other way around: we can build conditional probabilities starting from conditional expectations.</p>
+</section>
+<section id="sec-impediments" class="level3" data-number="8.6.2">
+<h3 data-number="8.6.2" class="anchored" data-anchor-id="sec-impediments"><span class="header-section-number">8.6.2</span> Impediments</h3>
+<p>In the general case, we attempt to construct conditional probabilities when the conditioning <span class="math inline">\(\sigma\)</span>-algebra is not atomic.</p>
+<p>For each <span class="math inline">\(B \in \mathcal{F}\)</span>, we can rely on the existence of random variable <span class="math inline">\(\sigma (X)\)</span>-measurable which is <span class="math inline">\(P\)</span>-a.s. a version of the conditional expectation of <span class="math inline">\(\mathbb{I}_B\)</span> with respect to <span class="math inline">\(X\)</span>. Indeed, for any kind of countable collection of events <span class="math inline">\((B_n)_n\)</span> of <span class="math inline">\(\mathcal{F}\)</span>, we can take for granted that there exists a collection of random variables which, almost surely, form a consistent collection of versions of the expectation of <span class="math inline">\((\mathbb{I}_{B_n})_n\)</span> with respect to <span class="math inline">\(X\)</span>. If <span class="math inline">\((B_n)_n\)</span> is non-decreasing tending towards <span class="math inline">\(B\)</span>, by <a href="#thm-cmon" class="quarto-xref">Theorem&nbsp;<span>8.4</span></a>), we are confident in the fact that the following holds</p>
+<p><span class="math display">\[\lim_n \uparrow \mathbb{E} \left[ \mathbb{I}_{B_n} \mid X \right]  = \mathbb{E}\left[ \mathbb{I}_B \mid X \right] \qquad \text{a.s.}\]</span></p>
+<p>It is therefore tempting to define a conditional probability with respect to <span class="math inline">\(\sigma(X)\)</span> as a function</p>
+<p><span class="math display">\[\begin{align*}
+\Omega \times \mathcal{F} &amp;
+\to [0, 1] \\
+(\omega, B) &amp; \mapsto \mathbb{E} \left[ \mathbb{I}_B \mid
+\sigma(X) \right](\omega) \, .
+\end{align*}\]</span></p>
+<p>Unfortunately, we cannnot guarantee that <span class="math inline">\(P\)</span>-a.s., this object has the properties of a probability distribution <span class="math inline">\((\Omega, \mathcal{F})\)</span>. The problem does not arise from the diffuse nature of the distribution of <span class="math inline">\(X\)</span> but from the size of <span class="math inline">\(\mathcal{F}\)</span>. As <span class="math inline">\(\mathcal{F}\)</span> may not be countable, it is possible to build an uncountable non-decreasing sequence of events. Checking the a.s. monotonicity of the sequence of corresponding conditional probabilities looks beyond our reach (an uncountable union of <span class="math inline">\(P\)</span>-negligible events is not necessarily <span class="math inline">\(P\)</span>-negligible).</p>
+<p>Fortunately, the situation is not desperate. In most settings envisioned in an introductory course on Probability, we can take the existence of condition probabilities for granted.</p>
+<p>In <a href="#sec-jointdensity" class="quarto-xref">Section&nbsp;<span>8.6.3</span></a>), we first review the easy case, where we can define conditional probabilities that even have a density with respect to a reference measure. In <a href="#sec-regconprob" class="quarto-xref">Section&nbsp;<span>8.6.4</span></a>) we shall see that if <span class="math inline">\(\Omega\)</span> is not too large, we can rely on the existence of conditional probabilities.</p>
+</section>
+<section id="sec-jointdensity" class="level3" data-number="8.6.3">
+<h3 data-number="8.6.3" class="anchored" data-anchor-id="sec-jointdensity"><span class="header-section-number">8.6.3</span> Joint density setting</h3>
+<p>If <span class="math inline">\(\Omega = \mathbb{R}^k\)</span>, <span class="math inline">\(\mathcal{F} = \mathcal{B}(\mathbb{R}^k)\)</span> and the probability distribution <span class="math inline">\(P\)</span> is absolutely continuous with respect to Lebesgue measure (has a density denoted by <span class="math inline">\(p\)</span>), defining conditional density with respect to coordinate projections is almost as simple as conditioning with respect to an atomic <span class="math inline">\(\sigma\)</span>-algebra.</p>
+<p>For the sake of simplicity, we stick to the case <span class="math inline">\(k=2\)</span>. A generic outcome is denoted by <span class="math inline">\(\omega = (x, y)\)</span> and the coordinated projections define two random variables <span class="math inline">\(X(x, y) = x\)</span> and <span class="math inline">\(Y (x, y) = y\)</span>. We denote by <span class="math inline">\(p_X\)</span> the <em>marginal density</em> of the distribution of <span class="math inline">\(X\)</span>:</p>
+<p><span class="math display">\[p_X (x) = \int_{\mathcal{\mathbb{R}}} p (x, y) \mathrm{d} y .\]</span></p>
+<p>And we agree on <span class="math inline">\(D =\{x : p_X (x) &gt; 0\}\)</span>. This is the support of the density <span class="math inline">\(p_X\)</span> (beware, this may be different from the support of distribution <span class="math inline">\(P \circ X^{- 1}\)</span>).</p>
+<div id="exr-cond-dens" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 8.5</strong></span> Check that <span class="math inline">\(p_X\)</span> is the density of <span class="math inline">\(P \circ X^{- 1}\)</span>.</p>
+</div>
+<p>Having a density allows us to calculate conditional expectation and to define just as easily what we will call a conditional probability of <span class="math inline">\(Y\)</span> knowing <span class="math inline">\(X\)</span>.</p>
+<div id="thm-conddensity" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 8.6 (Conditional density)</strong></span> Let be <span class="math inline">\(X, Y\)</span> be the projection coordinates on <span class="math inline">\(\mathbb{R}^2\)</span>. Let <span class="math inline">\(P\)</span> be an absolutely continuous distribution on <span class="math inline">\((\mathbb{R}^2, \mathcal{B}(\mathbb{R}^2))\)</span> with density <span class="math inline">\(p (., .)\)</span> with respect to Lebesgue’s measure. Let the first marginal density (density of <span class="math inline">\(P \circ X^{-1}\)</span> be denoted by <span class="math inline">\(p_X\)</span>.</p>
+<p>The function</p>
+<p><span class="math display">\[\begin{align*}
+N: \qquad\mathbb{R}^2 &amp;  \to  [0,\infty)  \\
+    (x, y) &amp;  \mapsto N (x, y) =
+\begin{cases}
+\frac{p (x, y)}{p_X (x)} &amp; \text{if } p_X (x) &gt; 0\\
+0 &amp;\text{ otherwise,}
+\end{cases}
+\end{align*}\]</span></p>
+<p>satisfies the following properties.</p>
+<ol type="i">
+<li><p>For each <span class="math inline">\(x\)</span> such that <span class="math inline">\(p_X (x) &gt; 0\)</span>, the set function <span class="math inline">\(P_{\cdot \mid X=x}\)</span> defined by <span class="math display">\[\begin{align*}
+\mathcal{B}(\mathbb{R}^2) &amp; \to [0, 1]\\
+B &amp; \mapsto P_{\cdot \mid X=x} \{B\} = \int_{\mathbb{R}} \mathbb{I}_B(x,y) N (x, y) \mathrm{d} y
+\end{align*}\]</span> is a probability measure on <span class="math inline">\((\mathbb{R}^2, \mathcal{B} ( \mathbb{R}^2))\)</span>. This probability distribution is supported by <span class="math inline">\(\{x\} \times \mathbb{R}\)</span>.</p></li>
+<li><p>For every <span class="math inline">\(B \in \mathcal{B} ( \mathbb{R}^2)\)</span>, the function <span class="math display">\[
+\omega \mapsto \int_{\mathbb{R}} \mathbb{I}_B(X(\omega),y) N (X(\omega), y) \mathrm{d} y
+= \mathbb{E}_{P_{\cdot \mid X=X(\omega)}} \mathbb{I}_B
+\]</span> for <span class="math inline">\(\Omega = \mathbb{R}^2\)</span>, is <span class="math inline">\(\sigma(X)\)</span>-measurable and may be called a version of <span class="math inline">\(\mathbb{E}\big[\mathbb{I}_B \mid \sigma(X)\big]\)</span>.</p></li>
+<li><p>For every <span class="math inline">\(B \in \mathcal{B} ( \mathbb{R}^2)\)</span> <span class="math display">\[
+P(B) = \int \left( \int \mathbb{I}_B (s,y) N (s,y) \mathrm{d} y
+\right) p_X (s) \mathrm{d} s =  \int P_{\cdot \mid X=s}(B) p_X(s) \mathrm{d} s .
+\]</span></p></li>
+<li><p>For any <span class="math inline">\(P\)</span>-integrable function <span class="math inline">\(f\)</span> on <span class="math inline">\(\mathbb{R}^2\)</span>, the random variable defined by applying <span class="math display">\[
+x \mapsto \int_{\mathbb{R}} f (x, y) N (x, y) \mathrm{d} y
+\]</span> to <span class="math inline">\(X\)</span> is a version of the conditional expectation of <span class="math inline">\(f(X, Y)\)</span> with respect to <span class="math inline">\(\sigma (X).\)</span></p></li>
+</ol>
+</div>
+<div id="rem-cond-prob" class="proof remark">
+<p><span class="proof-title"><em>Remark 8.3</em>. </span>For each <span class="math inline">\(x\)</span> such that <span class="math inline">\(p_X(x)&gt;0\)</span>, <span class="math inline">\(P_{\cdot \mid X=x}\)</span> is a probability on <span class="math inline">\(\mathbb{R}^2\)</span>. But this probability measure is supported by <span class="math inline">\(\{x\} \times \mathbb{R}\)</span>, it is the product of the Dirac mass in <span class="math inline">\(\{x\}\)</span> times the probability distribution on <span class="math inline">\(\mathbb{R}\)</span> defined by the density <span class="math inline">\(N(x, \cdot)\)</span>. This is why <span class="math inline">\(N(x, \cdot)\)</span> is often called the conditional density of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X=x\)</span>, and the distribution over <span class="math inline">\(\mathbb{R}\)</span> defined by this density is often called the conditional distribution of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X\)</span>.</p>
+</div>
+<div id="exr-normal-density-cond" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 8.6</strong></span> Is <span class="math inline">\(N(x,y)\)</span> a probability density? If yes, with respect to which <span class="math inline">\(\sigma\)</span>-finite measure?</p>
+</div>
+<p>The proof of <a href="#thm-conddensity" class="quarto-xref">Theorem&nbsp;<span>8.6</span></a>) consists of milking the Tonelli-Fubini Theorem.</p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Proof of (i). Let us agree on notation: <span class="math display">\[ P_x \{B\}= \int_{\mathbb{R}} \mathbb{I}_B(x,y) N (x, y) \mathrm{d} y . \]</span> The fact that the <span class="math inline">\(P_x\)</span> is <span class="math inline">\([0, 1]\)</span>-valued is immediate. Same for the fact that <span class="math inline">\(P_x (\{x\} \times \{\emptyset\}) = 0\)</span> and <span class="math inline">\(P_x (\{x\} \times \{\mathbb{R}\}) = 1\)</span>. The same applies to additivity.</p>
+<p>It remains to check that if <span class="math inline">\((B_n)\)</span> is a non-decreasing sequence of Borelians from <span class="math inline">\(\mathbb{R}^2\)</span> that tends to to a limit <span class="math inline">\(B\)</span> then <span class="math display">\[
+\lim_n \uparrow P_x (B_n) = P_x (B) \, .
+\]</span> This is an immediate consequence of the monotonous convergence theorem, for each <span class="math inline">\((x',y')\)</span> <span class="math inline">\(\lim_n \uparrow \mathbb{I}_{B_n} (x', y') N (x', y') =  \mathbb{I}_{B} (x', y') N (x', y')\)</span>.</p>
+<p>Proof of ii) As the function <span class="math inline">\((x, y) \mapsto p (x, y) \mathbb{I}_B (x,y)\)</span> is <span class="math inline">\(\mathcal{B} ( \mathbb{R}^2)\)</span>-measurable and integrable, by the Tonelli-Fubini Theorem, <span class="math display">\[ x \mapsto \int_B p (x, y) \mathbb{I}_B (x,y) \mathrm{d} y \]</span> is defined almost everywhere and Borel-measurable.</p>
+<p>Proof of iii) This is also an immediate consequence of the Tonelli-Fubini Theorem.</p>
+<p>Proof of iv), It follows from i.), using the usual approximation by simple functions argument.</p>
+<p><span class="math inline">\(\square\)</span></p>
+</div>
+<div id="exr-marginal" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 8.7</strong></span> We consider the uniform law on the surface of <span class="math inline">\(\mathbb{R}^2\)</span> defined by <span class="math inline">\(0 \leq x \leq y \leq y \leq 1\)</span>. Give the attached density <span class="math inline">\(p()\)</span>, the marginal density <span class="math inline">\(p_X\)</span> and the kernel <span class="math inline">\(N (,) .\)</span></p>
+</div>
+</section>
+<section id="sec-regconprob" class="level3" data-number="8.6.4">
+<h3 data-number="8.6.4" class="anchored" data-anchor-id="sec-regconprob"><span class="header-section-number">8.6.4</span> Regular conditional probabilities, kernels</h3>
+<p>We will outline some results that allow us to work within a more general framework. We introduce two new notions.</p>
+</section>
+<div id="def">
+<section id="conditional-probability-kernel" class="level3" data-number="8.6.5">
+<h3 data-number="8.6.5" class="anchored" data-anchor-id="conditional-probability-kernel"><span class="header-section-number">8.6.5</span> Conditional probability kernel</h3>
+<p>Let <span class="math inline">\((\Omega, \mathcal{F})\)</span> be a measurable space, and <span class="math inline">\(\mathcal{G}\)</span> a sub-<span class="math inline">\(\sigma\)</span>-algebra of <span class="math inline">\(\mathcal{F}.\)</span></p>
+<p>We call <em>conditional probability kernel with respect to</em> <span class="math inline">\(\mathcal{G}\)</span> a function <span class="math inline">\(N : \Omega \times \mathcal{F} \rightarrow
+\mathbb{R}_+\)</span> that satisfies:</p>
+<ol type="i">
+<li>For any <span class="math inline">\(\omega \in \Omega\)</span>, <span class="math inline">\(N (\omega, \cdot)\)</span> defines a probability on <span class="math inline">\((\Omega, \mathcal{F})\)</span>.</li>
+<li>For any <span class="math inline">\(A \in \mathcal{F}\)</span>, <span class="math inline">\(N (\cdot, A)\)</span> is <span class="math inline">\(\mathcal{G}\)</span>-measurable</li>
+</ol>
+</section>
+</div>
+<p>If the measurable space is endowed with a probability distribution <span class="math inline">\(P\)</span>, we are interested in conditional probability kernels with respect to <span class="math inline">\(\mathcal{G}\)</span> that are compliant with <span class="math inline">\(P\)</span>. We call them <em>regular conditional probability kernels</em>.</p>
+<div id="def">
+<section id="regular-conditional-probability" class="level3" data-number="8.6.6">
+<h3 data-number="8.6.6" class="anchored" data-anchor-id="regular-conditional-probability"><span class="header-section-number">8.6.6</span> Regular conditional probability</h3>
+<p>Let <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span> be a probability space and <span class="math inline">\(\mathcal{G} \subseteq \mathcal{F}\)</span> a sub-<span class="math inline">\(\sigma\)</span>-algebra. A kernel <span class="math inline">\(N : \Omega \times \mathcal{F} \to \mathbb{R}_+\)</span> is a <em>regular conditional probability</em> with respect <span class="math inline">\(\mathcal{G}\)</span> if and only if</p>
+<ol type="i">
+<li>For any <span class="math inline">\(B \in \mathcal{F}\)</span>, <span class="math inline">\(\omega \mapsto N (\omega, B)\)</span> is a version of the conditional expectation of <span class="math inline">\(\mathbb{I}_B\)</span> knowing <span class="math inline">\(\mathcal{G}\)</span> (<span class="math inline">\(N (\cdot, B)\)</span> is therefore <span class="math inline">\(\mathcal{G}\)</span>-measurable): <span class="math display">\[
+N (\cdot, B) = \mathbb{E}[\mathbb{I}_B \mid \mathcal{G}]\quad P-\text{a.s.}
+\]</span></li>
+<li>For <span class="math inline">\(P\)</span>-almost all <span class="math inline">\(\omega \in \Omega\)</span>, <span class="math inline">\(B \mapsto N
+(\omega, B)\)</span> defines a probability on <span class="math inline">\((\Omega, \mathcal{F})\)</span>.</li>
+</ol>
+</section>
+</div>
+<p>A regular conditional probability (whenever it exists) is defined from versions of conditional expectations. Conversely, a regular conditional probability provides us with a way to to compute conditional expectations.</p>
+<div id="thm">
+<p>Let <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span> be a probability space and <span class="math inline">\(\mathcal{G} \subseteq \mathcal{F}\)</span> a sub-<span class="math inline">\(\sigma\)</span>-algebra. Let <span class="math inline">\(N\)</span> be a probability kernel on <span class="math inline">\((\Omega,\mathcal{F})\)</span> with respect to <span class="math inline">\(\mathcal{G}\)</span>.</p>
+<p>The following properties are equivalent</p>
+<ol type="1">
+<li><span class="math inline">\(N(\cdot,\cdot)\)</span> defines a regular conditional probability kernel with respect to <span class="math inline">\(\mathcal{G}\)</span> for <span class="math inline">\((\Omega, \mathcal{G}, P)\)</span>.</li>
+<li><span class="math inline">\(P\)</span>-almost surely, for any <span class="math inline">\(P\)</span>-integrable function <span class="math inline">\(f\)</span> on <span class="math inline">\((\Omega, \mathcal{F})\)</span>: <span class="math display">\[
+\mathbb{E} \left[ f \mid \mathcal{G} \right](\omega) =
+\mathbb{E}_{N(\omega,\cdot)}[f] \, .
+\]</span></li>
+<li>For any <span class="math inline">\(P\)</span>-integrable random variable <span class="math inline">\(X\)</span> on <span class="math inline">\((\Omega, \mathcal{F})\)</span> <span class="math display">\[ \mathbb{E} \left[ X \right] =
+\mathbb{E}\left[ \mathbb{E}_{N(\omega,\cdot)}[X]\right] \, .
+\]</span></li>
+</ol>
+</div>
+<div id="rem-1" class="proof remark">
+<p><span class="proof-title"><em>Remark 8.4</em>. </span>The proof of <span class="math inline">\(1) \Rightarrow 2)\)</span> relies on the usual machinery: approximation of positive integrable functions by an increasing sequences of simple functions, monotone convergence of expectation and conditional expectation.</p>
+<p><span class="math inline">\(2) \Rightarrow 3)\)</span> is trivial.</p>
+<p><span class="math inline">\(3) \Rightarrow 1)\)</span> is more interesting.</p>
+</div>
+<section id="existence-of-regular-conditional-probability-distributions-when-omega-mathbbr" class="level3" data-number="8.6.7">
+<h3 data-number="8.6.7" class="anchored" data-anchor-id="existence-of-regular-conditional-probability-distributions-when-omega-mathbbr"><span class="header-section-number">8.6.7</span> Existence of regular conditional probability distributions when <span class="math inline">\(\Omega =\mathbb{R}\)</span></h3>
+<p>We shall check the existence of conditional probabilities in at least one non-trivial case.</p>
+<div id="thm">
+<p>Let <span class="math inline">\(P\)</span> be a probability on <span class="math inline">\(( \mathbb{R}, \mathcal{B} (
+\mathbb{R}))\)</span> and <span class="math inline">\(\mathcal{G} \subseteq \mathcal{B} (
+\mathbb{R})\)</span>, then there exists a regular conditional probability kernel with respect to <span class="math inline">\(\mathcal{G}.\)</span></p>
+</div>
+<div id="rem">
+<p>We take advantage of the fact that <span class="math inline">\(\mathcal{B} (\mathbb{R})\)</span> is countably generated.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(\mathcal{C}\)</span> be the set formed by half-lines with rational endpoint, the empty set, and <span class="math inline">\(\mathbb{R}\)</span>: <span class="math display">\[
+  \mathcal{C}  = \big\{ (-\infty, q]:  q \in \mathbb{Q} \big\} \cup \{\emptyset, \mathbb{R} \}\, .
+\]</span> This countable collection of half-lines is a <span class="math inline">\(\pi\)</span>-system (See <a href="02-language.html#sec-dynkin" class="quarto-xref">Section&nbsp;<span>2.6</span></a>)) that generates <span class="math inline">\(\mathcal{B}(\mathbb{R})\)</span>.</p>
+<p>For <span class="math inline">\(q &lt; q' \in \mathbb{Q},\)</span> we can choose versions of <span class="math inline">\(Y_q\)</span> and <span class="math inline">\(Y_{q'}\)</span> of the conditional expectations of <span class="math inline">\(\mathbb{I}_{(-
+\infty, q]}\)</span> and <span class="math inline">\(\mathbb{I}_{(- \infty, q']}\)</span> such that <span class="math display">\[
+  Y_q &lt; Y_{q'} \qquad P\text{-a.s.}
+\]</span> Observe that <span class="math inline">\(Y_{q'} - Y_q\)</span> is also a version of the conditional expectation of <span class="math inline">\(\mathbb{I}_{(q, q']}\)</span>.</p>
+<p>A countable union of <span class="math inline">\(P\)</span>-negligible events is <span class="math inline">\(P\)</span>-negligible, so, as <span class="math inline">\(\mathbb{Q}^2\)</span> is countable, we can choose versions <span class="math inline">\(\left( Y_q \right)_{q \in
+\mathbb{Q}}\)</span> of the conditional expectations of <span class="math inline">\(\mathbb{I}_{(-
+\infty, q]}\)</span> such that <span class="math display">\[
+P\text{-a.s.} \qquad\forall q,q' \in \mathbb{Q}, \quad q &lt; q' \Rightarrow Y_q &lt; Y_{q'},
+\]</span> Let <span class="math inline">\(\Omega_0\)</span> be the <span class="math inline">\(P\)</span>-almost sure event on which all <span class="math inline">\(Y_q, q \in \mathbb{Q}\)</span> satisfy the good properties.</p>
+<p>For each <span class="math inline">\(x \in \mathbb{R}\)</span>, we can define <span class="math inline">\(Z_x\)</span> for each <span class="math inline">\(\omega \in \mathbb{R}\)</span> by <span class="math display">\[ Z_x (\omega) = \inf \left\{ Y_q (\omega) : q \in \mathbb{Q}, x &lt; q
+\right\}\]</span> On <span class="math inline">\(\Omega_0\)</span>, the function <span class="math inline">\(x \mapsto Z_x (\omega)\)</span> is increasing, it has a limit on the left at each point and it is right-continuous. The function <span class="math inline">\(x \mapsto Z_x(\omega)\)</span> tends to <span class="math inline">\(0\)</span> when <span class="math inline">\(x\)</span> tends to <span class="math inline">\(- \infty\)</span>, to <span class="math inline">\(1\)</span> when <span class="math inline">\(x\)</span> tends towards <span class="math inline">\(+ \infty\)</span>. In words, on <span class="math inline">\(\Omega_0\)</span>, <span class="math inline">\(x
+\mapsto Z_x (\omega)\)</span> is a cumulative distribution function, it defines so (uniquely) a unique probability measure on <span class="math inline">\(\mathbb{R}\)</span>. We will denote it by <span class="math inline">\(\nu (\omega, .)\)</span>.</p>
+<p>In addition, for each <span class="math inline">\(x\)</span>, <span class="math inline">\(Z_x\)</span> is defined as a countable infimum of <span class="math inline">\(\mathcal{G}\)</span>-measurable random variables, <span class="math inline">\(Z_x\)</span> is therefore <span class="math inline">\(\mathcal{G}\)</span>-measurable.</p>
+<p>It remains to check that for every <span class="math inline">\(B \in \mathcal{F}\)</span>, <span class="math inline">\(\omega
+\mapsto \nu (\omega, B)\)</span> for <span class="math inline">\(\omega \in \Omega_0\)</span>, <span class="math inline">\(0\)</span> elsewhere, defines a version of the conditional expectation of <span class="math inline">\(\mathbb{I}_B\)</span> with respect to <span class="math inline">\(\mathcal{G}\)</span>.</p>
+<p>This property is satisfied for <span class="math inline">\(B \in \mathcal{C}\)</span>.</p>
+<p>Let us call <span class="math inline">\(\mathcal{D}\)</span> the set of all the events for which <span class="math inline">\(\omega \mapsto \nu (\omega, B)\)</span> (on <span class="math inline">\(\Omega_0\)</span>, <span class="math inline">\(0\)</span> elsewhere) defines a version of the conditional expectation of <span class="math inline">\(\mathbb{I}_B\)</span> with respect to <span class="math inline">\(\mathcal{G}\)</span>. We shall show that <span class="math inline">\(\mathcal{D}\)</span> is a <span class="math inline">\(\lambda\)</span>-system, that is</p>
+<ol type="i">
+<li><span class="math inline">\(\mathcal{D}\)</span> contains <span class="math inline">\(\emptyset\)</span> and <span class="math inline">\(\mathbb{R} = \Omega\)</span>.</li>
+<li>If <span class="math inline">\(B, B'\)</span> belong to <span class="math inline">\(\mathcal{D},\)</span> and <span class="math inline">\(B \subseteq B'\)</span> then <span class="math inline">\(B' \setminus B \in \mathcal{D} .\)</span></li>
+<li>If <span class="math inline">\((B_n)_n\)</span> is a growing sequence of events from <span class="math inline">\(\mathcal{D},\)</span> limit <span class="math inline">\(B\)</span> then <span class="math inline">\(B \in \mathcal{D} .\)</span></li>
+</ol>
+<p>Clause i.) is guaranteed by construction.</p>
+<p>Clause ii.) If <span class="math inline">\(B' \subseteq B\)</span> belong to <span class="math inline">\(\mathcal{D}\)</span>, then by linearity of conditional expectations, if <span class="math inline">\(\mathbb{E}
+\left[ \mathbb{I}_{B' \setminus B} \mid \mathcal{G} \right]\)</span> is a version of the conditional expectation of <span class="math inline">\(\mathbb{I}_{B' \setminus
+B}\)</span> with respect to <span class="math inline">\(\mathcal{G}\)</span>, on an almost-sure event <span class="math inline">\(\Omega_1 \subseteq
+\Omega_0\)</span>: <span class="math display">\[\begin{align*}
+\mathbb{E} \left[ \mathbb{I}_{B' \setminus B} \mid \mathcal{G} \right]
+  &amp; = \mathbb{E} \left[ \mathbb{I}_{B'} - \mathbb{I}_B \mid \mathcal{G} \right] \\
+  &amp; = \mathbb{E} \left[ \mathbb{I}_{B'} \mid \mathcal{G} \right] - \mathbb{E} \left[ \mathbb{I}_B \mid \mathcal{G} \right] \\
+  &amp; = \nu (\omega, B') - \nu (\omega, B) \\
+  &amp; = \nu (\omega, B' \setminus B) \, .
+\end{align*}\]</span> Clause iii.). If <span class="math inline">\((B_n)_n\)</span> is a non-decreasing sequence of events from <span class="math inline">\(\mathcal{D},\)</span> with <span class="math inline">\(B_n \uparrow B\)</span>, if <span class="math inline">\(\mathbb{E} \left[ \mathbb{I}_B \mid \mathcal{G} \right]\)</span> is a version of the conditional expectation of <span class="math inline">\(\mathbb{I}_B\)</span> with respect to <span class="math inline">\(\mathcal{G}\)</span>, on an event <span class="math inline">\(\Omega_1 \subseteq \Omega_0\)</span> with probability <span class="math inline">\(1\)</span>: <span class="math display">\[
+\mathbb{E} \left[ \mathbb{I}_B \mid \mathcal{G} \right] = \lim_n
+\mathbb{E} \left[ \mathbb{I}_{B_n} \mid \mathcal{G} \right] =
+\lim_n \nu (\omega, B_n) = \nu (\omega, B) \, .
+\]</span> So <span class="math inline">\(B \in \mathcal{D}\)</span>.</p>
+<p>The Monotone class Theorem (<a href="02-language.html#sec-dynkin" class="quarto-xref">Section&nbsp;<span>2.6</span></a>)) tells us that <span class="math inline">\(\mathcal{F \subseteq \mathcal{D}}\)</span>.</p>
+<p><span class="math inline">\(\square\)</span></p>
+</div>
+<div id="rem">
+<p>Working harder would allow us to show that the existence of regular conditional probabilities is guaranteed as soon as <span class="math inline">\(\Omega\)</span> can be endowed with a complete and separable metric space structure and that the <span class="math inline">\(\sigma\)</span>-algebra <span class="math inline">\(\mathcal{F}\)</span> is the Borelian <span class="math inline">\(\sigma\)</span>-algebra induced by this metric.</p>
+</div>
+<p>We often define a probability distribution starting from a marginal distribution and a kernel.</p>
+<div id="prp">
+<p>Let <span class="math inline">\((\Omega, \mathcal{F})\)</span> be a measurable space, <span class="math inline">\(X\)</span> a random variable from <span class="math inline">\((\Omega, \mathcal{F})\)</span>, and <span class="math inline">\(N\)</span> a conditional probability kernel with respect to <span class="math inline">\(\sigma(X)\)</span>. Let <span class="math inline">\(P_X\)</span> be a probability measure on <span class="math inline">\((\Omega \sigma(X))\)</span>.</p>
+<p>Then there exists a unique probability measure <span class="math inline">\(P\)</span> on <span class="math inline">\((\Omega, \mathcal{F})\)</span> such that <span class="math inline">\(P_X = P \circ X^{- 1}\)</span> and <span class="math inline">\(N\)</span> is a regualr conditional probability kernel with respect to <span class="math inline">\(\sigma(X)\)</span>, we have for every <span class="math inline">\(B \in \mathcal{F}\)</span>: <span class="math display">\[
+P(B) = \int_{X(\Omega)} N(x, B) \mathrm{d}P_x(x)
+\]</span></p>
+</div>
+<p>The following theorem guarantees the existence of a regular conditional probability in all the scenarios we are interested in.</p>
+</section>
+</section>
+<section id="sec-ess" class="level2" data-number="8.7">
+<h2 data-number="8.7" class="anchored" data-anchor-id="sec-ess"><span class="header-section-number">8.7</span> Efron-Stein-Steele inequalities</h2>
+<p>In this section, <span class="math inline">\(X_1, \ldots, X_n\)</span> denote independent random variables on some probability space with values in <span class="math inline">\(\mathcal{X}_1, \ldots, \mathcal{X}_n\)</span>, and <span class="math inline">\(f\)</span> denote a measurable function from <span class="math inline">\(\mathcal{X}_1 \times  \ldots \times \mathcal{X}_n\)</span> to <span class="math inline">\(\mathbb{R}\)</span>. Let <span class="math inline">\(Z=f(X_1, \ldots, X_n)\)</span>. The random variable <span class="math inline">\(Z\)</span> is a general function of independent random variables. We assume <span class="math inline">\(Z\)</span> is integrable.</p>
+<p>If we had <span class="math inline">\(Z = \sum_{i=1}^n X_i\)</span>, we could write <span class="math display">\[
+\operatorname{var}(Z)
+= \sum_{i=1}^n \operatorname{var}(X_i)
+= \sum_{i=1}^n \mathbb{E}\Big[\operatorname{var}( Z \mid X_1, \ldots, X_{i-1}, X_{i+1}, \ldots X_n)\Big]
+\]</span> even though the last expression looks pedantic. The aim of this section is to show that even if <span class="math inline">\(f\)</span> is not as simple as the sum of its arguments, the last expression can still serve as an upper bound on the variance.</p>
+<p>It is a natural idea to bound the variance of such a general function by expressing <span class="math inline">\(Z-\mathbb{E} Z\)</span> as a sum of differences and to use the orthogonality of these differences.</p>
+<p>More precisely, if we denote by <span class="math inline">\(\mathbb{E}_i\)</span> the conditional expectation operator, conditioned on <span class="math inline">\(\left(X_{1},\ldots,X_{i}\right)\)</span>, and use the convention <span class="math inline">\(\mathbb{E}_0=\mathbb{E}\)</span>, then we may define <span class="math display">\[
+\Delta_{i}=\mathbb{E}_i Z  -\mathbb{E}_{i-1} Z
+\]</span> for every <span class="math inline">\(i=1,\ldots,n\)</span>.</p>
+<div id="exr-ess-1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 8.8</strong></span> Check that <span class="math inline">\(\mathbb{E} \Delta_i=0\)</span> and that for <span class="math inline">\(j&gt;i\)</span>, <span class="math inline">\(\mathbb{E}_i \Delta_j=0\)</span> a.s.</p>
+</div>
+<p>Starting from the decomposition <span class="math display">\[
+Z-\mathbb{E} Z  =\sum_{i=1}^{n}\Delta_{i}
+\]</span> one has <span class="math display">\[
+\operatorname{var}\left(  Z\right)  =\mathbb{E}\left[  \left(  \sum_{i=1}
+^{n}\Delta_{i}\right)  ^{2}\right]  =\sum_{i=1}^{n}\mathbb{E}\left[
+\Delta_{i}^{2}\right]  +2\sum_{j&gt;i}\mathbb{E}\left[  \Delta_{i}\Delta
+_{j}\right]  \text{.}
+\]</span> Now if <span class="math inline">\(j&gt;i\)</span>, <span class="math inline">\(\mathbb{E}_i \Delta_{j}  =0\)</span> implies that <span class="math display">\[
+\mathbb{E}_i\left[  \Delta_{j}\Delta_{i}\right]  =\Delta_{i}
+\mathbb{E}_{i} \Delta_{j}  =0~,
+\]</span> and, a fortiori, <span class="math inline">\(\mathbb{E}\left[  \Delta_{j}\Delta_{i}\right]  =0\)</span>. Thus, we obtain the following analog of the additivity formula of the variance: <span class="math display">\[
+\operatorname{var}\left(  Z\right)  =\mathbb{E}\left[  \left(  \sum_{i=1}
+^{n}\Delta_{i}\right)  ^{2}\right]  =\sum_{i=1}^{n}\mathbb{E}\left[
+\Delta_{i}^{2}\right]~.
+\]</span> Observe that up to now, we have not made any use of the fact that <span class="math inline">\(Z\)</span> is a function of independent variables <span class="math inline">\(X_{1},\ldots,X_{n}\)</span>.</p>
+<p>Independence may be used as in the following argument: for any integrable function <span class="math inline">\(Z= f\left(  X_{1},\ldots,X_{n}\right)\)</span> one may write, by the Tonelli-Fubini theorem, <span class="math display">\[
+\mathbb{E}_i Z  =\int
+_{\mathcal{X}^{n-i}}f\left(  X_{1},\ldots,X_{i},x_{i+1},\ldots,x_{n}\right)
+d\mu_{i+1}\left(  x_{i+1}\right)  \ldots d\mu_{n}\left(  x_{n}\right)  \text{,}
+\]</span> where, for every <span class="math inline">\(j= 1,\ldots,n\)</span>, <span class="math inline">\(\mu_{j}\)</span> denotes the probability distribution of <span class="math inline">\(X_{j}\)</span>. Also, if we denote by <span class="math inline">\(\mathbb{E}^{(i)}\)</span> the conditional expectation operator conditioned on <span class="math inline">\(X^{(i)}=(X_{1},\ldots,X_{i-1},X_{i+1},\ldots,X_{n})\)</span>, we have <span class="math display">\[
+\mathbb{E}^{(i)}Z %%%%%\left[  Z\right]
+=\int_{\mathcal{X}}
+f\left(  X_{1},\ldots,X_{i-1},x_{i},X_{i+1},\ldots,X_{n}\right)  d\mu_{i}\left(
+x_{i}\right)~.
+\]</span> Then, again by the Tonelli-Fubini theorem, <span class="math display">\[\begin{equation}
+\mathbb{E}_i\left[  \mathbb{E}^{\left(  i\right)  } Z \right]
+=\mathbb{E}_{i-1} Z  \text{.}
+  (\#eq:efundind)
+\end{equation}\]</span> This observation is the key in the proof of the main result of this section which we state next:</p>
+<div id="thm-zefron-stein" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 8.7 (Efron-Stein-Steele’s inequalities)</strong></span> Let <span class="math inline">\(X_1,\ldots,X_n\)</span> be independent random variables and let <span class="math inline">\(Z=f(X)\)</span> be a square-integrable function of <span class="math inline">\(X=\left(  X_{1},\ldots,X_{n}\right)\)</span>. Then <span class="math display">\[
+\operatorname{var}\left(  Z\right)  \leq\sum_{i=1}^n\mathbb{E}\left[
+\left(  Z-\mathbb{E}^{(i)} Z  \right)^2\right]  = v~.
+\]</span> Moreover if <span class="math inline">\(X_1',\ldots,X_n'\)</span> are independent copies of <span class="math inline">\(X_1,\ldots,X_n\)</span> and if we define, for every <span class="math inline">\(i=1,\ldots,n\)</span>, <span class="math display">\[
+Z_i'=  f\left(X_1,\ldots,X_{i-1},X_i',X_{i+1},\ldots,X_n\right)~,
+\]</span> then <span class="math display">\[
+v=\frac{1}{2}\sum_{i=1}^n\mathbb{E}\left[  \left(  Z-Z_i'\right)^2\right]
+=\sum_{i=1}^n\mathbb{E}\left[  \left(  Z-Z_i'\right)_+^2\right]
+=\sum_{i=1}^n\mathbb{E}\left[  \left(  Z-Z_i'\right)_-^2\right]
+\]</span> where <span class="math inline">\(x_+=\max(x,0)\)</span> and <span class="math inline">\(x_-=\max(-x,0)\)</span> denote the positive and negative parts of a real number <span class="math inline">\(x\)</span>. Also, <span class="math display">\[
+v=\inf_{Z_{i}}\sum_{i=1}^{n}\mathbb{E}\left[  \left(  Z-Z_{i}\right)^2\right]~,
+\]</span> where the infimum is taken over the class of all <span class="math inline">\(X^{(i)}\)</span>-measurable and square-integrable variables <span class="math inline">\(Z_{i}\)</span>, <span class="math inline">\(i=1,\ldots,n\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>We begin with the proof of the first statement. Note that, using @ref(eq:efundind), we may write <span class="math display">\[
+\Delta_{i}=\mathbb{E}_i\left[  Z-\mathbb{E}^{\left(  i\right)  } Z  \right]  \text{.}
+\]</span> By the conditional Jensen inequality, <span class="math display">\[
+\Delta_{i}^{2}\leq\mathbb{E}_i\left[  \left(  Z-\mathbb{E}^{\left(
+i\right)  }Z  \right)  ^{2}\right]~.
+\]</span> Using <span class="math inline">\(\operatorname{var}(Z) = \sum_{i=1}^n \mathbb{E}\left[ \Delta_i^2\right]\)</span>, we obtain the desired inequality. To prove the identities for <span class="math inline">\(v\)</span>, denote by <span class="math inline">\(\operatorname{var}^{\left(i\right) }\)</span> the conditional variance operator conditioned on <span class="math inline">\(X^{\left(  i\right)  }\)</span>. Then we may write <span class="math inline">\(v\)</span> as <span class="math display">\[
+v=\sum_{i=1}^{n}\mathbb{E}\left[  \operatorname{var}^{\left(  i\right)  }\left(
+Z\right)  \right]  \text{.}
+\]</span> Now note that one may simply use (conditionally) the elementary fact that if <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent and identically distributed real-valued random variables, then <span class="math inline">\(\operatorname{var}(X)=(1/2) \mathbb{E}[(X-Y)^2]\)</span>. Since conditionally on <span class="math inline">\(X^{\left(  i\right)  }\)</span>, <span class="math inline">\(Z_i'\)</span> is an independent copy of <span class="math inline">\(Z\)</span>, we may write <span class="math display">\[
+\operatorname{var}^{\left(  i\right)  }\left(  Z\right)  =\frac{1}{2}\mathbb{E}
+^{\left(  i\right)  }\left[  \left(  Z-Z_i'\right)^2\right]
+=\mathbb{E}^{\left(  i\right)  }\left[  \left(  Z-Z_i'\right)_+^2\right]
+=\mathbb{E}^{\left(  i\right)  }\left[  \left(  Z-Z_i'\right)_-^2\right]
+\]</span> where we used the fact that the conditional distributions of <span class="math inline">\(Z\)</span> and <span class="math inline">\(Z_i'\)</span> are identical. The last identity is obtained by recalling that, for any real-valued random variable <span class="math inline">\(X\)</span>, <span class="math inline">\(\operatorname{var}(X) = \inf_{a\in \mathbb{R}} \mathbb{E}[(X-a)^2]\)</span>. Using this fact conditionally, we have, for every <span class="math inline">\(i=1,\ldots,n\)</span>, <span class="math display">\[
+\operatorname{var}^{\left(  i\right)  }\left(  Z\right)  =\inf_{Z_{i}}
+\mathbb{E}^{\left(  i\right)  }\left[  \left(  Z-Z_{i}\right)^2\right]~.
+\]</span> Note that this infimum is achieved whenever <span class="math inline">\(Z_{i}=\mathbb{E}^{\left(  i\right)  } Z\)</span>.</p>
+<p><span class="math inline">\(\square\)</span></p>
+</div>
+<p>Observe that in the case when <span class="math inline">\(Z=\sum_{i=1}^n X_i\)</span> is a sum of independent random variables (with finite variance) then the Efron-Stein-Steele inequality becomes an equality. Thus, the bound in the Efron-Stein-Steele inequality is, in a sense, not improvable.</p>
+</section>
+<section id="sec-mcdiarmid" class="level2" data-number="8.8">
+<h2 data-number="8.8" class="anchored" data-anchor-id="sec-mcdiarmid"><span class="header-section-number">8.8</span> Bounded differences inequalities</h2>
+<p>In this section we combine Hoeffding’s inequality and conditioning to establish the so-called <em>Bounded differences inequality</em> (also known as McDiarmid’s inequality). This inequality is a first example of the <em>concentration of measure phenomenon</em>. This phenomenon is best portrayed by the following say:</p>
+<blockquote class="blockquote">
+<p>A function of many independent random variables that does not depend too much on any of them is concentrated around its mean or median value.</p>
+</blockquote>
+<div id="thm">
+<section id="bounded-differences-inequalities" class="level3" data-number="8.8.1">
+<h3 data-number="8.8.1" class="anchored" data-anchor-id="bounded-differences-inequalities"><span class="header-section-number">8.8.1</span> Bounded differences inequalities</h3>
+<p>Let <span class="math inline">\(X_1, \ldots, X_n\)</span> be independent random variables on some probability space with values in <span class="math inline">\(\mathcal{X}_1, \mathcal{X}_2, \ldots, \mathcal{X}_n\)</span>. Let <span class="math inline">\(f : \mathcal{X}_1 \times \mathcal{X}_2 \times  \ldots \times  \mathcal{X}_n \to \mathbb{R}\)</span> be a measurable function such that there exists non-negative constants <span class="math inline">\(c_1, \ldots, c_n\)</span> satisfying <span class="math inline">\(\forall x_1, \ldots, x_n \in \prod_{i=1}^n \mathcal{X}_i\)</span>, <span class="math inline">\(\forall y_1, \ldots, y_n \in \prod_{i=1}^n \mathcal{X}_i\)</span>, <span class="math display">\[
+\Big| f(x_1, \ldots, x_n) - f(y_1, \ldots, y_n)\Big|  \leq \sum_{i=1}^n c_i \mathbb{I}_{x_i\neq y_i} \,.
+\]</span> Let <span class="math inline">\(Z =  f(X_1, \ldots, X_n)\)</span> and <span class="math inline">\(v = \sum_{i=1}^n \frac{c_i^2}{4}\)</span>. Then <span class="math display">\[
+\operatorname{var}(Z)  \leq v \, ,
+\]</span> <span class="math display">\[
+\log \mathbb{E} \mathrm{e}^{\lambda (Z -\mathbb{E}Z)} \leq \frac{\lambda^2 v}{2}
+\]</span> and <span class="math display">\[
+P \Big\{ Z \geq \mathbb{E}Z + t \Big\} \leq \mathrm{e}^{-\frac{t^2}{2v}} \,.
+\]</span></p>
+</section>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>The variance bound is an immediate consequence of the Efron-Stein-Steele inequalities.</p>
+<p>The tail bound follows from the upper bound on the logarithmic moment generating function by Cramer-Chernoff bounding.</p>
+<p>Let us now check the upper-bound on the logarithmic moment generating function.</p>
+<p>We proceed by inudction on the number of arguments <span class="math inline">\(n\)</span>.</p>
+<p>If <span class="math inline">\(n=1\)</span>, the upper-bound on the logarithmic moment generating function is just Hoeffing’s Lemma (see <a href="05-convergences-1.html#sec-expineq" class="quarto-xref">Section&nbsp;<span>9.7</span></a>)).</p>
+<p>Assume the upper-bound is valid up to <span class="math inline">\(n-1\)</span>.</p>
+<p>We adopt the same notation as in <a href="#sec-ess" class="quarto-xref">Section&nbsp;<span>8.7</span></a>). <span class="math display">\[\begin{align*}
+\mathbb{E} \mathrm{e}^{\lambda (Z - \mathbb{E}Z)}
+  &amp; = \mathbb{E}\Big[ \mathbb{E}_{n-1}\mathrm{e}^{\lambda (Z - \mathbb{E}Z)} \Big] \\
+  &amp; = \mathbb{E}\Big[ \mathbb{E}_{n-1}\big[\mathrm{e}^{\lambda (Z - \mathbb{E}_{n-1}Z)}\big] \times \mathrm{e}^{\lambda (\mathbb{E}_{n-1}Z - \mathbb{E}Z)}  \Big] \,.
+\end{align*}\]</span> Now, <span class="math display">\[
+\mathbb{E}_{n-1}Z = \int_{\mathcal{X}_n} f(x_1,\ldots,x_{n-1}, u) \mathrm{d}P_{X_n}(u) \qquad\text{a.s.}
+\]</span> and <span class="math display">\[\begin{align*}
+&amp; \mathbb{E}_{n-1}\big[\mathrm{e}^{\lambda (Z - \mathbb{E}_{n-1}Z)}\big] \\
+  &amp; = \int_{\mathcal{X}_n}  \exp\Big(\lambda  \int_{\mathcal{X}_n} f(x_1,\ldots,x_{n-1}, v) -f(x_1,\ldots,x_{n-1}, u) \mathrm{d}P_{X_n}(u)  \Big) \mathrm{d}P_{X_n}(v) \, .
+\end{align*}\]</span> For every <span class="math inline">\(x_1, \ldots, x_{n-1} \in \mathcal{X_1} \times \ldots \times \mathcal{X}_{n-1}\)</span>, for every <span class="math inline">\(v, v' \in \mathcal{X}_n\)</span>, <span class="math display">\[\begin{align*}
+&amp; \Big| \int_{\mathcal{X}_n} f(x_1,\ldots,x_{n-1}, v) -f(x_1,\ldots,x_{n-1}, u) \mathrm{d}P_{X_n}(u) \\
+&amp; - \int_{\mathcal{X}_n} f(x_1,\ldots,x_{n-1}, v') -f(x_1,\ldots,x_{n-1}, u) \mathrm{d}P_{X_n}(u)\Big| \leq c_n
+\end{align*}\]</span> hence, by Hoeffding’s Lemma <span class="math display">\[
+\mathbb{E}_{n-1}\big[\mathrm{e}^{\lambda (Z - \mathbb{E}_{n-1}Z)}\big] \leq \mathrm{e}^{\frac{\lambda^2 c_n^2}{8}} \, .
+\]</span> <span class="math display">\[\begin{align*}
+  \mathbb{E} \mathrm{e}^{\lambda (Z - \mathbb{E}Z)}
+  &amp; \leq \mathbb{E}\Big[  \mathrm{e}^{\lambda (\mathbb{E}_{n-1}Z - \mathbb{E}Z)}  \Big] \times \mathrm{e}^{\frac{\lambda^2 c_n^2}{8}} \, .
+\end{align*}\]</span> But, if <span class="math inline">\(X_1=x_1, \ldots X_{n-1}=x_{n-1}\)</span>, <span class="math display">\[
+\mathrm{e}^{\lambda (\mathbb{E}_{n-1}Z - \mathbb{E}Z)}
+= \int_{\mathcal{X}_n} f(x_1,\ldots,x_{n-1}, v) \mathrm{d}P_{X_n}(v) - \mathbb{E}Z \,,
+\]</span> it is a function of <span class="math inline">\(n-1\)</span> independent random variables that satisfies the bounded differences conditions with constants <span class="math inline">\(c_1, \ldots, c_{n-1}\)</span>. By the induction hypothesis: <span class="math display">\[
+\mathbb{E}\Big[  \mathrm{e}^{\lambda (\mathbb{E}_{n-1}Z - \mathbb{E}Z)}  \Big]
+\leq \mathrm{e}^{\frac{\lambda^2}{2} \sum_{i=1}^{n-1} \frac{c_i^2}{4}} \, .
+\]</span></p>
+<p><span class="math inline">\(\square\)</span></p>
+</div>
+</section>
+<section id="sec-bibconditionning" class="level2" data-number="8.9">
+<h2 data-number="8.9" class="anchored" data-anchor-id="sec-bibconditionning"><span class="header-section-number">8.9</span> Bibliographic remarks</h2>
+<p>Conditional expectations can be constructed from the Radon-Nikodym Theorem, see <span class="citation" data-cites="MR1932358">(<a href="#ref-MR1932358" role="doc-biblioref">Dudley, 2002</a>)</span>.</p>
+<p>It is also possible to prove the Radon-Nikodym Theorem starting from the construction of conditional expectation in <span class="math inline">\(\mathcal{L}_2\)</span>, see <span class="citation" data-cites="MR1155402">(<a href="#ref-MR1155402" role="doc-biblioref">Williams, 1991</a>)</span>.</p>
+<p>The Section on Efron-Stein-Steele’s inequalities is from <span class="citation" data-cites="BoLuMa13">(<a href="#ref-BoLuMa13" role="doc-biblioref">Boucheron, Lugosi, &amp; Massart, 2013</a>)</span></p>
+<p>Bounded difference inequality is due to C. McDiarmid. It became popular in (Theoretical) computer science during the 1990’s. See <span class="citation" data-cites="McD97">(<a href="#ref-McD97" role="doc-biblioref">McDiarmid, 1998</a>)</span></p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-BoLuMa13" class="csl-entry" role="listitem">
+Boucheron, S., Lugosi, G., &amp; Massart, P. (2013). <em>Concentration inequalities</em>. Oxford University Press.
+</div>
+<div id="ref-MR1932358" class="csl-entry" role="listitem">
+Dudley, R. M. (2002). <em>Real analysis and probability</em> (Vol. 74, p. x+555). Cambridge: Cambridge University Press.
+</div>
+<div id="ref-McD97" class="csl-entry" role="listitem">
+McDiarmid, C. (1998). Concentration. In M. Habib, C. McDiarmid, J. Ramirez-Alfonsin, &amp; B. Reed (Eds.), <em>Probabilistic methods for algorithmic discrete mathematics</em> (pp. 195–248). Springer, New York.
+</div>
+<div id="ref-MR1155402" class="csl-entry" role="listitem">
+Williams, D. (1991). <em>Probability with martingales</em> (p. xvi+251). Cambridge University Press, Cambridge. <a href="https://doi.org/10.1017/CBO9780511813658">https://doi.org/10.1017/CBO9780511813658</a>
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./04-characterizations.html" class="pagination-link" aria-label="Characterizations of probability distributions">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Characterizations of probability distributions</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./05-convergences-1.html" class="pagination-link" aria-label="Convergences I : almost sure, $L_2$, $L_1$, in Probability">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Convergences I : almost sure, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, in Probability</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

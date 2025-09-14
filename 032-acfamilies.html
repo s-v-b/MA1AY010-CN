@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.24">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>6&nbsp; Absolutely continuous probability measures – MA1AY010 Class Notes</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./04-characterizations.html" rel="next">
+<link href="./023-discrete-condition.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-3a70adc2469c323d0515427c5f9cb542.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">MA1AY010 Class Notes</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+    <a href="./MA1AY010-Class-Notes.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./032-acfamilies.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Absolutely continuous probability measures</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Warm up</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-language.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">A modicum of measure theory</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./031-moments.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">A modicum of integration</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-families.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Families of discrete distributions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./023-discrete-condition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Discrete Conditioning</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./032-acfamilies.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Absolutely continuous probability measures</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-characterizations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Characterizations of probability distributions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-conditioning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Conditioning</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-convergences-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Convergences I : almost sure, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, in Probability</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-convergence-3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Convergence in distribution</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-convergence-3b.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Refinments and extensions of thr Central Limit Theorem</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-gaussian-vectors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Gaussian vectors</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-acontinuity" id="toc-sec-acontinuity" class="nav-link active" data-scroll-target="#sec-acontinuity"><span class="header-section-number">6.1</span> Densities and absolute continuity</a></li>
+  <li><a href="#expos" id="toc-expos" class="nav-link" data-scroll-target="#expos"><span class="header-section-number">6.2</span> Exponential distribution</a></li>
+  <li><a href="#sec-gammas" id="toc-sec-gammas" class="nav-link" data-scroll-target="#sec-gammas"><span class="header-section-number">6.3</span> Gamma distribution</a></li>
+  <li><a href="#sec-gauss" id="toc-sec-gauss" class="nav-link" data-scroll-target="#sec-gauss"><span class="header-section-number">6.4</span> Univariate Gaussian distributions</a></li>
+  <li><a href="#sec-cdf_ac" id="toc-sec-cdf_ac" class="nav-link" data-scroll-target="#sec-cdf_ac"><span class="header-section-number">6.5</span> Cumulative distribution functions and absolute continuity</a></li>
+  <li><a href="#sec-imgdens" id="toc-sec-imgdens" class="nav-link" data-scroll-target="#sec-imgdens"><span class="header-section-number">6.6</span> Computing the density of an image probability distribution</a></li>
+  <li><a href="#sec-gammabeta" id="toc-sec-gammabeta" class="nav-link" data-scroll-target="#sec-gammabeta"><span class="header-section-number">6.7</span> Application: Gamma-Beta calculus</a></li>
+  <li><a href="#sec-bibac" id="toc-sec-bibac" class="nav-link" data-scroll-target="#sec-bibac"><span class="header-section-number">6.8</span> Bibliographic remarks</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-acmeasures" class="quarto-section-identifier"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Absolutely continuous probability measures</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="sec-acontinuity" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="sec-acontinuity"><span class="header-section-number">6.1</span> Densities and absolute continuity</h2>
+<p>
+</p><p>Beyond discrete distributions, the simplest probability distributions are defined by a density function with respect to a (<span class="math inline">\(\sigma\)</span>-finite) measure. This encompasses the distributions of the so-called <em>continuous random variables</em>.</p>
+<div id="def-defac" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 6.1 (Absolute continuity)</strong></span> Let <span class="math inline">\(\mu, \nu\)</span> be two positive measures on measurable space <span class="math inline">\((\Omega, \mathcal{F})\)</span>, <span class="math inline">\(\mu\)</span> is said to be absolutely continuous with respect to <span class="math inline">\(\nu\)</span> (denoted by <span class="math inline">\(\mu \trianglelefteq \nu\)</span>) iff for every <span class="math inline">\(A \in \mathcal{F}\)</span> with <span class="math inline">\(\nu(A)=0\)</span>, we also have <span class="math inline">\(\mu(A)=0\)</span>.</p>
+</div>
+<p>
+</p><p>If <span class="math inline">\(\mu, \nu\)</span> are two probability distributions, and <span class="math inline">\(\mu \trianglelefteq \nu\)</span>, then any event which is impossible under <span class="math inline">\(\nu\)</span> is also impossible under <span class="math inline">\(\mu\)</span>.</p>
+<p>
+</p><div id="exr-ac-1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6.1</strong></span> Answer the two questions:</p>
+<ul>
+<li>Is the counting measure on <span class="math inline">\(\mathbb{R}\)</span> absolutely continuous with respect to Lebesgue measure?</li>
+<li>Is the converse true?</li>
+</ul>
+</div>
+<p>
+</p><div id="exr-ac-transitive" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6.2</strong></span> Check that absolute continuity is a transitive relationship.</p>
+</div>
+<p>
+</p><p>The next theorem has far-reaching practical consequences.</p>
+<p>
+</p><div id="thm-radonnyk" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 6.1 (Radon-Nikodym)</strong></span> Let <span class="math inline">\(\mu, \nu\)</span> be two positive measures on measurable space <span class="math inline">\((\Omega, \mathcal{F})\)</span>. Assume <span class="math inline">\(\nu\)</span> is <span class="math inline">\(\sigma\)</span>-finite. If <span class="math inline">\(\mu \trianglelefteq \nu\)</span>, then there exists a measurable function <span class="math inline">\(f\)</span> from <span class="math inline">\(\Omega\)</span> to <span class="math inline">\([0, \infty)\)</span> such that for all <span class="math inline">\(A \in \mathcal{F}\)</span>, <span class="math display">\[
+\mu(A) =  \int_A f(\omega) \mathrm{d}\nu(\omega) =  \int \mathbb{I}_A f \mathrm{d}\nu \, .
+\]</span> The function <span class="math inline">\(f\)</span> is called a version of the density of <span class="math inline">\(\mu\)</span> with respect to <span class="math inline">\(\nu\)</span>.</p>
+</div>
+<p>
+</p><p>The density is also called the Radon-Nikodym derivative of <span class="math inline">\(\mu\)</span> with respect to <span class="math inline">\(\nu\)</span>. It is sometimes denoted by <span class="math inline">\(\frac{\mathrm{d}\mu}{\mathrm{d}\nu}\)</span>.</p>
+<p>
+</p><div id="rem-sigfi" class="proof remark">
+<p><span class="proof-title"><em>Remark 6.1</em>. </span>The <span class="math inline">\(\sigma\)</span>-finiteness assumption is crucial. If we choose <span class="math inline">\(\mu\)</span> as Lebesgue measure and <span class="math inline">\(\nu\)</span> as the counting measure, <span class="math inline">\(\nu\)</span> is not <span class="math inline">\(\sigma\)</span>-finite, <span class="math inline">\(\mu(A)&gt;0\)</span> implies <span class="math inline">\(\nu(A)=\infty\)</span> which we may consider as larger than <span class="math inline">\(0\)</span>. Nevertheless, Lebesgue measure has no density with respect to the counting measure.</p>
+</div>
+<p>
+</p><p>In the next sections, we investigate probability distributions over <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span> that are absolutely continuous with respect to Lebesgue measure.</p>
+<div id="prp-chainrule" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 6.1</strong></span> If <span class="math inline">\(\rho \trianglelefteq \mu \trianglelefteq  \nu\)</span>, <span class="math inline">\(f\)</span> is a density of <span class="math inline">\(\rho\)</span> with repsect to <span class="math inline">\(\mu\)</span> while <span class="math inline">\(g\)</span> is a density of <span class="math inline">\(\mu\)</span> with respect to <span class="math inline">\(\nu\)</span>, then <span class="math inline">\(fg\)</span> is a density of <span class="math inline">\(\rho\)</span> with respect to <span class="math inline">\(\nu\)</span>.</p>
+</div>
+<div id="exr-chainrule" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6.3</strong></span> Prove <a href="#prp-chainrule" class="quarto-xref">proposition&nbsp;<span>6.1</span></a>.</p>
+</div>
+</section>
+<section id="expos" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="expos"><span class="header-section-number">6.2</span> Exponential distribution</h2>
+<p>The exponential distribution shows up in several areas of probability and statistics. In reliability theory, its memoryless property make it a borderline case. In the theory of point processes, the exponential distribution is connected with Poisson Point Processes. It is also important in extreme value theory.</p>
+<div id="def">
+<p>The exponential distribution with intensity parameter <span class="math inline">\(\lambda&gt;0\)</span> is defined by its desnsity with respect to Lebesgue measure on <span class="math inline">\([0,\infty)\)</span>: <span class="math display">\[
+x \mapsto \lambda \mathrm{e}^{-\lambda x} \, .
+\]</span> The reciprocal of the intensity parameter is called the scale parameter.</p>
+</div>
+<p>Note that geometric and exponential distributions are connected: if <span class="math inline">\(X\)</span> is exponentially distributed, then <span class="math inline">\(\lceil X\rceil\)</span> is geometrically distributed. For <span class="math inline">\(k\geq 1\)</span>: <span class="math display">\[
+P \Big\{ \lceil X \rceil \geq k \Big\} = P \Big\{  X  &gt; k - 1 \Big\}
+= \mathrm{e}^{- \lambda (k-1)} \, .
+\]</span></p>
+<div id="exr-density1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6.4</strong></span> Check that <span class="math inline">\(x \mapsto \lambda \mathrm{e}^{-\lambda x}\)</span> is a density probability over <span class="math inline">\([0, \infty)\)</span>.</p>
+</div>
+<div id="exr-density2" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6.5</strong></span> Compute the tail function and the cumulative distribution function of the exponential distribution function with parameter <span class="math inline">\(\lambda\)</span>.</p>
+</div>
+<div id="exr-density3" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6.6</strong></span> Let <span class="math inline">\(X_1, \ldots, X_n\)</span> be i.i.d. exponentially distributed. Characterize the distribution of <span class="math inline">\(\min(X_1, \ldots, X_n)\)</span>.</p>
+</div>
+<div class="{#exr-=density4}">
+<p>If <span class="math inline">\(X\)</span> is exponentially distributed with scale parameter <span class="math inline">\(\sigma\)</span>, what is the distribution of <span class="math inline">\(a X\)</span>?</p>
+</div>
+<!-- ::: {#fig-witgetexponential} -->
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-witgetexponential" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-witgetexponential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="032-acfamilies_files/figure-html/fig-witgetexponential-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-witgetexponential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6.1: Exponential densities with different parameters: scales <span class="math inline">\(1, 2, 1/2\)</span> or equivalently intensities <span class="math inline">\(1, 1/2, 2\)</span>. Expectation equals scale,<br>
+variance equals squared scale.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<!-- ::: -->
+</section>
+<section id="sec-gammas" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="sec-gammas"><span class="header-section-number">6.3</span> Gamma distribution</h2>
+<p>Sums of independent exponentially distributed random variables are not exponentially distributed. The family of Gamma distributions encompasses the family of exponential distributions. It is stable under addition and satisfies</p>
+<p>Recall Euler’s Gamma function: <span class="math display">\[
+\Gamma(t) = \int_0^\infty x^{t-1}\mathrm{e}^{-x} \mathrm{d}x \qquad \text{for } t&gt;0\, .
+\]</span></p>
+<div id="def">
+<p>The Gamma distribution with shape parameter <span class="math inline">\(p&gt;0\)</span> and intensity parameter <span class="math inline">\(\lambda&gt;0\)</span> is defined by its density with respect to Lebesgue measure on <span class="math inline">\([0,\infty)\)</span>: <span class="math display">\[
+x \mapsto \lambda^p \frac{x^{p-1}}{\Gamma(p)} \mathrm{e}^{-\lambda x} \, .
+\]</span> The reciprocal of the intensity parameter is called the scale parameter.</p>
+</div>
+<div id="exr-gamma1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6.7</strong></span> Check that <span class="math inline">\(x \mapsto \lambda^p \frac{x^{p-1}}{\Gamma(p)} \mathrm{e}^{-\lambda x}\)</span> is a density probability over <span class="math inline">\([0, \infty)\)</span>.</p>
+</div>
+<div id="exr-gamm2" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6.8</strong></span> If <span class="math inline">\(X\)</span> is Gamma distributed with shape parameter <span class="math inline">\(p\)</span> and scale parameter <span class="math inline">\(\sigma\)</span>, what is the distribution of <span class="math inline">\(a X\)</span>?</p>
+</div>
+<!-- ::: {#fig-witgetgamma} -->
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-witgetgamma" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-witgetgamma-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="032-acfamilies_files/figure-html/fig-witgetgamma-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-witgetgamma-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6.2: Gamma densities with different parameters: scales <span class="math inline">\(1, 1, 1/3, 1, 2\)</span> and shapes <span class="math inline">\(1, 2, 3, 5, 5/2\)</span>. Expectation equals shape times scale,<br>
+variance equals shape times squared scale.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<!-- ::: -->
+</section>
+<section id="sec-gauss" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="sec-gauss"><span class="header-section-number">6.4</span> Univariate Gaussian distributions</h2>
+<p>Gaussian distributions play a central role in Probability theory, Statistics, Information theory, and Analysis.</p>
+<div id="def">
+<p>The Gaussian or normal distribution with mean <span class="math inline">\(\mu \in \mathbb{R}\)</span> and variance <span class="math inline">\(\sigma^2, \sigma&gt;0\)</span> has density <span class="math display">\[
+x \mapsto \frac{1}{\sqrt{2 \pi} \sigma} \mathrm{e}^{- \frac{(x-\mu)^2}{2 \sigma^2}} \qquad\text{for } x \in \mathbb{R} \, .
+\]</span> The standard Gaussian density is defined by <span class="math inline">\(\mu=0, \sigma=1\)</span>.</p>
+</div>
+<div id="exr-gauss1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6.9</strong></span> Check that <span class="math inline">\(x \mapsto \frac{\mathrm{e}^{-x^2/2}}{\sqrt{2\pi}}\)</span> is a probability density over <span class="math inline">\(\mathbb{R}\)</span>.</p>
+</div>
+<div id="exr-gauss2" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6.10</strong></span> If <span class="math inline">\(X\)</span> is distributed according to a standard Gaussian density, what is the distribution of <span class="math inline">\(\mu + \sigma X\)</span>?</p>
+</div>
+<div id="exr-gauss3" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6.11</strong></span> If <span class="math inline">\(X\)</span> is distributed according to a standard Gaussian density, show that <span class="math display">\[
+\Pr \{ X &gt; t \} \leq \frac{1}{t} \frac{\mathrm{e}^{-t^2/2}}{\sqrt{2\pi}} \qquad\text{for } t&gt;0\,.
+\]</span></p>
+</div>
+<!-- ::: {#fig-witgetgauss} -->
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-witgetgauss" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-witgetgauss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="032-acfamilies_files/figure-html/fig-witgetgauss-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-witgetgauss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6.3: Gaussian densities. The location parameter <span class="math inline">\(\mu\)</span> coincides with the mean and the median. The scale parameter is the standard deviation. The Inter-Quartile-Range (IQR) is proportional to the standard deviation. If <span class="math inline">\(\Phi^{\leftarrow}\)</span> denotes the quantile function of <span class="math inline">\(\mathcal{N}(0,1)\)</span> then the interquartile range of <span class="math inline">\(\mathcal{N}(\mu, \sigma^2)\)</span> is <span class="math inline">\(\sigma \Big(\Phi^{\leftarrow}(3/4) - \Phi^{\leftarrow}(1/4)\Big)=2 \sigma \Phi^{\leftarrow}(3/4)\)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<!-- ::: -->
+</section>
+<section id="sec-cdf_ac" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="sec-cdf_ac"><span class="header-section-number">6.5</span> Cumulative distribution functions and absolute continuity</h2>
+<p>If a cumulative distribution function is defined as the integral of some non-negative Lebesgue integrable function, we know that the corresponding probability distribution is absolutely continuous with respect to Lebesgue measure.</p>
+<p>We may ask for a criterion that characterises the cumulative distribution function of absolutely continuous probability distribution. Such a criterion is embodied by the next definition. We overload the expression <em>absolutely continuous</em>.</p>
+<div id="def-accdf" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 6.2 (Absolutely continuous functions)</strong></span> A real valued function <span class="math inline">\(F\)</span> on <span class="math inline">\([a,b]\)</span> is said to be <em>absolutely continuous</em> iff for all <span class="math inline">\(\delta&gt;0\)</span> there exists <span class="math inline">\(\epsilon&gt;0\)</span> such that for every collection <span class="math inline">\(([a_i, b_i])_{i\leq n}\)</span> for non-overlapping sub-intervals (<span class="math inline">\([a_i,b_i] ⊆ [a,b]\)</span> for all <span class="math inline">\(i\leq n\)</span> and <span class="math inline">\(\ell([a_i,b_i] \cap [a_j,b_j])=0\)</span> for <span class="math inline">\(i\neq j\)</span> ) with <span class="math inline">\(∑_{i\leq n} |b_i-a_i|\leq ϵ\)</span>, <span class="math display">\[∑_{i\leq n} |F(b_i)-F(a_i)|\leq δ\]</span></p>
+</div>
+<p>Absolute continuity, differentiability and integration of derivatives are connected by the next Theorem. This Theorem tells us that a cumulative distribution function is absolutely continuous in the sense of Definition <a href="#def-accdf" class="quarto-xref">Definition&nbsp;<span>6.2</span></a> iff the corresponding probability distribution is absolutely continuous with respect to Lebesgue measure.</p>
+<div id="thm-fundTheCalc" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 6.2 (Fundamental Theorem of Calculus)</strong></span> A real valued function <span class="math inline">\(F\)</span> on <span class="math inline">\([a,b]\)</span> is <em>absolutely continuous</em> iff the next three conditions hold</p>
+<ol type="1">
+<li>The derivative <span class="math inline">\(F'\)</span> exists Lebesgue almost everywhere on <span class="math inline">\([a,b]\)</span></li>
+<li>The derivative <span class="math inline">\(F'\)</span> is Lebesgue integrable</li>
+<li>For every <span class="math inline">\(x \in [a,b]\)</span>, <span class="math inline">\(F(x) - F(a) = \int_{[a,b]} \mathbb{I}_{[a,x]}(t) F'(t) \mathrm{d}t\)</span></li>
+</ol>
+</div>
+</section>
+<section id="sec-imgdens" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="sec-imgdens"><span class="header-section-number">6.6</span> Computing the density of an image probability distribution</h2>
+<p>Recall the change of variable formula in elementary calculus. If <span class="math inline">\(\phi\)</span> is monotone increasing and différentiable from open <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span> and <span class="math inline">\(f\)</span> is Riemann integrable over <span class="math inline">\(B\)</span>, then <span class="math display">\[
+\int_B f(y) \, \mathrm{d}y = \int_A f(\phi(x)) \, \phi^{\prime}(x) \, \mathrm{d}x \,
+\]</span></p>
+<div id="exr-elmt-chg-var" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6.12</strong></span> Check the elementary change of variable formula.</p>
+</div>
+<p>The goal of this section is state a multi-dimensional generalization of this elementary formula. This is the content of <a href="#thm-geomchange" class="quarto-xref">Theorem&nbsp;<span>6.4</span></a>). This extension is then used to establish an off-the-shelf formula for computing the density of an image distribution in <a href="#thm-imagedensityformula" class="quarto-xref">Theorem&nbsp;<span>6.5</span></a>).</p>
+<p>Let us start with a uni-dimensional warm-up. When starting from the uniform distribution on <span class="math inline">\([0,1]\)</span> and applying a monotone differentiable transformation, the density of the image measure is easily computed.</p>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6.13</strong></span> Let <span class="math inline">\(\phi\)</span> be differentiable and increasing on <span class="math inline">\([0,1]\)</span>, and let <span class="math inline">\(P\)</span> be the uniform distribution on <span class="math inline">\([0,1]\)</span>.</p>
+<p>Check that <span class="math inline">\(P \circ \phi^{-1}\)</span> has density <span class="math inline">\(\frac{1}{\phi'\circ \phi^\leftarrow}\)</span> on <span class="math inline">\(\phi([0,1])\)</span>.</p>
+</div>
+<p>The next proposition extends this observation.</p>
+<div id="prp">
+<p>If the real valued random variable <span class="math inline">\(X\)</span> is distributed according to <span class="math inline">\(P\)</span> with density <span class="math inline">\(f\)</span>, and <span class="math inline">\(\phi\)</span> is monotone increasing and differentiable over <span class="math inline">\(\operatorname{supp}(P)\)</span>, then the probability distribution of <span class="math inline">\(Y = \phi(X)\)</span> has density <span class="math display">\[
+g = \frac{f \circ \phi^{\leftarrow}}{\phi^{\prime}\circ \phi^{\leftarrow}}  \,
+\]</span> over <span class="math inline">\(\phi\big(\operatorname{supp}(P)\big)\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>By the fundamental theorem of calculus, the density <span class="math inline">\(f\)</span> is a.e. the derivative of the cumulative distribution function <span class="math inline">\(F\)</span> of <span class="math inline">\(P\)</span>.</p>
+<p>The cumulative distribution function of <span class="math inline">\(Y=\phi(X)\)</span> satisfies: <span class="math display">\[\begin{align*}
+P \Big\{ Y \leq y \Big\}
+  &amp; = P \Big\{ \phi(X) \leq y \Big\} \\
+  &amp; = P \Big\{ X \leq \phi^{\leftarrow} (y) \Big\} \\
+  &amp; = F \circ \phi^{\leftarrow}(y)
+\end{align*}\]</span> Almost everywhere, <span class="math inline">\(F \circ \phi^{\leftarrow}\)</span> is differentiable, and has derivative <span class="math inline">\(\frac{f \circ \phi^{\leftarrow}}{\phi' \circ  \phi^{\leftarrow}}\)</span> in <span class="math inline">\(\phi(\text{supp}(P))\)</span>, <span class="math inline">\(0\)</span> elsewhere. and <span class="math display">\[
+P \Big\{ Y \leq y \Big\} = \int_{(-\infty, y] \cap \phi(\text{supp}(P))} \frac{f \circ \phi^{\leftarrow}(u)}{\phi' \circ  \phi^{\leftarrow}(u)} \mathrm{d}u
+\]</span></p>
+<p><span class="math inline">\(\square\)</span></p>
+</div>
+<p><br></p>
+<p>The next corollary is as useful as simple.</p>
+<div id="cor-density-translation-scale" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 6.1</strong></span> If the distribution of the real valued random variable <span class="math inline">\(X\)</span> has density <span class="math inline">\(f\)</span> then the distribution of <span class="math inline">\(\sigma X + \mu\)</span> has density <span class="math inline">\(\frac{1}{\sigma}f\Big(\frac{\cdot -\mu}{\sigma}\Big)\)</span>, .</p>
+</div>
+<br>
+<p>
+</p>
+<p>In univariate calculus, it is easy to establish that if a function is continuous and increasing over an open set, it is invertible and its inverse is continuous and increasing. If the function is differentiable with positive derivative, its inverse is also differentiable. Moreover, the differential and the differential of the inverse are related in transparent way.</p>
+<p>The Global Inversion Theorem extends the preceding observation to the multivariate setting.</p>
+<div id="thm-globalinversion" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 6.3 (Global Inversion Theorem)</strong></span> Let <span class="math inline">\(U\)</span> and <span class="math inline">\(V\)</span> be two non-empty open subsets of <span class="math inline">\(\mathbb{R}^d\)</span>. Let <span class="math inline">\(\phi\)</span> be a continuous bijective from <span class="math inline">\(U\)</span> to <span class="math inline">\(V\)</span>. Assume furthermore that <span class="math inline">\(\phi\)</span> is continuously differentiable, and that <span class="math inline">\(D\phi_x\)</span> is non-singular at every <span class="math inline">\(x \in U\)</span>.</p>
+<p>Then, the inverse function <span class="math inline">\(\phi^{\leftarrow}\)</span> is also continuously differentiable on <span class="math inline">\(V\)</span> and at every <span class="math inline">\(y \in V\)</span>: <span class="math display">\[
+D\phi^{\leftarrow}_y = \Big(D\phi_{\phi^{\leftarrow}(y)} \Big)^{-1} \, .
+\]</span></p>
+</div>
+<p>The Jacobian determinant of <span class="math inline">\(\phi\)</span> is the determinant of the matrix that represents the differential. It is denoted by <span class="math inline">\(J_\phi\)</span>. Recall that: <span class="math display">\[
+J_{\phi^{\leftarrow}}(y) = \Big(J_{\phi}(\phi^{\leftarrow}(y)) \Big)^{-1} \, .
+\]</span> The multidimensional version of the change of variable formula is stated under the same assumptions as the Global Inversion Theorem. We admit the next Theorem.</p>
+<div id="thm-geomchange" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 6.4 (Geometric change of variable formula)</strong></span> Let <span class="math inline">\(U\)</span> and <span class="math inline">\(V\)</span> be two non-empty open subsets of <span class="math inline">\(\mathbb{R}^d\)</span>. Let <span class="math inline">\(\phi\)</span> be a continuous bijective from <span class="math inline">\(U\)</span> to <span class="math inline">\(V\)</span>. Assume furthermore that <span class="math inline">\(\phi\)</span> is continuously differentiable, and that <span class="math inline">\(D\phi_x\)</span> is non-singular at every <span class="math inline">\(x \in U\)</span>.</p>
+<p>Let <span class="math inline">\(\ell\)</span> denote the Lebesgue measure on <span class="math inline">\(\mathbb{R}^d\)</span>.</p>
+<p>For any a non-negative Borel-measurable function <span class="math inline">\(f\)</span>: <span class="math display">\[
+\int_U f(x) \mathrm{d}\ell(x)   = \int  f(\phi^\leftarrow(y)) \Big|J_{\phi^\leftarrow}(y) \Big| \mathrm{d}\ell(y) \, .
+\]</span></p>
+</div>
+<p>Moving from cartesian coordinates to polar/spherical coordinates is easy thanks to an non-trivial application of <a href="#thm-geomchange" class="quarto-xref">Theorem&nbsp;<span>6.4</span></a>).</p>
+<p>The Image density formula is a corollary of the geometric change of variable formula.</p>
+<div id="thm-imagedensityformula" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 6.5 (Image density formula)</strong></span> Let <span class="math inline">\(P\)</span> have density <span class="math inline">\(f\)</span> over open <span class="math inline">\(U \subseteq  \mathbb{R}^d\)</span>.</p>
+<p>Let <span class="math inline">\(\phi\)</span> be bijective fron <span class="math inline">\(U\)</span> to <span class="math inline">\(\phi(U)\)</span> and <span class="math inline">\(\phi\)</span> be continuously differentiable over <span class="math inline">\(U\)</span> with non-singular differential.</p>
+<p>The density <span class="math inline">\(g\)</span> of the image distribution <span class="math inline">\(P \circ \phi^{-1}\)</span> over <span class="math inline">\(\phi(U)\)</span> is given by <span class="math display">\[
+g(y) = f\big(\phi^\leftarrow(y)\big) \times \big|J_{\phi^\leftarrow}(y)\big|  =  f\big(\phi^\leftarrow(y)\big) \times \Big|J_{\phi}(\phi^\leftarrow(y))\Big|^{-1}\, .
+\]</span></p>
+</div>
+<p>The proof of <a href="#thm-imagedensityformula" class="quarto-xref">Theorem&nbsp;<span>6.5</span></a>) from <a href="#thm-geomchange" class="quarto-xref">Theorem&nbsp;<span>6.4</span></a>) is a routine application of the transfer formula.</p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(B\)</span> be a Borelian subset of <span class="math inline">\(\phi(U)\)</span>. By the transfer formula: <span class="math display">\[\begin{align*}
+P\Big\{ Y \in B \Big\}
+  &amp; =  P\Big\{ \phi(X) \in B \Big\} \\
+  &amp; = \int_U \mathbb{I}_B(\phi(x)) f(x) \mathrm{d}\ell(x) \,.
+\end{align*}\]</span> Now, we invoke <a href="#thm-geomchange" class="quarto-xref">Theorem&nbsp;<span>6.4</span></a>): <span class="math display">\[\begin{align*}
+\int_U \mathbb{I}_B(\phi(x)) f(x) \mathrm{d}\ell(x)
+&amp; = \int_{\phi(U)} \mathbb{I}_B(\phi(\phi^\leftarrow(y))) f(\phi^\leftarrow(y)) \Big|J_{\phi^\leftarrow}(y)\Big| \mathrm{d}\ell(y) \\
+&amp; = \int_{\phi(U)} \mathbb{I}_B(y) f(\phi^\leftarrow(y)) \Big|J_{\phi^\leftarrow}(y)\Big| \mathrm{d}\ell(y) \, .
+\end{align*}\]</span> This suffices to conclude that <span class="math inline">\(f\circ \phi^\leftarrow \Big|J_{\phi^\leftarrow}\Big|\)</span> is a version of the density of <span class="math inline">\(P \circ \phi^{-1}\)</span> with respect to Lebesgue measure over <span class="math inline">\(\phi(U)\)</span>.</p>
+<p><span class="math inline">\(\square\)</span></p>
+</div>
+</section>
+<section id="sec-gammabeta" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="sec-gammabeta"><span class="header-section-number">6.7</span> Application: Gamma-Beta calculus</h2>
+<p>The image density formula is applied to show a remarkable connexion between Gamma and Beta distributions.</p>
+<div id="prp-gammabeta" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 6.2</strong></span> Let <span class="math inline">\(X, Y\)</span> be independent random variables distributed according to <span class="math inline">\(\Gamma(p, \lambda)\)</span> and <span class="math inline">\(\Gamma(q, \lambda)\)</span> (the intensity parameter are identical). Let <span class="math inline">\(U = X+Y\)</span> and <span class="math inline">\(V= X/(X+Y)\)</span>.</p>
+<p>The random variables <span class="math inline">\(U\)</span> and <span class="math inline">\(V\)</span> are independent. Random variable <span class="math inline">\(U\)</span> is distributed according to <span class="math inline">\(\Gamma(p+q, \lambda)\)</span> while <span class="math inline">\(V\)</span> is distributed according to <span class="math inline">\(\operatorname{Beta}(p, q)\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>The mapping <span class="math inline">\(f: ]0, \infty)^2 \to ]0, \infty) \times ]0,1[\)</span> defined by <span class="math display">\[
+f(x,y) =  \Big(x+y, \frac{x}{x+y} \Big)
+\]</span> is one-to-one with inverse <span class="math inline">\(f^{\leftarrow}(u,v) = \Big(uv,u(1-v)\Big)\)</span>. The Jacobian matrix of <span class="math inline">\(f^{\leftarrow}\)</span> at <span class="math inline">\((u,v)\)</span> is <span class="math display">\[
+\begin{pmatrix}
+  v &amp; u \\
+  (1-v) &amp; -u
+\end{pmatrix}
+\]</span> with determinant <span class="math inline">\(-uv -u +uv=-u\)</span>. The joint image density at <span class="math inline">\((u,v) \in ]0,\infty) \times ]0,1[\)</span> is <span class="math display">\[\begin{align*}
+&amp; = \lambda^{p+q}\frac{(uv)^{p-1}}{\Gamma(p)} \frac{(u(1-v))^{q-1}}{\Gamma(q)}
+\mathrm{e}^{-\lambda (uv + u(1-v))} u \\
+&amp; = \Big(\lambda^{p+q} \frac{u^{p+q-1}}{\Gamma(p+q)} \mathrm{e}^{\lambda u}\Big)
+\times \Big(\frac{\Gamma(p+q)}{\Gamma(q)\Gamma(p)} v^{p-1} (1-v)^{q-1}\Big) \,.
+\end{align*}\]</span> The factorization of the joint density proves that the <span class="math inline">\(U\)</span> and <span class="math inline">\(V\)</span> are independent. We recognize that the density of (the distribution of) <span class="math inline">\(U\)</span> is the Gamma density with shape parameter <span class="math inline">\(p+q\)</span>, intensity parameter <span class="math inline">\(\lambda\)</span>. The density of the distribution of <span class="math inline">\(V\)</span> is the Beta density with parameters <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span>.</p>
+</div>
+<div id="exr-gamma-calculus" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6.14</strong></span> Assume <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> form an independent family with each <span class="math inline">\(X_i\)</span> distributed according to <span class="math inline">\(\Gamma(p_i, \lambda)\)</span>.</p>
+<p>Determine the joint distribution of <span class="math display">\[
+\sum_{i=1}^n X_i, \frac{X_1}{\sum_{i=1}^n X_i}, \frac{X_2}{\sum_{i=1}^n X_i}, \ldots, \frac{X_{n-1}}{\sum_{i=1}^n X_i}
+\]</span></p>
+</div>
+</section>
+<section id="sec-bibac" class="level2" data-number="6.8">
+<h2 data-number="6.8" class="anchored" data-anchor-id="sec-bibac"><span class="header-section-number">6.8</span> Bibliographic remarks</h2>
+<p><span class="citation" data-cites="MR1932358">Dudley (<a href="#ref-MR1932358" role="doc-biblioref">2002</a>)</span> and <span class="citation" data-cites="MR1873379">Pollard (<a href="#ref-MR1873379" role="doc-biblioref">2002</a>)</span> provide a full development of absolute continuity and self-contained proofs the Radon-Nikodym’s Theorem.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-MR1932358" class="csl-entry" role="listitem">
+Dudley, R. M. (2002). <em>Real analysis and probability</em> (Vol. 74, p. x+555). Cambridge: Cambridge University Press.
+</div>
+<div id="ref-MR1873379" class="csl-entry" role="listitem">
+Pollard, D. (2002). <em>A user’s guide to measure theoretic probability</em> (Vol. 8, p. xiv+351). Cambridge University Press, Cambridge.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./023-discrete-condition.html" class="pagination-link" aria-label="Discrete Conditioning">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Discrete Conditioning</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./04-characterizations.html" class="pagination-link" aria-label="Characterizations of probability distributions">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Characterizations of probability distributions</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

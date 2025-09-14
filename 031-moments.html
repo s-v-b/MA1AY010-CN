@@ -1,0 +1,1552 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.24">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>3&nbsp; A modicum of integration – MA1AY010 Class Notes</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./03-families.html" rel="next">
+<link href="./02-language.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-3a70adc2469c323d0515427c5f9cb542.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">MA1AY010 Class Notes</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+    <a href="./MA1AY010-Class-Notes.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./031-moments.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">A modicum of integration</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Warm up</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-language.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">A modicum of measure theory</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./031-moments.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">A modicum of integration</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-families.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Families of discrete distributions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./023-discrete-condition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Discrete Conditioning</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./032-acfamilies.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Absolutely continuous probability measures</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-characterizations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Characterizations of probability distributions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-conditioning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Conditioning</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-convergences-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Convergences I : almost sure, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, in Probability</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-convergence-3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Convergence in distribution</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-convergence-3b.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Refinments and extensions of thr Central Limit Theorem</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-gaussian-vectors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Gaussian vectors</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-roadmapintegration" id="toc-sec-roadmapintegration" class="nav-link active" data-scroll-target="#sec-roadmapintegration"><span class="header-section-number">3.1</span> Roadmap</a></li>
+  <li><a href="#sec-simplefunctions" id="toc-sec-simplefunctions" class="nav-link" data-scroll-target="#sec-simplefunctions"><span class="header-section-number">3.2</span> Simple functions</a></li>
+  <li><a href="#sec-integration" id="toc-sec-integration" class="nav-link" data-scroll-target="#sec-integration"><span class="header-section-number">3.3</span> Integration</a></li>
+  <li><a href="#sec-biglimittheorems" id="toc-sec-biglimittheorems" class="nav-link" data-scroll-target="#sec-biglimittheorems"><span class="header-section-number">3.4</span> Limit theorems</a></li>
+  <li><a href="#sec-densities" id="toc-sec-densities" class="nav-link" data-scroll-target="#sec-densities"><span class="header-section-number">3.5</span> Probability distributions defined by a density</a></li>
+  <li><a href="#sec-expectation" id="toc-sec-expectation" class="nav-link" data-scroll-target="#sec-expectation"><span class="header-section-number">3.6</span> Expectation</a></li>
+  <li><a href="#sec-jensensec" id="toc-sec-jensensec" class="nav-link" data-scroll-target="#sec-jensensec"><span class="header-section-number">3.7</span> Jensen’s inequality</a></li>
+  <li><a href="#sec-variance" id="toc-sec-variance" class="nav-link" data-scroll-target="#sec-variance"><span class="header-section-number">3.8</span> Variance</a></li>
+  <li><a href="#sec-highermoments" id="toc-sec-highermoments" class="nav-link" data-scroll-target="#sec-highermoments"><span class="header-section-number">3.9</span> Higher moments</a></li>
+  <li><a href="#medianiqr" id="toc-medianiqr" class="nav-link" data-scroll-target="#medianiqr"><span class="header-section-number">3.10</span> Median and interquartile range</a></li>
+  <li><a href="#sec-lpspaces" id="toc-sec-lpspaces" class="nav-link" data-scroll-target="#sec-lpspaces"><span class="header-section-number">3.11</span> <span class="math inline">\(\mathcal{L}_p\)</span> and <span class="math inline">\(L_p\)</span> spaces</a>
+  <ul class="collapse">
+  <li><a href="#first-borell-cantelli-lemma" id="toc-first-borell-cantelli-lemma" class="nav-link" data-scroll-target="#first-borell-cantelli-lemma"><span class="header-section-number">3.11.1</span> First Borell-Cantelli Lemma</a></li>
+  </ul></li>
+  <li><a href="#bibmoments" id="toc-bibmoments" class="nav-link" data-scroll-target="#bibmoments"><span class="header-section-number">3.12</span> Bibliographic remarks</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-moments" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">A modicum of integration</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="sec-roadmapintegration" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="sec-roadmapintegration"><span class="header-section-number">3.1</span> Roadmap</h2>
+<p>We start by reviewing basic definitions and results from integration theory. We follow the measure-theoretic approach. First, we define <em>simple functions,</em> a subclass of piecewise measurable functions in <a href="#sec-simplefunctions" class="quarto-xref">Section&nbsp;<span>3.2</span></a>). Defining the integral of a simple function with respect to a measure in <a href="#sec-integration" class="quarto-xref">Section&nbsp;<span>3.3</span></a>) is straightforward. Some more work allows us to derive useful properties: linearity, monotonicity, to name a few. In <a href="#sec-integration" class="quarto-xref">Section&nbsp;<span>3.3</span></a>), we define the integral of a non-negative measurable function as a supremum of integrals of simple functions. This definition is theoretically sound and it lends itself to computations. <a href="#sec-biglimittheorems" class="quarto-xref">Section&nbsp;<span>3.4</span></a>) states three convergence theorems culminating with the <em>dominated convergence theorem</em>.</p>
+<p>In <a href="#sec-expectation" class="quarto-xref">Section&nbsp;<span>3.6</span></a>), we relate the notion of <em>expectation</em> of a random variable and the notion of integral. The <em>Transfer Theorem</em> ( <a href="#thm-transfertheorem" class="quarto-xref">Theorem&nbsp;<span>3.4</span></a>) is a key instrument in the characterization of image distributions.</p>
+</section>
+<section id="sec-simplefunctions" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="sec-simplefunctions"><span class="header-section-number">3.2</span> Simple functions</h2>
+<p>The integral of a <span class="math inline">\(\{0,1\}\)</span>-valued measurable function <span class="math inline">\(f\)</span> with respect to a measure <span class="math inline">\(\mu\)</span> is defined <span class="math display">\[\int_{\Omega} f \mathrm{d}\mu = \mu\Big(f^{-1}(\{1\})\Big) \, ,\]</span> alternatively <span class="math display">\[\int_{\Omega} \mathbb{I}_A \mathrm{d}\mu = \mu(A) \qquad \text{for any measurable set } A\,.\]</span> The next step consists in defining the integral of finite linear combinations of <span class="math inline">\(\{0,1\}\)</span>-valued measurable function <span class="math inline">\(f\)</span>.</p>
+<div id="def-simplefun" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3.1 (Simple function)</strong></span> Let <span class="math inline">\((\Omega, \mathcal{F})\)</span> be a measurable space. The function <span class="math inline">\(f : \Omega \to \mathbb{R}\)</span> is said to be <em>simple</em> iff</p>
+<ul>
+<li><span class="math inline">\(f\)</span> takes finitely many values: <span class="math inline">\(\Big|\big\{ f(x) : x \in \Omega\big\} \Big|&lt;\infty\)</span></li>
+<li>For each <span class="math inline">\(y \in f(\Omega) \subset \mathbb{R}\)</span>, <span class="math inline">\(f^{-1}(\{y\}) \in \mathcal{F}\)</span>.</li>
+</ul>
+</div>
+<p>A simple function defines a partition of <span class="math inline">\(\Omega\)</span> into finitely many measurable classes. The simple function is constant on each class.</p>
+<p>If <span class="math inline">\(f\)</span> is a simple function, then the <span class="math inline">\(\sigma\)</span>-algebra <span class="math inline">\(f^{-1}(\mathcal{B}(\mathbb{R}))\)</span> is finite.</p>
+<div id="exm">
+<p>Simple functions are finite linear combinations of set characteristic (indicator) functions.</p>
+<ul>
+<li>For each <span class="math inline">\(A \in \mathcal{F}\)</span>, <span class="math inline">\(\mathbb{I}_A\)</span> is simple</li>
+<li>For any finite collection <span class="math inline">\(A_1, \ldots, A_n\)</span> of measurable subsets of <span class="math inline">\(\Omega\)</span>, any sequence <span class="math inline">\(c_1, \ldots, c_n\)</span> of real numbers, <span class="math inline">\(\sum_{i \leq n} c_i \mathbb{I}_{A_i}\)</span> is a simple function</li>
+<li>For any measurable function <span class="math inline">\(f: \Omega \to \mathbb{R}\)</span>, and <span class="math inline">\(n \in \mathbb{N}\)</span>, the function <span class="math inline">\(g_n\)</span> defined by <span class="math display">\[g_n(\omega) =  n \wedge (-n \vee \lfloor f(\omega) \rfloor)\]</span> is simple.</li>
+</ul>
+</div>
+<p>The definition of the integral of a simple function with respect to a measure is straightforward: it is a finite sum.</p>
+<div id="def-intsimplefun" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3.2 (Integral of a simple function)</strong></span> Let <span class="math inline">\((\Omega, \mathcal{F}, \mu)\)</span> be a measured space. Let <span class="math inline">\(f : \Omega \to \mathbb{R}\)</span> be a non-negative simple function which is defined by a finite partition of <span class="math inline">\(\Omega\)</span> into measurable sets <span class="math inline">\(A_1, A_2, \ldots, A_n\)</span> and numbers <span class="math inline">\(f_1, \ldots, f_n\)</span>: <span class="math display">\[f(\omega) = \sum_{i \leq n} f_i \mathbb{I}_{A_i}(\omega) \,.\]</span> The integral of <span class="math inline">\(f\)</span> with respect to <span class="math inline">\(\mu\)</span> is defined by <span class="math display">\[\int_\Omega f \mathrm{d}\mu = \sum_{i \leq n} f_i \mu(A_i) \, .\]</span></p>
+</div>
+<p>
+</p><div id="rem">
+<p>Note that if measure <span class="math inline">\(\mu\)</span> is not finite, the integral of a simple non-negative function may be infinite.</p>
+<p>If <span class="math inline">\(\mu(A_i)=\infty\)</span> and <span class="math inline">\(f_i=0\)</span>, we agree on <span class="math inline">\(f_i \mu(A_i) =0\)</span>.</p>
+</div>
+<p>
+</p><p>If we turn to signed simple functions, it is enough to notice than if <span class="math inline">\(f\)</span> is simple, so are <span class="math inline">\((f)_+\)</span> and <span class="math inline">\((f)_-\)</span> and to define <span class="math inline">\(\int_\Omega f \mathrm{d}\mu\)</span> as <span class="math display">\[\int_\Omega (f)_+ \mathrm{d}\mu - \int_\Omega (f)_- \mathrm{d}\mu\]</span> provided at leat one of the two summands is finite.</p>
+<p>
+</p><p>Although they are simple, simple functions have interesting approximation capabilities. Any non-negative measurable function can be approximated from below by non-negative simple functions.</p>
+<p>
+</p><div id="prp-limsimplefun" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 3.1 (Approximation of measurable functions)</strong></span> Let <span class="math inline">\((\Omega, \mathcal{F})\)</span> be a measurable space. Any non-negative measurable function <span class="math inline">\(f: \Omega \to \mathbb{R}\)</span> is the monotone pointwise limit of simple functions: there exists a sequence of simple function <span class="math inline">\(f_1, \ldots, f_n, \ldots\)</span> such that for each <span class="math inline">\(\omega \in \Omega\)</span>, the following holds: <span class="math display">\[f_1(\omega) \leq f_2(\omega) \leq \ldots \leq f_n(\omega) \leq \ldots \leq f(\omega)\]</span> and <span class="math display">\[\lim_n f_n(\omega) = f(\omega) \, .\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Define <span class="math inline">\(f_n\)</span> as <span class="math display">\[  f_n(\omega) = n  \wedge \Big(2^{-n} \big\lfloor 2^n f(\omega) \big\rfloor \Big) \, .\]</span> As <span class="math display">\[\big\lfloor 2^n f(\omega) \big\rfloor \leq 2^n f(\omega)\]</span> we have <span class="math inline">\(f_n(\omega)\leq f(\omega)\)</span> for all <span class="math inline">\(\omega\)</span>.</p>
+<p>The range of function <span class="math inline">\(f_n\)</span> is <span class="math inline">\(i \times 2^{-n}\)</span> for <span class="math inline">\(i=0, \ldots, n \times 2^n\)</span>. For each <span class="math inline">\(i \in 0, \ldots, (n-1) \times 2^n\)</span></p>
+<p><span class="math display">\[f_n^{-1}\Big(\{i \times 2^{-n}\}\Big) =f^{-1}\Big(\Big[\frac{i}{2^n}, \frac{i+1}{2^n}\Big)\Big)\]</span></p>
+<p>which is in <span class="math inline">\(\mathcal{F}\)</span> because <span class="math inline">\(f\)</span> is measurable and <span class="math inline">\(\Big[\frac{i}{2^n}, \frac{i+1}{2^n}\Big) \in \mathcal{B}(\mathbb{R})\)</span>.</p>
+<p>Likewise <span class="math inline">\(f_n^{-1}\Big(\{n\}\Big) =f^{-1}\big(\big[n, \infty\big)\big)\)</span> belongs to <span class="math inline">\(\mathcal{F}\)</span>.</p>
+<p>To check that <span class="math inline">\(f_n \leq f_{n+1}\)</span>, we consider two cases.</p>
+<ol type="1">
+<li><span class="math inline">\(f_{n+1}(\omega)\geq n\)</span>. This entails <span class="math inline">\(f(\omega)\geq n\)</span> and thus <span class="math inline">\(f_n(\omega)=n &lt;f_{n+1}(\omega)\)</span></li>
+<li><span class="math inline">\(f_{n+1}(\omega) = k + i 2^{-n-1}\)</span> for <span class="math inline">\(k&lt;n\)</span> and <span class="math inline">\(i&lt;2^{n+1}\)</span>. This entails <span class="math inline">\(f_{n}(\omega) = k + \lfloor i/2\rfloor  2^{-n} \leq f_{n+1}(\omega)\)</span>.</li>
+</ol>
+<p>Finally if <span class="math inline">\(f(\omega) \leq n\)</span>, <span class="math inline">\(0 \leq f(\omega) - f_n(\omega) \leq 2^{-n}\)</span>. This implies that <span class="math inline">\(\lim_n f_n(\omega)=f(\omega)\)</span> for all <span class="math inline">\(\omega\)</span>.</p>
+</div>
+<p>Figure <a href="#fig-approxexpsimple" class="quarto-xref">Figure&nbsp;<span>3.1</span></a> illustrates the approximation capabilities of simple functions.</p>
+<!-- ::: {#fig-approxexpsimple} -->
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-approxexpsimple" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-approxexpsimple-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="031-moments_files/figure-html/fig-approxexpsimple-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-approxexpsimple-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.1: Approximation of the exponential function by simple functions <span class="math inline">\(n \wedge \Big(2^{-n} \big\lfloor 2^n \exp(\omega) \big\rfloor \Big)\)</span> for <span class="math inline">\(n=2, 3, 4\)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<!-- ::: -->
+<div id="prp">
+<p>If <span class="math inline">\(f,g\)</span> are two non-negative simple functions on <span class="math inline">\((\Omega, \mathcal{F})\)</span>, then for all <span class="math inline">\(a, b\in [0,\infty)\)</span>, <span class="math inline">\(a f + b g\)</span> and <span class="math inline">\(fg\)</span> are non-negative simple functions.</p>
+</div>
+<p>
+</p><div id="exr">
+<p>Check the proposition.</p>
+</div>
+<p>
+</p><div id="prp-monointsimpl" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 3.2 (Monotonicity of integration of simple functions)</strong></span> If <span class="math inline">\(f,g\)</span> are two non-negative simple functions and <span class="math inline">\(\mu\)</span> a non-negative measure on <span class="math inline">\((\Omega, \mathcal{F})\)</span> such that <span class="math display">\[\mu\Big\{ \omega: f(\omega)&gt; g(\omega)\Big\} = 0 \, .\]</span> (<span class="math inline">\(f\)</span> is less of equal than <span class="math inline">\(g\)</span> <span class="math inline">\(\mu\)</span>-almost everywhere), then <span class="math display">\[\int  f  \, \mathrm{d}\mu \leq \int  g  \, \mathrm{d}\mu \, .\]</span></p>
+</div>
+<p>
+</p><div id="exr">
+<p>Check <a href="#prp-monointsimpl" class="quarto-xref">Proposition&nbsp;<span>3.2</span></a></p>
+</div>
+<p>
+</p><div id="prp-linintsimp" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 3.3 (Linearity of integration of simple functions)</strong></span> If <span class="math inline">\(f,g\)</span> are two non-negative simple functions and <span class="math inline">\(\mu\)</span> a non-negative measure on <span class="math inline">\((\Omega, \mathcal{F})\)</span>, then for all <span class="math inline">\(a, b\in [0,\infty)\)</span>, <span class="math display">\[\int a f + b g \, \mathrm{d}\mu = a \int  f  \, \mathrm{d}\mu + b \int  g \, \mathrm{d}\mu \, .\]</span></p>
+</div>
+<p>
+</p><div id="exr">
+<p>Check Proposition <a href="#prp-linintsimp" class="quarto-xref">Proposition&nbsp;<span>3.3</span></a></p>
+</div>
+<p>
+</p></section>
+<section id="sec-integration" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="sec-integration"><span class="header-section-number">3.3</span> Integration</h2>
+<p>Let <span class="math inline">\(\mathcal{S}_+\)</span> denote the set of non-negative simple functions on <span class="math inline">\((\Omega, \mathcal{F})\)</span>.</p>
+<div id="def-integration" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3.3 (Integration with respect to a measure)</strong></span> Let <span class="math inline">\(f\)</span> be a non-negative measurable function on <span class="math inline">\((\Omega, \mathcal{F}, \mu)\)</span>, then for any <span class="math inline">\(A \in \mathcal{F}\)</span>, the integral of <span class="math inline">\(f\)</span> over <span class="math inline">\(A\)</span> with respect to measure <span class="math inline">\(\mu\)</span> is defined by:</p>
+<p><span class="math display">\[
+\int_A f \, \mathrm{d}\mu = \sup_{s \in \mathcal{S}_+: s \leq f} \int_A s \, \mathrm{d}\mu
+\]</span></p>
+</div>
+<p>
+</p><div id="rem">
+<p>If the supremum is finite, the function is said to be <em>integrable</em> with respect to <span class="math inline">\(\mu\)</span>, or to be <span class="math inline">\(\mu\)</span>-integrable.</p>
+</div>
+<p>
+</p><div id="prp-monoint" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 3.4 (Monotonicity of integration)</strong></span> If <span class="math inline">\(f,g\)</span> are two non-negative measurable functions and <span class="math inline">\(\mu\)</span> a non-negative measure on <span class="math inline">\((\Omega, \mathcal{F})\)</span> such that</p>
+<p><span class="math display">\[\mu\Big\{ \omega: f(\omega)&gt; g(\omega)\Big\} = 0 \, .\]</span></p>
+<p>(<span class="math inline">\(f\)</span> is less of equal than <span class="math inline">\(g\)</span> <span class="math inline">\(\mu\)</span>-almost everywhere), then</p>
+<p><span class="math display">\[\int  f \,  \mathrm{d}\mu \leq \int  g  \, \mathrm{d}\mu \, .\]</span></p>
+</div>
+<p>
+</p><div id="exr">
+<p>Prove Proposition <a href="#prp-monoint" class="quarto-xref">Proposition&nbsp;<span>3.4</span></a>.</p>
+</div>
+<p>
+</p><div id="prp-linint" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 3.5 (Linearity of integration)</strong></span> If <span class="math inline">\(f,g\)</span> are two non-negative measurable functions and <span class="math inline">\(\mu\)</span> a non-negative measure on <span class="math inline">\((\Omega, \mathcal{F})\)</span>, then for all <span class="math inline">\(a, b\in [0,\infty)\)</span>,</p>
+<p><span class="math display">\[\int a f + b g \, \mathrm{d}\mu = a \int  f \,  \mathrm{d}\mu + b \int  g \, \mathrm{d}\mu \, .\]</span></p>
+</div>
+<p>
+</p><div id="exr">
+<p>Prove Proposition <a href="#prp-linint" class="quarto-xref">Proposition&nbsp;<span>3.5</span></a>.</p>
+</div>
+<p>
+</p><p>The integral of a signed measurable functions is defined by a decomposition argument. Let <span class="math inline">\(f\)</span> be a measurable function and <span class="math inline">\(f= (f)_+ - (f)_-\)</span>, then</p>
+<p><span class="math display">\[
+\int_{\Omega} f \mathrm{d}\mu = \int_{\Omega} (f)_+ \mathrm{d}\mu - \int_{\Omega} (f)_- \mathrm{d}\mu
+\]</span></p>
+<p>provided at least one of <span class="math inline">\(\int_{\Omega} (f)_+ \mathrm{d}\mu\)</span> and <span class="math inline">\(\int_{\Omega} (f)_- \mathrm{d}\mu\)</span> is finite.</p>
+</section>
+<section id="sec-biglimittheorems" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="sec-biglimittheorems"><span class="header-section-number">3.4</span> Limit theorems</h2>
+<p>In this section, measurable functions are meant to be real-valued, and <span class="math inline">\(\mathbb{R}\)</span> is endowed with the Borel <span class="math inline">\(\sigma\)</span>-algebra (<span class="math inline">\(\mathcal{B}(\mathbb{R})\)</span>).</p>
+<p>Theorems <a href="#thm-thmConvMonInt" class="quarto-xref">Theorem&nbsp;<span>3.1</span></a>, <a href="#thm-thmfatou" class="quarto-xref">Theorem&nbsp;<span>3.2</span></a>, <a href="#thm-thmdominatedConv" class="quarto-xref">Theorem&nbsp;<span>3.3</span></a> below are the three pillars of integral calculus.</p>
+<div id="thm-thmConvMonInt" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 3.1 (Monotone convergence theorem)</strong></span> Let <span class="math inline">\((\Omega, \mathcal{F}, \mu)\)</span> be a measured space. Let <span class="math inline">\((f_n)_n\)</span> be a non-decreasing sequence of non-negative measurable functions converging towards <span class="math inline">\(f\)</span>. Then</p>
+<p><span class="math display">\[\int \lim_n \uparrow f_n \, \mathrm{d}\mu = \lim_n \uparrow \int f_n \, \mathrm{d}\mu.\]</span></p>
+</div>
+<p>
+</p><p>The proof of the monotone convergence theorem boils down to the definition of positive measure and property <span class="math inline">\(\mu(\lim_n \uparrow A_n)= \lim_n \uparrow \mu(A_n)\)</span>.</p>
+<p>
+</p><div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Let function <span class="math inline">\(f\)</span> be defined by <span class="math inline">\(f(\omega)=\lim_n \uparrow f_n(\omega)\)</span> for all <span class="math inline">\(\omega \in \Omega\)</span>. Note that if <span class="math inline">\(f(\omega)=0\)</span>, then <span class="math inline">\(f_n(\omega)=0\)</span> for all <span class="math inline">\(n\in \mathbb{N}\)</span>.</p>
+<p>The function <span class="math inline">\(f\)</span> is positive measurable. In order to prove the monotone convergence theorem it is enough to check that for every non-negative simple function <span class="math inline">\(g\)</span> such that <span class="math inline">\(g \leq f\)</span> everywhere, for any <span class="math inline">\(a\in [0, 1)\)</span>, the following holds:</p>
+<p><span id="eq-monotone1"><span class="math display">\[
+a \int g \, \mathrm{d} \mu \leq \lim_n \uparrow \int f_n \, \mathrm{d}\mu \,.
+\tag{3.1}\]</span></span></p>
+<p>For each <span class="math inline">\(n \in \mathbb{N}\)</span>, define</p>
+<p><span class="math display">\[E_n = \Big\{ \omega : f_n(\omega) \geq a g(\omega)\Big\}.\]</span></p>
+<p>Note that as <span class="math inline">\((f_n)_n\)</span> is non-decreasing, the sequence <span class="math inline">\((E_n)\)</span> is non-decreasing. Moreover, if <span class="math inline">\(f(\omega)&gt;0\)</span> as <span class="math inline">\(\lim_n \uparrow f_n(\omega)=f(\omega) &gt; a f(\omega) \geq a g(\omega)\)</span>. Hence for all <span class="math inline">\(\omega \in \Omega\)</span>, <span class="math inline">\(\mathbb{I}_{E_n}(\omega)=1\)</span> for all sufficiently large <span class="math inline">\(n\)</span> (beware there is no uniformity guarantee). We have</p>
+<p><span class="math display">\[\lim_n \uparrow E_n = \Omega\, .\]</span></p>
+<p>Combining the different remarks, we have for all <span class="math inline">\(n\)</span>, <span class="math inline">\(\mathbb{I}_{E_n} a g \leq f_n\)</span> everywhere. Monotonicity of integration entails, for all <span class="math inline">\(n\)</span></p>
+<p><span class="math display">\[\int \mathbb{I}_{E_n} a g \,\mathrm{d}\mu \leq \int f_n \,\mathrm{d}\mu \qquad\forall n\, .\]</span></p>
+<p>Now, for each <span class="math inline">\(n\)</span>, <span class="math inline">\(\mathbb{I}_{E_n} a g\)</span> is a non-negative simple function, and the sequence <span class="math inline">\((\mathbb{I}_{E_n} a g)_n\)</span> is a non-decreasing sequence of non-negative simple functions converging towards simple function <span class="math inline">\(ag\)</span>.</p>
+<p>Let <span class="math inline">\(g = \sum_{i \leq k} c_i \mathbb{I}_{A_i}\)</span> where <span class="math inline">\((A_i)_{i\leq k}\)</span> is a finite partition of <span class="math inline">\(\Omega\)</span> into measurable subsets.</p>
+<p><span class="math display">\[\mathbb{I}_{E_n}  g =  \sum_{i \leq k} c_i \mathbb{I}_{A_i \cap E_n} \, .\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\begin{array}{rl}
+  \int \mathbb{I}_{E_n} a g\, \mathrm{d}\mu &amp; = \sum_{i \leq k} c_i \int \mathbb{I}_{A_i \cap E_n}\, \mathrm{d}\mu \\
+    &amp; = \sum_{i \leq k} c_i  \mu(A_i \cap E_n) \, .
+\end{array}
+\]</span></p>
+<p>For each <span class="math inline">\(i \leq k\)</span>, we have <span class="math inline">\(\lim_n \uparrow c_i  \mu(A_i \cap E_n)  = c_i \mu(A_i)\)</span>. We have:</p>
+<p><span class="math display">\[
+\int \lim_n \uparrow \mathbb{I}_{E_n} a g \,\mathrm{d}\mu = \lim_n \uparrow \int \mathbb{I}_{E_n} a g \, \mathrm{d}\mu \, .
+\]</span></p>
+<p>This proves that <a href="#eq-monotone1" class="quarto-xref">Equation&nbsp;<span>3.1</span></a> holds for all <span class="math inline">\(a\in [0,1)\)</span> and <span class="math inline">\(g \in \mathcal{S}_+\)</span> with <span class="math inline">\(g \leq f\)</span>:</p>
+<p><span class="math display">\[\forall g \in \mathcal{S}_+ \text{ with } \forall a \in [0,1),\]</span></p>
+</div>
+<br>
+<p>
+</p>
+<div id="exr">
+<p>The non-negativity assumptiom on <span class="math inline">\(f_n\)</span> is not necessary. It is enough to assume <span class="math inline">\(\int f_1 \mathrm{d}\mu &gt; - \infty\)</span>. Prove this.</p>
+</div>
+<p>
+<br>
+</p><p>
+</p>
+<div id="exr">
+<p>Let <span class="math inline">\((f_n)_n\)</span> be a monotone decreasing sequence of non-negative measurable functions. Let <span class="math inline">\(f = \lim_n \downarrow f_n\)</span> (check the existence of <span class="math inline">\(f\)</span>).</p>
+<p>Is it true that <span class="math inline">\(\int \lim_n \downarrow f_n \mathrm{d}\mu = \lim_n \downarrow \int f_n \mathrm{d}\mu\)</span>?.</p>
+<p>Answer the same question assuming <span class="math inline">\(\int f_1 \mathrm{d}\mu &lt; \infty\)</span>.</p>
+<p>Answer the same question if <span class="math inline">\(\mu\)</span> is assumed to be a probability measure.</p>
+</div>
+<p>
+</p><div id="thm-thmfatou" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 3.2 (Fatou’s Lemma)</strong></span> Let <span class="math inline">\((\Omega, \mathcal{F}, \mu)\)</span> be a measured space. Let <span class="math inline">\((f_n)_n\)</span> be a sequence of non-negative measurable functions. Then</p>
+<p><span class="math display">\[\int \liminf_n  f_n \mathrm{d}\mu \leq  \liminf_n  \int f_n \mathrm{d}\mu.\]</span></p>
+</div>
+<p>
+</p><div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Define <span class="math inline">\(h_n(\omega) = \inf_{m\geq n} f_n(\omega)\)</span>. Each <span class="math inline">\(h_n\)</span> is also non-negative and measurable. By monotonicity, <span class="math display">\[\int h_n \mathrm{d}\mu \leq \inf_{m\geq n} \int f_m \mathrm{d}\mu \, .\]</span></p>
+<p>The sequence <span class="math inline">\(h_n\)</span> is non-decreasing. And <span class="math inline">\(\lim \uparrow h_n(\omega) = \liminf f_n(\omega)\)</span> for all <span class="math inline">\(\omega \in \Omega\)</span>. For each <span class="math inline">\(n\)</span>, by the monotone convergence theorem (<a href="#thm-thmConvMonInt" class="quarto-xref">Theorem&nbsp;<span>3.1</span></a>):</p>
+<p><span class="math display">\[\int \lim_n \uparrow h_n \mathrm{d}\mu = \lim_n \uparrow \int h_n \mathrm{d}\mu\]</span></p>
+<p>so that <span class="math display">\[\int \liminf_n f_n \mathrm{d}\mu = \lim_n \uparrow \int h_n \mathrm{d}\mu\]</span></p>
+<p>and <span class="math display">\[\int \liminf_n f_n \mathrm{d}\mu \leq \lim_n \inf_{m\geq n} \int f_m \mathrm{d}\mu = \liminf_{n} \int f_n \mathrm{d}\mu\]</span></p>
+</div>
+<br>
+<p>
+</p><div id="thm-thmdominatedConv" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 3.3 (Dominated convergence theorem)</strong></span> Let <span class="math inline">\((\Omega, \mathcal{F}, \mu)\)</span> be a measured space. Let <span class="math inline">\((f_n)_n\)</span> be a sequence of measurable functions that converges pointwise towards function <span class="math inline">\(f\)</span>. Assume that there exists a integrable function <span class="math inline">\(g\)</span> that dominates <span class="math inline">\((f_n)_n\)</span>: for all <span class="math inline">\(n\)</span>, all <span class="math inline">\(\omega \in \Omega\)</span>, <span class="math inline">\(|f_n(\omega)|\leq g(\omega)\)</span>. Then <span class="math inline">\(f\)</span> is integrable and</p>
+<p><span class="math display">\[\int f \mathrm{d}\mu = \int \lim_n  f_n \mathrm{d}\mu =  \lim_n  \int f_n \mathrm{d}\mu.\]</span></p>
+</div>
+<p>
+</p><div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Let us first check that <span class="math inline">\(f\)</span> is integrable.</p>
+<p>Observe that <span class="math inline">\(\lim_n |f_n| = |f|\)</span> and thus <span class="math inline">\(\liminf |f_n| = |f|\)</span>.</p>
+<p>By <a href="#thm-thmfatou" class="quarto-xref">Theorem&nbsp;<span>3.2</span></a>,</p>
+<p><span class="math display">\[
+\int |f| \mathrm{d}\mu
+= \int \liminf_n |f_n| \mathrm{d}\mu
+\leq \liminf_n \int |f_n| \mathrm{d}\mu
+= \int |g| \mathrm{d}\mu &lt; \infty \,.
+\]</span></p>
+<p>Now define <span class="math inline">\(h_n = \inf_{m\geq n} f_m\)</span> and <span class="math inline">\(j_n = \sup_{m \geq n}f_m\)</span>. We have <span class="math inline">\(\lim_n \uparrow h_n = f\)</span> and <span class="math inline">\(\lim_n \downarrow j_n=f.\)</span></p>
+<p>Note also that</p>
+<p><span class="math display">\[\int h_n \mathrm{d}\mu \leq \int f \mathrm{d}\mu \leq \int j_n \mathrm{d}\mu \, .\]</span></p>
+<p>By monotone convergence <span class="math inline">\(\int h_n \mathrm{d}\mu \uparrow \int f\mathrm{d}\mu\)</span> and <span class="math inline">\(\int j_n \mathrm{d}\mu \downarrow \int f\mathrm{d}\mu\)</span>. This entails <span class="math inline">\(\lim \int f_n \mathrm{d}\mu\)</span>.</p>
+</div>
+<br>
+<p>
+</p><p>
+</p>
+<div id="exr">
+<p>Let <span class="math inline">\(g: \Omega \times \mathbb{R} \to \mathbb{R}\)</span> be a function of two variables such that for each <span class="math inline">\(t \in \mathbb{R}\)</span>, <span class="math inline">\(g(\cdot, t)\)</span> is measurable. Assume that for each <span class="math inline">\(t \in \mathbb{R}\)</span>, <span class="math inline">\(g(\cdot, t)\)</span> is <span class="math inline">\(\mu\)</span>-integrable and that for each <span class="math inline">\(\omega \in \Omega\)</span>, <span class="math inline">\(g(\omega, \cdot)\)</span> is differentiable. Define <span class="math inline">\(G(t)= \int_{\Omega} g(\omega, t) \mathrm{d}\mu(\omega)\)</span>.</p>
+<p>Is it always true that <span class="math inline">\(G\)</span> is differentiable at every <span class="math inline">\(t\)</span>?</p>
+<p>Provide sufficient conditions for <span class="math inline">\(G\)</span> to be differentiable and</p>
+<p><span class="math display">\[G'(t) = \int \frac{\partial g}{\partial s}(\omega, s)_{|s=t} \mathrm{d}\mu(\omega) \, .\]</span></p>
+</div>
+<p>
+</p></section>
+<section id="sec-densities" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="sec-densities"><span class="header-section-number">3.5</span> Probability distributions defined by a density</h2>
+<div id="prp">
+<p>Let <span class="math inline">\((\Omega, \mathcal{F})\)</span> be a measurable space and <span class="math inline">\(\mu\)</span> be a <span class="math inline">\(\sigma\)</span>-finite measure over <span class="math inline">\((\Omega, \mathcal{F})\)</span>. Let <span class="math inline">\(f\)</span> be a non-negative measurable real function over <span class="math inline">\((\Omega, \mathcal{F})\)</span>.</p>
+<p>Let <span class="math inline">\(\nu : \mathcal{F} \to [0, \infty)\)</span> be defined by</p>
+<p><span class="math display">\[\nu(A) = \int \mathbb{I}_A f \, \mathrm{d}\mu = \int_A f\, \mathrm{d}\mu \,.\]</span></p>
+<p><span class="math inline">\(\nu\)</span> is a measure over <span class="math inline">\((\Omega, \mathcal{F})\)</span>. The function <span class="math inline">\(f\)</span> is said to be a density of <span class="math inline">\(\nu\)</span> with respect to <span class="math inline">\(\mu\)</span>.</p>
+</div>
+<br>
+<p>
+</p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>The fact that <span class="math inline">\(\nu(\emptyset)=0\)</span> is immediate.</p>
+<p>The fact that <span class="math inline">\(\nu\)</span> is <span class="math inline">\(\sigma\)</span>-additive follows from the monotone convergence theorem ( <a href="#thm-thmConvMonInt" class="quarto-xref">Theorem&nbsp;<span>3.1</span></a>).</p>
+<p>If <span class="math inline">\(A_1, \ldots, A_n, \ldots\)</span> is a collection or pairwise disjoint measurable sets,</p>
+<p><span class="math display">\[
+\begin{array}{rl}
+\nu(\cup_n A_n)
+&amp; = \int \mathbb{I}_{\cup_n A} f \, \mathrm{d}\mu \\
+&amp; = \int \Big(\lim_n \sum_{k\leq n}\mathbb{I}_{A_k}\Big) f \, \mathrm{d}\mu  \\
+&amp; = \int \Big(\lim_n \sum_{k\leq n}\mathbb{I}_{A_k} f \Big)  \, \mathrm{d}\mu \\
+&amp; = \lim_n  \sum_{k\leq n} \int \mathbb{I}_{A_k} f   \, \mathrm{d}\mu \\
+&amp; = \lim_n  \sum_{k\leq n} \int \mathbb{I}_{A_k} f   \, \mathrm{d}\mu \\
+&amp; = \lim_n  \sum_{k\leq n} \nu(A_k) \\
+&amp; = \sum_{k=1}^\infty \nu(A_k) \, .
+\end{array}
+\]</span></p>
+<p>The fourth equality is justified by the monotone convergence theorem, others equalities follow from the fact that we are handling non-negative series.</p>
+</div>
+<br>
+<p>
+</p>
+<p>Let <span class="math inline">\((A_n)_n\)</span> be such that <span class="math inline">\(A_n \in \mathcal{F}, \mu(A_n)&lt;\infty\)</span> for each <span class="math inline">\(n\)</span> and <span class="math inline">\(\cup_n A_n = \Omega\)</span>. For each <span class="math inline">\(n\)</span>, we have <span class="math inline">\(\nu(A_n) = \int_{A_n}  f \,\mathrm{d}\mu \leq  \int_{\Omega}  f \,\mathrm{d}\mu &lt;
+\infty\)</span>. This proves that if <span class="math inline">\(\mu\)</span> is <span class="math inline">\(\sigma\)</span>-finite, so is <span class="math inline">\(\nu\)</span>.</p>
+<br>
+<p>
+</p>
+<div id="exr">
+<p>Check that if <span class="math inline">\(\mu(A)=0\)</span>, then <span class="math inline">\(\nu(A)=0\)</span> for every <span class="math inline">\(A \in \mathcal{F}\)</span>.</p>
+</div>
+<br>
+<p>
+</p>
+<p>
+</p>
+<div id="exr">
+<p>TODO.</p>
+</div>
+<p>
+</p></section>
+<section id="sec-expectation" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="sec-expectation"><span class="header-section-number">3.6</span> Expectation</h2>
+<p>The expectation of a real random variable is a (Lebesgue) integral with respect to a probability measure. We have to get familiar with probabilistic notation.</p>
+<div id="def">
+<p>Let <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span> be a probability space. The random variable <span class="math inline">\(X\)</span> defined on <span class="math inline">\((\Omega, \mathcal{F})\)</span> is <span class="math inline">\(P\)</span>-integrable if the measurable function <span class="math inline">\(|X|: \omega \mapsto |X(\omega)|\)</span> is <span class="math inline">\(P\)</span>-integrable: we agree on</p>
+<p><span class="math display">\[
+\mathbb{E} X = \mathbb{E}_P X = \int_{\mathcal{X}} X(\omega) \mathrm{d}P(\omega) =\int X \mathrm{d}P \, .
+\]</span></p>
+</div>
+<br>
+<p>
+</p>
+<div id="exr">
+<p>Check the consistency of this definition with the definition used in the discrete setting.</p>
+</div>
+<p>
+</p>
+<p>The next statement called the <em>transfer formula</em> can be used to compute the density of an image distribution or to simplify the computation of an expectation.</p>
+<div id="thm-transfertheorem" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 3.4 (Transfer formula)</strong></span> Let <span class="math inline">\((\mathcal{X}, \mathcal{F}, P)\)</span> be a probability space, <span class="math inline">\((\mathcal{Y}, \mathcal{G})\)</span> a measurable space, <span class="math inline">\(f\)</span> a measurable function from <span class="math inline">\((\mathcal{X}, \mathcal{F})\)</span> to <span class="math inline">\((\mathcal{Y}, \mathcal{G})\)</span>. Let <span class="math inline">\(Q\)</span> denote the probability distribution that is the image of <span class="math inline">\(P\)</span> by <span class="math inline">\(f\)</span>: <span class="math inline">\(Q = P \circ f^{-1}\)</span>.</p>
+<p>Then for all measurable functions <span class="math inline">\(h\)</span> from <span class="math inline">\((\mathcal{Y}, \mathcal{G})\)</span> to <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span></p>
+<p><span class="math display">\[
+\mathbb{E}[h(Y)] = \int_{\mathcal{Y}} h(y) \mathrm{d}Q(y)  = \int_{\mathcal{X}} h\circ f(x) \mathrm{d}P(x) = \mathbb{E} h\circ f(X) \,
+\]</span></p>
+<p>if either integral is defined.</p>
+</div>
+<p>
+</p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Assume first that <span class="math inline">\(h= \mathbb{I}_B\)</span> where <span class="math inline">\(C \in \mathcal{G}\)</span>. Then</p>
+<p><span class="math display">\[
+\begin{array}{rl}
+\mathbb{E} h(Y)
+&amp; = \int_{\mathcal{Y}} \mathbb{I}_B(y) \, \mathrm{d}Q(y) \\
+&amp; = Q(B) \\
+&amp; = P \circ f^{-1}(B) \\
+&amp; = P \Big\{ x : f(x) \in B \Big\} \\
+&amp; = P \Big\{ x : h \circ f(x) =1 \Big\}  \\
+&amp; = \int_{\mathcal{X}}  h \circ f(x) \mathrm{d}P(x) \\
+&amp; = \mathbb{E} h\circ f(X) \, .
+\end{array}
+\]</span></p>
+<p>Then, by linearity, the transfer formula holds for all simple functions from <span class="math inline">\(\mathcal{Y}\)</span> to <span class="math inline">\(\mathbb{R}\)</span>. By the definition of the Lebesgue integral, the transfer formula holds for non-negative measurable functions. The usual decomposition argument completes the proof.</p>
+</div>
+<p>
+</p>
+<p>It is clear that the expectation of a random variable only depends on the probability distribution of the random variable.</p>
+</section>
+<section id="sec-jensensec" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="sec-jensensec"><span class="header-section-number">3.7</span> Jensen’s inequality</h2>
+<p>The tools from integration theory we have reviewed so far serve to compute or approximate integrals and expectations. The next theorem circumvents computations and allows us to compare expectations.</p>
+<p>Jensen’s inequality is a workhorse of Information Theory, Statistics and large parts of Probability Theory. It embodies the interaction between convexity and expectation.</p>
+<p>We first introduce a modicum of convexity theory and notation.</p>
+<div id="def-semicont" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3.4 (Lower semi-continuity)</strong></span> A function <span class="math inline">\(f\)</span> from some metric space <span class="math inline">\(\mathcal{X}\)</span> to <span class="math inline">\(\mathbb{R}\)</span> is lower semi-continuous at <span class="math inline">\(x \in \mathcal{X}\)</span>, if</p>
+<p><span class="math display">\[\liminf_{x_n \to x} f(x_n) \geq f(x) \, .\]</span></p>
+</div>
+<div id="rem">
+<p>A continuous function is lower semi-continuous. But the converse is not true. If <span class="math inline">\(A \subseteq \mathcal{X}\)</span> is an open set, then <span class="math inline">\(\mathbb{I}_A\)</span> is lower semi-continuous but, unless it is constant, it is not continuous at the boundary of <span class="math inline">\(A.\)</span></p>
+</div>
+<p><br></p>
+<div id="def-convexset" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3.5 (Convex subset)</strong></span> Let <span class="math inline">\(\mathcal{X}\)</span> be a vector space, a subset <span class="math inline">\(C \subseteq \mathcal{X}\)</span> is said to be convex if for all <span class="math inline">\(x,y \in C\)</span>, all <span class="math inline">\(\lambda \in [0,1]\)</span>:</p>
+<p><span class="math display">\[\lambda x + (1-\lambda) y \in C \, .\]</span></p>
+</div>
+<p><br></p>
+<div id="exr">
+<p>Let <span class="math inline">\(C\)</span> be a convex subset of some (topological real) vector space, let <span class="math inline">\(\overline{C}\)</span> be the closure of <span class="math inline">\(C\)</span>. Prove that <span class="math inline">\(\overline{C}\)</span> and <span class="math inline">\(\overline{C} \setminus C\)</span> are convex.</p>
+<p>A convex set may be neither closed nor open. Provide examples.</p>
+</div>
+<p><br></p>
+<p>In the next definition, we consider functions from some vector space to <span class="math inline">\(\mathbb{R} \cup \{+\infty\}\)</span>.</p>
+<div id="def-convexfun" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3.6 (Convex functions)</strong></span> Let <span class="math inline">\(\mathcal{X}\)</span> be a (topological) vector space. Let <span class="math inline">\(C \subseteq \mathcal{X}\)</span> be a convex subset. A function <span class="math inline">\(f\)</span> from <span class="math inline">\(\mathcal{C}\)</span> to <span class="math inline">\(\mathbb{R} \cup \{\infty\}\)</span> is convex if for <span class="math inline">\(x,y \in C\)</span>, all <span class="math inline">\(\lambda \in [0,1]\)</span>,</p>
+<p><span class="math display">\[f(\lambda x + (1-\lambda) y) \leq \lambda f(x) + (1-\lambda) f(y) \, .\]</span></p>
+<p>The <em>domain</em> of <span class="math inline">\(f\)</span> <span class="math inline">\(\operatorname{Dom}(f)\)</span> is the subset of <span class="math inline">\(C\)</span> where <span class="math inline">\(f\)</span> is finite.</p>
+</div>
+<p><br></p>
+<!-- ::: {#fig-convexfunfig} -->
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-convexfunfig" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-convexfunfig-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="031-moments_files/figure-html/fig-convexfunfig-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-convexfunfig-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.2: The function <span class="math inline">\(f : x \mapsto \mathbb{I}_{x&lt;0}|x| + \mathbb{I}_{x\geq 0} x^2\)</span> is convex, continuous. It is differentiable everywhere except at <span class="math inline">\(x=0\)</span>. The dotted lines define affine functions that are below the cruve <span class="math inline">\(y=f(x)\)</span>. The dotted lines define supporting hyperplanes for the epigraph of <span class="math inline">\(f\)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<!-- ::: -->
+<div id="exr">
+<p>Check that a convex function <span class="math inline">\(f\)</span> is lower semi-continuous iff sets <span class="math inline">\(\{ x : f(x) \leq t\}\)</span> are closed intervals for all <span class="math inline">\(t \in \mathbb{R}\)</span>.</p>
+</div>
+<p>The next result warrants that any convex lower semi-continuous has a dual representation. This dual representation is a precious tool when comparing expectation of random variables.</p>
+<p><br></p>
+<div id="thm-fenchel" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 3.5 (Fenchel-Legendre duality)</strong></span> Let <span class="math inline">\(f\)</span> be a convex lower-semi-continuous function on <span class="math inline">\(\mathbb{R}\)</span> with a closed domain.</p>
+<p>The dual function <span class="math inline">\(f^*\)</span> of <span class="math inline">\(f\)</span> is defined over <span class="math inline">\(\mathbb{R}\)</span> by</p>
+<p><span class="math display">\[f^*(y) = \sup_{x \in \text{Dom}(f)} xy - f(x) \, .\]</span></p>
+<p>Then</p>
+<ul>
+<li><span class="math inline">\(f^*\)</span> is convex</li>
+<li><span class="math inline">\(f^*\)</span> is lower-semi-continuous</li>
+<li>If <span class="math inline">\(f^*(y)= xy - f(x)\)</span> then <span class="math inline">\(y\)</span> is a sub-gradient of <span class="math inline">\(f\)</span> at <span class="math inline">\(x\)</span>.</li>
+<li>If <span class="math inline">\(y\)</span> is a sub-gradient of <span class="math inline">\(f\)</span> at <span class="math inline">\(x\)</span>, <span class="math inline">\(f^*(y) = xy -f(x)\)</span>.</li>
+<li><span class="math inline">\(f= (f^{*})^*\)</span>, the dual function of the dual function equals the original function: <span class="math inline">\(f(x) = \sup_{y} xy -f^*(y).\)</span></li>
+</ul>
+</div>
+<p><br></p>
+<div id="exm">
+<p>The next dual pairs will be used in several places.</p>
+<ul>
+<li>if <span class="math inline">\(f(x) = \frac{|x|^p}{p}\)</span> (<span class="math inline">\(p&gt; 1\)</span>), then <span class="math inline">\(f^*(y)= \frac{|y|^q}{q}\)</span> where <span class="math inline">\(q=p/(p-1)\)</span>.</li>
+<li>if <span class="math inline">\(f(x) = |x|\)</span>, then <span class="math inline">\(f^*(y)= 0\)</span> for <span class="math inline">\(y \in [-1,1]\)</span> and <span class="math inline">\(\infty\)</span> for <span class="math inline">\(|y|&gt;1\)</span>.</li>
+<li>if <span class="math inline">\(f(x) = \exp(x)\)</span> then <span class="math inline">\(f^*(y) = y \log y - y\)</span> for <span class="math inline">\(y&gt;0\)</span>, <span class="math inline">\(f^*(y)=\infty\)</span> for <span class="math inline">\(y&lt;0\)</span></li>
+</ul>
+</div>
+<p><br></p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>The fact that <span class="math inline">\(f^*\)</span> is <span class="math inline">\(\mathbb{R} \cup \{\infty\}\)</span>-valued and convex is immediate.</p>
+<p>To check lower semi-continuity, assume <span class="math inline">\(y_n \to y\)</span>, with <span class="math inline">\(y_n \in \operatorname{Dom}(f^*)\)</span> and <span class="math inline">\(f^*(y) &gt; \liminf_n f^*(y_n)\)</span>.</p>
+<p>Assume first that <span class="math inline">\(y \in \operatorname{Dom}(f^*)\)</span>. Then for some sufficiently large <span class="math inline">\(m\)</span> and some <span class="math inline">\(x \in \operatorname{Dom}(f)\)</span></p>
+<p><span class="math display">\[
+f^*(y) \geq xy - f(x) -\frac{1}{m} &gt; \liminf_n f^*(y_n) \geq \liminf_n y_n x -f(x) = yx -f(x)
+\]</span></p>
+<p>which is contradictory.</p>
+<p>Assume now that <span class="math inline">\(y \not\in \operatorname{Dom}(f^*)\)</span> and <span class="math inline">\(\liminf_n f^*(y_n) &lt; \infty\)</span>. Extract a subsequence <span class="math inline">\((y_{m_n})_n\)</span> such that <span class="math inline">\(\lim_n f^*(y_{m_n}) = \liminf_n f^*(y_n)\)</span>. There exists <span class="math inline">\(x \in \operatorname{Dom}(f)\)</span> such that <span class="math display">\[
+f^*(y) &gt; xy -f(x) &gt; \liminf_n f^*(y_n) = \lim_n f^*(y_{m_n}) \geq \lim_n xy_{m_n} -f (x) = xy - f(x)
+\]</span></p>
+<p>which is again contradictory.</p>
+<p>The fact that <span class="math inline">\(y\)</span> is a sub-gradient of <span class="math inline">\(f\)</span> at <span class="math inline">\(x\)</span> if <span class="math inline">\(f^*(y)= xy - f(x)\)</span> is a rephrasing of the definition of sub-gradients.</p>
+<p>Note that if <span class="math inline">\(x \in \operatorname{Dom}(f)\)</span> and <span class="math inline">\(y\in \operatorname{Dom}(f^*)\)</span> then <span class="math inline">\(f(x)+f^*(y)\geq xy\)</span>.</p>
+<p>This observation entails that <span class="math inline">\((f^*)^*(x)\leq f(x)\)</span> for all <span class="math inline">\(x \in \operatorname{Dom}(f)\)</span>. If there existed some <span class="math inline">\(x \in \operatorname{Dom}(f)\)</span> with <span class="math inline">\((f^*)^*(x)&gt;x\)</span>, there would exist some <span class="math inline">\(y \in \operatorname{Dom}(f^*)\)</span> with <span class="math inline">\(xy - f^*(y) &gt; f(x)\)</span> which is not possible.</p>
+<p>In order to prove that that <span class="math inline">\((f^*)^*(x)\geq f(x)\)</span> for all <span class="math inline">\(x \in \operatorname{Dom}(f)\)</span>, we rely on the convexity, lower semi-continuity of <span class="math inline">\(f\)</span> and <span class="math inline">\(f^*\)</span> and the closure of <span class="math inline">\(\operatorname{Dom}(f)\)</span>. Under these conditions, every point <span class="math inline">\(x\)</span> in <span class="math inline">\(\operatorname{Dom}(f)\)</span> has a sub-gradient <span class="math inline">\(y\)</span> and this entails <span class="math inline">\(f(x) + f^*(y)= xy\)</span>.</p>
+</div>
+<p><br></p>
+<div id="exr">
+<p>Extend the notion of Fenchel-Legendre duality to lower-semi-continuous convex functions over <span class="math inline">\(\mathbb{R}^k\)</span>.</p>
+</div>
+<p><br></p>
+<div id="exr">
+<p>Are all convex functions lower-semi-continuous? measurable?</p>
+<p>Are all convex lower-semi-continuous functions measurable?</p>
+</div>
+<p><br></p>
+<div id="rem">
+<p>It is possible to define <span class="math inline">\(f^*\)</span> as <span class="math inline">\(f^*(y) =\sup_x xy -f(x)\)</span> even if <span class="math inline">\(f\)</span> is not convex and lower semi-continuous. The function <span class="math inline">\(f^*\)</span> retains the convexity and lower semi-continuity properties. But <span class="math inline">\(f \neq (f^{*})^*\)</span>, we only get <span class="math inline">\(f \geq (f^{*})^*\)</span>. Indeed <span class="math inline">\((f^{*})^*\)</span> is the largest convex minorant of <span class="math inline">\(f\)</span>.</p>
+</div>
+<p><br></p>
+<div id="thm-thmjensen" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 3.6 (Jensen’s inequality)</strong></span> Let <span class="math inline">\(X\)</span> be a real-valued random variable and <span class="math inline">\(f: \mathbb{R} \to \mathbb{R}\)</span> be <em>convex, lower-semi-continuous</em> such that the closed set <span class="math inline">\(\text{Dom}(f) \subseteq \text{supp}(\mathcal{L}(X))\)</span> and <span class="math inline">\(\mathbb{E} |f(X)|&lt; \infty.\)</span>, then</p>
+<p><span class="math display">\[f(\mathbb{E} X) \leq \mathbb{E} f(X) \, .\]</span></p>
+</div>
+<p><br></p>
+<div id="rem">
+<p>In view of the definition of convexity and of the fact that taking expectation extends the idea of taking a convex combination, Jensen’s inequality is not a surprise.</p>
+</div>
+<p><br></p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span><span class="math display">\[
+\begin{array}{rl}
+\mathbb{E} f(X) &amp; = \mathbb{E} (f^*)^*(X) \\
+&amp; = \mathbb{E} \Big[ \sup_y \Big( yX - f^*(y)\Big)\Big] \\
+&amp; \geq   \sup_y  \Big( y \mathbb{E} X - f^*(y)\Big) \\
+&amp; =  (f^*)^*\Big( \mathbb{E} X \Big) \\
+&amp; = f\Big( \mathbb{E} X \Big)  \, .
+\end{array}
+\]</span></p>
+</div>
+<br>
+<p>
+</p>
+<p><br></p>
+<div id="exr">
+<p>In the argument above, it is not <em>a priori</em> obvious that <span class="math inline">\(\sup_y \Big( yX - f^*(y)\Big)\)</span> is measurable, since the supremum is taken over a non-countable collection. Check that this is not an issue.</p>
+</div>
+<p>We will see many applications of Jensen’s inequality:</p>
+<ul>
+<li>comparison of sampling with replacement with sampling without replacement (comparison of binomial and hypergeometric tails)</li>
+<li>Cauchy-Schwarz and Hölder’s inequalities</li>
+<li>Derivation of maximal inequalities</li>
+<li>Non-negativity of relative entropy</li>
+<li>Derivation of Efron-Stein-Steele’s inequalities</li>
+<li>…</li>
+</ul>
+</section>
+<section id="sec-variance" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="sec-variance"><span class="header-section-number">3.8</span> Variance</h2>
+<p>The variance (when it is defined) is an index of dispersion of the distribution of a random variable.</p>
+<div id="prp-var" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 3.6 (Characterizations of variance)</strong></span> Let <span class="math inline">\(X\)</span> be a random variable over some probability space. The variance of <span class="math inline">\(X\)</span> is finite iff <span class="math inline">\(\mathbb{E}X^2 &lt;\infty\)</span> and it may be defined using the netx three equalities:</p>
+<p><span class="math display">\[
+\begin{array}{rl}
+\operatorname{var}(X) &amp; =  \mathbb{E}\left[(X - \mathbb{E}X)^2\right] \\
+&amp; = \inf_{a \in \mathbb{R}} \mathbb{E}\left[(X - a)^2\right] \\
+&amp; = \mathbb{E}X^2 - (\mathbb{E}X)^2 \,.
+\end{array}
+\]</span></p>
+</div>
+<p>We need to check that three right-hand-side are finite if one of them is, and that when they are finite, they are all equal.</p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Assume <span class="math inline">\(\mathbb{E}X^2 &lt; \infty\)</span>, as <span class="math inline">\(|X| \leq \frac{X^2}{2} + \frac{1}{2}\)</span>, this entails <span class="math inline">\(\mathbb{E} |X|&lt;\infty\)</span>. If <span class="math inline">\(\mathbb{E}X^2 &lt; \infty\)</span> then so is <span class="math inline">\(\mathbb{E}|X|\)</span>. The right-hand-side on the third line is finite if <span class="math inline">\(\mathbb{E}X^2 &lt; \infty\)</span>. As <span class="math inline">\((x-b)^2 \leq 2 x^2 + 2 b^2\)</span> for all <span class="math inline">\(x,b\)</span>, The right-hand-side on the first line, the infimum on the second line are finite when <span class="math inline">\(\mathbb{E} X^2 &lt;\infty.\)</span></p>
+<p>As <span class="math inline">\(X^2 \leq 2 (X- \mathbb{E}X)^2 + 2 (\mathbb{E}X)^2\)</span>, <span class="math inline">\(\mathbb{E}X^2&lt;\infty\)</span> if <span class="math inline">\(\mathbb{E}\left[(X - \mathbb{E}X)^2\right] &lt;\infty.\)</span></p>
+<p>Assume now that <span class="math inline">\(\mathbb{E}X^2 &lt; \infty\)</span>. <span class="math display">\[
+\begin{array}{rl}
+  \mathbb{E}\left[(X - a)^2\right]
+  &amp; = \mathbb{E}\left[(X - \mathbb{E}X - (a-\mathbb{E}X))^2\right] \\
+  &amp; = \mathbb{E}\left[(X- \mathbb{E}X)^2 - 2 \mathbb{E}[(X-\mathbb{E}X)](a-\mathbb{E}X) + (a-\mathbb{E}X)^2 \right]\\
+  &amp; = \mathbb{E}\left[(X- \mathbb{E}X)^2\right] + (a-\mathbb{E}X)^2   \, .
+\end{array}
+\]</span></p>
+<p>As <span class="math inline">\((a- \mathbb{E}X)^2\geq 0\)</span>, we have established that <span class="math inline">\(\mathbb{E}\left[(X - \mathbb{E}X)^2\right]   = \inf_{a \in \mathbb{R}} \mathbb{E}\left[(X - a)^2\right]\)</span>. Moreover, the infimum is a minimum, it is achieved at a single point <span class="math inline">\(\mathbb{E}X\)</span>.</p>
+</div>
+<br>
+<p>
+</p>
+<div id="rem">
+<p>The first and second characterizations of variance assert that the expectation minimizes the average quadratic error. A fact of great importance in Statistics.</p>
+</div>
+<br>
+<p>
+</p>
+<div id="exr">
+<p>Check that if <span class="math inline">\(P\left\{ X \in [a,b]\right\} =1\)</span>, then <span class="math inline">\(\operatorname{var}(X)\leq \frac{(b-a)^2}{4}\)</span> , .</p>
+</div>
+</section>
+<section id="sec-highermoments" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="sec-highermoments"><span class="header-section-number">3.9</span> Higher moments</h2>
+<p>In this Section we relate <span class="math inline">\(\mathbb{E} |X|^p\)</span> with <span class="math inline">\(\mathbb{E} |X|^q\)</span> for different values of <span class="math inline">\(p, q \in \mathbb{R}_+\)</span>. Our starting point is small technical result in real analysis.</p>
+<div id="prp-young" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 3.7 (Young’s inequality)</strong></span> Let <span class="math inline">\(p, q&gt;1\)</span> be <em>conjugate</em> (<span class="math inline">\(1/p + 1/q =1\)</span>), and <span class="math inline">\(x, y&gt;0\)</span>, then <span class="math display">\[xy \leq \frac{x^p}{p} + \frac{y^q}{q} \,.\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Note that if <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> are conjugate, then <span class="math inline">\(q= p/(p-1)\)</span> and <span class="math inline">\((p-1)(q-1)=1\)</span>.</p>
+<p>It suffices to check that for all <span class="math inline">\(x,y&gt;0\)</span>,</p>
+<p><span class="math display">\[\frac{x^p}{p} \geq xy - \frac{y^q}{q} \, .\]</span></p>
+<p>Fix <span class="math inline">\(x&gt;0\)</span>, consider the function over <span class="math inline">\([0,\infty)\)</span> defined by</p>
+<p><span class="math display">\[z \mapsto xz - \frac{z^q}{q} \,.\]</span></p>
+<p>This function is differentiable with derivative <span class="math inline">\(x - z^{q-1} = x - z^{1/(p-1)}\)</span>. It achieves its maximum at <span class="math inline">\(z=x^{p-1}\)</span> and the maximum is equal to</p>
+<p><span class="math display">\[x x^{p-1} - \frac{x^{q(p-1)}}{q} = x^p - \frac{x^p}{q} = \frac{x^p}{p} \, .\]</span></p>
+</div>
+<br>
+<p>
+</p>
+<p><a href="#fig-graphyoung" class="quarto-xref">Figure&nbsp;<span>3.3</span></a> displays a graphic proof of Young’s inequality.</p>
+<!-- ::: {#fig-graphyoung} -->
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-graphyoung" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-graphyoung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="031-moments_files/figure-html/fig-graphyoung-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-graphyoung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.3: Graphical illlustration of Young’s inequality. We choose <span class="math inline">\(p=`r p`\)</span> and <span class="math inline">\(q= `r q`\)</span>, <span class="math inline">\(x = `r x`\)</span> and <span class="math inline">\(y= `r y`\)</span>. The black point is located at <span class="math inline">\((x,y)^T\)</span>. The product <span class="math inline">\(xy\)</span> equals the area of the rectangle located between the origin and <span class="math inline">\((x,y)^T\)</span> (delimited by the dashed segments). The dotted line represents function <span class="math inline">\(s \mapsto s^{p-1}\)</span>, and interchanging the axes, the function <span class="math inline">\(t \mapsto t^{q-1} = t^{1/(p-1)}\)</span>. The area of the light grey surface under the dotted line equals <span class="math inline">\(\frac{x^p}{p} = \int_0^x s^{p-1} \mathrm{d}s\)</span>, while the area of the darker grey surface below line <span class="math inline">\(y=1\)</span> and above the dotted line, equals <span class="math inline">\(\frac{y^q}{q} = \int_0^y t^{q-1} \mathrm{d}t\)</span>. The union of the two disjoint surfaces covers the rectangle located between the origin and <span class="math inline">\((x,y)^\top\)</span>. Equality occurs when the dotted line passes though <span class="math inline">\((x,y)^\top\)</span>, that is when <span class="math inline">\(y=x^{p-1}\)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<!-- ::: -->
+<br>
+<p>
+</p>
+<div id="rem">
+<p>A special case of Young inequality is obtained by taking <span class="math inline">\(p=q=2\)</span>.</p>
+</div>
+<p>We are now in a position to prove three fundamental inequalities: Cauchy-Schwarz, Hölder and Minkowski.</p>
+<div id="thm-thmcauchyschwartz" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 3.7 (Cauchy-Schwarz)</strong></span> Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be two random variables on the same probability space. Assume both <span class="math inline">\(\mathbb{E}X^2\)</span> and <span class="math inline">\(\mathbb{E}Y^2\)</span> are finite. Then</p>
+<p><span class="math display">\[\mathbb{E} [XY] \leq  \sqrt{\mathbb{E}X^2} \times  \sqrt{\mathbb{E}Y^2} \,.\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>If either <span class="math inline">\(\sqrt{\mathbb{E}X^2}=0\)</span> or <span class="math inline">\(\sqrt{\mathbb{E}Y^2}=0\)</span>, the inequality is trivially satisfied.</p>
+<p>So, without loss of generality, assume <span class="math inline">\(\sqrt{\mathbb{E}X^2}&gt;0\)</span> and <span class="math inline">\(\sqrt{\mathbb{E}Y^2}&gt;0\)</span>. Then, because <span class="math inline">\(ab \leq a^2/2 + b^2/2\)</span>, for all real <span class="math inline">\(a,b\)</span>, everywhere,</p>
+<p><span class="math display">\[
+\frac{|XY|}{\sqrt{\mathbb{E}X^2}\sqrt{\mathbb{E}Y^2}}
+\leq \frac{|X|^2}{2\mathbb{E}X^2} + \frac{|Y|^2}{2\mathbb{E}Y^2} \,.
+\]</span></p>
+<p>Taking expectation on both sides leads to the desired result.</p>
+</div>
+<br>
+<p>
+</p>
+<div id="exr">
+<p>Why is the inequality trivially satisfied if <span class="math inline">\(\sqrt{\mathbb{E}X^2}=0\)</span>?</p>
+</div>
+<br>
+<p>
+</p>
+<p><a href="#thm-thmcauchyschwartz" class="quarto-xref">Theorem&nbsp;<span>3.7</span></a> tells us that if <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are square-integrable, then <span class="math inline">\(XY\)</span> is integrable.</p>
+<br>
+<p>
+</p>
+<p>Hölder’s inequality generalizes Cauchy-Schwarz inequality. Indeed, Cauchy-Schwarz inequality is just Hölder’s inequality for <span class="math inline">\(p=q=2\)</span> (<span class="math inline">\(2\)</span> is its own conjugate).</p>
+<div id="thm-thmholder" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 3.8 (Hölder’s inequality)</strong></span> Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be two random variables on the same probability space. Let <span class="math inline">\(p, q&gt;1\)</span> be <em>conjugate</em> (<span class="math inline">\(1/p + 1/q =1\)</span>), assume both <span class="math inline">\(\mathbb{E}|X|^p\)</span> and <span class="math inline">\(\mathbb{E}|Y|^q\)</span> are finite. Then we have</p>
+<p><span class="math display">\[
+\mathbb{E} [XY] \leq  \left(\mathbb{E}|X|^p\right)^{1/p} \times  \left(\mathbb{E}|Y|^q\right)^{1/q} \,.
+\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>If either <span class="math inline">\(\mathbb{E}|X|^p=0\)</span> or <span class="math inline">\(\mathbb{E}|Y|^q=0\)</span>, the inequality is trivially satisfied.</p>
+<p>Assume that <span class="math inline">\(\mathbb{E}|X|^p &gt; 0\)</span> and <span class="math inline">\(\mathbb{E}|Y|^q &gt; 0\)</span>.</p>
+<p>Follow the proof of Cauchy-Schwarz inequality, but replace <span class="math inline">\(2 ab \leq a^2 +b^2\)</span> by Young’s inequality:</p>
+<p><span class="math display">\[ab \leq \frac{|a|^p}{p} + \frac{|b|^q}{q}\qquad  \forall a,b \in \mathbb{R}\]</span> if <span class="math inline">\(1/p+ 1/q=1\)</span>.</p>
+<p>The inequality below is a consequence of Young’s inequality and of the monotonicity of expectation:</p>
+<p><span class="math display">\[
+\begin{array}{rl}
+\frac{\mathbb{E}|XY|}{\mathbb{E}[|X|^p]^{1/p}\mathbb{E}[|Y|^q]^{1/q}}
+&amp; =  \mathbb{E}\Big[\frac{|X|}{\mathbb{E}[|X|^p]^{1/p}} \frac{|Y|}{\mathbb{E}[|Y|^q]^{1/q}} \Big] \\
+&amp; \leq \mathbb{E}\Big[\frac{|X|^p}{p \mathbb{E}[|X|^p]} + \frac{|Y|^q}{q \mathbb{E}[|Y|^q]} \\
+&amp; = \frac{1}{p} + \frac{1}{q} \\
+&amp; = 1 \, .
+\end{array}
+\]</span></p>
+</div>
+<br>
+<p>
+</p>
+<div id="cor">
+<p>For <span class="math inline">\(1\leq p &lt; q\)</span>, <span class="math display">\[\mathbb{E}\Big[|X|^p\Big]^{1/p} \leq \mathbb{E}\Big[|X|^q\Big]^{1/q} \, .\]</span></p>
+</div>
+<p>For <span class="math inline">\(p \in [0, \infty)\)</span> <span class="math inline">\(X \mapsto (\mathbb{E}|X|^p)^{1/p}\)</span> defines a semi-norm on the set of random variables for which <span class="math inline">\((\mathbb{E}|X|^p)^{1/p}\)</span> is finite. Minkowski’s inequality asserts that <span class="math inline">\(X \mapsto (\mathbb{E}|X|^p)^{1/p}\)</span> satisfies the triangle inequality.</p>
+<div id="thm-thmminko" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 3.9 (Minkowski’s inequality)</strong></span> Let <span class="math inline">\(X, Y\)</span> be two real-valued random variables defined on the same probability space. Let <span class="math inline">\(p \in [1, \infty)\)</span>. Assume that <span class="math inline">\(\mathbb{E}|X|^p &lt;\infty\)</span> and <span class="math inline">\(\mathbb{E}|Y|^p&lt;\infty.\)</span> Then we have:</p>
+<p><span class="math display">\[
+\left(\mathbb{E} [| X + Y|^p]\right)^{1/p}
+\leq \left(\mathbb{E} [| X|^p]\right)^{1/p} + \left(\mathbb{E} [|Y|^p]\right)^{1/p}
+\]</span></p>
+<p>which entails <span class="math inline">\(\mathbb{E}|X+Y|^p &lt;\infty.\)</span></p>
+</div>
+<p>The proof of <a href="#thm-thmminko" class="quarto-xref">Theorem&nbsp;<span>3.9</span></a> follows from Hölder’s inequality (<a href="#thm-thmholder" class="quarto-xref">Theorem&nbsp;<span>3.8</span></a>).</p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>The inequality below also follows from triangle inequality on <span class="math inline">\(\mathbb{R}\)</span>, monotonicity. The last equality follows from linearity of expectation:</p>
+<p><span class="math display">\[
+\begin{array}{rl}
+\mathbb{E} \Big[ |X+Y|^p\Big]
+&amp; \leq \mathbb{E} \Big[ (|X|+|Y|) \times |X+Y|^{p-1}\Big] \\
+&amp; = \mathbb{E} \Big[ |X| \times |X+Y|^{p-1}\Big] + \mathbb{E} \Big[ |Y| \times |X+Y|^{p-1}\Big] \, .
+\end{array}
+\]</span></p>
+<p>This is enough to handle the case <span class="math inline">\(p=1\)</span>.</p>
+<p>From now on, assume <span class="math inline">\(p&gt;1\)</span>. Hölder’s inequality entails the next inequality and a similar upper bound for <span class="math inline">\(\mathbb{E} \Big[ |Y| \times |X+Y|^{p-1}\Big]\)</span>.</p>
+<p><span class="math display">\[
+\begin{array}{rl}
+\mathbb{E} \Big[ |X| \times |X+Y|^{p-1}\Big]
+&amp; \leq \mathbb{E} \Big[ |X|^p\Big]^{1/p} \times  \mathbb{E} \Big[ |X+Y|^{p}\Big]^{(p-1)/p} \,
+\end{array}
+\]</span></p>
+<p>Summing the two upper bounds, we obtain</p>
+<p><span class="math display">\[
+\begin{array}{rl}
+  \mathbb{E} \Big[ |X+Y|^p\Big]
+  &amp; \leq \left(\mathbb{E} \Big[ |X|^p\Big]^{1/p} + \mathbb{E} \Big[ |Y|^p\Big]^{1/p}\right) \times \mathbb{E} \Big[ |X+Y|^{p}\Big]^{(p-1)/p} \, .
+\end{array}
+\]</span></p>
+<p>This prove’s Minkowski’s inequality for <span class="math inline">\(p&gt;1\)</span>.</p>
+</div>
+</section>
+<section id="medianiqr" class="level2" data-number="3.10">
+<h2 data-number="3.10" class="anchored" data-anchor-id="medianiqr"><span class="header-section-number">3.10</span> Median and interquartile range</h2>
+<p>Robust and non-robust indices of location.</p>
+<div id="def">
+<p>Let <span class="math inline">\(X\)</span> be a real random variable over some probability space. Let <span class="math inline">\(F\)</span> be the cumulative distribution function of <span class="math inline">\(X\)</span>. The median of the distribution of <span class="math inline">\(X\)</span> is <span class="math inline">\(F^{\leftarrow}(1/2)\)</span>.</p>
+</div>
+<p>The median minimizes the mean absolute deviation.</p>
+<div id="prp">
+<p>If <span class="math inline">\(m\)</span> is such that <span class="math inline">\(P\{ X &gt; m\} = P\{ X&lt;m\}\)</span> then <span class="math inline">\(m\)</span> is median of the distribution of <span class="math inline">\(X\)</span>, and if <span class="math inline">\(X\)</span> is integrable:</p>
+<p><span class="math display">\[\mathbb{E}\Big| X - m \Big| = \min_{a \in \mathbb{R}} \mathbb{E}\Big| X - a \Big|\]</span></p>
+</div>
+<br>
+<p>
+</p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Assume <span class="math inline">\(a&lt;m\)</span>,</p>
+<p><span class="math display">\[
+\begin{array}{rl}
+  \mathbb{E} \left[\Big| X - a \Big| - \Big| X - m \Big| \right]
+  &amp; = - (m-a) P(-\infty, a] + \int_{(a, m]} (2 X - (a+m)) \mathrm{d}P(x) + (m-a)P(m,\infty) \\
+  &amp; \geq  - (m-a) P(-\infty, a] - (m-a) P(a,m] + (m-a)P(m,\infty) \\
+  &amp; = (m-a) \Big(P(m,\infty) - P(-\infty, m]\Big) \\
+  &amp; = 0 \, .
+\end{array}
+\]</span></p>
+<p>The same line of reasoning allows to handle the case <span class="math inline">\(a&gt;m\)</span> and to conclude.</p>
+</div>
+<br>
+<p>
+</p>
+<p>Combining three of the inequalities we have just proved, allows us to establish an interesting connection between expectation, median and standard deviation.</p>
+<div id="thm-levy1" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 3.10 (Lévy’s inequality)</strong></span> Let <span class="math inline">\(m\)</span> be the median of the distribution of <span class="math inline">\(X\)</span>, a square-integrable random variable over some probability space. Then</p>
+<p><span class="math display">\[\Big| m - \mathbb{E} X\Big| \leq \sqrt{\operatorname{var}(X)} \, .\]</span></p>
+</div>
+<br>
+<p>
+</p>
+<p>The robust and non-robust indices of location differ by at most the standard deviation, which may be infinite.</p>
+<br>
+<p>
+</p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>By convexity of <span class="math inline">\(x \mapsto |x|\)</span>, we have</p>
+<p><span class="math display">\[
+\begin{array}{rl}
+\Big| m - \mathbb{E} X\Big| &amp; \leq \mathbb{E} \Big| m - X\Big| \\
+&amp; \text{by Jensen's inequality} \\
+&amp; \leq \mathbb{E} \Big| \mathbb{E}X - X\Big| \\
+&amp; \text{the median minimizes the mean absolute error} \\
+&amp; \leq \left(\mathbb{E} \Big| \mathbb{E}X - X\Big|^2\right)^{1/2}  \\
+&amp; \text{by Cauchy-Schwarz inequality.}
+\end{array}
+\]</span></p>
+</div>
+<p><br></p>
+<div id="rem">
+<p>The mean and the median may differ. First the median is always defined, while the mean may not. Think for example of the standard Cauchy distribution which has density <span class="math inline">\(\frac{1}{\pi}\frac{1}{1+x^2}\)</span> over <span class="math inline">\(\mathbb{R}\)</span>. If <span class="math inline">\(X\)</span> is Cauchy distributed, then <span class="math inline">\(\mathbb{E}|X|=\infty\)</span>. The mean is not defined. But as the density is a pair function, <span class="math inline">\(X\)</span> is symmetric (<span class="math inline">\(X\)</span> and <span class="math inline">\(-X\)</span> are distributed the same way), and this implies that the median of (the distribution) of <span class="math inline">\(X\)</span> is <span class="math inline">\(0\)</span>.</p>
+<p>Consider the exponential distribution with density <span class="math inline">\(\exp(-x)\)</span> over <span class="math inline">\([0, \infty)\)</span>, it has mean <span class="math inline">\(1\)</span>, median <span class="math inline">\(\log(2)\)</span>, and variance <span class="math inline">\(1\)</span>. If we turn to exponential distribution with density <span class="math inline">\(\lambda \exp(-\lambda x)\)</span>, it has mean <span class="math inline">\(1/\lambda\)</span>, median <span class="math inline">\(\log(2)/\lambda\)</span>, and variance <span class="math inline">\(1/\lambda^2\)</span>. Lévy’s inequality does not tell more that what we can compute with bare hands.</p>
+<p>Finally consider Gamma distributions with shape parameter <span class="math inline">\(p\)</span> and intensity parameter <span class="math inline">\(\lambda\)</span>. It has mean <span class="math inline">\(p/\lambda\)</span>, variance <span class="math inline">\(p/\lambda^2\)</span>. The median is not easily computed though we can easily check that it is equal to <span class="math inline">\(g(p)/\lambda\)</span> where <span class="math inline">\(g(p)\)</span> is the median of the Gamma distribution with parameters <span class="math inline">\(p\)</span> and <span class="math inline">\(1\)</span>. Lévy’s inequality tells us that <span class="math inline">\(|g(p) - p|\leq \sqrt{p}\)</span>.</p>
+</div>
+<br>
+<p>
+</p>
+</section>
+<section id="sec-lpspaces" class="level2" data-number="3.11">
+<h2 data-number="3.11" class="anchored" data-anchor-id="sec-lpspaces"><span class="header-section-number">3.11</span> <span class="math inline">\(\mathcal{L}_p\)</span> and <span class="math inline">\(L_p\)</span> spaces</h2>
+<p>Let <span class="math inline">\(p \in [1, \infty)\)</span>. Let <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span> be a probability space. Define <span class="math inline">\(\mathcal{L}_p(\Omega, \mathcal{F}, P)\)</span> (often abbreviated to <span class="math inline">\(\mathcal{L}_p(P)\)</span> or even <span class="math inline">\(\mathcal{L}_p\)</span> when there is no ambiguity) as</p>
+<p><span class="math display">\[
+\mathcal{L}_p(\Omega, \mathcal{F}, P) = \Big\{ X : X \text{ is a real random variable over } (\Omega, \mathcal{F}, P), \quad \mathbb{E}|X|^p &lt; \infty \Big\} \, .
+\]</span></p>
+<p>Let <span class="math inline">\(\| X \|_p\)</span> be defined by <span class="math inline">\(\| X\|_p = \Big(\mathbb{E} |X|^p\Big)^{1/p}\)</span>.</p>
+<p>Let <span class="math inline">\(\mathcal{L}_0(\Omega, \mathcal{F}, P)\)</span> denote the vector space of random variables over <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span>.</p>
+<p>We first notice that sets <span class="math inline">\(\mathcal{L}_p(\Omega, \mathcal{F}, P)\)</span> form a nested sequence.</p>
+<div id="prp-nestinglp" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 3.8</strong></span> Let <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span> be a probability space, then for <span class="math inline">\(1 \leq p \leq q &lt;\infty\)</span>:</p>
+<ol type="1">
+<li><span class="math inline">\(\|X\|_p &lt; \| X\|_q\)</span>.</li>
+<li><span class="math inline">\(\mathcal{L}_q(\Omega, \mathcal{F}, P) \leq \mathcal{L}_p(\Omega, \mathcal{F}, P)\)</span>.</li>
+</ol>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Assume <span class="math inline">\(1 \leq p \leq q &lt;\infty\)</span>, as <span class="math inline">\(x \mapsto x^{q/p}\)</span> is convex on <span class="math inline">\([0, \infty)\)</span> by Jensen’s inequality (<a href="#thm-thmjensen" class="quarto-xref">Theorem&nbsp;<span>3.6</span></a>), we have</p>
+<p><span class="math display">\[
+\begin{array}{rl}
+  \mathbb{E} [|X|^p]^{q/p} &amp; \leq \mathbb{E} [|X|^q] \,.
+\end{array}
+\]</span></p>
+<p>This establishes 1.) And 2.) is an immediate consequence of <span class="math inline">\(1\)</span>.</p>
+</div>
+<p><br></p>
+<p><a href="#prp-nestinglp" class="quarto-xref">Proposition&nbsp;<span>3.8</span></a> is a about inclusion of sets. The next theorem summarizes several points: that sets <span class="math inline">\(\mathcal{L}_p\)</span> are linear subspaces of <span class="math inline">\(\mathcal{L}_0\)</span>, and that they are complete as pseudo-metric (pseudo-normed) spaces.</p>
+<div id="thm">
+<p>For <span class="math inline">\(p \in [1, \infty)\)</span>, let <span class="math inline">\(\mathcal{L}_p(\Omega, \mathcal{F}, P)\)</span> and <span class="math inline">\(\|\cdot\|_p\)</span> be defined as above. Then,</p>
+<ol type="1">
+<li><span class="math inline">\(\mathcal{L}_p(\Omega, \mathcal{F}, P)\)</span> is a linear subspace of the space of real random variables.</li>
+<li><span class="math inline">\(\| \cdot\|_p\)</span> is a pseudo-norm on <span class="math inline">\(\mathcal{L}_p(\Omega, \mathcal{F}, P)\)</span>.</li>
+<li>If <span class="math inline">\((X_n)_n\)</span> is a sequence in <span class="math inline">\(\mathcal{L}_p(\Omega, \mathcal{F}, P)\)</span> that satisfies <span class="math display">\[\lim_n \sup_{m\geq n} \Big| X_n - X_m \Big|_p = 0\]</span> then there exists <span class="math inline">\(X \in \mathcal{L}_p(\Omega, \mathcal{F}, P)\)</span> such that <span class="math inline">\(\lim_n \| X_n - X\|_p=0\)</span>.</li>
+<li>There exists a subsequence <span class="math inline">\((X_{m_n})_{n}\)</span> such that <span class="math inline">\(X_{m_n} \to X\)</span> <span class="math inline">\(P\)</span>-almost surely.</li>
+</ol>
+</div>
+<p><br></p>
+<div id="rem">
+<p>In a pseudo-metric space, to prove that a Cauchy sequence converges, it is enough to check convergence of a subsequence. Picking a convenient subsequence, and possibly relabeling elements, we may assume <span class="math inline">\(\Big\| X_n - X_m \Big\|_p \leq 2^{- n \wedge m}\)</span> for all <span class="math inline">\(n,m\)</span>.</p>
+</div>
+<p><br></p>
+<div id="slem-borelCant1">
+<section id="first-borell-cantelli-lemma" class="level3" data-number="3.11.1">
+<h3 data-number="3.11.1" class="anchored" data-anchor-id="first-borell-cantelli-lemma"><span class="header-section-number">3.11.1</span> First Borell-Cantelli Lemma</h3>
+<p>Let <span class="math inline">\((A_n)_n\)</span> be a sequence of events from some probability space <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span>. Assume <span class="math inline">\(\sum_{n} P(A_n) &lt; \infty\)</span> then, with probability <span class="math inline">\(1\)</span>, only finetely many events <span class="math inline">\(A_n\)</span> are realized:</p>
+<p><span class="math display">\[P \left\{ \omega : \sum_n \mathbb{I}_{A_n}(\omega) &lt; \infty \right\} = 1 \,.\]</span></p>
+</section>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>The event <span class="math inline">\(\left\{ \omega : \sum_n \mathbb{I}_{A_n}(\omega) = \infty \right\}\)</span> coincides with <span class="math inline">\(\cap_n \cup_{m\geq n} A_n\)</span>:</p>
+<p><span class="math display">\[
+P \left\{ \sum_n \mathbb{I}_{A_n}(\omega) = \infty\right\} = P(\cap_n \cup_{m\geq n} A_n) \, .
+\]</span></p>
+<p>Now, the sequence <span class="math inline">\((\cup_{m\geq n} A_n)_n\)</span> is monotone decreasing: <span class="math inline">\(\lim_n \downarrow \cup_{m\geq n} A_n = \cap_n \cup_{m\geq n} A_n \,.\)</span></p>
+<p>By Fatou’s Lemma,</p>
+<p><span class="math display">\[
+\begin{array}{rl}
+\mathbb{E} \lim_m \mathbb{I}_{\cup_{m\geq n} A_m}
+  &amp; = \mathbb{E} \liminf_n\mathbb{I}_{\cup_{m\geq n} A_m}  \\
+  &amp; \leq  \liminf_n  \mathbb{E} \mathbb{I}_{\cup_{m\geq n} A_m} \\
+  &amp; \leq  \liminf_n  \sum_{m\geq n} P(A_m) \\
+  &amp; =   0 \, .
+\end{array}
+\]</span></p>
+<p>The last equation comes from the fact that the remainders of a convergent series are vanishing.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Points 1) and 2) follow from Minkowski’s inequality. This entails that <span class="math inline">\(\|\cdot\|_p\)</span> defines a pseudo-norm on <span class="math inline">\(\mathcal{L}_p\)</span>. If two random variables <span class="math inline">\(X,Y\)</span> from <span class="math inline">\(\mathcal{L}_p\)</span> satisfy <span class="math inline">\(\| X- Y\|_p=0\)</span>, then <span class="math inline">\(X=Y\)</span> <span class="math inline">\(P\)</span>-a.s.</p>
+<p>To establish 3), we need to check that the sequence converges almost surely, and that an almost sure limit belongs to <span class="math inline">\(\mathcal{L}_p\)</span>.</p>
+<p>Define event <span class="math inline">\(A_n\)</span> by <span class="math display">\[A_n = \Big\{ \omega : \Big| X_n(\omega) - X_{n+1}(\omega) \Big| &gt; \frac{1}{n^2}\Big\} \, .\]</span> By Markov inequality, <span class="math display">\[P(A_n) \leq \mathbb{E}\Big[n^{2p} \Big| X_n - X_m \Big|^p \Big] \leq n^{2p} 2^{-np} \, .\]</span> Hence, <span class="math inline">\(\sum_{n\geq 1} P(A_n) &lt; \infty.\)</span> By the first Borel-Cantelli Lemma, on some event <span class="math inline">\(E\)</span> with probability <span class="math inline">\(1\)</span>, only finitely many <span class="math inline">\(A_n\)</span> are realized.</p>
+<p>If <span class="math inline">\(\omega \in E\)</span>, the condition <span class="math inline">\(\Big| X_n(\omega) - X_{n+1}(\omega) \Big| &gt; \frac{1}{n^2}\)</span> is realized for only finitely many indices <span class="math inline">\(n\)</span>. Thus the real-valued sequence <span class="math inline">\((X_n(\omega))_n\)</span> is a Cauchy sequence. It has a limit we denote <span class="math inline">\(X(\omega)\)</span>. If <span class="math inline">\(\omega \not\in E\)</span>, we agree on <span class="math inline">\(X(\omega)=0.\)</span> On <span class="math inline">\(\Omega\)</span>, we have <span class="math display">\[X(\omega) = \lim_n \mathbb{I}_E(\omega) X(\omega) \, .\]</span> A limit of random variables is a random variable. Hence <span class="math inline">\(X\)</span> is a random variable.</p>
+<p>It remains to check that <span class="math inline">\(X \in \mathcal{L}_p\)</span>. Note first that</p>
+<p><span class="math display">\[
+\Big| \big\| X_m \big\|_p - \big\|X_n \big\|_p \Big| \leq \big\| X_m - X_n \big\|_p \,.
+\]</span></p>
+<p>Hence <span class="math inline">\(\big(\big\|X_n \big\|_p \big)_n\)</span> is a Cauchy sequence and converges to some finite limit. As <span class="math display">\[
+|X(\omega)|  \leq  \liminf |X_n(\omega)|
+\]</span></p>
+<p>by Fatou’s Lemma <span class="math display">\[
+\mathbb{E} |X|^p  \leq \liminf \mathbb{E} |X_n|^p &lt; \infty\, .
+\]</span></p>
+<p>Hence <span class="math inline">\(X \in \mathcal{L}_p\)</span>.</p>
+<p>Finally we check that <span class="math inline">\(\lim_m \|X_n - X\|_p =0\)</span>. By Fatou’s lemma again,</p>
+<p><span class="math display">\[
+\mathbb{E} \Big| X - X_m \Big|^p \leq \liminf_n \mathbb{E} \Big| X_n - X_m \Big|^p
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\lim_m \mathbb{E} \Big| X - X_m \Big|^p \leq \lim_m \liminf_n \mathbb{E} \Big| X_n - X_m \Big|^p = 0 \, .
+\]</span></p>
+</div>
+<br>
+<p>
+</p>
+<div id="rem">
+<p>Can we extend the almost sure convergence to the whole sequence? This is not the case. Consider <span class="math inline">\(([0,1], \mathcal{B}([0,1]), P)\)</span> where <span class="math inline">\(P\)</span> is the uniform distribution. For <span class="math inline">\(k= j+ n(n-1)/2\)</span>, <span class="math inline">\(1\leq j\leq n\)</span>, let <span class="math inline">\(X_n = \mathbb{I}_{[(j-1)/n, j/n]}\)</span>. The sequence <span class="math inline">\(X_n\)</span> converges to <span class="math inline">\(0\)</span> in <span class="math inline">\(\mathcal{L}_p\)</span> for all <span class="math inline">\(p \in [1, \infty)\)</span>. Indeed <span class="math inline">\(\|X_k\|_p = n^{-p}\)</span> for <span class="math inline">\(k= j+ n(n-1)/2\)</span>, <span class="math inline">\(1\leq j\leq n\)</span>. For any <span class="math inline">\(\omega \in [0,1]\)</span>, the sequence <span class="math inline">\(X_n(\omega)\)</span> oscillates between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span> infinitely many times.</p>
+</div>
+<p><br></p>
+<p><span class="math inline">\(\mathcal{L}_p\)</span> provide us with a bridge between probability and analysis. In analysis, the fact that <span class="math inline">\(\|\cdot \|_p\)</span> is just a pseudo-norm leads to consider <span class="math inline">\(L_p\)</span> spaces. <span class="math inline">\(L_p\)</span> spaces are defined from <span class="math inline">\(\mathcal{L}_p\)</span> spaces by taking equivalence classes of random variables. Indeed, define relation <span class="math inline">\(\equiv\)</span> over <span class="math inline">\(\mathcal{L}_p(\Omega, \mathcal{F}, P)\)</span> by <span class="math inline">\(X \equiv X'\)</span> iff <span class="math inline">\(P\{X=X'\}=1\)</span>. This relation is an equivalence relation (reflexive, symmetric and transitive). If <span class="math inline">\(X \equiv X'\)</span> and <span class="math inline">\(Y \equiv Y'\)</span>, then <span class="math inline">\(\|X -Y\|_p = \|X' -Y\|_p = \|X' - Y'\|_p\)</span>. <span class="math inline">\(L_p(\Omega, \mathcal{F}, P)\)</span> is the quotient space of <span class="math inline">\(\mathcal{L}_p\)</span> by relation <span class="math inline">\(\equiv\)</span>. We have the fundamental result.</p>
+<div id="thm-Lp" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 3.11</strong></span> For <span class="math inline">\(p \in [1, \infty)\)</span>, <span class="math inline">\(L_p(\Omega, \mathcal{F}, P)\)</span> equiped with <span class="math inline">\(\| \cdot\|_p\)</span> is a complete normed space (Banach space).</p>
+</div>
+<p><br></p>
+<p>This eventually allows us to invoke theorems from functional analysis.</p>
+</section>
+<section id="bibmoments" class="level2" data-number="3.12">
+<h2 data-number="3.12" class="anchored" data-anchor-id="bibmoments"><span class="header-section-number">3.12</span> Bibliographic remarks</h2>
+<p><span class="citation" data-cites="MR1932358">Dudley (<a href="#ref-MR1932358" role="doc-biblioref">2002</a>)</span> gives a self-contained and thorough treatment of measure and integration theory with probability theory in mind.</p>
+<p><span class="citation" data-cites="MR1261420">Hiriart-Urruty &amp; Lemaréchal (<a href="#ref-MR1261420" role="doc-biblioref">1993</a>)</span> is an excellent and accessible reference on convexity.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-MR1932358" class="csl-entry" role="listitem">
+Dudley, R. M. (2002). <em>Real analysis and probability</em> (Vol. 74, p. x+555). Cambridge: Cambridge University Press.
+</div>
+<div id="ref-MR1261420" class="csl-entry" role="listitem">
+Hiriart-Urruty, J.-B., &amp; Lemaréchal, C. (1993). <em>Convex analysis and minimization algorithms. <span>I</span></em> (Vol. 305, p. xviii+417). Springer-Verlag, Berlin.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./02-language.html" class="pagination-link" aria-label="A modicum of measure theory">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">A modicum of measure theory</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./03-families.html" class="pagination-link" aria-label="Families of discrete distributions">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Families of discrete distributions</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

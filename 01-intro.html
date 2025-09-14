@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.24">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>1&nbsp; Introduction – MA1AY010 Class Notes</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./02-language.html" rel="next">
+<link href="./index.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-3a70adc2469c323d0515427c5f9cb542.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">MA1AY010 Class Notes</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+    <a href="./MA1AY010-Class-Notes.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Warm up</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-intro.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-language.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">A modicum of measure theory</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./031-moments.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">A modicum of integration</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-families.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Families of discrete distributions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./023-discrete-condition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Discrete Conditioning</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./032-acfamilies.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Absolutely continuous probability measures</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-characterizations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Characterizations of probability distributions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-conditioning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Conditioning</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-convergences-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Convergences I : almost sure, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, in Probability</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-convergence-3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Convergence in distribution</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-convergence-3b.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Refinments and extensions of thr Central Limit Theorem</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-gaussian-vectors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Gaussian vectors</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-hashing" id="toc-sec-hashing" class="nav-link active" data-scroll-target="#sec-hashing"><span class="header-section-number">1.1</span> Hashing</a></li>
+  <li><a href="#a-probability-space" id="toc-a-probability-space" class="nav-link" data-scroll-target="#a-probability-space"><span class="header-section-number">1.2</span> A Probability space</a></li>
+  <li><a href="#random-variables-and-independence" id="toc-random-variables-and-independence" class="nav-link" data-scroll-target="#random-variables-and-independence"><span class="header-section-number">1.3</span> Random variables and independence</a></li>
+  <li><a href="#sec-conv2poisson" id="toc-sec-conv2poisson" class="nav-link" data-scroll-target="#sec-conv2poisson"><span class="header-section-number">1.4</span> Convergences</a></li>
+  <li><a href="#intro-summary" id="toc-intro-summary" class="nav-link" data-scroll-target="#intro-summary"><span class="header-section-number">1.5</span> Summary</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-intro" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>In this chapter we survey the basic definitions of Probability Theory starting from a simple modeling problem from computer science. The notions are formally defined in next chapters. The simple context allows us to carry out computations and to outline the kind of results we will look for during the course: moments, tail bounds, law of large numbers, central limit theorems, and possibly other kind of weak convergence results.</p>
+<section id="sec-hashing" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="sec-hashing"><span class="header-section-number">1.1</span> Hashing</h2>
+<p>Hashing is a computational technique that is used in almost every area of computing, from databases to compilers through (big) datawarehouses. Every book on algorithms contain a discussion of hashing, see for example <a href="http://jeffe.cs.illinois.edu/teaching/algorithms/notes/05-hashing.pdf"><code>Introduction to Hashing by Jeff Erickson</code></a>.</p>
+<p>Under idealized conditions, hashing <span class="math inline">\(n\)</span> items to <span class="math inline">\(m\)</span> values consists of applying a function picked uniformly at random among the <span class="math inline">\(m^n\)</span> functions from <span class="math inline">\(1, \ldots, n\)</span> to <span class="math inline">\(1, \ldots, m\)</span>. The performance of a hashing method (how many cells have to be probed during a search operation?) depends on the typical properties of such a random function.</p>
+<p>It is convenient to think of the values in <span class="math inline">\(1, \ldots, m\)</span> as numbered bins and of the items as <span class="math inline">\(n\)</span> numbered balls. Picking a random function amounts to throw independently the <span class="math inline">\(n\)</span> balls into the <span class="math inline">\(m\)</span> bins. The probability that a given ball falls into a given bin is <span class="math inline">\(1/m\)</span>.</p>
+<p>Questions around the random functions can be rephrased.</p>
+<ul>
+<li>How many empty bins on average?</li>
+<li>Distribution of the number of empty bins?</li>
+<li>How many bins with <span class="math inline">\(r\)</span> balls?</li>
+<li>What is the maximum number of balls in a single bin?</li>
+</ul>
+<p>Have a look at the <a href="http://stephane-v-boucheron.fr/post/2019-09-02-idealizedhashing/">http://stephane-v-boucheron.fr/post/2019-09-02-idealizedhashing/</a> and download the notebook from there.</p>
+<p>This toy yet useful model is an opportunity to recall basic notions of probability theory.</p>
+<p>In the sequel, we call this framework the <em>random alllocations</em> experiment.</p>
+<!-- ::: {#tbl-toyhashing} -->
+<div class="cell">
+<div id="tbl-toyhashing" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-toyhashing-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1.1: An outcome of the random allocation experiment with n=10 and m=5
+</figcaption>
+<div aria-describedby="tbl-toyhashing-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">1</th>
+<th style="text-align: right;">2</th>
+<th style="text-align: right;">3</th>
+<th style="text-align: right;">4</th>
+<th style="text-align: right;">5</th>
+<th style="text-align: right;">6</th>
+<th style="text-align: right;">7</th>
+<th style="text-align: right;">8</th>
+<th style="text-align: right;">9</th>
+<th style="text-align: right;">10</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\omega\)</span></td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">5</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<!-- ::: -->
+<p>In <a href="#tbl-toyhashing" class="quarto-xref">Table&nbsp;<span>1.1</span></a>, line <span class="math inline">\(\omega\)</span> represents the outcome of a random allocation with <span class="math inline">\(n= 10\)</span>, <span class="math inline">\(m= 5\)</span>: <span class="math inline">\(\omega_4= 2\)</span>, <span class="math inline">\(\omega_5= 4\)</span>, …</p>
+</section>
+<section id="a-probability-space" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="a-probability-space"><span class="header-section-number">1.2</span> A Probability space</h2>
+<p>The set of outcomes is called the <em>universe</em>. In the random allocations setting it is the set of <span class="math inline">\(1, \ldots, m\)</span>-valued sequences of length <span class="math inline">\(m\)</span>. This is also a function mapping <span class="math inline">\(\{1, \ldots, n\}\)</span> to <span class="math inline">\(\{1, \ldots, m\}\)</span>. We denote a generic outcome by <span class="math inline">\(\omega\)</span>. The <span class="math inline">\(i^{\text{th}}\)</span> element of <span class="math inline">\(\omega\)</span> is denoted by <span class="math inline">\(\omega_i\)</span>. This universe is denoted by <span class="math inline">\(\Omega\)</span>, here it is finite with cardinality <span class="math inline">\(m^n\)</span>.</p>
+<p>In this simple setting, the uniform probability distribution on the universe assigns to each subset <span class="math inline">\(A\)</span> of <span class="math inline">\(\Omega\)</span> the probability <span class="math inline">\(|A|/|\Omega|\)</span>. When the universe is finite or countable, all subsets of the universe are <em>events</em>, assigning a probability to every subset of the universe is not an issue.</p>
+<p>Recall that a <em>probability distribution</em> <span class="math inline">\(P\)</span> maps a collection <span class="math inline">\(\mathcal{F}\)</span> of subsets of the universe (<span class="math inline">\(\mathcal{F} \subseteq 2^\Omega\)</span>) to <span class="math inline">\([0,1]\)</span> and satisfies:</p>
+<ol type="1">
+<li><span class="math inline">\(P(\emptyset)=0\)</span></li>
+<li><span class="math inline">\(P(\Omega)=1\)</span></li>
+<li>for any countable collection of pairwise disjoint events <span class="math inline">\(A_1, A_2, \ldots, n, \ldots\)</span>, <span class="math inline">\(P(\cup_{n=1}^\infty A_n) = \sum_{n=1}^\infty P(A_n)\)</span></li>
+</ol>
+<p>See <a href="02-language.html#sec-distribution" class="quarto-xref"><span>Section 2.3</span></a>.</p>
+<p>This entails <span class="math inline">\(P(A_1 \cup A_2 \cup \ldots \cup A_k) = \sum_{i=1}^k P(A_i)\)</span> for all finite collection of pairwise disjoint subsets <span class="math inline">\(A_1,  \ldots, A_k\)</span>.</p>
+<p>For the domain of <span class="math inline">\(P\)</span> to be well-defined, the collection of subsets <span class="math inline">\(\mathcal{F}\)</span> has to be closed under countable unions, countable intersections and complementation, to contain the empty set <span class="math inline">\(\emptyset\)</span> and the universe <span class="math inline">\(\Omega\)</span>. In words, it has to be a <span class="math inline">\(\sigma\)</span>-<em>algebra</em>, see <a href="02-language.html#sec-tribe" class="quarto-xref"><span>Section 2.2</span></a>.</p>
+<p>Note that other probability distributions make sense on this simple universe. See for example the <em>balanced allocations</em> scenario.</p>
+<div class="example" name="Balanced allocations">
+<p>In the ballanced allocations scenario, the random functions from <span class="math inline">\(1, \ldots, n\)</span> to <span class="math inline">\(1, \ldots, m\)</span> are constructed sequentially. We first construct <span class="math inline">\(\omega_1\)</span> by picking a number uniformly at random from <span class="math inline">\(1, \ldots, n\)</span>. Now, assume we have constructed <span class="math inline">\(\omega_1, \ldots, \omega_i\)</span> for some <span class="math inline">\(i&lt;n\)</span>. In order to determine <span class="math inline">\(\omega_{i+1}\)</span>, we pick uniformly at random two numbers from <span class="math inline">\(1, \ldots, n\)</span>, say <span class="math inline">\(j\)</span> and <span class="math inline">\(k\)</span>. We compute</p>
+<p><span class="math display">\[
+c_j = \Big|\{ \ell : 1\leq \ell \leq i, \omega_\ell = j\}\Big| \qquad\text{and} \qquad c_k = \Big|\{ \ell : 1\leq \ell \leq i, \omega_\ell = k\}\Big| \, .
+\]</span></p>
+<p>If <span class="math inline">\(c_j &lt; c_k\)</span>, <span class="math inline">\(\omega_{i+1}= j\)</span> otherwise <span class="math inline">\(\omega_{i+1}= k\)</span>.</p>
+<p>This iterative construction defines a (unique) probability distribution over <span class="math inline">\(\{1, \ldots, m\}^n\)</span> that differs from the uniform probability distribution. It is non-trivial to show that it achieves a non-trivial balancing guarantee for the size of the preimages induced by <span class="math inline">\(\omega\)</span>.</p>
+</div>
+</section>
+<section id="random-variables-and-independence" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="random-variables-and-independence"><span class="header-section-number">1.3</span> Random variables and independence</h2>
+<p>Consider the real valued functions from <span class="math inline">\(\Omega\)</span> to <span class="math inline">\(\mathbb{R}\)</span> defined by:</p>
+<p><span class="math display">\[X_{i, j}(\omega) = \begin{cases}
+  1 &amp; \text{if } \omega_i = j \\
+  0 &amp; \text{otherwise} \, .
+\end{cases}
+\]</span></p>
+<p>This function is a special case of a <em>random variable</em> see <a href="02-language.html#sec-measurablefunctionsrv" class="quarto-xref"><span>Section 2.5</span></a>.</p>
+<p>In the toy example outlined in <a href="#tbl-toyhashing" class="quarto-xref">Table&nbsp;<span>1.1</span></a>, we have <span class="math inline">\(X_{4,1}(\omega)=1, X_{5,1}(\omega)=0, ...\)</span>.</p>
+<blockquote class="blockquote">
+<p>Note that the definition of the random variable has nothing to do with the probability distribution we have considered so far. There is nothing random in a random variable. Moreover, a random variable is not a variable, it is a function. You may question this terminology, but it has been sanctified by tradition.</p>
+</blockquote>
+<p>In the probability space <span class="math inline">\((\Omega, 2^\Omega, \Pr)\)</span>, the distribution of the random variable <span class="math inline">\(X_{i,j}\)</span> is a <em>Bernoulli</em> distribution with parameter <span class="math inline">\(1/m\)</span>.</p>
+<p><span class="math display">\[
+    \Pr \Big\{ X_{i,j} = 1\Big\} = \frac{1}{m} \qquad \Pr \Big\{ X_{i,j} = 0\Big\}  = 1 - \frac{1}{m} \, ,
+\]</span></p>
+<p>see <a href="03-families.html#sec-bernoulli" class="quarto-xref"><span>Section 4.1</span></a> for more on Bernoulli distributions. This comes from</p>
+<p><span class="math display">\[
+    \Pr \Big\{\omega : X_{i,j}(\omega) = 1\Big\} = \frac{\Big|\{ \omega : X_{i,j}(\omega) = 1 \}\Big|}{m^n} = \frac{m^{n-1}}{m^n} = \frac{1}{m} \, .
+\]</span></p>
+<p>Recall that <span class="math inline">\(\Pr \Big\{ X_{i,j} = 1\Big\}\)</span> is a shorthand for <span class="math inline">\(\Pr \Big\{\omega : X_{i,j}(\omega) = 1\Big\}\)</span>.</p>
+<p>For a while, we fix some <span class="math inline">\(j \in \{1, \ldots, m\}\)</span> and consider the collection of random variables <span class="math inline">\((X_{i, j})_{i \leq n}\)</span>.</p>
+<p>For each <span class="math inline">\(i\)</span>, we can define events (subsets of <span class="math inline">\(\Omega\)</span>) from the value of <span class="math inline">\(X_{i,j}\)</span>:</p>
+<p><span class="math display">\[\begin{align*}
+  &amp; \Big\{ \omega : X_{i,j}(\omega) = 1\Big\} \\
+  &amp; \Big\{ \omega : X_{i,j}(\omega) = 0\Big\}
+\end{align*}\]</span></p>
+<p>and together with <span class="math inline">\(\Omega, \emptyset\)</span> they form the collection <span class="math inline">\(\sigma(X_{i,j})\)</span> of events that are definable from <span class="math inline">\(X_{i,j}\)</span>.</p>
+<p>Recall the definition of <em>independent events</em> or rather the definition of a <em>collection of independent events</em>.</p>
+<div id="def" name="Collection of independent events">
+<p>A collection of events <span class="math inline">\(E_1, E_2, \ldots, E_k\)</span> from <span class="math inline">\((\Omega, 2^{\Omega})\)</span> is independent with respect to <span class="math inline">\(\Pr\)</span> if for all <span class="math inline">\(I \subseteq \{1, \ldots, n\}\)</span>,</p>
+<p><span class="math display">\[
+\Pr \Big\{\cap_{i \in I} E_i \Big\} = \prod_{i \in I} \Pr \{ E_i \}
+\]</span></p>
+</div>
+<p>One can check that for each fixed <span class="math inline">\(j \leq m\)</span>, <span class="math inline">\((X_{i, j})_{i \leq n}\)</span> is a <em>collection of independent random variables</em> under <span class="math inline">\(\Pr\)</span>. By this we mean that each collection <span class="math inline">\(E_1, E_2, \ldots, E_n\)</span> of events where <span class="math inline">\(E_i \in \sigma(X_{i,j})\)</span> for each <span class="math inline">\(i \in \{1, \ldots, n\}\)</span>, <span class="math inline">\(E_1, E_2, \ldots, E_n\)</span> is an independent collection of events under <span class="math inline">\(\Pr\)</span>.</p>
+<p>The notion of <em>independence</em> is a cornerstone of probability theory, see Chapter <span class="quarto-unresolved-ref">?sec-independence</span>.</p>
+<p>Concretely, this means that for any sequence <span class="math inline">\(b_1, \ldots, b_n \in \{0,1\}^n\)</span> (a possible outcome for the sequence of random variables <span class="math inline">\(X_{1,j}, X_{2,j}, \ldots, X_{n,j}\)</span>), we have</p>
+<p><span class="math display">\[\begin{align*}
+\Pr \Big\{ \bigwedge_{i=1}^n X_{i,j}(\omega) = b_i \Big\}
+&amp; = \prod_{i=1}^n  \Pr \Big\{  X_{i,j}(\omega) = b_i \Big\} \\
+&amp; = \prod_{i=1}^n \left(\frac{1}{m}\right)^{b_i} \left(1-\frac{1}{m}\right)^{1-b_i} \\
+&amp; = \left(\frac{1}{m}\right)^{\sum_{i=1}^n b_i} \left(1-\frac{1}{m}\right)^{n- \sum_{i=1}^n b_i}  \, .
+\end{align*}\]</span></p>
+<p>Observe that the outcome of the sequence <span class="math inline">\(X_{i,j}\)</span> for <span class="math inline">\(i \in 1,\ldots,n\)</span> is <span class="math inline">\(b_1, \ldots, b_n\)</span> only depends on <span class="math inline">\(\sum_{i=1}^n b_i= Y_j\)</span>. This greatly simplifies computations.</p>
+<p>We are interested in the number of elements from <span class="math inline">\(1, \ldots, n\)</span> that are mapped (allocated) to <span class="math inline">\(j\)</span> through the random function <span class="math inline">\(\omega\)</span>. Let us define</p>
+<p><span class="math display">\[
+    Y_j(\omega) =  \sum_{i=1}^n X_{i, j}(\omega) \, .
+\]</span></p>
+<p>In the toy example described in <a href="#tbl-toyhashing" class="quarto-xref">Table&nbsp;<span>1.1</span></a>, <span class="math inline">\(Y_3(\omega) = 4\)</span> while <span class="math inline">\(Y_5(\omega)=1\)</span> and <span class="math inline">\(Y_4(\omega)=0\)</span>:</p>
+<!-- ::: {#fig-toyhashing2} -->
+<div class="cell">
+<div id="tbl-toyhashing2" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl quarto-uncaptioned" id="tbl-toyhashing2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1.2
+</figcaption>
+<div aria-describedby="tbl-toyhashing2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+Occupancy scores for the random allocation experiment with n=10 and m=5
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(j\)</span>
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:left;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(Y_j\)</span>
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+1
+</td>
+</tr>
+</tbody>
+</table>
+<p>Occupancy scores</p>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<!-- ::: -->
+<p>In the probability space <span class="math inline">\((\Omega, 2^\Omega, \Pr)\)</span>, the random variable <span class="math inline">\(Y_j\)</span> is distributed as a sum of independent, identically distributed Bernoulli random variables, that is, according to a <em>Binomial distribution</em>, see <a href="03-families.html#sec-bernoulli" class="quarto-xref"><span>Section 4.1</span></a>.</p>
+<p><span class="math display">\[
+    \Pr \Big\{ Y_j = r \Big\} =  \binom{n}{r} p^r (1-p)^{n-r} \qquad \text{with} \quad p =\frac{1}{m}
+\]</span></p>
+<p>for <span class="math inline">\(r \in 0, \ldots, n\)</span>.</p>
+<p>Indeed, recall</p>
+<p><span class="math display">\[\begin{align*}
+\Pr \Big\{ Y_j = r \Big\}
+  &amp;  = \sum_{\omega : Y_j(\omega) = r} \Pr\Big\{\omega\Big\} \\
+  &amp;  = \sum_{\omega : Y_j(\omega) = r} \left(\frac{1}{m}\right)^{r} \left(1-\frac{1}{m}\right)^{n- r} \\
+  &amp;  = \left| \Big\{ \omega : \omega \in \Omega, Y_j(\omega) = r \Big\} \right|
+  \times \left(\frac{1}{m}\right)^{r} \left(1-\frac{1}{m}\right)^{n- r} \\
+  &amp; = \binom{n}{r} \left(\frac{1}{m}\right)^{r} \left(1-\frac{1}{m}\right)^{n- r} \, .
+\end{align*}\]</span></p>
+<p>For large <span class="math inline">\(n,m\)</span>, this Binomial distribution tends to be concentrated around its mean value or <em>expectation</em></p>
+<p><span class="math display">\[
+    \mathbb{E} Y_j =  \sum_{r=0}^n r \times \Pr \Big\{ Y_j = r \Big\} = \frac{n}{m} \, .
+\]</span></p>
+<p>See <a href="031-moments.html" class="quarto-xref">Chapter&nbsp;<span>3</span></a> for a systematic approach to expectation, variance and higher moments, based on Integration theory.</p>
+<p>The last chapter <span class="quarto-unresolved-ref">?sec-chapConcentration</span> is dedicated the development of <em>tail bounds</em> for random variables like <span class="math inline">\(Y_j\)</span> that are <em>smooth functions of independent random variables</em>.</p>
+<p>For the moment recall that on a countable probability space, the expectation of random variable <span class="math inline">\(Z\)</span> can be defined as</p>
+<p><span class="math display">\[
+\mathbb{E} Z =  \sum_{\omega \in \Omega} \Pr\{\omega\} \times Z(\omega)
+\]</span></p>
+<p>provided the series is absolutely convergent.</p>
+<p>This is illustrated by <a href="#fig-binom-pmf" class="quarto-xref">Figure&nbsp;<span>1.1</span></a>. In principle, a binomial random variable with parameters <span class="math inline">\(n=5000\)</span> and <span class="math inline">\(p=.001\)</span> can take any value between <span class="math inline">\(0\)</span> and <span class="math inline">\(5000\)</span>. However, most (more than <span class="math inline">\(95\%\)</span>) of the probability mass is supported by <span class="math inline">\(\{1, \ldots, 10\}\)</span>.</p>
+<!-- ::: {#fig-binom-pmf} -->
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-binom-pmf" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-binom-pmf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="01-intro_files/figure-html/fig-binom-pmf-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-binom-pmf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.1: Probability mass function of Binomial(5000,0.001)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<!-- ::: -->
+</section>
+<section id="sec-conv2poisson" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="sec-conv2poisson"><span class="header-section-number">1.4</span> Convergences</h2>
+<p>If we let <span class="math inline">\(n,m\)</span> tend to infinity while <span class="math inline">\(n/m\)</span> tends toward <span class="math inline">\(c&gt;0\)</span>, we observe that, for each fixed <span class="math inline">\(r\geq 0\)</span> the sequence <span class="math inline">\(\Pr \Big\{ Y_j = r \Big\} = \binom{n}{r} (1/m)^r (1-1/m)^{n-r}\)</span> tends towards <span class="math display">\[
+\mathrm{e}^{-c} \frac{c^r}{r !}
+\]</span><br>
+which is the probability that a Poisson distributed random variable with expectation <span class="math inline">\(c\)</span>equals <span class="math inline">\(r\)</span> (see <a href="03-families.html#sec-poisson" class="quarto-xref"><span>Section 4.2</span></a> for more on Poisson distributions).</p>
+<p>This is an instance of the <em>law of rare events</em>, a special case of <em>convergence in distribution</em> see <a href="08-convergence-3.html" class="quarto-xref">Chapter&nbsp;<span>10</span></a>.</p>
+<p>The ability to approximate a Poisson distribution using an appropriate Binomial distribution is illustrated in <a href="#fig-binom-poisson" class="quarto-xref">Figure&nbsp;<span>1.2</span></a>. The difference between the probability mass functions of the Binomial distributions with parameters <span class="math inline">\(n=250, m=0.02\)</span>, and <span class="math inline">\(n=2500, m=0.002\)</span> and the Poisson distribution with parameter <span class="math inline">\(5\)</span> is small. If we chose parameters <span class="math inline">\(n=2500, m=0.002\)</span>, the difference between Binomial and Poisson is barely visible.</p>
+<!-- ::: {#fig-binom-poisson} -->
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-binom-poisson" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-binom-poisson-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="01-intro_files/figure-html/fig-binom-poisson-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-binom-poisson-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.2: Probability mass functions of Binomial(250,0.02) (left), Binomial(2500,0.002) (middle) and Poisson(5) (right)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<!-- ::: -->
+<p>The proximity between Binomial<span class="math inline">\((n, \lambda/n)\)</span> and Poisson<span class="math inline">\((\lambda)\)</span> can be quantified in different ways. A simple one consists in computing <span class="math display">\[
+\sum_{x \in \mathbb{N}}  \Big| p_{n, \lambda/n}(x) - q_\lambda(x) \Big|
+\]</span> where <span class="math inline">\(p_{n, \lambda/n}\)</span> (resp. <span class="math inline">\(q_{\lambda}\)</span>) stands for Binomial (resp. Poisson). This quantity is called the variation distance between the two probability distributions. A general definition is provided in <a href="08-convergence-3.html" class="quarto-xref">Chapter&nbsp;<span>10</span></a>. In <a href="#fig-lawrareevents" class="quarto-xref">Figure&nbsp;<span>1.3</span></a>, this distance between Binomial distribution with parameters <span class="math inline">\(n,5/n\)</span> and Poisson(5) is plotted against <span class="math inline">\(n\)</span> (beware logarithmic scales). This plot suggests that the variation distance decays like <span class="math inline">\(1/n\)</span>. This is checked in <a href="08-convergence-3.html" class="quarto-xref">Chapter&nbsp;<span>10</span></a>.</p>
+<!-- ::: {#fig-lawrareevents} -->
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-lawrareevents" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-lawrareevents-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="01-intro_files/figure-html/fig-lawrareevents-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-lawrareevents-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.3: Law of rare events: distance between Binomial(<span class="math inline">\(n\)</span>, <span class="math inline">\(5/n\)</span>) and Poisson(5) as a function of <span class="math inline">\(n\)</span>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<!-- ::: -->
+<p>In the probability space <span class="math inline">\((\Omega, 2^\Omega, \Pr)\)</span>, the random variables <span class="math inline">\(Y_j, Y_j', j\neq j'\)</span> are not independent. In order to show that <span class="math inline">\(Y_j, Y_j', j\neq j'\)</span> are not independent, it suffices to check that two events <span class="math inline">\(E_j, E_{j'}\)</span> are not independent with <span class="math inline">\(\omega \in E_j\)</span> being a function of <span class="math inline">\(Y_j\)</span> and <span class="math inline">\(\omega \in E_{j'}\)</span> being a function of <span class="math inline">\(Y_{j'}\)</span> (later, we will concisely say <span class="math inline">\(E_j \in \sigma(X_j)\)</span> or <span class="math inline">\(E_j\)</span> being <span class="math inline">\(Y_j\)</span>-measurable). Choose <span class="math inline">\(E_j = \{ \omega : Y_j(\omega) =r\}\)</span> and <span class="math inline">\(E_{j'} = \{ \omega : Y_{j'}(\omega) =r\}\)</span>.</p>
+<p><span class="math display">\[\begin{align*}
+\Pr(E_j) &amp; = \binom{n}{r} \left(\frac{1}{m}\right)^r \left(1 - \frac{1}{m}\right)^{n-r} \\
+\Pr(E_j \cap E_{j'}) &amp; = \binom{n}{r} \times \binom{n-r}{r}  \left(\frac{1}{m}\right)^{2r} \left(1 - \frac{2}{m}\right)^{n-2r} \,
+\end{align*}\]</span></p>
+<p><span class="math display">\[
+\frac{\Pr(E_j \cap E_{j'}) }{\Pr(E_j) \times \Pr(E_{j'})} =
+\frac{\left(1 - \frac{2}{m}\right)^{n-2r}}{\left(1 - \frac{1}{m}\right)^{2n-2r}}
+\frac{((n-r)!)^2}{n!(n-2r)!} \neq 1 \, .
+\]</span> Hence, if we define</p>
+<p><span class="math display">\[
+    K_{n,r}(\omega) = \sum_{j=1}^m \mathbb{I}_{Y_j(\omega)=r}
+\]</span> as the number of elements of <span class="math inline">\(1, \ldots, m\)</span> that occur exactly <span class="math inline">\(r\)</span> times in <span class="math inline">\(\omega\)</span>, the random variable <span class="math inline">\(K_{n,r}\)</span> is not described as a sum of independent random variables. Nevertheless, it is possible to gather a lot of information about its moments and distribution. If we let again <span class="math inline">\(n,m\)</span> tend to infinity while <span class="math inline">\(n/m\)</span> tends toward <span class="math inline">\(c&gt;0\)</span>, we observe that the distribution of <span class="math inline">\(K_{n,r}/m\)</span> tends to concentrate around <span class="math inline">\(\mathrm{e}^{-c}    \frac{c^r}{r !}\)</span>. This is an example of <em>convergence in probability</em>, see <a href="05-convergences-1.html" class="quarto-xref">Chapter&nbsp;<span>9</span></a>.</p>
+<p>Now, if we consider the sequence of recentered and rescaled random variables <span class="math inline">\((K_{n,r} - \mathbb{E}K_{n,r})/\sqrt{\operatorname{var}(K_{n,r})}\)</span>, we observe that its <em>distribution function</em> (see <a href="02-language.html#sec-distribfun" class="quarto-xref"><span>Section 2.7</span></a>) converges pointwise towards the distribution function of the Gaussian distribution.</p>
+<!-- ::: {#fig-toyhashing3} -->
+<div class="cell">
+<div class="cell-output-display">
+<table class="table caption-top table-sm table-striped small">
+<caption>Profile of example 2.1, count of empty urns is omitted</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;" data-quarto-table-cell-role="th">$K_{n,1}$</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">$K_{n,2}$</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">$K_{n,4}$</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- ::: -->
+</section>
+<section id="intro-summary" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="intro-summary"><span class="header-section-number">1.5</span> Summary</h2>
+<p>In this chapter, we investigated a toy stochastic model: <em>random allocations</em>. This toy model was motivated by the analysis of hashing, a widely used technique from Computer science. To perform the analysis, we introduced notation and notions from probability theory:</p>
+<ul>
+<li>Universe,</li>
+<li>Events,</li>
+<li><span class="math inline">\(\sigma\)</span>-algebras,</li>
+<li>Probability distributions,</li>
+<li>Preimages,</li>
+<li>Random variables,</li>
+<li>Expectation,</li>
+<li>Variance,</li>
+<li>Independence of events,</li>
+<li>Independence of random variables,</li>
+<li>Binomial distribution,</li>
+<li>Poisson distribution.</li>
+</ul>
+<p>Through numerical simulations, we got a feeling of several important phenomena:</p>
+<ul>
+<li>Law of rare events: approximation of Poisson distribution by certain Binomial distributions.</li>
+<li>Law of large numbers for normalized sums of identically distributed random variables that are not independent.</li>
+<li>Central limit theorems for normalized and centered sums of identically distributed random variables that are not independent</li>
+</ul>
+<p>At that point, our elementary approach did not provide us with the notions and tools that make possible the rigorous analysis of these phenomena.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link" aria-label="Warm up">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Warm up</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./02-language.html" class="pagination-link" aria-label="A modicum of measure theory">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">A modicum of measure theory</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
