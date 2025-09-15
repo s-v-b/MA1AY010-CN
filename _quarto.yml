@@ -1,13 +1,21 @@
 project:
   type: book
+  
 
 book:
   title: "MA1AY010 Class Notes"
   author: "Master I ISIFAR"
-  date: "20025-09-05"
+  date: "2025-09-15"
+  downloads: [pdf]
+
+
+
   navbar:
     search: true
-  downloads: [pdf]
+    
+    # site-url: "https://s-v-b.github.io/MA1AY010-CN/"
+    # repo-url: https://github.com/s-v-b/MA1AY010-CN/
+    
   
   chapters:
     - index.qmd
@@ -15,8 +23,9 @@ book:
     - 02-language.qmd
     - 031-moments.qmd
     - 03-families.qmd
-    - 023-discrete-condition.qmd
+    - 022-product-measures.qmd
     - 032-acfamilies.qmd
+    - 023-discrete-condition.qmd
     - 04-characterizations.qmd
     - 06-conditioning.qmd
     - 05-convergences-1.qmd
@@ -34,6 +43,8 @@ format:
     theme:
       - cosmo
       - brand
+    favicon: images/UniversiteParis_monogramme_couleur_RVB.png
+    
   pdf:
     documentclass: memoir
     classoption: [10pt, a4paper, twoside]

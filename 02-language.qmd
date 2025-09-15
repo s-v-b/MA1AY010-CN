@@ -399,7 +399,7 @@ zero on all finite subsets of $\mathbb{N}$ and such that $\mu(\mathbb{N})=1$. Su
 
 :::
 
-## Lebesgue measure {#lebesgue}
+## Lebesgue measure {#sec-lebesgue}
 
 
 <p>
@@ -481,10 +481,10 @@ well-defined? If yes, compute it.
 
 <br><p></p>
 
-::: {#exr}
+::: {#exr-}
 
 Check that $\mathcal{B}(\mathbb{R}) \cap [a,b] =  \Big\{ A \cap [a,b] : A \in \mathcal{B}(\mathbb{R}) \Big\}$
-is the $\sigma$-algebra generated  by the trace of the usual topology if $\mathbb{R}$ on $[a,b]$.
+is the $\sigma$-algebra generated  by the trace of the usual topology of $\mathbb{R}$ on $[a,b]$.
 
 :::
 
@@ -522,7 +522,7 @@ probability distributions through their _cumulative distribution functions_
 
 <br><p></p>
 
-::: {#exr}
+::: {#exr-dudley3-1-3}
 
 Do we really to assume that the function $F$ has left-limits in Theorem @thm-dudley3-1-3?
 
@@ -562,7 +562,7 @@ The set $f^{-1}(B)$ is called the _preimage_ or _inverse image_ of $B$ under $f$
 Note that $f^{-1}$ does not denote the inverse of function $f$ which may not be injective.
 In this course,  $f^{-1}$ is a set function from the powerset of the codomain of $f$ to the powerset of the domain of $f$. The inverse function if it exists (or the generalized inverse function) is denoted by $f^\leftarrow$. The inverse function, when it exists, maps $f(\mathcal{X})\subseteq \mathcal{Y}$ to $\mathcal{X}$.
 
-::: {#exm} 
+::: {#exm-ideal-hashing} 
 
 Recall the idealized hashing setting from @sec-hashing.
 Let $\Omega$ denote the set of functions from $1, \ldots, n$  to $1, \ldots, m$
@@ -597,9 +597,9 @@ f^{-1}(F \setminus A) & =  f^{-1}(F) \setminus f^{-1}(A)
 
 <br><p></p>
 
-::: {#exr}
+::: {#exr-propinvimage}
 
-Check Proposition @prp-propinvimage @sec-distribfun
+Check Proposition @prp-propinvimage from @sec-distribfun
 
 :::
 
@@ -614,7 +614,7 @@ $\sigma$-algebra.
 
 
 
-::: {#exr}
+::: {#exr-preimage}
 
 Let $(\Omega, \mathcal{F})$ and $(\Omega', \mathcal{G})$ be two measurable spaces.
 Let $f$ map $\Omega$ to $\Omega'$, prove that
@@ -641,13 +641,13 @@ $f^{-1}(B) \in \mathcal{F}$.
 Under which condition on $\mathcal{H}$ is $f$ $\mathcal{F}/\mathcal{G}$-measurable?
 
 
-::: {#exm} 
+::: {#exm-hashing-measurable-functions} 
 
 Recall the idealized hashing scenario from @sec-hashing.
 
 :::
 
-::: {#exr}
+::: {#exr-continuous-measurable}
 
 Check that if $\Omega$ is a topological space and $\mathcal{F}$ the associated
 Borelian $\sigma$-algebra,  then any continuous function from $\Omega$ to $\mathbb{R}$
@@ -656,9 +656,9 @@ is measurable.
 :::
 
 
-::: {#exr}
+::: {#exr-borel-continuous-measurable}
 
-If $\Omega=\mathbb{R}^d$ is the Borel $\sigma$-algebra the smallest
+If $\Omega=\mathbb{R}^d$ is the Borel $\sigma$-algebra, is it the smallest
 $\sigma$-algebra that makes all continuous functions  measurable?
 
 :::
@@ -672,7 +672,7 @@ to $(\mathcal{X}, \mathcal{G})$, and $f_n \to f$ pointwise, then $f$ is a measur
 :::
 
 <p>
-::: {#exr}
+::: {#exr-limmeasurable}
 
 Prove Proposition @prp-limmeasurable
 
@@ -690,7 +690,7 @@ to $(\mathbb{R}, \mathcal{B}(\mathbb{R}))$, then $a f + b g$ is a measurable fun
 :::
 
 <p>
-::: {#exr}
+::: {#exr-summeasurable}
 
 Prove Proposition @prp-summeasurable
 
@@ -709,7 +709,7 @@ is a measurable function from $(\Omega, \mathcal{F})$ to $(\mathcal{Y}, \mathcal
 :::
 <br><p>
 
-::: {#exr}
+::: {#exr-compmeasurable}
 
 Prove Proposition @prp-compmeasurable
 
@@ -811,6 +811,8 @@ $$
 
 Hence $\mathcal{C}$ is closed by monotone limits.
 
+$\square$
+
 :::
 
 <p></p>
@@ -839,8 +841,7 @@ Lebesgue measure is $\sigma$-finite. The counting measure on $\mathbb{R}$ is not
 
 <p></p>
 
-What happens
-if we only assume that the two measures are $\sigma$-finite?
+What happens if we only assume that the two measures are $\sigma$-finite?
 
 <br><p></p>
 
@@ -910,6 +911,7 @@ This shows that $\mathcal{M}^\circ= \mathcal{M}$.
 
 We are done.
 
+$\square$
 
 :::
 
