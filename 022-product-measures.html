@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>4&nbsp; Families of discrete distributions – MA1AY010 Class Notes</title>
+<title>5&nbsp; Product distributions – MA1AY010 Class Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -30,8 +50,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./022-product-measures.html" rel="next">
-<link href="./031-moments.html" rel="prev">
+<link href="./032-acfamilies.html" rel="next">
+<link href="./03-families.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -127,7 +147,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03-families.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Families of discrete distributions</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./022-product-measures.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Product distributions</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -169,13 +189,13 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-families.html" class="sidebar-item-text sidebar-link active">
+  <a href="./03-families.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Families of discrete distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./022-product-measures.html" class="sidebar-item-text sidebar-link">
+  <a href="./022-product-measures.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Product distributions</span></span></a>
   </div>
 </li>
@@ -237,9 +257,13 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#sec-bernoulli" id="toc-sec-bernoulli" class="nav-link active" data-scroll-target="#sec-bernoulli"><span class="header-section-number">4.1</span> Bernoulli and Binomial</a></li>
-  <li><a href="#sec-poisson" id="toc-sec-poisson" class="nav-link" data-scroll-target="#sec-poisson"><span class="header-section-number">4.2</span> Poisson</a></li>
-  <li><a href="#sec-geometric" id="toc-sec-geometric" class="nav-link" data-scroll-target="#sec-geometric"><span class="header-section-number">4.3</span> Geometric</a></li>
+  <li><a href="#sec-algebras" id="toc-sec-algebras" class="nav-link active" data-scroll-target="#sec-algebras"><span class="header-section-number">5.1</span> Product <span class="math inline">\(\sigma\)</span>-algebras</a></li>
+  <li><a href="#sec-productmeasures" id="toc-sec-productmeasures" class="nav-link" data-scroll-target="#sec-productmeasures"><span class="header-section-number">5.2</span> Product measures</a></li>
+  <li><a href="#tonellifubini" id="toc-tonellifubini" class="nav-link" data-scroll-target="#tonellifubini"><span class="header-section-number">5.3</span> Tonelli-Fubini theorem</a></li>
+  <li><a href="#sec-indepproduct" id="toc-sec-indepproduct" class="nav-link" data-scroll-target="#sec-indepproduct"><span class="header-section-number">5.4</span> Joint distributions, independence and product distributions</a></li>
+  <li><a href="#sec-indepcollectionsalgebras" id="toc-sec-indepcollectionsalgebras" class="nav-link" data-scroll-target="#sec-indepcollectionsalgebras"><span class="header-section-number">5.5</span> Independence of collections of <span class="math inline">\(\sigma\)</span>-algebras</a></li>
+  <li><a href="#infproductspaces" id="toc-infproductspaces" class="nav-link" data-scroll-target="#infproductspaces"><span class="header-section-number">5.6</span> Infinite product spaces</a></li>
+  <li><a href="#bibproduct" id="toc-bibproduct" class="nav-link" data-scroll-target="#bibproduct"><span class="header-section-number">5.7</span> Bibliographic remarks</a></li>
   </ul>
 </nav>
     </div>
@@ -248,7 +272,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-families" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Families of discrete distributions</span></span></h1>
+<h1 class="title"><span id="sec-productdistributions" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Product distributions</span></span></h1>
 </div>
 
 
@@ -265,156 +289,188 @@ window.Quarto = {
 </header>
 
 
-<p>The goal of this lesson is getting acquainted with important families of distributions and to get familiar with distributional calculus. Probability distributions will be presented through distribution functions, probability mass functions (discrete distribution), densities (when available).</p>
-<section id="sec-bernoulli" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="sec-bernoulli"><span class="header-section-number">4.1</span> Bernoulli and Binomial</h2>
-<div id="def-bernoulli" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 4.1</strong></span> A Bernoulli distribution is a probability distribution <span class="math inline">\(P\)</span> on <span class="math inline">\(\Omega=\{0,1 \}\)</span>. The parameter of <span class="math inline">\(P\)</span> is <span class="math inline">\(P\{1\} \in [0,1]\)</span>.</p>
+<p>In this lesson, we construct product measures. We start with two measured spaces <span class="math inline">\((\mathcal{X}, \mathcal{F}, \mu)\)</span> and <span class="math inline">\((\mathcal{Y}, \mathcal{G}, \nu)\)</span>.</p>
+<p>Our goal is to build a measure space <span class="math inline">\((\mathcal{X}\times \mathcal{Y}, \mathcal{H}, \rho)\)</span> and two measurable functions <span class="math inline">\(X : \mathcal{X}\times \mathcal{Y} \to \mathcal{X}\)</span> and <span class="math inline">\(Y : \mathcal{X}\times \mathcal{Y} \to \mathcal{Y}\)</span> with the additional requirements that</p>
+<p><span class="math display">\[\mu = \rho \circ X^{-1} \quad \text{and} \quad \nu = \rho \circ Y^{-1}\]</span></p>
+<p>as well as</p>
+<p><span class="math display">\[\rho(A \times B) =  \mu(A) \times \nu(B) \qquad \forall A \in \mathcal{F}, B\in \mathcal{G} \,.\]</span></p>
+<p>Note that requiring <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> to be measurable is prematurate: we have not defined the <span class="math inline">\(\sigma\)</span>-algebra <span class="math inline">\(\mathcal{H}\)</span> over <span class="math inline">\(\mathcal{X}\times \mathcal{Y}\)</span>.</p>
+<section id="sec-algebras" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="sec-algebras"><span class="header-section-number">5.1</span> Product <span class="math inline">\(\sigma\)</span>-algebras</h2>
+<p>In order to achieve our goal, we first define a <span class="math inline">\(\sigma\)</span>-algebra <span class="math inline">\(\mathcal{H}\)</span> of subsets of <span class="math inline">\(\mathcal{X} \times \mathcal{Y}\)</span>. We use the so-called <em>product <span class="math inline">\(\sigma\)</span>-algebra</em>.</p>
+<div id="def-prodsigalg" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 5.1 (Product <span class="math inline">\(\sigma\)</span>-algebra)</strong></span> Let <span class="math inline">\((\mathcal{X}, \mathcal{F})\)</span> and <span class="math inline">\((\mathcal{Y}, \mathcal{G})\)</span> be two measurable spaces, the product <span class="math inline">\(\sigma\)</span>-algebra <span class="math inline">\(\mathcal{F} \otimes \mathcal{G}\)</span> is the <span class="math inline">\(\sigma\)</span>-algebra of subsets of <span class="math inline">\(2^{\mathcal{X} \times \mathcal{Y}}\)</span> that is generated by the so-called <em>rectangles</em>:</p>
+<p><span class="math display">\[\Big\{ A \times B : A \in \mathcal{F}, B \in \mathcal{G}\Big\} \, .\]</span></p>
+<p>In words, <span class="math display">\[\mathcal{F} \otimes \mathcal{G} = \sigma\left(\mathcal{F} \times \mathcal{G}\right)\]</span></p>
 </div>
-<p>A Bernoulli distribution is completely defined by its parameter.</p>
-<p>Assume <span class="math inline">\(\Omega^{\prime} = \{0,1\}^n\)</span>.</p>
-<div id="def-binomial" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 4.2 (Binomial distribution)</strong></span> A binomial distribution with parameters <span class="math inline">\(n \in \mathbb{N}, p \in [0,1]\)</span> (<span class="math inline">\(n\)</span> is size and <span class="math inline">\(p\)</span> is success) is a probability distribution <span class="math inline">\(P\)</span> on <span class="math inline">\(\Omega = \{0, 1, 2, \ldots, n\}\)</span>, defined by <span class="math display">\[P\{k\} = \binom{n}{k} p^k (1-p)^k\]</span></p>
+<div id="prp-prodsigmaalg-1" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 5.1</strong></span> The product <span class="math inline">\(\sigma\)</span>-algebra makes the functions <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> (sometimes called <em>coordinate projections</em>) measurable.</p>
 </div>
-<p>
-</p><p>The connexion between Bernoulli and Binomial distributions is obvious: a Bernoulli distribution is a Binomial distribution with size parameter equal to <span class="math inline">\(1\)</span>. This connexion goes further: the sum of independent Bernoulli random variables with same success parameter is Binomial distributed.</p>
-<div id="prp">
-<p>Let <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> be independent, identically distributed Bernoulli random variables with success parameter <span class="math inline">\(p \in [0,1]\)</span>, then <span class="math inline">\(Y = \sum_{i=1}^n X_i\)</span> is distributed according to a Binomial disctribution with size parameter <span class="math inline">\(n\)</span> and success probability <span class="math inline">\(p\)</span>.</p>
+<div id="exr-prodsigmaalg-1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5.1</strong></span> Check <a href="#prp-prodsigmaalg-1" class="quarto-xref">Proposition&nbsp;<span>5.1</span></a>.</p>
 </div>
-<p>
-</p><div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>For <span class="math inline">\(k \in 0, \ldots, n\)</span></p>
-<p><span class="math display">\[\begin{align*}
-P\Big\{ \sum_{i=1}^n  X_i = k \Big\}
-  &amp; = \sum_{x_1, \ldots, x_n \in \{0,1 \}^p} \mathbb{I}_{\sum_{i=1}^n x_i=k} P \Big\{ \wedge_{i=1}^n X_i = x_i\Big\} \\
-  &amp; = \sum_{x_1, \ldots, x_n \in \{0,1 \}^p} \mathbb{I}_{\sum_{i=1}^n x_i=k} \prod_{i=1}^n P \Big\{ X_i = x_i\Big\} \\
-  &amp; = \sum_{x_1, \ldots, x_n \in \{0,1 \}^p} \mathbb{I}_{\sum_{i=1}^n x_i=k} \prod_{i=1}^n  p^{x_i} (1-p)^{1-x_i} \\
-  &amp; = \sum_{x_1, \ldots, x_n \in \{0,1 \}^p} \mathbb{I}_{\sum_{i=1}^n x_i=k}\,   p^{k} (1-p)^{n-k} \\
-  &amp; = \binom{n}{k} p^{k} (1-p)^{n-k}  \, .
-\end{align*}\]</span></p>
-</div>
-<br> This observation facilitates the computation of moments of Binomial distribution.
-<p>
-</p><p>The expected value of a Bernoulli distribution with parameter <span class="math inline">\(p\)</span> is <span class="math inline">\(p\)</span>! Its variance is <span class="math inline">\(p(1-p)\)</span>.</p>
-<p>By linearity of expectation, the expected value of the binomial distribution with parameters <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span> is <span class="math inline">\(np\)</span>. The variance of a sum of independent random variables is the sum of the variances, hence the variance of he binomial distribution with parameters <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span> is <span class="math inline">\(np(1-p)\)</span>.</p>
-<!-- ::: {#fig-witbinom} -->
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-witbinom" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-witbinom-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="03-families_files/figure-html/fig-witbinom-1.png" class="img-fluid figure-img" width="672">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-witbinom-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.1: Binomial probability mass functions with <span class="math inline">\(n=20\)</span> and different values of <span class="math inline">\(p\)</span> : <span class="math inline">\(.5, .7, .2\)</span>.
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<p>More on <a href="https://en.wikipedia.org/wiki/Binomial_distribution">wikipedia</a>.</p>
-<!-- ::: -->
-<p>
-</p><p>Binomial distributions with the same success parameter</p>
-<div id="prp">
-<p>Let <span class="math inline">\(X,Y\)</span> be independent over probability space <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span> and distributed according to <span class="math inline">\(\text{Bin}(n_1, p)\)</span> and <span class="math inline">\(\text{Bin}(n_2, p)\)</span>.</p>
-<p>Then <span class="math inline">\(X+Y\)</span> is distributed according to <span class="math inline">\(\text{Bin}(n_1+n_2, p)\)</span>.</p>
-</div>
-<p>
-</p><div id="exr">
-<p>Check the preceding proposition.</p>
+<div id="exr-prodsigmaalg-2" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5.2</strong></span> Check that the Borel <span class="math inline">\(\sigma\)</span>-algebra over <span class="math inline">\(\mathbb{R}^2\)</span> can be described as a product <span class="math inline">\(\sigma\)</span>-algebra (the <span class="math inline">\(\sigma\)</span>-algebra generated by the cartesian product of <span class="math inline">\(\mathcal{B}(\mathbb{R})\)</span> with itself).</p>
 </div>
 </section>
-<section id="sec-poisson" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="sec-poisson"><span class="header-section-number">4.2</span> Poisson</h2>
-<p>The Poisson distribution appears as a limit of Binomial distributions in a variety of circumstances connected to rare events phenomena.</p>
-<div id="def-poisson" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 4.3</strong></span> A Poisson distribution with parameter <span class="math inline">\(\lambda &gt;0\)</span> is a probability distribution <span class="math inline">\(P\)</span> on <span class="math inline">\(\Omega=\mathbb{N}\)</span> with</p>
-<p><span class="math display">\[P\{k\} = \mathrm{e}^{-\lambda} \frac{\lambda^k}{k!}\]</span></p>
-</div>
-<!-- ::: {#fig-witgetpoisson} -->
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-witgetpoisson" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-witgetpoisson-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="03-families_files/figure-html/fig-witgetpoisson-1.png" class="img-fluid figure-img" width="672">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-witgetpoisson-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.2: Poisson probability mass functions with different values of parameter: <span class="math inline">\(1, 5, 10\)</span>. Recall that the parameter of a Poisson distribution equals its expectation and its variance. The probability mass function of a Poisson distribution achieves its maximum (called the mode) close to its expectation.
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<!-- ::: -->
-<p>The expected value of the Poisson distribution with paramenter <span class="math inline">\(\lambda\)</span> is <span class="math inline">\(\lambda\)</span>. The variance of a Poisson distribution is equal to its expected value.</p>
+<section id="sec-productmeasures" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="sec-productmeasures"><span class="header-section-number">5.2</span> Product measures</h2>
+<p>Once we are equipped with the product <span class="math inline">\(\sigma\)</span>-algebras, we can proceed to the definition of product measures.</p>
+<p>Recall the definition of <span class="math inline">\(\sigma\)</span>-finite measures from <a href="02-language.html#sec-dynkin" class="quarto-xref">Section&nbsp;<span>2.6</span></a>).</p>
+<p>A measure <span class="math inline">\(\mu\)</span> on <span class="math inline">\((\Omega, \mathcal{F})\)</span> is <span class="math inline">\(\sigma\)</span>-finite iff there exists <span class="math inline">\((A_n)_n\)</span> with <span class="math inline">\(\Omega \subseteq \cup_n A_n\)</span> and <span class="math inline">\(\mu(A_n) &lt; \infty\)</span> for each <span class="math inline">\(n\)</span>.</p>
+<p>Finite measures (this encompasses probability measures) are <span class="math inline">\(\sigma\)</span>-finite. Lebesgue measure is <span class="math inline">\(\sigma\)</span>-finite. The counting measure on <span class="math inline">\(\mathbb{R}\)</span> is not <span class="math inline">\(\sigma\)</span>-finite.</p>
+<div id="thm-prodmeas" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 5.1</strong></span> Let <span class="math inline">\((\mathcal{X}, \mathcal{F}, \mu)\)</span> and <span class="math inline">\((\mathcal{Y}, \mathcal{G}, \nu)\)</span> be two measured spaces where <span class="math inline">\(\mu,\nu\)</span> are <span class="math inline">\(\sigma\)</span>-finite.</p>
+<p>Then there exists a <em>unique</em> <span class="math inline">\(\sigma\)</span>-finite measure <span class="math inline">\(\alpha\)</span> on <span class="math inline">\(\mathcal{X} \times \mathcal{Y}\)</span> endowed with the product <span class="math inline">\(\sigma\)</span>-algebra <span class="math inline">\(\mathcal{F} \otimes \mathcal{G} = \sigma(\mathcal{F} \times \mathcal{G})\)</span> that satisfies</p>
+<p><span class="math display">\[\alpha (A \times B) = \mu(A) \times \nu(B)\qquad \forall A \in \mathcal{F}, B \in \mathcal{G} \, .\]</span></p>
+<p>Moreover, for all <span class="math inline">\(E \in \mathcal{F} \otimes \mathcal{G}\)</span>,</p>
+<ol type="1">
+<li>for each <span class="math inline">\(x \in \mathcal{X}\)</span>, <span class="math inline">\(y \mapsto \mathbb{I}_E(x,y)\)</span> is <span class="math inline">\(\mathcal{G}\)</span>-measurable;</li>
+<li><span class="math inline">\(x \mapsto \int_{\mathcal{Y}} \mathbb{I}_E(x,y) \, \mathrm{d} \nu(y)\)</span> is <span class="math inline">\(\mathcal{F}\)</span>-measurable;</li>
+<li>for each <span class="math inline">\(y \in \mathcal{Y}\)</span>, <span class="math inline">\(x \mapsto \mathbb{I}_E(x,y)\)</span> is <span class="math inline">\(\mathcal{F}\)</span>-measurable;</li>
+<li><span class="math inline">\(y \mapsto \int_{\mathcal{X}}  \mathbb{I}_E(x,y) \,  \mathrm{d}\mu(x)\)</span> is <span class="math inline">\(\mathcal{G}\)</span>-measurable,</li>
+</ol>
+<p>and the following holds:</p>
 <p><span class="math display">\[\begin{align*}
-\mathbb{E} X
-&amp; = \sum_{n=0}^\infty \mathrm{e}^{-\lambda} \frac{\lambda^n}{n!} \times n\\
-&amp; = \lambda \times \sum_{n=1}^\infty \mathrm{e}^{-\lambda} \frac{\lambda^{n-1}}{(n-1)!}  \\
-&amp; = \lambda \, .
+\int_{\mathcal{X}\times \mathcal{Y}} \mathbb{I}_E \, \mathrm{d}\alpha
+&amp; = \int_{\mathcal{X}} \Big(\int_{\mathcal{Y}} \mathbb{I}_E(x,y) \, \mathrm{d} \nu(y)\Big) \, \mathrm{d}\mu(x) \\
+&amp; = \int_{\mathcal{Y}} \Big( \int_{\mathcal{X}}  \mathbb{I}_E(x,y) \,  \mathrm{d}\mu(x)\Big) \,\mathrm{d} \nu(y)
 \end{align*}\]</span></p>
-<div id="prp">
-<p>Let <span class="math inline">\(X,Y\)</span> be independent and Poisson distributed over probability space <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span>, then <span class="math inline">\(X+Y\)</span> is Poisson distributed.</p>
+<p>where the three integrals are either finite or infinite.</p>
+<p>Measure <span class="math inline">\(\alpha\)</span> is called a <em>product measure</em>, it is sometimes denoted by <span class="math inline">\(\mu \otimes \nu\)</span>.</p>
+</div>
+<br>
+<p>
+</p>
+<div id="rem-prodmeas-1" class="proof remark">
+<p><span class="proof-title"><em>Remark 5.1</em>. </span>Assuming that both <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\nu\)</span> are <span class="math inline">\(\sigma\)</span>-finite is essential. Choose <span class="math inline">\(\mu\)</span> as the counting measure on <span class="math inline">\([0,1]\)</span> and <span class="math inline">\(\nu\)</span> as the Lebesgue measure on <span class="math inline">\([0,1]\)</span>. Consider the diagonal <span class="math inline">\(E = \{(x,x) : x \in [0,1]\}\)</span>. The set <span class="math inline">\(E\)</span> belongs to <span class="math inline">\(\mathcal{B}(\mathbb{R}) \otimes \mathcal{B}(\mathbb{R}) = \mathcal{B}(\mathbb{R}^2)\)</span> (check this). But interchanging the order of integration leads to different results:</p>
+<p><span class="math display">\[\begin{array}{rl}
+1      &amp; = \int_{[0,1]} \Big(\int_{[0,1]} \mathbb{I}_E (x,y) \, \mathrm{d}\mu(x)\Big) \, \mathrm{d}\nu(y) \\
+0      &amp; = \int_{[0,1]} \Big(\int_{[0,1]} \mathbb{I}_E (x,y) \, \mathrm{d}\nu(y)\Big) \, \mathrm{d}\mu(x)
+\end{array}\]</span></p>
+</div>
+<br>
+<p>
+</p>
+<p><a href="#thm-prodmeas" class="quarto-xref">Theorem&nbsp;<span>5.1</span></a> contains three statements:</p>
+<ol type="a">
+<li>existence of a measure over <span class="math inline">\((\mathcal{X} \times \mathcal{Y}, \mathcal{F} \otimes \mathcal{G})\)</span> that satisfies the product property over rectangles;</li>
+<li>uniqueness of this measure;</li>
+<li>the possibility of computing the measure of <span class="math inline">\(E \in \mathcal{F} \otimes \mathcal{G}\)</span> by iterated integration in arbitrary order.</li>
+</ol>
+<p>The first statement (existence) is proved using an extension theorem, the second statement (unicity) follows from a monotone class argument (<a href="02-language.html#thm-monotoneclasslemma" class="quarto-xref">Theorem&nbsp;<span>2.4</span></a>)): rectangles form a generating <span class="math inline">\(\pi\)</span>-class, so the case where both <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\nu\)</span> are finite measure is settled. If either <span class="math inline">\(\mu\)</span> or <span class="math inline">\(\nu\)</span> is just <span class="math inline">\(\sigma\)</span>-finite, consider restrictions to rectangles with finite measure, and proceed by approximation. The third statement trivially holds for rectangles.</p>
+<p><br></p>
+<div id="rem-product-probas" class="proof remark">
+<p><span class="proof-title"><em>Remark 5.2</em>. </span>If <span class="math inline">\(\mu, \nu\)</span> are probability measures, then the product measure <span class="math inline">\(\mu \otimes \nu\)</span> is a probability measures, it is called a product probability measure.</p>
+</div>
+</section>
+<section id="tonellifubini" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="tonellifubini"><span class="header-section-number">5.3</span> Tonelli-Fubini theorem</h2>
+<p>In this section, we consider product measures that are built from <span class="math inline">\(\sigma\)</span>-finite measures as in <a href="#thm-prodmeas" class="quarto-xref">Theorem&nbsp;<span>5.1</span></a>). The Tonelli-Fubini Theorem shows that (under mild conditions) integration with respect to a product measure reduces to iterated integration over the component measures.</p>
+<div id="tonelli" name="Tonelli-Fubini">
+<p>Let be <span class="math inline">\(( \mathcal{X}, \mathcal{A})\)</span> and <span class="math inline">\((\mathcal{Y}, \mathcal{B})\)</span> two measurable spaces, <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\nu\)</span> two <span class="math inline">\(\sigma\)</span>-finite measures on these spaces, <span class="math inline">\(\mu \otimes \nu\)</span> the product measure, and <span class="math inline">\(f\)</span> a <span class="math inline">\(\mathcal{A} \otimes \mathcal{B}\)</span>-measurable real function such as <span class="math inline">\(\int |f| \mathrm{d} \mu \otimes \nu &lt; 0\)</span>. The the following properties are satisfied:</p>
+<ol type="i">
+<li><span class="math inline">\(\forall x \in \mathcal{X}, \hspace{1em} y \mapsto f (x, y)\)</span> is <span class="math inline">\(\mathcal{B}\)</span>-measurable.</li>
+<li>The function <span class="math inline">\(x \mapsto \int_{\mathcal{Y}} f (x, y) \mathrm{d}\nu(y)\)</span> is <span class="math inline">\(\mathcal{A}\)</span>-measurable, finite <span class="math inline">\(\mu\)</span>- almost everywhere and <span class="math display">\[\int_{\mathcal{X} \times \mathcal{Y}} f \mathrm{d} \mu \otimes \nu
+= \int_{\mathcal{X}} \left[ \int_{\mathcal{Y}} f (x, y) \mathrm{d} \nu (y)
+\right]  \mathrm{d} \mu (x)\]</span></li>
+</ol>
 </div>
 <br>
 <p>
 </p>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>We check the proposition in the simplest and most tedious way. We compute the probability mass function of the distribution of <span class="math inline">\(X+Y\)</span>. Assume <span class="math inline">\(X \sim \operatorname{Po}(\lambda), Y \sim \operatorname{Po}(\mu)\)</span>.</p>
-<p>For each <span class="math inline">\(k \in \mathbb{N}\)</span>: <span class="math display">\[\begin{align*}
-\Pr \{ X+Y =k\}
-&amp; = \Pr \{ \bigvee_{m=0}^k (X =m \wedge Y =k-m) \} \\
-&amp; = \sum_{m=0}^k \Pr \{ X =m \wedge Y =k-m \} \\
-&amp; = \sum_{m=0}^k \Pr \{ X =m \} \times \Pr\{ Y =k-m \} \\
-&amp; = \sum_{m=0}^k \mathrm{e}^{-\lambda} \frac{\lambda^m}{m!} \mathrm{e}^{-\mu} \frac{\mu^{k-m}}{(k-m)!} \\
-&amp; = \mathrm{e}^{-\lambda - \mu}  \frac{(\lambda+\mu)^k}{k!} \sum_{m=0}^k \frac{k!}{m! (k-m)!}\left(\frac{\lambda}{\lambda+\mu}\right)^m \left(\frac{\mu}{\lambda+\mu}\right)^{k-m} \\
-&amp; = \mathrm{e}^{-\lambda - \mu}  \frac{(\lambda+\mu)^k}{k!} \sum_{m=0}^k \binom{k}{m}\left(\frac{\lambda}{\lambda+\mu}\right)^m \left(\frac{\mu}{\lambda+\mu}\right)^{k-m} \\
-&amp; = \mathrm{e}^{-\lambda - \mu}  \frac{(\lambda+\mu)^k}{k!} \left( \frac{\lambda}{\lambda+\mu} + \frac{\mu}{\lambda+\mu}\right)^k  \\
-&amp; = \mathrm{e}^{-(\lambda + \mu)}  \frac{(\lambda+\mu)^k}{k!}
-\end{align*}\]</span> The last expression if the pmf of <span class="math inline">\(\operatorname{Po}(\lambda + \mu)\)</span> at <span class="math inline">\(k\)</span>.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>Proof can <span class="math inline">\(\square\)</span></p>
+</div>
+<p>The following characterization of the expectation of non-negative random variables as the integral of the tail function is a simple consequence of the Tonelli-Fubini Theorem.</p>
+<br>
+<p>
+</p>
+<div id="prp-ipp" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 5.2 (IPP formula)</strong></span> Let <span class="math inline">\(X\)</span> be a non-negative real-valued random variable, then</p>
+<p><span class="math display">\[\mathbb{E}X = \int_0^\infty  P\{ X &gt; t \} \mathrm{d}t\]</span></p>
 </div>
 <br>
 <p>
 </p>
-<div id="exr">
-<p>Check that the <em>mode</em> (maximum) of a Poisson probability mass function with parameter <span class="math inline">\(\lambda\)</span> is achieved at <span class="math inline">\(k= \lfloor \lambda \rfloor\)</span>. It is always unique?</p>
-</div>
-<div id="exr">
-<p>Check that the median of a Poisson distribution with integer parameter <span class="math inline">\(\lambda\)</span> is not smaller than <span class="math inline">\(\lambda\)</span>.</p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span><span class="math display">\[\begin{array}{rl}
+\mathbb{E}X
+  &amp; = \int_{\Omega}  X(\omega) \, \mathrm{d}P(\omega) \\
+  &amp; = \int_{\Omega}  \Big( \int_{[0,\infty)} \mathbb{I}_{X(\omega)&gt; t} \mathrm{d}t \Big)\, \mathrm{d}P(\omega) \\
+  &amp; =  \int_{[0,\infty)}  \Big( \int_{\Omega} \mathbb{I}_{X(\omega)&gt; t} \,  \mathrm{d}P(\omega) \Big) \mathrm{d}t \\
+  &amp; =  \int_{[0,\infty)}  \Big( P\{ \omega : X(\omega) &gt; t \} \Big) \mathrm{d}t
+\end{array}\]</span></p>
+<p><span class="math inline">\(\square\)</span></p>
 </div>
 <br>
 <p>
 </p>
 </section>
-<section id="sec-geometric" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="sec-geometric"><span class="header-section-number">4.3</span> Geometric</h2>
-<p>A geometric distribution is a probability distribution over <span class="math inline">\(\mathbb{N} \subset \{0,1\}\)</span>. It depends on a parameter <span class="math inline">\(p&gt;0\)</span>.</p>
-<p>Assume we are allowed to toss a biased coin infinitely many times. The number of times we have to toss the coin <em>until</em> we get a <em>head</em> is geometrically distributed.</p>
-<p>Let <span class="math inline">\(X\)</span> be distributed according to a geometric distribution with parameter <span class="math inline">\(p\)</span>. The geometric probability distribution is easily defined by its tail function. In the event <span class="math inline">\(X&gt;k\)</span>, the first <span class="math inline">\(k\)</span> outcomes have to be <em>tail</em>. <span class="math display">\[
-P \{ X &gt; k \} = (1-p)^k
-\]</span> The probability mass function of the geometric distribution follows: <span class="math display">\[
-P \{X = k \} = (1-p)^{k-1} - (1-p)^k = p \times (1-p)^{k-1} \qquad \text{for } k=1, 2, \ldots
-\]</span> On average, we have to toss the coin <span class="math inline">\(p\)</span> times until we get a <em>head</em>: <span class="math display">\[
-\mathbb{E}X = \sum_{k=0}^\infty P \{ X &gt; k \} = \frac{1}{p}
-\]</span></p>
-<div id="rem">
-<p>It is also possible to define geometric random variables as the number of times we have to toss the coin <strong>before</strong> we get a <em>head</em>. This requires modifying quantile function, probability mass function, expectation, and so on. This is the convention <code>R</code> uses.</p>
+<section id="sec-indepproduct" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="sec-indepproduct"><span class="header-section-number">5.4</span> Joint distributions, independence and product distributions</h2>
+<p>Let the two random variables <span class="math inline">\(X, Y\)</span> map <span class="math inline">\((\Omega, \mathcal{F})\)</span> to <span class="math inline">\((\mathcal{X}, \mathcal{G})\)</span> and <span class="math inline">\((\mathcal{Y}, \mathcal{H})\)</span>. Equip <span class="math inline">\((\Omega, \mathcal{F})\)</span> with probability distribution <span class="math inline">\(P\)</span>. Let <span class="math inline">\(Q_X = P \circ X^{-1}\)</span> and <span class="math inline">\(Q_Y =  P \circ Y^{-1}\)</span> be the two image distributions (called the <em>marginal</em> distributions). We may define a mapping <span class="math inline">\(Z: \Omega \to \mathcal{X} \times \mathcal{Y}\)</span> by <span class="math inline">\(Z(\omega) = (X(\omega), Y(\omega))\)</span>, this mapping is <span class="math inline">\(\mathcal{F}/\sigma(\mathcal{G}\times \mathcal{H})\)</span> mesurable.</p>
+<p>Let <span class="math inline">\(Q\)</span> be the <em>joint distribution</em> of <span class="math inline">\(Z = (X,Y)\)</span> under <span class="math inline">\(P\)</span>, that is the probability distribution over <span class="math inline">\(\mathcal{X} \times \mathcal{Y}\)</span> endowed with <span class="math inline">\(\sigma(\mathcal{G}\times \mathcal{H})\)</span> that is uniquely defined by</p>
+<p><span class="math display">\[Q( A \times B) = P\Big\{ \omega: X(\omega) \in A, Y(\omega) \in B \Big\} \, .\]</span></p>
+<p>Note that <span class="math inline">\(Q\)</span> is not necessarily a product distribution.</p>
+<p>The next (trivial) proposition tells us that two random variables are independent iff their joint distribution is a product distribution (in fact the product dist)</p>
+<div id="prp">
+<p><span class="math display">\[X \perp\!\!\!\perp Y \text{ under } P \Longleftrightarrow  Q = Q_X \otimes Q_Y \, ,\]</span></p>
 </div>
-<div class="cell" data-screenshot.force="true">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="03-families_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption>Geometric probability mass functions with different values of parameter <span class="math inline">\(p\)</span>: <span class="math inline">\(1/2, 1/3, 1/5\)</span>. The probability mass function equals <span class="math inline">\(p \times (1-p)^{k-1}\)</span> at <span class="math inline">\(k\geq 1\)</span>. The mode is achieved at <span class="math inline">\(k=1\)</span> whatever the value of <span class="math inline">\(p\)</span>. The expectation equals <span class="math inline">\(1/p\)</span></figcaption>
-</figure>
+<p>in words, <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent iff their joint distribution is the product of their marginal distributions.</p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>TODO: FIX THIS</p>
 </div>
+</section>
+<section id="sec-indepcollectionsalgebras" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="sec-indepcollectionsalgebras"><span class="header-section-number">5.5</span> Independence of collections of <span class="math inline">\(\sigma\)</span>-algebras</h2>
+<!-- TODO:  -->
+<!-- - independence of a family of $\sigma$-algebras -->
+<!--  -->
+<p>In many applications, independence between two <span class="math inline">\(\sigma\)</span>-algebras or a finite collection of <span class="math inline">\(\sigma\)</span>-algebras is not enough. This is the case when deriving or using laws of large numbers. We have to deal with a <em>countable collection of independent random variables</em>. In words, we have to work with a countable collection of <span class="math inline">\(\sigma\)</span>-algebras and we need to elaborate a notion of a countable collection of independent <span class="math inline">\(\sigma\)</span>-algebras.</p>
+<div id="def">
+<p>Let <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span> be a probability space. Let <span class="math inline">\(\mathcal{G_1}, \ldots, \mathcal{G}_n, \ldots\)</span> be a countable colletion of sub-<span class="math inline">\(\sigma\)</span>-algebras.</p>
+<p>The collection <span class="math inline">\(\mathcal{G_1}, \ldots, \mathcal{G}_n, \ldots\)</span> is said to be independent under <span class="math inline">\(P\)</span></p>
+<p>if</p>
+<p>every finite sub-collection is independent under <span class="math inline">\(P\)</span>.</p>
 </div>
+<div id="exm">
+<p>Consider the uniform probability distribution over <span class="math inline">\([0,1]\)</span>, define <span class="math inline">\(X_1, X_2, \ldots\)</span> by</p>
+<p><span class="math display">\[X_n(\omega) = \operatorname{sign}\Big(\sin\big(2^{n+1} \pi \omega \big)\Big)\]</span></p>
+<p>then <span class="math inline">\(X_1, \ldots, X_n, \ldots\)</span> form a countable independent collection of random variables.</p>
 </div>
-<p>Sums of independent geometric random variables are not distributed according to a geometric distribution.</p>
+</section>
+<section id="infproductspaces" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="infproductspaces"><span class="header-section-number">5.6</span> Infinite product spaces</h2>
+<p>In many modeling scenarios (random walks, branching processes, asymptotic statistics, …), we rely on the availability of an infinite collection of independent random variables. While it is (relatively) easy to come up with the notion of finite product probability spaces, the notion of infinite product probability spaces is more puzzling. And this remains true even if the individual components are finite probability spaces.</p>
+<p>Thinks of <span class="math inline">\(\Omega_i = \{0,1\}\)</span> and each <span class="math inline">\(P_i\)</span> has the balanced Bernoulli distribution. Let <span class="math inline">\(\omega\)</span> be an infinite sequence of <span class="math inline">\(o\)</span> and <span class="math inline">\(1\)</span>, <span class="math inline">\(\{\omega\} = \prod_{i=1}^\infty \{ \omega_i \}\)</span> is an infinite Cartesian product of events with probability <span class="math inline">\(1/2\)</span>. What should be its probability in the infinite product probability space? Is there a way to assign probabilities in a consistent way? If the answer is positive, is there a unique way to perform this operation?</p>
+<div id="cylindrical" name="Cylinder sigma-algebra">
+<p>Let <span class="math inline">\((\Omega_n, \mathcal{F}_n)_n\)</span> be a countable collection of measurable spaces, the cylinder <span class="math inline">\(\sigma\)</span>-algebra is the <span class="math inline">\(\sigma\)</span>-algebra of subsets of <span class="math inline">\(\prod_{n=1}^\infty \Omega_n\)</span> that is generated by subsets of the form:</p>
+<p><span class="math display">\[\prod_{n=1}^m A_n \times \prod_{n=m+1}^\infty \Omega_n \qquad\text{with } A_n \in \mathcal{F}_n \text{ for } n \leq m\]</span></p>
+<p>where <span class="math inline">\(m\)</span> is any integer. The subsets are called <em>finite-dimensional rectangles</em> or <em>cylinders</em>.</p>
+</div>
+<p>Observe that cylinders form a <span class="math inline">\(\pi\)</span>-class.</p>
+<p>If each <span class="math inline">\((\Omega_n, \mathcal{F}_n)\)</span> is endowed with a probability distribution, assigning a probability to cylinders looks straightforward: <span class="math display">\[\mathbb{P} \left( \prod_{n=1}^m A_n \times \prod_{n=m+1}^\infty \Omega_n \right) = \prod_{n=1}^m P_n(A_n) \times \prod_{n=m+1}^\infty P_n(\Omega_n) =
+\prod_{n=1}^m P_n(A_n) \, .\]</span></p>
+<p>The question is: does <span class="math inline">\(\mathbb{P}\)</span> extends to the cylinder <span class="math inline">\(\sigma\)</span>-algebra? If an extension exists, is it unique? The answer is yes.</p>
+<div id="kolmoextension" name="Kolmogorov's extension theorem">
+<p>Let <span class="math inline">\((\Omega_n, \mathcal{F}_n, P_n)_n\)</span> be a countable collection of probability spaces. Then there exists a unique probability distribution <span class="math inline">\(\mathbb{P}\)</span> on the cylindrical <span class="math inline">\(\sigma\)</span>-algebra that satisfy:</p>
+<p><span class="math display">\[\mathbb{P} \left( \prod_{n=1}^m A_n \times \prod_{n=m+1}^\infty \Omega_n \right) =  \prod_{n=1}^m P_n(A_n)\]</span></p>
+<p>for every finite sequence <span class="math inline">\(A_1, \ldots, A_m\)</span> in <span class="math inline">\(\mathcal{F}_1 \times \ldots \times \mathcal{F}_m\)</span>.</p>
+</div>
+</section>
+<section id="bibproduct" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="bibproduct"><span class="header-section-number">5.7</span> Bibliographic remarks</h2>
+<p>This material covering this lesson can be found in any book on measure and integration theory. Section 4.4 from <span class="citation" data-cites="MR1932358">(<a href="#ref-MR1932358" role="doc-biblioref">Dudley, 2002</a>)</span> is dedicated to product measures.</p>
+<p>Complete proofs of the Tonelli-Fubini Theeorem can be found in <span class="citation" data-cites="MR1932358">(<a href="#ref-MR1932358" role="doc-biblioref">Dudley, 2002</a>)</span>.</p>
+<p>The existence theorem for infinite product probabilities is from Section 8.2 from <span class="citation" data-cites="MR1932358">(<a href="#ref-MR1932358" role="doc-biblioref">Dudley, 2002</a>)</span>. A full proof of the Theorem can be found there.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-MR1932358" class="csl-entry" role="listitem">
+Dudley, R. M. (2002). <em>Real analysis and probability</em> (Vol. 74, p. x+555). Cambridge: Cambridge University Press.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -820,13 +876,13 @@ P \{X = k \} = (1-p)^{k-1} - (1-p)^k = p \times (1-p)^{k-1} \qquad \text{for } k
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./031-moments.html" class="pagination-link" aria-label="A modicum of integration">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">A modicum of integration</span></span>
+      <a href="./03-families.html" class="pagination-link" aria-label="Families of discrete distributions">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Families of discrete distributions</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./022-product-measures.html" class="pagination-link" aria-label="Product distributions">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Product distributions</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./032-acfamilies.html" class="pagination-link" aria-label="Absolutely continuous probability measures">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Absolutely continuous probability measures</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
