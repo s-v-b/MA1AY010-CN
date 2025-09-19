@@ -7,14 +7,17 @@ book:
   author: "Master I ISIFAR"
   date: "2025-09-15"
   downloads: [pdf]
-
+  site-url: "https://s-v-b.github.io/MA1AY010-CN/"
+  repo-url: https://github.com/s-v-b/MA1AY010-CN/
+  repo-branch: main
+  repo-actions: [edit, issue]
+  # cover-image: cover.jpg
+  # favicon: cover.jpg
 
 
   navbar:
     search: true
     
-    # site-url: "https://s-v-b.github.io/MA1AY010-CN/"
-    # repo-url: https://github.com/s-v-b/MA1AY010-CN/
     
   
   chapters:
@@ -23,7 +26,9 @@ book:
     - 02-language.qmd
     - 031-moments.qmd
     - 03-families.qmd
+    - 0225-pgf.qmd
     - 022-product-measures.qmd
+    - 021-independence.qmd
     - 032-acfamilies.qmd
     - 023-discrete-condition.qmd
     - 04-characterizations.qmd
@@ -66,6 +71,7 @@ bibliography: ["stbib.bib", "book.bib", "packages.bib"]
 biblio-style: apalike
 link-citations: true
 csl: "style/apa.csl"
+editor: source
 # always_allow_html: true
 
 

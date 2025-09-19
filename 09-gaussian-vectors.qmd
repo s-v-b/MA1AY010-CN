@@ -1,5 +1,6 @@
 # Gaussian vectors  {#sec-chapGaussianVectors}
 
+{{< include _packages_requirements.qmd >}}
 
 ## Univariate Gaussian distribution {#sec-secGaussUnivar}
 
@@ -59,11 +60,9 @@ ggplot2::ggplot(data = tibble::tibble(x=seq(-5, 5,by=0.01)),
 #| warning: false
 #| message: false
 #| label: fig-witgetdensity
+#| eval: false # "`r if (knitr::is_html_output())`"
 #| 
-#| 
-require(webshot)
-require(htmlwidgets)
-require(plotly)
+
 
 p <- ggplot2::ggplot(data = tibble::tibble(x=seq(-5, 5,by=0.01)),
                 mapping= ggplot2::aes(x=x)) +
@@ -1091,7 +1090,7 @@ is distributed according to the chi-square distributions with $k$ degrees of fre
 
 ::: {.proof}
 
-According to proposition @prp-densite-gamma),
+According to proposition @prp-gammabeta),
 it  suffices to establish the proposition $k = 1.$
 
 Let $X \sim \mathcal{N}(0,1)$, for $t\geq 0$,

@@ -66,13 +66,7 @@ The expected value of a Bernoulli distribution with parameter $p$ is $p$! Its va
 By linearity of expectation, the expected value of the binomial distribution with parameters $n$ and $p$ is $np$.
 The variance of a sum of independent random variables  is the sum of the variances, hence the variance of he binomial distribution with parameters $n$ and $p$ is $np(1-p)$.
 
-```{r loads, echo=FALSE, message=FALSE, warning=FALSE}
-# %%
-require(tidyverse)
-require(kableExtra)
-old_theme <-theme_set(theme_bw(base_size=9, base_family = "Helvetica"))
-# %%
-```
+{{< include _packages_requirements.qmd >}}
 
 <!-- ::: {#fig-witbinom} -->
 
@@ -89,7 +83,7 @@ x <-  as.integer(seq(0, 20, by=1))
 probs <-  c(.5, .7, .2)
 
 df <- as.data.frame(c(list("k"=x),
-                      probs %>% purrr::map(.f = function(p) dbinom(x, n, p))))
+                      probs |> purrr::map(.f = function(p) dbinom(x, n, p))))
 
 names(df) <- c("k", format(probs, digits=2))
 
@@ -166,7 +160,7 @@ x = as.integer(seq(0, 20, by=1))
 lambdas =  c(1, 5, 10)
 
 df <- as.data.frame(c(list("x"=x),
-                      lambdas %>% purrr::map(.f = function(p) dpois(x, p))))
+                      lambdas |> purrr::map(.f = function(p) dpois(x, p))))
 
 names(df) <- c("k", format(lambdas, digits=2))
 
@@ -299,7 +293,7 @@ x <- as.integer(seq(0, 9, by=1))
 probs <-  c(1/2, 1/3, 1/5)
 
 df <- as.data.frame(c(list("x"=x+1),
-                      probs %>% purrr::map(.f = function(p) dgeom(x, p))))
+                      probs |> purrr::map(.f = function(p) dgeom(x, p))))
 names(df) <- c("k", format(probs, digits = 2))
 df <- tidyr::gather(df, key="p", value="pmf", -k)
 

@@ -1,14 +1,6 @@
 # Characterizations of probability distributions  {#sec-chapchar}
 
-
-```{r loads, echo=FALSE, message=FALSE, warning=FALSE}
-# %%
-require(tidyverse)
-require(kableExtra)
-old_theme <-theme_set(theme_bw(base_size=9, base_family = "Helvetica"))
-options(tinytex.verbose = TRUE)
-# %%
-```
+{{< include _packages_requirements.qmd >}}
 
 ## Motivation {#sec-roadmapcharac}
 
@@ -1257,7 +1249,7 @@ The basic tools of characteristic functions theory allow us to
 
 
 
-:::{#rem}
+:::{#rem-density-laplace}
 
 The density of the Laplace distribution is not differentiable at $0$, this is reflected in the fact that its Fourier transform (the characteristic function of the Laplace distribution) is not integrable.
 
@@ -1345,6 +1337,9 @@ converging to  $y$, for every  $n$, $F (z_n) < p,$ and, by left-continuity,
 $F (y) = F (\lim_n z_n) = \lim_n F (z_n) \leq
 p.$ Hence $F (y) = p,$ that is  $F \circ F^\leftarrow (p) = p.$
 
+
+$\square$
+
 :::
 
 <br>
@@ -1366,7 +1361,7 @@ $$\begin{array}{rl}
   & = F(x) \, .
 \end{array}$$
 
-$\Box$
+$\square$
 :::
 
 ::: {#rem-quantile-transformation}
@@ -1406,7 +1401,7 @@ p <- seq(0, 1, by=.01)
 probs <-  c(.2,  .5)
 
 df <- as.data.frame(c(list("p"=p),
-                      probs %>% purrr::map(.f = function(prob) qbinom(p, n, prob))))
+                      probs |> purrr::map(.f = function(prob) qbinom(p, n, prob))))
 
 names(df) <- c("p", format(probs, digits=2))
 
@@ -1444,9 +1439,10 @@ rm(df, probs, p)
 
 # %%
 tau <-  c(0,  -1)
-df <- tibble::tibble(p=seq(0.01, .99, by=0.01)) %>%
-      mutate('0' = qnorm(pmax(pnorm(0), p)),
-             '-1' =qnorm(pmax(pnorm(-1), p))) %>%
+df <- tibble::tibble(p=seq(0.01, .99, by=0.01)) |>
+      dplyr::mutate(
+        '0' = qnorm(pmax(pnorm(0), p)),
+        '-1' =qnorm(pmax(pnorm(-1), p))) |>
       tidyr::gather(key="tau", value="quantile", -p)
 
 p <- ggplot2::ggplot(data = df,
@@ -1455,7 +1451,7 @@ p <- ggplot2::ggplot(data = df,
   ggplot2::ylab("quantile function") +
   ggplot2::xlim(xlim = c(-0.1, 1.1)) +
   ggplot2::ylim(ylim = c(-1.1, 2.5)) +
-  ggplot2::geom_line(aes(linetype=tau)) +
+  ggplot2::geom_line(ggplot2::aes(linetype=tau)) +
   ggplot2::scale_y_continuous(breaks=seq(-2,10)) +
   ggplot2::scale_x_continuous(breaks=seq(0, 1, by=.25), limits=c(-0.1, 1.1))
 
@@ -1480,16 +1476,16 @@ rm(df, tau, p)
 #| fig-cap: |
 #|   Cumulative distribution functions for the probability distributions illustrated in [Figure @fig-quantiles2]
 
-df2 <- tibble::tibble(x=seq(-2, 2, by=0.01)) %>%
-      mutate('0' = ifelse(x<0, 0, pnorm(x)),
-             '-1' = ifelse(x< (-1), 0, pnorm(x))) %>%
+df2 <- tibble::tibble(x=seq(-2, 2, by=0.01)) |>
+      dplyr::mutate('0' = ifelse(x<0, 0, pnorm(x)),
+             '-1' = ifelse(x< (-1), 0, pnorm(x))) |>
       tidyr::gather(key="tau", value="cdf", -x)
 
 q <- ggplot2::ggplot(data = df2,
                      mapping= ggplot2::aes(x=x, y=cdf, group=tau)) +
   ggplot2::xlab("x") +
   ggplot2::ylab("cumulative distribution function") +
-  ggplot2::geom_line(aes(linetype=tau)) +
+  ggplot2::geom_line(ggplot2::aes(linetype=tau)) +
   ggplot2::scale_x_continuous(breaks=seq(-2, 2, by=1.), limits=c(-2, 2)) +
   ggplot2::scale_y_continuous(breaks=seq(0, 1, by=.25), limits=c(-0.1, 1.1))
 
@@ -1515,19 +1511,19 @@ rm(df2, q)
 #|   Plateaux that lie strictly above the dotted line are in correspondence with  jumps of the quantile function.
 #| 
 
-df <- tibble::tibble(p=seq(0.01, .99, by=0.001)) %>%
-      mutate(tau0 = qnorm(pmax(pnorm(0), p)),
-             tau1 =qnorm(pmax(pnorm(-1), p))) %>%
-      mutate('0' = ifelse(tau0<=0, pnorm(0), pnorm(tau0)),
-             '-1' = ifelse(tau1<=(-1), pnorm(-1), pnorm(tau1))) %>%
-      dplyr::select(-dplyr::starts_with('tau')) %>%
+df <- tibble::tibble(p=seq(0.01, .99, by=0.001)) |>
+      dplyr::mutate(tau0 = qnorm(pmax(pnorm(0), p)),
+             tau1 =qnorm(pmax(pnorm(-1), p))) |>
+      dplyr::mutate('0' = ifelse(tau0<=0, pnorm(0), pnorm(tau0)),
+             '-1' = ifelse(tau1<=(-1), pnorm(-1), pnorm(tau1))) |>
+      dplyr::select(-dplyr::starts_with('tau')) |>
       tidyr::gather(key="tau", value="value", -p)
 
 p <- ggplot2::ggplot(data = df,
                      mapping= ggplot2::aes(x=p, y=value, group=tau)) +
   ggplot2::xlab("p") +
   ggplot2::ylab("...") +
-  ggplot2::geom_line(aes(linetype=tau)) +
+  ggplot2::geom_line(ggplot2::aes(linetype=tau)) +
   ggplot2::scale_y_continuous(breaks=c(0, pnorm(-1), .25, .5, .75, 1.), limits=c(-0.1, 1.1)) +
   ggplot2::scale_x_continuous(breaks=c(0, pnorm(-1), .25, .5, .75, 1.),
                               labels=format(c(0, pnorm(-1), .25, .5, .75, 1.), digits=2),

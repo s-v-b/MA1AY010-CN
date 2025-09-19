@@ -1,5 +1,6 @@
 # Discrete Conditioning  {#sec-conditioning4dummies}
 
+{{< include _packages_requirements.qmd >}}
 
 ## Roadmap
 

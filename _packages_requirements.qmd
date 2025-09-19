@@ -1,0 +1,31 @@
+
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+
+requireNamespace("ggplot2")
+requireNamespace("tibble")
+requireNamespace("dplyr")
+requireNamespace("purrr")
+requireNamespace("tidyr")
+requireNamespace("plotly")
+requireNamespace("gt")
+requireNamespace("latex2exp")
+requireNamespace("fontawesome")
+requireNamespace("stringr")
+requireNamespace("rmarkdown")
+requireNamespace("knitr")
+requireNamespace("rsvg")
+
+# requireNamespace("kableExtra")
+
+old_theme <-ggplot2::theme_set(
+  ggplot2::theme_bw(
+    base_size=9, 
+    base_family = "Helvetica"))
+
+options(tinytex.verbose = TRUE)
+```
+

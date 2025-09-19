@@ -2,17 +2,7 @@
 
 
 
-```{r}
-#| echo: false 
-#| message: false
-# %%
-require(tidyverse)
-require(latex2exp)
-require(kableExtra)
-require(gt)
-old_theme <-theme_set(theme_bw(base_size=9, base_family = "Helvetica"))
-# %%
-```
+{{< include _packages_requirements.qmd >}}
 
 ## Motivation
 
@@ -70,10 +60,10 @@ foo <- function(x, size, prob){
 }
 
 ggplot2::ggplot(data=tibble::tibble(x=seq(-3,3,by=.01)),
-       mapping=aes(x=x)) +
+       mapping=ggplot2::aes(x=x)) +
   ggplot2::stat_function(fun=pnorm, args=list(mean=0, sd=1), linetype=1) +
-  ggplot2::geom_step(mapping=aes(y=foo(x, 100, .3)), linetype='dashed') +
-  ggplot2::geom_step(mapping=aes(y=foo(x, 30, .3)), linetype='dotted')
+  ggplot2::geom_step(mapping=ggplot2::aes(y=foo(x, 100, .3)), linetype='dashed') +
+  ggplot2::geom_step(mapping=ggplot2::aes(y=foo(x, 30, .3)), linetype='dotted')
 
 rm(foo)
 ```
@@ -517,7 +507,7 @@ tibble::tibble(n=unlist(l_n), y=dks, z=sqrt(l_n[[1]])/sqrt(unlist(l_n))) |>
   ggplot2::geom_point() +
   ggplot2::scale_x_log10() +
   ggplot2::scale_y_log10() +
-  ggplot2::geom_line(mapping=aes(y=z*dks[1]), linetyp='dashed') +
+  ggplot2::geom_line(mapping=ggplot2::aes(y=z*dks[1]), linetyp='dashed') +
   ggplot2::xlab("n") +
   ggplot2::ylab("Kolmogorov distance to standard Gaussian")
 

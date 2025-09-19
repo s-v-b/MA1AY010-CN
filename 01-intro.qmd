@@ -7,7 +7,10 @@ allows us to carry out computations and to outline the kind of results we will l
 for during the course:  moments, tail bounds, law of large numbers,
 central limit theorems, and possibly other kind of weak convergence results.
 
-```{r, echo=FALSE, eval=FALSE}
+```{r}
+#| echo: false
+#| eval: false
+#| 
 knitr::opts_chunk$set(
   comment= '',
   fig.width= 12,
@@ -24,15 +27,7 @@ knitr::opts_chunk$set(
 
 ## Hashing {#sec-hashing}
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-# %%
-require(tidyverse)
-require(latex2exp)
-require(kableExtra)
-require(gt)
-old_theme <-  ggplot2::theme_set(theme_bw(base_size=9, base_family = "Helvetica"))
-# %%
-```
+{{< include _packages_requirements.qmd >}}
 
 Hashing is a computational technique that is used in almost every area of
 computing, from databases to compilers  through  (big) datawarehouses.
@@ -74,13 +69,18 @@ m <- 5
 omega = sample(1:m, size=n, replace=TRUE)
 
 
-tibble::as_tibble(list('$\\omega$'=omega)) %>%
-  t() %>%
-  knitr::kable(#rows.names=FALSE,
-               col.names= c(1:10),
-               escape=FALSE,
-               caption=paste('An outcome of the random allocation experiment with n=',n, ' and m=',m,sep=""),
-               booktabs=TRUE)
+tibble::as_tibble(list(i=seq_along(omega), '$\\omega$'=omega)) |> 
+  tidyr::pivot_wider(
+    names_from= i,
+    values_from = `$\\omega$`
+  ) |> 
+  dplyr::mutate(
+    index =c('position')
+  ) |> 
+  dplyr::relocate(index) |>
+  gt::gt(
+    caption=paste('An outcome of the random allocation experiment with n=',n, ' and m=',m, sep="")
+    )
 # %%
 ```
 
@@ -238,18 +238,25 @@ and $Y_4(\omega)=0$:
 #| fig-cap: Occupancy scores
 #| label: tbl-toyhashing2
 # %%
-foo <- omega %>%
-  table() %>%
+foo <- omega |>
+  table() |>
   as.data.frame()
 
 names(foo) <- c('$j$', '$Y_j$')
 
-foo %>%
-  t() %>%
-  knitr::kable(caption=paste('Occupancy scores for the random allocation experiment with n=',n, ' and m=',m,sep=""),
-               escape=FALSE,
-               booktabs=TRUE) %>%
-  kableExtra::kable_styling(full_width=FALSE)
+foo |>
+  tidyr::pivot_wider(
+    names_from=`$j$`,
+    values_from=`$Y_j$`
+  ) |>
+  dplyr::mutate(`Occupancy score`='Number of bins') |>
+  dplyr::relocate(`Occupancy score`) |>
+  gt::gt(caption=paste(
+    'Occupancy scores for the rando allocation experiment with n=',
+    n, 
+    ' and m=',
+    m,
+    sep=""))
 # %%
 ```
 <!-- ::: -->
@@ -313,12 +320,12 @@ m <- 1000
 
 k <- 0:20
 
-data <- as_tibble(x = list(k=k, pmf=dbinom(k, n, 1/m)))
+data <- tibble::as_tibble(x = list(k=k, pmf=dbinom(k, n, 1/m)))
 
-data %>%
-  ggplot(mapping=aes(x=k, y=pmf)) +
-  geom_col(width=.2) +
-  theme_light()
+data |>
+  ggplot2::ggplot(mapping=ggplot2::aes(x=k, y=pmf)) +
+  ggplot2::geom_col(width=.2) +
+  ggplot2::theme_light()
 # %%
 ```
 <!-- ::: -->
@@ -363,7 +370,7 @@ the difference between Binomial and Poisson is barely visible.
 
 # %%
 k <- 0:20
-data <- as_tibble(list(k,
+data <- tibble::as_tibble(list(k,
                            dbinom(k, n, 1/m),
                            dpois(k, n/m),
                            dbinom(k, 10*n, 1/(10*m))),
@@ -375,12 +382,13 @@ names(data) <- c("k",
                  stringr::str_c("Poisson(", as.character(n/m), ")"),
                  stringr::str_c("Binomial(", as.character(10*n), ",", as.character(.1/m), ")"))
 
-data %>%
-  tidyr::gather(key="Distribution", value="Density", -k) %>%
-  ggplot(mapping=aes(x=k, y=Density, alpha=Distribution, linetype=Distribution) ) +
-  geom_col(width=.6, position=position_dodge2(), color=1) +
-  theme_bw() +
-  theme(legend.position = 'none')
+data |>
+  tidyr::gather(key="Distribution", value="Density", -k) |>
+  ggplot2::ggplot() +
+  ggplot2::aes(x=k, y=Density, alpha=Distribution, linetype=Distribution)  +
+  ggplot2::geom_col(width=.6, position=ggplot2::position_dodge2(), color=1) +
+  ggplot2::theme_bw() +
+  ggplot2::theme(legend.position = 'none')
 # %%
 ```
 
@@ -413,16 +421,16 @@ ns <- 10^(1:7)
 x <- 0:20
 difs <- purrr::map_dbl(ns, .f = ~ sum(abs (dbinom(x, ., lambda/.) - dpois(x, lambda))))
 
-tibble(ns, difs) %>%
-  ggplot(mapping=aes(x=ns, y=difs)) +
-#  geom_line(lty=2) +
-  geom_point() +
-  geom_smooth(method="lm", formula= y ~ x, lty=2, linewidth=.5) +
-  scale_x_log10() +
-  scale_y_log10() +
-  xlab("n") +
-  ylab("Total variation distance") +
-  theme_bw()
+tibble::tibble(ns, difs) |>
+  ggplot2::ggplot()+
+  ggplot2::aes(x=ns, y=difs) +
+  ggplot2::geom_point() +
+  ggplot2::geom_smooth(method="lm", formula= y ~ x, lty=2, linewidth=.5) +
+  ggplot2::scale_x_log10() +
+  ggplot2::scale_y_log10() +
+  ggplot2::xlab("n") +
+  ggplot2::ylab("Total variation distance") +
+  ggplot2::theme_bw()
 ```
 
 <!-- ::: -->
@@ -470,12 +478,19 @@ Ks <- omega |>
 names(Ks) <- names(Ks) |>
   purrr::map_chr( ~ stringr::str_c('$K_{n,', ., '}$'))
 
-Ks |>
-  t() |>
-  knitr::kable(escape=F,
-               caption='Profile of example 2.1, count of empty urns is omitted',
-               booktabs=TRUE) |>
-  kableExtra::kable_styling(full_width=FALSE)
+tibble::tibble(`Occupancy scores`=names(Ks), Freq=Ks) |> 
+  tidyr::pivot_wider(
+    names_from= `Occupancy scores`,
+    values_from = Freq
+  ) |> 
+  # dplyr::mutate(
+  #   index =c('position')
+  # ) |> 
+  # dplyr::relocate(index) |>
+  # t() |>
+  gt::gt(
+    caption='Profile of example 2.1, count of empty urns is omitted'
+    )
 
 # %%
 ```

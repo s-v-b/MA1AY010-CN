@@ -17,13 +17,8 @@ the early decades of the XXth century led to the modern, measure-theoretical
 foundation of probability theory.
 
 
-```{r , echo=FALSE, message=FALSE, warning=FALSE}
-require(tidyverse)
-require(kableExtra)
-old_theme <-theme_set(theme_bw(base_size=9, base_family = "Helvetica"))
-# %%
-```
 
+{{< include _packages_requirements.qmd >}}
 
 ## Universe, powerset and $\sigma$-algebras  {#sec-tribe}
 
@@ -1017,14 +1012,14 @@ names(df) <- c("k", format(lambdas, digits=2))
 df <- tidyr::gather(df, key="lambda", value="cdf", -k)
 
 df <- df  |>
-          mutate(kend = ifelse(k<max(x), k+1, NA),
+          dplyr::mutate(kend = ifelse(k<max(x), k+1, NA),
                  cdfend = ifelse(k<max(x), cdf, NA))
 
 p <- df |>
-     ggplot2::ggplot(aes(x=k, y=cdf, xend=kend, yend=cdfend, linetype=lambda)) +
-#     # ggplot2::geom_step(mapping=ggplot2::aes(x=k, y=cdf, linetype=lambda), color=1,) +
-     geom_segment() +
-     geom_vline(aes(xintercept=k), linetype=2, color="grey") +
+     ggplot2::ggplot() +
+     ggplot2::aes(x=k, y=cdf, xend=kend, yend=cdfend, linetype=lambda)+
+     ggplot2::geom_segment() +
+     ggplot2::geom_vline(ggplot2::aes(xintercept=k), linetype=2, color="grey") +
      ggplot2::geom_point(mapping=ggplot2::aes(x=k, y=cdf), size=.75, color=1) +
      ggplot2::scale_fill_discrete(guide=ggplot2::guide_legend(title="Parameter")) +
      ggplot2::xlab("k") +

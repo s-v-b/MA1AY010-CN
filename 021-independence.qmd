@@ -13,6 +13,9 @@ knitr::opts_chunk$set(
 )
 ```
 
+{{< include _packages_requirements.qmd >}}
+
+
 ## Roadmap
 
 Independence between events, random variables and more
@@ -79,7 +82,7 @@ if and only if $P(A \cap B)=  P(A) \times P(B)$.
 <p></p>
 
 
-::: {#exr}
+::: {#exr-independence-1}
 
 Prove the following statements
 
@@ -92,7 +95,7 @@ Prove the following statements
 
 <p></p>
 
-::: {#exr}
+::: {#exr-independence-2}
 
 Express $P(A \cup B)$ in terms of $P(A)$  and $P(B)$ when $A \perp\!\!\!\perp B$.
 
@@ -103,7 +106,7 @@ Express $P(A \cup B)$ in terms of $P(A)$  and $P(B)$ when $A \perp\!\!\!\perp B$
 
 <p></p>
 
-::: {#exr}
+::: {#exr-independence-3}
 
 In a Poissonized random allocation experiment,
 we first pick $N$ from a Poisson distribution with parameter $\mu$, then we
@@ -117,13 +120,13 @@ and $r,s \in \mathbb{N}$  are independent.
 
 :::
 
-::: {#exr}
+::: {#exr-independence-4}
 
 Express $P(A \cup B)$ in terms of $P(A)$  and $P(B)$ when $A \perp\!\!\!\perp B$.
 
 :::
 
-::: {#exr}
+::: {#exr-independence-5}
 
 Is it possible to have $A \perp\!\!\!\perp B$,  $B \perp\!\!\!\perp C$,
 and $A \perp\!\!\!\perp C$ while not having $A \cap B  \perp\!\!\!\perp C$?
@@ -135,7 +138,7 @@ and $A \perp\!\!\!\perp C$ while not having $A \cap B  \perp\!\!\!\perp C$?
 
 :::: {#def}
 
-### Independence of sigma-algebras
+### Independence of $\sigma$-algebras
 
 Let $P$ be a probability distribution on $(\Omega, \mathcal{F})$. Let $\mathcal{G}$
 and $\mathcal{H}$ be two sub-$\sigma$-algebras of $\mathcal{F}$.
@@ -147,7 +150,7 @@ under $P$.
 
 The two definitions of independence are consistent. This has to be checked.
 
-::: {#exr}
+::: {#exr-indep-sigma-1}
 
 Given a probability space $(\Omega, \mathcal{F}, P)$ and two events $A$ and $B$, check
 that  $A$ and $B$ are independent under $P$ iff $\sigma(A)$ and $\sigma(B)$ are independent
@@ -161,7 +164,7 @@ independence of $X$ and $Y$ by $X \perp\!\!\!\perp  Y$.
 Again this is consistent: two events are independent iff their indicator functions are
 independent.
 
-::: {#exr-exoindep}
+::: {#exr-exoindep-1}
 
 Let $P$ be a probability distribution on $(\Omega, \mathcal{F})$.
 Let $B$ be an event from $\mathcal{G}$. Let $\mathcal{A} \subseteq \mathcal{F}$
@@ -196,7 +199,7 @@ and $\sigma(\mathcal{C}')=\mathcal{H}$. The two statements are equivalent
 
 <p></p>
 
-The proof of [Theorem @thm-indepmonotone] is another application of the monotone class lemma [Lemma @lem-monotoneclasslemma].
+The proof of [Theorem @thm-indepmonotone] is another application of the monotone class theorem [Theorem @thm-monotoneclasslemma].
 
 <p></p>
 
@@ -217,6 +220,8 @@ Now, the set of events from $\mathcal{G}$ that is independent from every
 event in $\mathcal{H}$ is a $\lambda$-class (by the same line of reasoning as above).
 As this $\lambda$-class contains $\mathcal{C}$, by the monotone class Lemma again,
 it contains $\sigma(\mathcal{C})=\mathcal{G}$.
+
+$\square$
 
 :::
 
@@ -243,6 +248,8 @@ all $s, t \in \mathbb{Q}$.
 Events of the form $\{X \leq t\}, t \in \mathbb{R}$ form a $\pi$ class
 generating $\sigma(X)$.
 
+$\square$
+
 :::
 
 <br>
@@ -250,7 +257,7 @@ generating $\sigma(X)$.
 
 The notion of independence extends to countable collection of events, $\sigma$-algebras and random variables.
 
-::: {#def}
+::: {#def-indep-collections}
 
 ### Independence of countable collections
 

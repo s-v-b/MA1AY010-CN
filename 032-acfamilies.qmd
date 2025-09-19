@@ -3,13 +3,8 @@
 
 
 
-```{r loads, echo=FALSE, message=FALSE, warning=FALSE}
-# %%
-require(tidyverse)
-require(kableExtra)
-old_theme <-theme_set(theme_bw(base_size=9, base_family = "Helvetica"))
-# %%
-```
+{{< include _packages_requirements.qmd >}}
+
 
 ## Densities and absolute continuity {#sec-acontinuity}
 <p>
@@ -600,9 +595,11 @@ Let $X, Y$ be independent random variables distributed according to
 $\Gamma(p, \lambda)$ and $\Gamma(q, \lambda)$ (the intensity parameter are identical).
 Let $U = X+Y$ and  $V= X/(X+Y)$.
 
-The random variables $U$  and $V$ are independent. Random variable $U$ is distributed
-according to $\Gamma(p+q, \lambda)$ while $V$ is distributed according to
-$\operatorname{Beta}(p, q)$.
+Then
+
+a. The random variables $U$  and $V$ are independent. 
+a. Random variable $U$ is distributed according to $\Gamma(p+q, \lambda)$ while 
+a. $V$ is distributed according to $\operatorname{Beta}(p, q)$.
 
 :::
 

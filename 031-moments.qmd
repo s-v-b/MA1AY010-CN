@@ -1,13 +1,7 @@
 # A modicum of integration  {#sec-moments}
 
 
-```{r loads, echo=FALSE, message=FALSE, warning=FALSE}
-# %%
-require(tidyverse)
-require(kableExtra)
-old_theme <-theme_set(theme_bw(base_size=9, base_family = "Helvetica"))
-# %%
-```
+{{< include _packages_requirements.qmd >}}
 
 ## Roadmap  {#sec-roadmapintegration}
 
@@ -176,20 +170,20 @@ Figure @fig-approxexpsimple illustrates the approximation capabilities of simple
 #| # %%
 simple <- function(.fun=exp, n=10){
   function(x){
-    (2^(-n) * floor(2^n * .fun(x))) %>%
+    (2^(-n) * floor(2^n * .fun(x))) |>
       purrr::map_dbl( ~ min(n, .))
   }
 }
 
-as_tibble(list(x=seq(0, 2, by=.001))) %>%
-  ggplot() +
-  xlim(0, 1.5) +
-  xlab("x") +
-  stat_function(fun=exp, aes(linetype="exp")) +
-  stat_function(fun=simple(exp,2), n=2001, aes(linetype="n=2")) +
-  stat_function(fun=simple(exp,3), n=2001, aes(linetype="n=3")) +
-  stat_function(fun=simple(exp,4), n=2001, aes(linetype="n=4")) +
-  guides(linetype=guide_legend(title=NULL))
+tibble::as_tibble(list(x=seq(0, 2, by=.001))) |>
+  ggplot2::ggplot() +
+  ggplot2::xlim(0, 1.5) +
+  ggplot2::xlab("x") +
+  ggplot2::stat_function(fun=exp, ggplot2::aes(linetype="exp")) +
+  ggplot2::stat_function(fun=simple(exp,2), n=2001, ggplot2::aes(linetype="n=2")) +
+  ggplot2::stat_function(fun=simple(exp,3), n=2001, ggplot2::aes(linetype="n=3")) +
+  ggplot2::stat_function(fun=simple(exp,4), n=2001, ggplot2::aes(linetype="n=4")) +
+  ggplot2::guides(linetype=ggplot2::guide_legend(title=NULL))
 # %%
 ```
 <!-- ::: -->
@@ -815,13 +809,13 @@ foo <- function(x){
 
 data <- tibble::enframe(x=seq(-1, 2, 0.01), name=NULL, value="x")
 
-data %>%
-  ggplot(aes(x=x)) +
-  geom_abline(slope = 2, intercept = -1, color="red", linetype="dotted") +
-  geom_hline(yintercept = 0, linetype="dotted", color="red") +
-  geom_abline(intercept = 0, slope=-0.5, linetype="dotted", color="red") +
-  stat_function(fun=foo, xlim=c(-1,2)) +
-  ylim(-2,4)
+data |>
+  ggplot2::ggplot(ggplot2::aes(x=x)) +
+  ggplot2::geom_abline(slope = 2, intercept = -1, color="red", linetype="dotted") +
+  ggplot2::geom_hline(yintercept = 0, linetype="dotted", color="red") +
+  ggplot2::geom_abline(intercept = 0, slope=-0.5, linetype="dotted", color="red") +
+  ggplot2::stat_function(fun=foo, xlim=c(-1,2)) +
+  ggplot2::ylim(-2,4)
 # %%
 ```
 
@@ -1159,23 +1153,23 @@ y <- 1
 #|   Equality occurs when the dotted line passes though $(x,y)^\top$, 
 #|   that is when $y=x^{p-1}$.
 # 
-data1 <- as_tibble(list(s=seq(0, 2, by=.001))) %>%
-  mutate(t = s^(p-1))
+data1 <- tibble::as_tibble(list(s=seq(0, 2, by=.001))) |>
+  dplyr::mutate(t = s^(p-1))
 
-data2 <- data1 %>%
-  filter(s <= 1)
+data2 <- data1 |>
+  dplyr::filter(s <= 1)
 
-data1 %>%
-  ggplot() +
-  xlim(0, 2) +
-  xlab("s") +
-  ylab("t") +
-  stat_function(fun= ~ .^(p-1), linetype="dotted")  +
-  geom_point(mapping=aes(x=x, y=y)) +
-  stat_function(fun= ~ .^(p-1), xlim=c(0, x), linetype="dotted", geom="area", alpha=.1) +
-  geom_segment(x=0, y=y, xend=x, yend=y, linetype="dashed", linewidth=.5) +
-  geom_segment(x=x, y=0, xend=x, yend=y, linetype="dashed", linewidth=.5) +
-  geom_ribbon(data=data2, aes(x=s, ymin=t, ymax=1), alpha=.3)
+data1 |>
+  ggplot2::ggplot() +
+  ggplot2::xlim(0, 2) +
+  ggplot2::xlab("s") +
+  ggplot2::ylab("t") +
+  ggplot2::stat_function(fun= ~ .^(p-1), linetype="dotted")  +
+  ggplot2::geom_point(mapping=ggplot2::aes(x=x, y=y)) +
+  ggplot2::stat_function(fun= ~ .^(p-1), xlim=c(0, x), linetype="dotted", geom="area", alpha=.1) +
+  ggplot2::geom_segment(x=0, y=y, xend=x, yend=y, linetype="dashed", linewidth=.5) +
+  ggplot2::geom_segment(x=x, y=0, xend=x, yend=y, linetype="dashed", linewidth=.5) +
+  ggplot2::geom_ribbon(data=data2, ggplot2::aes(x=s, ymin=t, ymax=1), alpha=.3)
 # %%
 ```
 <!-- ::: -->

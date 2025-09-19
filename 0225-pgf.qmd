@@ -1,16 +1,10 @@
-# Characterizations of discrete probability distributions  {#chappgf}
+# Characterizations of discrete probability distributions  {#sec-chappgf}
 
 
-```{r loads, echo=FALSE, message=FALSE, warning=FALSE}
-# %%
-require(tidyverse)
-require(kableExtra)
-old_theme <-theme_set(theme_bw(base_size=9, base_family = "Helvetica"))
-options(tinytex.verbose = TRUE)
-# %%
-```
+{{< include _packages_requirements.qmd >}}
 
-## Motivation {#roadmapcharacpgf}
+
+## Motivation {#sec-roadmapcharacpgf}
 
 In full generality, a probability distribution is a complex object.
 It is a $[0,1]$-valued function defined over a $\sigma$-algebra of subsets. A
@@ -29,15 +23,15 @@ In this lesson, we review a  way of characterizing probability
 distributions over $(\mathbb{N}, \mathcal{F}=2^{\mathbb{N}})$
 through functions defined on the real line: probability
 generating functions ([Section @sec-PGF])).
-Later, we will survey more general tools: Laplace transforms ([Section @sec-laplace])) and characteristic functions
+Later (Chapter @sec-chapchar), we will survey more general tools: Laplace transforms ([Section @sec-laplace])) and characteristic functions
 which extend Fourier transforms to probability distributions ([Section @sec-charfun])).
 
 All  three methods are distinct in scope but they rely on the same idea and
 share common features. Indeed, probability generating functions can be seen as special case of
 Laplace transforms. The latter can be seen as special cases of Fourier transforms.
 
-All three methods do characterize probability distributions. They are equipped
-with inversion formulae. The three methods provide us with a seamless treatment
+All three methods do *characterize* probability distributions. They are equipped
+with *inversion formulae*. The three methods provide us with a seamless treatment
 of sums of independent random variables.
 
 All three methods relate the integrability of probability distributions and the smoothness of transforms.
@@ -47,7 +41,7 @@ deliver an important analytical machinery to Probability Theory. From Analysis,
 we get off-the-shelf arguments to establish smoothness properties of transforms,
 and with little more work, we can construct the inversion formulae.
 
-## Probability generating function  {#PGF}
+## Probability generating function  {#sec-PGF}
 
 In this section,  $X$ is an integer-valued random variable, with distribution $P$, cumulative
 distribution function $F$ and probability mass function $p$. Recall that $P$ is completely characterized
@@ -70,37 +64,42 @@ Another function  characterizes probability distributions and delivers
 instantaneous information about the distribution of sums of independent
 integer-valued random variables and many other things.
 
-::: {#def-defpgf, name="Probability Generating Function"}
+::: {#def-pgf}
+
+### Probability Generating Function
+
 The probability generating function (PGF) of a probability distribution over $\mathbb{N}$, defined by its probability mass function (PMF) $f$ is the function $G: [0,1] \to \mathbb{R}$ defined by:
 $$
-	G(s) =  \sum_{n=0}^\infty f(n) s^n \, .
+G(s) =  \sum_{n=0}^\infty f(n) s^n \, .
 $$
-```
+:::
 
-```{example}
+::: {#exm-pgf-1}
 The probability generating function of basic discrete distributions is easily computed. The results are useful and suggestive.
 
-- Bernoulli distribution with parameter $p$: $$
-	G(s) = (1 - p) s^0 + p s^1 = 1 + p (s-1)
+- Bernoulli distribution with parameter $p$: 
 $$
-- Binomial distribution with parameters $n$ and $p$: $$
-	G(s) = \sum_{k=0}^n \binom{n}{k} p^k (1-p)^{n-k} s^k =  \left(ps + 1- p\right)^n = \left( 1 + p(s-1)\right)^n
+G(s) = (1 - p) s^0 + p s^1 = 1 + p (s-1)
 $$
-- Poisson distribution with parameter $\mu$: $$
-	G(s) = \sum_{n=0}^\infty \mathrm{e}^{-\mu} \frac{\mu^n}{n!} s^n = \mathrm{e}^{\mu (s-1)} \,.
+- Binomial distribution with parameters $n$ and $p$: 
 $$
-
+G(s) = \sum_{k=0}^n \binom{n}{k} p^k (1-p)^{n-k} s^k =  \left(ps + 1- p\right)^n = \left( 1 + p(s-1)\right)^n
+$$
+- Poisson distribution with parameter $\mu$: 
+$$
+G(s) = \sum_{n=0}^\infty \mathrm{e}^{-\mu} \frac{\mu^n}{n!} s^n = \mathrm{e}^{\mu (s-1)} \,.
+$$
 Note that if $p=\mu/n$ and $n ↑ ∞$:
 $$
 \lim_{n ↑ ∞} \left( 1 + \frac{μ}{n}(s-1)\right)^n = \mathrm{e}^{\mu(s-1)} \, .
 $$
 We will come back to this observation later.
 
-```
+:::
 
 The next observation follows almost immediately from the definition of probability generating functions.
 
-::: {#prp}
+::: {#prp-pgf-trivial}
 A probability generating function $G$ satisfies the following conditions:
 
 - $G$ is non-negative over $[0,1]$;
@@ -108,7 +107,7 @@ A probability generating function $G$ satisfies the following conditions:
 - $G$ is non-decreasing over $[0,1]$;
 - $G$ is continuous and convex.
 
-```
+:::
 
 <br> <p> </p>
 
@@ -116,9 +115,13 @@ A probability generating function $G$ satisfies the following conditions:
 ::: {.proof}
 Properties  1), 2) and 3) are obvious: $G$ is a convex combination
 of non-negative, non-decreasing, continuous and convex functions.
-```
 
-<br> <p> </p>
+$\square$
+:::
+
+
+
+## Inversion formula {#sec-invformula-pgf}
 
 
 _Generatingfunctionology_ lies at the crossing between combinatorics,
@@ -129,15 +132,19 @@ distributions or that connect integrability properties of the probability
 distribution with smoothness properties of the PGF.
 
 Keep in mind that a generating function defines a function from the set of complex numbers
-$\mathbb{C}$ to $\mathbb{C}$: $$
+$\mathbb{C}$ to $\mathbb{C}$: 
+$$
 G(z) = \sum_{n=0}^\infty p(n) z^n \qquad\text{for all } z \in \mathbb{C} \text{ such that the series converges}\, .
 $$
 
 Characterizing the domain of a function defined in that way is crucial.
 The next proposition is at the core of Power Series theory.
 
-::: {#prp-radius
-The _radius of convergence_ of the generating function $G$ $$
+::: {#prp-radius}
+
+The _radius of convergence_ of the generating function $G$ 
+
+$$
 G(z) = \sum_{n\in \mathbb{N}} p(n) z^n, \qquad z \in \mathbb{C}
 $$
 is the unique  $R \in [0, \infty) \cup \{+ \infty\}$ such that:
@@ -148,26 +155,31 @@ is the unique  $R \in [0, \infty) \cup \{+ \infty\}$ such that:
 The opend disk $\{ z : z \in \mathbb{C}, |z| < R \}$ is called the _disk of convergence_ of $G$.
 The circle $\{ z : z \in \mathbb{C}, |z| = R \}$ is called the _circle of convergence_ of $G$.
 
-```
+:::
 
 ::: {.proof}
+<!-- TODO -->
 
-TODO:
+$\square$
 
-```
+:::
 
 Hadamard's rule allows for fast determination of the radius of convergence:
 
-```{proposition hadamard, name="Hadamard's rule"}
+::: {#prp-hadamard}
+
+### Hadamard's rule
+
 The radius of convergence $R$ of probability generating
 function $G(z) = \sum_{n \in \mathbb{N}} p(n)z^n$ satisfies
 $$
 \frac{1}{R} =  \limsup_n (p(n))^{1/n} \, .
 $$
 The radius of convergence of a probability generating function is always at least $1$.
-```
 
-```{example}
+:::
+
+::: {exm-hadamard-1}
 The radius of convergence contains qualitative information about tail behavior:
 
 - For Poisson distributions,  the radius of convergence is infinite. This reflects the fast decay
@@ -177,13 +189,14 @@ is $1/(1-q)$.
 - For power law distributions like $p(n) = n^{-r}/\zeta(r)$ with $r>1$, the radius of
 convergence is exactly $1$.
 
-```
+:::
 
 ::: {.proof}
 
-TODO:
+<!-- TODO: -->
 
-```
+$\square$
+:::
 
 Just knowing the radius of convergence of a function defined by a Power Series expansion
 tells us about the smoothness properties of the function.
@@ -193,18 +206,23 @@ If $G$ is defined as a power series $G(z) = \sum_{n \in \mathbb{N}} a_n z^n$
 its (complex) derivative is $G'(z)=  \sum_{n \in \mathbb{N}} (n+1) a_{n+1} z^n$.
 The derivative $G'$ and $G$ have the same radius of convergence.
 
-```
+:::
 
 ::: {.proof}
 
-TODO:
+<!-- TODO: -->
 
-```
+$\square$
+:::
 
 This general statement about power series entails a very useful
 corollary for probability generating functions.
 
-```{corollary invpgf, name="Inversion formula"}
+
+::: {#cor-invpgf}
+
+### Inversion formula
+
 Let $g$ be the probability generating function associated with the probability mass function $f$. Then
 $g$ is infinitely many times differentiable over $[0,1)$ with derivatives
 $$
@@ -215,7 +233,8 @@ $$
 	g^{(n)}(0) =  n! \times f(n) \, .
 $$
 A probability distribution over $\mathbb{N}$ is characterized by its probability generating function.
-```
+
+:::
 
 
 <br> <p> </p>
@@ -232,20 +251,25 @@ is a small positive number,
     \Big(\sum_{j=0}^{k-n-1}(s+h)^{k-n-1-j} s^{j}  \Big)
 \end{align*}
 The absolute value of the internal sum is smaller
-than $(k-n) (1-\delta)^{k-n-1}$. As $$
+than $(k-n) (1-\delta)^{k-n-1}$. As 
+$$
 \sum_{k=n}^\infty \frac{k!}{(k-n-1)!} \times p(k) \times  (1-\delta)^{k-n-1} < \infty
-$$ for all $0<\delta<1$. By the Dominated Convergence Theorem,
+$$ 
+for all $0<\delta<1$. By the Dominated Convergence Theorem,
 \begin{align*}
 \lim_{h \to 0} \frac{g^{(n)}(s+h) - g^{(n)}(s)}{h}
     & =
    \sum_{k=n+1}^\infty \frac{k!}{(k-n-1)!} \times f(k) \times s^{k-n-1} \,.
 \end{align*}
 
-```
+$\square$
+
+:::
 
 <br> <p> </p>
 
-```{example}
+::: {#exm-invformula}
+
 The Probability Generating Function of a Poisson distribution with parameter $\mu$ equals $\exp(\mu(s-1))$.
 \begin{align*}
 g(s)
@@ -253,19 +277,26 @@ g(s)
   & = \mathrm{e}^{-\mu} \times \mathrm{e}^{\mu s} \, .
 \end{align*}
 If we meet a probability distribution with such a PGF, we know it is a Poisson distribution (with parameter $\mu$).
-```
 
-<br> <p> </p>
+:::
+
+
+
+## Sums of independent random variables and probability generating fuunctions {#sec-pgf-sums}
+
 
 Probability Generating Functions provide us with a handy tool to investigate  sums of independent random variables.
 
-::: {#prp}
+::: {#prp-pgf-inversion}
+
 Let $X$, $Y$  be independent integer-valued random variable, with probability generating functions $G_X$  and $G_Y$.
 The probability generating  function $G_{X+Y}$
-of $X+Y$ is $G_X\times G_Y$: $$
+of $X+Y$ is $G_X\times G_Y$: 
+$$
 G_{X+Y} = G_X \times G_Y \, .
 $$
-```
+
+:::
 
 <br> <p> </p>
 
@@ -286,7 +317,9 @@ The union on the right-hand-side is a disjoint union.
 	\sum_{k=0}^\infty \mathbb{P}\{ X=k\} s^k  \sum_{n\geq k}^\infty \mathbb{P}\{ Y=n-k\} s^{n-k} \\
 	& = G_X(s) \times G_Y(s) \, .
 \end{align*}
-```
+
+$\square$
+:::
 
 
 In measure theoretical language, the proposition is a consequence
@@ -304,11 +337,14 @@ of the Tonelli-Fubini Theorem:
 
 <br> <p> </p>
 
-```{example}
+::: {#exm-sum-pgf}
 If $X$ and $Y$ are independent Poisson random variables with parameters $\mu$ and $\nu$,
 then $G_{X+Y}(s) = \exp(\mu(s-1))\times \exp(\nu(s-1))=  \exp((\mu+\nu)(s-1))$.
 This is another proof that $X+Y$ is Poisson distributed with parameter $\mu+\nu$.
-```
+:::
+
+
+## Smoothness and integrability {#sec-smooth-integrable-pgf}
 
 A PGF is infinitely many times differentiable inside the (open) disk of convergence. If
 the radius of convergence is larger than $1$ (as for Poisson or geometric distributions),
@@ -318,14 +354,18 @@ on the circle of convergence is not prescribed by general theory.
 
 
 
-```{theorem  pgfintegr, name="Integrability and probability generating functions"}
+::: {#thm-pgfintegr}
+
+### Integrability and probability generating functions
+
 Let $X$  be an  integer-valued random variable, with probability generating functions $f$,
 then $\mathbb{E} X^p < \infty$ iff $f$ is $p$-times differentiable at $1$
 and
 $$
 f^{(p)}(1) = \mathbb{E}\left[X (X-1) \ldots (X-p+1)\right] \, .
 $$
-```
+
+:::
 
 <br> <p> </p>
 
@@ -338,9 +378,10 @@ We need to establish that $|X|$ is $p$-integrable.
 
 Assume that $|X|$ is $p$-integrable.
 
-TODO:
+<!-- TODO: -->
 
-```
+$\square$
+:::
 
 <br> <p> </p>
 
