@@ -1,26 +1,28 @@
 # Families of discrete distributions  {#sec-families}
 
-The goal of this lesson is getting acquainted with important families of distributions and to get familiar with distributional calculus.
-Probability distributions will be presented through distribution functions, probability mass functions (discrete distribution), densities (when available).
+The goal of this lesson is getting acquainted with important families of discrete distributions and to get familiar with distributional calculus.
+Discretet probability distributions will be presented through distribution functions and mostly probability mass functions.
+
+In this lesson, universe $\Omega$$ is a subset of $\mathbb{N}^d$, it is finite or countable, the straightforward $\sigma$-algebra to work with is the powerset $2^\Omega$.
+
 
 ## Bernoulli and Binomial  {#sec-bernoulli}
 
 ::: {#def-bernoulli}
 
-A Bernoulli distribution is a probability distribution $P$  on $\Omega=\{0,1 \}$. The parameter of $P$ is $P\{1\} \in [0,1]$.
+A Bernoulli distribution is a probability distribution $P$  on $\Omega=\{0,1 \}$. The *parameter* of $P$ is $P\{1\} \in [0,1]$.
 
 :::
 
 A Bernoulli distribution is completely defined by its parameter.
 
-Assume $\Omega^{\prime} = \{0,1\}^n$.
+The expectation of a Bernoulli distribution with parameter $p$ equals $p$.
 
 ::: {#def-binomial}
 
 ### Binomial distribution
 
-A binomial distribution with parameters $n \in \mathbb{N}, p \in [0,1]$ ($n$ is size and $p$ is success)
-is a probability distribution $P$ on  $\Omega = \{0, 1, 2, \ldots, n\}$, defined
+A binomial distribution with parameters $n \in \mathbb{N}, p \in [0,1]$ ($n$ is size and $p$ is success) is a probability distribution $P$ on  $\Omega = \{0, 1, 2, \ldots, n\}$, defined
 by
 $$P\{k\} = \binom{n}{k} p^k (1-p)^k$$
 
@@ -30,9 +32,12 @@ $$P\{k\} = \binom{n}{k} p^k (1-p)^k$$
 
 The connexion between Bernoulli and Binomial distributions is obvious: a Bernoulli distribution
 is a Binomial distribution with size parameter equal to $1$. This connexion goes further: the sum
-of independent Bernoulli random  variables with same success parameter is Binomial distributed.
+of *independent* Bernoulli random  variables with same success parameter is Binomial distributed.
 
-::: {#prp}
+Assume now $\Omega^{\prime} = \{0,1\}^n$.
+
+
+::: {#prp-bernoulli-binomial}
 
 Let $X_1, X_2, \ldots, X_n$ be independent, identically distributed Bernoulli random variables with
 success parameter $p \in [0,1]$, then $Y = \sum_{i=1}^n X_i$ is distributed according
@@ -43,6 +48,8 @@ to a Binomial disctribution with size parameter $n$ and success probability $p$.
 <p>
 
 ::: {.proof}
+
+It is enough to check that the probability mass functions coincide. 
 
 For $k \in 0, \ldots, n$
 
@@ -56,14 +63,16 @@ P\Big\{ \sum_{i=1}^n  X_i = k \Big\}
   & = \binom{n}{k} p^{k} (1-p)^{n-k}  \, .
 \end{align*}
 
+$\square$
+
 :::
 
-<br>
-This observation facilitates the computation of moments of Binomial distribution.
-<p>
+This observation facilitates the computation of *moments* of Binomial distribution.
+
 The expected value of a Bernoulli distribution with parameter $p$ is $p$! Its variance is $p(1-p)$.
 
 By linearity of expectation, the expected value of the binomial distribution with parameters $n$ and $p$ is $np$.
+
 The variance of a sum of independent random variables  is the sum of the variances, hence the variance of he binomial distribution with parameters $n$ and $p$ is $np(1-p)$.
 
 {{< include _packages_requirements.qmd >}}
@@ -109,7 +118,7 @@ More on [wikipedia](https://en.wikipedia.org/wiki/Binomial_distribution).
 
 Binomial distributions with the same success parameter
 
-::: {#prp}
+::: {#prp-sum-binom}
 
 Let $X,Y$ be independent over probability space $(\Omega, \mathcal{F}, P)$
 and distributed according to $\text{Bin}(n_1, p)$ and $\text{Bin}(n_2, p)$.
@@ -120,9 +129,9 @@ Then $X+Y$ is distributed according to $\text{Bin}(n_1+n_2, p)$.
 
 <p>
 
-::: {#exr}
+::: {#exr-sum-binom}
 
-Check the preceding proposition.
+Check the preceding proposition. 
 
 :::
 
@@ -194,7 +203,7 @@ The variance of a Poisson distribution is equal to its expected value.
 \end{align*}
 
 
-::: {#prp}
+::: {#prp-sum-poisson}
 
 Let $X,Y$ be independent and Poisson distributed over probability space $(\Omega, \mathcal{F}, P)$,
 then $X+Y$ is Poisson distributed.
@@ -204,6 +213,8 @@ then $X+Y$ is Poisson distributed.
 <br><p></p>
 
 ::: {.proof}
+
+
 We check the proposition in the simplest and   most tedious way.
 We compute the probability mass function of the distribution of $X+Y$.
 Assume $X \sim \operatorname{Po}(\lambda), Y \sim \operatorname{Po}(\mu)$.
@@ -222,19 +233,21 @@ For each $k \in \mathbb{N}$:
 \end{align*}
 The last expression if the pmf of $\operatorname{Po}(\lambda + \mu)$ at $k$.
 
+$\square$
+
 :::
 
 <br><p></p>
 
 
-::: {#exr}
+::: {#exr-poisson-mode}
 
 Check that the _mode_ (maximum) of a Poisson probability mass function with parameter $\lambda$
 is achieved at $k= \lfloor \lambda \rfloor$. It is always unique?
 
 :::
 
-::: {#exr}
+::: {#exr-poisson-median}
 
 Check that the median of a Poisson distribution with integer parameter $\lambda$ is not smaller than $\lambda$.
 
@@ -252,7 +265,7 @@ Assume we are allowed to toss a biased coin infinitely many times. The number of
 times we have to toss the coin _until_ we get a _head_ is geometrically distributed.
 
 Let $X$ be distributed according to a geometric distribution with parameter $p$.
-The geometric probability distribution is easily defined by its tail function.
+The geometric probability distribution is easily defined by its *tail function*.
 In the event $X>k$, the first $k$ outcomes have to be _tail_.
 $$
 P \{ X > k \} = (1-p)^k

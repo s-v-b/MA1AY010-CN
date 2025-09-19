@@ -25,6 +25,7 @@ book:
     - 01-intro.qmd
     - 02-language.qmd
     - 031-moments.qmd
+    - 033-integration2moments.qmd
     - 03-families.qmd
     - 0225-pgf.qmd
     - 022-product-measures.qmd
