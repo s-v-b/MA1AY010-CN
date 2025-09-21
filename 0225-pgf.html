@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Master I ISIFAR">
-<meta name="dcterms.date" content="2025-09-15">
 
-<title>MA1AY010 Class Notes</title>
+<title>6&nbsp; Characterizations of discrete probability distributions – MA1AY010 Class Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./01-intro.html" rel="next">
+<link href="./022-product-measures.html" rel="next">
+<link href="./03-families.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -129,7 +128,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Warm up</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./0225-pgf.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Characterizations of discrete probability distributions</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -147,7 +146,7 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Warm up</span></a>
   </div>
 </li>
@@ -183,7 +182,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0225-pgf.html" class="sidebar-item-text sidebar-link">
+  <a href="./0225-pgf.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Characterizations of discrete probability distributions</span></span></a>
   </div>
 </li>
@@ -257,39 +256,27 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#foreword" id="toc-foreword" class="nav-link active" data-scroll-target="#foreword">Warm up</a>
-  <ul class="collapse">
-  <li><a href="#a-short-undergraduate-course-on-probability-theory-in-an-applied-mathematics-curriculum" id="toc-a-short-undergraduate-course-on-probability-theory-in-an-applied-mathematics-curriculum" class="nav-link" data-scroll-target="#a-short-undergraduate-course-on-probability-theory-in-an-applied-mathematics-curriculum">A short undergraduate course on Probability theory in an applied mathematics curriculum</a></li>
-  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
-  </ul></li>
+  <li><a href="#sec-roadmapcharacpgf" id="toc-sec-roadmapcharacpgf" class="nav-link active" data-scroll-target="#sec-roadmapcharacpgf"><span class="header-section-number">6.1</span> Motivation</a></li>
+  <li><a href="#sec-PGF" id="toc-sec-PGF" class="nav-link" data-scroll-target="#sec-PGF"><span class="header-section-number">6.2</span> Probability generating function</a></li>
+  <li><a href="#sec-invformula-pgf" id="toc-sec-invformula-pgf" class="nav-link" data-scroll-target="#sec-invformula-pgf"><span class="header-section-number">6.3</span> Inversion formula</a></li>
+  <li><a href="#sec-pgf-sums" id="toc-sec-pgf-sums" class="nav-link" data-scroll-target="#sec-pgf-sums"><span class="header-section-number">6.4</span> Sums of independent random variables and probability generating fuunctions</a></li>
+  <li><a href="#sec-smooth-integrable-pgf" id="toc-sec-smooth-integrable-pgf" class="nav-link" data-scroll-target="#sec-smooth-integrable-pgf"><span class="header-section-number">6.5</span> Smoothness and integrability</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/0225-pgf.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">MA1AY010 Class Notes</h1>
+<h1 class="title"><span id="sec-chappgf" class="quarto-section-identifier"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Characterizations of discrete probability distributions</span></span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Master I ISIFAR </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">September 15, 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -299,80 +286,219 @@ window.Quarto = {
 </header>
 
 
-<!-- ![](images/Universite_Paris_logo_horizontal.jpg) -->
-<section id="foreword" class="level1 unnumbered">
-<h1 class="unnumbered">Warm up</h1>
-<section id="a-short-undergraduate-course-on-probability-theory-in-an-applied-mathematics-curriculum" class="level2">
-<h2 class="anchored" data-anchor-id="a-short-undergraduate-course-on-probability-theory-in-an-applied-mathematics-curriculum">A short undergraduate course on Probability theory in an <a href="http://master.math.u-paris.fr/annee/m1-isifar/">applied mathematics curriculum</a></h2>
-<p>This <em>Probability</em> course is a core part of <a href="http://master.math.u-paris.fr/annee/m1-mi/"><code>Master ISIFAR</code></a>, a curriculum that delivers training in Statistics, Mathematical Finance, and Computer Science at <a href="http://u-paris.fr">Université Paris Cité</a>. The <em>Probability</em> course is related to other courses from the same curriculum.</p>
-<ol type="1">
-<li><a href="https://master.math.u-paris.fr/modules/m1isifar-statistiques">Statistique M1</a></li>
-<li><a href="https://master.math.u-paris.fr/modules/m1isifar-math-fi">Mathématiques financières M1</a></li>
-<li><a href="https://master.math.u-paris.fr/modules/m2isifar-mathematiques-financieres/">Mathématiques financières M2</a></li>
-<li><a href="https://master.math.u-paris.fr/modules/m2isifar-apprentissage-statistique/">Apprentissage statistique M2</a></li>
-</ol>
-<p>This list is not exhaustive.</p>
-<p>This course is geared towards applications. We borrow examples and applications of probability theory from statistics, computer science, big data engineering. As we have a limited amount of time, we sweep a lot of dust under the carpet. We take for granted key results from integration and measure theory. Nevertheless, we build on rigorous definitions, state and invoke theorems in a consistent way.</p>
-<ul>
-<li><svg aria-hidden="true" role="img" viewbox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"></path></svg> <a href="https://s-v-b.github.io/MA1AY010">Homepage of the course</a>.</li>
-<li><svg aria-hidden="true" role="img" viewbox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"></path></svg> <a href="https://moodle.u-pariscite.fr/course/view.php?id=13045">Moodle page of the course</a>.</li>
-</ul>
+<section id="sec-roadmapcharacpgf" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="sec-roadmapcharacpgf"><span class="header-section-number">6.1</span> Motivation</h2>
+<p>In full generality, a probability distribution is a complex object. It is a <span class="math inline">\([0,1]\)</span>-valued function defined over a <span class="math inline">\(\sigma\)</span>-algebra of subsets. A concrete <span class="math inline">\(\sigma\)</span>-algebra, let alone the abstract notion of <span class="math inline">\(\sigma\)</span>-algebra, is not easily grasped. Looking for simpler characterizations of probability distributions is a sensible goal. When facing questions like: ``are two probability distributions equal?“, we know it suffices to check that the two distributions coincide on generating families of events. This makes cumulative distribution functions precious tools. Cumulative distribution functions and their generalized inverse functions (quantile functions) are very convenient when handling maxima, minima, or more generally order statistics of collections of independent random variables, but when it comes to handling sums of independent random variables or branching processes, cumulative distribution functions are of moderate help.</p>
+<p>In this lesson, we review a way of characterizing probability distributions over <span class="math inline">\((\mathbb{N}, \mathcal{F}=2^{\mathbb{N}})\)</span> through functions defined on the real line: probability generating functions (<a href="#sec-PGF" class="quarto-xref">Section&nbsp;<span>6.2</span></a>)). Later (Chapter <a href="04-characterizations.html" class="quarto-xref"><span>Chapter 11</span></a>), we will survey more general tools: Laplace transforms (<a href="04-characterizations.html#sec-laplace" class="quarto-xref">Section&nbsp;<span>11.3</span></a>)) and characteristic functions which extend Fourier transforms to probability distributions (<a href="04-characterizations.html#sec-charfun" class="quarto-xref">Section&nbsp;<span>11.4</span></a>)).</p>
+<p>All three methods are distinct in scope but they rely on the same idea and share common features. Indeed, probability generating functions can be seen as special case of Laplace transforms. The latter can be seen as special cases of Fourier transforms.</p>
+<p>All three methods do <em>characterize</em> probability distributions. They are equipped with <em>inversion formulae</em>. The three methods provide us with a seamless treatment of sums of independent random variables.</p>
+<p>All three methods relate the integrability of probability distributions and the smoothness of transforms.</p>
+<p>Probability generating functions, Laplace transforms and characteristic functions deliver an important analytical machinery to Probability Theory. From Analysis, we get off-the-shelf arguments to establish smoothness properties of transforms, and with little more work, we can construct the inversion formulae.</p>
 </section>
-<section id="prerequisites" class="level2">
-<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
-<p>This course builds on two Licence-level courses:</p>
+<section id="sec-PGF" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="sec-PGF"><span class="header-section-number">6.2</span> Probability generating function</h2>
+<p>In this section, <span class="math inline">\(X\)</span> is an integer-valued random variable, with distribution <span class="math inline">\(P\)</span>, cumulative distribution function <span class="math inline">\(F\)</span> and probability mass function <span class="math inline">\(p\)</span>. Recall that <span class="math inline">\(P\)</span> is completely characterized by the much simpler objects <span class="math inline">\(F\)</span> and <span class="math inline">\(p\)</span>. Now, let <span class="math inline">\(Y\)</span> be another integer-valued random variable living on the same probability space as <span class="math inline">\(X\)</span>, independent from <span class="math inline">\(X\)</span>, with distribution <span class="math inline">\(Q\)</span>, distribution function <span class="math inline">\(G\)</span> and probability mass function <span class="math inline">\(q\)</span>. What can we tell about the distribution of <span class="math inline">\(X+Y\)</span>? Is it easy to figure out its cumulative distribution function, its probability mass function?</p>
+<p>The probability mass function of (the distribution of) <span class="math inline">\(X+Y\)</span> is the <em>convolution</em> of <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> <span class="math display">\[\begin{align*}
+\mathbb{P}\{ X + Y = n\}
+  &amp; = \sum_{k=0}^n \mathbb{P}\{ X + Y = n \wedge X = k\} \\
+  &amp; = \sum_{k=0}^n \mathbb{P}\{ Y = n - k \wedge X = k\}  \\
+  &amp; = \sum_{k=0}^n p(k) q(n-k) \\
+  &amp; =  p \star q (n) \, .
+\end{align*}\]</span></p>
+<p>Another function characterizes probability distributions and delivers instantaneous information about the distribution of sums of independent integer-valued random variables and many other things.</p>
+<div id="def-pgf" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 6.1 (Probability Generating Function)</strong></span> The probability generating function (PGF) of a probability distribution over <span class="math inline">\(\mathbb{N}\)</span>, defined by its probability mass function (PMF) <span class="math inline">\(f\)</span> is the function <span class="math inline">\(G: [0,1] \to \mathbb{R}\)</span> defined by: <span class="math display">\[
+G(s) =  \sum_{n=0}^\infty f(n) s^n \, .
+\]</span></p>
+</div>
+<div id="exm-pgf-1" class="theorem example">
+<p><span class="theorem-title"><strong>Example 6.1</strong></span> The probability generating function of basic discrete distributions is easily computed. The results are useful and suggestive.</p>
 <ul>
-<li><a href="http://licence.math.u-paris.fr/modules/l3-maths-mfa-maths-s5-probas/">Probabilités Licence 3</a></li>
-<li><a href="http://licence.math.u-paris.fr/modules/l3-maths-mfa-maths-s6-Integration/">Intégration</a></li>
+<li>Bernoulli distribution with parameter <span class="math inline">\(p\)</span>: <span class="math display">\[
+G(s) = (1 - p) s^0 + p s^1 = 1 + p (s-1)
+\]</span></li>
+<li>Binomial distribution with parameters <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span>: <span class="math display">\[
+G(s) = \sum_{k=0}^n \binom{n}{k} p^k (1-p)^{n-k} s^k =  \left(ps + 1- p\right)^n = \left( 1 + p(s-1)\right)^n
+\]</span></li>
+<li>Poisson distribution with parameter <span class="math inline">\(\mu\)</span>: <span class="math display">\[
+G(s) = \sum_{n=0}^\infty \mathrm{e}^{-\mu} \frac{\mu^n}{n!} s^n = \mathrm{e}^{\mu (s-1)} \,.
+\]</span> Note that if <span class="math inline">\(p=\mu/n\)</span> and <span class="math inline">\(n ↑ ∞\)</span>: <span class="math display">\[
+\lim_{n ↑ ∞} \left( 1 + \frac{μ}{n}(s-1)\right)^n = \mathrm{e}^{\mu(s-1)} \, .
+\]</span> We will come back to this observation later.</li>
 </ul>
-<!-- 
-
-## Roadmap
-
-__Provisional schedule__|  Lesson   |  Date  |
-|:--------|:-------|:-------:|:-------:|
- -->
-<!-- ## Notebooks
-
-Throughout the course, we illustrate problems and concepts using `Python` and `R` notebooks. You should be able to explore the notebooks by yourself. My current configuration relies on:
-
--   [`Python`](https://www.python.org) (3.12, use [`virtualenv`]())
-    -   `Numpy` for nice numerical arrays and random generation
-    -   `Scipy` with module `stats` for a zoo of probability distributions
-    -   `Pandas` for data analysis
-    -   `Networkx` to play with random graphs
-    -   `igraph` to play with random graphs (again)
-    -   `vega`/`altair` for graphics
-    -   `plotly` for graphics
-    -   `Jupyter` for its interactive kernels, an easy path to literate programming, and technical reporting
-    -   `Dask` if you enjoy multicore processing
-    -   I use [`vs code`](https://code.visualstudio.com) + extensions as a `Python` IDE
--   [`R`]() (4.1 and above)
-    -   `tidyverse`
-    -   I use [`vs code`](https://code.visualstudio.com) + extensions as a `Python` IDE
-    -   [`rstudio`]() is also very convenient
-    -   [`positron`]() provides us with nice features of both worlds -->
-<!-- The notebooks are available at the following URLs:
-
-1. [Hashing and random functions](http://stephane-v-boucheron.fr/post/2019-09-02-idealizedhashing/)
-[.ipynb](http://stephane-v-boucheron.fr/files/notebooks_proba/hashing.ipynb)
-1. [Roulette]()
-2. [Branching processes]()
-3. [Random graphs]()
-4. [Randomized algorithms]()
-5. [Chinese Restaurant Process]()
-6. Law(s) of large numbers
-7. Central limit theorem(s)
-8. Gaussian vectors
-9. Law(s) of rare events
-10. Weak convergence
-
-11. Longest Common Subsequence
-12. [Longest Increasing Subsequence]()
-13. [Chinese Restaurant Process]() -->
-
-
+</div>
+<p>The next observation follows almost immediately from the definition of probability generating functions.</p>
+<div id="prp-pgf-trivial" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 6.1</strong></span> A probability generating function <span class="math inline">\(G\)</span> satisfies the following conditions:</p>
+<ul>
+<li><span class="math inline">\(G\)</span> is non-negative over <span class="math inline">\([0,1]\)</span>;</li>
+<li><span class="math inline">\(G(0) = P\{0\}, \quad G(1)=1\)</span>;</li>
+<li><span class="math inline">\(G\)</span> is non-decreasing over <span class="math inline">\([0,1]\)</span>;</li>
+<li><span class="math inline">\(G\)</span> is continuous and convex.</li>
+</ul>
+</div>
+<br>
+<p>
+</p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Properties 1), 2) and 3) are obvious: <span class="math inline">\(G\)</span> is a convex combination of non-negative, non-decreasing, continuous and convex functions.</p>
+<p><span class="math inline">\(\square\)</span></p>
+</div>
 </section>
+<section id="sec-invformula-pgf" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="sec-invformula-pgf"><span class="header-section-number">6.3</span> Inversion formula</h2>
+<p><em>Generatingfunctionology</em> lies at the crossing between combinatorics, real analysis, complex analysis, and probability theory. Defining PGF as a <em>power series</em> brings within probability theory a collection of theorems that facilitate the identification of probability distributions or that connect integrability properties of the probability distribution with smoothness properties of the PGF.</p>
+<p>Keep in mind that a generating function defines a function from the set of complex numbers <span class="math inline">\(\mathbb{C}\)</span> to <span class="math inline">\(\mathbb{C}\)</span>: <span class="math display">\[
+G(z) = \sum_{n=0}^\infty p(n) z^n \qquad\text{for all } z \in \mathbb{C} \text{ such that the series converges}\, .
+\]</span></p>
+<p>Characterizing the domain of a function defined in that way is crucial. The next proposition is at the core of Power Series theory.</p>
+<div id="prp-radius" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 6.2</strong></span> The <em>radius of convergence</em> of the generating function <span class="math inline">\(G\)</span></p>
+<p><span class="math display">\[
+G(z) = \sum_{n\in \mathbb{N}} p(n) z^n, \qquad z \in \mathbb{C}
+\]</span> is the unique <span class="math inline">\(R \in [0, \infty) \cup \{+ \infty\}\)</span> such that:</p>
+<ul>
+<li>for every <span class="math inline">\(z \in \mathbb{C}\)</span> with <span class="math inline">\(|z| &gt; R\)</span>, the series <span class="math inline">\(\sum_{n\in \mathbb{N}} p(n) z^n\)</span> diverges.</li>
+<li>for every <span class="math inline">\(z \in \mathbb{C}\)</span> with <span class="math inline">\(|z| &lt; R\)</span>, the series <span class="math inline">\(\sum_{n\in \mathbb{N}} p(n) z^n\)</span> is absolutely convergent.</li>
+</ul>
+<p>The opend disk <span class="math inline">\(\{ z : z \in \mathbb{C}, |z| &lt; R \}\)</span> is called the <em>disk of convergence</em> of <span class="math inline">\(G\)</span>. The circle <span class="math inline">\(\{ z : z \in \mathbb{C}, |z| = R \}\)</span> is called the <em>circle of convergence</em> of <span class="math inline">\(G\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span></p>
+<!-- TODO -->
+<p><span class="math inline">\(\square\)</span></p>
+</div>
+<p>Hadamard’s rule allows for fast determination of the radius of convergence:</p>
+<div id="prp-hadamard" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 6.3 (Hadamard’s rule)</strong></span> The radius of convergence <span class="math inline">\(R\)</span> of probability generating function <span class="math inline">\(G(z) = \sum_{n \in \mathbb{N}} p(n)z^n\)</span> satisfies <span class="math display">\[
+\frac{1}{R} =  \limsup_n (p(n))^{1/n} \, .
+\]</span> The radius of convergence of a probability generating function is always at least <span class="math inline">\(1\)</span>.</p>
+</div>
+<div class="{exm-hadamard-1}">
+<p>The radius of convergence contains qualitative information about tail behavior:</p>
+<ul>
+<li>For Poisson distributions, the radius of convergence is infinite. This reflects the fast decay of the tail probability of Poisson distributions.</li>
+<li>For geometric distributions, <span class="math inline">\(p(n) = q (1-q)^{n-1}\)</span>, the radius of convergence is <span class="math inline">\(1/(1-q)\)</span>.</li>
+<li>For power law distributions like <span class="math inline">\(p(n) = n^{-r}/\zeta(r)\)</span> with <span class="math inline">\(r&gt;1\)</span>, the radius of convergence is exactly <span class="math inline">\(1\)</span>.</li>
+</ul>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span></p>
+<!-- TODO: -->
+<p><span class="math inline">\(\square\)</span></p>
+</div>
+<p>Just knowing the radius of convergence of a function defined by a Power Series expansion tells us about the smoothness properties of the function.</p>
+<div id="thm">
+<p>If <span class="math inline">\(G\)</span> is defined as a power series <span class="math inline">\(G(z) = \sum_{n \in \mathbb{N}} a_n z^n\)</span> its (complex) derivative is <span class="math inline">\(G'(z)=  \sum_{n \in \mathbb{N}} (n+1) a_{n+1} z^n\)</span>. The derivative <span class="math inline">\(G'\)</span> and <span class="math inline">\(G\)</span> have the same radius of convergence.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span></p>
+<!-- TODO: -->
+<p><span class="math inline">\(\square\)</span></p>
+</div>
+<p>This general statement about power series entails a very useful corollary for probability generating functions.</p>
+<div id="cor-invpgf" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 6.1 (Inversion formula)</strong></span> Let <span class="math inline">\(g\)</span> be the probability generating function associated with the probability mass function <span class="math inline">\(f\)</span>. Then <span class="math inline">\(g\)</span> is infinitely many times differentiable over <span class="math inline">\([0,1)\)</span> with derivatives <span class="math display">\[
+    g^{(n)}(s) =  \sum_{k=n}^\infty \frac{k!}{(k-n)!} \times f(k) s^{k-n} \, ,
+\]</span> more specifically: <span class="math display">\[
+    g^{(n)}(0) =  n! \times f(n) \, .
+\]</span> A probability distribution over <span class="math inline">\(\mathbb{N}\)</span> is characterized by its probability generating function.</p>
+</div>
+<br>
+<p>
+</p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>The property is true for <span class="math inline">\(n=0\)</span>.</p>
+<p>Assume it holds for all integers up to <span class="math inline">\(n\)</span>. For <span class="math inline">\(s\in [0, 1)\)</span> and <span class="math inline">\(|h|&lt;1-s-\delta\)</span> where <span class="math inline">\(\delta\)</span> is a small positive number, <span class="math display">\[\begin{align*}
+  \frac{g^{(n)}(s+h) - g^{(n)}(s)}{h}
+  &amp; =  \sum_{k=n}^\infty \frac{k!}{(k-n)!} \times f(k)
+    \Big(\sum_{j=0}^{k-n-1}(s+h)^{k-n-1-j} s^{j}  \Big)
+\end{align*}\]</span> The absolute value of the internal sum is smaller than <span class="math inline">\((k-n) (1-\delta)^{k-n-1}\)</span>. As <span class="math display">\[
+\sum_{k=n}^\infty \frac{k!}{(k-n-1)!} \times p(k) \times  (1-\delta)^{k-n-1} &lt; \infty
+\]</span> for all <span class="math inline">\(0&lt;\delta&lt;1\)</span>. By the Dominated Convergence Theorem, <span class="math display">\[\begin{align*}
+\lim_{h \to 0} \frac{g^{(n)}(s+h) - g^{(n)}(s)}{h}
+    &amp; =
+   \sum_{k=n+1}^\infty \frac{k!}{(k-n-1)!} \times f(k) \times s^{k-n-1} \,.
+\end{align*}\]</span></p>
+<p><span class="math inline">\(\square\)</span></p>
+</div>
+<br>
+<p>
+</p>
+<div id="exm-invformula" class="theorem example">
+<p><span class="theorem-title"><strong>Example 6.2</strong></span> The Probability Generating Function of a Poisson distribution with parameter <span class="math inline">\(\mu\)</span> equals <span class="math inline">\(\exp(\mu(s-1))\)</span>. <span class="math display">\[\begin{align*}
+g(s)
+  &amp; = \sum_{k=0}^\infty \mathrm{e}^{-\mu} \frac{\mu^k}{k!} s^k \\
+  &amp; = \mathrm{e}^{-\mu} \times \mathrm{e}^{\mu s} \, .
+\end{align*}\]</span> If we meet a probability distribution with such a PGF, we know it is a Poisson distribution (with parameter <span class="math inline">\(\mu\)</span>).</p>
+</div>
+</section>
+<section id="sec-pgf-sums" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="sec-pgf-sums"><span class="header-section-number">6.4</span> Sums of independent random variables and probability generating fuunctions</h2>
+<p>Probability Generating Functions provide us with a handy tool to investigate sums of independent random variables.</p>
+<div id="prp-pgf-inversion" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 6.4</strong></span> Let <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span> be independent integer-valued random variable, with probability generating functions <span class="math inline">\(G_X\)</span> and <span class="math inline">\(G_Y\)</span>. The probability generating function <span class="math inline">\(G_{X+Y}\)</span> of <span class="math inline">\(X+Y\)</span> is <span class="math inline">\(G_X\times G_Y\)</span>: <span class="math display">\[
+G_{X+Y} = G_X \times G_Y \, .
+\]</span></p>
+</div>
+<br>
+<p>
+</p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>The proof relies on the fact that non-negative convergent series are commutatively convergent.</p>
+<p>For any <span class="math inline">\(n\)</span>: <span class="math display">\[
+\left\{ \omega : X(\omega) + Y(\omega) = n \right\} =
+\cup_{k=0}^n \left\{ \omega : X(\omega)=k \text{ et }  Y(\omega) = n -k \right\} \,.
+\]</span> The union on the right-hand-side is a disjoint union. <span class="math display">\[\begin{align*}
+\sum_{n=0}^\infty \mathbb{P}\{ X + Y = n\}\times s^n   &amp; =
+    \sum_{n=0}^\infty \left( \sum_{k=0}^n \mathbb{P}\{ X=k\}\times \mathbb{P}\{ Y=n-k\} \right) s^n \\
+    &amp;  =
+    \sum_{k=0}^\infty \mathbb{P}\{ X=k\} s^k  \sum_{n\geq k}^\infty \mathbb{P}\{ Y=n-k\} s^{n-k} \\
+    &amp; = G_X(s) \times G_Y(s) \, .
+\end{align*}\]</span></p>
+<p><span class="math inline">\(\square\)</span></p>
+</div>
+<p>In measure theoretical language, the proposition is a consequence of the Tonelli-Fubini Theorem: <span class="math display">\[\begin{align*}
+  G_{X+Y}(s)
+  &amp; = \mathbb{E}\left[s^{X+Y}\right] \\
+  &amp; = \mathbb{E}\left[s^{X} \times s^{Y}\right]  \\
+  &amp; = \int_{\mathbb{R}^2} s^x s^y \mathrm{d}P_X \otimes P_Y(x,y) \\
+  &amp; = \int_{\mathbb{R}} \int_{\mathbb{R}} s^x s^y \mathrm{d}P_X(x) \mathrm{d}P_Y(y) \\
+  &amp; = \int_{\mathbb{R}} s^y \int_{\mathbb{R}} s^x  \mathrm{d}P_X(x) \mathrm{d}P_Y(y) \\
+  &amp; = \int_{\mathbb{R}} s^y G_X(s) \mathrm{d}P_Y(y) \\
+  &amp; = G_X(s) \times G_Y(s) \, .
+\end{align*}\]</span></p>
+<br>
+<p>
+</p>
+<div id="exm-sum-pgf" class="theorem example">
+<p><span class="theorem-title"><strong>Example 6.3</strong></span> If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent Poisson random variables with parameters <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\nu\)</span>, then <span class="math inline">\(G_{X+Y}(s) = \exp(\mu(s-1))\times \exp(\nu(s-1))=  \exp((\mu+\nu)(s-1))\)</span>. This is another proof that <span class="math inline">\(X+Y\)</span> is Poisson distributed with parameter <span class="math inline">\(\mu+\nu\)</span>.</p>
+</div>
+</section>
+<section id="sec-smooth-integrable-pgf" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="sec-smooth-integrable-pgf"><span class="header-section-number">6.5</span> Smoothness and integrability</h2>
+<p>A PGF is infinitely many times differentiable inside the (open) disk of convergence. If the radius of convergence is larger than <span class="math inline">\(1\)</span> (as for Poisson or geometric distributions), this entails that the PGF is infinitely many times differentiable at <span class="math inline">\(1\)</span>, If the radius of convergence is exactly <span class="math inline">\(1\)</span>, the differentiability on the circle of convergence is not prescribed by general theory.</p>
+<div id="thm-pgfintegr" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 6.1 (Integrability and probability generating functions)</strong></span> Let <span class="math inline">\(X\)</span> be an integer-valued random variable, with probability generating functions <span class="math inline">\(f\)</span>, then <span class="math inline">\(\mathbb{E} X^p &lt; \infty\)</span> iff <span class="math inline">\(f\)</span> is <span class="math inline">\(p\)</span>-times differentiable at <span class="math inline">\(1\)</span> and <span class="math display">\[
+f^{(p)}(1) = \mathbb{E}\left[X (X-1) \ldots (X-p+1)\right] \, .
+\]</span></p>
+</div>
+<br>
+<p>
+</p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Assume that <span class="math inline">\(G\)</span> is <span class="math inline">\(p\)</span>-times differentiable on the left at <span class="math inline">\(1\)</span>.</p>
+<p>We need to establish that <span class="math inline">\(|X|\)</span> is <span class="math inline">\(p\)</span>-integrable.</p>
+<p>Assume that <span class="math inline">\(|X|\)</span> is <span class="math inline">\(p\)</span>-integrable.</p>
+<!-- TODO: -->
+<p><span class="math inline">\(\square\)</span></p>
+</div>
+<br>
+<p>
+</p>
+<p>The next question arises quickly: when is a function from <span class="math inline">\([0,1]\)</span> to <span class="math inline">\([0,\infty)\)</span> a probability generating function? This question is addressed later in a broader perspective.</p>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -778,10 +904,13 @@ Throughout the course, we illustrate problems and concepts using `Python` and `R
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./03-families.html" class="pagination-link" aria-label="Families of discrete distributions">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Families of discrete distributions</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01-intro.html" class="pagination-link" aria-label="Introduction">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./022-product-measures.html" class="pagination-link" aria-label="Product distributions">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Product distributions</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -790,4 +919,4 @@ Throughout the course, we illustrate problems and concepts using `Python` and `R
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/0225-pgf.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

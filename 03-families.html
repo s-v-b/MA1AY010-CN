@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>4&nbsp; Families of discrete distributions – MA1AY010 Class Notes</title>
+<title>5&nbsp; Families of discrete distributions – MA1AY010 Class Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./022-product-measures.html" rel="next">
-<link href="./031-moments.html" rel="prev">
+<link href="./0225-pgf.html" rel="next">
+<link href="./033-integration2moments.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -117,6 +117,7 @@ window.Quarto = {
     </a>
   </div>
         <div class="quarto-navbar-tools tools-end">
+    <a href="https://github.com/s-v-b/MA1AY010-CN/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <a href="./MA1AY010-Class-Notes.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
 </div>
           <div id="quarto-search" class="" title="Search"></div>
@@ -127,7 +128,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03-families.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Families of discrete distributions</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03-families.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Families of discrete distributions</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -169,62 +170,80 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./033-integration2moments.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">From integrals to expectation and moments</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./03-families.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Families of discrete distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Families of discrete distributions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0225-pgf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Characterizations of discrete probability distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./022-product-measures.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Product distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Product distributions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./021-independence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Independence and product spaces</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./032-acfamilies.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Absolutely continuous probability measures</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Absolutely continuous probability measures</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./023-discrete-condition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Discrete Conditioning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Discrete Conditioning</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-characterizations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Characterizations of probability distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Characterizations of probability distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06-conditioning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Conditioning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Conditioning</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-convergences-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Convergences I : almost sure, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, in Probability</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Convergences I : almost sure, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, in Probability</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-convergence-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Convergence in distribution</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Convergence in distribution</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-convergence-3b.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Refinments and extensions of thr Central Limit Theorem</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Refinments and extensions of thr Central Limit Theorem</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./09-gaussian-vectors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Gaussian vectors</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Gaussian vectors</span></span></a>
   </div>
 </li>
     </ul>
@@ -237,18 +256,18 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#sec-bernoulli" id="toc-sec-bernoulli" class="nav-link active" data-scroll-target="#sec-bernoulli"><span class="header-section-number">4.1</span> Bernoulli and Binomial</a></li>
-  <li><a href="#sec-poisson" id="toc-sec-poisson" class="nav-link" data-scroll-target="#sec-poisson"><span class="header-section-number">4.2</span> Poisson</a></li>
-  <li><a href="#sec-geometric" id="toc-sec-geometric" class="nav-link" data-scroll-target="#sec-geometric"><span class="header-section-number">4.3</span> Geometric</a></li>
+  <li><a href="#sec-bernoulli" id="toc-sec-bernoulli" class="nav-link active" data-scroll-target="#sec-bernoulli"><span class="header-section-number">5.1</span> Bernoulli and Binomial</a></li>
+  <li><a href="#sec-poisson" id="toc-sec-poisson" class="nav-link" data-scroll-target="#sec-poisson"><span class="header-section-number">5.2</span> Poisson</a></li>
+  <li><a href="#sec-geometric" id="toc-sec-geometric" class="nav-link" data-scroll-target="#sec-geometric"><span class="header-section-number">5.3</span> Geometric</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/03-families.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-families" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Families of discrete distributions</span></span></h1>
+<h1 class="title"><span id="sec-families" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Families of discrete distributions</span></span></h1>
 </div>
 
 
@@ -265,25 +284,28 @@ window.Quarto = {
 </header>
 
 
-<p>The goal of this lesson is getting acquainted with important families of distributions and to get familiar with distributional calculus. Probability distributions will be presented through distribution functions, probability mass functions (discrete distribution), densities (when available).</p>
-<section id="sec-bernoulli" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="sec-bernoulli"><span class="header-section-number">4.1</span> Bernoulli and Binomial</h2>
+<p>The goal of this lesson is getting acquainted with important families of discrete distributions and to get familiar with distributional calculus. Discretet probability distributions will be presented through distribution functions and mostly probability mass functions.</p>
+<p>In this lesson, universe <span class="math inline">\(\Omega\)</span>$ is a subset of <span class="math inline">\(\mathbb{N}^d\)</span>, it is finite or countable, the straightforward <span class="math inline">\(\sigma\)</span>-algebra to work with is the powerset <span class="math inline">\(2^\Omega\)</span>.</p>
+<section id="sec-bernoulli" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="sec-bernoulli"><span class="header-section-number">5.1</span> Bernoulli and Binomial</h2>
 <div id="def-bernoulli" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 4.1</strong></span> A Bernoulli distribution is a probability distribution <span class="math inline">\(P\)</span> on <span class="math inline">\(\Omega=\{0,1 \}\)</span>. The parameter of <span class="math inline">\(P\)</span> is <span class="math inline">\(P\{1\} \in [0,1]\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 5.1</strong></span> A Bernoulli distribution is a probability distribution <span class="math inline">\(P\)</span> on <span class="math inline">\(\Omega=\{0,1 \}\)</span>. The <em>parameter</em> of <span class="math inline">\(P\)</span> is <span class="math inline">\(P\{1\} \in [0,1]\)</span>.</p>
 </div>
 <p>A Bernoulli distribution is completely defined by its parameter.</p>
-<p>Assume <span class="math inline">\(\Omega^{\prime} = \{0,1\}^n\)</span>.</p>
+<p>The expectation of a Bernoulli distribution with parameter <span class="math inline">\(p\)</span> equals <span class="math inline">\(p\)</span>.</p>
 <div id="def-binomial" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 4.2 (Binomial distribution)</strong></span> A binomial distribution with parameters <span class="math inline">\(n \in \mathbb{N}, p \in [0,1]\)</span> (<span class="math inline">\(n\)</span> is size and <span class="math inline">\(p\)</span> is success) is a probability distribution <span class="math inline">\(P\)</span> on <span class="math inline">\(\Omega = \{0, 1, 2, \ldots, n\}\)</span>, defined by <span class="math display">\[P\{k\} = \binom{n}{k} p^k (1-p)^k\]</span></p>
+<p><span class="theorem-title"><strong>Definition 5.2 (Binomial distribution)</strong></span> A binomial distribution with parameters <span class="math inline">\(n \in \mathbb{N}, p \in [0,1]\)</span> (<span class="math inline">\(n\)</span> is size and <span class="math inline">\(p\)</span> is success) is a probability distribution <span class="math inline">\(P\)</span> on <span class="math inline">\(\Omega = \{0, 1, 2, \ldots, n\}\)</span>, defined by <span class="math display">\[P\{k\} = \binom{n}{k} p^k (1-p)^k\]</span></p>
 </div>
 <p>
-</p><p>The connexion between Bernoulli and Binomial distributions is obvious: a Bernoulli distribution is a Binomial distribution with size parameter equal to <span class="math inline">\(1\)</span>. This connexion goes further: the sum of independent Bernoulli random variables with same success parameter is Binomial distributed.</p>
-<div id="prp">
-<p>Let <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> be independent, identically distributed Bernoulli random variables with success parameter <span class="math inline">\(p \in [0,1]\)</span>, then <span class="math inline">\(Y = \sum_{i=1}^n X_i\)</span> is distributed according to a Binomial disctribution with size parameter <span class="math inline">\(n\)</span> and success probability <span class="math inline">\(p\)</span>.</p>
+</p><p>The connexion between Bernoulli and Binomial distributions is obvious: a Bernoulli distribution is a Binomial distribution with size parameter equal to <span class="math inline">\(1\)</span>. This connexion goes further: the sum of <em>independent</em> Bernoulli random variables with same success parameter is Binomial distributed.</p>
+<p>Assume now <span class="math inline">\(\Omega^{\prime} = \{0,1\}^n\)</span>.</p>
+<div id="prp-bernoulli-binomial" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 5.1</strong></span> Let <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> be independent, identically distributed Bernoulli random variables with success parameter <span class="math inline">\(p \in [0,1]\)</span>, then <span class="math inline">\(Y = \sum_{i=1}^n X_i\)</span> is distributed according to a Binomial disctribution with size parameter <span class="math inline">\(n\)</span> and success probability <span class="math inline">\(p\)</span>.</p>
 </div>
 <p>
 </p><div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>For <span class="math inline">\(k \in 0, \ldots, n\)</span></p>
+<p><span class="proof-title"><em>Proof</em>. </span>It is enough to check that the probability mass functions coincide.</p>
+<p>For <span class="math inline">\(k \in 0, \ldots, n\)</span></p>
 <p><span class="math display">\[\begin{align*}
 P\Big\{ \sum_{i=1}^n  X_i = k \Big\}
   &amp; = \sum_{x_1, \ldots, x_n \in \{0,1 \}^p} \mathbb{I}_{\sum_{i=1}^n x_i=k} P \Big\{ \wedge_{i=1}^n X_i = x_i\Big\} \\
@@ -292,11 +314,12 @@ P\Big\{ \sum_{i=1}^n  X_i = k \Big\}
   &amp; = \sum_{x_1, \ldots, x_n \in \{0,1 \}^p} \mathbb{I}_{\sum_{i=1}^n x_i=k}\,   p^{k} (1-p)^{n-k} \\
   &amp; = \binom{n}{k} p^{k} (1-p)^{n-k}  \, .
 \end{align*}\]</span></p>
+<p><span class="math inline">\(\square\)</span></p>
 </div>
-<br> This observation facilitates the computation of moments of Binomial distribution.
-<p>
-</p><p>The expected value of a Bernoulli distribution with parameter <span class="math inline">\(p\)</span> is <span class="math inline">\(p\)</span>! Its variance is <span class="math inline">\(p(1-p)\)</span>.</p>
-<p>By linearity of expectation, the expected value of the binomial distribution with parameters <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span> is <span class="math inline">\(np\)</span>. The variance of a sum of independent random variables is the sum of the variances, hence the variance of he binomial distribution with parameters <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span> is <span class="math inline">\(np(1-p)\)</span>.</p>
+<p>This observation facilitates the computation of <em>moments</em> of Binomial distribution.</p>
+<p>The expected value of a Bernoulli distribution with parameter <span class="math inline">\(p\)</span> is <span class="math inline">\(p\)</span>! Its variance is <span class="math inline">\(p(1-p)\)</span>.</p>
+<p>By linearity of expectation, the expected value of the binomial distribution with parameters <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span> is <span class="math inline">\(np\)</span>.</p>
+<p>The variance of a sum of independent random variables is the sum of the variances, hence the variance of he binomial distribution with parameters <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span> is <span class="math inline">\(np(1-p)\)</span>.</p>
 <!-- ::: {#fig-witbinom} -->
 <div class="cell">
 <div class="cell-output-display">
@@ -306,7 +329,7 @@ P\Big\{ \sum_{i=1}^n  X_i = k \Big\}
 <img src="03-families_files/figure-html/fig-witbinom-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-witbinom-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.1: Binomial probability mass functions with <span class="math inline">\(n=20\)</span> and different values of <span class="math inline">\(p\)</span> : <span class="math inline">\(.5, .7, .2\)</span>.
+Figure&nbsp;5.1: Binomial probability mass functions with <span class="math inline">\(n=20\)</span> and different values of <span class="math inline">\(p\)</span> : <span class="math inline">\(.5, .7, .2\)</span>.
 </figcaption>
 </figure>
 </div>
@@ -316,20 +339,20 @@ Figure&nbsp;4.1: Binomial probability mass functions with <span class="math inli
 <!-- ::: -->
 <p>
 </p><p>Binomial distributions with the same success parameter</p>
-<div id="prp">
-<p>Let <span class="math inline">\(X,Y\)</span> be independent over probability space <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span> and distributed according to <span class="math inline">\(\text{Bin}(n_1, p)\)</span> and <span class="math inline">\(\text{Bin}(n_2, p)\)</span>.</p>
+<div id="prp-sum-binom" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 5.2</strong></span> Let <span class="math inline">\(X,Y\)</span> be independent over probability space <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span> and distributed according to <span class="math inline">\(\text{Bin}(n_1, p)\)</span> and <span class="math inline">\(\text{Bin}(n_2, p)\)</span>.</p>
 <p>Then <span class="math inline">\(X+Y\)</span> is distributed according to <span class="math inline">\(\text{Bin}(n_1+n_2, p)\)</span>.</p>
 </div>
 <p>
-</p><div id="exr">
-<p>Check the preceding proposition.</p>
+</p><div id="exr-sum-binom" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5.1</strong></span> Check the preceding proposition.</p>
 </div>
 </section>
-<section id="sec-poisson" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="sec-poisson"><span class="header-section-number">4.2</span> Poisson</h2>
+<section id="sec-poisson" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="sec-poisson"><span class="header-section-number">5.2</span> Poisson</h2>
 <p>The Poisson distribution appears as a limit of Binomial distributions in a variety of circumstances connected to rare events phenomena.</p>
 <div id="def-poisson" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 4.3</strong></span> A Poisson distribution with parameter <span class="math inline">\(\lambda &gt;0\)</span> is a probability distribution <span class="math inline">\(P\)</span> on <span class="math inline">\(\Omega=\mathbb{N}\)</span> with</p>
+<p><span class="theorem-title"><strong>Definition 5.3</strong></span> A Poisson distribution with parameter <span class="math inline">\(\lambda &gt;0\)</span> is a probability distribution <span class="math inline">\(P\)</span> on <span class="math inline">\(\Omega=\mathbb{N}\)</span> with</p>
 <p><span class="math display">\[P\{k\} = \mathrm{e}^{-\lambda} \frac{\lambda^k}{k!}\]</span></p>
 </div>
 <!-- ::: {#fig-witgetpoisson} -->
@@ -341,7 +364,7 @@ Figure&nbsp;4.1: Binomial probability mass functions with <span class="math inli
 <img src="03-families_files/figure-html/fig-witgetpoisson-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-witgetpoisson-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.2: Poisson probability mass functions with different values of parameter: <span class="math inline">\(1, 5, 10\)</span>. Recall that the parameter of a Poisson distribution equals its expectation and its variance. The probability mass function of a Poisson distribution achieves its maximum (called the mode) close to its expectation.
+Figure&nbsp;5.2: Poisson probability mass functions with different values of parameter: <span class="math inline">\(1, 5, 10\)</span>. Recall that the parameter of a Poisson distribution equals its expectation and its variance. The probability mass function of a Poisson distribution achieves its maximum (called the mode) close to its expectation.
 </figcaption>
 </figure>
 </div>
@@ -355,8 +378,8 @@ Figure&nbsp;4.2: Poisson probability mass functions with different values of par
 &amp; = \lambda \times \sum_{n=1}^\infty \mathrm{e}^{-\lambda} \frac{\lambda^{n-1}}{(n-1)!}  \\
 &amp; = \lambda \, .
 \end{align*}\]</span></p>
-<div id="prp">
-<p>Let <span class="math inline">\(X,Y\)</span> be independent and Poisson distributed over probability space <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span>, then <span class="math inline">\(X+Y\)</span> is Poisson distributed.</p>
+<div id="prp-sum-poisson" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 5.3</strong></span> Let <span class="math inline">\(X,Y\)</span> be independent and Poisson distributed over probability space <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span>, then <span class="math inline">\(X+Y\)</span> is Poisson distributed.</p>
 </div>
 <br>
 <p>
@@ -374,25 +397,26 @@ Figure&nbsp;4.2: Poisson probability mass functions with different values of par
 &amp; = \mathrm{e}^{-\lambda - \mu}  \frac{(\lambda+\mu)^k}{k!} \left( \frac{\lambda}{\lambda+\mu} + \frac{\mu}{\lambda+\mu}\right)^k  \\
 &amp; = \mathrm{e}^{-(\lambda + \mu)}  \frac{(\lambda+\mu)^k}{k!}
 \end{align*}\]</span> The last expression if the pmf of <span class="math inline">\(\operatorname{Po}(\lambda + \mu)\)</span> at <span class="math inline">\(k\)</span>.</p>
+<p><span class="math inline">\(\square\)</span></p>
 </div>
 <br>
 <p>
 </p>
-<div id="exr">
-<p>Check that the <em>mode</em> (maximum) of a Poisson probability mass function with parameter <span class="math inline">\(\lambda\)</span> is achieved at <span class="math inline">\(k= \lfloor \lambda \rfloor\)</span>. It is always unique?</p>
+<div id="exr-poisson-mode" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5.2</strong></span> Check that the <em>mode</em> (maximum) of a Poisson probability mass function with parameter <span class="math inline">\(\lambda\)</span> is achieved at <span class="math inline">\(k= \lfloor \lambda \rfloor\)</span>. It is always unique?</p>
 </div>
-<div id="exr">
-<p>Check that the median of a Poisson distribution with integer parameter <span class="math inline">\(\lambda\)</span> is not smaller than <span class="math inline">\(\lambda\)</span>.</p>
+<div id="exr-poisson-median" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5.3</strong></span> Check that the median of a Poisson distribution with integer parameter <span class="math inline">\(\lambda\)</span> is not smaller than <span class="math inline">\(\lambda\)</span>.</p>
 </div>
 <br>
 <p>
 </p>
 </section>
-<section id="sec-geometric" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="sec-geometric"><span class="header-section-number">4.3</span> Geometric</h2>
+<section id="sec-geometric" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="sec-geometric"><span class="header-section-number">5.3</span> Geometric</h2>
 <p>A geometric distribution is a probability distribution over <span class="math inline">\(\mathbb{N} \subset \{0,1\}\)</span>. It depends on a parameter <span class="math inline">\(p&gt;0\)</span>.</p>
 <p>Assume we are allowed to toss a biased coin infinitely many times. The number of times we have to toss the coin <em>until</em> we get a <em>head</em> is geometrically distributed.</p>
-<p>Let <span class="math inline">\(X\)</span> be distributed according to a geometric distribution with parameter <span class="math inline">\(p\)</span>. The geometric probability distribution is easily defined by its tail function. In the event <span class="math inline">\(X&gt;k\)</span>, the first <span class="math inline">\(k\)</span> outcomes have to be <em>tail</em>. <span class="math display">\[
+<p>Let <span class="math inline">\(X\)</span> be distributed according to a geometric distribution with parameter <span class="math inline">\(p\)</span>. The geometric probability distribution is easily defined by its <em>tail function</em>. In the event <span class="math inline">\(X&gt;k\)</span>, the first <span class="math inline">\(k\)</span> outcomes have to be <em>tail</em>. <span class="math display">\[
 P \{ X &gt; k \} = (1-p)^k
 \]</span> The probability mass function of the geometric distribution follows: <span class="math display">\[
 P \{X = k \} = (1-p)^{k-1} - (1-p)^k = p \times (1-p)^{k-1} \qquad \text{for } k=1, 2, \ldots
@@ -406,7 +430,7 @@ P \{X = k \} = (1-p)^{k-1} - (1-p)^k = p \times (1-p)^{k-1} \qquad \text{for } k
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="03-families_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="03-families_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
 <figcaption>Geometric probability mass functions with different values of parameter <span class="math inline">\(p\)</span>: <span class="math inline">\(1/2, 1/3, 1/5\)</span>. The probability mass function equals <span class="math inline">\(p \times (1-p)^{k-1}\)</span> at <span class="math inline">\(k\geq 1\)</span>. The mode is achieved at <span class="math inline">\(k=1\)</span> whatever the value of <span class="math inline">\(p\)</span>. The expectation equals <span class="math inline">\(1/p\)</span></figcaption>
 </figure>
 </div>
@@ -491,7 +515,7 @@ P \{X = k \} = (1-p)^{k-1} - (1-p)^k = p \times (1-p)^{k-1} \qquad \text{for } k
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/s-v-b\.github\.io\/MA1AY010-CN\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -820,13 +844,13 @@ P \{X = k \} = (1-p)^{k-1} - (1-p)^k = p \times (1-p)^{k-1} \qquad \text{for } k
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./031-moments.html" class="pagination-link" aria-label="A modicum of integration">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">A modicum of integration</span></span>
+      <a href="./033-integration2moments.html" class="pagination-link" aria-label="From integrals to expectation and moments">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">From integrals to expectation and moments</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./022-product-measures.html" class="pagination-link" aria-label="Product distributions">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Product distributions</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./0225-pgf.html" class="pagination-link" aria-label="Characterizations of discrete probability distributions">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Characterizations of discrete probability distributions</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -835,4 +859,4 @@ P \{X = k \} = (1-p)^{k-1} - (1-p)^k = p \times (1-p)^{k-1} \qquad \text{for } k
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/03-families.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
