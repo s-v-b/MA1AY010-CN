@@ -6,6 +6,12 @@ editor: source
 
 # Warm up {#foreword .unnumbered}
 
+::: {.callout-warning}
+
+### `r as.Date(Sys.time())`
+
+:::
+
 ## A short undergraduate course on Probability theory in an [applied mathematics curriculum](http://master.math.u-paris.fr/annee/m1-isifar/)
 
 This *Probability* course is a core part of [`Master ISIFAR`](http://master.math.u-paris.fr/annee/m1-mi/), a curriculum that delivers training in Statistics, Mathematical Finance, and Computer Science at [Université Paris Cité](http://u-paris.fr). The *Probability* course is related to other courses from the same curriculum.

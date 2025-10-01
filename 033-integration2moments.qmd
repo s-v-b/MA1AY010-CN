@@ -13,9 +13,10 @@ of a random variable and the notion of integral. The _Transfer Theorem_
 characterization of image distributions.
 
 In @sec-jensensec, we state, prove and showcase Jensen's inequality. This inequality allows us to derive easy bounds on the expectation of convex functions 
-of real random variables. 
+of real random variables. This is an opportunity to recall basics of convexity. 
 
-In @sec-variance, we pay special attention to the *variance*.
+In @sec-variance, we pay special attention to the *variance*. We state
+several characterizations of the variance. 
 
 In @sec-highermoments
 
@@ -906,7 +907,7 @@ This establishes 1.) And 2.) is an immediate consequence of $1$.
 summarizes several points: that sets $\mathcal{L}_p$ are linear subspaces of $\mathcal{L}_0$,
 and that they are complete as pseudo-metric (pseudo-normed) spaces.
 
-::: {#thm}
+::: {#thm-Lp-completeness}
 
 For $p \in [1, \infty)$, let $\mathcal{L}_p(\Omega, \mathcal{F}, P)$ and $\|\cdot\|_p$ be defined as above. Then,
 

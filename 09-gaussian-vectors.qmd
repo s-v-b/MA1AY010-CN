@@ -329,12 +329,12 @@ satisfies a very stringent property:
 
 ### Gaussian Vector
 
-A random vector $(X_1, \ldots, X_n)^T$ is a
-_Gaussian vector_ iff for any real vector  $(\lambda_1, \lambda_2, \ldots, \lambda_n)^T$, the distribution of the univariate random variable $\sum_{i = 1}^n \ \lambda_i X_i$ is Gaussian.
+A random vector $(X_1, \ldots, X_n)^\top$ is a
+_Gaussian vector_ iff for any real vector  $(\lambda_1, \lambda_2, \ldots, \lambda_n)^\top$, the distribution of the univariate random variable $\sum_{i = 1}^n \ \lambda_i X_i$ is Gaussian.
 
 :::
 
-::: {#rem}
+::: {#rem-caution-gaussian}
 
 Not every  collection of Gaussian random variables forms a Gaussian vector.
 
@@ -342,7 +342,7 @@ The random vector $(X, \epsilon X)$ with $X \sim \mathcal{N}(0.1)$, independent 
 
 :::
 
-::: {#exr}
+::: {#exr-caution-gaussian}
 
 Check that $\epsilon X$ is a Gaussian random variable.
 
@@ -351,10 +351,10 @@ Check that $\epsilon X$ is a Gaussian random variable.
 Yet there are Gaussian vectors! A simple way to obtain a Gaussian vector is provided by the next proposition
 (checked  by a characteristic function argument).
 
-::: {#prp}
+::: {#prp-indep-gaussian-vectors}
 
 If  $X_1, \ldots, X_n$ is a sequence of independent Gaussian random variables, then
-$(X_1, \ldots, X_n)^t$ is a Gaussian vector.
+$(X_1, \ldots, X_n)^\top$ is a Gaussian vector.
 
 :::
 
@@ -366,7 +366,7 @@ the joint distribution of a Gaussian random vector
 is completely characterized by its covariance matrix and its expectation vector.
 
 
-Recall that the  _covariance_ of random vector $X= (X_1, \ldots, X_n)^T$ is the matrix
+Recall that the  _covariance_ of random vector $X= (X_1, \ldots, X_n)^\top$ is the matrix
 $K$ with dimension $n \times n$ with coefficients
 
 $$ 
@@ -374,10 +374,10 @@ K [i, j] = \operatorname{Cov} (X_i, X_j) = \mathbb{E} [X_i X_j] - \mathbb{E} [X_
 $$
 
 Without loss of generality, we may assume that random vector $X$  is centered
-For every  $\lambda = (\lambda_1, \ldots, \lambda_n)^T \in \mathbb{R}^n$, we have:
+For every  $\lambda = (\lambda_1, \ldots, \lambda_n)^\top \in \mathbb{R}^n$, we have:
 
 $$
-\operatorname{var}(\langle \lambda, X \rangle) =  \lambda^t K \lambda = \text{trace} (K \lambda \lambda^t)\,
+\operatorname{var}(\langle \lambda, X \rangle) =  \lambda^\top K \lambda = \text{trace} (K \lambda \lambda^\top)\,
 $$ 
 (this is does not depend on any Gaussianity assumption).
 
@@ -388,24 +388,24 @@ Indeed,
 \mathbb{E} \left[ \left( \sum_{i=1}^n \lambda_i X_i\right)^2\right]  \\
 & = & \sum_{i,j=1}^n \mathbb{E} \left[\lambda_i \lambda_j X_i X_j \right] \\
 & = & \sum_{i,j=1}^n \lambda_i \lambda_j K[i,j] \\
-& = & \lambda^t K \lambda\, .
+& = & \lambda^\top K \lambda\, .
 \end{eqnarray*}
 
 The characteristic function of a Gaussian vector  $X$ with expectation vector  $\mu$  and covariance $K$ satisfies
 
 $$
-\mathbb{E} \mathrm{e}^{\imath \langle \lambda, X \rangle } =  \mathrm{e}^{\imath \langle \lambda, \mu \rangle - \frac{\lambda^t K \lambda}{2}} \,  \, .
+\mathbb{E} \mathrm{e}^{\imath \langle \lambda, X \rangle } =  \mathrm{e}^{\imath \langle \lambda, \mu \rangle - \frac{\lambda^\top K \lambda}{2}} \,  \, .
 $$
 
 A linear transform of a Gaussian vector is a Gaussian vector.
 
-::: {#prp}
+::: {#prp-linear-transform-gaussian}
 
-If  ${Y} = (Y_1, \ldots, Y_n)^T$ is a Gaussian vector with
+If  ${Y} = (Y_1, \ldots, Y_n)^\top$ is a Gaussian vector with
 covariance $K$ and $A$ a real matrix with dimensions $p \times n$, then $A \times Y$ is Gaussian vector
 with expectation $A \times \mathbb{E}Y$ and covariance matrix
 
-$$A K A^T .$$
+$$A K A^\top .$$
 
 :::
 
@@ -413,10 +413,10 @@ $$A K A^T .$$
 
 Without loss of generality, we assume  $Y$  is centred.
 
-For any  $\lambda \in \mathbb{R}^p$, $\langle \lambda , A Y \rangle = \langle A^T \lambda, Y \rangle$ , thus $A \times Y$  is  Gaussian with variance
+For any  $\lambda \in \mathbb{R}^p$, $\langle \lambda , A Y \rangle = \langle A^\top \lambda, Y \rangle$ , thus $A \times Y$  is  Gaussian with variance
 
 $$
-\lambda^T A K A^T \lambda \, .
+\lambda^\top A K A^\top \lambda \, .
 $$
 
 The covariance of $A \times Y$ is determined by this observation.
@@ -433,7 +433,7 @@ on an important notion from matrix analysis.
 A symmetric matrix  $M$ with dimensions $k \times k$  is  Definite Positive  (respectively Semi-Definite Positive) iff, for any non-null vector $v \in \mathbb{R}^k$, 
 
 $$
-v^T M v > 0 \qquad (\text{resp.} \qquad v^T M v \geq 0) \, .
+v^\top M v > 0 \qquad (\text{resp.} \qquad v^\top M v \geq 0) \, .
 $$
 
 We denote by  $\textsf{dp}(k)$ (resp. $\textsf{sdp}(k)$), the cones
@@ -442,9 +442,11 @@ of Definite Positive (resp. Semi-Definite Positive) matrices.
 :::
 
 
-::: {#prp}
+::: {#prp-sdp-cov}
+
 If $K$ is the covariance matrix of a random vector, $K$
 is symmetric, Semi-Definite Positive.
+
 :::
 
 ::: {.proof}
@@ -452,9 +454,9 @@ If  $X$  is a  $\mathbb{R}^k$-valued random vector, with covariance $K$,
 for any vector  $\lambda \in \mathbb{R}^n$,
 
 $$
-\lambda^T K \lambda = \sum_{i,j\leq k} K_{i,j} \lambda_i \lambda_j = \operatorname{cov}(\langle \lambda, X \rangle, \langle \lambda, X \rangle)
+\lambda^\top K \lambda = \sum_{i,j\leq k} K_{i,j} \lambda_i \lambda_j = \operatorname{cov}(\langle \lambda, X \rangle, \langle \lambda, X \rangle)
 $$
-soit  $\lambda^T K \lambda =  \operatorname{var}(\langle \lambda, X \rangle)$. The variance of a univariate random variable is always non-negative.
+soit  $\lambda^\top K \lambda =  \operatorname{var}(\langle \lambda, X \rangle)$. The variance of a univariate random variable is always non-negative.
 
 :::
 
@@ -466,7 +468,7 @@ The next  observation is the key to the construction to general Gaussian vectors
 ### Cholesky's factorization
 
 If $A$ is a  Semi-definite  Positive symmetric matrix then there exists
-(at least) a real matrix $B$ such that $A = B^T B$.
+(at least) a real matrix $B$ such that $A = B^\top B$.
 
 :::
 
@@ -474,17 +476,17 @@ We do not check this proposition. This is a basic Theorem from  matrix analysis.
 It can be established from the _spectral decomposition theorem_ for symmetric matrices.
 It can also be established by a simple constructive approach:
 a positive definite  matrix $K$ admits a _Cholesky decomposition_, in other words, there exists
-a triangular matrix lower than $L$ such that $K = L \times L^T$.
+a triangular matrix lower than $L$ such that $K = L \times L^\top$.
 
 The next proposition is a corollary of the general formula for image densities.
 
-::: {#prp}
+::: {#prp-sdp-gaussian-density}
 
 If  $A$ is a symmetric positive definite matrix  ($A \in \textsf{dp}(n)$), then
 the distribution of the centred Gaussian vector with covariance matrix $A$
 is absolutely continuous with respect to Lebesgue's measure on $\mathbb{R}^n$:
 $$
-\frac{1}{({2 \pi})^{n/2}  \operatorname{det}(A)^{1/2}} \exp\left( - \frac{x^t A^{-1} x}{2} \right) \, .
+\frac{1}{({2 \pi})^{n/2}  \operatorname{det}(A)^{1/2}} \exp\left( - \frac{x^\top A^{-1} x}{2} \right) \, .
 $$
 
 :::
@@ -497,9 +499,11 @@ by the bijective linear transformation defined by the Cholesky factorization of 
 The determinant of the Cholesky factor is the square root
 of the determinant of $A$.
 
+$\square$
+
 :::
 
-::: {#exr}
+::: {#exr-sing-covariance}
 
 Is the distribution of a Gaussian vector $X$ with _singular_ covariance matrix absolutely continuous with respect to Lebesgue measure?
 
@@ -511,9 +515,9 @@ Is the distribution of a Gaussian vector $X$ with _singular_ covariance matrix a
 
 ### Gaussian space
 
-If $X= (X_1, \ldots, X_n)^T$ is a centered Gaussian vector with covariance matrix $K$ ,
+If $X= (X_1, \ldots, X_n)^\top$ is a centered Gaussian vector with covariance matrix $K$ ,
 the set  $\left\{ \sum_{i = 1}^n \lambda_i X_i = \langle \lambda, X\rangle ; \lambda \in \mathbb{R}^n\right\}$
-is the Gaussian space generated by  $X = (X_1, \ldots, X_n)^T$).
+is the Gaussian space generated by  $X = (X_1, \ldots, X_n)^\top$).
 
 :::
 
@@ -546,7 +550,7 @@ This inner-product is completely defined by the covariance matrix  $K$.
 \end{eqnarray*}
 
 
-::: {#rem}
+::: {#rem-diff-gaussian-vectors}
 Different Gaussian vectors may generate the same Gaussian space. Explain how and why.
 :::
 
@@ -581,7 +585,8 @@ To show that  $Z$ and  $Y$ are independent, it is enough to check that
 for all $\mu$ and  $\mu'$ in $\mathbb{R}$
 $$\mathbb{E} \left[ \mathrm{e}^{\imath \mu Z} \mathrm{e}^{\imath \mu' Y} \right] =
 \mathbb{E} \left[ \mathrm{e}^{\imath \mu Z}  \right] \times \mathbb{E}
-\left[ \mathrm{e}^{\imath \mu' Y} \right] .$$
+\left[ \mathrm{e}^{\imath \mu' Y} \right] .
+$$
 
 \begin{align*}
 \mathbb{E} \left[ \mathrm{e}^{\imath \mu Z} \mathrm{e}^{\imath \mu' Y} \right] &
@@ -603,11 +608,13 @@ $$\mathbb{E} \left[ \mathrm{e}^{\imath \mu Z} \mathrm{e}^{\imath \mu' Y} \right]
 \mathbb{E} \left[ \mathrm{e}^{\imath \mu' Y} \right] .
 \end{align*}
 
+$\square$
+
 :::
 
 The next proposition is a direct consequence.
 
-::: {#cor}
+::: {#cor-indepemdence-correlation}
 
 If $E$ and $E'$ are two linear sub-spaces of the Gaussian space
 generated by the Gaussian vector with  independent coordinates
@@ -621,14 +628,15 @@ $X_1, \ldots, X_n$, the (Gaussian) random  variables belonging to subspace  $E$ 
 
 Recall the Lévy continuity theorem ([Theorem @thm-thmlevycont])), it relates weak convergence for probability measures and simple convergence for characteristic functions.
 
-::: {#thm}
+::: {#thm-levycont-recall}
 
 A sequence of probability distributions $(P_n)_{n \in \mathbb{N}}$ over $\mathbb{R}^k$
 converges weakly towards $P$ iff for every  $\vec{s} \in \mathbb{R}^k$:
 
 $$\mathbb{E}_{P_n} \left[ \mathrm{e}^{\imath \langle \vec{s},
 \vec{X} \rangle} \right] \rightarrow \mathbb{E}_{P_{}} \left[
-\mathrm{e}^{\imath \langle \vec{s}, \vec{X} \rangle} \right] .$$
+\mathrm{e}^{\imath \langle \vec{s}, \vec{X} \rangle} \right] .
+$$
 
 :::
 
@@ -638,7 +646,7 @@ $\vec{x} \mapsto \sin ( \left\langle \vec{s}, \vec{x}\right\rangle)$ are continu
 It is remarkable and useful that weak convergence can be checked
 on this small set of functions.
 
-::: {#thm}
+::: {#thm-levycont-bis}
 
 ### Lévy-Continuity Theorem (bis)
 
@@ -648,7 +656,9 @@ there exists a function  $f$ over  $\mathbb{R}^k$, continuous at
 $\vec{0}$, such that for all
 $\vec{s} \in \mathbb{R}^k$:
 
-$$\mathbb{E}_{P_n} \left[ \mathrm{e}^{\imath \langle \vec{s}, \vec{X} \rangle} \right] \rightarrow f(\vec{s})\,.$$
+$$
+\mathbb{E}_{P_n} \left[ \mathrm{e}^{\imath \langle \vec{s}, \vec{X} \rangle} \right] \rightarrow f(\vec{s})\,.
+$$
 
 Then, function $f$ is   the characteristic function of some probability distribution $P$.
 
@@ -659,7 +669,7 @@ The characteristic function of a probability distribution is always continuous a
 Continuity at $0$ warrants the tightness of the sequence of probability distributions.
 
 
-::: {#prp}
+::: {#prp-conv-gaussiamn}
 
 If a sequence of $k$-dimensional Gaussian vectors $(X_n)$ is defined by a $\mathbb{R}^k$-valued sequence  $(\vec{\mu}_n)_n$ and a $\textsf{SDP}(k)$-valued sequence  $(K_n)_n$ and
 
@@ -673,39 +683,41 @@ the limit distribution is $\delta_\mu$).
 
 :::
 
-## Gaussian conditioning
+## Gaussian conditioning   {#sec-gauss-conditioning}
 
-Let $(X_1,\ldots,X_n)^T$  be a Gaussian vector with distribution $\mathcal{N}(\mu, K)$ where   $K \in \textsf{DP}(n)$.
+Let $(X_1,\ldots,X_n)^\top$  be a Gaussian vector with distribution $\mathcal{N}(\mu, K)$ where   $K \in \textsf{DP}(n)$.
 The  covariance matrix  $K$  is  partitioned into blocks
 $$
 K = \left[
 \begin{array}{cc}
-A & B^t \\
+A & B^\top \\
 B & W
 \end{array}
 \right]
 $$
+
 where  $A \in \textsf{DP}(k)$, $1 \leq k < n$, and $W \in \textsf{DP}(n-k)$.
 
 
-We are interested in the conditional expectation of  $(X_1, \ldots, X_k)^T$  with repsect to $\sigma(X_{k+1},\ldots,X_n)$
-and in the conditional distribution of $(X_1, \ldots, X_k)^T$  with respect to  $\sigma(X_{k+1},\ldots,X_n)$.
+We are interested in the conditional expectation of  $(X_1, \ldots, X_k)^\top$  with repsect to $\sigma(X_{k+1},\ldots,X_n)$
+and in the conditional distribution of $(X_1, \ldots, X_k)^\top$  with respect to  $\sigma(X_{k+1},\ldots,X_n)$.
 
 The Schur complement of $A$  in $K$  is defined as
 $$
-W - B A^{-1} B^T\, .
+W - B A^{-1} B^\top\, .
 $$
+
 This definition makes sense for symmetric matrices when $A$ is non-singular.
 
 If $K \in \textsf{DP}(n)$  then the Schur complement of  $A$ in  $K$ also belongs to $\textsf{DP}(n-k)$
 
 In the statement of  the next theorems,  $A^{-1/2}$ denotes the Cholesky factor
-of  $A^{-1}$:   $A^{-1} = A^{-1/2} \times (A^{-1/2})^T$.
+of  $A^{-1}$:   $A^{-1} = A^{-1/2} \times (A^{-1/2})^\top$.
 
 
-::: {#thm}
+::: {#thm-cond-expectation}
 
-L'espérance conditionnelle de  $(X_{k+1}, \ldots, X_n)^t$  sachant $(X_{1},\ldots,X_k)^t$ est une transformation affine de $(X_{1},\ldots,X_{k})^t$:
+L'espérance conditionnelle de  $(X_{k+1}, \ldots, X_n)^\top$  sachant $(X_{1},\ldots,X_k)^\top$ est une transformation affine de $(X_{1},\ldots,X_{k})^\top$:
 
 $$
 \mathbb{E}\left[ \begin{pmatrix}
@@ -724,12 +736,12 @@ $$
 
 
 
-::: {#thm}
+::: {#thm-cond-gaussian-density}
 
-The conditional distribution of $(X_{k+1}, \ldots, X_n)^T$ with respect to $\sigma(X_{1},\ldots,X_k)$ is a Gaussian distribution whose expectation is the conditional expectation
-$(X_{k+1}, \ldots, X_n)^T$ with respect to $\sigma(X_{1},\ldots,X_k)$
-and whose variance is the Schur complement of the covariance of $(X_{1},\ldots,X_k)^T$
-in the covariance matrix of $(X_1, \ldots, X_n)^T$.
+The conditional distribution of $(X_{k+1}, \ldots, X_n)^\top$ with respect to $\sigma(X_{1},\ldots,X_k)$ is a Gaussian distribution whose expectation is the conditional expectation
+$(X_{k+1}, \ldots, X_n)^\top$ with respect to $\sigma(X_{1},\ldots,X_k)$
+and whose variance is the Schur complement of the covariance of $(X_{1},\ldots,X_k)^\top$
+in the covariance matrix of $(X_1, \ldots, X_n)^\top$.
 
 :::
 
@@ -738,12 +750,12 @@ We will first study the conditional density, and,  with a minimum amount of calc
 
 To characterize conditional density, we rely on a distributional representation argument (any Gaussian vector is distributed as the image of a standard Gaussian vector by an affine transformation) and a matrix analysis result that is at the core of the Cholesky factorization of positive semi-definite matrices.
 
-$(X_1, \ldots, X_n)^T$ is distributed as the image of standard Gaussian vector
+$(X_1, \ldots, X_n)^\top$ is distributed as the image of standard Gaussian vector
 by a block triangular matrix
 
 , et utiliser des propriétés  des lois conditionnelles pour établir à la fois les deux résultats.
 
-::: {#prp}
+::: {#prp-schur-complement}
 
 Let $K$ be a symmetric definite positive matrix with dimensions
 $n \times n$
@@ -751,7 +763,7 @@ $n \times n$
 $$
 K = \left[
 \begin{array}{cc}
-A & B^t \\
+A & B^\top \\
 B & W
 \end{array}
 \right]
@@ -763,24 +775,24 @@ where  $A$ has dimensions  $k \times k$, $1 \leq k < n$.
 Then,  the Schur-complement of $A$ with respect to  $K$
 
 $$
-W - B A^{-1} B^t
+W - B A^{-1} B^\top
 $$
 
-is positive definite. Sub-matrices $A$ and   $W - B A^{-1} B^t$
-both have a Cholesky decomposition $A = L_1 L_1^t $,
-$W - B A^{-1} B^t = L_2 L_2^t$ where   $L_1, L_2$  are lower triangular,
+is positive definite. Sub-matrices $A$ and   $W - B A^{-1} B^\top$
+both have a Cholesky decomposition $A = L_1 L_1^\top $,
+$W - B A^{-1} B^\top = L_2 L_2^\top$ where   $L_1, L_2$  are lower triangular,
 and $K$'s factorization reads like:
 
 $$
 K = \left[
 \begin{array}{cc}
 L_1 & 0 \\
-B (L_1^t)^{-1}  & L_2
+B (L_1^\top)^{-1}  & L_2
 \end{array}
 \right] \times \left[
 \begin{array}{cc}
-L_1^t & L_1^{-1} B^t \\
-0 & L_2^t
+L_1^\top & L_1^{-1} B^\top \\
+0 & L_2^\top
 \end{array}
 \right] \, .
 $$
@@ -801,7 +813,7 @@ X_n
 \end{pmatrix} \sim \left[
 \begin{array}{cc}
 L_1 & 0 \\
-B (L_1^t)^{-1}  & L_2
+B (L_1^\top)^{-1}  & L_2
 \end{array}
 \right] \times \begin{pmatrix}
 Y_1 \\
@@ -812,12 +824,12 @@ $$
 
 where  $( Y_1,
 \ldots,
-Y_n)^t$ is a centered standard Gaussian vector.
+Y_n)^\top$ is a centered standard Gaussian vector.
 
-In the sequel,  we assume  $(X_1, \ldots,X_n)^T$  and
-$(Y_1,\ldots,Y_n)^T$ live on the same probability space.
-As $L_1$ is  invertible, the $\sigma$-algebras generated by  $(X_1, \ldots,X_k)^T$ and
-$(Y_1, \ldots,Y_k)^T$ are equal. We agree on  $\mathcal{G}=\sigma(X_1, \ldots,X_k)$.
+In the sequel,  we assume  $(X_1, \ldots,X_n)^\top$  and
+$(Y_1,\ldots,Y_n)^\top$ live on the same probability space.
+As $L_1$ is  invertible, the $\sigma$-algebras generated by  $(X_1, \ldots,X_k)^\top$ and
+$(Y_1, \ldots,Y_k)^\top$ are equal. We agree on  $\mathcal{G}=\sigma(X_1, \ldots,X_k)$.
 The conditional expectations and conditional distributions also coincide .
 
 \begin{eqnarray*}
@@ -825,7 +837,7 @@ The conditional expectations and conditional distributions also coincide .
 X_{k+1} \\
 \vdots \\
 X_n
-\end{pmatrix} \mid \mathcal{G} \right] &= &\mathbb{E} \left[ B (L_1^t)^{-1} \begin{pmatrix}
+\end{pmatrix} \mid \mathcal{G} \right] &= &\mathbb{E} \left[ B (L_1^\top)^{-1} \begin{pmatrix}
 Y_{1} \\
 \vdots \\
 Y_k
@@ -834,7 +846,7 @@ Y_{k+1} \\
 \vdots \\
 Y_n
 \end{pmatrix} \mid \mathcal{G} \right]  \\
-& = & B (L_1^t)^{-1} L_1^{-1}\begin{pmatrix}
+& = & B (L_1^\top)^{-1} L_1^{-1}\begin{pmatrix}
 X_{1} \\
 \vdots \\
 X_k
@@ -846,7 +858,7 @@ X_k
 \end{eqnarray*} 
 
 
-car $(Y_{k+1}, \ldots,Y_n)^t$ is centered and independent from $\mathcal{G}$.
+car $(Y_{k+1}, \ldots,Y_n)^\top$ is centered and independent from $\mathcal{G}$.
 
 Note that residuals 
 
@@ -871,11 +883,11 @@ For general square integrable random variables,
 we may only assert that residuals are  orthogonal to $\mathcal{G}$-measurable random variables.
 
 
-The conditional distribution of  $(X_{k+1},\ldots, X_n)^T$ with respect to $(X_1,\ldots, X_k)^T$
+The conditional distribution of  $(X_{k+1},\ldots, X_n)^\top$ with respect to $(X_1,\ldots, X_k)^\top$
 coincides with the conditional distribution of
 
 $$
-B (L_1^t)^{-1}   \times
+B (L_1^\top)^{-1}   \times
 \begin{pmatrix}
 Y_1\\ \vdots \\ Y_k
 \end{pmatrix} + L_2 \times
@@ -884,22 +896,25 @@ Y_{k+1}\\ \vdots \\ Y_n
 \end{pmatrix}
 $$ 
 
-conditionally on   $(Y_1,\ldots, Y_k)^T$.
-As  $(Y_1,\ldots, Y_k)^t = L_1^{-1}(X_1,\ldots,X_k)^T$,
+conditionally on   $(Y_1,\ldots, Y_k)^\top$.
+As  $(Y_1,\ldots, Y_k)^\top = L_1^{-1}(X_1,\ldots,X_k)^\top$,
 the conditional distribution we are looking for is Gaussian
 with expectation $$B A^{-1}   \times
 \begin{pmatrix}
 X_1\\ \vdots \\ X_k
 \end{pmatrix}$$ (the conditional expectation) and variance
-$L_2 \times L_2^t = W - B A^{-1} B^t$.
+$L_2 \times L_2^\top = W - B A^{-1} B^\top$.
+
+
+$\square$
 
 :::
 
 
 
-::: {#exm}
+::: {#exm-conditional-gaussian}
 
-If  $(X,Y)^T$  is a  centered Gaussian vector with  $\operatorname{var}(X)=\sigma_x^2$, $\operatorname{var}(Y)=\sigma^2_y$ and  $\operatorname{cov}(X,Y)= \rho \sigma_x \sigma_y$,  the conditional distribution of  $Y$ with respect to $X$ is
+If  $(X,Y)^\top$  is a  centered Gaussian vector with  $\operatorname{var}(X)=\sigma_x^2$, $\operatorname{var}(Y)=\sigma^2_y$ and  $\operatorname{cov}(X,Y)= \rho \sigma_x \sigma_y$,  the conditional distribution of  $Y$ with respect to $X$ is
 
 $$
 \mathcal{N}\left( \rho \sigma_y/\sigma_x X, \sigma^2_y (1- \rho^2)  \right) \, .
@@ -915,7 +930,7 @@ These two theorems are usually addressed in the order in which they are stated. 
 
 In order to characterize conditional expectation,
 we first compute the optimal affine predictor of
-$(X_{k+1},\ldots,X_n)^T$  based on $(X_{1},\ldots,X_k)^T$. This optimal affine predictor is
+$(X_{k+1},\ldots,X_n)^\top$  based on $(X_{1},\ldots,X_k)^\top$. This optimal affine predictor is
 
 $$
 \begin{pmatrix}
@@ -927,7 +942,7 @@ X_{1} \\ \vdots \\ X_{k}
 $$
 
 (if Gaussian vectors are centred, this amounts to determine the matrix $P$  with  dimensions $(n-k)\times k$
-which minimizes  $\text{trace}(PA P^t -2 B P^t$)).
+which minimizes  $\text{trace}(PA P^\top -2 B P^\top$)).
 The optimal affine predictor is a Gaussian vector,
 one can check that the residual vector
 
@@ -941,12 +956,13 @@ X_{1} \\ \vdots \\ X_{k}
 \mu_{1} \\ \vdots \\ \mu_k
 \end{pmatrix}\right) \right\}
 $$ 
+
 is also Gaussian and orthogonal to the affine predictor. The residual vector  is independent
 from the  affine predictor.
 
 This is enough to establish that the affine predictor is the orthogonal projection of
-$(X_{k+1}, \ldots, X_n)^T$ on the closed linear subspace of  square-integrable
-$(X_{1},\ldots,X_k)^T$-measurable random vectors.
+$(X_{k+1}, \ldots, X_n)^\top$ on the closed linear subspace of  square-integrable
+$(X_{1},\ldots,X_k)^\top$-measurable random vectors.
 
 This proves that the affine predictor is the conditional expectation.
 
@@ -956,35 +972,37 @@ In the notes, we deal with a special case of linear conditioning.
 To fugure out general linear conditioning, consider  $X \sim \mathcal{N}(0, {K})$
 (we assume centering to alleviate notation and computations, translating does not change the relevant $\sigma$-algebras and thus conditioning), where ${K} \in \textsf{DP}(n)$, and a linear transformation  defined by matrix
 $H$ with dimensions $m \times n$. $H$ is assumed to have rank $m$. Agree on $Y= {H} X$.
-Considering the Gaussian vector $[ X^T : Y^T]$ with covariance matrix $$
+Considering the Gaussian vector $[ X^\top : Y^\top]$ with covariance matrix 
+$$
 \left[
 \begin{array}{cc}
-{K} & {K} {H}^t \\
-{H}{K} & {H} {K} {H}^t
+{K} & {K} {H}^\top \\
+{H}{K} & {H} {K} {H}^\top
 \end{array}
 \right]
 $$
+
 and adapting the previous computations (the covariance matrix is not positive definite any more),
 we may check that the conditional distribution of $X$ with respect to $Y$ is Gaussian with expectation
 $$
-  K H^T (HKH^T)^{-1}
+K H^\top (HKH^\top)^{-1}
 $$ 
 
 and variance 
 
 $$
-  K - K H^t (HKH^T)^{-1} H K \, .
+K - K H^\top (HKH^\top)^{-1} H K \, .
 $$
 
 The linearity of conditional expectation is a property of Gaussian vectors and linear conditioning.
 If you condition with respect to the norm  $\| X\|_2$, the conditional distribution is not Gaussian anymore.
 
-## About Gamma distributions
+## About Gamma distributions  {#sec-about-gamma}
 
 Investigating the norm of Gaussian vectors will prompt us
 to introduce  $\chi^2$ distributions, a sub-family of Gamma distributions.
 
-::: {#def}
+::: {#def-gamma-distrib}
 
 ### Gamma distributions
 
@@ -1009,14 +1027,14 @@ Euler's  $\Gamma ()$ function  interpolates the factorial.
 For every  positive real $p$, $\Gamma (p + 1) = p \Gamma
 (p) .$ If  $p$ is integer,  $\Gamma (p + 1) = p!$
 
-::: {#exr}
+::: {#exr-gamma-half}
 
 Check that $\Gamma(1/2)=\sqrt{\pi}$.
 
 :::
 
 
-::: {#prp}
+::: {#prp-moments-gamma}
 
 If  $X \sim \mathrm{Gamma}(p, \lambda)$
 $\mathbb{E}X = \frac{p}{\lambda}$ and $\operatorname{var}(X) = \frac{p}{\lambda^2}$.
@@ -1028,7 +1046,7 @@ The sum of two independent Gamma-distributed random variables is Gamma distribut
 if they have the same intensity (or scale) parameter.
 
 
-::: {#prp}
+::: {#prp-sum-gamma}
 If $X$ and  $Y$ are independent Gamma-distributed random variables
 with the same intensity parameter $\lambda$  $X \sim \mathrm{Gamma}(p,
 \lambda), Y\sim \mathrm{Gamma}(q, \lambda)$ then $X + Y \sim \mathrm{Gamma}(p+q, \lambda)$.
@@ -1056,11 +1074,15 @@ x^{p + q - 1} \int_0^{1} u^{p-1} (1 - u)^{q - 1}
 & = & g_{p + q, \lambda} (x) \frac{\Gamma(p+q)}{\Gamma(p)\Gamma(q)} \int_0^{1} u^{p-1} (1 - u)^{q - 1}
 \mathrm{d} u \, .
 \end{eqnarray*}
-We may pocket the next observation:  $$
+We may pocket the next observation:  
+$$
 B(p,q):=   \int_0^{1} u^{p-1} (1 - u)^{q - 1}
 \mathrm{d} u
 $$
+
 satisfies  $B(p,q) = \frac{\Gamma(p)\Gamma(q)}{\Gamma(p+q)}.$
+
+$\square$
 
 :::
 
@@ -1082,7 +1104,8 @@ $$
 
 :::
 
-::: {#prp}
+::: {#prp-chisq-sum-indep-gauss}
+
 The sum of  $k$ independent squared standard Gaussian random variables
 is distributed according to the chi-square distributions with $k$ degrees of freedom  $\chi^2_k$.
 
@@ -1105,6 +1128,8 @@ $$
 2 \frac{1}{2\sqrt{t}} \phi(\sqrt{t}) = \frac{1}{\sqrt{2\pi t}} \mathrm{e}^{-\frac{t}{2}} = \left(\frac{1}{2}\right)^{1/2} \frac{t^{-1/2}}{\Gamma(1/2)} \mathrm{e}^{-\frac{t}{2}} \,.
 $$
 
+$\square$
+
 :::
 
 
@@ -1115,48 +1140,52 @@ a centered Gaussian vector only depends on the spectrum of its covariance
 matrix.
 
 
-::: {#thm}
+::: {#thm-norm-centered}
 
 If  ${X}:= (X_1, X_2,
-\ldots, X_n)^{^T} \sim \mathcal{N}\left(0, A\right)$ with  $A = L L^T$ ($L$ lower triangular), if
+\ldots, X_n)^{^\top} \sim \mathcal{N}\left(0, A\right)$ with  $A = L L^\top$ ($L$ lower triangular), if
 $M \in \mathrm{SDP}(n)$,  then
-${X}^T M {X}$ is  distributed like $\sum_{i = 1}^n \lambda_i Z_i$ where
-$(\lambda_i)_{i \in \{1, \ldots, n\}}$ denote the eigenvalues of $L^T \times M\times L$
+${X}^\top M {X}$ is  distributed like $\sum_{i = 1}^n \lambda_i Z_i$ where
+$(\lambda_i)_{i \in \{1, \ldots, n\}}$ denote the eigenvalues of $L^\top \times M\times L$
 and  where  $Z_i$ are independent  $\chi^2_1$-distributed random variables.
 
 :::
 
 This is a corollary of an important property of standard Gaussian vectors: rotational invariance.
 The standard Gaussian distribution is invariant under orthogonal transform
-(a matrix $O$  is  orthogonal iff   $OO^T=\text{Id})$.
+(a matrix $O$  is  orthogonal iff   $OO^\top=\text{Id})$.
 
 ::: {.proof}
 
-Matrix $A$ may be factorized as $A = LL^t$ (Cholesky), and  ${X}$ is  distributed like
-$L {Y}$ where ${Y}$ is standard Gaussian. The quadratic form ${X}^T M
-{X}$ is thus distributed like ${Y}^T {L}^T M
+Matrix $A$ may be factorized as $A = LL^\top$ (Cholesky), and  ${X}$ is  distributed like
+$L {Y}$ where ${Y}$ is standard Gaussian. The quadratic form ${X}^\top M
+{X}$ is thus distributed like ${Y}^\top {L}^\top M
 {L}  {Y}$.  There exist an orthogonal transform
- $O$ such that $L^T M L = O^t \operatorname{diag}
+ $O$ such that $L^\top M L = O^\top \operatorname{diag}
 (\lambda_i) O.$ Random vector $O {Y}$ is distributed like
 $\mathcal{N} (0, I_n)$.
 
+$\square$
+
 :::
 
-## Norm of non-centred Gaussian vectors
+## Norm of non-centred Gaussian vectors  {#sec-norm-non-centered}
 
 
 The distribution of the squared norm of a Gaussian vector with covariance matrix $\sigma^2 \operatorname{Id}$
 depends on the norm of the  expectation but does  not depend on its direction. In addition, this distribution stochastically can be compared with  the distribution of the  squared norm of a centred Gaussian vector with the same covariance.
 
 
-::: {#dename}
+::: {#def-name}
 
-### rdering
+### ordering
 
 In a probability space endowed with distribution $\mathbb{P}$, a real random  variable   $X$  is
-stochastically smaller than  random variable $Y$, if $$
+stochastically smaller than  random variable $Y$, if 
+$$
 \mathbb{P} \{ X \leq Y \} =  1 \, .
 $$
+
 The distribution of $Y$  is said to stochastically dominate the distribution of  $X$.
 
 :::
@@ -1165,21 +1194,26 @@ If  $X$  is stochastichally less than $Y$  and if  $F$  and  $G$  denote the cum
 
 Conversely.
 
-::: {#prp}
+::: {#prp-stoch-ordering}
 
-If  $F$ and $G$  are two cumulative distribution functions that satisfy  $\forall x \in \mathbb{R}$ $F(x)\geq G(x)$ then there exists a probability space equipped with a probability distribution $\mathbb{P}$ and  two random variables $X$ and $Y$  with cumulative distribution functions $F, G$  that satisfy:$$
+If  $F$ and $G$  are two cumulative distribution functions that satisfy  $\forall x \in \mathbb{R}$ $F(x)\geq G(x)$ then there exists a probability space equipped with a probability distribution $\mathbb{P}$ and  two random variables $X$ and $Y$  with cumulative distribution functions $F, G$  that satisfy:
+
+$$
 \mathbb{P}\{ X \leq Y\} = 1 \, .
 $$
+
 :::
 
 The proof proceeds by a  _quantile coupling_ argument.
 
 
 ::: {.proof}
+
 It is enough to endow  $([0,1], \mathcal{B}([0,1])$  with the uniform distribution.
 Let $X (\omega)=  F^{\leftarrow}(\omega)$,  $Y(\omega) = G^\leftarrow(\omega)$. Then
 the distribution of  $X$  (resp. $Y$) has cumulative distribution function $F$ (resp. $G$) and the
 following holds:
+
 $$
 \mathbb{P} \{ X \leq Y\}  = \mathbb{P} \{ F^{\leftarrow}(U) \leq  G^{\leftarrow}(U)\} = 1 \, .
 $$
@@ -1189,27 +1223,34 @@ $$
 
 
 
-::: {#thm}
+::: {#thm-non-central-chi}
 
 If $X \sim \mathcal{N}\left( 0, \sigma^2 \operatorname{Id}\right)$ and
 $Y \sim \mathcal{N}\left( \theta, \sigma^2 \operatorname{Id}\right)$ with $\theta \in \mathbb{R}^d$
-then  $$
+then  
+$$
 \left\Vert Y \right\Vert^2 \sim  \left( (Z_1 + \|\theta\|_2)^2 + \sum_{i=1}^d Z_i^2 \right)
 $$
+
 where  $Z_i$  are  i.i.d. according to $\mathcal{N}(0,\sigma^2)$.
 
-For every  $x \geq 0$, $$
+For every  $x \geq 0$, 
+
+$$
 \mathbb{P} \left\{ \| Y \|\leq x\right\} \leq \mathbb{P} \left\{ \| X \| \leq x \right\} \, .
 $$
+
 The distribution of  $\| Y\|^2/\sigma^2$ (non-centred $\chi^2$ with parameter $\| \theta\|_2/\sigma$)
 _stochastichally dominates_ the distribution of   $\| X\|^2/\sigma^2$ (centred $\chi^2$ with the same number of
 degrees of freedom).
+
 
 :::
 
 ::: {.proof}
 The Gaussian vector $Y$ is  distributed like $\theta + X$.   There exists an orthogonal transform
-$O$ such that $$
+$O$ such that 
+$$
 O \theta = \begin{pmatrix}
 \| \theta\|_2 \\
 0 \\
@@ -1217,6 +1258,7 @@ O \theta = \begin{pmatrix}
 0
 \end{pmatrix} \, .
 $$
+
 Vectors  $OY$ and $OX$ respectively have the same norms as  $X$ and $Y$.
 
 The squared norm of  $Y$
@@ -1228,31 +1270,40 @@ $$
 \mathbb{P} \left\{ (Z_1+ \|\theta\|_2)^2  \leq x \right\} \leq
 \mathbb{P} \left\{ X_1^2 \leq x \right\} \, ,
 $$
-that is  $$
+
+that is  
+$$
 \mathbb{P} \left\{ |Z_1+ \|\theta\|_2|  \leq \sqrt{x} \right\} \leq
 \mathbb{P} \left\{ |X_1| \leq \sqrt{x} \right\} \, ,
 $$
-or $$
+
+or 
+$$
 \Phi(\sqrt{x}- \|\theta\|_2) - \Phi(-\sqrt{x}-\|\theta\|_2)  \leq \Phi(\sqrt{x}) -  \Phi(-\sqrt{x}) \, .
 $$
+
 For  $y>0$, the function mapping $[0,\infty)$ to $\mathbb{R}$, defined by $a \mapsto \Phi(y-a) - \Phi(-y-a)$
 is non-increasing with respect to $a$:
 it derivative with respect to $a$ equals  $-\phi(y-a)+\phi(-y-a)=\phi(y+a)-\phi(y-a)\leq 0$.
 The conclusion follows
 
+$\square$
+
 :::
 
 
-The last step of  the proof reads as$$
+The last step of  the proof reads as
+$$
 \mathbb{P} \left\{ X \in \theta + C \right\} \leq \mathbb{P} \left\{ X \in C\right\}
 $$
+
 where  $X \sim \mathcal{N}(0,\operatorname{Id}_1)$, $\theta \in \mathbb{R}$ and $C = [-\sqrt{x},\sqrt{x}]$.
 This inequality holds in dimension $d\geq 1$ if   $C$ is compact, convex, symmetric.
 This (subtle) result is called Anderson's Lemma.
 
 ## Cochran Theorem and  consequences   {#sec-cochran}
 
-::: {#thm}
+::: {#thm-cochran}
 
 ### Cochran
 
@@ -1270,26 +1321,32 @@ $$
 
 ::: {.proof}
 
-The  covariance matrix of  $\pi_{E_j} X$  is $\pi_{E_j} \pi_{E_j}^t = \pi_{E_j}$. The eigenvalues of $\pi_{E_j}$  are $1$ with  multiplicity $\text{dim}(E_j)$ and  $0$. The statement about the distribution of $\| \pi_{E_j} X\|_2^2$ is
+The  covariance matrix of  $\pi_{E_j} X$  is $\pi_{E_j} \pi_{E_j}^\top = \pi_{E_j}$. The eigenvalues of $\pi_{E_j}$  are $1$ with  multiplicity $\text{dim}(E_j)$ and  $0$. The statement about the distribution of $\| \pi_{E_j} X\|_2^2$ is
 a corollary of @prp-normgaussstand and @prp-normespectre.
 
 To prove stochastic independence, let us consider $\mathcal{I}, \mathcal{J} \subset \{1,\ldots,k\}$
 with $\mathcal{I} \cap \mathcal{J} = \emptyset.$ It is enough to check that for all $(\alpha)_{j \in \mathcal{I}}, (\beta_j)_{j \in \mathcal{J}}$, the characteristic functions of
-$$\left(\sum_{j\in \mathcal{I}} \langle \alpha_j, \pi_{E_j} X \rangle, \sum_{j\in \mathcal{J}} \langle \beta_j, \pi_{E_j} X \rangle\right)$$ can be factorized. It suffices to check that the two Gaussians are orthogonal.
+$$
+\left(\sum_{j\in \mathcal{I}} \langle \alpha_j, \pi_{E_j} X \rangle, \sum_{j\in \mathcal{J}} \langle \beta_j, \pi_{E_j} X \rangle\right)
+$$ 
+
+can be factorized. It suffices to check that the two Gaussians are orthogonal.
 
 \begin{eqnarray*}
 { \mathbb{E} \left[ \left(\sum_{j\in \mathcal{I}} \langle \alpha_j, \pi_{E_j} X \rangle \right) \times \left(\sum_{j'\in \mathcal{J}} \langle \beta_{j'}, \pi_{E_{j'}} X \rangle\right)\right]}
 & = & \sum_{j \in \mathcal{I}, j' \in \mathcal{J}}
-\alpha_j^t \pi_{E_j} \pi_{E_{j'}} \beta_{j'}
+\alpha_j^\top \pi_{E_j} \pi_{E_{j'}} \beta_{j'}
 =  0 \, .
 \end{eqnarray*}
+
+$\square$
 
 :::
 
 The next result is a cornerstone of statistical inference in Gaussian models.
 It is a corollary of Cochran's Theorem.
 
-::: {#thm} 
+::: {#thm-student} 
 
 ### Student
 
@@ -1324,22 +1381,25 @@ $$
 1 & \ldots & 1
 \end{pmatrix} X
 $$
-the vector $(\overline{X}_n, \ldots , \overline{X}_n)^t$  is the orthogonal projection
+the vector $(\overline{X}_n, \ldots , \overline{X}_n)^\top$  is the orthogonal projection
 of the standard Gaussian vector $X$ on the
-line generated by  $(1, \ldots, 1)^t$.
+line generated by  $(1, \ldots, 1)^\top$.
 
-Vector  $(X_1- \overline{X}_n, \ldots , X_n -\overline{X}_n)^t$ is the orthogonal projection fo Gaussian vector $X$
-on the hyperplane which is orthogonal to $(1, \ldots, 1)^t$.
+Vector  $(X_1- \overline{X}_n, \ldots , X_n -\overline{X}_n)^\top$ is the orthogonal projection fo Gaussian vector $X$
+on the hyperplane which is orthogonal to $(1, \ldots, 1)^\top$.
 
-According to Cochran's Theorem (@sec-cochran), random vectors  $(\overline{X}_n, \ldots , \overline{X}_n)^t$,
-and   $(X_1- \overline{X}_n, \ldots , X_n -\overline{X}_n)^t$ are independent.
+According to Cochran's Theorem (@sec-cochran), random vectors  $(\overline{X}_n, \ldots , \overline{X}_n)^\top$,
+and   $(X_1- \overline{X}_n, \ldots , X_n -\overline{X}_n)^\top$ are independent.
 
 The distribution of  $\overline{X}_n$ is trivially Gaussian.
 
 The distribution of $V$ is characterized using Cochran's Theorem.
+
+$\square$
+
 :::
 
-::: {#def}
+::: {#def-student-dsitrib}
 
 ###  Distribution
 
@@ -1359,32 +1419,37 @@ It is remarkable that the bound provided for linear functions extends to Lipschi
 It is even more remarkable that this bound does not involve the dimension of the ambient space.
 
 
-::: {#thm}
+::: {#thm-gauss-conc}
 
 Let  $X \sim \mathcal{N}(0 , \text{Id}_d)$.
-\begin{enumerate}
-\item if  $f$ is  differentiable on $\mathbb{R}^d$,
-$$
-\operatorname{var}(f(X)) \leq \mathbb{E} \| \nabla f \|^2   \qquad \text{(Poincaré's inequality)}
-$$
-\item if  $f$  is  $L$-Lipschitz on  $\mathbb{R}^d$,
-$$
-\operatorname{var}(f(X)) \leq L^2
-$$
-and for  $\lambda>0$
-$$
-\log \mathbb{E} \mathrm{e}^{\lambda(f(X)-\mathbb{E}f)} \leq \frac{\lambda^2 L^2}{2} \, .
-$$
-For every  $t\geq 0$, $$
-\mathbb{P} \left\{ f(X) - \mathbb{E} f(X) \geq t \right\} \leq \mathrm{e}^{-\frac{t^2}{2 L^2}} \, .
-$$
-\end{enumerate}
+
+- if  $f$ is  differentiable on $\mathbb{R}^d$,
+    $$
+    \operatorname{var}(f(X)) \leq \mathbb{E} \| \nabla f \|^2   \qquad \text{(Poincaré's inequality)}
+    $$
+
+- if  $f$  is  $L$-Lipschitz on  $\mathbb{R}^d$,
+
+    $$
+    \operatorname{var}(f(X)) \leq L^2
+    $$
+
+    and for  $\lambda>0$
+    $$
+    \log \mathbb{E} \mathrm{e}^{\lambda(f(X)-\mathbb{E}f)} \leq \frac{\lambda^2 L^2}{2} \, .
+    $$
+
+    For every  $t\geq 0$, 
+    $$
+    \mathbb{P} \left\{ f(X) - \mathbb{E} f(X) \geq t \right\} \leq \mathrm{e}^{-\frac{t^2}{2 L^2}} \, .
+    $$
+
 :::
 
 
 The proof relies on the next identity.
 
-::: {#prp}
+::: {#prp-cov-identity}
 
 ### Covariance identity
 
@@ -1402,18 +1467,21 @@ We start by checking this proposition  on  functions $x \mapsto  \mathrm{e}^{\im
 Let us first check Poincaré's inequality.
 
 We choose $f=g$. Starting from the covariance identity, thanks to  Cauchy-Schwarz's inequality:
+
 \begin{eqnarray*}
 \operatorname{var}(f(X) )     &= & \operatorname{cov}(f(X),f(X)) \\
 & = & \int_0^1  \mathbb{E}\left\langle \nabla f(X) , \nabla f\left(\alpha X +\sqrt{1- \alpha^2} Y \right) \right\rangle \mathrm{d} \alpha \\
 & \leq & \int_0^1 \left( \mathbb{E}\|  \nabla f(X) \|^2\right)^{1/2} \times
 \left(\mathbb{E} \|\nabla f\left(\alpha X +\sqrt{1- \alpha^2} Y\right)\|^2 \right)^{1/2} \mathrm{d} \alpha \, .
 \end{eqnarray*}
+
 The desired results follows by noticing that  $X$ and  $\alpha X + \sqrt{1- \alpha^2}Y$  are both
  $\mathcal{N}(0,\text{Id})$-distributed.
 
 To obtain the exponential inequality, choose  $f$ differentiable and  1-Lipschitz, and $g = \exp(\lambda f)$ pour $\lambda\geq 0$.
 Without loss of generality, assume  $\mathbb{E}f(X)=0$.
 The covariance identity and the chain rule imply
+
 \begin{eqnarray*}
 \operatorname{cov}\left(f(X),\mathrm{e}^{\lambda f(X)}\right)  & = & \lambda
 \int_0^1  \mathbb{E}\left[\left\langle \nabla f(X) , \nabla f\left(\alpha X +\sqrt{1- \alpha^2} Y \right) \right\rangle \mathrm{e}^{\lambda f\left(\alpha X +\sqrt{1- \alpha^2} Y \right)}\right] \mathrm{d} \alpha \\
@@ -1421,24 +1489,30 @@ The covariance identity and the chain rule imply
 \int_0^1  \mathbb{E}\left[ \mathrm{e}^{\lambda f\left(\alpha X +\sqrt{1- \alpha^2} Y \right)}\right] \mathrm{d} \alpha \\
 & = & \lambda L^2 \mathbb{E}\left[ \mathrm{e}^{\lambda f\left(X\right)}\right]
 \end{eqnarray*}
+
 Define  $F(\lambda):= \mathbb{E}\left[ \mathrm{e}^{\lambda f\left(X\right)}\right]$.
 Note that we have just established a differential inequality for  $F$, checking
- $\operatorname{cov}( f , \mathrm{e}^{\lambda f})= F'(\lambda)$ since $f$ is centred:
+$\operatorname{cov}( f , \mathrm{e}^{\lambda f})= F'(\lambda)$ since $f$ is centred:
+
 $$
 F'( \lambda) \leq \lambda L^2 F(\lambda) \,.
 $$
+
 Solving this differential inequality under  $F(0)=1$, for $\lambda\geq 0$
 $$
 F( \lambda) \leq \mathrm{e}^{\frac{\lambda^2L^2}{2}} \, .
 $$
+
 The same approach works for $\lambda<0$.
 It is enough to invoke Markov's exponential inequality and to optimize with respect to  $\lambda=t/L^2$.
+
+$\square$
 
 :::
 
 Concentration inequalities describe the behavior of the norm of high-dimensional Gaussian vectors.
 
-::: {#cor}
+::: {#cor-norm-gaussvector}
 
 If  $X$ is a standard $d$-dimensional Gaussian vector, then
 $$
@@ -1459,11 +1533,13 @@ The upper bound on expectation follows from Jensen's inequality.
 
 The lower bound on expectation follows from $(\mathbb{E} \|X\|_2)^2 = \mathbb{E} \|X\|_2^2 - \operatorname{var}(\|X\|_2)= d -\operatorname{var}(\|X\|_2)$  and from the variance upper bound.
 
+$\square$
+
 :::
 
 
 
-::: {#exr}
+::: {#exr-norm-non-centered-gauss-vec}
 Let  $X \sim \mathcal{N} (0,K)$ where   $K$ is in $\textsf{DP}(d)$ and
 $Z=  \max_{i\leq d} X_i$.
 
@@ -1471,9 +1547,10 @@ Show
 $$
 \operatorname{Var}(Z) \leq \max_{i \leq d } K_{i,i}:= \max_{i \leq d} \operatorname{Var} (X_i) .
 $$
+
 :::
 
-::: {#exr}
+::: {#exr-diff-gaussvec}
 
 Let  $X, Y\sim \mathcal{N} (0,\text{Id}_n)$ with $X,Y$ indépendent.
 

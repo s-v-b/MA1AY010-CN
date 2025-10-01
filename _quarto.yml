@@ -32,11 +32,12 @@ book:
     - 021-independence.qmd
     - 032-acfamilies.qmd
     - 023-discrete-condition.qmd
-    - 04-characterizations.qmd
     - 06-conditioning.qmd
+    - 04-characterizations.qmd
+    - 041-characterization.qmd
     - 05-convergences-1.qmd
     - 08-convergence-3.qmd
-    - 08-convergence-3b.qmd
+#    - 08-convergence-3b.qmd
     - 09-gaussian-vectors.qmd
 
 #    - summary.qmd
@@ -45,6 +46,7 @@ book:
 # bibliography: references.bib
 
 format:
+
   html:
     theme:
       - cosmo
@@ -66,6 +68,66 @@ format:
         \makeevenfoot{mystyle}{\scshape\small ma1ay010}{\thepage}{\scshape\small m1 isifar}
         \makeoddfoot{mystyle}{\scshape\small m1 isifar}{\thepage}{\scshape\small ma1ay010}
         \pagestyle{mystyle}
+
+filters:
+  - callouty-theorem
+
+
+callouty-theorem:
+  thm:
+    override-title: false # do not override the title of the callout (title won't show when `appearance` set to `simple` or `minimal`)
+    callout: # parameters of the wrapping callout. see Quarto documentation of callouts for more details
+      type: note
+      appearance: minimal
+  prp:
+    override-title: false
+    callout:
+      type: note
+      appearance: minimal
+  lem:
+    override-title: false
+    callout:
+      type: note
+      appearance: minimal
+  cor:
+    override-title: false
+    callout:
+      type: note
+      appearance: minimal
+  def:
+    override-title: false
+    callout:
+      type: note
+      appearance: minimal
+  exr:
+    override-title: false
+    callout:
+      type: tip
+      appearance: minimal
+  
+  # proof: # also support wrapping proof-like environments
+  #   override-title: true # override the title of the callout by the name of the theorem
+  #   callout:
+  #     type: note
+  #     appearance: default
+  #     collapse: true
+  #     icon: true
+  # solution:
+  #   override-title: true
+  #   callout:
+  #     type: note
+  #     appearance: default
+  #     collapse: true
+  #     icon: true
+  rem:
+    override-title: false
+    callout:
+      type: tip
+      appearance: minimal
+      collapse: false
+      icon: true
+
+  # theorems types not specified in the metadata will be rendered as is
 
 
 bibliography: ["stbib.bib", "book.bib", "packages.bib"]
