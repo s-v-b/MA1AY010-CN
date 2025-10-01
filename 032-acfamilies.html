@@ -232,32 +232,32 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-characterizations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Characterizations of probability distributions</span></span></a>
+  <a href="./06-conditioning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Conditioning</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-conditioning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Conditioning</span></span></a>
+  <a href="./04-characterizations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Characterizations of probability distributions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./041-characterization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Quantile functions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-convergences-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Convergences I : almost sure, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, in Probability</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Convergences I : almost sure, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, in Probability</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-convergence-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Convergence in distribution</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./08-convergence-3b.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Refinments and extensions of thr Central Limit Theorem</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Convergence in distribution</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -313,30 +313,66 @@ window.Quarto = {
 <h2 data-number="9.1" class="anchored" data-anchor-id="sec-acontinuity"><span class="header-section-number">9.1</span> Densities and absolute continuity</h2>
 <p>
 </p><p>Beyond discrete distributions, the simplest probability distributions are defined by a density function with respect to a (<span class="math inline">\(\sigma\)</span>-finite) measure. This encompasses the distributions of the so-called <em>continuous random variables</em>.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="def-defac" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 9.1 (Absolute continuity)</strong></span> Let <span class="math inline">\(\mu, \nu\)</span> be two positive measures on measurable space <span class="math inline">\((\Omega, \mathcal{F})\)</span>, <span class="math inline">\(\mu\)</span> is said to be absolutely continuous with respect to <span class="math inline">\(\nu\)</span> (denoted by <span class="math inline">\(\mu \trianglelefteq \nu\)</span>) iff for every <span class="math inline">\(A \in \mathcal{F}\)</span> with <span class="math inline">\(\nu(A)=0\)</span>, we also have <span class="math inline">\(\mu(A)=0\)</span>.</p>
+</div>
+</div>
+</div>
 </div>
 <p>
 </p><p>If <span class="math inline">\(\mu, \nu\)</span> are two probability distributions, and <span class="math inline">\(\mu \trianglelefteq \nu\)</span>, then any event which is impossible under <span class="math inline">\(\nu\)</span> is also impossible under <span class="math inline">\(\mu\)</span>.</p>
 <p>
-</p><div id="exr-ac-1" class="theorem exercise">
+</p><div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-ac-1" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 9.1</strong></span> Answer the two questions:</p>
 <ul>
 <li>Is the counting measure on <span class="math inline">\(\mathbb{R}\)</span> absolutely continuous with respect to Lebesgue measure?</li>
 <li>Is the converse true?</li>
 </ul>
 </div>
+</div>
+</div>
+</div>
 <p>
-</p><div id="exr-ac-transitive" class="theorem exercise">
+</p><div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-ac-transitive" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 9.2</strong></span> Check that absolute continuity is a transitive relationship.</p>
+</div>
+</div>
+</div>
 </div>
 <p>
 </p><p>The next theorem has far-reaching practical consequences.</p>
 <p>
-</p><div id="thm-radonnyk" class="theorem">
+</p><div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-radonnyk" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 9.1 (Radon-Nikodym)</strong></span> Let <span class="math inline">\(\mu, \nu\)</span> be two positive measures on measurable space <span class="math inline">\((\Omega, \mathcal{F})\)</span>. Assume <span class="math inline">\(\nu\)</span> is <span class="math inline">\(\sigma\)</span>-finite. If <span class="math inline">\(\mu \trianglelefteq \nu\)</span>, then there exists a measurable function <span class="math inline">\(f\)</span> from <span class="math inline">\(\Omega\)</span> to <span class="math inline">\([0, \infty)\)</span> such that for all <span class="math inline">\(A \in \mathcal{F}\)</span>, <span class="math display">\[
 \mu(A) =  \int_A f(\omega) \mathrm{d}\nu(\omega) =  \int \mathbb{I}_A f \mathrm{d}\nu \, .
 \]</span> The function <span class="math inline">\(f\)</span> is called a version of the density of <span class="math inline">\(\mu\)</span> with respect to <span class="math inline">\(\nu\)</span>.</p>
+</div>
+</div>
+</div>
 </div>
 <p>
 </p><p>The density is also called the Radon-Nikodym derivative of <span class="math inline">\(\mu\)</span> with respect to <span class="math inline">\(\nu\)</span>. It is sometimes denoted by <span class="math inline">\(\frac{\mathrm{d}\mu}{\mathrm{d}\nu}\)</span>.</p>
@@ -346,11 +382,29 @@ window.Quarto = {
 </div>
 <p>
 </p><p>In the next sections, we investigate probability distributions over <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span> that are absolutely continuous with respect to Lebesgue measure.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="prp-chainrule" class="theorem proposition">
 <p><span class="theorem-title"><strong>Proposition 9.1</strong></span> If <span class="math inline">\(\rho \trianglelefteq \mu \trianglelefteq  \nu\)</span>, <span class="math inline">\(f\)</span> is a density of <span class="math inline">\(\rho\)</span> with repsect to <span class="math inline">\(\mu\)</span> while <span class="math inline">\(g\)</span> is a density of <span class="math inline">\(\mu\)</span> with respect to <span class="math inline">\(\nu\)</span>, then <span class="math inline">\(fg\)</span> is a density of <span class="math inline">\(\rho\)</span> with respect to <span class="math inline">\(\nu\)</span>.</p>
 </div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="exr-chainrule" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 9.3</strong></span> Prove <a href="#prp-chainrule" class="quarto-xref">proposition&nbsp;<span>9.1</span></a>.</p>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section id="expos" class="level2" data-number="9.2">
@@ -365,14 +419,41 @@ x \mapsto \lambda \mathrm{e}^{-\lambda x} \, .
 P \Big\{ \lceil X \rceil \geq k \Big\} = P \Big\{  X  &gt; k - 1 \Big\}
 = \mathrm{e}^{- \lambda (k-1)} \, .
 \]</span></p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="exr-density1" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 9.4</strong></span> Check that <span class="math inline">\(x \mapsto \lambda \mathrm{e}^{-\lambda x}\)</span> is a density probability over <span class="math inline">\([0, \infty)\)</span>.</p>
 </div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="exr-density2" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 9.5</strong></span> Compute the tail function and the cumulative distribution function of the exponential distribution function with parameter <span class="math inline">\(\lambda\)</span>.</p>
 </div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="exr-density3" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 9.6</strong></span> Let <span class="math inline">\(X_1, \ldots, X_n\)</span> be i.i.d. exponentially distributed. Characterize the distribution of <span class="math inline">\(\min(X_1, \ldots, X_n)\)</span>.</p>
+</div>
+</div>
+</div>
 </div>
 <div class="{#exr-=density4}">
 <p>If <span class="math inline">\(X\)</span> is exponentially distributed with scale parameter <span class="math inline">\(\sigma\)</span>, what is the distribution of <span class="math inline">\(a X\)</span>?</p>
@@ -406,11 +487,29 @@ variance equals squared scale.
 x \mapsto \lambda^p \frac{x^{p-1}}{\Gamma(p)} \mathrm{e}^{-\lambda x} \, .
 \]</span> The reciprocal of the intensity parameter is called the scale parameter.</p>
 </div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="exr-gamma1" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 9.7</strong></span> Check that <span class="math inline">\(x \mapsto \lambda^p \frac{x^{p-1}}{\Gamma(p)} \mathrm{e}^{-\lambda x}\)</span> is a density probability over <span class="math inline">\([0, \infty)\)</span>.</p>
 </div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="exr-gamm2" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 9.8</strong></span> If <span class="math inline">\(X\)</span> is Gamma distributed with shape parameter <span class="math inline">\(p\)</span> and scale parameter <span class="math inline">\(\sigma\)</span>, what is the distribution of <span class="math inline">\(a X\)</span>?</p>
+</div>
+</div>
+</div>
 </div>
 <!-- ::: {#fig-witgetgamma} -->
 <div class="cell">
@@ -438,16 +537,43 @@ variance equals shape times squared scale.
 x \mapsto \frac{1}{\sqrt{2 \pi} \sigma} \mathrm{e}^{- \frac{(x-\mu)^2}{2 \sigma^2}} \qquad\text{for } x \in \mathbb{R} \, .
 \]</span> The standard Gaussian density is defined by <span class="math inline">\(\mu=0, \sigma=1\)</span>.</p>
 </div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="exr-gauss1" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 9.9</strong></span> Check that <span class="math inline">\(x \mapsto \frac{\mathrm{e}^{-x^2/2}}{\sqrt{2\pi}}\)</span> is a probability density over <span class="math inline">\(\mathbb{R}\)</span>.</p>
 </div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="exr-gauss2" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 9.10</strong></span> If <span class="math inline">\(X\)</span> is distributed according to a standard Gaussian density, what is the distribution of <span class="math inline">\(\mu + \sigma X\)</span>?</p>
 </div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="exr-gauss3" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 9.11</strong></span> If <span class="math inline">\(X\)</span> is distributed according to a standard Gaussian density, show that <span class="math display">\[
 \Pr \{ X &gt; t \} \leq \frac{1}{t} \frac{\mathrm{e}^{-t^2/2}}{\sqrt{2\pi}} \qquad\text{for } t&gt;0\,.
 \]</span></p>
+</div>
+</div>
+</div>
 </div>
 <!-- ::: {#fig-witgetgauss} -->
 <div class="cell">
@@ -470,10 +596,25 @@ Figure&nbsp;9.3: Gaussian densities. The location parameter <span class="math in
 <h2 data-number="9.5" class="anchored" data-anchor-id="sec-cdf_ac"><span class="header-section-number">9.5</span> Cumulative distribution functions and absolute continuity</h2>
 <p>If a cumulative distribution function is defined as the integral of some non-negative Lebesgue integrable function, we know that the corresponding probability distribution is absolutely continuous with respect to Lebesgue measure.</p>
 <p>We may ask for a criterion that characterises the cumulative distribution function of absolutely continuous probability distribution. Such a criterion is embodied by the next definition. We overload the expression <em>absolutely continuous</em>.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="def-accdf" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 9.2 (Absolutely continuous functions)</strong></span> A real valued function <span class="math inline">\(F\)</span> on <span class="math inline">\([a,b]\)</span> is said to be <em>absolutely continuous</em> iff for all <span class="math inline">\(\delta&gt;0\)</span> there exists <span class="math inline">\(\epsilon&gt;0\)</span> such that for every collection <span class="math inline">\(([a_i, b_i])_{i\leq n}\)</span> for non-overlapping sub-intervals (<span class="math inline">\([a_i,b_i] ⊆ [a,b]\)</span> for all <span class="math inline">\(i\leq n\)</span> and <span class="math inline">\(\ell([a_i,b_i] \cap [a_j,b_j])=0\)</span> for <span class="math inline">\(i\neq j\)</span> ) with <span class="math inline">\(∑_{i\leq n} |b_i-a_i|\leq ϵ\)</span>, <span class="math display">\[∑_{i\leq n} |F(b_i)-F(a_i)|\leq δ\]</span></p>
 </div>
+</div>
+</div>
+</div>
 <p>Absolute continuity, differentiability and integration of derivatives are connected by the next Theorem. This Theorem tells us that a cumulative distribution function is absolutely continuous in the sense of Definition <a href="#def-accdf" class="quarto-xref">Definition&nbsp;<span>9.2</span></a> iff the corresponding probability distribution is absolutely continuous with respect to Lebesgue measure.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="thm-fundTheCalc" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 9.2 (Fundamental Theorem of Calculus)</strong></span> A real valued function <span class="math inline">\(F\)</span> on <span class="math inline">\([a,b]\)</span> is <em>absolutely continuous</em> iff the next three conditions hold</p>
 <ol type="1">
@@ -482,20 +623,41 @@ Figure&nbsp;9.3: Gaussian densities. The location parameter <span class="math in
 <li>For every <span class="math inline">\(x \in [a,b]\)</span>, <span class="math inline">\(F(x) - F(a) = \int_{[a,b]} \mathbb{I}_{[a,x]}(t) F'(t) \mathrm{d}t\)</span></li>
 </ol>
 </div>
+</div>
+</div>
+</div>
 </section>
 <section id="sec-imgdens" class="level2" data-number="9.6">
 <h2 data-number="9.6" class="anchored" data-anchor-id="sec-imgdens"><span class="header-section-number">9.6</span> Computing the density of an image probability distribution</h2>
 <p>Recall the change of variable formula in elementary calculus. If <span class="math inline">\(\phi\)</span> is monotone increasing and différentiable from open <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span> and <span class="math inline">\(f\)</span> is Riemann integrable over <span class="math inline">\(B\)</span>, then <span class="math display">\[
 \int_B f(y) \, \mathrm{d}y = \int_A f(\phi(x)) \, \phi^{\prime}(x) \, \mathrm{d}x \,
 \]</span></p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="exr-elmt-chg-var" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 9.12</strong></span> Check the elementary change of variable formula.</p>
 </div>
+</div>
+</div>
+</div>
 <p>The goal of this section is state a multi-dimensional generalization of this elementary formula. This is the content of <a href="#thm-geomchange" class="quarto-xref">Theorem&nbsp;<span>9.4</span></a>). This extension is then used to establish an off-the-shelf formula for computing the density of an image distribution in <a href="#thm-imagedensityformula" class="quarto-xref">Theorem&nbsp;<span>9.5</span></a>).</p>
 <p>Let us start with a uni-dimensional warm-up. When starting from the uniform distribution on <span class="math inline">\([0,1]\)</span> and applying a monotone differentiable transformation, the density of the image measure is easily computed.</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="exr-" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 9.13</strong></span> Let <span class="math inline">\(\phi\)</span> be differentiable and increasing on <span class="math inline">\([0,1]\)</span>, and let <span class="math inline">\(P\)</span> be the uniform distribution on <span class="math inline">\([0,1]\)</span>.</p>
 <p>Check that <span class="math inline">\(P \circ \phi^{-1}\)</span> has density <span class="math inline">\(\frac{1}{\phi'\circ \phi^\leftarrow}\)</span> on <span class="math inline">\(\phi([0,1])\)</span>.</p>
+</div>
+</div>
+</div>
 </div>
 <p>The next proposition extends this observation.</p>
 <div id="prp">
@@ -517,23 +679,47 @@ P \Big\{ Y \leq y \Big\} = \int_{(-\infty, y] \cap \phi(\text{supp}(P))} \frac{f
 </div>
 <p><br></p>
 <p>The next corollary is as useful as simple.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="cor-density-translation-scale" class="theorem corollary">
 <p><span class="theorem-title"><strong>Corollary 9.1</strong></span> If the distribution of the real valued random variable <span class="math inline">\(X\)</span> has density <span class="math inline">\(f\)</span> then the distribution of <span class="math inline">\(\sigma X + \mu\)</span> has density <span class="math inline">\(\frac{1}{\sigma}f\Big(\frac{\cdot -\mu}{\sigma}\Big)\)</span>, .</p>
+</div>
+</div>
+</div>
 </div>
 <br>
 <p>
 </p>
 <p>In univariate calculus, it is easy to establish that if a function is continuous and increasing over an open set, it is invertible and its inverse is continuous and increasing. If the function is differentiable with positive derivative, its inverse is also differentiable. Moreover, the differential and the differential of the inverse are related in transparent way.</p>
 <p>The Global Inversion Theorem extends the preceding observation to the multivariate setting.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="thm-globalinversion" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 9.3 (Global Inversion Theorem)</strong></span> Let <span class="math inline">\(U\)</span> and <span class="math inline">\(V\)</span> be two non-empty open subsets of <span class="math inline">\(\mathbb{R}^d\)</span>. Let <span class="math inline">\(\phi\)</span> be a continuous bijective from <span class="math inline">\(U\)</span> to <span class="math inline">\(V\)</span>. Assume furthermore that <span class="math inline">\(\phi\)</span> is continuously differentiable, and that <span class="math inline">\(D\phi_x\)</span> is non-singular at every <span class="math inline">\(x \in U\)</span>.</p>
 <p>Then, the inverse function <span class="math inline">\(\phi^{\leftarrow}\)</span> is also continuously differentiable on <span class="math inline">\(V\)</span> and at every <span class="math inline">\(y \in V\)</span>: <span class="math display">\[
 D\phi^{\leftarrow}_y = \Big(D\phi_{\phi^{\leftarrow}(y)} \Big)^{-1} \, .
 \]</span></p>
 </div>
+</div>
+</div>
+</div>
 <p>The Jacobian determinant of <span class="math inline">\(\phi\)</span> is the determinant of the matrix that represents the differential. It is denoted by <span class="math inline">\(J_\phi\)</span>. Recall that: <span class="math display">\[
 J_{\phi^{\leftarrow}}(y) = \Big(J_{\phi}(\phi^{\leftarrow}(y)) \Big)^{-1} \, .
 \]</span> The multidimensional version of the change of variable formula is stated under the same assumptions as the Global Inversion Theorem. We admit the next Theorem.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="thm-geomchange" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 9.4 (Geometric change of variable formula)</strong></span> Let <span class="math inline">\(U\)</span> and <span class="math inline">\(V\)</span> be two non-empty open subsets of <span class="math inline">\(\mathbb{R}^d\)</span>. Let <span class="math inline">\(\phi\)</span> be a continuous bijective from <span class="math inline">\(U\)</span> to <span class="math inline">\(V\)</span>. Assume furthermore that <span class="math inline">\(\phi\)</span> is continuously differentiable, and that <span class="math inline">\(D\phi_x\)</span> is non-singular at every <span class="math inline">\(x \in U\)</span>.</p>
 <p>Let <span class="math inline">\(\ell\)</span> denote the Lebesgue measure on <span class="math inline">\(\mathbb{R}^d\)</span>.</p>
@@ -541,14 +727,26 @@ J_{\phi^{\leftarrow}}(y) = \Big(J_{\phi}(\phi^{\leftarrow}(y)) \Big)^{-1} \, .
 \int_U f(x) \mathrm{d}\ell(x)   = \int  f(\phi^\leftarrow(y)) \Big|J_{\phi^\leftarrow}(y) \Big| \mathrm{d}\ell(y) \, .
 \]</span></p>
 </div>
+</div>
+</div>
+</div>
 <p>Moving from cartesian coordinates to polar/spherical coordinates is easy thanks to an non-trivial application of <a href="#thm-geomchange" class="quarto-xref">Theorem&nbsp;<span>9.4</span></a>).</p>
 <p>The Image density formula is a corollary of the geometric change of variable formula.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="thm-imagedensityformula" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 9.5 (Image density formula)</strong></span> Let <span class="math inline">\(P\)</span> have density <span class="math inline">\(f\)</span> over open <span class="math inline">\(U \subseteq  \mathbb{R}^d\)</span>.</p>
 <p>Let <span class="math inline">\(\phi\)</span> be bijective fron <span class="math inline">\(U\)</span> to <span class="math inline">\(\phi(U)\)</span> and <span class="math inline">\(\phi\)</span> be continuously differentiable over <span class="math inline">\(U\)</span> with non-singular differential.</p>
 <p>The density <span class="math inline">\(g\)</span> of the image distribution <span class="math inline">\(P \circ \phi^{-1}\)</span> over <span class="math inline">\(\phi(U)\)</span> is given by <span class="math display">\[
 g(y) = f\big(\phi^\leftarrow(y)\big) \times \big|J_{\phi^\leftarrow}(y)\big|  =  f\big(\phi^\leftarrow(y)\big) \times \Big|J_{\phi}(\phi^\leftarrow(y))\Big|^{-1}\, .
 \]</span></p>
+</div>
+</div>
+</div>
 </div>
 <p>The proof of <a href="#thm-imagedensityformula" class="quarto-xref">Theorem&nbsp;<span>9.5</span></a>) from <a href="#thm-geomchange" class="quarto-xref">Theorem&nbsp;<span>9.4</span></a>) is a routine application of the transfer formula.</p>
 <div class="proof">
@@ -567,6 +765,12 @@ P\Big\{ Y \in B \Big\}
 <section id="sec-gammabeta" class="level2" data-number="9.7">
 <h2 data-number="9.7" class="anchored" data-anchor-id="sec-gammabeta"><span class="header-section-number">9.7</span> Application: Gamma-Beta calculus</h2>
 <p>The image density formula is applied to show a remarkable connexion between Gamma and Beta distributions.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="prp-gammabeta" class="theorem proposition">
 <p><span class="theorem-title"><strong>Proposition 9.2</strong></span> Let <span class="math inline">\(X, Y\)</span> be independent random variables distributed according to <span class="math inline">\(\Gamma(p, \lambda)\)</span> and <span class="math inline">\(\Gamma(q, \lambda)\)</span> (the intensity parameter are identical). Let <span class="math inline">\(U = X+Y\)</span> and <span class="math inline">\(V= X/(X+Y)\)</span>.</p>
 <p>Then</p>
@@ -575,6 +779,9 @@ P\Big\{ Y \in B \Big\}
 <li>Random variable <span class="math inline">\(U\)</span> is distributed according to <span class="math inline">\(\Gamma(p+q, \lambda)\)</span> while</li>
 <li><span class="math inline">\(V\)</span> is distributed according to <span class="math inline">\(\operatorname{Beta}(p, q)\)</span>.</li>
 </ol>
+</div>
+</div>
+</div>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>The mapping <span class="math inline">\(f: ]0, \infty)^2 \to ]0, \infty) \times ]0,1[\)</span> defined by <span class="math display">\[
@@ -591,11 +798,20 @@ f(x,y) =  \Big(x+y, \frac{x}{x+y} \Big)
 \times \Big(\frac{\Gamma(p+q)}{\Gamma(q)\Gamma(p)} v^{p-1} (1-v)^{q-1}\Big) \,.
 \end{align*}\]</span> The factorization of the joint density proves that the <span class="math inline">\(U\)</span> and <span class="math inline">\(V\)</span> are independent. We recognize that the density of (the distribution of) <span class="math inline">\(U\)</span> is the Gamma density with shape parameter <span class="math inline">\(p+q\)</span>, intensity parameter <span class="math inline">\(\lambda\)</span>. The density of the distribution of <span class="math inline">\(V\)</span> is the Beta density with parameters <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span>.</p>
 </div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="exr-gamma-calculus" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 9.14</strong></span> Assume <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> form an independent family with each <span class="math inline">\(X_i\)</span> distributed according to <span class="math inline">\(\Gamma(p_i, \lambda)\)</span>.</p>
 <p>Determine the joint distribution of <span class="math display">\[
 \sum_{i=1}^n X_i, \frac{X_1}{\sum_{i=1}^n X_i}, \frac{X_2}{\sum_{i=1}^n X_i}, \ldots, \frac{X_{n-1}}{\sum_{i=1}^n X_i}
 \]</span></p>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section id="sec-bibac" class="level2" data-number="9.8">

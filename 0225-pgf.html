@@ -212,32 +212,32 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-characterizations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Characterizations of probability distributions</span></span></a>
+  <a href="./06-conditioning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Conditioning</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-conditioning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Conditioning</span></span></a>
+  <a href="./04-characterizations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Characterizations of probability distributions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./041-characterization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Quantile functions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-convergences-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Convergences I : almost sure, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, in Probability</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Convergences I : almost sure, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, in Probability</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-convergence-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Convergence in distribution</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./08-convergence-3b.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Refinments and extensions of thr Central Limit Theorem</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Convergence in distribution</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -289,7 +289,7 @@ window.Quarto = {
 <section id="sec-roadmapcharacpgf" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="sec-roadmapcharacpgf"><span class="header-section-number">6.1</span> Motivation</h2>
 <p>In full generality, a probability distribution is a complex object. It is a <span class="math inline">\([0,1]\)</span>-valued function defined over a <span class="math inline">\(\sigma\)</span>-algebra of subsets. A concrete <span class="math inline">\(\sigma\)</span>-algebra, let alone the abstract notion of <span class="math inline">\(\sigma\)</span>-algebra, is not easily grasped. Looking for simpler characterizations of probability distributions is a sensible goal. When facing questions like: ``are two probability distributions equal?“, we know it suffices to check that the two distributions coincide on generating families of events. This makes cumulative distribution functions precious tools. Cumulative distribution functions and their generalized inverse functions (quantile functions) are very convenient when handling maxima, minima, or more generally order statistics of collections of independent random variables, but when it comes to handling sums of independent random variables or branching processes, cumulative distribution functions are of moderate help.</p>
-<p>In this lesson, we review a way of characterizing probability distributions over <span class="math inline">\((\mathbb{N}, \mathcal{F}=2^{\mathbb{N}})\)</span> through functions defined on the real line: probability generating functions (<a href="#sec-PGF" class="quarto-xref">Section&nbsp;<span>6.2</span></a>)). Later (Chapter <a href="04-characterizations.html" class="quarto-xref"><span>Chapter 11</span></a>), we will survey more general tools: Laplace transforms (<a href="04-characterizations.html#sec-laplace" class="quarto-xref">Section&nbsp;<span>11.3</span></a>)) and characteristic functions which extend Fourier transforms to probability distributions (<a href="04-characterizations.html#sec-charfun" class="quarto-xref">Section&nbsp;<span>11.4</span></a>)).</p>
+<p>In this lesson, we review a way of characterizing probability distributions over <span class="math inline">\((\mathbb{N}, \mathcal{F}=2^{\mathbb{N}})\)</span> through functions defined on the real line: probability generating functions (<a href="#sec-PGF" class="quarto-xref">Section&nbsp;<span>6.2</span></a>)). Later (Chapter <a href="04-characterizations.html" class="quarto-xref"><span>Chapter 12</span></a>), we will survey more general tools: Laplace transforms (<a href="04-characterizations.html#sec-laplace" class="quarto-xref">Section&nbsp;<span>12.2</span></a>)) and characteristic functions which extend Fourier transforms to probability distributions (<a href="04-characterizations.html#sec-charfun" class="quarto-xref">Section&nbsp;<span>12.3</span></a>)).</p>
 <p>All three methods are distinct in scope but they rely on the same idea and share common features. Indeed, probability generating functions can be seen as special case of Laplace transforms. The latter can be seen as special cases of Fourier transforms.</p>
 <p>All three methods do <em>characterize</em> probability distributions. They are equipped with <em>inversion formulae</em>. The three methods provide us with a seamless treatment of sums of independent random variables.</p>
 <p>All three methods relate the integrability of probability distributions and the smoothness of transforms.</p>
@@ -306,10 +306,19 @@ window.Quarto = {
   &amp; =  p \star q (n) \, .
 \end{align*}\]</span></p>
 <p>Another function characterizes probability distributions and delivers instantaneous information about the distribution of sums of independent integer-valued random variables and many other things.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="def-pgf" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 6.1 (Probability Generating Function)</strong></span> The probability generating function (PGF) of a probability distribution over <span class="math inline">\(\mathbb{N}\)</span>, defined by its probability mass function (PMF) <span class="math inline">\(f\)</span> is the function <span class="math inline">\(G: [0,1] \to \mathbb{R}\)</span> defined by: <span class="math display">\[
 G(s) =  \sum_{n=0}^\infty f(n) s^n \, .
 \]</span></p>
+</div>
+</div>
+</div>
 </div>
 <div id="exm-pgf-1" class="theorem example">
 <p><span class="theorem-title"><strong>Example 6.1</strong></span> The probability generating function of basic discrete distributions is easily computed. The results are useful and suggestive.</p>
@@ -328,6 +337,12 @@ G(s) = \sum_{n=0}^\infty \mathrm{e}^{-\mu} \frac{\mu^n}{n!} s^n = \mathrm{e}^{\m
 </ul>
 </div>
 <p>The next observation follows almost immediately from the definition of probability generating functions.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="prp-pgf-trivial" class="theorem proposition">
 <p><span class="theorem-title"><strong>Proposition 6.1</strong></span> A probability generating function <span class="math inline">\(G\)</span> satisfies the following conditions:</p>
 <ul>
@@ -336,6 +351,9 @@ G(s) = \sum_{n=0}^\infty \mathrm{e}^{-\mu} \frac{\mu^n}{n!} s^n = \mathrm{e}^{\m
 <li><span class="math inline">\(G\)</span> is non-decreasing over <span class="math inline">\([0,1]\)</span>;</li>
 <li><span class="math inline">\(G\)</span> is continuous and convex.</li>
 </ul>
+</div>
+</div>
+</div>
 </div>
 <br>
 <p>
@@ -352,6 +370,12 @@ G(s) = \sum_{n=0}^\infty \mathrm{e}^{-\mu} \frac{\mu^n}{n!} s^n = \mathrm{e}^{\m
 G(z) = \sum_{n=0}^\infty p(n) z^n \qquad\text{for all } z \in \mathbb{C} \text{ such that the series converges}\, .
 \]</span></p>
 <p>Characterizing the domain of a function defined in that way is crucial. The next proposition is at the core of Power Series theory.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="prp-radius" class="theorem proposition">
 <p><span class="theorem-title"><strong>Proposition 6.2</strong></span> The <em>radius of convergence</em> of the generating function <span class="math inline">\(G\)</span></p>
 <p><span class="math display">\[
@@ -363,16 +387,28 @@ G(z) = \sum_{n\in \mathbb{N}} p(n) z^n, \qquad z \in \mathbb{C}
 </ul>
 <p>The opend disk <span class="math inline">\(\{ z : z \in \mathbb{C}, |z| &lt; R \}\)</span> is called the <em>disk of convergence</em> of <span class="math inline">\(G\)</span>. The circle <span class="math inline">\(\{ z : z \in \mathbb{C}, |z| = R \}\)</span> is called the <em>circle of convergence</em> of <span class="math inline">\(G\)</span>.</p>
 </div>
+</div>
+</div>
+</div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span></p>
 <!-- TODO -->
 <p><span class="math inline">\(\square\)</span></p>
 </div>
 <p>Hadamard’s rule allows for fast determination of the radius of convergence:</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="prp-hadamard" class="theorem proposition">
 <p><span class="theorem-title"><strong>Proposition 6.3 (Hadamard’s rule)</strong></span> The radius of convergence <span class="math inline">\(R\)</span> of probability generating function <span class="math inline">\(G(z) = \sum_{n \in \mathbb{N}} p(n)z^n\)</span> satisfies <span class="math display">\[
 \frac{1}{R} =  \limsup_n (p(n))^{1/n} \, .
 \]</span> The radius of convergence of a probability generating function is always at least <span class="math inline">\(1\)</span>.</p>
+</div>
+</div>
+</div>
 </div>
 <div class="{exm-hadamard-1}">
 <p>The radius of convergence contains qualitative information about tail behavior:</p>
@@ -397,12 +433,21 @@ G(z) = \sum_{n\in \mathbb{N}} p(n) z^n, \qquad z \in \mathbb{C}
 <p><span class="math inline">\(\square\)</span></p>
 </div>
 <p>This general statement about power series entails a very useful corollary for probability generating functions.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="cor-invpgf" class="theorem corollary">
 <p><span class="theorem-title"><strong>Corollary 6.1 (Inversion formula)</strong></span> Let <span class="math inline">\(g\)</span> be the probability generating function associated with the probability mass function <span class="math inline">\(f\)</span>. Then <span class="math inline">\(g\)</span> is infinitely many times differentiable over <span class="math inline">\([0,1)\)</span> with derivatives <span class="math display">\[
     g^{(n)}(s) =  \sum_{k=n}^\infty \frac{k!}{(k-n)!} \times f(k) s^{k-n} \, ,
 \]</span> more specifically: <span class="math display">\[
     g^{(n)}(0) =  n! \times f(n) \, .
 \]</span> A probability distribution over <span class="math inline">\(\mathbb{N}\)</span> is characterized by its probability generating function.</p>
+</div>
+</div>
+</div>
 </div>
 <br>
 <p>
@@ -436,10 +481,19 @@ g(s)
 <section id="sec-pgf-sums" class="level2" data-number="6.4">
 <h2 data-number="6.4" class="anchored" data-anchor-id="sec-pgf-sums"><span class="header-section-number">6.4</span> Sums of independent random variables and probability generating fuunctions</h2>
 <p>Probability Generating Functions provide us with a handy tool to investigate sums of independent random variables.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="prp-pgf-inversion" class="theorem proposition">
 <p><span class="theorem-title"><strong>Proposition 6.4</strong></span> Let <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span> be independent integer-valued random variable, with probability generating functions <span class="math inline">\(G_X\)</span> and <span class="math inline">\(G_Y\)</span>. The probability generating function <span class="math inline">\(G_{X+Y}\)</span> of <span class="math inline">\(X+Y\)</span> is <span class="math inline">\(G_X\times G_Y\)</span>: <span class="math display">\[
 G_{X+Y} = G_X \times G_Y \, .
 \]</span></p>
+</div>
+</div>
+</div>
 </div>
 <br>
 <p>
@@ -478,10 +532,19 @@ G_{X+Y} = G_X \times G_Y \, .
 <section id="sec-smooth-integrable-pgf" class="level2" data-number="6.5">
 <h2 data-number="6.5" class="anchored" data-anchor-id="sec-smooth-integrable-pgf"><span class="header-section-number">6.5</span> Smoothness and integrability</h2>
 <p>A PGF is infinitely many times differentiable inside the (open) disk of convergence. If the radius of convergence is larger than <span class="math inline">\(1\)</span> (as for Poisson or geometric distributions), this entails that the PGF is infinitely many times differentiable at <span class="math inline">\(1\)</span>, If the radius of convergence is exactly <span class="math inline">\(1\)</span>, the differentiability on the circle of convergence is not prescribed by general theory.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="thm-pgfintegr" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 6.1 (Integrability and probability generating functions)</strong></span> Let <span class="math inline">\(X\)</span> be an integer-valued random variable, with probability generating functions <span class="math inline">\(f\)</span>, then <span class="math inline">\(\mathbb{E} X^p &lt; \infty\)</span> iff <span class="math inline">\(f\)</span> is <span class="math inline">\(p\)</span>-times differentiable at <span class="math inline">\(1\)</span> and <span class="math display">\[
 f^{(p)}(1) = \mathbb{E}\left[X (X-1) \ldots (X-p+1)\right] \, .
 \]</span></p>
+</div>
+</div>
+</div>
 </div>
 <br>
 <p>

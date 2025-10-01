@@ -50,7 +50,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./08-convergence-3b.html" rel="prev">
+<link href="./08-convergence-3.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -231,32 +231,32 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-characterizations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Characterizations of probability distributions</span></span></a>
+  <a href="./06-conditioning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Conditioning</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-conditioning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Conditioning</span></span></a>
+  <a href="./04-characterizations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Characterizations of probability distributions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./041-characterization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Quantile functions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-convergences-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Convergences I : almost sure, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, in Probability</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Convergences I : almost sure, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, in Probability</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-convergence-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Convergence in distribution</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./08-convergence-3b.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Refinments and extensions of thr Central Limit Theorem</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Convergence in distribution</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -277,30 +277,13 @@ window.Quarto = {
   <ul>
   <li><a href="#sec-secGaussUnivar" id="toc-sec-secGaussUnivar" class="nav-link active" data-scroll-target="#sec-secGaussUnivar"><span class="header-section-number">16.1</span> Univariate Gaussian distribution</a></li>
   <li><a href="#sec-GaussVec" id="toc-sec-GaussVec" class="nav-link" data-scroll-target="#sec-GaussVec"><span class="header-section-number">16.2</span> Gaussian vectors</a></li>
-  <li><a href="#sec-convergenceGaussVectors" id="toc-sec-convergenceGaussVectors" class="nav-link" data-scroll-target="#sec-convergenceGaussVectors"><span class="header-section-number">16.3</span> Convergence of Gaussian vectors</a>
-  <ul class="collapse">
-  <li><a href="#lévy-continuity-theorem-bis" id="toc-lévy-continuity-theorem-bis" class="nav-link" data-scroll-target="#lévy-continuity-theorem-bis"><span class="header-section-number">16.3.1</span> Lévy-Continuity Theorem (bis)</a></li>
-  </ul></li>
-  <li><a href="#gaussian-conditioning" id="toc-gaussian-conditioning" class="nav-link" data-scroll-target="#gaussian-conditioning"><span class="header-section-number">16.4</span> Gaussian conditioning</a></li>
-  <li><a href="#about-gamma-distributions" id="toc-about-gamma-distributions" class="nav-link" data-scroll-target="#about-gamma-distributions"><span class="header-section-number">16.5</span> About Gamma distributions</a>
-  <ul class="collapse">
-  <li><a href="#gamma-distributions" id="toc-gamma-distributions" class="nav-link" data-scroll-target="#gamma-distributions"><span class="header-section-number">16.5.1</span> Gamma distributions</a></li>
-  </ul></li>
+  <li><a href="#sec-convergenceGaussVectors" id="toc-sec-convergenceGaussVectors" class="nav-link" data-scroll-target="#sec-convergenceGaussVectors"><span class="header-section-number">16.3</span> Convergence of Gaussian vectors</a></li>
+  <li><a href="#sec-gauss-conditioning" id="toc-sec-gauss-conditioning" class="nav-link" data-scroll-target="#sec-gauss-conditioning"><span class="header-section-number">16.4</span> Gaussian conditioning</a></li>
+  <li><a href="#sec-about-gamma" id="toc-sec-about-gamma" class="nav-link" data-scroll-target="#sec-about-gamma"><span class="header-section-number">16.5</span> About Gamma distributions</a></li>
   <li><a href="#norms-of-centred-gaussian-vectors" id="toc-norms-of-centred-gaussian-vectors" class="nav-link" data-scroll-target="#norms-of-centred-gaussian-vectors"><span class="header-section-number">16.6</span> Norms of centred Gaussian vectors</a></li>
-  <li><a href="#norm-of-non-centred-gaussian-vectors" id="toc-norm-of-non-centred-gaussian-vectors" class="nav-link" data-scroll-target="#norm-of-non-centred-gaussian-vectors"><span class="header-section-number">16.7</span> Norm of non-centred Gaussian vectors</a>
-  <ul class="collapse">
-  <li><a href="#rdering" id="toc-rdering" class="nav-link" data-scroll-target="#rdering"><span class="header-section-number">16.7.1</span> rdering</a></li>
-  </ul></li>
-  <li><a href="#sec-cochran" id="toc-sec-cochran" class="nav-link" data-scroll-target="#sec-cochran"><span class="header-section-number">16.8</span> Cochran Theorem and consequences</a>
-  <ul class="collapse">
-  <li><a href="#cochran" id="toc-cochran" class="nav-link" data-scroll-target="#cochran"><span class="header-section-number">16.8.1</span> Cochran</a></li>
-  <li><a href="#student" id="toc-student" class="nav-link" data-scroll-target="#student"><span class="header-section-number">16.8.2</span> Student</a></li>
-  <li><a href="#distribution" id="toc-distribution" class="nav-link" data-scroll-target="#distribution"><span class="header-section-number">16.8.3</span> Distribution</a></li>
-  </ul></li>
-  <li><a href="#gaussian-concentration" id="toc-gaussian-concentration" class="nav-link" data-scroll-target="#gaussian-concentration"><span class="header-section-number">16.9</span> Gaussian concentration</a>
-  <ul class="collapse">
-  <li><a href="#covariance-identity" id="toc-covariance-identity" class="nav-link" data-scroll-target="#covariance-identity"><span class="header-section-number">16.9.1</span> Covariance identity</a></li>
-  </ul></li>
+  <li><a href="#sec-norm-non-centered" id="toc-sec-norm-non-centered" class="nav-link" data-scroll-target="#sec-norm-non-centered"><span class="header-section-number">16.7</span> Norm of non-centred Gaussian vectors</a></li>
+  <li><a href="#sec-cochran" id="toc-sec-cochran" class="nav-link" data-scroll-target="#sec-cochran"><span class="header-section-number">16.8</span> Cochran Theorem and consequences</a></li>
+  <li><a href="#gaussian-concentration" id="toc-gaussian-concentration" class="nav-link" data-scroll-target="#gaussian-concentration"><span class="header-section-number">16.9</span> Gaussian concentration</a></li>
   <li><a href="#bibliographic-remarks" id="toc-bibliographic-remarks" class="nav-link" data-scroll-target="#bibliographic-remarks"><span class="header-section-number">16.10</span> Bibliographic remarks</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/09-gaussian-vectors.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -341,11 +324,20 @@ window.Quarto = {
 <!-- ::: {#fig-witgetdensity} -->
 <!-- ::: -->
 <p>The standard Gaussian distribution is characterized by the next identity.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="lem-steinslemma" class="theorem lemma">
 <p><span class="theorem-title"><strong>Lemma 16.1 (Stein’s Lemma)</strong></span> Let <span class="math inline">\(X \sim \mathcal{N}(0,1)\)</span>, let <span class="math inline">\(g\)</span> be an absolutely continuous function with derivative <span class="math inline">\(g'\)</span> such that <span class="math inline">\(\mathbb{E}[ |X g(X)|]&lt;\infty\)</span>, then <span class="math inline">\(g'(X)\)</span> is integrable and</p>
 <p><span class="math display">\[
 \mathbb{E}[g'(X)] = \mathbb{E}[Xg(X)] \, .
 \]</span></p>
+</div>
+</div>
+</div>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>The proof relies on integration by parts. First note that replacing <span class="math inline">\(g\)</span> by <span class="math inline">\(g - g(0)\)</span> changes neither <span class="math inline">\(g'\)</span>, nor <span class="math inline">\(\mathbb{E}[Xg(X)]\)</span>. We may assume that <span class="math inline">\(g(0)=0\)</span>.</p>
@@ -364,10 +356,19 @@ window.Quarto = {
 <p>The last inequality is justified by Tonelli-Fubini’s Theorem. Then, we rely on <span class="math inline">\(\phi'(x)=-x \phi(x)\)</span>.</p>
 </div>
 <p>The characteristic function is a very efficient tool when handling Gaussian distributions.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="prp-gausscharfunc" class="theorem proposition">
 <p><span class="theorem-title"><strong>Proposition 16.1</strong></span> The characteristic function of <span class="math inline">\(\mathcal{N}(\mu,\sigma^2)\)</span> is <span class="math display">\[
 \widehat{\Phi}(t):= \mathbb{E}\left[\mathrm{e}^{\imath t X}\right] = \mathrm{e}^{\imath t \mu - \frac{t^2 \sigma^2}{2}}  \, .
 \]</span></p>
+</div>
+</div>
+</div>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>It is enough to check the proposition for <span class="math inline">\(\mathcal{N}(0,1)\)</span>. As <span class="math inline">\(\phi\)</span> is even,</p>
@@ -388,10 +389,19 @@ window.Quarto = {
 \]</span></p>
 </div>
 <p>The fact that the characteristic function completely defines the probability distribution provides us with a converse of <a href="#lem-steinslemma" class="quarto-xref">Lemma&nbsp;<span>16.1</span></a>.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="lem-steinslemmabis" class="theorem lemma">
 <p><span class="theorem-title"><strong>Lemma 16.2 (Stein’s Lemma (bis))</strong></span> Let <span class="math inline">\(X\)</span> be a real-valued random variable on some probability space. If, for any differentialle function <span class="math inline">\(g\)</span> such that <span class="math inline">\(g'\)</span> and <span class="math inline">\(x \mapsto xg(x)\)</span> are integrable, the following holds <span class="math display">\[
 \mathbb{E}[g'(X)] = \mathbb{E}[X g(X)]
 \]</span> then the distribution of <span class="math inline">\(X\)</span> is standard Gaussian</p>
+</div>
+</div>
+</div>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>Consider the real <span class="math inline">\(\widehat{F}\)</span> and the imaginary part <span class="math inline">\(\widehat{G}\)</span> of the characteristic function of the distribution pf <span class="math inline">\(X\)</span>, the identity entails that <span class="math inline">\(\widehat{F}'(t) = -t \widehat{F}(t)\)</span> and <span class="math inline">\(\widehat{G}'(t) = -t \widehat{G}(t)\)</span> with <span class="math inline">\(\widehat{F}(0)=1\)</span> and <span class="math inline">\(\widehat{G}(0)=0\)</span>. Solving the two differential equations leads to <span class="math inline">\(\widehat{F}(t) = \mathrm{e}^{-t^2/2}\)</span> and <span class="math inline">\(\widehat{G}(t)=0\)</span>. We just checked that the characteristic function of the distribution of <span class="math inline">\(X\)</span> is the characteristic function of <span class="math inline">\(\mathcal{N}(0,1).\)</span></p>
@@ -410,12 +420,21 @@ s \mapsto \mathbb{E} \left[ \mathrm{e}^{s X} \right] =
 \text{e}^{\frac{s^2}{2}} \,  .
 \]</span></p>
 <p>From Markov’s inequality, we obtain interesting upper bounds on the Gaussian tail function. Some calculus allows us to refine the tail bounds</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="prp-millsratio" class="theorem proposition">
 <p><span class="theorem-title"><strong>Proposition 16.2 (Tail probabilities for Gaussian distribution)</strong></span> For <span class="math inline">\(x \geq 0,\)</span> <span class="math display">\[
 \frac{\phi(x)}{x} \left( 1
 - \frac{1}{x^2} \right)  \leq \overline{\Phi} (x) \leq \min \left( \mathrm{e}^{-\frac{x^2}{2}},
 \frac{\phi(x)}{x} \right)\, .
 \]</span></p>
+</div>
+</div>
+</div>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>The proof boils down to repeated integration by parts.</p>
@@ -443,6 +462,12 @@ x}  .
 \frac{x^2}{2}} .
 \end{eqnarray*}\]</span></p>
 </div>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="prp-gaussmoments" class="theorem proposition">
 <p><span class="theorem-title"><strong>Proposition 16.3 (Moments)</strong></span> For a standard Gaussian random variable, <span class="math display">\[
 \mathbb{E} \left[ X^k \right] =
@@ -453,6 +478,9 @@ x}  .
 \Gamma (k / 2 + 1)} &amp; \text{ if }  k \text{ is even.}
 \end{cases}
 \]</span></p>
+</div>
+</div>
+</div>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>Thanks to distributional symmetry, <span class="math inline">\(\mathbb{E} \left[ X^k \right]=0\)</span> for all odd<span class="math inline">\(k\)</span>. We handle even powers using integration by parts:</p>
@@ -473,29 +501,56 @@ x}  .
 <section id="sec-GaussVec" class="level2" data-number="16.2">
 <h2 data-number="16.2" class="anchored" data-anchor-id="sec-GaussVec"><span class="header-section-number">16.2</span> Gaussian vectors</h2>
 <p>A Gaussian vector is a collection of univariate Gaussian random variables that satisfies a very stringent property:</p>
-<div id="def-gaussVector" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 16.1 (Gaussian Vector)</strong></span> A random vector <span class="math inline">\((X_1, \ldots, X_n)^T\)</span> is a <em>Gaussian vector</em> iff for any real vector <span class="math inline">\((\lambda_1, \lambda_2, \ldots, \lambda_n)^T\)</span>, the distribution of the univariate random variable <span class="math inline">\(\sum_{i = 1}^n \ \lambda_i X_i\)</span> is Gaussian.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
 </div>
-<div id="rem">
-<p>Not every collection of Gaussian random variables forms a Gaussian vector.</p>
+<div class="callout-body-container">
+<div id="def-gaussVector" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 16.1 (Gaussian Vector)</strong></span> A random vector <span class="math inline">\((X_1, \ldots, X_n)^\top\)</span> is a <em>Gaussian vector</em> iff for any real vector <span class="math inline">\((\lambda_1, \lambda_2, \ldots, \lambda_n)^\top\)</span>, the distribution of the univariate random variable <span class="math inline">\(\sum_{i = 1}^n \ \lambda_i X_i\)</span> is Gaussian.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="rem-caution-gaussian" class="proof remark">
+<p><span class="proof-title"><em>Remark 16.1</em>. </span>Not every collection of Gaussian random variables forms a Gaussian vector.</p>
 <p>The random vector <span class="math inline">\((X, \epsilon X)\)</span> with <span class="math inline">\(X \sim \mathcal{N}(0.1)\)</span>, independent of <span class="math inline">\(\epsilon\)</span> which is worth <span class="math inline">\(\pm 1\)</span> with probability <span class="math inline">\(1/2\)</span>, is not a Gaussian vector although both <span class="math inline">\(X\)</span> and <span class="math inline">\(\epsilon X\)</span> are univariate Gaussian random variables.</p>
 </div>
-<div id="exr">
-<p>Check that <span class="math inline">\(\epsilon X\)</span> is a Gaussian random variable.</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-caution-gaussian" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 16.1</strong></span> Check that <span class="math inline">\(\epsilon X\)</span> is a Gaussian random variable.</p>
+</div>
+</div>
+</div>
 </div>
 <p>Yet there are Gaussian vectors! A simple way to obtain a Gaussian vector is provided by the next proposition (checked by a characteristic function argument).</p>
-<div id="prp">
-<p>If <span class="math inline">\(X_1, \ldots, X_n\)</span> is a sequence of independent Gaussian random variables, then <span class="math inline">\((X_1, \ldots, X_n)^t\)</span> is a Gaussian vector.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-indep-gaussian-vectors" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 16.4</strong></span> If <span class="math inline">\(X_1, \ldots, X_n\)</span> is a sequence of independent Gaussian random variables, then <span class="math inline">\((X_1, \ldots, X_n)^\top\)</span> is a Gaussian vector.</p>
+</div>
+</div>
+</div>
 </div>
 <p>In the sequel, a <em>standard Gaussian vector</em> is a random vector with independent coordinates with each coordinate distributed according to <span class="math inline">\(\mathcal{N}(0,1)\)</span>.</p>
 <p>We will see how to construct general Gaussian vectors. Before this, let us check that the joint distribution of a Gaussian random vector is completely characterized by its covariance matrix and its expectation vector.</p>
-<p>Recall that the <em>covariance</em> of random vector <span class="math inline">\(X= (X_1, \ldots, X_n)^T\)</span> is the matrix <span class="math inline">\(K\)</span> with dimension <span class="math inline">\(n \times n\)</span> with coefficients</p>
+<p>Recall that the <em>covariance</em> of random vector <span class="math inline">\(X= (X_1, \ldots, X_n)^\top\)</span> is the matrix <span class="math inline">\(K\)</span> with dimension <span class="math inline">\(n \times n\)</span> with coefficients</p>
 <p><span class="math display">\[
 K [i, j] = \operatorname{Cov} (X_i, X_j) = \mathbb{E} [X_i X_j] - \mathbb{E} [X_i] \mathbb{E} [X_j] .
 \]</span></p>
-<p>Without loss of generality, we may assume that random vector <span class="math inline">\(X\)</span> is centered For every <span class="math inline">\(\lambda = (\lambda_1, \ldots, \lambda_n)^T \in \mathbb{R}^n\)</span>, we have:</p>
+<p>Without loss of generality, we may assume that random vector <span class="math inline">\(X\)</span> is centered For every <span class="math inline">\(\lambda = (\lambda_1, \ldots, \lambda_n)^\top \in \mathbb{R}^n\)</span>, we have:</p>
 <p><span class="math display">\[
-\operatorname{var}(\langle \lambda, X \rangle) =  \lambda^t K \lambda = \text{trace} (K \lambda \lambda^t)\,
+\operatorname{var}(\langle \lambda, X \rangle) =  \lambda^\top K \lambda = \text{trace} (K \lambda \lambda^\top)\,
 \]</span> (this is does not depend on any Gaussianity assumption).</p>
 <p>Indeed,</p>
 <p><span class="math display">\[\begin{eqnarray*}
@@ -503,61 +558,125 @@ K [i, j] = \operatorname{Cov} (X_i, X_j) = \mathbb{E} [X_i X_j] - \mathbb{E} [X_
 \mathbb{E} \left[ \left( \sum_{i=1}^n \lambda_i X_i\right)^2\right]  \\
 &amp; = &amp; \sum_{i,j=1}^n \mathbb{E} \left[\lambda_i \lambda_j X_i X_j \right] \\
 &amp; = &amp; \sum_{i,j=1}^n \lambda_i \lambda_j K[i,j] \\
-&amp; = &amp; \lambda^t K \lambda\, .
+&amp; = &amp; \lambda^\top K \lambda\, .
 \end{eqnarray*}\]</span></p>
 <p>The characteristic function of a Gaussian vector <span class="math inline">\(X\)</span> with expectation vector <span class="math inline">\(\mu\)</span> and covariance <span class="math inline">\(K\)</span> satisfies</p>
 <p><span class="math display">\[
-\mathbb{E} \mathrm{e}^{\imath \langle \lambda, X \rangle } =  \mathrm{e}^{\imath \langle \lambda, \mu \rangle - \frac{\lambda^t K \lambda}{2}} \,  \, .
+\mathbb{E} \mathrm{e}^{\imath \langle \lambda, X \rangle } =  \mathrm{e}^{\imath \langle \lambda, \mu \rangle - \frac{\lambda^\top K \lambda}{2}} \,  \, .
 \]</span></p>
 <p>A linear transform of a Gaussian vector is a Gaussian vector.</p>
-<div id="prp">
-<p>If <span class="math inline">\({Y} = (Y_1, \ldots, Y_n)^T\)</span> is a Gaussian vector with covariance <span class="math inline">\(K\)</span> and <span class="math inline">\(A\)</span> a real matrix with dimensions <span class="math inline">\(p \times n\)</span>, then <span class="math inline">\(A \times Y\)</span> is Gaussian vector with expectation <span class="math inline">\(A \times \mathbb{E}Y\)</span> and covariance matrix</p>
-<p><span class="math display">\[A K A^T .\]</span></p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-linear-transform-gaussian" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 16.5</strong></span> If <span class="math inline">\({Y} = (Y_1, \ldots, Y_n)^\top\)</span> is a Gaussian vector with covariance <span class="math inline">\(K\)</span> and <span class="math inline">\(A\)</span> a real matrix with dimensions <span class="math inline">\(p \times n\)</span>, then <span class="math inline">\(A \times Y\)</span> is Gaussian vector with expectation <span class="math inline">\(A \times \mathbb{E}Y\)</span> and covariance matrix</p>
+<p><span class="math display">\[A K A^\top .\]</span></p>
+</div>
+</div>
+</div>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>Without loss of generality, we assume <span class="math inline">\(Y\)</span> is centred.</p>
-<p>For any <span class="math inline">\(\lambda \in \mathbb{R}^p\)</span>, <span class="math inline">\(\langle \lambda , A Y \rangle = \langle A^T \lambda, Y \rangle\)</span> , thus <span class="math inline">\(A \times Y\)</span> is Gaussian with variance</p>
+<p>For any <span class="math inline">\(\lambda \in \mathbb{R}^p\)</span>, <span class="math inline">\(\langle \lambda , A Y \rangle = \langle A^\top \lambda, Y \rangle\)</span> , thus <span class="math inline">\(A \times Y\)</span> is Gaussian with variance</p>
 <p><span class="math display">\[
-\lambda^T A K A^T \lambda \, .
+\lambda^\top A K A^\top \lambda \, .
 \]</span></p>
 <p>The covariance of <span class="math inline">\(A \times Y\)</span> is determined by this observation.</p>
 </div>
 <p>To manufacture Gaussian vectors with general covariance matrices, we rely on an important notion from matrix analysis.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="def-sdp" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 16.2 (Semi-Definite Positive matrices)</strong></span> A symmetric matrix <span class="math inline">\(M\)</span> with dimensions <span class="math inline">\(k \times k\)</span> is Definite Positive (respectively Semi-Definite Positive) iff, for any non-null vector <span class="math inline">\(v \in \mathbb{R}^k\)</span>,</p>
 <p><span class="math display">\[
-v^T M v &gt; 0 \qquad (\text{resp.} \qquad v^T M v \geq 0) \, .
+v^\top M v &gt; 0 \qquad (\text{resp.} \qquad v^\top M v \geq 0) \, .
 \]</span></p>
 <p>We denote by <span class="math inline">\(\textsf{dp}(k)\)</span> (resp. <span class="math inline">\(\textsf{sdp}(k)\)</span>), the cones of Definite Positive (resp. Semi-Definite Positive) matrices.</p>
 </div>
-<div id="prp">
-<p>If <span class="math inline">\(K\)</span> is the covariance matrix of a random vector, <span class="math inline">\(K\)</span> is symmetric, Semi-Definite Positive.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-sdp-cov" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 16.6</strong></span> If <span class="math inline">\(K\)</span> is the covariance matrix of a random vector, <span class="math inline">\(K\)</span> is symmetric, Semi-Definite Positive.</p>
+</div>
+</div>
+</div>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>If <span class="math inline">\(X\)</span> is a <span class="math inline">\(\mathbb{R}^k\)</span>-valued random vector, with covariance <span class="math inline">\(K\)</span>, for any vector <span class="math inline">\(\lambda \in \mathbb{R}^n\)</span>,</p>
 <p><span class="math display">\[
-\lambda^T K \lambda = \sum_{i,j\leq k} K_{i,j} \lambda_i \lambda_j = \operatorname{cov}(\langle \lambda, X \rangle, \langle \lambda, X \rangle)
-\]</span> soit <span class="math inline">\(\lambda^T K \lambda =  \operatorname{var}(\langle \lambda, X \rangle)\)</span>. The variance of a univariate random variable is always non-negative.</p>
+\lambda^\top K \lambda = \sum_{i,j\leq k} K_{i,j} \lambda_i \lambda_j = \operatorname{cov}(\langle \lambda, X \rangle, \langle \lambda, X \rangle)
+\]</span> soit <span class="math inline">\(\lambda^\top K \lambda =  \operatorname{var}(\langle \lambda, X \rangle)\)</span>. The variance of a univariate random variable is always non-negative.</p>
 </div>
 <p>The next observation is the key to the construction to general Gaussian vectors.</p>
-<div id="prp-choleskyfac" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 16.4 (Cholesky’s factorization)</strong></span> If <span class="math inline">\(A\)</span> is a Semi-definite Positive symmetric matrix then there exists (at least) a real matrix <span class="math inline">\(B\)</span> such that <span class="math inline">\(A = B^T B\)</span>.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
 </div>
-<p>We do not check this proposition. This is a basic Theorem from matrix analysis. It can be established from the <em>spectral decomposition theorem</em> for symmetric matrices. It can also be established by a simple constructive approach: a positive definite matrix <span class="math inline">\(K\)</span> admits a <em>Cholesky decomposition</em>, in other words, there exists a triangular matrix lower than <span class="math inline">\(L\)</span> such that <span class="math inline">\(K = L \times L^T\)</span>.</p>
+<div class="callout-body-container">
+<div id="prp-choleskyfac" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 16.7 (Cholesky’s factorization)</strong></span> If <span class="math inline">\(A\)</span> is a Semi-definite Positive symmetric matrix then there exists (at least) a real matrix <span class="math inline">\(B\)</span> such that <span class="math inline">\(A = B^\top B\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>We do not check this proposition. This is a basic Theorem from matrix analysis. It can be established from the <em>spectral decomposition theorem</em> for symmetric matrices. It can also be established by a simple constructive approach: a positive definite matrix <span class="math inline">\(K\)</span> admits a <em>Cholesky decomposition</em>, in other words, there exists a triangular matrix lower than <span class="math inline">\(L\)</span> such that <span class="math inline">\(K = L \times L^\top\)</span>.</p>
 <p>The next proposition is a corollary of the general formula for image densities.</p>
-<div id="prp">
-<p>If <span class="math inline">\(A\)</span> is a symmetric positive definite matrix (<span class="math inline">\(A \in \textsf{dp}(n)\)</span>), then the distribution of the centred Gaussian vector with covariance matrix <span class="math inline">\(A\)</span> is absolutely continuous with respect to Lebesgue’s measure on <span class="math inline">\(\mathbb{R}^n\)</span>: <span class="math display">\[
-\frac{1}{({2 \pi})^{n/2}  \operatorname{det}(A)^{1/2}} \exp\left( - \frac{x^t A^{-1} x}{2} \right) \, .
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-sdp-gaussian-density" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 16.8</strong></span> If <span class="math inline">\(A\)</span> is a symmetric positive definite matrix (<span class="math inline">\(A \in \textsf{dp}(n)\)</span>), then the distribution of the centred Gaussian vector with covariance matrix <span class="math inline">\(A\)</span> is absolutely continuous with respect to Lebesgue’s measure on <span class="math inline">\(\mathbb{R}^n\)</span>: <span class="math display">\[
+\frac{1}{({2 \pi})^{n/2}  \operatorname{det}(A)^{1/2}} \exp\left( - \frac{x^\top A^{-1} x}{2} \right) \, .
 \]</span></p>
+</div>
+</div>
+</div>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>The density formula is trivially correct for standard Gaussian vectors. For the general case, it is enough to invoke the image density formula to the image of the standard Gaussian vector by the bijective linear transformation defined by the Cholesky factorization of <span class="math inline">\(A\)</span>. The determinant of the Cholesky factor is the square root of the determinant of <span class="math inline">\(A\)</span>.</p>
+<p><span class="math inline">\(\square\)</span></p>
 </div>
-<div id="exr">
-<p>Is the distribution of a Gaussian vector <span class="math inline">\(X\)</span> with <em>singular</em> covariance matrix absolutely continuous with respect to Lebesgue measure?</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
 </div>
+<div class="callout-body-container">
+<div id="exr-sing-covariance" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 16.2</strong></span> Is the distribution of a Gaussian vector <span class="math inline">\(X\)</span> with <em>singular</em> covariance matrix absolutely continuous with respect to Lebesgue measure?</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="def-gaussspace" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 16.3 (Gaussian space)</strong></span> If <span class="math inline">\(X= (X_1, \ldots, X_n)^T\)</span> is a centered Gaussian vector with covariance matrix <span class="math inline">\(K\)</span> , the set <span class="math inline">\(\left\{ \sum_{i = 1}^n \lambda_i X_i = \langle \lambda, X\rangle ; \lambda \in \mathbb{R}^n\right\}\)</span> is the Gaussian space generated by <span class="math inline">\(X = (X_1, \ldots, X_n)^T\)</span>).</p>
+<p><span class="theorem-title"><strong>Definition 16.3 (Gaussian space)</strong></span> If <span class="math inline">\(X= (X_1, \ldots, X_n)^\top\)</span> is a centered Gaussian vector with covariance matrix <span class="math inline">\(K\)</span> , the set <span class="math inline">\(\left\{ \sum_{i = 1}^n \lambda_i X_i = \langle \lambda, X\rangle ; \lambda \in \mathbb{R}^n\right\}\)</span> is the Gaussian space generated by <span class="math inline">\(X = (X_1, \ldots, X_n)^\top\)</span>).</p>
+</div>
+</div>
+</div>
 </div>
 <p>The Gaussian space is a real vector space. If <span class="math inline">\((\Omega, \mathcal{F},P)\)</span> denotes the probability space, <span class="math inline">\(X\)</span> lives on, the Gaussian space is a subspace of <span class="math inline">\(L^2_{\mathbb{R}}(\Omega, \mathcal{F},P)\)</span>. It inherits the inner product structure from <span class="math inline">\(L^2_{\mathbb{R}}(\Omega, \mathcal{F},P)\)</span>.</p>
 <p>This inner-product is completely defined by the covariance matrix <span class="math inline">\(K\)</span>.</p>
@@ -581,14 +700,23 @@ v^T M v &gt; 0 \qquad (\text{resp.} \qquad v^T M v \geq 0) \, .
 \lambda'_n
 \end{array}\right) \right).
 \end{eqnarray*}\]</span></p>
-<div id="rem">
-<p>Different Gaussian vectors may generate the same Gaussian space. Explain how and why.</p>
+<div id="rem-diff-gaussian-vectors" class="proof remark">
+<p><span class="proof-title"><em>Remark 16.2</em>. </span>Different Gaussian vectors may generate the same Gaussian space. Explain how and why.</p>
 </div>
 <p>Gaussian spaces enjoy remarkable properties. Independence of random variables belonging to the same Gaussian space may checked very easily.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="prp-indepgaussspace" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 16.5</strong></span> Two random variables <span class="math inline">\(Z\)</span> and <span class="math inline">\(Y\)</span>, belonging to the same Gaussian space, are independent iff they are orthogonal (or decorrelated), that is iff <span class="math display">\[
+<p><span class="theorem-title"><strong>Proposition 16.9</strong></span> Two random variables <span class="math inline">\(Z\)</span> and <span class="math inline">\(Y\)</span>, belonging to the same Gaussian space, are independent iff they are orthogonal (or decorrelated), that is iff <span class="math display">\[
 \operatorname{Cov}_P [Y ,Z] = \mathbb{E}_P [Y Z] = 0 .
 \]</span></p>
+</div>
+</div>
+</div>
 </div>
 <p>Without loss of generality, we assume covariance matrix <span class="math inline">\(K\)</span> is positive definite.</p>
 <div class="proof">
@@ -598,7 +726,8 @@ v^T M v &gt; 0 \qquad (\text{resp.} \qquad v^T M v \geq 0) \, .
 <p><span class="math display">\[\mathbb{E} [ZY] =  \sum_{i = 1}^n \lambda_i \lambda_{i}' = 0 .\]</span></p>
 <p>To show that <span class="math inline">\(Z\)</span> and <span class="math inline">\(Y\)</span> are independent, it is enough to check that for all <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\mu'\)</span> in <span class="math inline">\(\mathbb{R}\)</span> <span class="math display">\[\mathbb{E} \left[ \mathrm{e}^{\imath \mu Z} \mathrm{e}^{\imath \mu' Y} \right] =
 \mathbb{E} \left[ \mathrm{e}^{\imath \mu Z}  \right] \times \mathbb{E}
-\left[ \mathrm{e}^{\imath \mu' Y} \right] .\]</span></p>
+\left[ \mathrm{e}^{\imath \mu' Y} \right] .
+\]</span></p>
 <p><span class="math display">\[\begin{align*}
 \mathbb{E} \left[ \mathrm{e}^{\imath \mu Z} \mathrm{e}^{\imath \mu' Y} \right] &amp;
 =  \mathbb{E} \left[ \mathrm{e}^{\imath \mu \sum_i \lambda_i    X_i} \mathrm{e}^{\imath \mu' \sum_i \lambda'_i    X_i} \right]\\
@@ -618,59 +747,104 @@ v^T M v &gt; 0 \qquad (\text{resp.} \qquad v^T M v \geq 0) \, .
 &amp; =  \mathbb{E} \left[ \mathrm{e}^{\imath \mu Z}  \right] \times
 \mathbb{E} \left[ \mathrm{e}^{\imath \mu' Y} \right] .
 \end{align*}\]</span></p>
+<p><span class="math inline">\(\square\)</span></p>
 </div>
 <p>The next proposition is a direct consequence.</p>
-<div id="cor">
-<p>If <span class="math inline">\(E\)</span> and <span class="math inline">\(E'\)</span> are two linear sub-spaces of the Gaussian space generated by the Gaussian vector with independent coordinates <span class="math inline">\(X_1, \ldots, X_n\)</span>, the (Gaussian) random variables belonging to subspace <span class="math inline">\(E\)</span> and the random (Gaussian) variables belonging to the <span class="math inline">\(E'\)</span> space are independent if and only these two subspaces are orthogonal.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="cor-indepemdence-correlation" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 16.1</strong></span> If <span class="math inline">\(E\)</span> and <span class="math inline">\(E'\)</span> are two linear sub-spaces of the Gaussian space generated by the Gaussian vector with independent coordinates <span class="math inline">\(X_1, \ldots, X_n\)</span>, the (Gaussian) random variables belonging to subspace <span class="math inline">\(E\)</span> and the random (Gaussian) variables belonging to the <span class="math inline">\(E'\)</span> space are independent if and only these two subspaces are orthogonal.</p>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section id="sec-convergenceGaussVectors" class="level2" data-number="16.3">
 <h2 data-number="16.3" class="anchored" data-anchor-id="sec-convergenceGaussVectors"><span class="header-section-number">16.3</span> Convergence of Gaussian vectors</h2>
-<p>Recall the Lévy continuity theorem (<a href="08-convergence-3.html#thm-thmlevycont" class="quarto-xref">Theorem&nbsp;<span>14.2</span></a>)), it relates weak convergence for probability measures and simple convergence for characteristic functions.</p>
-<div id="thm">
-<p>A sequence of probability distributions <span class="math inline">\((P_n)_{n \in \mathbb{N}}\)</span> over <span class="math inline">\(\mathbb{R}^k\)</span> converges weakly towards <span class="math inline">\(P\)</span> iff for every <span class="math inline">\(\vec{s} \in \mathbb{R}^k\)</span>:</p>
+<p>Recall the Lévy continuity theorem (<a href="08-convergence-3.html#thm-thmlevycont" class="quarto-xref">Theorem&nbsp;<span>15.2</span></a>)), it relates weak convergence for probability measures and simple convergence for characteristic functions.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-levycont-recall" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 16.1</strong></span> A sequence of probability distributions <span class="math inline">\((P_n)_{n \in \mathbb{N}}\)</span> over <span class="math inline">\(\mathbb{R}^k\)</span> converges weakly towards <span class="math inline">\(P\)</span> iff for every <span class="math inline">\(\vec{s} \in \mathbb{R}^k\)</span>:</p>
 <p><span class="math display">\[\mathbb{E}_{P_n} \left[ \mathrm{e}^{\imath \langle \vec{s},
 \vec{X} \rangle} \right] \rightarrow \mathbb{E}_{P_{}} \left[
-\mathrm{e}^{\imath \langle \vec{s}, \vec{X} \rangle} \right] .\]</span></p>
+\mathrm{e}^{\imath \langle \vec{s}, \vec{X} \rangle} \right] .
+\]</span></p>
+</div>
+</div>
+</div>
 </div>
 <p>For every <span class="math inline">\(\vec{s} \in \mathbb{R}^k\)</span>, functions <span class="math inline">\(\vec{x}\mapsto \cos ( \left\langle \vec{s}, \vec{x} \right\rangle)\)</span> and <span class="math inline">\(\vec{x} \mapsto \sin ( \left\langle \vec{s}, \vec{x}\right\rangle)\)</span> are continuous and bounded, They are also infinitely many times differentiable.</p>
 <p>It is remarkable and useful that weak convergence can be checked on this small set of functions.</p>
-<div id="thm">
-<section id="lévy-continuity-theorem-bis" class="level3" data-number="16.3.1">
-<h3 data-number="16.3.1" class="anchored" data-anchor-id="lévy-continuity-theorem-bis"><span class="header-section-number">16.3.1</span> Lévy-Continuity Theorem (bis)</h3>
-<p>A sequence of probability distributions <span class="math inline">\((P_n)_{n \in \mathbb{N}}\)</span> sur <span class="math inline">\(\mathbb{R}^k\)</span> converges weakly towards a probability distribution iff there exists a function <span class="math inline">\(f\)</span> over <span class="math inline">\(\mathbb{R}^k\)</span>, continuous at <span class="math inline">\(\vec{0}\)</span>, such that for all <span class="math inline">\(\vec{s} \in \mathbb{R}^k\)</span>:</p>
-<p><span class="math display">\[\mathbb{E}_{P_n} \left[ \mathrm{e}^{\imath \langle \vec{s}, \vec{X} \rangle} \right] \rightarrow f(\vec{s})\,.\]</span></p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-levycont-bis" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 16.2 (Lévy-Continuity Theorem (bis))</strong></span> A sequence of probability distributions <span class="math inline">\((P_n)_{n \in \mathbb{N}}\)</span> sur <span class="math inline">\(\mathbb{R}^k\)</span> converges weakly towards a probability distribution iff there exists a function <span class="math inline">\(f\)</span> over <span class="math inline">\(\mathbb{R}^k\)</span>, continuous at <span class="math inline">\(\vec{0}\)</span>, such that for all <span class="math inline">\(\vec{s} \in \mathbb{R}^k\)</span>:</p>
+<p><span class="math display">\[
+\mathbb{E}_{P_n} \left[ \mathrm{e}^{\imath \langle \vec{s}, \vec{X} \rangle} \right] \rightarrow f(\vec{s})\,.
+\]</span></p>
 <p>Then, function <span class="math inline">\(f\)</span> is the characteristic function of some probability distribution <span class="math inline">\(P\)</span>.</p>
-</section>
+</div>
+</div>
+</div>
 </div>
 <p>The continuity condition at <span class="math inline">\(0\)</span> is necessary. The characteristic function of a probability distribution is always continuous at <span class="math inline">\(0\)</span>. Continuity at <span class="math inline">\(0\)</span> warrants the tightness of the sequence of probability distributions.</p>
-<div id="prp">
-<p>If a sequence of <span class="math inline">\(k\)</span>-dimensional Gaussian vectors <span class="math inline">\((X_n)\)</span> is defined by a <span class="math inline">\(\mathbb{R}^k\)</span>-valued sequence <span class="math inline">\((\vec{\mu}_n)_n\)</span> and a <span class="math inline">\(\textsf{SDP}(k)\)</span>-valued sequence <span class="math inline">\((K_n)_n\)</span> and</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-conv-gaussiamn" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 16.10</strong></span> If a sequence of <span class="math inline">\(k\)</span>-dimensional Gaussian vectors <span class="math inline">\((X_n)\)</span> is defined by a <span class="math inline">\(\mathbb{R}^k\)</span>-valued sequence <span class="math inline">\((\vec{\mu}_n)_n\)</span> and a <span class="math inline">\(\textsf{SDP}(k)\)</span>-valued sequence <span class="math inline">\((K_n)_n\)</span> and</p>
 <p><span class="math display">\[\begin{eqnarray*}
 \lim_n \vec{\mu}_n &amp; = &amp; \mu \in \mathbb{R}^k\\
 \lim_n K_n &amp; = &amp; K \in \textsf{SDP}(k)
 \end{eqnarray*}\]</span></p>
 <p>then the sequence <span class="math inline">\((X_n)_n\)</span> converges in distribution towards <span class="math inline">\(\mathcal{N}\left(\vec{\mu}, K\right)\)</span> (if <span class="math inline">\(K = 0\)</span>, the limit distribution is <span class="math inline">\(\delta_\mu\)</span>).</p>
 </div>
+</div>
+</div>
+</div>
 </section>
-<section id="gaussian-conditioning" class="level2" data-number="16.4">
-<h2 data-number="16.4" class="anchored" data-anchor-id="gaussian-conditioning"><span class="header-section-number">16.4</span> Gaussian conditioning</h2>
-<p>Let <span class="math inline">\((X_1,\ldots,X_n)^T\)</span> be a Gaussian vector with distribution <span class="math inline">\(\mathcal{N}(\mu, K)\)</span> where <span class="math inline">\(K \in \textsf{DP}(n)\)</span>. The covariance matrix <span class="math inline">\(K\)</span> is partitioned into blocks <span class="math display">\[
+<section id="sec-gauss-conditioning" class="level2" data-number="16.4">
+<h2 data-number="16.4" class="anchored" data-anchor-id="sec-gauss-conditioning"><span class="header-section-number">16.4</span> Gaussian conditioning</h2>
+<p>Let <span class="math inline">\((X_1,\ldots,X_n)^\top\)</span> be a Gaussian vector with distribution <span class="math inline">\(\mathcal{N}(\mu, K)\)</span> where <span class="math inline">\(K \in \textsf{DP}(n)\)</span>. The covariance matrix <span class="math inline">\(K\)</span> is partitioned into blocks <span class="math display">\[
 K = \left[
 \begin{array}{cc}
-A &amp; B^t \\
+A &amp; B^\top \\
 B &amp; W
 \end{array}
 \right]
-\]</span> where <span class="math inline">\(A \in \textsf{DP}(k)\)</span>, <span class="math inline">\(1 \leq k &lt; n\)</span>, and <span class="math inline">\(W \in \textsf{DP}(n-k)\)</span>.</p>
-<p>We are interested in the conditional expectation of <span class="math inline">\((X_1, \ldots, X_k)^T\)</span> with repsect to <span class="math inline">\(\sigma(X_{k+1},\ldots,X_n)\)</span> and in the conditional distribution of <span class="math inline">\((X_1, \ldots, X_k)^T\)</span> with respect to <span class="math inline">\(\sigma(X_{k+1},\ldots,X_n)\)</span>.</p>
+\]</span></p>
+<p>where <span class="math inline">\(A \in \textsf{DP}(k)\)</span>, <span class="math inline">\(1 \leq k &lt; n\)</span>, and <span class="math inline">\(W \in \textsf{DP}(n-k)\)</span>.</p>
+<p>We are interested in the conditional expectation of <span class="math inline">\((X_1, \ldots, X_k)^\top\)</span> with repsect to <span class="math inline">\(\sigma(X_{k+1},\ldots,X_n)\)</span> and in the conditional distribution of <span class="math inline">\((X_1, \ldots, X_k)^\top\)</span> with respect to <span class="math inline">\(\sigma(X_{k+1},\ldots,X_n)\)</span>.</p>
 <p>The Schur complement of <span class="math inline">\(A\)</span> in <span class="math inline">\(K\)</span> is defined as <span class="math display">\[
-W - B A^{-1} B^T\, .
-\]</span> This definition makes sense for symmetric matrices when <span class="math inline">\(A\)</span> is non-singular.</p>
+W - B A^{-1} B^\top\, .
+\]</span></p>
+<p>This definition makes sense for symmetric matrices when <span class="math inline">\(A\)</span> is non-singular.</p>
 <p>If <span class="math inline">\(K \in \textsf{DP}(n)\)</span> then the Schur complement of <span class="math inline">\(A\)</span> in <span class="math inline">\(K\)</span> also belongs to <span class="math inline">\(\textsf{DP}(n-k)\)</span></p>
-<p>In the statement of the next theorems, <span class="math inline">\(A^{-1/2}\)</span> denotes the Cholesky factor of <span class="math inline">\(A^{-1}\)</span>: <span class="math inline">\(A^{-1} = A^{-1/2} \times (A^{-1/2})^T\)</span>.</p>
-<div id="thm">
-<p>L’espérance conditionnelle de <span class="math inline">\((X_{k+1}, \ldots, X_n)^t\)</span> sachant <span class="math inline">\((X_{1},\ldots,X_k)^t\)</span> est une transformation affine de <span class="math inline">\((X_{1},\ldots,X_{k})^t\)</span>:</p>
+<p>In the statement of the next theorems, <span class="math inline">\(A^{-1/2}\)</span> denotes the Cholesky factor of <span class="math inline">\(A^{-1}\)</span>: <span class="math inline">\(A^{-1} = A^{-1/2} \times (A^{-1/2})^\top\)</span>.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-cond-expectation" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 16.3</strong></span> L’espérance conditionnelle de <span class="math inline">\((X_{k+1}, \ldots, X_n)^\top\)</span> sachant <span class="math inline">\((X_{1},\ldots,X_k)^\top\)</span> est une transformation affine de <span class="math inline">\((X_{1},\ldots,X_{k})^\top\)</span>:</p>
 <p><span class="math display">\[
 \mathbb{E}\left[ \begin{pmatrix}
 X_{k+1} \\ \vdots \\ X_{n}
@@ -684,19 +858,37 @@ X_{1} \\ \vdots \\ X_{k}
 \end{pmatrix}\right) \, .
 \]</span></p>
 </div>
-<div id="thm">
-<p>The conditional distribution of <span class="math inline">\((X_{k+1}, \ldots, X_n)^T\)</span> with respect to <span class="math inline">\(\sigma(X_{1},\ldots,X_k)\)</span> is a Gaussian distribution whose expectation is the conditional expectation <span class="math inline">\((X_{k+1}, \ldots, X_n)^T\)</span> with respect to <span class="math inline">\(\sigma(X_{1},\ldots,X_k)\)</span> and whose variance is the Schur complement of the covariance of <span class="math inline">\((X_{1},\ldots,X_k)^T\)</span> in the covariance matrix of <span class="math inline">\((X_1, \ldots, X_n)^T\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-cond-gaussian-density" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 16.4</strong></span> The conditional distribution of <span class="math inline">\((X_{k+1}, \ldots, X_n)^\top\)</span> with respect to <span class="math inline">\(\sigma(X_{1},\ldots,X_k)\)</span> is a Gaussian distribution whose expectation is the conditional expectation <span class="math inline">\((X_{k+1}, \ldots, X_n)^\top\)</span> with respect to <span class="math inline">\(\sigma(X_{1},\ldots,X_k)\)</span> and whose variance is the Schur complement of the covariance of <span class="math inline">\((X_{1},\ldots,X_k)^\top\)</span> in the covariance matrix of <span class="math inline">\((X_1, \ldots, X_n)^\top\)</span>.</p>
+</div>
+</div>
+</div>
 </div>
 <p>We will first study the conditional density, and, with a minimum amount of calculation, establish that it is Gaussian. Conditional expectation will be calculated as expectation under conditional distribution.</p>
 <p>To characterize conditional density, we rely on a distributional representation argument (any Gaussian vector is distributed as the image of a standard Gaussian vector by an affine transformation) and a matrix analysis result that is at the core of the Cholesky factorization of positive semi-definite matrices.</p>
-<p><span class="math inline">\((X_1, \ldots, X_n)^T\)</span> is distributed as the image of standard Gaussian vector by a block triangular matrix</p>
+<p><span class="math inline">\((X_1, \ldots, X_n)^\top\)</span> is distributed as the image of standard Gaussian vector by a block triangular matrix</p>
 <p>, et utiliser des propriétés des lois conditionnelles pour établir à la fois les deux résultats.</p>
-<div id="prp">
-<p>Let <span class="math inline">\(K\)</span> be a symmetric definite positive matrix with dimensions <span class="math inline">\(n \times n\)</span></p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-schur-complement" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 16.11</strong></span> Let <span class="math inline">\(K\)</span> be a symmetric definite positive matrix with dimensions <span class="math inline">\(n \times n\)</span></p>
 <p><span class="math display">\[
 K = \left[
 \begin{array}{cc}
-A &amp; B^t \\
+A &amp; B^\top \\
 B &amp; W
 \end{array}
 \right]
@@ -704,22 +896,25 @@ B &amp; W
 <p>where <span class="math inline">\(A\)</span> has dimensions <span class="math inline">\(k \times k\)</span>, <span class="math inline">\(1 \leq k &lt; n\)</span>.</p>
 <p>Then, the Schur-complement of <span class="math inline">\(A\)</span> with respect to <span class="math inline">\(K\)</span></p>
 <p><span class="math display">\[
-W - B A^{-1} B^t
+W - B A^{-1} B^\top
 \]</span></p>
-<p>is positive definite. Sub-matrices <span class="math inline">\(A\)</span> and <span class="math inline">\(W - B A^{-1} B^t\)</span> both have a Cholesky decomposition $A = L_1 L_1^t <span class="math inline">\(,\)</span>W - B A^{-1} B^t = L_2 L_2^t$ where <span class="math inline">\(L_1, L_2\)</span> are lower triangular, and <span class="math inline">\(K\)</span>’s factorization reads like:</p>
+<p>is positive definite. Sub-matrices <span class="math inline">\(A\)</span> and <span class="math inline">\(W - B A^{-1} B^\top\)</span> both have a Cholesky decomposition $A = L_1 L_1^<span class="math inline">\(,\)</span>W - B A^{-1} B^= L_2 L_2^$ where <span class="math inline">\(L_1, L_2\)</span> are lower triangular, and <span class="math inline">\(K\)</span>’s factorization reads like:</p>
 <p><span class="math display">\[
 K = \left[
 \begin{array}{cc}
 L_1 &amp; 0 \\
-B (L_1^t)^{-1}  &amp; L_2
+B (L_1^\top)^{-1}  &amp; L_2
 \end{array}
 \right] \times \left[
 \begin{array}{cc}
-L_1^t &amp; L_1^{-1} B^t \\
-0 &amp; L_2^t
+L_1^\top &amp; L_1^{-1} B^\top \\
+0 &amp; L_2^\top
 \end{array}
 \right] \, .
 \]</span></p>
+</div>
+</div>
+</div>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>Without loss of generality, we check the statement on centered vectors. The Cholesky factorization of <span class="math inline">\(K\)</span> allows us to write</p>
@@ -731,7 +926,7 @@ X_n
 \end{pmatrix} \sim \left[
 \begin{array}{cc}
 L_1 &amp; 0 \\
-B (L_1^t)^{-1}  &amp; L_2
+B (L_1^\top)^{-1}  &amp; L_2
 \end{array}
 \right] \times \begin{pmatrix}
 Y_1 \\
@@ -741,14 +936,14 @@ Y_n
 \]</span></p>
 <p>where <span class="math inline">\(( Y_1,
 \ldots,
-Y_n)^t\)</span> is a centered standard Gaussian vector.</p>
-<p>In the sequel, we assume <span class="math inline">\((X_1, \ldots,X_n)^T\)</span> and <span class="math inline">\((Y_1,\ldots,Y_n)^T\)</span> live on the same probability space. As <span class="math inline">\(L_1\)</span> is invertible, the <span class="math inline">\(\sigma\)</span>-algebras generated by <span class="math inline">\((X_1, \ldots,X_k)^T\)</span> and <span class="math inline">\((Y_1, \ldots,Y_k)^T\)</span> are equal. We agree on <span class="math inline">\(\mathcal{G}=\sigma(X_1, \ldots,X_k)\)</span>. The conditional expectations and conditional distributions also coincide .</p>
+Y_n)^\top\)</span> is a centered standard Gaussian vector.</p>
+<p>In the sequel, we assume <span class="math inline">\((X_1, \ldots,X_n)^\top\)</span> and <span class="math inline">\((Y_1,\ldots,Y_n)^\top\)</span> live on the same probability space. As <span class="math inline">\(L_1\)</span> is invertible, the <span class="math inline">\(\sigma\)</span>-algebras generated by <span class="math inline">\((X_1, \ldots,X_k)^\top\)</span> and <span class="math inline">\((Y_1, \ldots,Y_k)^\top\)</span> are equal. We agree on <span class="math inline">\(\mathcal{G}=\sigma(X_1, \ldots,X_k)\)</span>. The conditional expectations and conditional distributions also coincide .</p>
 <p><span class="math display">\[\begin{eqnarray*}
 \mathbb{E} \left[ \begin{pmatrix}
 X_{k+1} \\
 \vdots \\
 X_n
-\end{pmatrix} \mid \mathcal{G} \right] &amp;= &amp;\mathbb{E} \left[ B (L_1^t)^{-1} \begin{pmatrix}
+\end{pmatrix} \mid \mathcal{G} \right] &amp;= &amp;\mathbb{E} \left[ B (L_1^\top)^{-1} \begin{pmatrix}
 Y_{1} \\
 \vdots \\
 Y_k
@@ -757,7 +952,7 @@ Y_{k+1} \\
 \vdots \\
 Y_n
 \end{pmatrix} \mid \mathcal{G} \right]  \\
-&amp; = &amp; B (L_1^t)^{-1} L_1^{-1}\begin{pmatrix}
+&amp; = &amp; B (L_1^\top)^{-1} L_1^{-1}\begin{pmatrix}
 X_{1} \\
 \vdots \\
 X_k
@@ -767,7 +962,7 @@ X_{1} \\
 X_k
 \end{pmatrix} \, ,
 \end{eqnarray*}\]</span></p>
-<p>car <span class="math inline">\((Y_{k+1}, \ldots,Y_n)^t\)</span> is centered and independent from <span class="math inline">\(\mathcal{G}\)</span>.</p>
+<p>car <span class="math inline">\((Y_{k+1}, \ldots,Y_n)^\top\)</span> is centered and independent from <span class="math inline">\(\mathcal{G}\)</span>.</p>
 <p>Note that residuals</p>
 <p><span class="math display">\[
 \begin{pmatrix}
@@ -785,9 +980,9 @@ Y_n
 \end{pmatrix}
 \]</span></p>
 <p>are independent from <span class="math inline">\(\mathcal{G}\)</span>. This is a Gaussian property. For general square integrable random variables, we may only assert that residuals are orthogonal to <span class="math inline">\(\mathcal{G}\)</span>-measurable random variables.</p>
-<p>The conditional distribution of <span class="math inline">\((X_{k+1},\ldots, X_n)^T\)</span> with respect to <span class="math inline">\((X_1,\ldots, X_k)^T\)</span> coincides with the conditional distribution of</p>
+<p>The conditional distribution of <span class="math inline">\((X_{k+1},\ldots, X_n)^\top\)</span> with respect to <span class="math inline">\((X_1,\ldots, X_k)^\top\)</span> coincides with the conditional distribution of</p>
 <p><span class="math display">\[
-B (L_1^t)^{-1}   \times
+B (L_1^\top)^{-1}   \times
 \begin{pmatrix}
 Y_1\\ \vdots \\ Y_k
 \end{pmatrix} + L_2 \times
@@ -795,20 +990,21 @@ Y_1\\ \vdots \\ Y_k
 Y_{k+1}\\ \vdots \\ Y_n
 \end{pmatrix}
 \]</span></p>
-<p>conditionally on <span class="math inline">\((Y_1,\ldots, Y_k)^T\)</span>. As <span class="math inline">\((Y_1,\ldots, Y_k)^t = L_1^{-1}(X_1,\ldots,X_k)^T\)</span>, the conditional distribution we are looking for is Gaussian with expectation <span class="math display">\[B A^{-1}   \times
+<p>conditionally on <span class="math inline">\((Y_1,\ldots, Y_k)^\top\)</span>. As <span class="math inline">\((Y_1,\ldots, Y_k)^\top = L_1^{-1}(X_1,\ldots,X_k)^\top\)</span>, the conditional distribution we are looking for is Gaussian with expectation <span class="math display">\[B A^{-1}   \times
 \begin{pmatrix}
 X_1\\ \vdots \\ X_k
-\end{pmatrix}\]</span> (the conditional expectation) and variance <span class="math inline">\(L_2 \times L_2^t = W - B A^{-1} B^t\)</span>.</p>
+\end{pmatrix}\]</span> (the conditional expectation) and variance <span class="math inline">\(L_2 \times L_2^\top = W - B A^{-1} B^\top\)</span>.</p>
+<p><span class="math inline">\(\square\)</span></p>
 </div>
-<div id="exm">
-<p>If <span class="math inline">\((X,Y)^T\)</span> is a centered Gaussian vector with <span class="math inline">\(\operatorname{var}(X)=\sigma_x^2\)</span>, <span class="math inline">\(\operatorname{var}(Y)=\sigma^2_y\)</span> and <span class="math inline">\(\operatorname{cov}(X,Y)= \rho \sigma_x \sigma_y\)</span>, the conditional distribution of <span class="math inline">\(Y\)</span> with respect to <span class="math inline">\(X\)</span> is</p>
+<div id="exm-conditional-gaussian" class="theorem example">
+<p><span class="theorem-title"><strong>Example 16.1</strong></span> If <span class="math inline">\((X,Y)^\top\)</span> is a centered Gaussian vector with <span class="math inline">\(\operatorname{var}(X)=\sigma_x^2\)</span>, <span class="math inline">\(\operatorname{var}(Y)=\sigma^2_y\)</span> and <span class="math inline">\(\operatorname{cov}(X,Y)= \rho \sigma_x \sigma_y\)</span>, the conditional distribution of <span class="math inline">\(Y\)</span> with respect to <span class="math inline">\(X\)</span> is</p>
 <p><span class="math display">\[
 \mathcal{N}\left( \rho \sigma_y/\sigma_x X, \sigma^2_y (1- \rho^2)  \right) \, .
 \]</span></p>
 <p>The quantity <span class="math inline">\(\rho\)</span> is called the <em>linear correlation coefficient</em> between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. By Cauchy-Schwarz’s inequality, <span class="math inline">\(\rho \in [-1,1]\)</span>.</p>
 </div>
 <p>These two theorems are usually addressed in the order in which they are stated. Conditional expectation is characterized by adopting the <span class="math inline">\(L^2\)</span> (predictive) viewpoint: the conditional expectation of the random vector <span class="math inline">\(Y\)</span> knowing <span class="math inline">\(X\)</span> is defined as the best <span class="math inline">\(X\)</span>-measurable predictor of the vector <span class="math inline">\(Y\)</span> with respect to quadratic error (the random vector <span class="math inline">\(Z\)</span>, <span class="math inline">\(X\)</span>-measurable that minimizes <span class="math inline">\(\mathbb{E} \left[ \| Y- Z\|^2 \right]\)</span>).</p>
-<p>In order to characterize conditional expectation, we first compute the optimal affine predictor of <span class="math inline">\((X_{k+1},\ldots,X_n)^T\)</span> based on <span class="math inline">\((X_{1},\ldots,X_k)^T\)</span>. This optimal affine predictor is</p>
+<p>In order to characterize conditional expectation, we first compute the optimal affine predictor of <span class="math inline">\((X_{k+1},\ldots,X_n)^\top\)</span> based on <span class="math inline">\((X_{1},\ldots,X_k)^\top\)</span>. This optimal affine predictor is</p>
 <p><span class="math display">\[
 \begin{pmatrix}
 \mu_{k+1} \\ \vdots \\ \mu_n \end{pmatrix}   + \left(B A^{-1}  \right) \times  \left( \begin{pmatrix}
@@ -817,7 +1013,7 @@ X_{1} \\ \vdots \\ X_{k}
 \mu_{1} \\ \vdots \\ \mu_k
 \end{pmatrix}\right) \, ,
 \]</span></p>
-<p>(if Gaussian vectors are centred, this amounts to determine the matrix <span class="math inline">\(P\)</span> with dimensions <span class="math inline">\((n-k)\times k\)</span> which minimizes <span class="math inline">\(\text{trace}(PA P^t -2 B P^t\)</span>)). The optimal affine predictor is a Gaussian vector, one can check that the residual vector</p>
+<p>(if Gaussian vectors are centred, this amounts to determine the matrix <span class="math inline">\(P\)</span> with dimensions <span class="math inline">\((n-k)\times k\)</span> which minimizes <span class="math inline">\(\text{trace}(PA P^\top -2 B P^\top\)</span>)). The optimal affine predictor is a Gaussian vector, one can check that the residual vector</p>
 <p><span class="math display">\[
 \begin{pmatrix}
 X_{k+1}\\ \vdots \\ X_n
@@ -827,53 +1023,88 @@ X_{1} \\ \vdots \\ X_{k}
 \end{pmatrix}  - \begin{pmatrix}
 \mu_{1} \\ \vdots \\ \mu_k
 \end{pmatrix}\right) \right\}
-\]</span> is also Gaussian and orthogonal to the affine predictor. The residual vector is independent from the affine predictor.</p>
-<p>This is enough to establish that the affine predictor is the orthogonal projection of <span class="math inline">\((X_{k+1}, \ldots, X_n)^T\)</span> on the closed linear subspace of square-integrable <span class="math inline">\((X_{1},\ldots,X_k)^T\)</span>-measurable random vectors.</p>
+\]</span></p>
+<p>is also Gaussian and orthogonal to the affine predictor. The residual vector is independent from the affine predictor.</p>
+<p>This is enough to establish that the affine predictor is the orthogonal projection of <span class="math inline">\((X_{k+1}, \ldots, X_n)^\top\)</span> on the closed linear subspace of square-integrable <span class="math inline">\((X_{1},\ldots,X_k)^\top\)</span>-measurable random vectors.</p>
 <p>This proves that the affine predictor is the conditional expectation.</p>
 <p>In the notes, we deal with a special case of linear conditioning.</p>
-<p>To fugure out general linear conditioning, consider <span class="math inline">\(X \sim \mathcal{N}(0, {K})\)</span> (we assume centering to alleviate notation and computations, translating does not change the relevant <span class="math inline">\(\sigma\)</span>-algebras and thus conditioning), where <span class="math inline">\({K} \in \textsf{DP}(n)\)</span>, and a linear transformation defined by matrix <span class="math inline">\(H\)</span> with dimensions <span class="math inline">\(m \times n\)</span>. <span class="math inline">\(H\)</span> is assumed to have rank <span class="math inline">\(m\)</span>. Agree on <span class="math inline">\(Y= {H} X\)</span>. Considering the Gaussian vector <span class="math inline">\([ X^T : Y^T]\)</span> with covariance matrix <span class="math display">\[
+<p>To fugure out general linear conditioning, consider <span class="math inline">\(X \sim \mathcal{N}(0, {K})\)</span> (we assume centering to alleviate notation and computations, translating does not change the relevant <span class="math inline">\(\sigma\)</span>-algebras and thus conditioning), where <span class="math inline">\({K} \in \textsf{DP}(n)\)</span>, and a linear transformation defined by matrix <span class="math inline">\(H\)</span> with dimensions <span class="math inline">\(m \times n\)</span>. <span class="math inline">\(H\)</span> is assumed to have rank <span class="math inline">\(m\)</span>. Agree on <span class="math inline">\(Y= {H} X\)</span>. Considering the Gaussian vector <span class="math inline">\([ X^\top : Y^\top]\)</span> with covariance matrix <span class="math display">\[
 \left[
 \begin{array}{cc}
-{K} &amp; {K} {H}^t \\
-{H}{K} &amp; {H} {K} {H}^t
+{K} &amp; {K} {H}^\top \\
+{H}{K} &amp; {H} {K} {H}^\top
 \end{array}
 \right]
-\]</span> and adapting the previous computations (the covariance matrix is not positive definite any more), we may check that the conditional distribution of <span class="math inline">\(X\)</span> with respect to <span class="math inline">\(Y\)</span> is Gaussian with expectation <span class="math display">\[
-  K H^T (HKH^T)^{-1}
+\]</span></p>
+<p>and adapting the previous computations (the covariance matrix is not positive definite any more), we may check that the conditional distribution of <span class="math inline">\(X\)</span> with respect to <span class="math inline">\(Y\)</span> is Gaussian with expectation <span class="math display">\[
+K H^\top (HKH^\top)^{-1}
 \]</span></p>
 <p>and variance</p>
 <p><span class="math display">\[
-  K - K H^t (HKH^T)^{-1} H K \, .
+K - K H^\top (HKH^\top)^{-1} H K \, .
 \]</span></p>
 <p>The linearity of conditional expectation is a property of Gaussian vectors and linear conditioning. If you condition with respect to the norm <span class="math inline">\(\| X\|_2\)</span>, the conditional distribution is not Gaussian anymore.</p>
 </section>
-<section id="about-gamma-distributions" class="level2" data-number="16.5">
-<h2 data-number="16.5" class="anchored" data-anchor-id="about-gamma-distributions"><span class="header-section-number">16.5</span> About Gamma distributions</h2>
+<section id="sec-about-gamma" class="level2" data-number="16.5">
+<h2 data-number="16.5" class="anchored" data-anchor-id="sec-about-gamma"><span class="header-section-number">16.5</span> About Gamma distributions</h2>
 <p>Investigating the norm of Gaussian vectors will prompt us to introduce <span class="math inline">\(\chi^2\)</span> distributions, a sub-family of Gamma distributions.</p>
-<div id="def">
-<section id="gamma-distributions" class="level3" data-number="16.5.1">
-<h3 data-number="16.5.1" class="anchored" data-anchor-id="gamma-distributions"><span class="header-section-number">16.5.1</span> Gamma distributions</h3>
-<p>A Gamma distribution with parameters <span class="math inline">\((p, \lambda)\)</span>} (<span class="math inline">\(\lambda \in
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-gamma-distrib" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 16.4 (Gamma distributions)</strong></span> A Gamma distribution with parameters <span class="math inline">\((p, \lambda)\)</span>} (<span class="math inline">\(\lambda \in
 \mathbb{R}_+\)</span> and <span class="math inline">\(p \in \mathbb{R}_+\)</span>), is a distribution on <span class="math inline">\((\mathbb{R}_+, \mathcal{B}(\mathbb{R}_+))\)</span> with density</p>
 <p><span class="math display">\[g_{p, \lambda} (x) \equiv \frac{\lambda^p}{\Gamma (p)} \mathbf{1}_{x
 \geq 0} x^{p - 1} e^{- \lambda x}
 \]</span> where <span class="math inline">\(\Gamma (p) \equiv \int_0^{\infty} t^{p - 1} e^{- t} \mathrm{d} t\)</span>.</p>
 <p>Parameter <span class="math inline">\(p\)</span> is called the <em>shape</em> parameter, <span class="math inline">\(\lambda\)</span> is called the <em>rate</em> or <em>intensity</em> parameter, <span class="math inline">\(1/\lambda\)</span> is called the <em>scale</em> parameter.</p>
-</section>
+</div>
+</div>
+</div>
 </div>
 <p>If <span class="math inline">\(X \sim  \text{Gamma}(p,1)\)</span> then <span class="math inline">\(\sigma X \sim \text{Gamma}(p,1/\sigma)\)</span> for <span class="math inline">\(\sigma&gt;0\)</span>.</p>
 <p>Euler’s <span class="math inline">\(\Gamma ()\)</span> function interpolates the factorial. For every positive real <span class="math inline">\(p\)</span>, <span class="math inline">\(\Gamma (p + 1) = p \Gamma
 (p) .\)</span> If <span class="math inline">\(p\)</span> is integer, <span class="math inline">\(\Gamma (p + 1) = p!\)</span></p>
-<div id="exr">
-<p>Check that <span class="math inline">\(\Gamma(1/2)=\sqrt{\pi}\)</span>.</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
 </div>
-<div id="prp">
-<p>If <span class="math inline">\(X \sim \mathrm{Gamma}(p, \lambda)\)</span> <span class="math inline">\(\mathbb{E}X = \frac{p}{\lambda}\)</span> and <span class="math inline">\(\operatorname{var}(X) = \frac{p}{\lambda^2}\)</span>.</p>
+<div class="callout-body-container">
+<div id="exr-gamma-half" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 16.3</strong></span> Check that <span class="math inline">\(\Gamma(1/2)=\sqrt{\pi}\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-moments-gamma" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 16.12</strong></span> If <span class="math inline">\(X \sim \mathrm{Gamma}(p, \lambda)\)</span> <span class="math inline">\(\mathbb{E}X = \frac{p}{\lambda}\)</span> and <span class="math inline">\(\operatorname{var}(X) = \frac{p}{\lambda^2}\)</span>.</p>
+</div>
+</div>
+</div>
 </div>
 <p>The next proposition is a cornerstone of Gamma-calculus. The sum of two independent Gamma-distributed random variables is Gamma distributed if they have the same intensity (or scale) parameter.</p>
-<div id="prp">
-<p>If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent Gamma-distributed random variables with the same intensity parameter <span class="math inline">\(\lambda\)</span> <span class="math inline">\(X \sim \mathrm{Gamma}(p,
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-sum-gamma" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 16.13</strong></span> If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent Gamma-distributed random variables with the same intensity parameter <span class="math inline">\(\lambda\)</span> <span class="math inline">\(X \sim \mathrm{Gamma}(p,
 \lambda), Y\sim \mathrm{Gamma}(q, \lambda)\)</span> then <span class="math inline">\(X + Y \sim \mathrm{Gamma}(p+q, \lambda)\)</span>.</p>
+</div>
+</div>
+</div>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>The density of the distribution of <span class="math inline">\(X+Y\)</span> is the convolution of the densities <span class="math inline">\(g_{p, \lambda}\)</span> et <span class="math inline">\(g_{q, \lambda}\)</span>. <span class="math display">\[\begin{eqnarray*}
@@ -892,21 +1123,42 @@ x^{p + q - 1} \int_0^{1} u^{p-1} (1 - u)^{q - 1}
 \mathrm{d} u\\
 &amp; = &amp; g_{p + q, \lambda} (x) \frac{\Gamma(p+q)}{\Gamma(p)\Gamma(q)} \int_0^{1} u^{p-1} (1 - u)^{q - 1}
 \mathrm{d} u \, .
-\end{eqnarray*}\]</span> We may pocket the next observation: <span class="math display">\[
+\end{eqnarray*}\]</span> We may pocket the next observation:<br>
+<span class="math display">\[
 B(p,q):=   \int_0^{1} u^{p-1} (1 - u)^{q - 1}
 \mathrm{d} u
-\]</span> satisfies <span class="math inline">\(B(p,q) = \frac{\Gamma(p)\Gamma(q)}{\Gamma(p+q)}.\)</span></p>
+\]</span></p>
+<p>satisfies <span class="math inline">\(B(p,q) = \frac{\Gamma(p)\Gamma(q)}{\Gamma(p+q)}.\)</span></p>
+<p><span class="math inline">\(\square\)</span></p>
 </div>
 <p>Gamma distributions with parameters <span class="math inline">\((k / 2, 1 / 2)\)</span> for <span class="math inline">\(k \in
 \mathbb{N}\)</span> deserve to be named: they are <span class="math inline">\(\chi^2\)</span> distributions with <span class="math inline">\(k\)</span> degrees of freedom.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="prp-chixdeux" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 16.6 (Chi-square distributions)</strong></span> The <span class="math inline">\(\chi^2\)</span> distribution with <span class="math inline">\(k\)</span> degrees of freedom (denoted by <span class="math inline">\(\chi^2_k\)</span>) has density over <span class="math inline">\([0,\infty)\)</span>, <span class="math display">\[
+<p><span class="theorem-title"><strong>Proposition 16.14 (Chi-square distributions)</strong></span> The <span class="math inline">\(\chi^2\)</span> distribution with <span class="math inline">\(k\)</span> degrees of freedom (denoted by <span class="math inline">\(\chi^2_k\)</span>) has density over <span class="math inline">\([0,\infty)\)</span>, <span class="math display">\[
 \frac{x^{ \frac{1}{2} (k - 2)} e^{- \frac{x}{2}}}{2^{k / 2} \Gamma (k /
 2)} .
 \]</span></p>
 </div>
-<div id="prp">
-<p>The sum of <span class="math inline">\(k\)</span> independent squared standard Gaussian random variables is distributed according to the chi-square distributions with <span class="math inline">\(k\)</span> degrees of freedom <span class="math inline">\(\chi^2_k\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-chisq-sum-indep-gauss" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 16.15</strong></span> The sum of <span class="math inline">\(k\)</span> independent squared standard Gaussian random variables is distributed according to the chi-square distributions with <span class="math inline">\(k\)</span> degrees of freedom <span class="math inline">\(\chi^2_k\)</span>.</p>
+</div>
+</div>
+</div>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>According to proposition <a href="032-acfamilies.html#prp-gammabeta" class="quarto-xref">Proposition&nbsp;<span>9.2</span></a>), it suffices to establish the proposition <span class="math inline">\(k = 1.\)</span></p>
@@ -917,54 +1169,96 @@ B(p,q):=   \int_0^{1} u^{p-1} (1 - u)^{q - 1}
 \end{align*}\]</span> Now, differentiating with respect to <span class="math inline">\(t\)</span>, applying the chain rule provides us with a formula for the density: <span class="math display">\[
 2 \frac{1}{2\sqrt{t}} \phi(\sqrt{t}) = \frac{1}{\sqrt{2\pi t}} \mathrm{e}^{-\frac{t}{2}} = \left(\frac{1}{2}\right)^{1/2} \frac{t^{-1/2}}{\Gamma(1/2)} \mathrm{e}^{-\frac{t}{2}} \,.
 \]</span></p>
+<p><span class="math inline">\(\square\)</span></p>
 </div>
 </section>
 <section id="norms-of-centred-gaussian-vectors" class="level2" data-number="16.6">
 <h2 data-number="16.6" class="anchored" data-anchor-id="norms-of-centred-gaussian-vectors"><span class="header-section-number">16.6</span> Norms of centred Gaussian vectors</h2>
 <p>The distribution of the squared Euclidean norm of a centered Gaussian vector only depends on the spectrum of its covariance matrix.</p>
-<div id="thm">
-<p>If <span class="math inline">\({X}:= (X_1, X_2,
-\ldots, X_n)^{^T} \sim \mathcal{N}\left(0, A\right)\)</span> with <span class="math inline">\(A = L L^T\)</span> (<span class="math inline">\(L\)</span> lower triangular), if <span class="math inline">\(M \in \mathrm{SDP}(n)\)</span>, then <span class="math inline">\({X}^T M {X}\)</span> is distributed like <span class="math inline">\(\sum_{i = 1}^n \lambda_i Z_i\)</span> where <span class="math inline">\((\lambda_i)_{i \in \{1, \ldots, n\}}\)</span> denote the eigenvalues of <span class="math inline">\(L^T \times M\times L\)</span> and where <span class="math inline">\(Z_i\)</span> are independent <span class="math inline">\(\chi^2_1\)</span>-distributed random variables.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
 </div>
-<p>This is a corollary of an important property of standard Gaussian vectors: rotational invariance. The standard Gaussian distribution is invariant under orthogonal transform (a matrix <span class="math inline">\(O\)</span> is orthogonal iff <span class="math inline">\(OO^T=\text{Id})\)</span>.</p>
+<div class="callout-body-container">
+<div id="thm-norm-centered" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 16.5</strong></span> If <span class="math inline">\({X}:= (X_1, X_2,
+\ldots, X_n)^{^\top} \sim \mathcal{N}\left(0, A\right)\)</span> with <span class="math inline">\(A = L L^\top\)</span> (<span class="math inline">\(L\)</span> lower triangular), if <span class="math inline">\(M \in \mathrm{SDP}(n)\)</span>, then <span class="math inline">\({X}^\top M {X}\)</span> is distributed like <span class="math inline">\(\sum_{i = 1}^n \lambda_i Z_i\)</span> where <span class="math inline">\((\lambda_i)_{i \in \{1, \ldots, n\}}\)</span> denote the eigenvalues of <span class="math inline">\(L^\top \times M\times L\)</span> and where <span class="math inline">\(Z_i\)</span> are independent <span class="math inline">\(\chi^2_1\)</span>-distributed random variables.</p>
+</div>
+</div>
+</div>
+</div>
+<p>This is a corollary of an important property of standard Gaussian vectors: rotational invariance. The standard Gaussian distribution is invariant under orthogonal transform (a matrix <span class="math inline">\(O\)</span> is orthogonal iff <span class="math inline">\(OO^\top=\text{Id})\)</span>.</p>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>Matrix <span class="math inline">\(A\)</span> may be factorized as <span class="math inline">\(A = LL^t\)</span> (Cholesky), and <span class="math inline">\({X}\)</span> is distributed like <span class="math inline">\(L {Y}\)</span> where <span class="math inline">\({Y}\)</span> is standard Gaussian. The quadratic form <span class="math inline">\({X}^T M
-{X}\)</span> is thus distributed like <span class="math inline">\({Y}^T {L}^T M
-{L}  {Y}\)</span>. There exist an orthogonal transform <span class="math inline">\(O\)</span> such that <span class="math inline">\(L^T M L = O^t \operatorname{diag}
+<p><span class="proof-title"><em>Proof</em>. </span>Matrix <span class="math inline">\(A\)</span> may be factorized as <span class="math inline">\(A = LL^\top\)</span> (Cholesky), and <span class="math inline">\({X}\)</span> is distributed like <span class="math inline">\(L {Y}\)</span> where <span class="math inline">\({Y}\)</span> is standard Gaussian. The quadratic form <span class="math inline">\({X}^\top M
+{X}\)</span> is thus distributed like <span class="math inline">\({Y}^\top {L}^\top M
+{L}  {Y}\)</span>. There exist an orthogonal transform <span class="math inline">\(O\)</span> such that <span class="math inline">\(L^\top M L = O^\top \operatorname{diag}
 (\lambda_i) O.\)</span> Random vector <span class="math inline">\(O {Y}\)</span> is distributed like <span class="math inline">\(\mathcal{N} (0, I_n)\)</span>.</p>
+<p><span class="math inline">\(\square\)</span></p>
 </div>
 </section>
-<section id="norm-of-non-centred-gaussian-vectors" class="level2" data-number="16.7">
-<h2 data-number="16.7" class="anchored" data-anchor-id="norm-of-non-centred-gaussian-vectors"><span class="header-section-number">16.7</span> Norm of non-centred Gaussian vectors</h2>
+<section id="sec-norm-non-centered" class="level2" data-number="16.7">
+<h2 data-number="16.7" class="anchored" data-anchor-id="sec-norm-non-centered"><span class="header-section-number">16.7</span> Norm of non-centred Gaussian vectors</h2>
 <p>The distribution of the squared norm of a Gaussian vector with covariance matrix <span class="math inline">\(\sigma^2 \operatorname{Id}\)</span> depends on the norm of the expectation but does not depend on its direction. In addition, this distribution stochastically can be compared with the distribution of the squared norm of a centred Gaussian vector with the same covariance.</p>
-<div id="dename">
-<section id="rdering" class="level3" data-number="16.7.1">
-<h3 data-number="16.7.1" class="anchored" data-anchor-id="rdering"><span class="header-section-number">16.7.1</span> rdering</h3>
-<p>In a probability space endowed with distribution <span class="math inline">\(\mathbb{P}\)</span>, a real random variable <span class="math inline">\(X\)</span> is stochastically smaller than random variable <span class="math inline">\(Y\)</span>, if <span class="math display">\[
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-name" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 16.5 (ordering)</strong></span> In a probability space endowed with distribution <span class="math inline">\(\mathbb{P}\)</span>, a real random variable <span class="math inline">\(X\)</span> is stochastically smaller than random variable <span class="math inline">\(Y\)</span>, if <span class="math display">\[
 \mathbb{P} \{ X \leq Y \} =  1 \, .
-\]</span> The distribution of <span class="math inline">\(Y\)</span> is said to stochastically dominate the distribution of <span class="math inline">\(X\)</span>.</p>
-</section>
+\]</span></p>
+<p>The distribution of <span class="math inline">\(Y\)</span> is said to stochastically dominate the distribution of <span class="math inline">\(X\)</span>.</p>
+</div>
+</div>
+</div>
 </div>
 <p>If <span class="math inline">\(X\)</span> is stochastichally less than <span class="math inline">\(Y\)</span> and if <span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span> denote the cumulative distribution functions of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, then for all <span class="math inline">\(x \in  \mathbb{R}\)</span>, <span class="math inline">\(F(x)\geq G(x)\)</span>. Quantile functions <span class="math inline">\(F^\leftarrow, G^\leftarrow\)</span> satisfy <span class="math inline">\(F^\leftarrow(p) \leq G^\leftarrow(p)\)</span> for <span class="math inline">\(p \in (0,1)\)</span>.</p>
 <p>Conversely.</p>
-<div id="prp">
-<p>If <span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span> are two cumulative distribution functions that satisfy <span class="math inline">\(\forall x \in \mathbb{R}\)</span> <span class="math inline">\(F(x)\geq G(x)\)</span> then there exists a probability space equipped with a probability distribution <span class="math inline">\(\mathbb{P}\)</span> and two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> with cumulative distribution functions <span class="math inline">\(F, G\)</span> that satisfy:<span class="math display">\[
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-stoch-ordering" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 16.16</strong></span> If <span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span> are two cumulative distribution functions that satisfy <span class="math inline">\(\forall x \in \mathbb{R}\)</span> <span class="math inline">\(F(x)\geq G(x)\)</span> then there exists a probability space equipped with a probability distribution <span class="math inline">\(\mathbb{P}\)</span> and two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> with cumulative distribution functions <span class="math inline">\(F, G\)</span> that satisfy:</p>
+<p><span class="math display">\[
 \mathbb{P}\{ X \leq Y\} = 1 \, .
 \]</span></p>
 </div>
+</div>
+</div>
+</div>
 <p>The proof proceeds by a <em>quantile coupling</em> argument.</p>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>It is enough to endow <span class="math inline">\(([0,1], \mathcal{B}([0,1])\)</span> with the uniform distribution. Let <span class="math inline">\(X (\omega)=  F^{\leftarrow}(\omega)\)</span>, <span class="math inline">\(Y(\omega) = G^\leftarrow(\omega)\)</span>. Then the distribution of <span class="math inline">\(X\)</span> (resp. <span class="math inline">\(Y\)</span>) has cumulative distribution function <span class="math inline">\(F\)</span> (resp. <span class="math inline">\(G\)</span>) and the following holds: <span class="math display">\[
+<p><span class="proof-title"><em>Proof</em>. </span>It is enough to endow <span class="math inline">\(([0,1], \mathcal{B}([0,1])\)</span> with the uniform distribution. Let <span class="math inline">\(X (\omega)=  F^{\leftarrow}(\omega)\)</span>, <span class="math inline">\(Y(\omega) = G^\leftarrow(\omega)\)</span>. Then the distribution of <span class="math inline">\(X\)</span> (resp. <span class="math inline">\(Y\)</span>) has cumulative distribution function <span class="math inline">\(F\)</span> (resp. <span class="math inline">\(G\)</span>) and the following holds:</p>
+<p><span class="math display">\[
 \mathbb{P} \{ X \leq Y\}  = \mathbb{P} \{ F^{\leftarrow}(U) \leq  G^{\leftarrow}(U)\} = 1 \, .
 \]</span></p>
 </div>
-<div id="thm">
-<p>If <span class="math inline">\(X \sim \mathcal{N}\left( 0, \sigma^2 \operatorname{Id}\right)\)</span> and <span class="math inline">\(Y \sim \mathcal{N}\left( \theta, \sigma^2 \operatorname{Id}\right)\)</span> with <span class="math inline">\(\theta \in \mathbb{R}^d\)</span> then <span class="math display">\[
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-non-central-chi" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 16.6</strong></span> If <span class="math inline">\(X \sim \mathcal{N}\left( 0, \sigma^2 \operatorname{Id}\right)\)</span> and <span class="math inline">\(Y \sim \mathcal{N}\left( \theta, \sigma^2 \operatorname{Id}\right)\)</span> with <span class="math inline">\(\theta \in \mathbb{R}^d\)</span> then<br>
+<span class="math display">\[
 \left\Vert Y \right\Vert^2 \sim  \left( (Z_1 + \|\theta\|_2)^2 + \sum_{i=1}^d Z_i^2 \right)
-\]</span> where <span class="math inline">\(Z_i\)</span> are i.i.d. according to <span class="math inline">\(\mathcal{N}(0,\sigma^2)\)</span>.</p>
-<p>For every <span class="math inline">\(x \geq 0\)</span>, <span class="math display">\[
+\]</span></p>
+<p>where <span class="math inline">\(Z_i\)</span> are i.i.d. according to <span class="math inline">\(\mathcal{N}(0,\sigma^2)\)</span>.</p>
+<p>For every <span class="math inline">\(x \geq 0\)</span>,</p>
+<p><span class="math display">\[
 \mathbb{P} \left\{ \| Y \|\leq x\right\} \leq \mathbb{P} \left\{ \| X \| \leq x \right\} \, .
-\]</span> The distribution of <span class="math inline">\(\| Y\|^2/\sigma^2\)</span> (non-centred <span class="math inline">\(\chi^2\)</span> with parameter <span class="math inline">\(\| \theta\|_2/\sigma\)</span>) <em>stochastichally dominates</em> the distribution of <span class="math inline">\(\| X\|^2/\sigma^2\)</span> (centred <span class="math inline">\(\chi^2\)</span> with the same number of degrees of freedom).</p>
+\]</span></p>
+<p>The distribution of <span class="math inline">\(\| Y\|^2/\sigma^2\)</span> (non-centred <span class="math inline">\(\chi^2\)</span> with parameter <span class="math inline">\(\| \theta\|_2/\sigma\)</span>) <em>stochastichally dominates</em> the distribution of <span class="math inline">\(\| X\|^2/\sigma^2\)</span> (centred <span class="math inline">\(\chi^2\)</span> with the same number of degrees of freedom).</p>
+</div>
+</div>
+</div>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>The Gaussian vector <span class="math inline">\(Y\)</span> is distributed like <span class="math inline">\(\theta + X\)</span>. There exists an orthogonal transform <span class="math inline">\(O\)</span> such that <span class="math display">\[
@@ -974,50 +1268,74 @@ O \theta = \begin{pmatrix}
 \vdots \\
 0
 \end{pmatrix} \, .
-\]</span> Vectors <span class="math inline">\(OY\)</span> and <span class="math inline">\(OX\)</span> respectively have the same norms as <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</p>
+\]</span></p>
+<p>Vectors <span class="math inline">\(OY\)</span> and <span class="math inline">\(OX\)</span> respectively have the same norms as <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</p>
 <p>The squared norm of <span class="math inline">\(Y\)</span> is distributed as the squared norm of <span class="math inline">\(OY\)</span>, that is like <span class="math inline">\((Z_1+ \|\theta\|_2)^2 +\sum_{i=2}^d Z_i^2\)</span>. This proves the first part of the theorem.</p>
 <p>To establish the second part of the theorem, it suffices to check that for every <span class="math inline">\(x\geq 0\)</span>, <span class="math display">\[
 \mathbb{P} \left\{ (Z_1+ \|\theta\|_2)^2  \leq x \right\} \leq
 \mathbb{P} \left\{ X_1^2 \leq x \right\} \, ,
-\]</span> that is <span class="math display">\[
+\]</span></p>
+<p>that is<br>
+<span class="math display">\[
 \mathbb{P} \left\{ |Z_1+ \|\theta\|_2|  \leq \sqrt{x} \right\} \leq
 \mathbb{P} \left\{ |X_1| \leq \sqrt{x} \right\} \, ,
-\]</span> or <span class="math display">\[
+\]</span></p>
+<p>or <span class="math display">\[
 \Phi(\sqrt{x}- \|\theta\|_2) - \Phi(-\sqrt{x}-\|\theta\|_2)  \leq \Phi(\sqrt{x}) -  \Phi(-\sqrt{x}) \, .
-\]</span> For <span class="math inline">\(y&gt;0\)</span>, the function mapping <span class="math inline">\([0,\infty)\)</span> to <span class="math inline">\(\mathbb{R}\)</span>, defined by <span class="math inline">\(a \mapsto \Phi(y-a) - \Phi(-y-a)\)</span> is non-increasing with respect to <span class="math inline">\(a\)</span>: it derivative with respect to <span class="math inline">\(a\)</span> equals <span class="math inline">\(-\phi(y-a)+\phi(-y-a)=\phi(y+a)-\phi(y-a)\leq 0\)</span>. The conclusion follows</p>
+\]</span></p>
+<p>For <span class="math inline">\(y&gt;0\)</span>, the function mapping <span class="math inline">\([0,\infty)\)</span> to <span class="math inline">\(\mathbb{R}\)</span>, defined by <span class="math inline">\(a \mapsto \Phi(y-a) - \Phi(-y-a)\)</span> is non-increasing with respect to <span class="math inline">\(a\)</span>: it derivative with respect to <span class="math inline">\(a\)</span> equals <span class="math inline">\(-\phi(y-a)+\phi(-y-a)=\phi(y+a)-\phi(y-a)\leq 0\)</span>. The conclusion follows</p>
+<p><span class="math inline">\(\square\)</span></p>
 </div>
-<p>The last step of the proof reads as<span class="math display">\[
+<p>The last step of the proof reads as <span class="math display">\[
 \mathbb{P} \left\{ X \in \theta + C \right\} \leq \mathbb{P} \left\{ X \in C\right\}
-\]</span> where <span class="math inline">\(X \sim \mathcal{N}(0,\operatorname{Id}_1)\)</span>, <span class="math inline">\(\theta \in \mathbb{R}\)</span> and <span class="math inline">\(C = [-\sqrt{x},\sqrt{x}]\)</span>. This inequality holds in dimension <span class="math inline">\(d\geq 1\)</span> if <span class="math inline">\(C\)</span> is compact, convex, symmetric. This (subtle) result is called Anderson’s Lemma.</p>
+\]</span></p>
+<p>where <span class="math inline">\(X \sim \mathcal{N}(0,\operatorname{Id}_1)\)</span>, <span class="math inline">\(\theta \in \mathbb{R}\)</span> and <span class="math inline">\(C = [-\sqrt{x},\sqrt{x}]\)</span>. This inequality holds in dimension <span class="math inline">\(d\geq 1\)</span> if <span class="math inline">\(C\)</span> is compact, convex, symmetric. This (subtle) result is called Anderson’s Lemma.</p>
 </section>
 <section id="sec-cochran" class="level2" data-number="16.8">
 <h2 data-number="16.8" class="anchored" data-anchor-id="sec-cochran"><span class="header-section-number">16.8</span> Cochran Theorem and consequences</h2>
-<div id="thm">
-<section id="cochran" class="level3" data-number="16.8.1">
-<h3 data-number="16.8.1" class="anchored" data-anchor-id="cochran"><span class="header-section-number">16.8.1</span> Cochran</h3>
-<p>Let <span class="math inline">\(X \sim \mathcal{N}(0, \text{I}_n)\)</span> and <span class="math inline">\(\mathbb{R}^n = \oplus_{j=1}^k E_j\)</span> where <span class="math inline">\(E_j\)</span> are pairwise orthogonal linear subspaces of <span class="math inline">\(\mathbb{R}^n\)</span>. Denote by <span class="math inline">\(\pi_{E_j}\)</span> the orthogonal projection on <span class="math inline">\(E_j\)</span>.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-cochran" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 16.7 (Cochran)</strong></span> Let <span class="math inline">\(X \sim \mathcal{N}(0, \text{I}_n)\)</span> and <span class="math inline">\(\mathbb{R}^n = \oplus_{j=1}^k E_j\)</span> where <span class="math inline">\(E_j\)</span> are pairwise orthogonal linear subspaces of <span class="math inline">\(\mathbb{R}^n\)</span>. Denote by <span class="math inline">\(\pi_{E_j}\)</span> the orthogonal projection on <span class="math inline">\(E_j\)</span>.</p>
 <p>The collection of Gaussian vectors <span class="math inline">\(\left( \pi_{E_j} X\right)_{j \leq k}\)</span> is independent and for each~<span class="math inline">\(j\)</span> <span class="math display">\[
 \| \pi_{E_j} X\|_2^2 \sim \chi^2_{\text{dim}(E_j)} \, .
 \]</span></p>
-</section>
+</div>
+</div>
+</div>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>The covariance matrix of <span class="math inline">\(\pi_{E_j} X\)</span> is <span class="math inline">\(\pi_{E_j} \pi_{E_j}^t = \pi_{E_j}\)</span>. The eigenvalues of <span class="math inline">\(\pi_{E_j}\)</span> are <span class="math inline">\(1\)</span> with multiplicity <span class="math inline">\(\text{dim}(E_j)\)</span> and <span class="math inline">\(0\)</span>. The statement about the distribution of <span class="math inline">\(\| \pi_{E_j} X\|_2^2\)</span> is a corollary of <span class="quarto-unresolved-ref">?prp-normgaussstand</span> and <span class="quarto-unresolved-ref">?prp-normespectre</span>.</p>
-<p>To prove stochastic independence, let us consider <span class="math inline">\(\mathcal{I}, \mathcal{J} \subset \{1,\ldots,k\}\)</span> with <span class="math inline">\(\mathcal{I} \cap \mathcal{J} = \emptyset.\)</span> It is enough to check that for all <span class="math inline">\((\alpha)_{j \in \mathcal{I}}, (\beta_j)_{j \in \mathcal{J}}\)</span>, the characteristic functions of <span class="math display">\[\left(\sum_{j\in \mathcal{I}} \langle \alpha_j, \pi_{E_j} X \rangle, \sum_{j\in \mathcal{J}} \langle \beta_j, \pi_{E_j} X \rangle\right)\]</span> can be factorized. It suffices to check that the two Gaussians are orthogonal.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>The covariance matrix of <span class="math inline">\(\pi_{E_j} X\)</span> is <span class="math inline">\(\pi_{E_j} \pi_{E_j}^\top = \pi_{E_j}\)</span>. The eigenvalues of <span class="math inline">\(\pi_{E_j}\)</span> are <span class="math inline">\(1\)</span> with multiplicity <span class="math inline">\(\text{dim}(E_j)\)</span> and <span class="math inline">\(0\)</span>. The statement about the distribution of <span class="math inline">\(\| \pi_{E_j} X\|_2^2\)</span> is a corollary of <span class="quarto-unresolved-ref">?prp-normgaussstand</span> and <span class="quarto-unresolved-ref">?prp-normespectre</span>.</p>
+<p>To prove stochastic independence, let us consider <span class="math inline">\(\mathcal{I}, \mathcal{J} \subset \{1,\ldots,k\}\)</span> with <span class="math inline">\(\mathcal{I} \cap \mathcal{J} = \emptyset.\)</span> It is enough to check that for all <span class="math inline">\((\alpha)_{j \in \mathcal{I}}, (\beta_j)_{j \in \mathcal{J}}\)</span>, the characteristic functions of <span class="math display">\[
+\left(\sum_{j\in \mathcal{I}} \langle \alpha_j, \pi_{E_j} X \rangle, \sum_{j\in \mathcal{J}} \langle \beta_j, \pi_{E_j} X \rangle\right)
+\]</span></p>
+<p>can be factorized. It suffices to check that the two Gaussians are orthogonal.</p>
 <p><span class="math display">\[\begin{eqnarray*}
 { \mathbb{E} \left[ \left(\sum_{j\in \mathcal{I}} \langle \alpha_j, \pi_{E_j} X \rangle \right) \times \left(\sum_{j'\in \mathcal{J}} \langle \beta_{j'}, \pi_{E_{j'}} X \rangle\right)\right]}
 &amp; = &amp; \sum_{j \in \mathcal{I}, j' \in \mathcal{J}}
-\alpha_j^t \pi_{E_j} \pi_{E_{j'}} \beta_{j'}
+\alpha_j^\top \pi_{E_j} \pi_{E_{j'}} \beta_{j'}
 =  0 \, .
 \end{eqnarray*}\]</span></p>
+<p><span class="math inline">\(\square\)</span></p>
 </div>
 <p>The next result is a cornerstone of statistical inference in Gaussian models. It is a corollary of Cochran’s Theorem.</p>
-<div id="thm">
-<section id="student" class="level3" data-number="16.8.2">
-<h3 data-number="16.8.2" class="anchored" data-anchor-id="student"><span class="header-section-number">16.8.2</span> Student</h3>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-student" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 16.8 (Student)</strong></span> &nbsp;</p>
 Of <span class="math inline">\((X_1, \ldots, X_n)\)</span> are i.i.d. according to <span class="math inline">\(\mathcal{N} (\mu, \sigma^2)\)</span>, if <span class="math inline">\(\overline{X}_n:=
 \sum^n_{i = 1}  X_i / n\)</span> et <span class="math inline">\(V:= \sum^{n}_{i = 1} (X_i - \overline{X}_n)^2\)</span>, then
-</section>
+</div>
+</div>
+</div>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>Without loss of generality, we may assume that <span class="math inline">\(\mu=0\)</span> et <span class="math inline">\(\sigma=1\)</span>.</p>
@@ -1034,76 +1352,146 @@ Of <span class="math inline">\((X_1, \ldots, X_n)\)</span> are i.i.d. according 
 \end{pmatrix} \times \begin{pmatrix}
 1 &amp; \ldots &amp; 1
 \end{pmatrix} X
-\]</span> the vector <span class="math inline">\((\overline{X}_n, \ldots , \overline{X}_n)^t\)</span> is the orthogonal projection of the standard Gaussian vector <span class="math inline">\(X\)</span> on the line generated by <span class="math inline">\((1, \ldots, 1)^t\)</span>.</p>
-<p>Vector <span class="math inline">\((X_1- \overline{X}_n, \ldots , X_n -\overline{X}_n)^t\)</span> is the orthogonal projection fo Gaussian vector <span class="math inline">\(X\)</span> on the hyperplane which is orthogonal to <span class="math inline">\((1, \ldots, 1)^t\)</span>.</p>
-<p>According to Cochran’s Theorem (<a href="#sec-cochran" class="quarto-xref"><span>Section 16.8</span></a>), random vectors <span class="math inline">\((\overline{X}_n, \ldots , \overline{X}_n)^t\)</span>, and <span class="math inline">\((X_1- \overline{X}_n, \ldots , X_n -\overline{X}_n)^t\)</span> are independent.</p>
+\]</span> the vector <span class="math inline">\((\overline{X}_n, \ldots , \overline{X}_n)^\top\)</span> is the orthogonal projection of the standard Gaussian vector <span class="math inline">\(X\)</span> on the line generated by <span class="math inline">\((1, \ldots, 1)^\top\)</span>.</p>
+<p>Vector <span class="math inline">\((X_1- \overline{X}_n, \ldots , X_n -\overline{X}_n)^\top\)</span> is the orthogonal projection fo Gaussian vector <span class="math inline">\(X\)</span> on the hyperplane which is orthogonal to <span class="math inline">\((1, \ldots, 1)^\top\)</span>.</p>
+<p>According to Cochran’s Theorem (<a href="#sec-cochran" class="quarto-xref"><span>Section 16.8</span></a>), random vectors <span class="math inline">\((\overline{X}_n, \ldots , \overline{X}_n)^\top\)</span>, and <span class="math inline">\((X_1- \overline{X}_n, \ldots , X_n -\overline{X}_n)^\top\)</span> are independent.</p>
 <p>The distribution of <span class="math inline">\(\overline{X}_n\)</span> is trivially Gaussian.</p>
 <p>The distribution of <span class="math inline">\(V\)</span> is characterized using Cochran’s Theorem.</p>
+<p><span class="math inline">\(\square\)</span></p>
 </div>
-<div id="def">
-<section id="distribution" class="level3" data-number="16.8.3">
-<h3 data-number="16.8.3" class="anchored" data-anchor-id="distribution"><span class="header-section-number">16.8.3</span> Distribution</h3>
-<p>If <span class="math inline">\(X \sim \mathcal{N}(0,1)\)</span>, <span class="math inline">\(Y \sim \chi_p^2\)</span> and if <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent, then <span class="math inline">\(Z =  X/ \sqrt{Y/p}\)</span> is distributed according to a (centred) Student distribution with <span class="math inline">\(p\)</span> degrees of freedom.</p>
-</section>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-student-dsitrib" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 16.6 (Distribution)</strong></span> If <span class="math inline">\(X \sim \mathcal{N}(0,1)\)</span>, <span class="math inline">\(Y \sim \chi_p^2\)</span> and if <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent, then <span class="math inline">\(Z =  X/ \sqrt{Y/p}\)</span> is distributed according to a (centred) Student distribution with <span class="math inline">\(p\)</span> degrees of freedom.</p>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section id="gaussian-concentration" class="level2" data-number="16.9">
 <h2 data-number="16.9" class="anchored" data-anchor-id="gaussian-concentration"><span class="header-section-number">16.9</span> Gaussian concentration</h2>
 <p>The very definition of Gaussian vectors characterizes he distribution of any affine function of a standard Gaussian vector. If the linear part of the affine function is defined by a vector <span class="math inline">\(\lambda\)</span>, we know that the variance will be <span class="math inline">\(\|\lambda\|^2_2\)</span>. What happens if we are interested in fairly regular functions of a standard Gaussian vector? for example if we consider <span class="math inline">\(L\)</span>-lipschitzian functions? These are generalizations of affine functions. We cannot therefore expect a general increase in the variance of the <span class="math inline">\(L\)</span>-Lipschitzian functions of a standard Gaussian vector better than <span class="math inline">\(L^2\)</span> (in the linear case the Lipschitz constant is the Euclidean norm of <span class="math inline">\(\lambda\)</span>). It is remarkable that the bound provided for linear functions extends to Lipschitzian functions. It is even more remarkable that this bound does not involve the dimension of the ambient space.</p>
-<div id="thm">
-Let <span class="math inline">\(X \sim \mathcal{N}(0 , \text{Id}_d)\)</span>.
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-gauss-conc" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 16.9</strong></span> Let <span class="math inline">\(X \sim \mathcal{N}(0 , \text{Id}_d)\)</span>.</p>
+<ul>
+<li><p>if <span class="math inline">\(f\)</span> is differentiable on <span class="math inline">\(\mathbb{R}^d\)</span>, <span class="math display">\[
+  \operatorname{var}(f(X)) \leq \mathbb{E} \| \nabla f \|^2   \qquad \text{(Poincaré's inequality)}
+  \]</span></p></li>
+<li><p>if <span class="math inline">\(f\)</span> is <span class="math inline">\(L\)</span>-Lipschitz on <span class="math inline">\(\mathbb{R}^d\)</span>,</p>
+<p><span class="math display">\[
+  \operatorname{var}(f(X)) \leq L^2
+  \]</span></p>
+<p>and for <span class="math inline">\(\lambda&gt;0\)</span> <span class="math display">\[
+  \log \mathbb{E} \mathrm{e}^{\lambda(f(X)-\mathbb{E}f)} \leq \frac{\lambda^2 L^2}{2} \, .
+  \]</span></p>
+<p>For every <span class="math inline">\(t\geq 0\)</span>, <span class="math display">\[
+  \mathbb{P} \left\{ f(X) - \mathbb{E} f(X) \geq t \right\} \leq \mathrm{e}^{-\frac{t^2}{2 L^2}} \, .
+  \]</span></p></li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 <p>The proof relies on the next identity.</p>
-<div id="prp">
-<section id="covariance-identity" class="level3" data-number="16.9.1">
-<h3 data-number="16.9.1" class="anchored" data-anchor-id="covariance-identity"><span class="header-section-number">16.9.1</span> Covariance identity</h3>
-<p>Let <span class="math inline">\(X,Y\)</span> be two independent <span class="math inline">\(\mathbb{R}^d\)</span>-valued standard Gaussian vectors, let <span class="math inline">\(f,g\)</span> be two differentiable functions from <span class="math inline">\(\mathbb{R}^d\)</span> to <span class="math inline">\(\mathbb{R}\)</span>. <span class="math display">\[
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-cov-identity" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 16.17 (Covariance identity)</strong></span> Let <span class="math inline">\(X,Y\)</span> be two independent <span class="math inline">\(\mathbb{R}^d\)</span>-valued standard Gaussian vectors, let <span class="math inline">\(f,g\)</span> be two differentiable functions from <span class="math inline">\(\mathbb{R}^d\)</span> to <span class="math inline">\(\mathbb{R}\)</span>. <span class="math display">\[
 \operatorname{cov}(f(X),g(X)) = \int_0^1 \mathbb{E}\left\langle \nabla f(X) , \nabla g\left(\alpha X +\sqrt{1- \alpha^2} Y \right) \right\rangle \mathrm{d} \alpha
 \]</span></p>
-</section>
+</div>
+</div>
+</div>
 </div>
 <p>We start by checking this proposition on functions <span class="math inline">\(x \mapsto  \mathrm{e}^{\imath \langle \lambda, x\rangle}, x \in \mathbb{R}^d\)</span>.</p>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>Let us first check Poincaré’s inequality.</p>
-<p>We choose <span class="math inline">\(f=g\)</span>. Starting from the covariance identity, thanks to Cauchy-Schwarz’s inequality: <span class="math display">\[\begin{eqnarray*}
+<p>We choose <span class="math inline">\(f=g\)</span>. Starting from the covariance identity, thanks to Cauchy-Schwarz’s inequality:</p>
+<p><span class="math display">\[\begin{eqnarray*}
 \operatorname{var}(f(X) )     &amp;= &amp; \operatorname{cov}(f(X),f(X)) \\
 &amp; = &amp; \int_0^1  \mathbb{E}\left\langle \nabla f(X) , \nabla f\left(\alpha X +\sqrt{1- \alpha^2} Y \right) \right\rangle \mathrm{d} \alpha \\
 &amp; \leq &amp; \int_0^1 \left( \mathbb{E}\|  \nabla f(X) \|^2\right)^{1/2} \times
 \left(\mathbb{E} \|\nabla f\left(\alpha X +\sqrt{1- \alpha^2} Y\right)\|^2 \right)^{1/2} \mathrm{d} \alpha \, .
-\end{eqnarray*}\]</span> The desired results follows by noticing that <span class="math inline">\(X\)</span> and <span class="math inline">\(\alpha X + \sqrt{1- \alpha^2}Y\)</span> are both <span class="math inline">\(\mathcal{N}(0,\text{Id})\)</span>-distributed.</p>
-<p>To obtain the exponential inequality, choose <span class="math inline">\(f\)</span> differentiable and 1-Lipschitz, and <span class="math inline">\(g = \exp(\lambda f)\)</span> pour <span class="math inline">\(\lambda\geq 0\)</span>. Without loss of generality, assume <span class="math inline">\(\mathbb{E}f(X)=0\)</span>. The covariance identity and the chain rule imply <span class="math display">\[\begin{eqnarray*}
+\end{eqnarray*}\]</span></p>
+<p>The desired results follows by noticing that <span class="math inline">\(X\)</span> and <span class="math inline">\(\alpha X + \sqrt{1- \alpha^2}Y\)</span> are both <span class="math inline">\(\mathcal{N}(0,\text{Id})\)</span>-distributed.</p>
+<p>To obtain the exponential inequality, choose <span class="math inline">\(f\)</span> differentiable and 1-Lipschitz, and <span class="math inline">\(g = \exp(\lambda f)\)</span> pour <span class="math inline">\(\lambda\geq 0\)</span>. Without loss of generality, assume <span class="math inline">\(\mathbb{E}f(X)=0\)</span>. The covariance identity and the chain rule imply</p>
+<p><span class="math display">\[\begin{eqnarray*}
 \operatorname{cov}\left(f(X),\mathrm{e}^{\lambda f(X)}\right)  &amp; = &amp; \lambda
 \int_0^1  \mathbb{E}\left[\left\langle \nabla f(X) , \nabla f\left(\alpha X +\sqrt{1- \alpha^2} Y \right) \right\rangle \mathrm{e}^{\lambda f\left(\alpha X +\sqrt{1- \alpha^2} Y \right)}\right] \mathrm{d} \alpha \\
 &amp; \leq &amp; \lambda L^2
 \int_0^1  \mathbb{E}\left[ \mathrm{e}^{\lambda f\left(\alpha X +\sqrt{1- \alpha^2} Y \right)}\right] \mathrm{d} \alpha \\
 &amp; = &amp; \lambda L^2 \mathbb{E}\left[ \mathrm{e}^{\lambda f\left(X\right)}\right]
-\end{eqnarray*}\]</span> Define <span class="math inline">\(F(\lambda):= \mathbb{E}\left[ \mathrm{e}^{\lambda f\left(X\right)}\right]\)</span>. Note that we have just established a differential inequality for <span class="math inline">\(F\)</span>, checking <span class="math inline">\(\operatorname{cov}( f , \mathrm{e}^{\lambda f})= F'(\lambda)\)</span> since <span class="math inline">\(f\)</span> is centred: <span class="math display">\[
+\end{eqnarray*}\]</span></p>
+<p>Define <span class="math inline">\(F(\lambda):= \mathbb{E}\left[ \mathrm{e}^{\lambda f\left(X\right)}\right]\)</span>. Note that we have just established a differential inequality for <span class="math inline">\(F\)</span>, checking <span class="math inline">\(\operatorname{cov}( f , \mathrm{e}^{\lambda f})= F'(\lambda)\)</span> since <span class="math inline">\(f\)</span> is centred:</p>
+<p><span class="math display">\[
 F'( \lambda) \leq \lambda L^2 F(\lambda) \,.
-\]</span> Solving this differential inequality under <span class="math inline">\(F(0)=1\)</span>, for <span class="math inline">\(\lambda\geq 0\)</span> <span class="math display">\[
+\]</span></p>
+<p>Solving this differential inequality under <span class="math inline">\(F(0)=1\)</span>, for <span class="math inline">\(\lambda\geq 0\)</span> <span class="math display">\[
 F( \lambda) \leq \mathrm{e}^{\frac{\lambda^2L^2}{2}} \, .
-\]</span> The same approach works for <span class="math inline">\(\lambda&lt;0\)</span>. It is enough to invoke Markov’s exponential inequality and to optimize with respect to <span class="math inline">\(\lambda=t/L^2\)</span>.</p>
+\]</span></p>
+<p>The same approach works for <span class="math inline">\(\lambda&lt;0\)</span>. It is enough to invoke Markov’s exponential inequality and to optimize with respect to <span class="math inline">\(\lambda=t/L^2\)</span>.</p>
+<p><span class="math inline">\(\square\)</span></p>
 </div>
 <p>Concentration inequalities describe the behavior of the norm of high-dimensional Gaussian vectors.</p>
-<div id="cor">
-<p>If <span class="math inline">\(X\)</span> is a standard <span class="math inline">\(d\)</span>-dimensional Gaussian vector, then <span class="math display">\[
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="cor-norm-gaussvector" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 16.2</strong></span> If <span class="math inline">\(X\)</span> is a standard <span class="math inline">\(d\)</span>-dimensional Gaussian vector, then <span class="math display">\[
 \operatorname{var}(\|X\|_2) \leq 1 \,
 \]</span> and <span class="math display">\[
 \sqrt{d-1} \leq \mathbb{E} \|X\|_2 \leq \sqrt{d} \, .
 \]</span></p>
 </div>
+</div>
+</div>
+</div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>The Euclidean norm is <span class="math inline">\(1\)</span>-Lipschitz (triangle inequality). The first inequality follows fron Poincaré’s inequality.</p>
 <p>The upper bound on expectation follows from Jensen’s inequality.</p>
 <p>The lower bound on expectation follows from <span class="math inline">\((\mathbb{E} \|X\|_2)^2 = \mathbb{E} \|X\|_2^2 - \operatorname{var}(\|X\|_2)= d -\operatorname{var}(\|X\|_2)\)</span> and from the variance upper bound.</p>
+<p><span class="math inline">\(\square\)</span></p>
 </div>
-<div id="exr">
-<p>Let <span class="math inline">\(X \sim \mathcal{N} (0,K)\)</span> where <span class="math inline">\(K\)</span> is in <span class="math inline">\(\textsf{DP}(d)\)</span> and <span class="math inline">\(Z=  \max_{i\leq d} X_i\)</span>.</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-norm-non-centered-gauss-vec" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 16.4</strong></span> Let <span class="math inline">\(X \sim \mathcal{N} (0,K)\)</span> where <span class="math inline">\(K\)</span> is in <span class="math inline">\(\textsf{DP}(d)\)</span> and <span class="math inline">\(Z=  \max_{i\leq d} X_i\)</span>.</p>
 <p>Show <span class="math display">\[
 \operatorname{Var}(Z) \leq \max_{i \leq d } K_{i,i}:= \max_{i \leq d} \operatorname{Var} (X_i) .
 \]</span></p>
 </div>
-<div id="exr">
-<p>Let <span class="math inline">\(X, Y\sim \mathcal{N} (0,\text{Id}_n)\)</span> with <span class="math inline">\(X,Y\)</span> indépendent.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-diff-gaussvec" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 16.5</strong></span> Let <span class="math inline">\(X, Y\sim \mathcal{N} (0,\text{Id}_n)\)</span> with <span class="math inline">\(X,Y\)</span> indépendent.</p>
 <p>Show<br>
 <span class="math display">\[
 \sqrt{2n-1} \leq   \mathbb{E}[\|X-Y\|] \leq \sqrt{2 n}
@@ -1111,6 +1499,9 @@ F( \lambda) \leq \mathrm{e}^{\frac{\lambda^2L^2}{2}} \, .
 <span class="math display">\[
 \mathbb{P}   \left\{ \|X-Y\| - \mathbb{E}[\|X-Y\|] \geq t \right\} \leq \mathrm{e}^{-t^2} \, .
 \]</span></p>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section id="bibliographic-remarks" class="level2" data-number="16.10">
@@ -1544,8 +1935,8 @@ Ross, N. (2011). <span class="nocase">Fundamentals of Stein’s method</span>. <
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./08-convergence-3b.html" class="pagination-link" aria-label="Refinments and extensions of thr Central Limit Theorem">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Refinments and extensions of thr Central Limit Theorem</span></span>
+      <a href="./08-convergence-3.html" class="pagination-link" aria-label="Convergence in distribution">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Convergence in distribution</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

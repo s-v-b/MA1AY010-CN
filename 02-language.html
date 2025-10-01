@@ -232,32 +232,32 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-characterizations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Characterizations of probability distributions</span></span></a>
+  <a href="./06-conditioning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Conditioning</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-conditioning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Conditioning</span></span></a>
+  <a href="./04-characterizations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Characterizations of probability distributions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./041-characterization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Quantile functions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-convergences-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Convergences I : almost sure, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, in Probability</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Convergences I : almost sure, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, in Probability</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-convergence-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Convergence in distribution</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./08-convergence-3b.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Refinments and extensions of thr Central Limit Theorem</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Convergence in distribution</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -341,6 +341,12 @@ window.Quarto = {
 <br>
 <p>
 </p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="def-sigalgebra" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2.1 (<span class="math inline">\(\sigma\)</span>-algebra”)</strong></span> Given a set <span class="math inline">\(\Omega\)</span>, a collection <span class="math inline">\(\mathcal{G}\)</span> of subsets of <span class="math inline">\(\Omega\)</span> (<span class="math inline">\(\mathcal{G} \subseteq 2^{\Omega}\)</span>) is called a <span class="math inline">\(\sigma\)</span>-algebra (a sigma algebra) iff</p>
 <ul>
@@ -348,6 +354,9 @@ window.Quarto = {
 <li><span class="math inline">\(\emptyset \in \mathcal{G}\)</span></li>
 <li><span class="math inline">\(\mathcal{G}\)</span> is closed under complementation (<span class="math inline">\(A \in \mathcal{G} \Rightarrow A^c = \Omega \setminus A \in \mathcal{G}\)</span>)</li>
 </ul>
+</div>
+</div>
+</div>
 </div>
 <br>
 <p>
@@ -407,8 +416,17 @@ window.Quarto = {
 <br>
 <p>
 </p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="exr-generated-sigma-algebra" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 2.1</strong></span> Check the preceding proposition.</p>
+</div>
+</div>
+</div>
 </div>
 <br>
 <p>
@@ -423,8 +441,17 @@ window.Quarto = {
 <li>the Borel <span class="math inline">\(\sigma\)</span>-algebras of topological spaces.</li>
 </ol>
 <p>
-</p><div id="def-borel-sigma-algebra" class="theorem definition">
+</p><div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-borel-sigma-algebra" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2.2 (Borel sigma-algebra)</strong></span> The Borel <span class="math inline">\(\sigma\)</span>-algebra over <span class="math inline">\(\mathbb{R}\)</span> is the <span class="math inline">\(\sigma\)</span>-algebra generated by <em>open</em> sets. It is denoted by <span class="math inline">\(\mathcal{B}(\mathbb{R})\)</span>.</p>
+</div>
+</div>
+</div>
 </div>
 <p>
 </p><p>This definition works for every topological space. Recall that a topology on a set <span class="math inline">\(E\)</span> is defined by a collection <span class="math inline">\(\mathcal{E}\)</span> of <em>open sets</em>. This collection is defined by the following list of properties:</p>
@@ -436,18 +463,54 @@ window.Quarto = {
 <p>In the usual topology on <span class="math inline">\(\mathbb{R}\)</span>, a set <span class="math inline">\(A\)</span> is open if for any <span class="math inline">\(x \in A\)</span>, there exists some <span class="math inline">\(r&gt;0\)</span> such that <span class="math inline">\(]x-r, x+r[ \subseteq A\)</span>. Any interval of the form <span class="math inline">\(]a,b[\)</span> is open (these are the so-called open intervals).</p>
 This topology can be generalized to any finite dimension <span class="math inline">\(\mathbb{R}^d\)</span>.
 <p>
-</p><div id="exr-sigma-alg-open-inter" class="theorem exercise">
+</p><div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-sigma-alg-open-inter" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 2.2</strong></span> Consider the <span class="math inline">\(\sigma\)</span>-algebra generated by open-intervals of <span class="math inline">\(\mathbb{R}\)</span>. Is it the Borel <span class="math inline">\(\sigma\)</span>-algebra?</p>
 </div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="exr-sigma-alge-inter-rational" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 2.3</strong></span> Consider the <span class="math inline">\(\sigma\)</span>-algebra generated by open-intervals of <span class="math inline">\(\mathbb{R}\)</span> with rational bounds. Is it the Borel <span class="math inline">\(\sigma\)</span>-algebra?</p>
 </div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="exr-sigma-open-balls" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 2.4</strong></span> Consider any metric space <span class="math inline">\((E,d)\)</span>. The metric <span class="math inline">\(d\)</span> defines a topology on <span class="math inline">\(E\)</span>. Does the Borel <span class="math inline">\(\sigma\)</span>-algebra on <span class="math inline">\((E, d)\)</span> coincide with the <span class="math inline">\(\sigma\)</span>-algebra generated by open balls <span class="math inline">\(B(x,r) = \Big\{  y : y\in E, d(x,y)&lt;r\Big\}\)</span>?</p>
 </div>
+</div>
+</div>
+</div>
 <p>We are now ready to set the stage of stochastic modeling. The playground always consists of a measurable space.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="def-measspace" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2.3 (Measurable space)</strong></span> A universe <span class="math inline">\(\Omega\)</span> endowed with a <span class="math inline">\(\sigma\)</span>-algebra of subsets <span class="math inline">\(\mathcal{F}\)</span> is called a measurable space. It is denoted by <span class="math inline">\((\Omega, \mathcal{F})\)</span>.</p>
+</div>
+</div>
+</div>
 </div>
 <p>
 </p><div id="exm-measurable-spaces" class="theorem example">
@@ -463,13 +526,28 @@ This topology can be generalized to any finite dimension <span class="math inlin
 <h2 data-number="2.3" class="anchored" data-anchor-id="sec-distribution"><span class="header-section-number">2.3</span> Probability distributions</h2>
 <p>A <em>probability distribution</em> maps a <span class="math inline">\(\sigma\)</span>-algebra to <span class="math inline">\([0,1]\)</span>. It is an instance of a more general concept called a <em>measure</em>. We state or recall important concept of measure theory. The key idea underneath the elaboration of measure theory is that we should refrain from trying to measure <em>all</em> subsets of a universe (unless this universe is countable). Attempts to measure all subsets of <span class="math inline">\(\mathbb{R}\)</span> lead to paradoxes and of little practical use. Measure theory starts by recognizing the desirable properties any useful measure should possess, then measure theory builds objects satisfying these properties on as large as possible <span class="math inline">\(\sigma\)</span>-algebras of events, for example on Borel <span class="math inline">\(\sigma\)</span>-algebras.</p>
 <p>This motivates the definition of <span class="math inline">\(\sigma\)</span>-additivity.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="def-sigadd" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2.4 (Sigma-additivity)</strong></span> Given <span class="math inline">\(\Omega\)</span> and <span class="math inline">\(\mathcal{A} \subseteq 2^\Omega\)</span>, a function <span class="math inline">\(\mu\)</span> mapping <span class="math inline">\(\mathcal{A}\)</span> to <span class="math inline">\([0,\infty)\)</span> is said to be <span class="math inline">\(\sigma\)</span>-<em>additive</em> on <span class="math inline">\(\mathcal{A}\)</span> if for any countable collection of <em>pairwise disjoint</em> subsets <span class="math inline">\((A_n)_{n \in \mathbb{N}} \in \mathcal{A}\)</span>, with <span class="math inline">\(\cup_n A_n \in \mathcal{A}\)</span> we have <span class="math display">\[\mu (\cup_{n \in \mathbb{N}} A_n) = \sum_{n \in \mathbb{N}} \mu(A_n)  \, .\]</span></p>
+</div>
+</div>
+</div>
 </div>
 <p>Note that if <span class="math inline">\(\mathcal{F}\)</span> is a <span class="math inline">\(\sigma\)</span>-algebra, <span class="math inline">\(\Big(\cup_{n \in \mathbb{N}} A_n\Big) \in \mathcal{F}\)</span>. <span class="math inline">\(\sigma\)</span>-additivity fits well with <span class="math inline">\(\sigma\)</span>-algebras, but it makes sense to define <span class="math inline">\(\sigma\)</span>-additivity with respect to more general collections of subsets.</p>
 <br>
 <p>
 </p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="prp-sigma-add-continuity" class="theorem proposition">
 <p><span class="theorem-title"><strong>Proposition 2.1</strong></span> Given <span class="math inline">\(\Omega\)</span>, a <span class="math inline">\(\sigma\)</span>-algebra <span class="math inline">\(\mathcal{A} \subseteq 2^\Omega\)</span>, a <span class="math inline">\(\sigma\)</span>-_additive_function <span class="math inline">\(\mu\)</span> mapping <span class="math inline">\(\mathcal{A}\)</span> to <span class="math inline">\([0,\infty)\)</span> satisfies</p>
 <ol type="a">
@@ -479,6 +557,9 @@ This topology can be generalized to any finite dimension <span class="math inlin
 <p><span class="math display">\[\lim_n \mu(A_n) = \mu\left(\cap_{n} A_n\right)\]</span></p></li>
 <li><p><span class="math display">\[\mu(\emptyset) = 0\]</span></p></li>
 </ol>
+</div>
+</div>
+</div>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>a.) Let <span class="math inline">\(B_{1} = A_1\)</span>, and <span class="math inline">\(B_{n+1} =  A_{n+1} \setminus A_n\)</span> for each <span class="math inline">\(n\)</span>, then <span class="math inline">\((B_n)_n\)</span> is a sequence of pairwise disjoints elements of <span class="math inline">\(\mathcal{A}\)</span>. We have <span class="math inline">\(\cup_n B_n = \cup_n A_n\)</span> and and by <span class="math inline">\(\sigma\)</span>-additivity, <span class="math inline">\(\mu(\cup_n A_n) = \sum_n \mu(B_n)\)</span></p>
@@ -490,11 +571,26 @@ This topology can be generalized to any finite dimension <span class="math inlin
 <p>which implies <span class="math inline">\(\mu(\emptyset)=0.\)</span></p>
 <p><span class="math inline">\(\square\)</span></p>
 </div>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="def-pmeasure" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2.5 (Positive measure)</strong></span> Given a measurable space <span class="math inline">\((\Omega, \mathcal{F})\)</span>, a <span class="math inline">\(\sigma\)</span>-additive function <span class="math inline">\(\mu\)</span> mapping <span class="math inline">\(\mathcal{F}\)</span> to <span class="math inline">\([0,\infty)\)</span> is called a <em>positive measure</em> over <span class="math inline">\((\Omega, \mathcal{F})\)</span>.</p>
 <p>The tuple <span class="math inline">\((\Omega, \mathcal{F}, \mu)\)</span> is called a measure space.</p>
 </div>
+</div>
+</div>
+</div>
 <p>By <a href="#prp-sigma-add-continuity" class="quarto-xref">Proposition&nbsp;<span>2.1</span></a>, for any positive measure <span class="math inline">\(\mu\)</span>, we have <span class="math inline">\(\mu(\emptyset)=0\)</span>. When <span class="math inline">\(\mu(\Omega)\)</span> is finite, <span class="math inline">\(\mu\)</span> is said to be <em>finite</em> positive measure.</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="exr-fundspace" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 2.5</strong></span> Let <span class="math inline">\(\Omega = \{0,1\}^*\)</span> the set of infinite sequences of <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span> (indexed from <span class="math inline">\(1\)</span>). Let <span class="math inline">\(\mathcal{F}_n \subseteq 2^\Omega\)</span> be the <span class="math inline">\(\sigma\)</span>-algebra generated by events of the following form: <span class="math inline">\(\{ \omega : \omega \in \Omega, \omega_i = 1\}\)</span> for <span class="math inline">\(1\leq i\leq n\)</span>.</p>
 <ul>
@@ -503,18 +599,39 @@ This topology can be generalized to any finite dimension <span class="math inlin
 <li>Can you define a <span class="math inline">\(\sigma\)</span>-additive function on <span class="math inline">\((\Omega, \sigma(\cup_{n\geq 1} \mathcal{F}_n))\)</span>.</li>
 </ul>
 </div>
+</div>
+</div>
+</div>
 <p>
 </p><p>A positive measure <span class="math inline">\(\mu\)</span> is not necessarily a probability distribution. For example, the <em>counting measure</em> <span class="math inline">\(\mu\)</span> on <span class="math inline">\(\mathbb{N}\)</span> satisfies <span class="math inline">\(\mu(A) = |A|\)</span> for all <span class="math inline">\(A \subseteq \mathbb{N}\)</span>, so we have <span class="math inline">\(\mu(\mathbb{N})=\infty.\)</span></p>
 <p>
-</p><div id="def-probmeasure" class="theorem definition">
+</p><div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-probmeasure" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2.6 (Probability distribution)</strong></span> Given a measurable space <span class="math inline">\((\Omega, \mathcal{F})\)</span>, a function <span class="math inline">\(\mu\)</span> mapping <span class="math inline">\(\mathcal{F}\)</span> to <span class="math inline">\([0,\infty)\)</span> is a probability distribution over <span class="math inline">\((\Omega, \mathcal{F})\)</span> if</p>
 <ol type="1">
 <li><span class="math inline">\(\mu\)</span> is a positive measure on <span class="math inline">\((\Omega, \mathcal{F})\)</span> and</li>
 <li><span class="math inline">\(\mu(\Omega)=1\)</span>.</li>
 </ol>
 </div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="exr-challenge" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 2.6</strong></span> If you think <span class="math inline">\((\mathbb{R}, 2^{\mathbb{R}})\)</span> is a measurable space, define a <span class="math inline">\(\sigma\)</span>-additive measure on it. Try even to define a probability measure.</p>
+</div>
+</div>
+</div>
 </div>
 <div id="rem-sigma-add" class="proof remark">
 <p><span class="proof-title"><em>Remark 2.1</em>. </span>The notion of <span class="math inline">\(\sigma\)</span>-additivity is strictly stronger than finite additivity. Assuming the (as usual when working in Analysis or Probability), there exists a function <span class="math inline">\(\mu\)</span> that map <span class="math inline">\(2^{\mathbb{N}}\)</span> to <span class="math inline">\([0,1]\)</span>, that is additive (<span class="math inline">\(\mu(A \cup B)= \mu(A) + \mu(B)\)</span> for all <span class="math inline">\(A, B, A\cap B=\emptyset\)</span>), zero on all finite subsets of <span class="math inline">\(\mathbb{N}\)</span> and such that <span class="math inline">\(\mu(\mathbb{N})=1\)</span>. Such a function is not <span class="math inline">\(\sigma\)</span>-additive.</p>
@@ -525,17 +642,35 @@ This topology can be generalized to any finite dimension <span class="math inlin
 <p>
 </p><p>We take the existence of Lebesgue’s measure for granted. This is the content of the next theorem.</p>
 <p>
-</p><div id="thm-lebesgue" class="theorem">
+</p><div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-lebesgue" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 2.1 (Existence of Lebesgue’s measure)</strong></span> There exists a unique <span class="math inline">\(\sigma\)</span>-additive measure <span class="math inline">\(\ell\)</span> on <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span> such that <span class="math inline">\(\ell((a, b]) = b - a\)</span> for all finite <span class="math inline">\(a &lt; b\)</span>.</p>
+</div>
+</div>
+</div>
 </div>
 <p>
 </p><p><a href="#thm-lebesgue" class="quarto-xref">Theorem&nbsp;<span>2.1</span></a> is typical of statements of measure theory. It defines a complex object (a measure) by its trace on a simple collection of sets (intervals).</p>
 <p>The proof of <a href="#thm-lebesgue" class="quarto-xref">Theorem&nbsp;<span>2.1</span></a> can be cut in several meaningful pieces. First define a length function on intervals. Show that this function can be extended to an additive function on finite union, finite intersection and complements of intervals. Then check that the extension is in fact <span class="math inline">\(\sigma\)</span>-additive on the closure of intervals under finite set-theoretical operations (which is not a <span class="math inline">\(\sigma\)</span>-algebra).</p>
 <p>Once this additive extension is constructed, use Carathéodory’s extension theorem below to prove that the length function can be extended to a <span class="math inline">\(\sigma\)</span>-additive function on the <span class="math inline">\(\sigma\)</span>-algebra generated by intervals (the Borel <span class="math inline">\(\sigma\)</span>-algebra).</p>
 <p>Then it remains to check that the extension is unique. This can be done by a generating set argument, for example the <em>monotone class Lemma</em> <a href="#thm-monotoneclasslemma" class="quarto-xref">Lemma&nbsp;<span>2.4</span></a>.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="thm-caratheodory" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 2.2 (Carathéodory’s extension theorem”)</strong></span> Let <span class="math inline">\(\mathcal{A} \subseteq 2^{\Omega}\)</span>. Assume <span class="math inline">\(\mathcal{A}\)</span> contains <span class="math inline">\(\emptyset, \Omega\)</span>, and is closed under finite unions, and complementation. Assume <span class="math inline">\(\rho : \mathcal{A} \to [0, \infty]\)</span> is <span class="math inline">\(\sigma\)</span>-additive on <span class="math inline">\(\mathcal{A}\)</span>.</p>
 <p>Then there exists a measure <span class="math inline">\(\mu\)</span> on <span class="math inline">\(\sigma(\mathcal{A})\)</span> such that <span class="math inline">\(\mu(A)=\rho(A)\)</span> for all <span class="math inline">\(A \in \mathcal{A}\)</span>.</p>
+</div>
+</div>
+</div>
 </div>
 <p>The Lebesque measure existence theorem guarantees that we can define the uniform probability distribution over a finite interval <span class="math inline">\([a,b]\)</span>. If we denote Lebesgue measure by <span class="math inline">\(\ell\)</span>, the uniform probability distribution over <span class="math inline">\([a,b]\)</span> assign probability</p>
 <p><span class="math display">\[
@@ -550,8 +685,17 @@ P(A) = \frac{\ell(A)}{b-a} = \frac{\ell(A)}{\ell([a,b])}
 <br>
 <p>
 </p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="exr-" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 2.7</strong></span> Check that <span class="math inline">\(\mathcal{B}(\mathbb{R}) \cap [a,b] =  \Big\{ A \cap [a,b] : A \in \mathcal{B}(\mathbb{R}) \Big\}\)</span> is the <span class="math inline">\(\sigma\)</span>-algebra generated by the trace of the usual topology of <span class="math inline">\(\mathbb{R}\)</span> on <span class="math inline">\([a,b]\)</span>.</p>
+</div>
+</div>
+</div>
 </div>
 <p>The Lebesgue existence theorem can be extended. Indeed, any sensible definition of the length of an interval can serve as a starting point.</p>
 <p>Recall that a real function is CADLAG if it is right-continuous everywhere, and has left-limits everywhere.</p>
@@ -559,11 +703,20 @@ P(A) = \frac{\ell(A)}{b-a} = \frac{\ell(A)}{\ell([a,b])}
 <br>
 <p>
 </p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="thm-dudley3-1-3" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 2.3</strong></span> Any non-decreasing CADLAG function <span class="math inline">\(F\)</span> on <span class="math inline">\(\mathbb{R}\)</span> defines a <span class="math inline">\(\sigma\)</span>-additive measure <span class="math inline">\(\mu\)</span> on <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span> that satisfies:</p>
 <p><span class="math display">\[
 \mu((a, b]) = F(b) - F(a)
 \]</span></p>
+</div>
+</div>
+</div>
 </div>
 <br>
 <p>
@@ -573,8 +726,17 @@ P(A) = \frac{\ell(A)}{b-a} = \frac{\ell(A)}{\ell([a,b])}
 <br>
 <p>
 </p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="exr-dudley3-1-3" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 2.8</strong></span> Do we really to assume that the function <span class="math inline">\(F\)</span> has left-limits in Theorem <a href="#thm-dudley3-1-3" class="quarto-xref">Theorem&nbsp;<span>2.3</span></a>?</p>
+</div>
+</div>
+</div>
 </div>
 <br>
 <p>
@@ -584,6 +746,12 @@ P(A) = \frac{\ell(A)}{b-a} = \frac{\ell(A)}{\ell([a,b])}
 <h2 data-number="2.5" class="anchored" data-anchor-id="sec-measurablefunctionsrv"><span class="header-section-number">2.5</span> Measurable functions and random variables</h2>
 <p>So far, we only talked probability and measure of sets (events). As stochastic modeling is at the root of quantitative analysis, we introduce the notion of measurable function. This allows us handle numerical functions that map outcomes to <span class="math inline">\(\mathbb{R}\)</span> or <span class="math inline">\(\mathbb{R}^d\)</span>.</p>
 <p>Not every numerical function is measurable. To define what we call a measurable function, we need the notion of <em>inverse image</em> or <em>preimage</em>.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="def-preimage" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2.7 (Preimage)</strong></span> Let <span class="math inline">\(f\)</span> be a function from <span class="math inline">\(\mathcal{X}\)</span> to <span class="math inline">\(\mathcal{Y}\)</span>, we denote by <span class="math inline">\(f^{-1}\)</span> the function that maps <span class="math inline">\(2^{\mathcal{Y}}\)</span> to <span class="math inline">\(2^{\mathcal{X}}\)</span> defined by</p>
 <p><span class="math display">\[\begin{align*}
@@ -592,12 +760,21 @@ B &amp; \mapsto f^{-1}(B) = \Big\{ x : x \in \mathcal{X}, f(x) \in B \Big\} \, .
 \end{align*}\]</span></p>
 <p>The set <span class="math inline">\(f^{-1}(B)\)</span> is called the <em>preimage</em> or <em>inverse image</em> of <span class="math inline">\(B\)</span> under <span class="math inline">\(f\)</span>.</p>
 </div>
+</div>
+</div>
+</div>
 <p>Note that <span class="math inline">\(f^{-1}\)</span> does not denote the inverse of function <span class="math inline">\(f\)</span> which may not be injective. In this course, <span class="math inline">\(f^{-1}\)</span> is a set function from the powerset of the codomain of <span class="math inline">\(f\)</span> to the powerset of the domain of <span class="math inline">\(f\)</span>. The inverse function if it exists (or the generalized inverse function) is denoted by <span class="math inline">\(f^\leftarrow\)</span>. The inverse function, when it exists, maps <span class="math inline">\(f(\mathcal{X})\subseteq \mathcal{Y}\)</span> to <span class="math inline">\(\mathcal{X}\)</span>.</p>
 <div id="exm-ideal-hashing" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2.5</strong></span> Recall the idealized hashing setting from <a href="01-intro.html#sec-hashing" class="quarto-xref"><span>Section 1.1</span></a>. Let <span class="math inline">\(\Omega\)</span> denote the set of functions from <span class="math inline">\(1, \ldots, n\)</span> to <span class="math inline">\(1, \ldots, m\)</span> (assume <span class="math inline">\(n \leq m\)</span>). For <span class="math inline">\(\omega \in \Omega\)</span> (<span class="math inline">\(\omega\)</span> is function, but it is also a <span class="math inline">\(1, \ldots, m\)</span>-valued sequence of length <span class="math inline">\(n\)</span>), let <span class="math inline">\(f(\omega)\)</span> be the number of values in <span class="math inline">\(1, \ldots, m\)</span> that have no occurrence in <span class="math inline">\(\omega\)</span> (the number of empty bins in the allocation defined by <span class="math inline">\(\omega\)</span>). The function <span class="math inline">\(f\)</span> is a numerical function that maps <span class="math inline">\(\Omega=\{1, \ldots, m\}^n\)</span> . For <span class="math inline">\(B \in \mathbb{N}\)</span>, <span class="math inline">\(f^{-1}(B)\)</span> is the subset of allocations which have <span class="math inline">\(k\)</span> empty bins, <span class="math inline">\(k \in B\)</span>.</p>
 </div>
 <p>The preimage operation works well with set-theoretical operations.</p>
 <p>Elementary properties of measurable functions follow from properties of inverse images. Inverse image preserves set-theoretical operations.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="prp-propinvimage" class="theorem proposition">
 <p><span class="theorem-title"><strong>Proposition 2.2</strong></span> Let <span class="math inline">\(f: E \mapsto F\)</span>, then for <span class="math inline">\(A, B, A_1, \ldots,A_n , \ldots   \subseteq F\)</span>,</p>
 <p><span class="math display">\[\begin{align*}
@@ -608,11 +785,23 @@ f^{-1}(\cap_{n \in \mathbb{N}}A_n ) &amp; = \cap_{n \in \mathbb{N}} f^{-1}(A_n) 
 f^{-1}(F \setminus A) &amp; =  f^{-1}(F) \setminus f^{-1}(A)
 \end{align*}\]</span></p>
 </div>
+</div>
+</div>
+</div>
 <br>
 <p>
 </p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="exr-propinvimage" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 2.9</strong></span> Check Proposition <a href="#prp-propinvimage" class="quarto-xref">Proposition&nbsp;<span>2.2</span></a> from <a href="#sec-distribfun" class="quarto-xref"><span>Section 2.7</span></a></p>
+</div>
+</div>
+</div>
 </div>
 <br>
 <p>
@@ -620,47 +809,137 @@ f^{-1}(F \setminus A) &amp; =  f^{-1}(F) \setminus f^{-1}(A)
 <div id="cor">
 <p>Taking the preimages of elements of a <span class="math inline">\(\sigma\)</span>-algebra defines a <span class="math inline">\(\sigma\)</span>-algebra.</p>
 </div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="exr-preimage" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 2.10</strong></span> Let <span class="math inline">\((\Omega, \mathcal{F})\)</span> and <span class="math inline">\((\Omega', \mathcal{G})\)</span> be two measurable spaces. Let <span class="math inline">\(f\)</span> map <span class="math inline">\(\Omega\)</span> to <span class="math inline">\(\Omega'\)</span>, prove that <span class="math display">\[\mathcal{H} = \Big\{ f^{-1}(B) : B \in \mathcal{G}\Big\}\]</span> is a <span class="math inline">\(\sigma\)</span>-algebra of subsets of <span class="math inline">\(f^{-1}(\Omega')\)</span>.</p>
 </div>
+</div>
+</div>
+</div>
 <p>
-</p><div id="def-measfunc" class="theorem definition">
+</p><div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-measfunc" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2.8 (Measurable functions)</strong></span> Let <span class="math inline">\((\Omega, \mathcal{F})\)</span> and <span class="math inline">\((\Omega', \mathcal{G})\)</span> be two measurable spaces. A function <span class="math inline">\(f: \Omega \to \Omega'\)</span> is said to be <span class="math inline">\(\mathcal{F}/\mathcal{G}\)</span>-measurable iff for <span class="math inline">\(B \in \mathcal{G}\)</span>, <span class="math inline">\(f^{-1}(B) \in \mathcal{F}\)</span>.</p>
+</div>
+</div>
+</div>
 </div>
 <p>
 </p><p>Under which condition on <span class="math inline">\(\mathcal{H}\)</span> is <span class="math inline">\(f\)</span> <span class="math inline">\(\mathcal{F}/\mathcal{G}\)</span>-measurable?</p>
 <div id="exm-hashing-measurable-functions" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2.6</strong></span> Recall the idealized hashing scenario from <a href="01-intro.html#sec-hashing" class="quarto-xref"><span>Section 1.1</span></a>.</p>
 </div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="exr-continuous-measurable" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 2.11</strong></span> Check that if <span class="math inline">\(\Omega\)</span> is a topological space and <span class="math inline">\(\mathcal{F}\)</span> the associated Borelian <span class="math inline">\(\sigma\)</span>-algebra, then any continuous function from <span class="math inline">\(\Omega\)</span> to <span class="math inline">\(\mathbb{R}\)</span> is measurable.</p>
 </div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="exr-borel-continuous-measurable" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 2.12</strong></span> If <span class="math inline">\(\Omega=\mathbb{R}^d\)</span> is the Borel <span class="math inline">\(\sigma\)</span>-algebra, is it the smallest <span class="math inline">\(\sigma\)</span>-algebra that makes all continuous functions measurable?</p>
 </div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="prp-limmeasurable" class="theorem proposition">
 <p><span class="theorem-title"><strong>Proposition 2.3</strong></span> The pointwise limit of measurable functions is a measurable function: if <span class="math inline">\((f_n)_n\)</span> is a sequence of measurable functions from <span class="math inline">\((\Omega, \mathcal{F})\)</span> to <span class="math inline">\((\mathcal{X}, \mathcal{G})\)</span>, and <span class="math inline">\(f_n \to f\)</span> pointwise, then <span class="math inline">\(f\)</span> is a measurable function.</p>
 </div>
+</div>
+</div>
+</div>
 <p>
-</p><div id="exr-limmeasurable" class="theorem exercise">
+</p><div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-limmeasurable" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 2.13</strong></span> Prove Proposition <a href="#prp-limmeasurable" class="quarto-xref">Proposition&nbsp;<span>2.3</span></a></p>
 </div>
+</div>
+</div>
+</div>
 <p>
-</p><div id="prp-summeasurable" class="theorem proposition">
+</p><div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-summeasurable" class="theorem proposition">
 <p><span class="theorem-title"><strong>Proposition 2.4</strong></span> The sum of measurable functions is a measurable function: if <span class="math inline">\(f, g\)</span> are measurable functions from <span class="math inline">\((\Omega, \mathcal{F})\)</span> to <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span>, then <span class="math inline">\(a f + b g\)</span> is a measurable function for all <span class="math inline">\(a,b \in \mathbb{R}\)</span>.</p>
 </div>
-<p>
-</p><div id="exr-summeasurable" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 2.14</strong></span> Prove Proposition <a href="#prp-summeasurable" class="quarto-xref">Proposition&nbsp;<span>2.4</span></a></p>
+</div>
+</div>
 </div>
 <p>
-</p><div id="prp-compmeasurable" class="theorem proposition">
+</p><div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-summeasurable" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.14</strong></span> Prove Proposition <a href="#prp-summeasurable" class="quarto-xref">Proposition&nbsp;<span>2.4</span></a></p>
+</div>
+</div>
+</div>
+</div>
+<p>
+</p><div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-compmeasurable" class="theorem proposition">
 <p><span class="theorem-title"><strong>Proposition 2.5</strong></span> The composition of measurable functions is a measurable function: if <span class="math inline">\(f\)</span> is a measurable function from <span class="math inline">\((\Omega, \mathcal{F})\)</span> to <span class="math inline">\((\mathcal{X}, \mathcal{G})\)</span>, and <span class="math inline">\(g\)</span> is a measurable function from <span class="math inline">\((\mathcal{X}, \mathcal{G})\)</span> to <span class="math inline">\((\mathcal{Y}, \mathcal{H})\)</span>, then <span class="math inline">\(g \circ f\)</span> (<span class="math inline">\(g \circ f(\omega) = g(f(\omega))\)</span> for all <span class="math inline">\(\omega\)</span>) is a measurable function from <span class="math inline">\((\Omega, \mathcal{F})\)</span> to <span class="math inline">\((\mathcal{Y}, \mathcal{H})\)</span>.</p>
+</div>
+</div>
+</div>
 </div>
 <br>
 <p>
-</p><div id="exr-compmeasurable" class="theorem exercise">
+</p><div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-compmeasurable" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 2.15</strong></span> Prove Proposition <a href="#prp-compmeasurable" class="quarto-xref">Proposition&nbsp;<span>2.5</span></a></p>
+</div>
+</div>
+</div>
 </div>
 <br>
 <p>
@@ -668,6 +947,12 @@ f^{-1}(F \setminus A) &amp; =  f^{-1}(F) \setminus f^{-1}(A)
 <section id="sec-dynkin" class="level2" data-number="2.6">
 <h2 data-number="2.6" class="anchored" data-anchor-id="sec-dynkin"><span class="header-section-number">2.6</span> The Monotone class theorem</h2>
 <p>The monotone class theorem or lemma is a powerful example of the generating class arguments that can be used to prove that two probability measures or maybe two <span class="math inline">\(\sigma\)</span>-finite measures are equal.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="def-pi-class" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2.9 (<span class="math inline">\(\pi\)</span>-class)</strong></span> A collection <span class="math inline">\(\mathcal{G}\)</span> of subsets of <span class="math inline">\(\Omega\)</span> is said to be a <span class="math inline">\(\pi\)</span>-class if:</p>
 <ul>
@@ -675,10 +960,19 @@ f^{-1}(F \setminus A) &amp; =  f^{-1}(F) \setminus f^{-1}(A)
 <li>it is stable/closed by finite intersection <span class="math display">\[A, B \in \mathcal{G} \Rightarrow A \cap B \in \mathcal{G} \, .\]</span></li>
 </ul>
 </div>
+</div>
+</div>
+</div>
 <p>
 </p><p>A <span class="math inline">\(\sigma\)</span>-algebra is a <span class="math inline">\(\pi\)</span> class, but the converse is false.</p>
 <p>
-</p><div id="def-monotone-class" class="theorem definition">
+</p><div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-monotone-class" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2.10 (Monotone class)</strong></span> A collection <span class="math inline">\(\mathcal{M}\)</span> of subsets of <span class="math inline">\(\Omega\)</span> is said to be a monotone class or a <span class="math inline">\(\lambda\)</span>-system if it satisfies the following properties:</p>
 <ul>
 <li><span class="math inline">\(\Omega \in \mathcal{M}\)</span></li>
@@ -686,14 +980,26 @@ f^{-1}(F \setminus A) &amp; =  f^{-1}(F) \setminus f^{-1}(A)
 <li>If <span class="math inline">\(A_n \in \mathcal{M}\)</span> and <span class="math inline">\(A_n \subseteq A_{n+1}\)</span> for every <span class="math inline">\(n \in \mathbb{N}\)</span> then <span class="math inline">\(\lim_n A_n = \cup_{n \in \mathbb{N}} A_n \in \mathcal{M}\)</span>.</li>
 </ul>
 </div>
+</div>
+</div>
+</div>
 <p>
 </p><p>A <span class="math inline">\(\sigma\)</span>-algebra is a <span class="math inline">\(\lambda\)</span>-system.</p>
 <p>
 </p><p>The intersection of a collection of <span class="math inline">\(\lambda\)</span>-systems is a <span class="math inline">\(\lambda\)</span>-system. Hence, it makes sense to talk about the smallest <span class="math inline">\(\lambda\)</span>-system containing a collection of sets.</p>
 <p>
 </p><p>The next easy proposition makes <span class="math inline">\(\lambda\)</span>-system very useful when we want to check that two probability distributions are equal.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="prp-keyobservation" class="theorem proposition">
 <p><span class="theorem-title"><strong>Proposition 2.6</strong></span> The class of sets over which two probability distributions coincide is a <span class="math inline">\(\lambda\)</span>-system.</p>
+</div>
+</div>
+</div>
 </div>
 <p>
 </p>
@@ -717,11 +1023,29 @@ P(\cup_n A_n) = \lim_n \uparrow P(A_n) = \lim_n \uparrow Q(A_n) = Q(\cup_n A_n) 
 </div>
 <p>
 </p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="exr-keyobs" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 2.16</strong></span> What happens if we consider the collections of measurable sets over which two measures are equal? What happens if we assume that the two measures are finite?</p>
 </div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="def-sigfinite" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2.11 (<span class="math inline">\(\sigma\)</span>-finite measures)</strong></span> A measure <span class="math inline">\(\mu\)</span> on <span class="math inline">\((\Omega, \mathcal{F})\)</span> is <span class="math inline">\(\sigma\)</span>-finite iff there exists <span class="math inline">\((A_n)_n\)</span> with <span class="math inline">\(\Omega \subseteq \cup_n A_n\)</span> and <span class="math inline">\(\mu(A_n) &lt; \infty\)</span> for each <span class="math inline">\(n\)</span>.</p>
+</div>
+</div>
+</div>
 </div>
 <p>Finite measures (this encompasses probability measures) are <span class="math inline">\(\sigma\)</span>-finite. Lebesgue measure is <span class="math inline">\(\sigma\)</span>-finite. The counting measure on <span class="math inline">\(\mathbb{R}\)</span> is not <span class="math inline">\(\sigma\)</span>-finite.</p>
 <p>
@@ -730,8 +1054,17 @@ P(\cup_n A_n) = \lim_n \uparrow P(A_n) = \lim_n \uparrow Q(A_n) = Q(\cup_n A_n) 
 <br>
 <p>
 </p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="thm-monotoneclasslemma" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 2.4 (Monotone class lemma)</strong></span> If <span class="math inline">\(\mathcal{A}\)</span> is a <span class="math inline">\(\pi\)</span>-systen in <span class="math inline">\(\Omega\)</span> and <span class="math inline">\(\mathcal{M}\)</span> a <span class="math inline">\(\lambda\)</span>-system in <span class="math inline">\(\Omega\)</span> such that <span class="math inline">\(\mathcal{A} \subseteq \mathcal{M}\)</span>, then the <span class="math inline">\(\sigma\)</span>-algebra generated by <span class="math inline">\(\mathcal{A}\)</span>, <span class="math inline">\(\sigma(A)\)</span>, is the smallest <span class="math inline">\(\lambda\)</span>-system larger than <span class="math inline">\(\mathcal{A}\)</span>: <span class="math display">\[\sigma(\mathcal{A}) \subseteq \mathcal{M} \,.\]</span></p>
+</div>
+</div>
+</div>
 </div>
 <p>
 </p>
@@ -780,13 +1113,28 @@ A \cap (C \setminus B) = \Big(\underbrace{A \cap C}_{\in \mathcal{M}}\Big) \setm
 <section id="sec-distribfun" class="level2" data-number="2.7">
 <h2 data-number="2.7" class="anchored" data-anchor-id="sec-distribfun"><span class="header-section-number">2.7</span> Probability distributions on the real line</h2>
 <p>A probability distribution is a complex object: it maps a large collection of sets (a <span class="math inline">\(\sigma\)</span>-algebra) to <span class="math inline">\([0,1]\)</span>. Fortunately, it is possible to characterize a probability distribution by simpler object. If we focus on probability distributions over <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span>, they can be characterized by real functions on <span class="math inline">\(\mathbb{R}\)</span>.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="def-distrib-fun" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2.12 (Distribution function)</strong></span> Given a probability distribution <span class="math inline">\(P\)</span> on <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span>, the distribution function <span class="math inline">\(F\)</span> of <span class="math inline">\(P\)</span> maps <span class="math inline">\(\mathbb{R}\)</span> to <span class="math inline">\([0,1]\)</span>, it is defined by</p>
 <p><span class="math display">\[
 x \mapsto F(x) = P(-\infty, x].
 \]</span></p>
 </div>
+</div>
+</div>
+</div>
 <p>A probability distribution defines a unique distribution function. What is perhaps surprising is that a distribution function defines a unique probability distribution function.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="prp-prop-distrib-function" class="theorem proposition">
 <p><span class="theorem-title"><strong>Proposition 2.7</strong></span> Let <span class="math inline">\(F\)</span> be a function from <span class="math inline">\(\mathbb{R}\)</span> to <span class="math inline">\([0,1]\)</span>.</p>
 <p>The function <span class="math inline">\(F\)</span> is the distribution function of a probability distribution on <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span>, iff the following five properties are satisfied:</p>
@@ -797,6 +1145,9 @@ x \mapsto F(x) = P(-\infty, x].
 <li><span class="math inline">\(\lim_{x \to -\infty}F(x)=0\)</span></li>
 <li><span class="math inline">\(\lim_{x \to \infty} F(x)= 1.\)</span></li>
 </ol>
+</div>
+</div>
+</div>
 </div>
 <p>This is a rephrasing of <a href="#thm-dudley3-1-3" class="quarto-xref">Theorem&nbsp;<span>2.3</span></a>.</p>
 <p>Figure <a href="#fig-distribpoisson" class="quarto-xref">Figure&nbsp;<span>2.1</span></a> shows the cumulative distribution function of Poisson distributions for different values of the parameter (see Sections <a href="01-intro.html#sec-conv2poisson" class="quarto-xref"><span>Section 1.4</span></a> and <a href="03-families.html#sec-poisson" class="quarto-xref"><span>Section 5.2</span></a> for more on Poisson distributions). For parameter <span class="math inline">\(\mu\)</span>, <span class="math inline">\(F_{\mu}(x) = \sum_{k \leq x}  \mathrm{e}^{-\mu} \frac{\mu^k}{k!}\)</span>.</p>
@@ -820,6 +1171,12 @@ Figure&nbsp;2.1: Cumulative distribution functions for Poisson distributions wit
 <section id="sec-randomvariablesperse" class="level2" data-number="2.8">
 <h2 data-number="2.8" class="anchored" data-anchor-id="sec-randomvariablesperse"><span class="header-section-number">2.8</span> General random variables</h2>
 <p>A real random variable is neither a variable, nor random. A real random variable is a measurable function from some measurable space to the real line endowed with the Borel <span class="math inline">\(\sigma\)</span>-algebra. There is nothing random in a random variable.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="def-realrv" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2.13 (Real valued random variable)</strong></span> Given a measurable space <span class="math inline">\((\Omega, \mathbb{F})\)</span>, a mapping <span class="math inline">\(X\)</span> from <span class="math inline">\(\Omega\)</span> to <span class="math inline">\(\mathbb{R}\)</span> is a real valued random variable such that for every <span class="math inline">\(B \in \mathcal{B}(\mathbb{R})\)</span> the inverse image of <span class="math inline">\(B\)</span>:</p>
 <p><span class="math display">\[
@@ -827,20 +1184,41 @@ X^{-1}(B) = \{ \omega : \omega \in \Omega, X(\omega) \in {B}\}
 \]</span></p>
 <p>belongs to <span class="math inline">\(\mathcal{F}\)</span></p>
 </div>
+</div>
+</div>
+</div>
 <p>Once a measurable space is endowed with a probability distribution, is it possible to define the (probability) distribution of a random variable.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="def-disrv" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2.14</strong></span> Given <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span> and a real valued random variable <span class="math inline">\(X\)</span>, the law or probability distribution of <span class="math inline">\(X\)</span>, denoted by <span class="math inline">\(P \circ X^{-1}\)</span>, is the probability distribution on <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span> defined by</p>
 <p><span class="math display">\[
 (P \circ X^{-1})(B) =  P(X^{-1}(B)) \quad \text{for all } B \in \mathcal{B}(\mathbb{R}).
 \]</span></p>
 </div>
+</div>
+</div>
+</div>
 <p>Random variables may be vector-valued, function-valued, <em>etc</em>. General random variables are defined as measurable functions between measurable spaces.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="def-rv" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2.15 (Random variable)</strong></span> Given two measurable spaces <span class="math inline">\((\Omega, \mathcal{F})\)</span>, and <span class="math inline">\((\Omega', \mathcal{G})\)</span> a mapping <span class="math inline">\(X\)</span> from <span class="math inline">\(\Omega\)</span> to <span class="math inline">\(\Omega'\)</span> is a <span class="math inline">\(\mathcal{F}/\mathcal{G}\)</span>-random variable if for every <span class="math inline">\(B \in \mathcal{G}\)</span> the inverse image of <span class="math inline">\(B\)</span>:</p>
 <p><span class="math display">\[
 X^{-1}(B) = \{ \omega : \omega \in \Omega, X(\omega) \in {B}\}
 \]</span></p>
 <p>belongs to <span class="math inline">\(\mathcal{F}\)</span>.</p>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section id="bibliolanguage" class="level2" data-number="2.9">

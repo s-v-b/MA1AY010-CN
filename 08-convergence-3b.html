@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>15&nbsp; Refinments and extensions of thr Central Limit Theorem – MA1AY010 Class Notes</title>
+<title>16&nbsp; Refinments and extensions of thr Central Limit Theorem – MA1AY010 Class Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -148,7 +148,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./08-convergence-3b.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Refinments and extensions of thr Central Limit Theorem</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./08-convergence-3b.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Refinments and extensions of thr Central Limit Theorem</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -232,38 +232,44 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-characterizations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Characterizations of probability distributions</span></span></a>
+  <a href="./06-conditioning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Conditioning</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-conditioning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Conditioning</span></span></a>
+  <a href="./04-characterizations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Characterizations of probability distributions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./041-characterization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Quantile functions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-convergences-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Convergences I : almost sure, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, in Probability</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Convergences I : almost sure, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, in Probability</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-convergence-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Convergence in distribution</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Convergence in distribution</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-convergence-3b.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Refinments and extensions of thr Central Limit Theorem</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Refinments and extensions of thr Central Limit Theorem</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./09-gaussian-vectors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Gaussian vectors</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Gaussian vectors</span></span></a>
   </div>
 </li>
     </ul>
@@ -276,19 +282,19 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation"><span class="header-section-number">15.1</span> Motivation</a></li>
-  <li><a href="#sec-cltbis" id="toc-sec-cltbis" class="nav-link" data-scroll-target="#sec-cltbis"><span class="header-section-number">15.2</span> Central limit theorem</a></li>
-  <li><a href="#cramer-wold-device" id="toc-cramer-wold-device" class="nav-link" data-scroll-target="#cramer-wold-device"><span class="header-section-number">15.3</span> Cramer-Wold device</a></li>
-  <li><a href="#sec-MetrisationWeakConv" id="toc-sec-MetrisationWeakConv" class="nav-link" data-scroll-target="#sec-MetrisationWeakConv"><span class="header-section-number">15.4</span> Metrizations of weak convergence</a>
+  <li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation"><span class="header-section-number">16.1</span> Motivation</a></li>
+  <li><a href="#sec-cltbis" id="toc-sec-cltbis" class="nav-link" data-scroll-target="#sec-cltbis"><span class="header-section-number">16.2</span> Central limit theorem</a></li>
+  <li><a href="#cramer-wold-device" id="toc-cramer-wold-device" class="nav-link" data-scroll-target="#cramer-wold-device"><span class="header-section-number">16.3</span> Cramer-Wold device</a></li>
+  <li><a href="#sec-MetrisationWeakConv" id="toc-sec-MetrisationWeakConv" class="nav-link" data-scroll-target="#sec-MetrisationWeakConv"><span class="header-section-number">16.4</span> Metrizations of weak convergence</a>
   <ul class="collapse">
-  <li><a href="#wasserstein-distance" id="toc-wasserstein-distance" class="nav-link" data-scroll-target="#wasserstein-distance"><span class="header-section-number">15.4.1</span> Wasserstein distance</a></li>
+  <li><a href="#wasserstein-distance" id="toc-wasserstein-distance" class="nav-link" data-scroll-target="#wasserstein-distance"><span class="header-section-number">16.4.1</span> Wasserstein distance</a></li>
   </ul></li>
-  <li><a href="#sec-steinsmethod" id="toc-sec-steinsmethod" class="nav-link" data-scroll-target="#sec-steinsmethod"><span class="header-section-number">15.5</span> Stein’s method</a>
+  <li><a href="#sec-steinsmethod" id="toc-sec-steinsmethod" class="nav-link" data-scroll-target="#sec-steinsmethod"><span class="header-section-number">16.5</span> Stein’s method</a>
   <ul class="collapse">
-  <li><a href="#steins-identity" id="toc-steins-identity" class="nav-link" data-scroll-target="#steins-identity"><span class="header-section-number">15.5.1</span> Stein’s Identity</a></li>
+  <li><a href="#steins-identity" id="toc-steins-identity" class="nav-link" data-scroll-target="#steins-identity"><span class="header-section-number">16.5.1</span> Stein’s Identity</a></li>
   </ul></li>
-  <li><a href="#sec-secBerryLindeberg" id="toc-sec-secBerryLindeberg" class="nav-link" data-scroll-target="#sec-secBerryLindeberg"><span class="header-section-number">15.6</span> A Berry-Esseen bound for a Lindeberg-Feller-like Central Limit Theorem</a></li>
-  <li><a href="#bibliographic-remarks" id="toc-bibliographic-remarks" class="nav-link" data-scroll-target="#bibliographic-remarks"><span class="header-section-number">15.7</span> Bibliographic remarks</a></li>
+  <li><a href="#sec-secBerryLindeberg" id="toc-sec-secBerryLindeberg" class="nav-link" data-scroll-target="#sec-secBerryLindeberg"><span class="header-section-number">16.6</span> A Berry-Esseen bound for a Lindeberg-Feller-like Central Limit Theorem</a></li>
+  <li><a href="#bibliographic-remarks" id="toc-bibliographic-remarks" class="nav-link" data-scroll-target="#bibliographic-remarks"><span class="header-section-number">16.7</span> Bibliographic remarks</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/08-convergence-3b.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -297,7 +303,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-chaprevisiCLT" class="quarto-section-identifier"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Refinments and extensions of thr Central Limit Theorem</span></span></h1>
+<h1 class="title"><span id="sec-chaprevisiCLT" class="quarto-section-identifier"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Refinments and extensions of thr Central Limit Theorem</span></span></h1>
 </div>
 
 
@@ -314,13 +320,13 @@ window.Quarto = {
 </header>
 
 
-<section id="motivation" class="level2" data-number="15.1">
-<h2 data-number="15.1" class="anchored" data-anchor-id="motivation"><span class="header-section-number">15.1</span> Motivation</h2>
-<p>In <a href="#sec-MetrisationWeakConv" class="quarto-xref">Section&nbsp;<span>15.4</span></a>), we associate convergence in distribution with metrics. By metrizing convergence in distribution, we can quantify rates of convergence.</p>
-<p>In <a href="#sec-steinsmethod" class="quarto-xref">Section&nbsp;<span>15.5</span></a>) we turn a relatively recent approach to weak convergence: Stein’s method. This is best illustrated with variations on the Central Limit Theorem. Recall that a byproduct of the proof that characteristic functions identify probability distributions was Stein’s identity.</p>
+<section id="motivation" class="level2" data-number="16.1">
+<h2 data-number="16.1" class="anchored" data-anchor-id="motivation"><span class="header-section-number">16.1</span> Motivation</h2>
+<p>In <a href="#sec-MetrisationWeakConv" class="quarto-xref">Section&nbsp;<span>16.4</span></a>), we associate convergence in distribution with metrics. By metrizing convergence in distribution, we can quantify rates of convergence.</p>
+<p>In <a href="#sec-steinsmethod" class="quarto-xref">Section&nbsp;<span>16.5</span></a>) we turn a relatively recent approach to weak convergence: Stein’s method. This is best illustrated with variations on the Central Limit Theorem. Recall that a byproduct of the proof that characteristic functions identify probability distributions was Stein’s identity.</p>
 </section>
-<section id="sec-cltbis" class="level2" data-number="15.2">
-<h2 data-number="15.2" class="anchored" data-anchor-id="sec-cltbis"><span class="header-section-number">15.2</span> Central limit theorem</h2>
+<section id="sec-cltbis" class="level2" data-number="16.2">
+<h2 data-number="16.2" class="anchored" data-anchor-id="sec-cltbis"><span class="header-section-number">16.2</span> Central limit theorem</h2>
 <div id="thm">
 <p>Let <span class="math inline">\(X_1, \ldots, X_n, \ldots\)</span> be i.i.d. with finite variance <span class="math inline">\(\sigma^2\)</span> and expectation <span class="math inline">\(\mu\)</span>. Let <span class="math inline">\(S_n = \sum_{i=1}^n X_i\)</span>.</p>
 <p><span class="math display">\[
@@ -340,7 +346,7 @@ window.Quarto = {
 <img src="08-convergence-3b_files/figure-html/fig-cltbinom-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cltbinom-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;15.1: Pointwise convergence of cumulative distribution functions towards the Gaussian cumulative distribution functions of <span class="math inline">\(\mathcal{N}(0,1)\)</span> (plain line) illustrates the Central Limit Theorem. The dotted and the dashed lines represent the cumulative distribution function of <span class="math inline">\((X_n -np)/\sqrt{n(p*(1-p))}\)</span> where <span class="math inline">\(X_n \sim \text{Binomial}(n,p)\)</span> for <span class="math inline">\(p=.3\)</span> and <span class="math inline">\(n=30 \text(dotted), 100 \text(dashed)\)</span>.
+Figure&nbsp;16.1: Pointwise convergence of cumulative distribution functions towards the Gaussian cumulative distribution functions of <span class="math inline">\(\mathcal{N}(0,1)\)</span> (plain line) illustrates the Central Limit Theorem. The dotted and the dashed lines represent the cumulative distribution function of <span class="math inline">\((X_n -np)/\sqrt{n(p*(1-p))}\)</span> where <span class="math inline">\(X_n \sim \text{Binomial}(n,p)\)</span> for <span class="math inline">\(p=.3\)</span> and <span class="math inline">\(n=30 \text(dotted), 100 \text(dashed)\)</span>.
 </figcaption>
 </figure>
 </div>
@@ -348,24 +354,42 @@ Figure&nbsp;15.1: Pointwise convergence of cumulative distribution functions tow
 </div>
 <!-- :::  -->
 </section>
-<section id="cramer-wold-device" class="level2" data-number="15.3">
-<h2 data-number="15.3" class="anchored" data-anchor-id="cramer-wold-device"><span class="header-section-number">15.3</span> Cramer-Wold device</h2>
+<section id="cramer-wold-device" class="level2" data-number="16.3">
+<h2 data-number="16.3" class="anchored" data-anchor-id="cramer-wold-device"><span class="header-section-number">16.3</span> Cramer-Wold device</h2>
 <p>The next theorem is a corollary of <span class="quarto-unresolved-ref">?thm-thmLevyInj</span>).</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="thm-cramerwold" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 15.1 (Cramer-Wold)</strong></span> The distribution of a <span class="math inline">\(\mathbb{R}^n\)</span>-valued random vector <span class="math inline">\(X = (X_1, \ldots, X_n)^T\)</span> is completely determined by the collection of distributions of univariate random variables <span class="math inline">\(\langle t, X\rangle =\sum_{i=1}^n t_i X_i\)</span> where <span class="math inline">\((t_1, \ldots, t_n)^T\)</span> belongs to <span class="math inline">\(\mathbb{R}^n.\)</span></p>
+<p><span class="theorem-title"><strong>Theorem 16.1 (Cramer-Wold)</strong></span> The distribution of a <span class="math inline">\(\mathbb{R}^n\)</span>-valued random vector <span class="math inline">\(X = (X_1, \ldots, X_n)^T\)</span> is completely determined by the collection of distributions of univariate random variables <span class="math inline">\(\langle t, X\rangle =\sum_{i=1}^n t_i X_i\)</span> where <span class="math inline">\((t_1, \ldots, t_n)^T\)</span> belongs to <span class="math inline">\(\mathbb{R}^n.\)</span></p>
+</div>
+</div>
+</div>
 </div>
 </section>
-<section id="sec-MetrisationWeakConv" class="level2" data-number="15.4">
-<h2 data-number="15.4" class="anchored" data-anchor-id="sec-MetrisationWeakConv"><span class="header-section-number">15.4</span> Metrizations of weak convergence</h2>
+<section id="sec-MetrisationWeakConv" class="level2" data-number="16.4">
+<h2 data-number="16.4" class="anchored" data-anchor-id="sec-MetrisationWeakConv"><span class="header-section-number">16.4</span> Metrizations of weak convergence</h2>
 <p>When we talk about laws on complete separable metric spaces, convergence in distribution can be defined in relation to a distance. In fact, several distances are possible and you can choose any of them according to your needs. The distances we are interested in are of the form <span class="math display">\[
 \mathrm{d}_{\mathcal{H}}(P, Q) = \sup_{h \in \mathcal{H}}
 \int h \mathrm{d}P - \int h \mathrm{d}Q
 \]</span> where <span class="math inline">\(\mathcal{H}\)</span> is a well-chosen collection of measurable functions.</p>
 <p>The Kolmogorov-Lévy metric is used implicitly in the formulation of Glivenko-Cantelli’s theorem, it is controlled in the inequality of Dvoretzky-Kiefer-Wolfowitz.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="def-defKolLev" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 15.1 (Kolmogorov-Lévy distance)</strong></span> If <span class="math inline">\(W\)</span> and <span class="math inline">\(Z\)</span> are two real random variables, the Kolmogorov-Lévy distance between their distributions is defined by <span class="math display">\[
+<p><span class="theorem-title"><strong>Definition 16.1 (Kolmogorov-Lévy distance)</strong></span> If <span class="math inline">\(W\)</span> and <span class="math inline">\(Z\)</span> are two real random variables, the Kolmogorov-Lévy distance between their distributions is defined by <span class="math display">\[
 \mathrm{d}_K(\mathcal{L}(W), \mathcal{L}(Z)) =  \sup_{x \in \mathbb{R}} \left| \mathbb{P}\{ W \leq x\} - \mathbb{P}\{ Z \leq x\} \right| \, .
 \]</span></p>
+</div>
+</div>
+</div>
 </div>
 <p>The fact that the Kolmogorov-Lévy distance metrizes the weak convergence towards a limiting distribution with a continuous cumulative distribution function is checked with the argument used in the classical proofs of Glivenko-Cantelli’s theorem.</p>
 <p>If <span class="math inline">\(\lim_n x_n x_n = x\)</span>, the mass sequence <span class="math inline">\(\delta_{x_n}\)</span> converges weakly towards the mass <span class="math inline">\(\delta_x\)</span>, however, if <span class="math inline">\(x_n \neq x\)</span>, <span class="math inline">\(\mathrm{d}_K(\delta_{x_n}, \delta_x)=1\)</span>.</p>
@@ -375,8 +399,8 @@ Figure&nbsp;15.1: Pointwise convergence of cumulative distribution functions tow
 \]</span></p>
 <p>The Kolmogorov-Lévy distance represents a relevant relaxation of the total variation distance (which does not metrize convergence in distribution). The fact that the test functions which define the Kolmogorov-Lévy distance are not absolutely continuous does not make life any easier. That is why we often work with a distance defined by more user-friendly functions. This distance belongs to the family of distances known as Monge-Wasserstein distances, or transportation distance.</p>
 <div id="def">
-<section id="wasserstein-distance" class="level3" data-number="15.4.1">
-<h3 data-number="15.4.1" class="anchored" data-anchor-id="wasserstein-distance"><span class="header-section-number">15.4.1</span> Wasserstein distance</h3>
+<section id="wasserstein-distance" class="level3" data-number="16.4.1">
+<h3 data-number="16.4.1" class="anchored" data-anchor-id="wasserstein-distance"><span class="header-section-number">16.4.1</span> Wasserstein distance</h3>
 <p>Let <span class="math inline">\(W\)</span> and <span class="math inline">\(Z\)</span> be <span class="math inline">\(\mathbb{R}^k\)</span>-valued random variables with distributions <span class="math inline">\(\mathcal{L}(W)\)</span>, <span class="math display">\[
 \mathrm{d}_M(\mathcal{L}(W), \mathcal{L}(Z)) =  \sup_{h: 1-\text{Lipschitz}} \left| \mathbb{E} h(W) - \mathbb{E} h(Z) \right| \, .
 \]</span></p>
@@ -412,17 +436,17 @@ Figure&nbsp;15.1: Pointwise convergence of cumulative distribution functions tow
 <p><span class="math inline">\(\square\)</span></p>
 </div>
 </section>
-<section id="sec-steinsmethod" class="level2" data-number="15.5">
-<h2 data-number="15.5" class="anchored" data-anchor-id="sec-steinsmethod"><span class="header-section-number">15.5</span> Stein’s method</h2>
+<section id="sec-steinsmethod" class="level2" data-number="16.5">
+<h2 data-number="16.5" class="anchored" data-anchor-id="sec-steinsmethod"><span class="header-section-number">16.5</span> Stein’s method</h2>
 <p>In Stein’s approach, we are interested in the approximation of a target law (normal law, Fish, <span class="math inline">\(\chi^2_k\)</span>, ) by the law of a random variable whose mode of manufacturing (sum of independent random variables, order statistics, logarithm of likelihood ratio,…). The target law is characterized by an identity. In the case of of normal law, it’s Stein’s identity.</p>
 <div id="lem">
-<section id="steins-identity" class="level3" data-number="15.5.1">
-<h3 data-number="15.5.1" class="anchored" data-anchor-id="steins-identity"><span class="header-section-number">15.5.1</span> Stein’s Identity</h3>
+<section id="steins-identity" class="level3" data-number="16.5.1">
+<h3 data-number="16.5.1" class="anchored" data-anchor-id="steins-identity"><span class="header-section-number">16.5.1</span> Stein’s Identity</h3>
 <p>Let the real random variable <span class="math inline">\(Z\)</span> be distributed according to <span class="math inline">\(Q\)</span>. if for every absolutely continuous function <span class="math inline">\(f\)</span> such that <span class="math inline">\(f'(Z)\)</span> is <span class="math inline">\(Q\)</span>-integrable, we have <span class="math display">\[\mathbb{E}[Z f(Z)] = \mathbb{E}[f'(Z)]\]</span> then <span class="math display">\[Q = \mathcal{N}(0,1) \, .\]</span> The converse is true.</p>
 </section>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>See <a href="09-gaussian-vectors.html#lem-steinslemma" class="quarto-xref">Lemma&nbsp;<span>16.1</span></a> and <span class="quarto-unresolved-ref">?lem-steinslemma-bis</span>.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>See <a href="09-gaussian-vectors.html#lem-steinslemma" class="quarto-xref">Lemma&nbsp;<span>17.1</span></a> and <span class="quarto-unresolved-ref">?lem-steinslemma-bis</span>.</p>
 </div>
 <p>This identity leads us to define an operator <span class="math inline">\(\mathcal{A}\)</span> that acts on absolutely continuous functions: <span class="math inline">\(\mathcal{A} f(x) = f'(x) - x f(x)\)</span>. This operator allows us to characterize <span class="math inline">\(\mathcal{N}(0,1)\)</span>: <span class="math display">\[
 Q = \mathcal{N}(0,1) \Longleftrightarrow \forall f \text{a.c}\quad 0 = \int \mathcal{A}f(z) Q(\mathrm{d}z) \, .
@@ -433,8 +457,14 @@ Q = \mathcal{N}(0,1) \Longleftrightarrow \forall f \text{a.c}\quad 0 = \int \mat
 \mathbb{E}_Q \mathcal{A} f_h(W) \qquad\text{for} h \in \mathcal{H}, \text{ and } \mathcal{A} f_h(w) = h(w) - \int h(z) \phi(z) \mathrm{d}z \, .
 \]</span> This last goal led to the development of creative methods for approximating integrals. In order to understand what is at stake, we have to investigate the smoothness and boundedness properties of functions <span class="math inline">\(\mathcal{A} f_h, h \in \mathcal{H}\)</span>, when <span class="math inline">\(\mathcal{H}\)</span> itself is defined by smoothness constraints.</p>
 <p>In the sequel, we abbreviate <span class="math inline">\(\int_{\mathbb{R}}  h(z) \phi(z)\mathrm{d}z\)</span> to <span class="math inline">\(\Phi(h)\)</span>.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="lem-ode1" class="theorem lemma">
-<p><span class="theorem-title"><strong>Lemma 15.1</strong></span> Let <span class="math inline">\(f_h\)</span> be the solution of the differential equation <span class="math display">\[
+<p><span class="theorem-title"><strong>Lemma 16.1</strong></span> Let <span class="math inline">\(f_h\)</span> be the solution of the differential equation <span class="math display">\[
 f'_h(w) - w f_h(w) =  h(w) - \Phi(h)\, .
 \]</span> given by <span class="math display">\[
 f_h(w) = \begin{cases}
@@ -444,6 +474,9 @@ f_h(w) = \begin{cases}
 \]</span> If <span class="math inline">\(h\)</span> is absolutely continuous then <span class="math inline">\(f_h\)</span> is the only bounded solution of the differential equation and <span class="math display">\[
 \|f_h\|_\infty \leq 2 \|h'\|_\infty,\qquad \|f'_h\|_\infty \leq \sqrt{\frac{2}{\pi}}\|h'\|_\infty,\qquad\|f^{\prime\prime}_h\|_\infty \leq 2\|h'\|_\infty \, .
 \]</span></p>
+</div>
+</div>
+</div>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>We first check that <span class="math inline">\(f_h\)</span> is the unique bounded solution of the differential equation,</p>
@@ -462,7 +495,7 @@ g(w) =  \begin{cases}
 \int_w^\infty \mathrm{e}^{- t^2/2} \left(\Phi(h) -h(t)\right) \mathrm{d}t &amp; \text{if } w\geq 0 \\
 \int^w_{-\infty} \mathrm{e}^{- t^2/2} \left(h(t) -\Phi(h)\right) \mathrm{d}t &amp; \text{if } w\leq 0 \, .
 \end{cases}
-\]</span> (integrability assumptions about <span class="math inline">\(h\)</span> warrant that <span class="math inline">\(g\)</span> is well-defined), hence <span class="math inline">\(f_h\)</span> is a solution of the differential equation stated in Lemma <a href="#lem-ode1" class="quarto-xref">Lemma&nbsp;<span>15.1</span></a></p>
+\]</span> (integrability assumptions about <span class="math inline">\(h\)</span> warrant that <span class="math inline">\(g\)</span> is well-defined), hence <span class="math inline">\(f_h\)</span> is a solution of the differential equation stated in Lemma <a href="#lem-ode1" class="quarto-xref">Lemma&nbsp;<span>16.1</span></a></p>
 <p>Besides, for <span class="math inline">\(w&gt;0\)</span> <span class="math display">\[
 f_h(w) = g(w) \mathrm{e}^{w^2/2} \leq \| h'\|_\infty \left(\sqrt{\frac{2}{\pi}}\frac{\overline{\Phi}(w)}{\phi(w)} +1 \right) \, ,
 \]</span> the ratio <span class="math inline">\(\frac{\overline{\Phi}(w)}{\phi(w)}\)</span> is non-increasing over <span class="math inline">\([0, \infty)\)</span>, it is always smaller than <span class="math inline">\(\sqrt{\frac{\pi}{2}}\)</span>. The boundedness of <span class="math inline">\(f_h\)</span> follows: <span class="math display">\[
@@ -494,8 +527,8 @@ f^{\prime\prime}_h(w)
 </div>
 <p>Le fait que si <span class="math inline">\(h\)</span> est <span class="math inline">\(1\)</span>-Lipschitz, <span class="math inline">\(f_h\)</span> soit deux fois dérivable et de dérivée seconde bounded is convenient lorsqu’il faut majorer <span class="math inline">\(\mathbb{E} \mathcal{A}f_h(W)\)</span>. La façon dont on peut tirer avantage de cette régularité dépend de ce qu’on sait sur la structure de <span class="math inline">\(W\)</span>. Le theorem suivant qui peut être vu comme une combinaison des theorems de Berry-Esseen et de Lindeberg-Feller, montre ce qui peut etre obtenu lorsque <span class="math inline">\(W\)</span> est une somme de variables aléatoires indépendantes pas nécessairement identique distribuées, centrées et suffisamment intégrables.</p>
 </section>
-<section id="sec-secBerryLindeberg" class="level2" data-number="15.6">
-<h2 data-number="15.6" class="anchored" data-anchor-id="sec-secBerryLindeberg"><span class="header-section-number">15.6</span> A Berry-Esseen bound for a Lindeberg-Feller-like Central Limit Theorem</h2>
+<section id="sec-secBerryLindeberg" class="level2" data-number="16.6">
+<h2 data-number="16.6" class="anchored" data-anchor-id="sec-secBerryLindeberg"><span class="header-section-number">16.6</span> A Berry-Esseen bound for a Lindeberg-Feller-like Central Limit Theorem</h2>
 <p>Le theorem suivant peut etre lu comme un résultat intermédiaire entre le theorem de Berry-Esseen <span class="quarto-unresolved-ref">?thm-tcl-berry</span> (il donne une distance à la loi normale) et le theorem central limite de Lindeberg-Feller <span class="quarto-unresolved-ref">?thm-tcl-lindeberg</span> (il traite de sommes de variables aléatoires indépendantes mais pas nécessairement identiquement distribuées). Les conditions utilisées ici sont plus fortes que celles décrites dans les deux theorems précédents. Dans le theorem de Lindeberg-Feller, la condition d’intégrabilité uniforme est minimale. Dans l’énoncé du theorem de Berry-Esseen, on se contente de postuler que les summands have a finite third moment. Ici on suppose un peu plus: les summands ont un kurtosis bounded.</p>
 <p>Rappelons que le kurtosis d’une loi est défini par <span class="math display">\[
 \frac{\mathbb{E}[(X -\mathbb{E}X)^4]}{(\mathbb{E}[(X -\mathbb{E}X)^2])^2} \, .
@@ -564,7 +597,7 @@ f^{\prime\prime}_h(w)
 <img src="08-convergence-3b_files/figure-html/fig-quantcltbinom2-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-quantcltbinom2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;15.2: Kolmogorov distance between standard Gaussian and distribution of <span class="math inline">\((X_n - np)/\sqrt{np(1-p}\)</span> with <span class="math inline">\(X_n\)</span> binomially distributed with parameters <span class="math inline">\(n\)</span> and <span class="math inline">\(p=.3\)</span>. The rate of convergence in the central limit theorem is asymptotically of order <span class="math inline">\(1/\sqrt{n}\)</span>.
+Figure&nbsp;16.2: Kolmogorov distance between standard Gaussian and distribution of <span class="math inline">\((X_n - np)/\sqrt{np(1-p}\)</span> with <span class="math inline">\(X_n\)</span> binomially distributed with parameters <span class="math inline">\(n\)</span> and <span class="math inline">\(p=.3\)</span>. The rate of convergence in the central limit theorem is asymptotically of order <span class="math inline">\(1/\sqrt{n}\)</span>.
 </figcaption>
 </figure>
 </div>
@@ -572,8 +605,8 @@ Figure&nbsp;15.2: Kolmogorov distance between standard Gaussian and distribution
 </div>
 <!-- ::: -->
 </section>
-<section id="bibliographic-remarks" class="level2" data-number="15.7">
-<h2 data-number="15.7" class="anchored" data-anchor-id="bibliographic-remarks"><span class="header-section-number">15.7</span> Bibliographic remarks</h2>
+<section id="bibliographic-remarks" class="level2" data-number="16.7">
+<h2 data-number="16.7" class="anchored" data-anchor-id="bibliographic-remarks"><span class="header-section-number">16.7</span> Bibliographic remarks</h2>
 <p>La possibilité de métriser la convergence en distribution (et la convergence en probabilité) est traitée avec beaucoup de rigueur et de clarté dans <span class="citation" data-cites="MR1932358">(<a href="#ref-MR1932358" role="doc-biblioref">Dudley, 2002</a>)</span>.</p>
 <p>Stein’s method pour établir des versions précises et générales du theorem central limite est décrite dans <span class="citation" data-cites="2011arXiv1109.1880R">(<a href="#ref-2011arXiv1109.1880R" role="doc-biblioref">Ross, 2011</a>)</span>.</p>
 <p>A thorough yet readable treatment of Stein’s method is <span class="citation" data-cites="MR2732624">(<a href="#ref-MR2732624" role="doc-biblioref">Chen, Goldstein, &amp; Shao, 2011</a>)</span>.</p>
@@ -998,12 +1031,12 @@ Ross, N. (2011). <span class="nocase">Fundamentals of Stein’s method</span>. <
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./08-convergence-3.html" class="pagination-link" aria-label="Convergence in distribution">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Convergence in distribution</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Convergence in distribution</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./09-gaussian-vectors.html" class="pagination-link" aria-label="Gaussian vectors">
-        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Gaussian vectors</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Gaussian vectors</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

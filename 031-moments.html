@@ -232,32 +232,32 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-characterizations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Characterizations of probability distributions</span></span></a>
+  <a href="./06-conditioning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Conditioning</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-conditioning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Conditioning</span></span></a>
+  <a href="./04-characterizations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Characterizations of probability distributions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./041-characterization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Quantile functions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-convergences-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Convergences I : almost sure, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, in Probability</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Convergences I : almost sure, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, in Probability</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-convergence-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Convergence in distribution</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./08-convergence-3b.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Refinments and extensions of thr Central Limit Theorem</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Convergence in distribution</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -314,12 +314,21 @@ window.Quarto = {
 <section id="sec-simplefunctions" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="sec-simplefunctions"><span class="header-section-number">3.2</span> Simple functions</h2>
 <p>The integral of a <span class="math inline">\(\{0,1\}\)</span>-valued measurable function <span class="math inline">\(f\)</span> with respect to a measure <span class="math inline">\(\mu\)</span> is defined <span class="math display">\[\int_{\Omega} f \mathrm{d}\mu = \mu\Big(f^{-1}(\{1\})\Big) \, ,\]</span> alternatively <span class="math display">\[\int_{\Omega} \mathbb{I}_A \mathrm{d}\mu = \mu(A) \qquad \text{for any measurable set } A\,.\]</span> The next step consists in defining the integral of finite linear combinations of <span class="math inline">\(\{0,1\}\)</span>-valued measurable function <span class="math inline">\(f\)</span>.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="def-simplefun" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 3.1 (Simple function)</strong></span> Let <span class="math inline">\((\Omega, \mathcal{F})\)</span> be a measurable space. The function <span class="math inline">\(f : \Omega \to \mathbb{R}\)</span> is said to be <em>simple</em> iff</p>
 <ul>
 <li><span class="math inline">\(f\)</span> takes finitely many values: <span class="math inline">\(\Big|\big\{ f(x) : x \in \Omega\big\} \Big|&lt;\infty\)</span></li>
 <li>For each <span class="math inline">\(y \in f(\Omega) \subset \mathbb{R}\)</span>, <span class="math inline">\(f^{-1}(\{y\}) \in \mathcal{F}\)</span>.</li>
 </ul>
+</div>
+</div>
+</div>
 </div>
 <p>A simple function defines a partition of <span class="math inline">\(\Omega\)</span> into finitely many measurable classes. The simple function is constant on each class.</p>
 <p>If <span class="math inline">\(f\)</span> is a simple function, then the <span class="math inline">\(\sigma\)</span>-algebra <span class="math inline">\(f^{-1}(\mathcal{B}(\mathbb{R}))\)</span> is finite.</p>
@@ -332,8 +341,17 @@ window.Quarto = {
 </ul>
 </div>
 <p>The definition of the integral of a simple function with respect to a measure is straightforward: it is a finite sum.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="def-intsimplefun" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 3.2 (Integral of a simple function)</strong></span> Let <span class="math inline">\((\Omega, \mathcal{F}, \mu)\)</span> be a measured space. Let <span class="math inline">\(f : \Omega \to \mathbb{R}\)</span> be a non-negative simple function which is defined by a finite partition of <span class="math inline">\(\Omega\)</span> into measurable sets <span class="math inline">\(A_1, A_2, \ldots, A_n\)</span> and numbers <span class="math inline">\(f_1, \ldots, f_n\)</span>: <span class="math display">\[f(\omega) = \sum_{i \leq n} f_i \mathbb{I}_{A_i}(\omega) \,.\]</span> The integral of <span class="math inline">\(f\)</span> with respect to <span class="math inline">\(\mu\)</span> is defined by <span class="math display">\[\int_\Omega f \mathrm{d}\mu = \sum_{i \leq n} f_i \mu(A_i) \, .\]</span></p>
+</div>
+</div>
+</div>
 </div>
 <p>
 </p><div id="rem">
@@ -345,8 +363,17 @@ window.Quarto = {
 <p>
 </p><p>Although they are simple, simple functions have interesting approximation capabilities. Any non-negative measurable function can be approximated from below by non-negative simple functions.</p>
 <p>
-</p><div id="prp-limsimplefun" class="theorem proposition">
+</p><div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-limsimplefun" class="theorem proposition">
 <p><span class="theorem-title"><strong>Proposition 3.1 (Approximation of measurable functions)</strong></span> Let <span class="math inline">\((\Omega, \mathcal{F})\)</span> be a measurable space. Any non-negative measurable function <span class="math inline">\(f: \Omega \to \mathbb{R}\)</span> is the monotone pointwise limit of simple functions: there exists a sequence of simple function <span class="math inline">\(f_1, \ldots, f_n, \ldots\)</span> such that for each <span class="math inline">\(\omega \in \Omega\)</span>, the following holds: <span class="math display">\[f_1(\omega) \leq f_2(\omega) \leq \ldots \leq f_n(\omega) \leq \ldots \leq f(\omega)\]</span> and <span class="math display">\[\lim_n f_n(\omega) = f(\omega) \, .\]</span></p>
+</div>
+</div>
+</div>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>Define <span class="math inline">\(f_n\)</span> as <span class="math display">\[  f_n(\omega) = n  \wedge \Big(2^{-n} \big\lfloor 2^n f(\omega) \big\rfloor \Big) \, .\]</span> As <span class="math display">\[\big\lfloor 2^n f(\omega) \big\rfloor \leq 2^n f(\omega)\]</span> we have <span class="math inline">\(f_n(\omega)\leq f(\omega)\)</span> for all <span class="math inline">\(\omega\)</span>.</p>
@@ -378,59 +405,140 @@ Figure&nbsp;3.1: Approximation of the exponential function by simple functions <
 </div>
 </div>
 <!-- ::: -->
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="prp-lin-simple" class="theorem proposition">
 <p><span class="theorem-title"><strong>Proposition 3.2</strong></span> If <span class="math inline">\(f,g\)</span> are two non-negative simple functions on <span class="math inline">\((\Omega, \mathcal{F})\)</span>, then for all <span class="math inline">\(a, b\in [0,\infty)\)</span>, <span class="math inline">\(a f + b g\)</span> and <span class="math inline">\(fg\)</span> are non-negative simple functions.</p>
 </div>
+</div>
+</div>
+</div>
 <p>
-</p><div id="exr-lin-simple" class="theorem exercise">
+</p><div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-lin-simple" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 3.1</strong></span> Check the proposition.</p>
 </div>
+</div>
+</div>
+</div>
 <p>
-</p><div id="prp-monointsimpl" class="theorem proposition">
+</p><div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-monointsimpl" class="theorem proposition">
 <p><span class="theorem-title"><strong>Proposition 3.3 (Monotonicity of integration of simple functions)</strong></span> If <span class="math inline">\(f,g\)</span> are two non-negative simple functions and <span class="math inline">\(\mu\)</span> a non-negative measure on <span class="math inline">\((\Omega, \mathcal{F})\)</span> such that <span class="math display">\[\mu\Big\{ \omega: f(\omega)&gt; g(\omega)\Big\} = 0 \, .\]</span> (<span class="math inline">\(f\)</span> is less of equal than <span class="math inline">\(g\)</span> <span class="math inline">\(\mu\)</span>-almost everywhere), then <span class="math display">\[\int  f  \, \mathrm{d}\mu \leq \int  g  \, \mathrm{d}\mu \, .\]</span></p>
 </div>
+</div>
+</div>
+</div>
 <p>
-</p><div id="exr-monointsimpl" class="theorem exercise">
+</p><div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-monointsimpl" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 3.2</strong></span> Check <a href="#prp-monointsimpl" class="quarto-xref">Proposition&nbsp;<span>3.3</span></a></p>
 </div>
-<p>
-</p><div id="prp-linintsimp" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 3.4 (Linearity of integration of simple functions)</strong></span> If <span class="math inline">\(f,g\)</span> are two non-negative simple functions and <span class="math inline">\(\mu\)</span> a non-negative measure on <span class="math inline">\((\Omega, \mathcal{F})\)</span>, then for all <span class="math inline">\(a, b\in [0,\infty)\)</span>, <span class="math display">\[\int a f + b g \, \mathrm{d}\mu = a \int  f  \, \mathrm{d}\mu + b \int  g \, \mathrm{d}\mu \, .\]</span></p>
+</div>
+</div>
 </div>
 <p>
-</p><div id="exr-linintsimp" class="theorem exercise">
+</p><div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-linintsimp" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 3.4 (Linearity of integration of simple functions)</strong></span> If <span class="math inline">\(f,g\)</span> are two non-negative simple functions and <span class="math inline">\(\mu\)</span> a non-negative measure on <span class="math inline">\((\Omega, \mathcal{F})\)</span>, then for all <span class="math inline">\(a, b\in [0,\infty)\)</span>, <span class="math display">\[\int a f + b g \, \mathrm{d}\mu = a \int  f  \, \mathrm{d}\mu + b \int  g \, \mathrm{d}\mu \, .\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<p>
+</p><div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-linintsimp" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 3.3</strong></span> Check Proposition <a href="#prp-linintsimp" class="quarto-xref">Proposition&nbsp;<span>3.4</span></a></p>
+</div>
+</div>
+</div>
 </div>
 <p>
 </p></section>
 <section id="sec-integration" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="sec-integration"><span class="header-section-number">3.3</span> Integration</h2>
 <p>Let <span class="math inline">\(\mathcal{S}_+\)</span> denote the set of non-negative simple functions on <span class="math inline">\((\Omega, \mathcal{F})\)</span>.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="def-integration" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 3.3 (Integration with respect to a measure)</strong></span> Let <span class="math inline">\(f\)</span> be a non-negative measurable function on <span class="math inline">\((\Omega, \mathcal{F}, \mu)\)</span>, then for any <span class="math inline">\(A \in \mathcal{F}\)</span>, the integral of <span class="math inline">\(f\)</span> over <span class="math inline">\(A\)</span> with respect to measure <span class="math inline">\(\mu\)</span> is defined by:</p>
 <p><span class="math display">\[
 \int_A f \, \mathrm{d}\mu = \sup_{s \in \mathcal{S}_+: s \leq f} \int_A s \, \mathrm{d}\mu
 \]</span></p>
 </div>
+</div>
+</div>
+</div>
 <p>
 </p><div id="rem">
 <p>If the supremum is finite, the function is said to be <em>integrable</em> with respect to <span class="math inline">\(\mu\)</span>, or to be <span class="math inline">\(\mu\)</span>-integrable.</p>
 </div>
 <p>
-</p><div id="prp-monoint" class="theorem proposition">
+</p><div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-monoint" class="theorem proposition">
 <p><span class="theorem-title"><strong>Proposition 3.5 (Monotonicity of integration)</strong></span> If <span class="math inline">\(f,g\)</span> are two non-negative measurable functions and <span class="math inline">\(\mu\)</span> a non-negative measure on <span class="math inline">\((\Omega, \mathcal{F})\)</span> such that</p>
 <p><span class="math display">\[\mu\Big\{ \omega: f(\omega)&gt; g(\omega)\Big\} = 0 \, .\]</span></p>
 <p>(<span class="math inline">\(f\)</span> is less of equal than <span class="math inline">\(g\)</span> <span class="math inline">\(\mu\)</span>-almost everywhere), then</p>
 <p><span class="math display">\[\int  f \,  \mathrm{d}\mu \leq \int  g  \, \mathrm{d}\mu \, .\]</span></p>
+</div>
+</div>
+</div>
 </div>
 <p>
 </p><div id="exr">
 <p>Prove Proposition <a href="#prp-monoint" class="quarto-xref">Proposition&nbsp;<span>3.5</span></a>.</p>
 </div>
 <p>
-</p><div id="prp-linint" class="theorem proposition">
+</p><div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-linint" class="theorem proposition">
 <p><span class="theorem-title"><strong>Proposition 3.6 (Linearity of integration)</strong></span> If <span class="math inline">\(f,g\)</span> are two non-negative measurable functions and <span class="math inline">\(\mu\)</span> a non-negative measure on <span class="math inline">\((\Omega, \mathcal{F})\)</span>, then for all <span class="math inline">\(a, b\in [0,\infty)\)</span>,</p>
 <p><span class="math display">\[\int a f + b g \, \mathrm{d}\mu = a \int  f \,  \mathrm{d}\mu + b \int  g \, \mathrm{d}\mu \, .\]</span></p>
+</div>
+</div>
+</div>
 </div>
 <p>
 </p><div id="exr">
@@ -447,9 +555,18 @@ Figure&nbsp;3.1: Approximation of the exponential function by simple functions <
 <h2 data-number="3.4" class="anchored" data-anchor-id="sec-biglimittheorems"><span class="header-section-number">3.4</span> Limit theorems</h2>
 <p>In this section, measurable functions are meant to be real-valued, and <span class="math inline">\(\mathbb{R}\)</span> is endowed with the Borel <span class="math inline">\(\sigma\)</span>-algebra (<span class="math inline">\(\mathcal{B}(\mathbb{R})\)</span>).</p>
 <p>Theorems <a href="#thm-thmConvMonInt" class="quarto-xref">Theorem&nbsp;<span>3.1</span></a>, <a href="#thm-thmfatou" class="quarto-xref">Theorem&nbsp;<span>3.2</span></a>, <a href="#thm-thmdominatedConv" class="quarto-xref">Theorem&nbsp;<span>3.3</span></a> below are the three pillars of integral calculus.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="thm-thmConvMonInt" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 3.1 (Monotone convergence theorem)</strong></span> Let <span class="math inline">\((\Omega, \mathcal{F}, \mu)\)</span> be a measured space. Let <span class="math inline">\((f_n)_n\)</span> be a non-decreasing sequence of non-negative measurable functions converging towards <span class="math inline">\(f\)</span>. Then</p>
 <p><span class="math display">\[\int \lim_n \uparrow f_n \, \mathrm{d}\mu = \lim_n \uparrow \int f_n \, \mathrm{d}\mu.\]</span></p>
+</div>
+</div>
+</div>
 </div>
 <p>
 </p><p>The proof of the monotone convergence theorem boils down to the definition of positive measure and property <span class="math inline">\(\mu(\lim_n \uparrow A_n)= \lim_n \uparrow \mu(A_n)\)</span>.</p>
@@ -500,9 +617,18 @@ a \int g \, \mathrm{d} \mu \leq \lim_n \uparrow \int f_n \, \mathrm{d}\mu \,.
 <p>Answer the same question if <span class="math inline">\(\mu\)</span> is assumed to be a probability measure.</p>
 </div>
 <p>
-</p><div id="thm-thmfatou" class="theorem">
+</p><div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-thmfatou" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 3.2 (Fatou’s Lemma)</strong></span> Let <span class="math inline">\((\Omega, \mathcal{F}, \mu)\)</span> be a measured space. Let <span class="math inline">\((f_n)_n\)</span> be a sequence of non-negative measurable functions. Then</p>
 <p><span class="math display">\[\int \liminf_n  f_n \mathrm{d}\mu \leq  \liminf_n  \int f_n \mathrm{d}\mu.\]</span></p>
+</div>
+</div>
+</div>
 </div>
 <p>
 </p><div class="proof">
@@ -514,9 +640,18 @@ a \int g \, \mathrm{d} \mu \leq \lim_n \uparrow \int f_n \, \mathrm{d}\mu \,.
 </div>
 <br>
 <p>
-</p><div id="thm-thmdominatedConv" class="theorem">
+</p><div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-thmdominatedConv" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 3.3 (Dominated convergence theorem)</strong></span> Let <span class="math inline">\((\Omega, \mathcal{F}, \mu)\)</span> be a measured space. Let <span class="math inline">\((f_n)_n\)</span> be a sequence of measurable functions that converges pointwise towards function <span class="math inline">\(f\)</span>. Assume that there exists a integrable function <span class="math inline">\(g\)</span> that dominates <span class="math inline">\((f_n)_n\)</span>: for all <span class="math inline">\(n\)</span>, all <span class="math inline">\(\omega \in \Omega\)</span>, <span class="math inline">\(|f_n(\omega)|\leq g(\omega)\)</span>. Then <span class="math inline">\(f\)</span> is integrable and</p>
 <p><span class="math display">\[\int f \mathrm{d}\mu = \int \lim_n  f_n \mathrm{d}\mu =  \lim_n  \int f_n \mathrm{d}\mu.\]</span></p>
+</div>
+</div>
+</div>
 </div>
 <p>
 </p><div class="proof">
@@ -548,11 +683,20 @@ a \int g \, \mathrm{d} \mu \leq \lim_n \uparrow \int f_n \, \mathrm{d}\mu \,.
 </p></section>
 <section id="sec-densities" class="level2" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="sec-densities"><span class="header-section-number">3.5</span> Probability distributions defined by a density</h2>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="prp-desnity-1" class="theorem proposition">
 <p><span class="theorem-title"><strong>Proposition 3.7</strong></span> Let <span class="math inline">\((\Omega, \mathcal{F})\)</span> be a measurable space and <span class="math inline">\(\mu\)</span> be a <span class="math inline">\(\sigma\)</span>-finite measure over <span class="math inline">\((\Omega, \mathcal{F})\)</span>. Let <span class="math inline">\(f\)</span> be a non-negative measurable real function over <span class="math inline">\((\Omega, \mathcal{F})\)</span>.</p>
 <p>Let <span class="math inline">\(\nu : \mathcal{F} \to [0, \infty)\)</span> be defined by</p>
 <p><span class="math display">\[\nu(A) = \int \mathbb{I}_A f \, \mathrm{d}\mu = \int_A f\, \mathrm{d}\mu \,.\]</span></p>
 <p><span class="math inline">\(\nu\)</span> is a measure over <span class="math inline">\((\Omega, \mathcal{F})\)</span>. The function <span class="math inline">\(f\)</span> is said to be a density of <span class="math inline">\(\nu\)</span> with respect to <span class="math inline">\(\mu\)</span>.</p>
+</div>
+</div>
+</div>
 </div>
 <br>
 <p>
@@ -584,8 +728,17 @@ a \int g \, \mathrm{d} \mu \leq \lim_n \uparrow \int f_n \, \mathrm{d}\mu \,.
 <br>
 <p>
 </p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="exr-abs-continuity" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 3.4</strong></span> Check that if <span class="math inline">\(\mu(A)=0\)</span>, then <span class="math inline">\(\nu(A)=0\)</span> for every <span class="math inline">\(A \in \mathcal{F}\)</span>.</p>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section id="bibmoments" class="level2" data-number="3.6">

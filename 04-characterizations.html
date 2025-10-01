@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>11&nbsp; Characterizations of probability distributions – MA1AY010 Class Notes</title>
+<title>12&nbsp; Characterizations of probability distributions – MA1AY010 Class Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -50,8 +50,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./06-conditioning.html" rel="next">
-<link href="./023-discrete-condition.html" rel="prev">
+<link href="./041-characterization.html" rel="next">
+<link href="./06-conditioning.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -148,7 +148,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-characterizations.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Characterizations of probability distributions</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-characterizations.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Characterizations of probability distributions</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -232,32 +232,32 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-characterizations.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Characterizations of probability distributions</span></span></a>
+  <a href="./06-conditioning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Conditioning</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-conditioning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Conditioning</span></span></a>
+  <a href="./04-characterizations.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Characterizations of probability distributions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./041-characterization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Quantile functions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-convergences-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Convergences I : almost sure, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, in Probability</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Convergences I : almost sure, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, in Probability</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-convergence-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Convergence in distribution</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./08-convergence-3b.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Refinments and extensions of thr Central Limit Theorem</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Convergence in distribution</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -276,24 +276,23 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#sec-roadmapcharac" id="toc-sec-roadmapcharac" class="nav-link active" data-scroll-target="#sec-roadmapcharac"><span class="header-section-number">11.1</span> Motivation</a></li>
-  <li><a href="#sec-PGFbis" id="toc-sec-PGFbis" class="nav-link" data-scroll-target="#sec-PGFbis"><span class="header-section-number">11.2</span> Probability generating function</a></li>
-  <li><a href="#sec-laplace" id="toc-sec-laplace" class="nav-link" data-scroll-target="#sec-laplace"><span class="header-section-number">11.3</span> Laplace transform</a>
+  <li><a href="#sec-roadmapcharac" id="toc-sec-roadmapcharac" class="nav-link active" data-scroll-target="#sec-roadmapcharac"><span class="header-section-number">12.1</span> Motivation</a></li>
+  <li><a href="#sec-laplace" id="toc-sec-laplace" class="nav-link" data-scroll-target="#sec-laplace"><span class="header-section-number">12.2</span> Laplace transform</a>
   <ul class="collapse">
-  <li><a href="#definition-and-elementary-properties" id="toc-definition-and-elementary-properties" class="nav-link" data-scroll-target="#definition-and-elementary-properties"><span class="header-section-number">11.3.1</span> Definition and elementary properties</a></li>
-  <li><a href="#widder" id="toc-widder" class="nav-link" data-scroll-target="#widder"><span class="header-section-number">11.3.2</span> Injectivity of Laplace transforms and an inversion formula</a></li>
+  <li><a href="#definition-and-elementary-properties" id="toc-definition-and-elementary-properties" class="nav-link" data-scroll-target="#definition-and-elementary-properties"><span class="header-section-number">12.2.1</span> Definition and elementary properties</a></li>
+  <li><a href="#widder" id="toc-widder" class="nav-link" data-scroll-target="#widder"><span class="header-section-number">12.2.2</span> Injectivity of Laplace transforms and an inversion formula</a></li>
+  <li><a href="#sec-lap-integrability" id="toc-sec-lap-integrability" class="nav-link" data-scroll-target="#sec-lap-integrability"><span class="header-section-number">12.2.3</span> Laplace transform smoothness and integrability</a></li>
   </ul></li>
-  <li><a href="#sec-charfun" id="toc-sec-charfun" class="nav-link" data-scroll-target="#sec-charfun"><span class="header-section-number">11.4</span> Characteristic functions and Fourier transforms</a>
+  <li><a href="#sec-charfun" id="toc-sec-charfun" class="nav-link" data-scroll-target="#sec-charfun"><span class="header-section-number">12.3</span> Characteristic functions and Fourier transforms</a>
   <ul class="collapse">
-  <li><a href="#charFuncDef" id="toc-charFuncDef" class="nav-link" data-scroll-target="#charFuncDef"><span class="header-section-number">11.4.1</span> Characteristic function</a></li>
-  <li><a href="#charfungaussian" id="toc-charfungaussian" class="nav-link" data-scroll-target="#charfungaussian"><span class="header-section-number">11.4.2</span> Characteristic function of a univariate Gaussian distribution</a></li>
-  <li><a href="#convol" id="toc-convol" class="nav-link" data-scroll-target="#convol"><span class="header-section-number">11.4.3</span> Sums of independent random variables and convolutions</a></li>
-  <li><a href="#charinjectivity" id="toc-charinjectivity" class="nav-link" data-scroll-target="#charinjectivity"><span class="header-section-number">11.4.4</span> Injectivity Theorem and inversion formula</a></li>
-  <li><a href="#diffintfourier" id="toc-diffintfourier" class="nav-link" data-scroll-target="#diffintfourier"><span class="header-section-number">11.4.5</span> Differentiability and integrability</a></li>
-  <li><a href="#cauchy" id="toc-cauchy" class="nav-link" data-scroll-target="#cauchy"><span class="header-section-number">11.4.6</span> Another application: understanding Cauchy distribution</a></li>
+  <li><a href="#sec-charFuncDef" id="toc-sec-charFuncDef" class="nav-link" data-scroll-target="#sec-charFuncDef"><span class="header-section-number">12.3.1</span> Characteristic function</a></li>
+  <li><a href="#charfungaussian" id="toc-charfungaussian" class="nav-link" data-scroll-target="#charfungaussian"><span class="header-section-number">12.3.2</span> Characteristic function of a univariate Gaussian distribution</a></li>
+  <li><a href="#sec-convol" id="toc-sec-convol" class="nav-link" data-scroll-target="#sec-convol"><span class="header-section-number">12.3.3</span> Sums of independent random variables and convolutions</a></li>
+  <li><a href="#charinjectivity" id="toc-charinjectivity" class="nav-link" data-scroll-target="#charinjectivity"><span class="header-section-number">12.3.4</span> Injectivity Theorem and inversion formula</a></li>
+  <li><a href="#sec-diffintfourier" id="toc-sec-diffintfourier" class="nav-link" data-scroll-target="#sec-diffintfourier"><span class="header-section-number">12.3.5</span> Differentiability and integrability</a></li>
+  <li><a href="#sec-cauchy" id="toc-sec-cauchy" class="nav-link" data-scroll-target="#sec-cauchy"><span class="header-section-number">12.3.6</span> Another application: understanding Cauchy distribution</a></li>
   </ul></li>
-  <li><a href="#quantiles" id="toc-quantiles" class="nav-link" data-scroll-target="#quantiles"><span class="header-section-number">11.5</span> Quantile functions</a></li>
-  <li><a href="#sec-bibcharac" id="toc-sec-bibcharac" class="nav-link" data-scroll-target="#sec-bibcharac"><span class="header-section-number">11.6</span> Bibliographic remarks</a></li>
+  <li><a href="#sec-bibcharac" id="toc-sec-bibcharac" class="nav-link" data-scroll-target="#sec-bibcharac"><span class="header-section-number">12.4</span> Bibliographic remarks</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/04-characterizations.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -302,7 +301,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-chapchar" class="quarto-section-identifier"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Characterizations of probability distributions</span></span></h1>
+<h1 class="title"><span id="sec-chapchar" class="quarto-section-identifier"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Characterizations of probability distributions</span></span></h1>
 </div>
 
 
@@ -319,209 +318,48 @@ window.Quarto = {
 </header>
 
 
-<section id="sec-roadmapcharac" class="level2" data-number="11.1">
-<h2 data-number="11.1" class="anchored" data-anchor-id="sec-roadmapcharac"><span class="header-section-number">11.1</span> Motivation</h2>
-<p>In full generality, a probability distribution is a complex and opaque object. It is a <span class="math inline">\([0,1]\)</span>-valued function defined over a <span class="math inline">\(\sigma\)</span>-algebra of subsets. A concrete <span class="math inline">\(\sigma\)</span>-algebra, let alone the abstract notion of <span class="math inline">\(\sigma\)</span>-algebra, is not easily grasped. Looking for simpler characterizations of probability distributions is a sensible goal. When facing questions like: ``are two probability distributions equal?“, we know it suffices to check that the two distributions coincide on generating families of events. This makes Cumulative Distribution Functions (CDFs) precious tools. Cumulative Distribution Functions and their generalized inverse functions (quantile functions) are very convenient when handling maxima, minima, or more generally order statistics of collections of independent random variables, but when it comes to handling sums of independent random variables or branching processes, cumulative distribution functions are of moderate help.</p>
-<p>In this lesson, we review three related ways of characterizing probability distributions through functions defined on the real line: Probability Generating Functions (<a href="#sec-PGFbis" class="quarto-xref">Section&nbsp;<span>11.2</span></a>)), Laplace transforms (<a href="#sec-laplace" class="quarto-xref">Section&nbsp;<span>11.3</span></a>)) and characteristic functions which extend Fourier transforms to probability distributions (<a href="#sec-charfun" class="quarto-xref">Section&nbsp;<span>11.4</span></a>)). The three methods are distinct in scope but they rely on the same idea and share common features.</p>
-<p>Indeed, Probability Generating Functions can be seen as special case of Laplace transforms. The latter can be seen as special cases of Fourier transforms. All three methods do characterize probability distributions. They are equipped with inversion formulae.</p>
-<p>The three methods provide us with a seamless treatment of sums of independent random variables.</p>
-<p>All three methods relate the integrability of probability distributions and the smoothness of transforms.</p>
-<p>In the next lessons (<a href="08-convergence-3b.html" class="quarto-xref">Chapter&nbsp;<span>15</span></a>), we shall see that the three transforms characterize <em>convergence in distribution</em>.</p>
+<section id="sec-roadmapcharac" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="sec-roadmapcharac"><span class="header-section-number">12.1</span> Motivation</h2>
+<p>In full generality, a probability distribution is a complex and opaque object. It is a <span class="math inline">\([0,1]\)</span>-valued function defined over a <span class="math inline">\(\sigma\)</span>-algebra of subsets of some universe. A concrete <span class="math inline">\(\sigma\)</span>-algebra, let alone the abstract notion of <span class="math inline">\(\sigma\)</span>-algebra, is not easily grasped. Hence, looking for simpler characterizations of probability distributions is a sensible goal. When facing questions like: <em>are two probability distributions equal?</em>, we know it suffices to check that the two distributions coincide on generating <span class="math inline">\(\pi\)</span>-classes (see <a href="06-conditioning.html#thm-cmon" class="quarto-xref">Theorem&nbsp;<span>11.4</span></a> and consequences). This makes Cumulative Distribution Functions (CDFs) precious tools. Cumulative Distribution Functions and their generalized inverse functions (quantile functions see <a href="041-characterization.html" class="quarto-xref"><span>Chapter 13</span></a>) are very convenient when handling maxima, minima, or more generally order statistics of collections of independent random variables, but when it comes to handling sums of independent random variables or branching processes, cumulative distribution functions are of moderate help.</p>
+<p>In this lesson, we review two related ways of characterizing probability distributions through functions defined on the real line: Laplace transforms (<a href="#sec-laplace" class="quarto-xref"><span>Section 12.2</span></a>)) and characteristic functions which extend Fourier transforms to probability distributions (<a href="#sec-charfun" class="quarto-xref"><span>Section 12.3</span></a>). The two methods are distinct in scope but they rely on the same idea as Probability Generating Functions (<a href="0225-pgf.html" class="quarto-xref"><span>Chapter 6</span></a>) and share common features.</p>
+<p>Indeed, Probability Generating Functions can be seen as special case of Laplace transforms. The latter can be seen as special cases of Fourier transforms.All three methods do characterize probability distributions. They are equipped with inversion formulae. The three methods provide us with a seamless treatment of sums of independent random variables. All three methods relate the integrability of probability distributions and the smoothness of transforms.</p>
+<p>In the next lessons (<span class="quarto-unresolved-ref">?sec-chaprevisiCLT</span>), we shall see that the three transforms also characterize <em>convergence in distribution</em>.</p>
 <p>Probability generating functions, Laplace transforms and characteristic functions deliver an important analytical machinery to Probability Theory. From Analysis, we get off-the-shelf arguments to establish smoothness properties of transforms, and with little more work, we can construct the inversion formulae.</p>
 </section>
-<section id="sec-PGFbis" class="level2" data-number="11.2">
-<h2 data-number="11.2" class="anchored" data-anchor-id="sec-PGFbis"><span class="header-section-number">11.2</span> Probability generating function</h2>
-<p>In this section, <span class="math inline">\(X\)</span> is an integer-valued random variable, with distribution <span class="math inline">\(P\)</span>, cumulative distribution function <span class="math inline">\(F\)</span> and probability mass function <span class="math inline">\(p\)</span>. Recall that <span class="math inline">\(P\)</span> is completely characterized by the much simpler objects <span class="math inline">\(F\)</span> and <span class="math inline">\(p\)</span>. Now, let <span class="math inline">\(Y\)</span> be another integer-valued random variable living on the same probability space as <span class="math inline">\(X\)</span>, independent from <span class="math inline">\(X\)</span>, with distribution <span class="math inline">\(Q\)</span>, distribution function <span class="math inline">\(G\)</span> and probability mass function <span class="math inline">\(q\)</span>. What can we tell about the distribution of <span class="math inline">\(X+Y\)</span>? Is it easy to figure out its cumulative distribution function, its probability mass function?</p>
-<p>The probability mass function of (the distribution of) <span class="math inline">\(X+Y\)</span> is the <em>convolution</em> of <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span></p>
-<p><span class="math display">\[\begin{array}{rl}\mathbb{P}\{ X + Y = n\}  &amp; = \sum_{k=0}^n \mathbb{P}\{ X + Y = n \wedge X = k\} \\  &amp; = \sum_{k=0}^n \mathbb{P}\{ Y = n - k \wedge X = k\}  \\  &amp; = \sum_{k=0}^n \mathbb{P}\{ Y = n - k\} \times  \mathbb{P}\{ X = k\}\\  &amp; = \sum_{k=0}^n p(k) \times q(n-k) \\  &amp; =  p \star q (n) \, ,\end{array}\]</span></p>
-<p>where the third equality comes from independence of <span class="math inline">\(\sigma(X)\)</span> and <span class="math inline">\(\sigma(Y)\)</span>.</p>
-<p>Besides the probability mass function, another function characterizes probability distributions and delivers instantaneous information about the distribution of sums of independent integer-valued random variables and many other things.</p>
-<div id="def-pgf" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 11.1 (Probability Generating Function)</strong></span> The probability generating function (PGF) of a probability distribution over <span class="math inline">\(\mathbb{N}\)</span>, defined by its probability mass function (PMF) <span class="math inline">\(p\)</span> is the function <span class="math inline">\(G: [0,1] \to \mathbb{R}\)</span> defined by:</p>
-<p><span class="math display">\[G(s) =  \sum_{n=0}^\infty p(n) s^n\, .\]</span></p>
-</div>
-<div id="exm-pgf1" class="theorem example">
-<p><span class="theorem-title"><strong>Example 11.1</strong></span> The probability generating function of basic discrete distributions is easily computed. The results are useful and suggestive.</p>
-<ul>
-<li><p>Bernoulli distribution with parameter <span class="math inline">\(p\)</span>: <span class="math display">\[1 - p + p s = 1 + p (s-1)\]</span></p></li>
-<li><p>Binomial distribution with parameters <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span>:</p></li>
-</ul>
-<p><span class="math display">\[\sum_{k=0}^n \binom{n}{k} p^k (1-p)^{n-k} s^k =  \left(ps + 1- p\right)^n = \left( 1 + p(s-1)\right)^n\]</span></p>
-<ul>
-<li>Poisson distribution with parameter <span class="math inline">\(\mu\)</span>:</li>
-</ul>
-<p><span class="math display">\[\sum_{n=0}^\infty \mathrm{e}^{-\mu} \frac{\mu^n}{n!} s^n = \mathrm{e}^{\mu (s-1)} \,.\]</span></p>
-</div>
-<p>The next observation follows almost immediately from the definition of probability generating functions.</p>
-<div id="prp-propPGFeasy" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 11.1</strong></span> A probability generating function <span class="math inline">\(G\)</span> satisfies the following conditions:</p>
-<ul>
-<li><span class="math inline">\(G\)</span> is non-negative over <span class="math inline">\([0,1]\)</span>;</li>
-<li><span class="math inline">\(G(0) = P\{0\}, \quad G(1)=1\)</span>;</li>
-<li><span class="math inline">\(G\)</span> is non-decreasing over <span class="math inline">\([0,1]\)</span>;</li>
-<li><span class="math inline">\(G\)</span> is continuous and convex.</li>
-</ul>
-</div>
-<br>
-<p>
-</p>
-<div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>Properties 1), 2) and 3) are obvious: <span class="math inline">\(G\)</span> is a convex combination of non-negative, non-decreasing, continuous and convex functions.</p>
-<p><span class="math inline">\(\Box\)</span></p>
-</div>
-<br>
-<p>
-</p>
-<p><em>Generatingfunctionology</em> lies at the crossing between combinatorics, real analysis, complex analysis, and probability theory. Defining PGF as a <em>power series</em> brings within probability theory a collection of theorems that facilitate the identification of probability distributions or that connect integrability properties of the probability distribution with smoothness properties of the PGF.</p>
-<p>Keep in mind that a generating function defines a function from the set of complex numbers <span class="math inline">\(\mathbb{C}\)</span> to <span class="math inline">\(\mathbb{C}\)</span>:</p>
-<p><span class="math display">\[G(z) = \sum_{n=0}^\infty p(n) z^n \qquad\text{for all } z \in \mathbb{C} \text{ such that the series converges}\, .\]</span></p>
-<p>Characterizing the domain of a function defined in that way is crucial. The next proposition is at the core of Power Series theory.</p>
-<div id="prp-radius" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 11.2</strong></span> The <em>radius of convergence</em> of the generating function <span class="math inline">\(G\)</span></p>
-<p><span class="math display">\[
-G(z)\ = \sum_{n\in \mathbb{N}} p(n) z^n, \qquad z \in \mathbb{C}
-\]</span></p>
-<p>is the unique <span class="math inline">\(R \in [0, \infty) \cup \{+ \infty\}\)</span> such that:</p>
-<ul>
-<li>for every <span class="math inline">\(z \in \mathbb{C}\)</span> with <span class="math inline">\(|z| &gt; R\)</span>, the series <span class="math inline">\(\sum_{n\in \mathbb{N}} p(n) z^n\)</span> diverges.</li>
-<li>for every <span class="math inline">\(z \in \mathbb{C}\)</span> with <span class="math inline">\(|z| &lt; R\)</span>, the series <span class="math inline">\(\sum_{n\in \mathbb{N}} p(n) z^n\)</span> is absolutely convergent.</li>
-</ul>
-<p>The open disk <span class="math inline">\(\{ z : z \in \mathbb{C}, |z| &lt; R \}\)</span> is called the <em>disk of convergence</em> of <span class="math inline">\(G\)</span>. The circle <span class="math inline">\(\{ z : z \in \mathbb{C}, |z| = R \}\)</span> is called the <em>circle of convergence</em> of <span class="math inline">\(G\)</span>.</p>
-<p>The radius of convergence <span class="math inline">\(R\)</span> of the probability generating function <span class="math inline">\(G(z) = \sum_{n \in \mathbb{N}} p(n)z^n\)</span> satisfies</p>
-<p><span class="math display">\[
-\frac{1}{R} =  \limsup_n (p(n))^{1/n} \, .
-\]</span></p>
-</div>
-<p>The last statement is called Hadamard’s rule for determination of the radius of convergence:</p>
-<p>The radius of convergence of a probability generating function is always at least <span class="math inline">\(1\)</span>.</p>
-<div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(R\)</span> be the supremum of all real numbers <span class="math inline">\(r\)</span> such that for every <span class="math inline">\(z \in \mathbb{C}\)</span> with <span class="math inline">\(|z| &lt; r\)</span>, the series <span class="math inline">\(\sum_{n\in \mathbb{N}} p(n) z^n\)</span> is absolutely convergent.</p>
-<p>As <span class="math inline">\((p(n))_n\)</span> defines an absolutely convergent series, for every <span class="math inline">\(z\)</span> with <span class="math inline">\(|z|\leq 1\)</span>, <span class="math inline">\(\sum_n |p(n)z^n| \leq \sum_n p(n) =1\)</span>. Hence <span class="math inline">\(R\geq 1\)</span>.</p>
-<p><span class="math inline">\(\Box\)</span></p>
-</div>
-<div id="exm-radius" class="theorem example">
-<p><span class="theorem-title"><strong>Example 11.2</strong></span> The radius of convergence contains qualitative information about tail behavior:</p>
-<ul>
-<li>For Poisson distributions, the radius of convergence is infinite. This reflects the fast decay of the tail probability of Poisson distributions.</li>
-<li>For geometric distributions, <span class="math inline">\(p(n) = q (1-q)^{n-1}\)</span>, the radius of convergence is <span class="math inline">\(1/(1-q)\)</span>.</li>
-<li>For power law distributions like <span class="math inline">\(p(n) = n^{-r}/\zeta(r)\)</span> with <span class="math inline">\(r&gt;1\)</span>, the radius of convergence is exactly <span class="math inline">\(1\)</span>.</li>
-</ul>
-</div>
-<p>Just knowing the radius of convergence of a function defined by a Power Series expansion tells us about the smoothness properties of the function.</p>
-<div id="thm-radius" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 11.1</strong></span> If <span class="math inline">\(G\)</span> is defined as a power series <span class="math inline">\(G(z) = \sum_{n \in \mathbb{N}} a_n z^n\)</span> its (complex) derivative is <span class="math inline">\(G'(z)=  \sum_{n \in \mathbb{N}} (n+1) a_{n+1} z^n\)</span>. The derivative <span class="math inline">\(G'\)</span> and <span class="math inline">\(G\)</span> have the same radius of convergence.</p>
-</div>
-<p>This general statement about power series entails a very useful corollary for probability generating functions.</p>
-<div id="cor-invpgf" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 11.1 (Inversion formula)</strong></span> Let <span class="math inline">\(f\)</span> be the probability generating function associated with the probability mass function <span class="math inline">\(p\)</span>. Then <span class="math inline">\(f\)</span> is infinitely many times differentiable over <span class="math inline">\([0,1)\)</span></p>
-<p><span class="math display">\[f^{(n)}(s) =  \sum_{k=n}^\infty \frac{k!}{(k-n)!} \times p(k) s^{k-n} \, ,\]</span></p>
-<p>more specifically:</p>
-<p><span class="math display">\[f^{(n)}(0) =  n! \times p(n) \, .\]</span></p>
-<p>A probability distribution over <span class="math inline">\(\mathbb{N}\)</span> is characterized by its probability generating function.</p>
-</div>
-<br>
-<p>
-</p>
-<div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>The property is true for <span class="math inline">\(n=0\)</span>.</p>
-<p>Assume it holds for all integers up to <span class="math inline">\(n\)</span>. For <span class="math inline">\(s\in [0, 1)\)</span> and <span class="math inline">\(|h|&lt;1-s-\delta\)</span> where <span class="math inline">\(\delta\)</span> is a small positive number,</p>
-<p><span class="math display">\[\begin{array}{rl}
-  \frac{f^{(n)}(s+h) - f^{(n)}(s)}{h}
-  &amp; =  \sum_{k=n}^\infty \frac{k!}{(k-n)!} \times p(k)
-    \Big(\sum_{j=0}^{k-n-1}(s+h)^{k-n-1-j} s^{j}  \Big)
-\end{array}\]</span></p>
-<p>The absolute value of the internal sum is smaller than <span class="math inline">\((k-n) (1-\delta)^{k-n-1}\)</span>. As</p>
-<p><span class="math display">\[\sum_{k=n}^\infty \frac{k!}{(k-n-1)!} \times p(k) \times  (1-\delta)^{k-n-1} &lt; \infty\]</span></p>
-<p>for all <span class="math inline">\(0&lt;\delta&lt;1\)</span>. By the Dominated Convergence Theorem,</p>
-<p><span class="math display">\[\begin{array}{rl}
-\lim_{h \to 0} \frac{f^{(n)}(s+h) - f^{(n)}(s)}{h}
-    &amp; =
-   \sum_{k=n+1}^\infty \frac{k!}{(k-n-1)!} \times p(k) \times s^{k-n-1} \,.
-\end{array}\]</span></p>
-<p><span class="math inline">\(\Box\)</span></p>
-</div>
-<br>
-<p>
-</p>
-<div id="exm">
-<p>The Probability Generating Function of a Poisson distribution with parameter <span class="math inline">\(\mu\)</span> equals <span class="math inline">\(\exp(\mu(s-1))\)</span>. If we meet a probability distribution with such a PGF, we know it is a Poisson distribution.</p>
-</div>
-<br>
-<p>
-</p>
-<p>Probability Generating Functions allow for easy investigations of sums of independent random variables.</p>
-<div id="prp-pgf-sum-product" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 11.3</strong></span> Let <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span> be independent integer-valued random variable, with probability generating functions <span class="math inline">\(G_X\)</span> and <span class="math inline">\(G_Y\)</span>. The probability generating function <span class="math inline">\(G_{X+Y}\)</span> of <span class="math inline">\(X+Y\)</span> is <span class="math inline">\(G_X\times G_Y\)</span>:</p>
-<p><span class="math display">\[G_{X+Y} = G_X \times G_Y \, .\]</span></p>
-</div>
-<br>
-<p>
-</p>
-<div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>The proof relies on the fact that non-negative convergent series is commutatively convergent.</p>
-<p><span class="math display">\[\begin{array}{rl}
-\sum_{n=0}^\infty \mathbb{P}\{ X + Y = n\}\times s^n   &amp; =
-    \sum_{n=0}^\infty \left( \sum_{k=0}^n p(k) q(n-k) \right) s^n \\
-    &amp;  =
-    \sum_{k=0}^\infty p(k) s^k  \sum_{n\geq k}^\infty q(n-k) s^{n-k} \\
-    &amp; = G_X(s) \times G_Y(s)
-\end{array}\]</span></p>
-<p>In measure theoretical language, the proposition is a consequence of the Tonelli-Fubini Theorem:</p>
-<p><span class="math display">\[\begin{array}{rl}
-  G_{X+Y}(s)
-  &amp; = \mathbb{E}\left[s^{X+Y}\right] \\
-  &amp; = \mathbb{E}\left[s^{X} \times s^{Y}\right]  \\
-  &amp; = \int_{\mathbb{R}^2} s^x s^y \mathrm{d}P_X \otimes P_Y(x,y) \\
-  &amp; = \int_{\mathbb{R}} \int_{\mathbb{R}} s^x s^y \mathrm{d}P_X(x) \mathrm{d}P_Y(y) \\
-  &amp; = \int_{\mathbb{R}} s^y \int_{\mathbb{R}} s^x  \mathrm{d}P_X(x) \mathrm{d}P_Y(y) \\
-  &amp; = \int_{\mathbb{R}} s^y G_X(s) \mathrm{d}P_Y(y) \\
-  &amp; = G_X(s) \times G_Y(s) \, .
-\end{array}\]</span></p>
-</div>
-<br>
-<p>
-</p>
-<div id="exm-indep-poisson" class="theorem example">
-<p><span class="theorem-title"><strong>Example 11.3</strong></span> If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent Poisson random variables with parameters <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\nu\)</span>, then <span class="math inline">\(G_{X+Y}(s) = \exp(\mu(s-1))\times \exp(\nu(s-1))=  \exp((\mu+\nu)(s-1))\)</span>. This is (another) proof that <span class="math inline">\(X+Y\)</span> is Poisson distributed with parameter <span class="math inline">\(\mu+\nu\)</span>.</p>
-</div>
-<p>A PGF is infinitely many times differentiable inside the (open) disk of convergence. If the radius of convergence is larger than <span class="math inline">\(1\)</span> (as for Poisson distributions), this entails that the PGF is infinitely many times differentiable at <span class="math inline">\(1\)</span>, If the radius of convergence is exactly <span class="math inline">\(1\)</span>, the differentiability on the circle of convergence is not prescribed by general theory.</p>
-<div id="thm-pgfintegr" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 11.2 (Integrability and probability generating functions)</strong></span> Let <span class="math inline">\(X\)</span> be an integer-valued random variable, with probability generating functions <span class="math inline">\(f\)</span>, then</p>
-<p><span class="math inline">\(\mathbb{E} X^p &lt; \infty\)</span></p>
-<p>iff</p>
-<p><span class="math inline">\(f\)</span> is <span class="math inline">\(p\)</span>-times differentiable at <span class="math inline">\(1\)</span> and</p>
-<p><span class="math display">\[f^{(p)}(1) = \mathbb{E}\left[X (X-1) \ldots (X-p+1)\right] \, .\]</span></p>
-</div>
-<br>
-<p>
-</p>
-<div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>Assume that <span class="math inline">\(G\)</span> is <span class="math inline">\(p\)</span>-times differentiable on the left at <span class="math inline">\(1\)</span>.</p>
-<p>We need to establish that <span class="math inline">\(|X|\)</span> is <span class="math inline">\(p\)</span>-integrable.</p>
-<p>Assume that <span class="math inline">\(|X|\)</span> is <span class="math inline">\(p\)</span>-integrable.</p>
-</div>
-<br>
-<p>
-</p>
-<p>The next question arises quickly: when is a function from <span class="math inline">\([0,1]\)</span> to <span class="math inline">\([0,\infty)\)</span> a probability generating function? This question is addressed in a broader perspective in the next section.</p>
-</section>
-<section id="sec-laplace" class="level2" data-number="11.3">
-<h2 data-number="11.3" class="anchored" data-anchor-id="sec-laplace"><span class="header-section-number">11.3</span> Laplace transform</h2>
+<section id="sec-laplace" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="sec-laplace"><span class="header-section-number">12.2</span> Laplace transform</h2>
 <p>Laplace transforms characterize probability distributions on <span class="math inline">\([0, \infty).\)</span></p>
-<section id="definition-and-elementary-properties" class="level3" data-number="11.3.1">
-<h3 data-number="11.3.1" class="anchored" data-anchor-id="definition-and-elementary-properties"><span class="header-section-number">11.3.1</span> Definition and elementary properties</h3>
+<section id="definition-and-elementary-properties" class="level3" data-number="12.2.1">
+<h3 data-number="12.2.1" class="anchored" data-anchor-id="definition-and-elementary-properties"><span class="header-section-number">12.2.1</span> Definition and elementary properties</h3>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="def-laplace" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 11.2</strong></span> Let <span class="math inline">\(P\)</span> be a probability distribution function over <span class="math inline">\([0,\infty]\)</span> with cumulative distribution function <span class="math inline">\(F\)</span>. The Laplace transform of <span class="math inline">\(P\)</span> is the function <span class="math inline">\(U\)</span> from <span class="math inline">\([0,\infty)\)</span> to <span class="math inline">\([0,1]\)</span> defined by</p>
-<p><span class="math display">\[U(\lambda) =  \mathbb{E}\left[\mathrm{e}^{- \lambda X}\right] = \int_{[0,\infty)} \mathrm{e}^{- \lambda x} \mathrm{d}F(x) \,\]</span></p>
+<p><span class="theorem-title"><strong>Definition 12.1</strong></span> Let <span class="math inline">\(P\)</span> be a probability distribution function over <span class="math inline">\([0,\infty]\)</span> with cumulative distribution function <span class="math inline">\(F\)</span>. The Laplace transform of <span class="math inline">\(P\)</span> is the function <span class="math inline">\(U\)</span> from <span class="math inline">\([0,\infty)\)</span> to <span class="math inline">\([0,1]\)</span> defined by</p>
+<p><span class="math display">\[
+U(\lambda) =  \mathbb{E}\left[\mathrm{e}^{- \lambda X}\right] = \int_{[0,\infty)} \mathrm{e}^{- \lambda x} \mathrm{d}F(x) \,
+\]</span></p>
 <p>where <span class="math inline">\(X \sim P\)</span>.</p>
+</div>
+</div>
+</div>
 </div>
 <div id="rem">
 <p>A probability distribution <span class="math inline">\(P\)</span> over <span class="math inline">\(\mathbb{N}\)</span> is also a probability distribution over <span class="math inline">\([0,\infty)\)</span>, as such it has both a probability generating function <span class="math inline">\(G\)</span> and a Laplace transform <span class="math inline">\(U\)</span>. They are connected by</p>
 <p><span class="math display">\[U(\lambda) =  G(\mathrm{e}^{-\lambda}) \, .\]</span></p>
 <p>Which properties of Probability Generating Functions are also satisfied by Laplace transforms?</p>
 </div>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="prp-laplace-prop" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 11.4</strong></span> If <span class="math inline">\(U: [0,\infty) \to [0,1]\)</span> is the Laplace transform of a probability distribution <span class="math inline">\(P\)</span> over <span class="math inline">\([0, \infty)\)</span>, then</p>
+<p><span class="theorem-title"><strong>Proposition 12.1</strong></span> If <span class="math inline">\(U: [0,\infty) \to [0,1]\)</span> is the Laplace transform of a probability distribution <span class="math inline">\(P\)</span> over <span class="math inline">\([0, \infty)\)</span>, then</p>
 <ul>
 <li><span class="math inline">\(U(0)=1\)</span>;</li>
 <li><span class="math inline">\(U\)</span> is continuous;</li>
@@ -529,45 +367,92 @@ G(z)\ = \sum_{n\in \mathbb{N}} p(n) z^n, \qquad z \in \mathbb{C}
 <li><span class="math inline">\(U\)</span> is convex.</li>
 </ul>
 </div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="exr-check-laplace-prop" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 11.1</strong></span> Check the assertions in the proposition.</p>
+<p><span class="theorem-title"><strong>Exercise 12.1</strong></span> Check the assertions in the proposition.</p>
+</div>
+</div>
+</div>
 </div>
 <p>Can we recognize Laplace transform of probability distributions over <span class="math inline">\([0,\infty)\)</span>? This is the content of the next Theorem (which proof is beyond the reach of this course).</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="thm-bernstein" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 11.3 (Bernstein’s Theorem)</strong></span> A function <span class="math inline">\(U: (0, \infty) \to (0,\infty)\)</span> is the Laplace transform of a probability distribution over <span class="math inline">\([0,\infty)\)</span> iff</p>
+<p><span class="theorem-title"><strong>Theorem 12.1 (Bernstein’s Theorem)</strong></span> A function <span class="math inline">\(U: (0, \infty) \to (0,\infty)\)</span> is the Laplace transform of a probability distribution over <span class="math inline">\([0,\infty)\)</span> iff</p>
 <ul>
 <li><span class="math inline">\(U\)</span> is infinitely many times differentiable over <span class="math inline">\((0, \infty)\)</span></li>
 <li><span class="math inline">\(U(0)=1\)</span></li>
 <li><span class="math inline">\(U\)</span> is <em>completely monotonous</em>: <span class="math inline">\((-1)^k U^{(k)} \geq 0\)</span> over <span class="math inline">\((0, \infty)\)</span></li>
 </ul>
 </div>
+</div>
+</div>
+</div>
 <p>Using the connexion between Probability Generating Functions and Laplace transforms, we are in position to characterize those power series that are Probability Generating Functions.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="cor-pgf" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 11.2</strong></span> A function <span class="math inline">\(G: [0, 1] \to [0,1]\)</span> is the Probability Generating Function of a probability distribution over <span class="math inline">\(\mathbb{N}\)</span> iff</p>
+<p><span class="theorem-title"><strong>Corollary 12.1</strong></span> A function <span class="math inline">\(G: [0, 1] \to [0,1]\)</span> is the Probability Generating Function of a probability distribution over <span class="math inline">\(\mathbb{N}\)</span> iff</p>
 <ul>
 <li><span class="math inline">\(G\)</span> is infinitely many times differentiable over <span class="math inline">\((0,1)\)</span></li>
 <li><span class="math inline">\(G(1)=1\)</span></li>
 <li><span class="math inline">\(G\)</span> is completely monotonous: <span class="math inline">\((-1)^k G^{(k)} \geq 0\)</span> over <span class="math inline">\((0, 1)\)</span></li>
 </ul>
 </div>
+</div>
+</div>
+</div>
 <div id="exm-laplace-gamma" class="theorem example">
-<p><span class="theorem-title"><strong>Example 11.4</strong></span> Let <span class="math inline">\(X\)</span> be <span class="math inline">\(\text{Gamma}(p, \nu)\)</span>-distributed. The Laplace transform of (the distribution of) <span class="math inline">\(X\)</span> is</p>
-<p><span class="math display">\[\begin{array}{rl}
+<p><span class="theorem-title"><strong>Example 12.1</strong></span> Let <span class="math inline">\(X\)</span> be <span class="math inline">\(\text{Gamma}(p, \nu)\)</span>-distributed. The Laplace transform of (the distribution of) <span class="math inline">\(X\)</span> is</p>
+<p><span class="math display">\[
+\begin{array}{rl}
 U(\lambda)
   &amp; = \int_0^\infty \nu \mathrm{e}^{-\lambda x} \mathrm{e}^{-\nu x} \frac{(\nu x)^{p-1}}{\Gamma(p)} \mathrm{d} x \\
   &amp; = \frac{\nu^p}{(\lambda +\nu)^p} \int_0^\infty (\lambda +\nu) \mathrm{e}^{-(\lambda +\nu) x}  \frac{((\nu+\lambda) x)^{p-1}}{\Gamma(p)} \mathrm{d} x \\
   &amp; = \frac{\nu^p}{(\lambda +\nu)^p} \, .
-\end{array}\]</span></p>
+\end{array}
+\]</span></p>
 </div>
 </section>
-<section id="widder" class="level3" data-number="11.3.2">
-<h3 data-number="11.3.2" class="anchored" data-anchor-id="widder"><span class="header-section-number">11.3.2</span> Injectivity of Laplace transforms and an inversion formula</h3>
+<section id="widder" class="level3" data-number="12.2.2">
+<h3 data-number="12.2.2" class="anchored" data-anchor-id="widder"><span class="header-section-number">12.2.2</span> Injectivity of Laplace transforms and an inversion formula</h3>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="thm-invLaplace" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 11.4 (Widder’s Theorem)</strong></span> A probability distribution on <span class="math inline">\([0, \infty)\)</span> is characterized by its Laplace transform.</p>
+<p><span class="theorem-title"><strong>Theorem 12.2 (Widder’s Theorem)</strong></span> A probability distribution on <span class="math inline">\([0, \infty)\)</span> is characterized by its Laplace transform.</p>
+</div>
+</div>
+</div>
 </div>
 <p>The construction of the inversion formula relies on deviation inequalities for Poisson distribution. The next proposition is easily checked by using Markov’s inequality with exponential functions and optimization.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="thm-bennettpoisson" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 11.5 (Tail bounds for Poisson distribution)</strong></span> Let <span class="math inline">\(Z\)</span> be Poisson distributed. Let <span class="math inline">\(h(x) = \mathrm{e}^x - x -1\)</span> and <span class="math inline">\(h^*(x)= (x+1)\log (x+1) -x, x\geq -1\)</span> be its convex dual. Then for all <span class="math inline">\(\lambda \in \mathbb{R}\)</span></p>
+<p><span class="theorem-title"><strong>Theorem 12.3 (Tail bounds for Poisson distribution)</strong></span> Let <span class="math inline">\(Z\)</span> be Poisson distributed. Let <span class="math inline">\(h(x) = \mathrm{e}^x - x -1\)</span> and <span class="math inline">\(h^*(x)= (x+1)\log (x+1) -x, x\geq -1\)</span> be its convex dual. Then for all <span class="math inline">\(\lambda \in \mathbb{R}\)</span></p>
 <p><span class="math display">\[\log \mathbb{E} \mathrm{e}^{\lambda (Z-\mathbb{E}Z)} = \mathbb{E}Z h(\lambda) \, .\]</span></p>
 <p>For <span class="math inline">\(t\geq 0\)</span> <span class="math display">\[
 \Pr \Big\{ Z \geq \mathbb{E}Z + t \Big\} \leq \mathrm{e}^{-\mathbb{E}Z h^*\Big(\frac{t}{\mathbb{E}Z}\Big)}
@@ -575,8 +460,11 @@ U(\lambda)
 \Pr \Big\{ Z \leq \mathbb{E}Z -t \Big\} \leq \mathrm{e}^{-\mathbb{E}Z h^*\Big(\frac{-t}{\mathbb{E}Z}\Big)} \, .
 \]</span></p>
 </div>
+</div>
+</div>
+</div>
 <div id="rem-bennettpoisson" class="proof remark">
-<p><span class="proof-title"><em>Remark 11.1</em>. </span></p>
+<p><span class="proof-title"><em>Remark 12.1</em>. </span></p>
 <ul>
 <li>See <a href="033-integration2moments.html#sec-jensensec" class="quarto-xref">Section&nbsp;<span>4.3</span></a>) for the notion of convex duality.</li>
 <li>The next bounds on <span class="math inline">\(h^*\)</span> deliver looser but easier tail bounds</li>
@@ -584,12 +472,22 @@ U(\lambda)
 <p><span class="math display">\[\begin{array}{rll}
   h^*(t) &amp; \geq \frac{t^2}{2(1 + t/3)}    &amp; \text{for } t &gt;0 \\
   h^*(t) &amp; \geq \frac{t^2}{2}             &amp; \text{for } t &lt;0 \, .
-\end{array}\]</span></p>
+\end{array}
+\]</span></p>
 </div>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="cor-corrpoisson" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 11.3</strong></span> For all positive <span class="math inline">\(x, y, y \neq x\)</span>, <span class="math display">\[
+<p><span class="theorem-title"><strong>Corollary 12.2</strong></span> For all positive <span class="math inline">\(x, y, y \neq x\)</span>, <span class="math display">\[
 \lim_{n \to \infty} \sum_{k=0}^{nx} e^{-n y} \frac{(ny)^k}{k!} = \mathbb{I}_{y&lt;x} \,.
 \]</span></p>
+</div>
+</div>
+</div>
 </div>
 <p>We shall check in one of the next lessons that for <span class="math inline">\(x &gt;0\)</span>: <span class="math display">\[
 \lim_{n \to \infty} \sum_{k=0}^{\lfloor nx\rfloor} e^{-n x} \frac{(nx)^k}{k!} = \frac{1}{2} \, .
@@ -598,14 +496,16 @@ U(\lambda)
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(F\)</span> be the cumulative distribution function of <span class="math inline">\(P\)</span> and <span class="math inline">\(U\)</span> its Laplace transform. Let <span class="math inline">\(X \sim P\)</span>.</p>
 <p>It suffices to show that <span class="math inline">\(F(x)\)</span> can be computed from <span class="math inline">\(U\)</span> at any <span class="math inline">\(x\)</span> where <span class="math inline">\(F\)</span> is continuous.</p>
-<p>Function <span class="math inline">\(U\)</span> is infinitely many times differentiable on <span class="math inline">\((0, \infty)\)</span>. For <span class="math inline">\(k\in  \mathbb{N},\)</span> <span class="math display">\[
-    \frac{\mathrm{d}^kU}{\mathrm{d}\lambda^k}  = (-1)^k \int_{[0,\infty)} x^k e^{-\lambda x} \mathrm{d}F(x)  \, .
+<p>Function <span class="math inline">\(U\)</span> is infinitely many times differentiable on <span class="math inline">\((0, \infty)\)</span>. For <span class="math inline">\(k\in  \mathbb{N},\)</span></p>
+<p><span class="math display">\[
+\frac{\mathrm{d}^kU}{\mathrm{d}\lambda^k}  = (-1)^k \int_{[0,\infty)} x^k e^{-\lambda x} \mathrm{d}F(x)  \, .
 \]</span> and <span class="math inline">\(U\)</span> has a power series expansion at every <span class="math inline">\(\lambda \in (0,1)\)</span>, for <span class="math inline">\(\lambda' \in (0,1)\)</span>:</p>
 <p><span class="math display">\[\begin{array}{rl}
 U(\lambda')
    &amp; = \sum_{k=0}^\infty \frac{(\lambda' -\lambda)^k}{k!} \frac{\mathrm{d}^kU}{\mathrm{d}\lambda^k}  \, .
-\end{array}\]</span></p>
-<p>By [<a href="#cor-corrpoisson" class="quarto-xref">Corollary&nbsp;<span>11.3</span></a>), for all <span class="math inline">\(0 &lt; y \neq x\)</span>, <span class="math inline">\(\lim_{n \to \infty} \sum_{k=0}^{nx} e^{-n y} \frac{(ny)^k}{k!} = \mathbb{I}_{y&lt;x}\)</span>.</p>
+\end{array}
+\]</span></p>
+<p>By [<a href="#cor-corrpoisson" class="quarto-xref">Corollary&nbsp;<span>12.2</span></a>), for all <span class="math inline">\(0 &lt; y \neq x\)</span>, <span class="math inline">\(\lim_{n \to \infty} \sum_{k=0}^{nx} e^{-n y} \frac{(ny)^k}{k!} = \mathbb{I}_{y&lt;x}\)</span>.</p>
 <p><span class="math display">\[\begin{array}{rl}
 F(x)
   &amp; =  \int_{\mathbb{R_+}} \mathbb{I}_{y\leq x} \mathrm{d}F(y) \\
@@ -616,58 +516,99 @@ F(x)
   &amp; =  \lim_{n \to \infty} \sum_{k=0}^{nx} \frac{(-n)^k}{k!}\int_{(-\infty, x) \cup (x, \infty)}  e^{-n y} {(-y)^k} \mathrm{d}F(y) + \int_{\{x\}} 1 \mathrm{d}F(y)\\
        &amp;  \text{by dominated convergence} \\
   &amp; =  \lim_{n \to \infty} \sum_{k=0}^{nx} \frac{(-n)^k}{k!} \frac{\mathrm{d}^kU}{\mathrm{d}\lambda^k}_{\mid \lambda=n}  \, .
-\end{array}\]</span></p>
+\end{array}
+\]</span></p>
 <p>If <span class="math inline">\(F\)</span> is continuous at <span class="math inline">\(x\)</span>, <span class="math display">\[
 F(x) = \lim_{n \to \infty} \sum_{k=0}^{nx} \frac{(-n)^k}{k!} \frac{\mathrm{d}^kU}{\mathrm{d}\lambda^k}_{\mid \lambda=n} \, .
-\]</span> If <span class="math inline">\(F\)</span> jumps at <span class="math inline">\(x\)</span>, <span class="math display">\[
+\]</span></p>
+<p>If <span class="math inline">\(F\)</span> jumps at <span class="math inline">\(x\)</span>,</p>
+<p><span class="math display">\[
 F(x) - \frac{P\{X=x\}}{2} =\lim_{n \to \infty} \sum_{k=0}^{nx} \frac{(-n)^k}{k!} \frac{\mathrm{d}^kU}{\mathrm{d}\lambda^k}_{\mid \lambda=n} \, .
-\]</span> This process shows that the Laplace transform contains enough information to reconstruct the distribution function which in turn characterizes the probability distribution.</p>
+\]</span></p>
+<p>This process shows that the Laplace transform contains enough information to reconstruct the distribution function which in turn characterizes the probability distribution.</p>
 </div>
 <p><br></p>
 <p>Laplace transforms of sums of independent non-negative random variables are easily obtained from the Laplace transforms of the summands.</p>
 <p><br></p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="prp-laplace-sums" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 11.5</strong></span> Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be two independent <span class="math inline">\([0,\infty)\)</span>-valued random variables, with Laplace transforms <span class="math inline">\(U_X\)</span> and <span class="math inline">\(U_Y\)</span>. The Laplace transform of (the distribution of) <span class="math inline">\(X+Y\)</span> is <span class="math display">\[
+<p><span class="theorem-title"><strong>Proposition 12.2</strong></span> Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be two independent <span class="math inline">\([0,\infty)\)</span>-valued random variables, with Laplace transforms <span class="math inline">\(U_X\)</span> and <span class="math inline">\(U_Y\)</span>. The Laplace transform of (the distribution of) <span class="math inline">\(X+Y\)</span> is</p>
+<p><span class="math display">\[
 G_{X+Y} = G_X \times G_Y \, .
 \]</span></p>
 </div>
+</div>
+</div>
+</div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span><span class="math display">\[\begin{array}{rl}
+<p><span class="proof-title"><em>Proof</em>. </span><span class="math display">\[
+\begin{array}{rl}
 G_{X+Y}(\lambda)
   &amp; = \mathbb{E}\Big[\mathrm{e}^{\lambda (X+Y)}\Big] \\
   &amp; = \mathbb{E}\Big[\mathrm{e}^{\lambda X} \times \mathrm{e}^{\lambda Y}\Big] \\
   &amp; = \mathbb{E}\Big[\mathrm{e}^{\lambda X} \Big] \times \mathbb{E}\Big[\mathrm{e}^{\lambda Y}\Big]\\
   &amp; \text{independence}\\
   &amp; = G_X(\lambda) \times G_Y(\lambda) \, .
-\end{array}\]</span></p>
+\end{array}
+\]</span></p>
+<p><span class="math inline">\(\square\)</span></p>
 </div>
-<br>
-<p>
-</p>
 <p>Combining the inversion theorem and the explicit formula for the Laplace transform of Gamma distributions, we recover the fact that sums of independent Gamma-distributed random variables with the same intensity parameter is also Gamma distributed.</p>
-<div id="cor">
-<p>If <span class="math inline">\(X \sim \text{Gamma}(p, \lambda)\)</span> is independent from <span class="math inline">\(Y \sim \text{Gamma}(q, \lambda)\)</span> then <span class="math inline">\(X+Y\)</span> has Laplace transform <span class="math inline">\(\Big(\frac{\nu}{\lambda+\nu}\Big)^{p+q}\)</span> and is <span class="math inline">\(\text{Gamma}(p+q, \lambda)\)</span>-distributed.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="cor-laplace-gamma" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 12.3</strong></span> If <span class="math inline">\(X \sim \text{Gamma}(p, \lambda)\)</span> is independent from <span class="math inline">\(Y \sim \text{Gamma}(q, \lambda)\)</span> then <span class="math inline">\(X+Y\)</span> has Laplace transform <span class="math inline">\(\Big(\frac{\nu}{\lambda+\nu}\Big)^{p+q}\)</span> and is <span class="math inline">\(\text{Gamma}(p+q, \lambda)\)</span>-distributed.</p>
+</div>
+</div>
+</div>
 </div>
 </section>
+<section id="sec-lap-integrability" class="level3" data-number="12.2.3">
+<h3 data-number="12.2.3" class="anchored" data-anchor-id="sec-lap-integrability"><span class="header-section-number">12.2.3</span> Laplace transform smoothness and integrability</h3>
 </section>
-<section id="sec-charfun" class="level2" data-number="11.4">
-<h2 data-number="11.4" class="anchored" data-anchor-id="sec-charfun"><span class="header-section-number">11.4</span> Characteristic functions and Fourier transforms</h2>
+</section>
+<section id="sec-charfun" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="sec-charfun"><span class="header-section-number">12.3</span> Characteristic functions and Fourier transforms</h2>
 <p>The Laplace transform characterizes probability distributions supported by <span class="math inline">\([0, \infty)\)</span>. Characteristic functions deal with general probability distributions. They extend to multivariate distributions.</p>
-<section id="charFuncDef" class="level3" data-number="11.4.1">
-<h3 data-number="11.4.1" class="anchored" data-anchor-id="charFuncDef"><span class="header-section-number">11.4.1</span> Characteristic function</h3>
+<section id="sec-charFuncDef" class="level3" data-number="12.3.1">
+<h3 data-number="12.3.1" class="anchored" data-anchor-id="sec-charFuncDef"><span class="header-section-number">12.3.1</span> Characteristic function</h3>
 <p>The next transform can be defined for all probability distributions over <span class="math inline">\(\mathbb{R}\)</span>. And the definition can be extended to distributions on <span class="math inline">\(\mathbb{R}^k, k\geq 1\)</span>.</p>
-<div id="def">
-<p>Let the real-valued random variable <span class="math inline">\(X\)</span> be distributed according to <span class="math inline">\(P\)</span> with cumulative distribution function <span class="math inline">\(F\)</span>, the characteristic function of distribution <span class="math inline">\(P\)</span> is the function from <span class="math inline">\(\mathbb{R}\)</span> to <span class="math inline">\(\mathbb{C}\)</span> defined by <span class="math display">\[
-    \widehat{F}(t) = \mathbb{E}\left[\mathrm{e}^{i t X}\right]
-  = \int_{\mathbb{R}} \mathrm{e}^{i t x} \mathrm{d}F(x)
-  = \int_{\mathbb{R}} \cos(t x) \mathrm{d}F(x) + i \int_{\mathbb{R}} \sin(t x) \mathrm{d}F(x) \, .
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-charac-function" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 12.2 (Characteristic function)</strong></span> Let the real-valued random variable <span class="math inline">\(X\)</span> be distributed according to <span class="math inline">\(P\)</span> with cumulative distribution function <span class="math inline">\(F\)</span>, the <em>characteristic function</em> of distribution <span class="math inline">\(P\)</span> is the function from <span class="math inline">\(\mathbb{R}\)</span> to <span class="math inline">\(\mathbb{C}\)</span> defined by <span class="math display">\[
+\widehat{F}(t) = \mathbb{E}\left[\mathrm{e}^{i t X}\right]
+= \int_{\mathbb{R}} \mathrm{e}^{i t x} \mathrm{d}F(x)
+=   \int_{\mathbb{R}} \cos(t x) \mathrm{d}F(x) + i \int_{\mathbb{R}} \sin(t x) \mathrm{d}F(x) \, .
 \]</span></p>
 </div>
-<div id="rem">
-<p>If <span class="math inline">\(F\)</span> is absolutely continuous with density <span class="math inline">\(f\)</span> then <span class="math inline">\(\widehat{F}\)</span> is (up to a multiplicative constant) the Fourier transform of <span class="math inline">\(f\)</span>.</p>
 </div>
-<div id="prp">
-<p>Let the real-valued random variable <span class="math inline">\(X\)</span> be distributed according to <span class="math inline">\(P\)</span> with characteristic function <span class="math inline">\(\widehat{F}\)</span>.</p>
+</div>
+</div>
+<div id="rem-charfunc" class="proof remark">
+<p><span class="proof-title"><em>Remark 12.2</em>. </span>If <span class="math inline">\(F\)</span> is absolutely continuous with density <span class="math inline">\(f\)</span> then <span class="math inline">\(\widehat{F}\)</span> is (up to a multiplicative constant) the Fourier transform of <span class="math inline">\(f\)</span>.</p>
+</div>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-prop-charfunc" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 12.3</strong></span> Let the real-valued random variable <span class="math inline">\(X\)</span> be distributed according to <span class="math inline">\(P\)</span> with characteristic function <span class="math inline">\(\widehat{F}\)</span>.</p>
 <ul>
 <li><span class="math inline">\(\widehat{F}\)</span> is (uniformly) continuous over <span class="math inline">\(\mathbb{R}\)</span></li>
 <li><span class="math inline">\(\widehat{F}(0)=1\)</span></li>
@@ -675,51 +616,90 @@ G_{X+Y}(\lambda)
 <li>The characteristic function of the distribution of <span class="math inline">\(a X +b\)</span> is <span class="math display">\[\mathrm{e}^{it b} \widehat{F}(at) \, .\]</span></li>
 </ul>
 </div>
+</div>
+</div>
+</div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>Let us check the continuity property. The three others are left as exercises.</p>
-<p>Trigonometric calculus leads to <span class="math display">\[\begin{array}{rl}
+<p>Trigonometric calculus leads to <span class="math display">\[
+\begin{array}{rl}
 \Big| \mathrm{e}^{i(t+ \delta)x} - \mathrm{e}^{itx}\Big|
   &amp; = \Big| \mathrm{e}^{itx}\Big| \times \Big|\mathrm{e}^{i\delta x} - 1\Big|\\
   &amp; \leq \Big|\mathrm{e}^{i\delta x} - 1\Big| \\
   &amp; \leq 2 \Big( 1 \wedge \big| \delta x \big| \Big)
-\end{array}\]</span> for every <span class="math inline">\(t\in \mathbb{R}, \delta \in \mathbb{R}, x \in \mathbb{R}\)</span>. Taking integration with respect to <span class="math inline">\(F\)</span>, <span class="math display">\[\begin{array}{rl}
+\end{array}
+\]</span></p>
+<p>for every <span class="math inline">\(t\in \mathbb{R}, \delta \in \mathbb{R}, x \in \mathbb{R}\)</span>. Taking integration with respect to <span class="math inline">\(F\)</span>,</p>
+<p><span class="math display">\[
+\begin{array}{rl}
   \Big| \widehat{F}(t+\delta) - \widehat{F}(t)\Big|
   &amp; \leq \int 2 \Big( 1 \wedge \big| \delta x \big| \Big) \mathrm{d}F(x) \,.
-\end{array}\]</span> Resorting to the dominated convergence theorem, we conclude <span class="math display">\[
+\end{array}
+\]</span></p>
+<p>Resorting to the dominated convergence theorem, we conclude<br>
+<span class="math display">\[
 \lim_{\delta \to 0} \Big| \widehat{F}(t+\delta) - \widehat{F}(t)\Big| = 0
-\]</span> uniformly in <span class="math inline">\(t\)</span>.</p>
+\]</span></p>
+<p>uniformly in <span class="math inline">\(t\)</span>.</p>
 </div>
 <br>
 <p>
 </p>
-<div id="exr">
-<p>The next properties are easily checked:</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-trivial-charcfunc" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 12.2</strong></span> The next properties are easily checked:</p>
 <ul>
 <li><span class="math inline">\(|\widehat{F}(t)|\leq 1\)</span> for every <span class="math inline">\(t\in \mathbb{R}\)</span>;</li>
 <li></li>
 </ul>
 </div>
+</div>
+</div>
+</div>
 <br>
 <p>
 </p>
-<div id="exm">
-<p>Compute the characteristic function of:</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-charfunc-suual" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 12.3</strong></span> Compute the characteristic function of:</p>
 <ul>
 <li>The Poisson distribution with parameter <span class="math inline">\(\lambda&gt;0\)</span>;</li>
 <li>The uniform distribution on <span class="math inline">\([-1,1]\)</span>;</li>
 <li>The triangle distribution on <span class="math inline">\([-1,1]\)</span> (density: <span class="math inline">\(1-|x|\)</span> on <span class="math inline">\([-1,1]\)</span>);</li>
-<li>The exponential distribution with density <span class="math inline">\(\exp(-x)\)</span> on <span class="math inline">\([0,+\infty)\)</span>;</li>
 <li>The Laplace distribution, density <span class="math inline">\(1/2 \exp(-|x|)\)</span>.</li>
+<li>The exponential distribution with density <span class="math inline">\(\exp(-x)\)</span> on <span class="math inline">\([0,+\infty)\)</span>;</li>
 </ul>
+</div>
+</div>
+</div>
 </div>
 <br>
 <p>
 </p>
 <p>Just as Probability Generating Functions and Laplace transforms, Characteristic functions of sums of independent random variables have a simple structure.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="prp-fouriersum" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 11.6</strong></span> Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be independent random variables with cumulative distribution functions <span class="math inline">\(F_X\)</span> and <span class="math inline">\(F_Y\)</span>, then</p>
+<p><span class="theorem-title"><strong>Proposition 12.4</strong></span> Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be independent random variables with cumulative distribution functions <span class="math inline">\(F_X\)</span> and <span class="math inline">\(F_Y\)</span>, then</p>
 <p><span class="math display">\[\widehat{F}_{X+Y}(t) =  \widehat{F}_X(t) \times \widehat{F}_Y(t)\]</span></p>
 <p>for all <span class="math inline">\(t \in \mathbb{R}\)</span>.</p>
+</div>
+</div>
+</div>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>The third equality is a consequence of the independence of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>: <span class="math display">\[\begin{array}{rl}
@@ -728,82 +708,148 @@ G_{X+Y}(\lambda)
   &amp; = \mathbb{E}\Big[\mathrm{e}^{it X} \mathrm{e}^{it Y}\big] \\
   &amp; = \mathbb{E}\Big[\mathrm{e}^{it X} \big] \times \mathbb{E}\big[\mathrm{e}^{it Y}\big] \\
   &amp; =  \widehat{F}_X(t) \times \widehat{F}_Y(t) \, .
-\end{array}\]</span></p>
+\end{array}
+\]</span></p>
 </div>
-<div id="exr">
-<p>Use a counter-example to prove that <span class="math display">\[
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-counter-example" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 12.4</strong></span> Use a counter-example to prove that <span class="math display">\[
 \Big(\forall t \in \mathbb{R}, \quad \widehat{F}_{X+Y}(t) =  \widehat{F}_X(t) \times \widehat{F}_Y(t) \Big)
 \not\Rightarrow X \perp\!\!\!\perp Y \, .
 \]</span></p>
 </div>
+</div>
+</div>
+</div>
 </section>
-<section id="charfungaussian" class="level3" data-number="11.4.2">
-<h3 data-number="11.4.2" class="anchored" data-anchor-id="charfungaussian"><span class="header-section-number">11.4.2</span> Characteristic function of a univariate Gaussian distribution</h3>
+<section id="charfungaussian" class="level3" data-number="12.3.2">
+<h3 data-number="12.3.2" class="anchored" data-anchor-id="charfungaussian"><span class="header-section-number">12.3.2</span> Characteristic function of a univariate Gaussian distribution</h3>
 <p>It is possible to compute characteristic functions by resorting to Complex Analysis. But we shall refrain from this when computing the most important characteristic function, the characteristic function of the standard Gaussian distribution.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="prp-proCharFunGauss" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 11.7</strong></span> Let <span class="math inline">\(\widehat{\Phi}\)</span> denote the characteristic function of the standard univariate Gaussian distribution <span class="math inline">\(\mathcal{N}(0,1)\)</span>, the following holds</p>
+<p><span class="theorem-title"><strong>Proposition 12.5</strong></span> Let <span class="math inline">\(\widehat{\Phi}\)</span> denote the characteristic function of the standard univariate Gaussian distribution <span class="math inline">\(\mathcal{N}(0,1)\)</span>, the following holds</p>
 <p><span class="math display">\[\widehat{\Phi}(t) = \mathrm{e}^{-\frac{t^2}{2}} \, .\]</span></p>
+</div>
+</div>
+</div>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>Recall that as the standard Gaussian density is even, the characteristic function is real-valued and even.</p>
-<p>Moreover, <span class="math inline">\(\widehat{\Phi}\)</span> is differentiable and the derivative can be computing by interverting expectation and derivation with respect to <span class="math inline">\(t\)</span>. <span class="math display">\[\begin{array}{rl}
+<p>Moreover, <span class="math inline">\(\widehat{\Phi}\)</span> is differentiable and the derivative can be computing by interverting expectation and derivation with respect to <span class="math inline">\(t\)</span>. <span class="math display">\[
+\begin{array}{rl}
 \widehat{\Phi}'(t)
 &amp; = - \mathbb{E}\left[X \sin(t X) \right] \\
 &amp; =  - \frac{1}{\sqrt{2 \pi}}\int_{\mathbb{R}} x \sin(tx) \mathrm{e}^{-\frac{x^2}{2}} \mathrm{d}x \\
 &amp; = \frac{1}{\sqrt{2 \pi}} \Big[\sin(tx) \mathrm{e}^{-\frac{x^2}{2}} \Big]_{-\infty}^{\infty} - t \frac{1}{\sqrt{2 \pi}}\int_{\mathbb{R}}  \cos(tx) \mathrm{e}^{-\frac{x^2}{2}} \mathrm{d}x \\
 &amp; = - t \widehat{\Phi}(t) \,.
-\end{array}\]</span> Hence, <span class="math inline">\(\widehat{F}\)</span> is a solution of the differential equation: <span class="math inline">\(g'(t) = -t g(t)\)</span> with <span class="math inline">\(g(0)=1\)</span>.</p>
+\end{array}
+\]</span> Hence, <span class="math inline">\(\widehat{F}\)</span> is a solution of the differential equation: <span class="math inline">\(g'(t) = -t g(t)\)</span> with <span class="math inline">\(g(0)=1\)</span>.</p>
 <p>The differential equation is readily solved, and the solution is <span class="math inline">\(g(t)= \mathrm{e}^{- \frac{t^2}{2}}\)</span>.</p>
+<p><span class="math inline">\(\square\)</span></p>
 </div>
 <br>
 <p>
 </p>
-<div id="exr">
-<p>Why is <span class="math inline">\(\widehat{\Phi}\)</span> differentiable? Why are we allowed to interchange expectation and derivation?</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-propcharfungauss" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 12.5</strong></span> Why is <span class="math inline">\(\widehat{\Phi}\)</span> differentiable? Why are we allowed to interchange expectation and derivation?</p>
+</div>
+</div>
+</div>
 </div>
 <br>
 <p>
 </p>
-<p>Note that a byproduct of Proposition @ref(prp:proCharFunGauss) is the following integral representation of the Gaussian density.</p>
-<p><span class="math display">\[\phi(x)  =  \frac{1}{2 \pi} \int_{\mathbb{R}} \widehat{\Phi}(t) \mathrm{e}^{-itx} \mathrm{d}t \, .\]</span></p>
+<p>Note that a byproduct of <a href="#prp-proCharFunGauss" class="quarto-xref">Proposition&nbsp;<span>12.5</span></a> is the following integral representation of the Gaussian density.</p>
+<p><span class="math display">\[
+\phi(x)  =  \frac{1}{2 \pi} \int_{\mathbb{R}} \widehat{\Phi}(t) \mathrm{e}^{-itx} \mathrm{d}t \, .
+\]</span></p>
 <p>It does not look interesting, but it is a milestone for the derivation of the general inversion formula below.</p>
 </section>
-<section id="convol" class="level3" data-number="11.4.3">
-<h3 data-number="11.4.3" class="anchored" data-anchor-id="convol"><span class="header-section-number">11.4.3</span> Sums of independent random variables and convolutions</h3>
-<p>The interplay between Characteristic functions/Fourier transforms and summation of independent random variables is one of the most attractive features of this transformation. In order to understand it, we shall need an operation stemming from analysis. Recall that if <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> are two integrable functions, the convolution of <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> is defined as <span class="math display">\[f \star g (x)  = \int_{\mathbb{R}} f(x-y)g(y) \mathrm{d}y = \int_{\mathbb{R}} g(x-y)f(y) \mathrm{d}y \, .\]</span> Note that <span class="math inline">\(f \star g\)</span> is also integrable. It is not too hard to check that if <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> are two probability densities then so is <span class="math inline">\(f \star g\)</span>, moreover <span class="math inline">\(f \star g\)</span> is the density of the distribution of <span class="math inline">\(X+Y\)</span> where <span class="math inline">\(x \sim f\)</span> is independent from <span class="math inline">\(Y \sim g\)</span>. The next proposition extends this observation.</p>
+<section id="sec-convol" class="level3" data-number="12.3.3">
+<h3 data-number="12.3.3" class="anchored" data-anchor-id="sec-convol"><span class="header-section-number">12.3.3</span> Sums of independent random variables and convolutions</h3>
+<p>The interplay between Characteristic functions/Fourier transforms and summation of independent random variables is one of the most attractive features of this transformation. In order to understand it, we shall need an operation stemming from analysis. Recall that if <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> are two integrable functions, the convolution of <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> is defined as <span class="math display">\[
+f \star g (x)  = \int_{\mathbb{R}} f(x-y)g(y) \mathrm{d}y = \int_{\mathbb{R}} g(x-y)f(y) \mathrm{d}y \, .
+\]</span></p>
+<p>Note that <span class="math inline">\(f \star g\)</span> is also integrable. It is not too hard to check that if <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> are two probability densities then so is <span class="math inline">\(f \star g\)</span>, moreover <span class="math inline">\(f \star g\)</span> is the density of the distribution of <span class="math inline">\(X+Y\)</span> where <span class="math inline">\(x \sim f\)</span> is independent from <span class="math inline">\(Y \sim g\)</span>. The next proposition extends this observation.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="prp-convsum" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 11.8</strong></span> Let <span class="math inline">\(X,Y\)</span> be two independent random variables with distributions <span class="math inline">\(P_X\)</span> and <span class="math inline">\(P_Y\)</span>. Assume that <span class="math inline">\(P_X\)</span> is absolutely continuous with density <span class="math inline">\(p_X\)</span>. Then the distribution of <span class="math inline">\(X+Y\)</span> is absolutely continuous and has density <span class="math display">\[
+<p><span class="theorem-title"><strong>Proposition 12.6</strong></span> Let <span class="math inline">\(X,Y\)</span> be two independent random variables with distributions <span class="math inline">\(P_X\)</span> and <span class="math inline">\(P_Y\)</span>. Assume that <span class="math inline">\(P_X\)</span> is absolutely continuous with density <span class="math inline">\(p_X\)</span>. Then the distribution of <span class="math inline">\(X+Y\)</span> is absolutely continuous and has density <span class="math display">\[
 p_x \star P_Y (z) = \int_{\mathbb{R}} p_X(z -y ) \mathrm{d}P_Y(y) \, .
 \]</span></p>
 </div>
+</div>
+</div>
+</div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(B\)</span> be Borel subset of <span class="math inline">\(\mathbb{R}\)</span>. <span class="math display">\[\begin{array}{rl}
+<p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(B\)</span> be Borel subset of <span class="math inline">\(\mathbb{R}\)</span>. <span class="math display">\[
+\begin{array}{rl}
 P \Big\{ X+Y  \in B\Big\}
   &amp; = \int_{\mathbb{R}} \Big( \int_{\mathbb{R}} \mathbb{I}_B(x+y) p_X(x)\mathrm{d}x\Big) \mathrm{d}P_Y(y) \\
   &amp; = \int_{\mathbb{R}} \Big(\int_{\mathbb{R}} \mathbb{I}_B(z) p_X(z-y)\mathrm{d}z\Big) \mathrm{d}P_Y(y) \\
   &amp; = \int_{\mathbb{R}} \mathbb{I}_B(z) \Big(\int_{\mathbb{R}}  p_X(z-y) \mathrm{d}P_Y(y) \Big) \mathrm{d}z \\
   &amp; = \int_{\mathbb{R}} \mathbb{I}_B(z) p_x \star P_Y (z) \mathrm{d}z
-\end{array}\]</span> where the first equality follows from the Tonelli-Fubini Theorem, the second equality is obtained by change of variable <span class="math inline">\(x \mapsto z = x+y\)</span> for every <span class="math inline">\(y\)</span>, the third equality follows again from the Tonelli-Fubini Theorem.</p>
+\end{array}
+\]</span> where the first equality follows from the Tonelli-Fubini Theorem, the second equality is obtained by change of variable <span class="math inline">\(x \mapsto z = x+y\)</span> for every <span class="math inline">\(y\)</span>, the third equality follows again from the Tonelli-Fubini Theorem.</p>
+<p><span class="math inline">\(\square\)</span></p>
 </div>
 <p><br></p>
-<div id="rem">
-<p>Convolution is not tied to Probability theory.</p>
+<div id="rem-convol-outside" class="proof remark">
+<p><span class="proof-title"><em>Remark 12.3</em>. </span>Convolution is not tied to Probability theory.</p>
 <ul>
 <li>In Analysis, convolution is known to be a regularizing (smoothing) operation. This also holds in Probability theory: if the distribution of either <span class="math inline">\(X\)</span> or <span class="math inline">\(Y\)</span> has a density and <span class="math inline">\(X \perp\!\!\!\perp Y\)</span>, then the distribution of <span class="math inline">\(X+Y\)</span> has a density.</li>
 <li>Convolution with smooth distributions plays an important role in non-parametric statsitics, it is at the root of kernel density estimation.</li>
 <li>Convolution is an important tool in Signal Processing.</li>
 </ul>
 </div>
-<div id="exr">
-<p>Check that if <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent with densities <span class="math inline">\(f_X\)</span> and <span class="math inline">\(f_Y\)</span>, <span class="math inline">\(f_X \star f_Y\)</span> is a density of the distribution of <span class="math inline">\(X+Y\)</span>.</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-density-convolution" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 12.6</strong></span> Check that if <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent with densities <span class="math inline">\(f_X\)</span> and <span class="math inline">\(f_Y\)</span>, <span class="math inline">\(f_X \star f_Y\)</span> is a density of the distribution of <span class="math inline">\(X+Y\)</span>.</p>
+</div>
+</div>
+</div>
 </div>
 <p><br></p>
 <p>If <span class="math inline">\(Y =0\)</span> almost surely (its distribution is <span class="math inline">\(\delta_0\)</span>), then <span class="math inline">\(p_X \star \delta_0 = p_X\)</span>.</p>
-<p>What happens in Proposition @ref(prp:convsum), if we consider the distributions of <span class="math inline">\(\sigma X +Y\)</span> and let <span class="math inline">\(\sigma\)</span> decrease to <span class="math inline">\(0\)</span>?</p>
+<p>What happens in <a href="#prp-convsum" class="quarto-xref">Proposition&nbsp;<span>12.6</span></a> if we consider the distributions of <span class="math inline">\(\sigma X +Y\)</span> and let <span class="math inline">\(\sigma\)</span> decrease to <span class="math inline">\(0\)</span>? This is the content of the next proposition.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="prp-approxident" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 11.9</strong></span> Let <span class="math inline">\(X,Y\)</span> be two independent random variables with distributions <span class="math inline">\(P_X\)</span> and <span class="math inline">\(P_Y\)</span>. Assume that <span class="math inline">\(P_X\)</span> is absolutely continuous with density <span class="math inline">\(p_X\)</span> and that <span class="math inline">\(P_X(-\infty, 0] = \alpha \in (0,1)\)</span>. Then <span class="math display">\[
+<p><span class="theorem-title"><strong>Proposition 12.7</strong></span> Let <span class="math inline">\(X,Y\)</span> be two independent random variables with distributions <span class="math inline">\(P_X\)</span> and <span class="math inline">\(P_Y\)</span>. Assume that <span class="math inline">\(P_X\)</span> is absolutely continuous with density <span class="math inline">\(p_X\)</span> and that <span class="math inline">\(P_X(-\infty, 0] = \alpha \in (0,1)\)</span>. Then <span class="math display">\[
 \lim_{\sigma \downarrow 0} \mathbb{P}\big\{ Y + \sigma X \leq a \Big\} = P_Y(-\infty, a) + \alpha P_Y\{a\} \, .
 \]</span></p>
+</div>
+</div>
+</div>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span><span class="math display">\[\begin{array}{rl}
@@ -812,40 +858,72 @@ P \Big\{ X+Y  \in B\Big\}
     &amp; = \int_{(-\infty,a)} \int_{\mathbb{R}} \mathbb{I}_{x \leq  \frac{a-y}{\sigma}} p_X(x) \mathrm{d}x \mathrm{d}P_Y(y) \\
     &amp; + \int_{\mathbb{R}} \mathbb{I}_{x \leq  \frac{a-a}{\sigma}} p_X(x) \mathrm{d}x P_Y\{a\} \\
     &amp; + \int_{(a, \infty)} \int_{\mathbb{R}} \mathbb{I}_{x \leq  \frac{a-y}{\sigma}} p_X(x) \mathrm{d}x \mathrm{d}P_Y(y)
-\end{array}\]</span> By monotone convergence, the first and third integrals converge respectively to <span class="math inline">\(P_Y(-\infty, a)\)</span> and <span class="math inline">\(0\)</span> while the second term equals <span class="math inline">\(\alpha P_Y\{a\}\)</span>.</p>
+\end{array}
+\]</span></p>
+<p>By monotone convergence, the first and third integrals converge respectively to <span class="math inline">\(P_Y(-\infty, a)\)</span> and <span class="math inline">\(0\)</span> while the second term equals <span class="math inline">\(\alpha P_Y\{a\}\)</span>.</p>
+<p><span class="math inline">\(\square\)</span></p>
 </div>
 </section>
-<section id="charinjectivity" class="level3" data-number="11.4.4">
-<h3 data-number="11.4.4" class="anchored" data-anchor-id="charinjectivity"><span class="header-section-number">11.4.4</span> Injectivity Theorem and inversion formula</h3>
+<section id="charinjectivity" class="level3" data-number="12.3.4">
+<h3 data-number="12.3.4" class="anchored" data-anchor-id="charinjectivity"><span class="header-section-number">12.3.4</span> Injectivity Theorem and inversion formula</h3>
 <p>The characteristic function maps probability measures to <span class="math inline">\(\mathbb{C}\)</span>-valued functions. The main result of this section is that characteristic functions/Fourier transforms define is an injective operator on the set of Probability measures on the real line.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="thm-injeccharfunc" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 11.6</strong></span> If two probability distribution <span class="math inline">\(P\)</span> and <span class="math inline">\(Q\)</span> have the same characteristic function, they are equal.</p>
+<p><span class="theorem-title"><strong>Theorem 12.4</strong></span> If two probability distribution <span class="math inline">\(P\)</span> and <span class="math inline">\(Q\)</span> have the same characteristic function, they are equal.</p>
+</div>
+</div>
+</div>
 </div>
 <p>The injectivity property follows from an explicit inversion recipe. The characteristic function allows us to recover the cumulative distribution function at all its continuity points (just as the Laplace transform did). Again, as continuity points of cumulative distribution functions are dense on <span class="math inline">\(\mathbb{R}\)</span>, this is enough.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="prp-reginversion" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 11.10</strong></span> Let <span class="math inline">\(X \sim F\)</span> and <span class="math inline">\(Z \sim \mathcal{N}(0,1)\)</span> be independent. Let <span class="math inline">\(Y = X + \sigma Z\)</span>, then:</p>
+<p><span class="theorem-title"><strong>Proposition 12.8</strong></span> Let <span class="math inline">\(X \sim F\)</span> and <span class="math inline">\(Z \sim \mathcal{N}(0,1)\)</span> be independent. Then:</p>
 <ul>
-<li>the distribution of <span class="math inline">\(Y\)</span> has characteristic function <span class="math display">\[
-  \widehat{F}_\sigma(t) = \widehat{\Phi}(t\sigma) \times \widehat{F}(t) = \mathrm{e}^{- \frac{t^2 \sigma^2}{2}} \widehat{F}(t)
-\]</span></li>
-<li>the distribution of <span class="math inline">\(Y\)</span> is absolutely continuous with respect to Lebesgue measure</li>
-<li>a version of the density of the distribution of <span class="math inline">\(Y\)</span> is given by <span class="math display">\[
-  \frac{1}{{2 \pi}}\int_{\mathbb{R}} \mathrm{e}^{- \frac{t^2 \sigma^2}{2}} \widehat{F}(t)\mathrm{e}^{-ity} \mathrm{d}t
-= \frac{1}{{2 \pi}}\int_{\mathbb{R}}  \widehat{F}_\sigma(t)\mathrm{e}^{-ity} \mathrm{d}t \,.
-\]</span></li>
+<li><p>the distribution of <span class="math inline">\(X+ \sigma Z\)</span> has characteristic function <span class="math display">\[
+      \widehat{F}_\sigma(t) = \widehat{\Phi}(t\sigma) \times \widehat{F}(t) = \mathrm{e}^{- \frac{t^2 \sigma^2}{2}} \widehat{F}(t)
+  \]</span></p></li>
+<li><p>the distribution of <span class="math inline">\(X + \sigma Z\)</span> is absolutely continuous with respect to Lebesgue measure</p></li>
+<li><p>a version of the density of the distribution of <span class="math inline">\(X+ \sigma Z\)</span> is given by <span class="math display">\[
+  y \mapsto \frac{1}{{2 \pi}}\int_{\mathbb{R}} \mathrm{e}^{- \frac{t^2 \sigma^2}{2}} \widehat{F}(t)\mathrm{e}^{-ity} \mathrm{d}t
+  = \frac{1}{{2 \pi}}\int_{\mathbb{R}}  \widehat{F}_\sigma(t)\mathrm{e}^{-ity} \mathrm{d}t \,.
+  \]</span></p></li>
 </ul>
 </div>
-<div id="exr">
-<p>Why can we take for granted the existence of a probability space with two independent random variables <span class="math inline">\(X, Z\)</span> distributed as above?</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-existence-probaspace" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 12.7</strong></span> Why can we take for granted the existence of a probability space with two independent random variables <span class="math inline">\(X, Z\)</span> distributed as above?</p>
+</div>
+</div>
+</div>
 </div>
 <p>The proposition states that a density of the distribution of <span class="math inline">\(X + \sigma Z\)</span> can be recovered from the characteristic function of the distribution of <span class="math inline">\(X + \sigma Z\)</span> by the Fourier inversion formula for functions with integrable Fourier transforms.</p>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>The fact that for any <span class="math inline">\(\sigma &gt;0\)</span>, the distribution of <span class="math inline">\(Y = X + \sigma Z\)</span> is absolutely continuous with respect to Lebesgue measure comes from Proposition @ref(prp:convsum).</p>
-<p>A density of the distribution of <span class="math inline">\(X + \sigma Z\)</span> is given by <span class="math display">\[
-    \int_{\mathbb{R}} \frac{1}{\sigma} \phi\Big(\frac{y -x}{\sigma}\Big) \mathrm{d}F(x)
-\]</span> The characteristic function of <span class="math inline">\(Y\)</span> at <span class="math inline">\(t\)</span> is <span class="math inline">\(\mathrm{e}^{- \frac{t^2 \sigma^2}{2}} \widehat{F}(t)\)</span>.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>The fact that for any <span class="math inline">\(\sigma &gt;0\)</span>, the distribution of <span class="math inline">\(Y = X + \sigma Z\)</span> is absolutely continuous with respect to Lebesgue measure comes from <a href="#prp-convsum" class="quarto-xref">Proposition&nbsp;<span>12.6</span></a>.</p>
+<p>A density of the distribution of <span class="math inline">\(X + \sigma Z\)</span> is given by</p>
+<p><span class="math display">\[
+\int_{\mathbb{R}} \frac{1}{\sigma} \phi\Big(\frac{y -x}{\sigma}\Big) \mathrm{d}F(x)
+\]</span></p>
+<p>The characteristic function of <span class="math inline">\(X+\sigma Z\)</span> at <span class="math inline">\(t\)</span> is <span class="math inline">\(\mathrm{e}^{- \frac{t^2 \sigma^2}{2}} \widehat{F}(t)\)</span>.</p>
 <p><span class="math display">\[\begin{array}{rl}
-\mathbb{P}\Big\{ Y \leq u\Big\}
+\mathbb{P}\Big\{ X+ \sigma Z \leq u\Big\}
 &amp; = \int_{-\infty}^u \int_{\mathbb{R}} \frac{1}{\sigma} \phi\Big(\frac{y -x}{\sigma}\Big) \mathrm{d}F(x)  \mathrm{d}y \\
 &amp; = \int_{-\infty}^u \int_{\mathbb{R}} \frac{1}{\sigma}
 \left(\frac{1}{{2 \pi}} \int_{\mathbb{R}} \mathrm{e}^{- \frac{t^2}{2}} \mathrm{e}^{-it  \frac{y-x}{\sigma}} \mathrm{d}t\right)
@@ -856,38 +934,58 @@ P \Big\{ X+Y  \in B\Big\}
 &amp; = \int_{-\infty}^u \left(\int_{\mathbb{R}} \frac{1}{\sigma}
 \frac{1}{{2 \pi}} \mathrm{e}^{- \frac{t^2}{2}} \mathrm{e}^{-\frac{ity}{\sigma}} \widehat{F}(t/\sigma)  \mathrm{d}t\right)
 \mathrm{d}y \\
-&amp; = \int_{-\infty}^u  \left( \frac{1}{{2 \pi}}\int_{\mathbb{R}} \mathrm{e}^{- \frac{t^2 \sigma^2}{2}}\mathrm{e}^{-ity} \widehat{F}(t)\mathrm{d}t   \right) \mathrm{d}y \,.
-\end{array}\]</span> The quantity <span class="math inline">\(\left( \frac{1}{{2 \pi}}\int_{\mathbb{R}} \mathrm{e}^{- \frac{t^2 \sigma^2}{2}}\mathrm{e}^{-ity} \widehat{F}(t)\mathrm{d}t   \right)\)</span> is a version of the density of the distribution of <span class="math inline">\(Y = X + \sigma Z\)</span> (why?). Note that it is obtained from the same inversion formula that readily worked for the Gaussian density.</p>
+&amp; = \int_{-\infty}^u  \left( \frac{1}{{2 \pi}}\int_{\mathbb{R}} \mathrm{e}^{- \frac{t^2 \sigma^2}{2}}\mathrm{e}^{-ity} \widehat{F}(t)\mathrm{d}t   \right) \mathrm{d}y \,
+\end{array}
+\]</span></p>
+<p>where</p>
+<ul>
+<li>first equality comes from the Tonelli-Fubini Theorem</li>
+<li>second eqality comes from the integral representation for the Gaussian density</li>
+<li>third equality comes from Tonelli-Fubini Theorem again</li>
+<li>last equality follows by change of variable in the inner integral.</li>
+</ul>
+<p>The quantity <span class="math inline">\(\left( \frac{1}{{2 \pi}}\int_{\mathbb{R}} \mathrm{e}^{- \frac{t^2 \sigma^2}{2}}\mathrm{e}^{-ity} \widehat{F}(t)\mathrm{d}t   \right)\)</span> is a version of the density of the distribution of <span class="math inline">\(Y = X + \sigma Z\)</span> (why?). Note that it is obtained from the same inversion formula that readily worked for the Gaussian density.</p>
+<p><span class="math inline">\(\square\)</span></p>
 </div>
-<br>
-<p>
-</p>
 <p>Now we have to show that an inversion formula works for all probability distributions, not only for the smooth probability distributions obtained by adding Gaussian noise. We shall check that we can recover the distribution function from the Fourier transform.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="thm-invfourier1" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 11.7</strong></span> Let <span class="math inline">\(X\)</span> be distributed according to <span class="math inline">\(P\)</span>, with cumulative distribution function <span class="math inline">\(F\)</span> and characteristic function <span class="math inline">\(\widehat{F}\)</span>.</p>
+<p><span class="theorem-title"><strong>Theorem 12.5</strong></span> Let <span class="math inline">\(X\)</span> be distributed according to <span class="math inline">\(P\)</span>, with cumulative distribution function <span class="math inline">\(F\)</span> and characteristic function <span class="math inline">\(\widehat{F}\)</span>.</p>
 <p>Then: <span class="math display">\[
 \lim_{\sigma \downarrow 0} \int_{-\infty}^u  \left( \frac{1}{{2 \pi}}\int_{\mathbb{R}} \mathrm{e}^{-ity}  \mathrm{e}^{- \frac{t^2 \sigma^2}{2}}\widehat{F}(t)\mathrm{d}t   \right) \mathrm{d}y =  F(u_-) + \frac{1}{2} P\{u\}
-\]</span> where <span class="math display">\[
+\]</span></p>
+<p>where <span class="math display">\[
 F(u_-) = \lim_{v \uparrow u} F(v) = P(-\infty, u)\, .
 \]</span></p>
 </div>
-<div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>The proof consists in combining Propositions @ref(prp:approxident) and @ref(prp:reginversion).</p>
 </div>
-<br>
-<p>
-</p>
-<p>Note that <a href="#thm-invfourier1" class="quarto-xref">Theorem&nbsp;<span>11.7</span></a>) does not deliver directly the distribution function <span class="math inline">\(F\)</span>. Indeed, if <span class="math inline">\(F\)</span> is not continuous, <span class="math inline">\(u \mapsto \widetilde{F}(u) = F(u_-) + \frac{1}{2} P\{u\}\)</span>, is not a distribution function. But the right-continuous modification of <span class="math inline">\(\widetilde{F}\)</span>: <span class="math inline">\(u \mapsto \lim_{v \downarrow u} \widetilde{F}(v)\)</span> coincides with <span class="math inline">\(F\)</span>. We have established <a href="#thm-injeccharfunc" class="quarto-xref">Theorem&nbsp;<span>11.6</span></a>).</p>
-<br>
-<p>
-</p>
+</div>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>The proof consists in combining <a href="#prp-approxident" class="quarto-xref">Proposition&nbsp;<span>12.7</span></a> and <a href="#prp-reginversion" class="quarto-xref">Proposition&nbsp;<span>12.8</span></a>.</p>
+</div>
+<p>Note that <a href="#thm-invfourier1" class="quarto-xref">Theorem&nbsp;<span>12.5</span></a> does not deliver directly the distribution function <span class="math inline">\(F\)</span>. Indeed, if <span class="math inline">\(F\)</span> is not continuous, <span class="math inline">\(u \mapsto \widetilde{F}(u) = F(u_-) + \frac{1}{2} P\{u\}\)</span>, is not a distribution function. But the right-continuous modification of <span class="math inline">\(\widetilde{F}\)</span>: <span class="math inline">\(u \mapsto \lim_{v \downarrow u} \widetilde{F}(v)\)</span> coincides with <span class="math inline">\(F\)</span>. We have established <a href="#thm-injeccharfunc" class="quarto-xref">Theorem&nbsp;<span>12.4</span></a>).</p>
 <p>When the distribution function is absolutely continuous, Fourier inversion is simpler.</p>
-<div id="thm">
-<p>Let <span class="math inline">\(X\)</span> be distributed according to <span class="math inline">\(P\)</span>, with cumulative distribution function <span class="math inline">\(F\)</span> and characteristic function <span class="math inline">\(\widehat{F}\)</span>. Assume that <span class="math inline">\(\widehat{F}\)</span> is integrable (with respect to Lebesgue measure). Then:</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-simple-inversion-densities" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 12.6</strong></span> Let <span class="math inline">\(X\)</span> be distributed according to <span class="math inline">\(P\)</span>, with cumulative distribution function <span class="math inline">\(F\)</span> and characteristic function <span class="math inline">\(\widehat{F}\)</span>. Assume that <span class="math inline">\(\widehat{F}\)</span> is integrable (with respect to Lebesgue measure). Then:</p>
 <ul>
 <li><span class="math inline">\(P\)</span> is absolutely continuous with respect to Lebesgue measure;</li>
 <li><span class="math inline">\(y \mapsto \frac{1}{{2 \pi}} \int_{\mathbb{R}} \widehat{F}(t) \mathrm{e}^{-ity} \mathrm{d}t\)</span> is a uniformly continuous version of the density of <span class="math inline">\(P\)</span>.</li>
 </ul>
+</div>
+</div>
+</div>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(X\)</span> be distributed according to <span class="math inline">\(P\)</span> with cumulative distribution function <span class="math inline">\(F\)</span> and characteristic function <span class="math inline">\(\widehat{F}\)</span>. Let <span class="math inline">\(Z\)</span> be independent from <span class="math inline">\(X\)</span> and <span class="math inline">\(\mathcal{N}(0,1)\)</span>. Let <span class="math inline">\(x\)</span> be a continuity point of <span class="math inline">\(F\)</span>.</p>
@@ -900,52 +998,100 @@ F(u_-) = \lim_{v \uparrow u} F(v) = P(-\infty, u)\, .
 \int_{-\infty}^x  \left( \frac{1}{{2 \pi}}\int_{\mathbb{R}} \mathrm{e}^{- \frac{t^2 \sigma^2}{2}}\mathrm{e}^{-ity} \widehat{F}(t)\mathrm{d}t   \right) \mathrm{d}y \\
 &amp; = \int_{-\infty}^x   \frac{1}{{2 \pi}}\int_{\mathbb{R}} \lim_{\sigma \downarrow 0} \mathrm{e}^{- \frac{t^2 \sigma^2}{2}}\mathrm{e}^{-ity} \widehat{F}(t)\mathrm{d}t    \mathrm{d}y \\
 &amp; = \int_{-\infty}^x   \frac{1}{{2 \pi}}\int_{\mathbb{R}} \mathrm{e}^{-ity} \widehat{F}(t)\mathrm{d}t    \mathrm{d}y \,
-\end{array}\]</span> where interversion of limit and integration is justified by dominated convergence.</p>
+\end{array}
+\]</span></p>
+<p>where interversion of limit and integration is justified by dominated convergence.</p>
+<p><span class="math inline">\(\square\)</span></p>
 </div>
-<br>
-<p>
-</p>
 <p>We close this section by an alternative inversion formula.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="thm-invformula" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 11.8 (Inversion formula)</strong></span> Let <span class="math inline">\(P\)</span> be a probability distribution over <span class="math inline">\(\mathbb{R}\)</span> with cumulative distribution function <span class="math inline">\(F\)</span>, then <span class="math display">\[
+<p><span class="theorem-title"><strong>Theorem 12.7 (Inversion formula)</strong></span> Let <span class="math inline">\(P\)</span> be a probability distribution over <span class="math inline">\(\mathbb{R}\)</span> with cumulative distribution function <span class="math inline">\(F\)</span>, then <span class="math display">\[
 \lim_{T \to \infty} \frac{1}{2\pi} \int_{-T}^T \frac{\mathrm{e}^{-it a} - \mathrm{e}^{-it b}}{it} \widehat{F}(t) \mathrm{d}t
 = F(b_-) - F(a) + \frac{1}{2} \Big(P\{b\} + P\{a\}\Big) \, .
 \]</span></p>
 </div>
-<br>
-<p>
-</p>
-<p>The proof of <a href="#thm-invformula" class="quarto-xref">Theorem&nbsp;<span>11.8</span></a>) can be found in textbooks like <span class="citation" data-cites="Dur10">(<a href="#ref-Dur10" role="doc-biblioref">Durrett, 2010</a>)</span> or <span class="citation" data-cites="MR2893652">(<a href="#ref-MR2893652" role="doc-biblioref">Billingsley, 2012</a>)</span>.</p>
-<div id="cor">
-<p>Let <span class="math inline">\(\widehat{F}\)</span> denote the characteristic function of the probability distribution <span class="math inline">\(P\)</span>, if <span class="math inline">\(\widehat{F}(t) = \mathrm{e}^{-\frac{t^2}{2}}\)</span>, then <span class="math inline">\(P\)</span> is the standard univariate Gaussian distribution (<span class="math inline">\(\mathcal{N}(0,1)\)</span>).</p>
 </div>
-<div id="cor">
-<p>Let <span class="math inline">\(\widehat{F}\)</span> denote the characteristic function of probability distribution <span class="math inline">\(P\)</span>, if <span class="math inline">\(\widehat{F}(t) = \mathrm{e}^{i\mu t -\frac{\sigma^2 t^2}{2}}\)</span>, then <span class="math inline">\(P\)</span> is the Gaussian distribution ( <span class="math inline">\(\mathcal{N}(\mu,\sigma^2)\)</span> ).</p>
+</div>
+</div>
+<p>The proof of <a href="#thm-invformula" class="quarto-xref">Theorem&nbsp;<span>12.7</span></a>) can be found in textbooks like <span class="citation" data-cites="Dur10">(<a href="#ref-Dur10" role="doc-biblioref">Durrett, 2010</a>)</span> or <span class="citation" data-cites="MR2893652">(<a href="#ref-MR2893652" role="doc-biblioref">Billingsley, 2012</a>)</span>.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="cor-char-standard-gaussian-charac" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 12.4</strong></span> Let <span class="math inline">\(\widehat{F}\)</span> denote the characteristic function of the probability distribution <span class="math inline">\(P\)</span>, if <span class="math inline">\(\widehat{F}(t) = \mathrm{e}^{-\frac{t^2}{2}}\)</span>, then <span class="math inline">\(P\)</span> is the standard univariate Gaussian distribution (<span class="math inline">\(\mathcal{N}(0,1)\)</span>).</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="cor-char-general-gaussians" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 12.5</strong></span> Let <span class="math inline">\(\widehat{F}\)</span> denote the characteristic function of probability distribution <span class="math inline">\(P\)</span>, if <span class="math inline">\(\widehat{F}(t) = \mathrm{e}^{i\mu t -\frac{\sigma^2 t^2}{2}}\)</span>, then <span class="math inline">\(P\)</span> is the Gaussian distribution ( <span class="math inline">\(\mathcal{N}(\mu,\sigma^2)\)</span> ).</p>
+</div>
+</div>
+</div>
 </div>
 <p>Another important byproduct of the proof of injectivity of the characteristic function is Stein’s identity, an important property of the standard Gaussian distribution.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="thm-steinIdentity" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 11.9 (Stein’s identity)</strong></span> Let <span class="math inline">\(X \sim \mathcal{N}(0,1)\)</span>, and <span class="math inline">\(g\)</span> be a differentiable function such that <span class="math inline">\(\mathbb{E}|g'(X)|&lt; \infty\)</span>, then<span class="math display">\[
+<p><span class="theorem-title"><strong>Theorem 12.8 (Stein’s identity)</strong></span> Let <span class="math inline">\(X \sim \mathcal{N}(0,1)\)</span>, and <span class="math inline">\(g\)</span> be a differentiable function such that <span class="math inline">\(\mathbb{E}|g'(X)|&lt; \infty\)</span>, then</p>
+<p><span class="math display">\[
 \mathbb{E}[g'(X)] = \mathbb{E}[Xg(X)] \, .
-\]</span> Conversely, if <span class="math inline">\(X\)</span> is a random variable such that <span class="math display">\[
+\]</span></p>
+<p>Conversely, if <span class="math inline">\(X\)</span> is a random variable such that</p>
+<p><span class="math display">\[
 \mathbb{E}[g'(X)] = \mathbb{E}[X g(X)]
-\]</span> holds for any differentiable funtion <span class="math inline">\(g\)</span> such that <span class="math inline">\(g'\)</span> is integrable, then <span class="math inline">\(X \sim \mathcal{N}(0,1)\)</span>.</p>
+\]</span></p>
+<p>holds for any differentiable funtion <span class="math inline">\(g\)</span> such that <span class="math inline">\(g'\)</span> is integrable, then <span class="math inline">\(X \sim \mathcal{N}(0,1)\)</span>.</p>
+</div>
+</div>
+</div>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>The direct part follows by integration by parts.</p>
 <p>To check the converse, note that if <span class="math inline">\(X\)</span> satisfies the identity in the Theorem, then for all <span class="math inline">\(t \in \mathbb{R}\)</span>, the functions <span class="math inline">\(t \mapsto \mathbb{E} \cos(tX)\)</span> and <span class="math inline">\(t \mapsto \mathbb{E} \sin(tX)\)</span> satisfy the differential equation <span class="math inline">\(g'(t) = t g(t)\)</span> with conditions <span class="math inline">\(\mathbb{E} \cos(0X)=1\)</span> and <span class="math inline">\(\mathbb{E} \sin(0X) =0\)</span>. This entails <span class="math inline">\(\mathbb{E} \mathrm{e}^{itX} = \exp\Big(-\frac{t^2}{2}\Big)\)</span>, that is <span class="math inline">\(X \sim \mathcal{N}(0,1)\)</span></p>
+<p><span class="math inline">\(\square\)</span></p>
 </div>
 <br>
 <p>
 </p>
 </section>
-<section id="diffintfourier" class="level3" data-number="11.4.5">
-<h3 data-number="11.4.5" class="anchored" data-anchor-id="diffintfourier"><span class="header-section-number">11.4.5</span> Differentiability and integrability</h3>
+<section id="sec-diffintfourier" class="level3" data-number="12.3.5">
+<h3 data-number="12.3.5" class="anchored" data-anchor-id="sec-diffintfourier"><span class="header-section-number">12.3.5</span> Differentiability and integrability</h3>
 <p>Differentiability of the Fourier transform at <span class="math inline">\(0\)</span> and integrability are intimately related.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="thm-fouriermoments" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 11.10</strong></span> If <span class="math inline">\(X\)</span> is <span class="math inline">\(p\)</span>-integrable for some <span class="math inline">\(p \in \mathbb{N}\)</span> then the Fourier transform of the distribution of <span class="math inline">\(X\)</span> is <span class="math inline">\(p\)</span>-times differentiable at <span class="math inline">\(0\)</span> and the <span class="math inline">\(p^{\text{th}}\)</span> derivative equals <span class="math inline">\(i^k \mathbb{E}X^k\)</span>.</p>
+<p><span class="theorem-title"><strong>Theorem 12.9</strong></span> If <span class="math inline">\(X\)</span> is <span class="math inline">\(p\)</span>-integrable for some <span class="math inline">\(p \in \mathbb{N}\)</span> then the Fourier transform of the distribution of <span class="math inline">\(X\)</span> is <span class="math inline">\(p\)</span>-times differentiable at <span class="math inline">\(0\)</span> and the <span class="math inline">\(p^{\text{th}}\)</span> derivative equals <span class="math inline">\(i^k \mathbb{E}X^k\)</span>.</p>
+</div>
+</div>
+</div>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>The proof relies on a Taylor expansion with remainder of <span class="math inline">\(x \mapsto \mathrm{e}^{ix}\)</span> at <span class="math inline">\(x=0\)</span>: <span class="math display">\[
+<p><span class="proof-title"><em>Proof</em>. </span>The proof relies on a Taylor expansion with remainder of <span class="math inline">\(x \mapsto \mathrm{e}^{ix}\)</span> at <span class="math inline">\(x=0\)</span>:</p>
+<p><span class="math display">\[
 \mathrm{e}^{ix} - \sum_{k=0}^n \frac{(ix)^k}{k!} = \frac{i^{n+1}}{n!} \int_0^x (x-s)^n \mathrm{e}^{is} \mathrm{d}s \, .
 \]</span> The modulus of the right hand side can be upper-bounded in two different ways. <span class="math display">\[
 \frac{1}{n+!}\Big| \int_0^x (x-s)^n \mathrm{e}^{is} \mathrm{d}s \Big|
@@ -957,54 +1103,88 @@ F(u_-) = \lim_{v \uparrow u} F(v) = P(-\infty, u)\, .
   \Big| \widehat{F}(t) - \sum_{k=0}^n \mathbb{E}\frac{(itX)^k}{k!}  \Big|
     &amp; \leq \mathbb{E} \Big[\min\Big( \frac{|tX|^{n+1}}{(n+1)!} ,2 \frac{|tX|^n}{n!}\Big)\Big] \\
     &amp; = \frac{|t|^n}{(n+1)!} \mathbb{E} \Big[\min\Big(|tX|^{n+1} ,2 (n+1) |X|^n \Big)\Big] \, .
-\end{array}\]</span> Note that the right hand side is well defined as soon as <span class="math inline">\(\mathbb{E}|X|^n &lt; \infty\)</span>. Now, by dominated convergence, <span class="math display">\[
+\end{array}
+\]</span> Note that the right hand side is well defined as soon as <span class="math inline">\(\mathbb{E}|X|^n &lt; \infty\)</span>. Now, by dominated convergence, <span class="math display">\[
 \lim_{t \to 0} \mathbb{E} \Big[\min\Big(|tX|^{n+1} ,2 (n+1) |X|^n \Big)\Big] = 0\,
 \]</span> Hence we have established that if <span class="math inline">\(\mathbb{E}|X|^n &lt; \infty\)</span>, <span class="math display">\[
 \widehat{F}(t) = \sum_{k=0}^n i^k \mathbb{E}X^k \frac{t^k}{k!} + o(|t|^n) \, .
 \]</span></p>
+<p><span class="math inline">\(\square\)</span></p>
 </div>
-<br>
-<p>
-</p>
 <p>In the other direction, the connection is not as simple: differentiability of the Fourier transform does not imply integrability. But the following holds.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="thm-fouriervariance" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 11.11</strong></span> If the Fourier transform <span class="math inline">\(\widehat{F}\)</span> of the distribution of <span class="math inline">\(X\)</span> satisfies <span class="math display">\[
+<p><span class="theorem-title"><strong>Theorem 12.10</strong></span> If the Fourier transform <span class="math inline">\(\widehat{F}\)</span> of the distribution of <span class="math inline">\(X\)</span> satisfies</p>
+<p><span class="math display">\[
 \lim_{h \downarrow 0} \frac{2 - \widehat{F}(h) - \widehat{F}(-h)}{h^2} = \sigma^2 &lt; \infty
-\]</span> then <span class="math inline">\(\mathbb{E}X^2 = \sigma^2\)</span>, .</p>
+\]</span></p>
+<p>then <span class="math inline">\(\mathbb{E}X^2 = \sigma^2\)</span>.</p>
+</div>
+</div>
+</div>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>Note that <span class="math display">\[
+<p><span class="proof-title"><em>Proof</em>. </span>Note that</p>
+<p><span class="math display">\[
 2 - \widehat{F}(h) - \widehat{F}(-h) =  2\mathbb{E}\Big[1 - \cos(hX)\Big] \, ,
-\]</span> and using Taylor with remainder formula for <span class="math inline">\(\cos\)</span> at <span class="math inline">\(0\)</span>: <span class="math display">\[
+\]</span></p>
+<p>and using Taylor with remainder formula for <span class="math inline">\(\cos\)</span> at <span class="math inline">\(0\)</span>:</p>
+<p><span class="math display">\[
 1 - \cos x = \int_0^x \cos(s) (x-s) \mathrm{d}s = x^ 2 \int_0^1 \cos(sx) (1-s) \mathrm{d}s
-\]</span> Note that <span class="math inline">\(\int_0^1 \cos(sx) (1-s) \mathrm{d}s\geq 0\)</span> for all <span class="math inline">\(x \in \mathbb{R}\)</span>. <span class="math display">\[\begin{array}{rl}
+\]</span></p>
+<p>Note that <span class="math inline">\(\int_0^1 \cos(sx) (1-s) \mathrm{d}s\geq 0\)</span> for all <span class="math inline">\(x \in \mathbb{R}\)</span>.</p>
+<p><span class="math display">\[
+\begin{array}{rl}
   \frac{2\mathbb{E}\Big[1 - \cos(hX)\Big]}{h^2}
     &amp; = 2 \frac{\mathbb{E}\Big[ h^2 X^2 \int_0^1 \cos(shX) (1-s) \mathrm{d}s\Big]}{h^2} \\
     &amp; = 2 \mathbb{E}\Big[ X^2 \int_0^1 \cos(shX) (1-s) \mathrm{d}s\Big] \, .
-\end{array}\]</span> By Fatou’s Lemma: <span class="math display">\[
+\end{array}
+\]</span></p>
+<p>By Fatou’s Lemma:</p>
+<p><span class="math display">\[
 \sigma^2 = \lim_{h \downarrow 0} 2\mathbb{E}\Big[ X^2 \int_0^1 \cos(shX) (1-s) \mathrm{d}s\Big]
 \geq 2\mathbb{E}\Big[\liminf_{h \downarrow 0} X^2 \int_0^1 \cos(shX) (1-s) \mathrm{d}s \Big]
-\]</span> but for all <span class="math inline">\(x \in \mathbb{R}\)</span>, by dominated convergence, <span class="math display">\[
+\]</span></p>
+<p>but for all <span class="math inline">\(x \in \mathbb{R}\)</span>, by dominated convergence,</p>
+<p><span class="math display">\[
 \liminf_{h \downarrow 0} x^ 2 \int_0^1 \cos(shx) (1-s) \mathrm{d}s = \frac{x^2}{2} \, .
-\]</span> Hence <span class="math display">\[
+\]</span></p>
+<p>Hence <span class="math display">\[
 \sigma^2 \geq \mathbb{E} X^2 \, .
-\]</span> The proof is completed by invoking <a href="#thm-fouriermoments" class="quarto-xref">Theorem&nbsp;<span>11.10</span></a>).</p>
+\]</span></p>
+<p>The proof is completed by invoking <a href="#thm-fouriermoments" class="quarto-xref">Theorem&nbsp;<span>12.9</span></a>).</p>
+<p><span class="math inline">\(\square\)</span></p>
 </div>
 </section>
-<section id="cauchy" class="level3" data-number="11.4.6">
-<h3 data-number="11.4.6" class="anchored" data-anchor-id="cauchy"><span class="header-section-number">11.4.6</span> Another application: understanding Cauchy distribution</h3>
-<p>Assume <span class="math inline">\(U\)</span> is uniformly distributed over <span class="math inline">\(]0,1[\)</span>, let the real valued random variable <span class="math inline">\(X\)</span> be defined by <span class="math display">\[X = \tan\left(\frac{\pi}{2} (2 \times U -1)\right)\]</span>.</p>
-<p>As <span class="math inline">\(\tan\)</span> is continuously increasing from <span class="math inline">\(-\pi/2\)</span> to <span class="math inline">\(\pi/2\)</span>, the cumulative distribution function of the distribution of <span class="math inline">\(X\)</span> is <span class="math display">\[\begin{array}{rl}
+<section id="sec-cauchy" class="level3" data-number="12.3.6">
+<h3 data-number="12.3.6" class="anchored" data-anchor-id="sec-cauchy"><span class="header-section-number">12.3.6</span> Another application: understanding Cauchy distribution</h3>
+<p>Assume <span class="math inline">\(U\)</span> is uniformly distributed over <span class="math inline">\(]0,1[\)</span>, let the real valued random variable <span class="math inline">\(X\)</span> be defined by</p>
+<p><span class="math display">\[
+X = \tan\left(\frac{\pi}{2} (2 \times U -1)\right)\, .
+\]</span></p>
+<p>As <span class="math inline">\(\tan\)</span> is continuously increasing from <span class="math inline">\(-\pi/2\)</span> to <span class="math inline">\(\pi/2\)</span>, the cumulative distribution function of the distribution of <span class="math inline">\(X\)</span> is</p>
+<p><span class="math display">\[
+\begin{array}{rl}
 \mathbb{P}\{ X \leq x\} &amp; = \mathbb{P}\left\{\tan\left(\frac{\pi}{2}(2U-1)\right) \leq x\right\} \\
 &amp; = \mathbb{P}\left\{U \leq \frac{1}{2} + \frac{1}{\pi}\arctan(x) \right\} \\
 &amp; = \frac{1}{2} + \frac{1}{\pi}\arctan(x)
-\end{array}\]</span> for <span class="math inline">\(x \in \mathbb{R}\)</span>.</p>
-<p>As <span class="math inline">\(\arctan\)</span> has derivative <span class="math inline">\(x \mapsto \frac{1}{1+x^2}\)</span>, the cumulative distribution function is absolutely continuous with density: <span class="math display">\[\frac{1}{\pi} \frac{1}{1  + x^2}\]</span> This is the density of the Cauchy distribution.</p>
+\end{array}
+\]</span></p>
+<p>for <span class="math inline">\(x \in \mathbb{R}\)</span>.</p>
+<p>As <span class="math inline">\(\arctan\)</span> has derivative <span class="math inline">\(x \mapsto \frac{1}{1+x^2}\)</span>, the cumulative distribution function is absolutely continuous with density:</p>
+<p><span class="math display">\[\frac{1}{\pi} \frac{1}{1  + x^2}\]</span></p>
+<p>This is the density of the Cauchy distribution.</p>
 <p>Note that <span class="math inline">\(\mathbb{E}(X)_+ = \mathbb{E} (X)_- = \mathbb{E}|X| =\infty\)</span>. The Cauchy distribution is not integrable.</p>
 <p>Now, assume <span class="math inline">\(X_1, X_2,, \ldots, X_n\)</span> are i.i.d. and Cauchy distributed. Let <span class="math inline">\(Z = \sum_{i=1}^n X_i/n\)</span>. How is <span class="math inline">\(Z\)</span> distributed? We might compute the convolution power of the Cauchy density. It turns out that starting from the characteristic function is much more simple.</p>
 <p>We refrain from computing directly the characteristic function of the Cauchy distribution. We take a roundabout.</p>
 <p>Let <span class="math inline">\(Y\)</span> be distributed according to Laplace distribution, that is with density <span class="math inline">\(y \mapsto  \frac{1}{2} \exp(-|y|)\)</span> for <span class="math inline">\(y \in \mathbb{R}\)</span>. The random variable <span class="math inline">\(Y\)</span> is symmetric (<span class="math inline">\(Y \sim -Y\)</span>). Let <span class="math inline">\(\widehat{F}_Y\)</span> denote the characteristic function of (the distribution of) <span class="math inline">\(Y\)</span>.</p>
-<p><span class="math display">\[\begin{array}{rl}
+<p><span class="math display">\[
+\begin{array}{rl}
   \widehat{F}_Y(t) &amp; = \mathbb{E}\mathrm{e}^{tY} \\
   &amp; = \mathbb{E}\cos(tY) \\
   &amp; =  \int_0^{\infty} \mathrm{e}^{-y} \cos(ty) \mathrm{d}y \\
@@ -1012,170 +1192,39 @@ F(u_-) = \lim_{v \uparrow u} F(v) = P(-\infty, u)\, .
   &amp; = 1 - t \int_{0}^\infty \mathrm{e}^{-y} \sin(ty) \mathrm{d}y \\
   &amp; = 1 -t \left[- \mathrm{e}^{-y} \sin(ty)\right]_0^\infty  - t^2 \int_0^\infty \mathrm{e}^{-y} \cos(ty) \mathrm{d}y \\
   &amp; = 1 - t^2 \widehat{F}_Y(t)
-\end{array}\]</span> where we have performed integration by parts twice.</p>
-<p>The characteristic function <span class="math inline">\(\widehat{F}_Y\)</span> satisfies <span class="math display">\[\widehat{F}_Y(t) = \frac{1}{1+ t^2}\, ,\]</span> up to <span class="math inline">\(\frac{1}{\pi}\)</span>, this is the density of the Cauchy distribution.</p>
-<p><span class="math display">\[\begin{array}{rl}
+\end{array}
+\]</span></p>
+<p>where we have performed integration by parts twice.</p>
+<p>The characteristic function <span class="math inline">\(\widehat{F}_Y\)</span> satisfies</p>
+<p><span class="math display">\[\widehat{F}_Y(t) = \frac{1}{1+ t^2}\, ,\]</span></p>
+<p>up to <span class="math inline">\(\frac{1}{\pi}\)</span>, this is the density of the Cauchy distribution.</p>
+<p><span class="math display">\[
+\begin{array}{rl}
 \widehat{F}_X(t) &amp; = \mathbb{E}\mathrm{e}^{itX}\\
   &amp; =  \int_{-\infty}^{\infty} \frac{1}{\pi} \frac{1}{1+x^2}  \cos(tx)\mathrm{d}x \\
   &amp; = \frac{2}{\pi} \int_0^\infty \cos(tx) \widehat{F}_Y(x) \mathrm{d}x \\
   &amp; = 2 \times \frac{1}{2\pi} \int_{-\infty}^{\infty} \mathrm{e}^{-itx} \widehat{F}_Y(x) \mathrm{d}x \\
   &amp; = 2 \times \frac{1}{2} \mathrm{e}^{-|t|} = \mathrm{e}^{-|t|}
-\end{array}\]</span> where we have used the inversion formula.</p>
-<p>Now, the characteristic function of the distribution of <span class="math inline">\(Z\)</span> is <span class="math display">\[\widehat{F}_Z(t) =\left(\mathrm{e}^{-\frac{|t|}{n}}\right)^n=  \widehat{F}_X(t)\]</span> which means <span class="math inline">\(Z \sim X\)</span>.</p>
-<p>The basic tools of characteristic functions theory allow us to - compute the characteristic function of the Laplace distribution - compute the characteristic function of the Cauchy distribution by inversion - compute the characteristic function of sums of independant Cauchy random variables - show that the Cauchy distribution is <span class="math inline">\(1\)</span>-stable.</p>
+\end{array}
+\]</span></p>
+<p>where we have used the inversion formula.</p>
+<p>Now, the characteristic function of the distribution of <span class="math inline">\(Z\)</span> is <span class="math display">\[\widehat{F}_Z(t) =\left(\mathrm{e}^{-\frac{|t|}{n}}\right)^n=  \widehat{F}_X(t)\]</span></p>
+<p>which means <span class="math inline">\(Z \sim X\)</span>.</p>
+<p>The basic tools of characteristic functions theory allow us to</p>
+<ul>
+<li>compute the characteristic function of the Laplace distribution</li>
+<li>compute the characteristic function of the Cauchy distribution by inversion</li>
+<li>compute the characteristic function of sums of independant Cauchy random variables</li>
+<li>show that the Cauchy distribution is <span class="math inline">\(1\)</span>-stable.</li>
+</ul>
 <div id="rem-density-laplace" class="proof remark">
-<p><span class="proof-title"><em>Remark 11.2</em>. </span>The density of the Laplace distribution is not differentiable at <span class="math inline">\(0\)</span>, this is reflected in the fact that its Fourier transform (the characteristic function of the Laplace distribution) is not integrable.</p>
+<p><span class="proof-title"><em>Remark 12.4</em>. </span>The density of the Laplace distribution is not differentiable at <span class="math inline">\(0\)</span>, this is reflected in the fact that its Fourier transform (the characteristic function of the Laplace distribution) is not integrable.</p>
 <p>Conversely the lack of integrability of the Cauchy distribution is reflected in the non-differentiability of its characteristic function at <span class="math inline">\(0\)</span>.</p>
 </div>
 </section>
 </section>
-<section id="quantiles" class="level2" data-number="11.5">
-<h2 data-number="11.5" class="anchored" data-anchor-id="quantiles"><span class="header-section-number">11.5</span> Quantile functions</h2>
-<p>So far we have seen several characterizations of probability distributions: cumulative distribution functions, Laplace transform for distributions supported on <span class="math inline">\([0, \infty)\)</span>, characteristic functions. The last characterization is praised for its behavior with respect to sums of independent random variables.</p>
-<p>For univariate distributions, a companion to the cumulative distribution function is the quantile function. It plays a significant role in simulations, statistics and risk theory.</p>
-<p>A cumulative distribution function <span class="math inline">\(F\)</span> is non-negative, <span class="math inline">\([0,1]\)</span>-valued, non-decreasing, right-continuous, with left-limit at any point. The cumulative distribution function of a diffuse probability measure is continuous at any point.</p>
-<p>The quantile function <span class="math inline">\(F^{\leftarrow}\)</span> is defined as an extended inverse of the cumulative distribution function <span class="math inline">\(F\)</span>.</p>
-<div id="def-quantfun" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 11.3 (Quantile function)</strong></span> The quantile function <span class="math inline">\(F^{\leftarrow}\)</span> of random variable <span class="math inline">\(X\)</span> distributed according to <span class="math inline">\(P\)</span> (with cumulative distribution function <span class="math inline">\(F\)</span>) is defined as <span class="math display">\[\begin{array}{rl}
-F^{\leftarrow} (p)
-   &amp; = \inf \Big\{ x : P\{X \leq x\} \geq p \Big\} \\
-   &amp; = \inf \Big\{ x : F (x) \geq p \Big\} \qquad \text{for } p \in (0,1).
-\end{array}\]</span></p>
-</div>
-<p>The quantile function is non-decreasing and left-continuous. The interplay between the quantile and cumulative distribution functions is summarized in the next proposition.</p>
-<div id="prp-quantilekit" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 11.11</strong></span> If <span class="math inline">\(F\)</span> and <span class="math inline">\(F^\leftarrow\)</span> are the cumulative distribution function and the quantile function of (the distribution of) <span class="math inline">\(X\)</span>, the following statements hold for <span class="math inline">\(p \in] 0, 1 [\)</span>:</p>
-<ol type="1">
-<li><span class="math inline">\(p \leq  F (x)\)</span> iff <span class="math inline">\(F^\leftarrow (p) \leq  x\)</span>.</li>
-<li><span class="math inline">\(F \circ F^\leftarrow (p) \geq p\)</span> .</li>
-<li><span class="math inline">\(F^\leftarrow \circ F (x) \leq  x\)</span> .</li>
-<li>If <span class="math inline">\(F\)</span> is absolutely continuous, then <span class="math inline">\(F \circ F^\leftarrow (p) = p\)</span></li>
-</ol>
-</div>
-<div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>According to the definition of <span class="math inline">\(F^\leftarrow\)</span> if <span class="math inline">\(F (x) \geq p\)</span> then <span class="math inline">\(F^\leftarrow
-(p) \leq  x.\)</span></p>
-<p>To prove the converse, it suffices to check that <span class="math inline">\(F \circ F^\leftarrow (p) \geq p\)</span>.</p>
-<p>Indeed, if <span class="math inline">\(x \geq F^\leftarrow (p),\)</span> as <span class="math inline">\(F\)</span> is non-decreasing <span class="math inline">\(F (x) \geq F \circ F^\leftarrow (p)\)</span>. Si <span class="math inline">\(y = F^\leftarrow
-(p),\)</span> par definition de <span class="math inline">\(y = F^\leftarrow (p),\)</span> il existe une non-increasing sequence <span class="math inline">\((z_n)_{n \in \mathbb{N}}\)</span> which converges to <span class="math inline">\(y\)</span> such that <span class="math inline">\(F (z_n) \geq p .\)</span> Mais as <span class="math inline">\(F\)</span> is right-continuous <span class="math inline">\(\lim_n F
-(z_n) = F (\lim_n z_n) = F (y) .\)</span> Hence <span class="math inline">\(F (y) \geq p\)</span>.</p>
-<p>We just proved 1. and 2.</p>
-<p>3.) is an immediate consequence de 1). Let <span class="math inline">\(p = F (x) .\)</span> Hence <span class="math inline">\(p \leq  F (x),\)</span> according to 1.) this is equivalent to <span class="math inline">\(F^\leftarrow (p)
-\leq  x,\)</span> that is <span class="math inline">\(F^\leftarrow \circ F (x) \leq  x.\)</span></p>
-<p>4.) For every <span class="math inline">\(p\)</span> in <span class="math inline">\(] 0, 1 [,\)</span> <span class="math inline">\(\{ x : p = F (x)\}\)</span> is non-empty (Mean value Theorem). Let <span class="math inline">\(y = \inf \{ x : p = F (x)\} =F^\leftarrow (p)\)</span>. According to <span class="math inline">\(1)\)</span>, <span class="math inline">\(F (y) \geq p\)</span>. Now, if <span class="math inline">\((z_n)_{n \in \mathbb{N}}\)</span> is an increasing sequence converging to <span class="math inline">\(y\)</span>, for every <span class="math inline">\(n\)</span>, <span class="math inline">\(F (z_n) &lt; p,\)</span> and, by left-continuity, <span class="math inline">\(F (y) = F (\lim_n z_n) = \lim_n F (z_n) \leq
-p.\)</span> Hence <span class="math inline">\(F (y) = p,\)</span> that is <span class="math inline">\(F \circ F^\leftarrow (p) = p.\)</span></p>
-<p><span class="math inline">\(\square\)</span></p>
-</div>
-<p><br></p>
-<div id="prp-quatile-transformation" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 11.12 (Quantile transformation)</strong></span> If <span class="math inline">\(U\)</span> is uniformly distributed on <span class="math inline">\((0,1)\)</span>, and <span class="math inline">\(F\)</span> is a cumulative distribution over <span class="math inline">\(\mathbb{R}\)</span>, <span class="math inline">\(F^{\leftarrow}(U)\)</span> has cumulative distribution <span class="math inline">\(F\)</span>.</p>
-</div>
-<div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span><span class="math display">\[\begin{array}{rl}
-  P\Big\{ F^\leftarrow(U) \leq x \Big\}
-  &amp; = P\Big\{ U \leq F(x) \Big\} \\
-  &amp; = F(x) \, .
-\end{array}\]</span></p>
-<p><span class="math inline">\(\square\)</span></p>
-</div>
-<div id="rem-quantile-transformation" class="proof remark">
-<p><span class="proof-title"><em>Remark 11.3</em>. </span>The quantile transformation works whatever the continuity properties of <span class="math inline">\(F\)</span>.</p>
-</div>
-<p>The quantile transformation has many applications. It can be used to show stochastic domination properties.</p>
-<div id="exm-exmples-quantiles" class="theorem example">
-<p><span class="theorem-title"><strong>Example 11.5</strong></span> In <a href="#fig-quantiles" class="quarto-xref">Figures&nbsp;<span>11.1</span></a> up to <a href="#fig-quantiles4" class="quarto-xref">Figure&nbsp;<span>11.4</span></a>, we illustrate quantile functions for discrete (binomial) distributions and for distributions that are neither discrete nor continuous. The quantile function of a discrete distribution is step function that jumps at the cumulative probability of every possible outcome. If a probability distribution is a mixture of a discrete distribution and a continuous distribution, the quantile function jumps at the cumulative probability of every possible outcome of the discrete component.</p>
-</div>
-<!-- ::: {#fig-quantiles} -->
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-quantiles" class="quarto-float quarto-figure quarto-figure-center anchored" width="672">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-quantiles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="04-characterizations_files/figure-html/fig-quantiles-1.png" id="fig-quantiles" class="img-fluid figure-img" width="672">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-quantiles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;11.1
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<!-- ::: -->
-<!-- ::: {#fig-quantiles2} -->
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-quantiles2" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-quantiles2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="04-characterizations_files/figure-html/fig-quantiles2-1.png" class="img-fluid figure-img" width="672">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-quantiles2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;11.2: Quantile functions <span class="math inline">\(\max(X, \tau)\)</span> where <span class="math inline">\(X \sim \mathcal{N}(0,1)\)</span> for <span class="math inline">\(\tau \in \{0, 2\}\)</span>. Let <span class="math inline">\(\Phi^\leftarrow\)</span> denote the quantile function of <span class="math inline">\(\mathcal{N}(0,1)\)</span>. The quantile function of <span class="math inline">\(\max(X,\tau)\)</span> is <span class="math inline">\(\mathbb{I}_{(0,\Phi(\tau)]}(p) \times \tau + \Phi^{\leftarrow}(p) \times \mathbb{I}_{(\Phi(\tau), 1)}(p)= \Phi^{\leftarrow}(p \vee \Phi(\tau))\)</span>. The two distributions are neither absolutely continuous nor discrete.
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<!-- ::: -->
-<!-- ::: {#fig-quantiles3} -->
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-quantiles3" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-quantiles3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="04-characterizations_files/figure-html/fig-quantiles3-1.png" class="img-fluid figure-img" width="672">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-quantiles3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;11.3: Cumulative distribution functions for the probability distributions illustrated in <a href="#fig-quantiles2" class="quarto-xref">Figure&nbsp;<span>11.2</span></a>
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<!-- ::: -->
-<!-- ::: {#fig-quantiles4} -->
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-quantiles4" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-quantiles4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="04-characterizations_files/figure-html/fig-quantiles4-1.png" class="img-fluid figure-img" width="672">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-quantiles4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;11.4: Representation of <span class="math inline">\(F \circ F^{\leftarrow}\)</span> for the probability distributions illustrated in <a href="#fig-quantiles2" class="quarto-xref">Figures&nbsp;<span>11.2</span></a> and <a href="#fig-quantiles3" class="quarto-xref">Figure&nbsp;<span>11.3</span></a>. The function <span class="math inline">\(F \circ F^{\leftarrow}\)</span> always lies above the line <span class="math inline">\(y=x\)</span> (dotted line) as prescribed in <a href="#prp-quantilekit" class="quarto-xref">Proposition&nbsp;<span>11.11</span></a>. Plateaux that lie strictly above the dotted line are in correspondence with jumps of the quantile function.
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<!-- ::: -->
-<!-- ::: {#fig-qqplot} -->
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-qqplot" class="quarto-float quarto-figure quarto-figure-center anchored" width="672">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-qqplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="04-characterizations_files/figure-html/fig-qqplot-1.png" id="fig-qqplot" class="img-fluid figure-img" width="672">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-qqplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;11.5
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<!-- ::: -->
-<p><br></p>
-<p>Let us conclude this section with an important observation. concerning the behavior of <span class="math inline">\(F(X)\)</span> when <span class="math inline">\(X \sim P\)</span> with cumulative distribution function <span class="math inline">\(F\)</span>. <br></p>
-<div id="cor-corscore" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 11.4</strong></span> If <span class="math inline">\(X \sim P\)</span> with continuous cumulative distribution function <span class="math inline">\(F\)</span>, then <span class="math inline">\(F (X)\)</span> and <span class="math inline">\(1 - F (X)\)</span> are uniformly distributed on <span class="math inline">\([0, 1]\)</span>.</p>
-</div>
-<div id="exr-corscore" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 11.2</strong></span> Prove <a href="#cor-corscore" class="quarto-xref">Corollary&nbsp;<span>11.4</span></a></p>
-</div>
-</section>
-<section id="sec-bibcharac" class="level2" data-number="11.6">
-<h2 data-number="11.6" class="anchored" data-anchor-id="sec-bibcharac"><span class="header-section-number">11.6</span> Bibliographic remarks</h2>
+<section id="sec-bibcharac" class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="sec-bibcharac"><span class="header-section-number">12.4</span> Bibliographic remarks</h2>
 <p><span class="citation" data-cites="wilf2005generatingfunctionology">Wilf (<a href="#ref-wilf2005generatingfunctionology" role="doc-biblioref">2005</a>)</span> explores the interplay between combinatorics, algorithm analysis and generating function theory.</p>
 <p><span class="citation" data-cites="widder2015laplace">Widder (<a href="#ref-widder2015laplace" role="doc-biblioref">2015</a>)</span> is a classic reference on Laplace transforms. Laplace transforms play an important role in Point Process Theory, and Extreme Value Theory, to name a few fields of application.</p>
 <p>The first part of Chapter 9 from <span class="citation" data-cites="MR1873379">Pollard (<a href="#ref-MR1873379" role="doc-biblioref">2002</a>)</span> describes characteristic functions as Fourier transforms. Properties and applications of characteristic functions are thoroughly discussed in <span class="citation" data-cites="Dur10">(<a href="#ref-Dur10" role="doc-biblioref">Durrett, 2010</a>)</span>, <span class="citation" data-cites="MR2893652">(<a href="#ref-MR2893652" role="doc-biblioref">Billingsley, 2012</a>)</span>.</p>
@@ -1603,13 +1652,13 @@ Wilf, H. S. (2005). <em>Generatingfunctionology</em>. AK Peters/CRC Press.
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./023-discrete-condition.html" class="pagination-link" aria-label="Discrete Conditioning">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Discrete Conditioning</span></span>
+      <a href="./06-conditioning.html" class="pagination-link" aria-label="Conditioning">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Conditioning</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./06-conditioning.html" class="pagination-link" aria-label="Conditioning">
-        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Conditioning</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./041-characterization.html" class="pagination-link" aria-label="Quantile functions">
+        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Quantile functions</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

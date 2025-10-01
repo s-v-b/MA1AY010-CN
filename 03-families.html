@@ -212,32 +212,32 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-characterizations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Characterizations of probability distributions</span></span></a>
+  <a href="./06-conditioning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Conditioning</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-conditioning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Conditioning</span></span></a>
+  <a href="./04-characterizations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Characterizations of probability distributions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./041-characterization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Quantile functions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-convergences-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Convergences I : almost sure, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, in Probability</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Convergences I : almost sure, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, in Probability</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-convergence-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Convergence in distribution</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./08-convergence-3b.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Refinments and extensions of thr Central Limit Theorem</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Convergence in distribution</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -288,19 +288,46 @@ window.Quarto = {
 <p>In this lesson, universe <span class="math inline">\(\Omega\)</span>$ is a subset of <span class="math inline">\(\mathbb{N}^d\)</span>, it is finite or countable, the straightforward <span class="math inline">\(\sigma\)</span>-algebra to work with is the powerset <span class="math inline">\(2^\Omega\)</span>.</p>
 <section id="sec-bernoulli" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="sec-bernoulli"><span class="header-section-number">5.1</span> Bernoulli and Binomial</h2>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="def-bernoulli" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 5.1</strong></span> A Bernoulli distribution is a probability distribution <span class="math inline">\(P\)</span> on <span class="math inline">\(\Omega=\{0,1 \}\)</span>. The <em>parameter</em> of <span class="math inline">\(P\)</span> is <span class="math inline">\(P\{1\} \in [0,1]\)</span>.</p>
 </div>
+</div>
+</div>
+</div>
 <p>A Bernoulli distribution is completely defined by its parameter.</p>
 <p>The expectation of a Bernoulli distribution with parameter <span class="math inline">\(p\)</span> equals <span class="math inline">\(p\)</span>.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="def-binomial" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 5.2 (Binomial distribution)</strong></span> A binomial distribution with parameters <span class="math inline">\(n \in \mathbb{N}, p \in [0,1]\)</span> (<span class="math inline">\(n\)</span> is size and <span class="math inline">\(p\)</span> is success) is a probability distribution <span class="math inline">\(P\)</span> on <span class="math inline">\(\Omega = \{0, 1, 2, \ldots, n\}\)</span>, defined by <span class="math display">\[P\{k\} = \binom{n}{k} p^k (1-p)^k\]</span></p>
+</div>
+</div>
+</div>
 </div>
 <p>
 </p><p>The connexion between Bernoulli and Binomial distributions is obvious: a Bernoulli distribution is a Binomial distribution with size parameter equal to <span class="math inline">\(1\)</span>. This connexion goes further: the sum of <em>independent</em> Bernoulli random variables with same success parameter is Binomial distributed.</p>
 <p>Assume now <span class="math inline">\(\Omega^{\prime} = \{0,1\}^n\)</span>.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="prp-bernoulli-binomial" class="theorem proposition">
 <p><span class="theorem-title"><strong>Proposition 5.1</strong></span> Let <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> be independent, identically distributed Bernoulli random variables with success parameter <span class="math inline">\(p \in [0,1]\)</span>, then <span class="math inline">\(Y = \sum_{i=1}^n X_i\)</span> is distributed according to a Binomial disctribution with size parameter <span class="math inline">\(n\)</span> and success probability <span class="math inline">\(p\)</span>.</p>
+</div>
+</div>
+</div>
 </div>
 <p>
 </p><div class="proof">
@@ -339,21 +366,48 @@ Figure&nbsp;5.1: Binomial probability mass functions with <span class="math inli
 <!-- ::: -->
 <p>
 </p><p>Binomial distributions with the same success parameter</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="prp-sum-binom" class="theorem proposition">
 <p><span class="theorem-title"><strong>Proposition 5.2</strong></span> Let <span class="math inline">\(X,Y\)</span> be independent over probability space <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span> and distributed according to <span class="math inline">\(\text{Bin}(n_1, p)\)</span> and <span class="math inline">\(\text{Bin}(n_2, p)\)</span>.</p>
 <p>Then <span class="math inline">\(X+Y\)</span> is distributed according to <span class="math inline">\(\text{Bin}(n_1+n_2, p)\)</span>.</p>
 </div>
+</div>
+</div>
+</div>
 <p>
-</p><div id="exr-sum-binom" class="theorem exercise">
+</p><div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-sum-binom" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 5.1</strong></span> Check the preceding proposition.</p>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section id="sec-poisson" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="sec-poisson"><span class="header-section-number">5.2</span> Poisson</h2>
 <p>The Poisson distribution appears as a limit of Binomial distributions in a variety of circumstances connected to rare events phenomena.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="def-poisson" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 5.3</strong></span> A Poisson distribution with parameter <span class="math inline">\(\lambda &gt;0\)</span> is a probability distribution <span class="math inline">\(P\)</span> on <span class="math inline">\(\Omega=\mathbb{N}\)</span> with</p>
 <p><span class="math display">\[P\{k\} = \mathrm{e}^{-\lambda} \frac{\lambda^k}{k!}\]</span></p>
+</div>
+</div>
+</div>
 </div>
 <!-- ::: {#fig-witgetpoisson} -->
 <div class="cell">
@@ -378,8 +432,17 @@ Figure&nbsp;5.2: Poisson probability mass functions with different values of par
 &amp; = \lambda \times \sum_{n=1}^\infty \mathrm{e}^{-\lambda} \frac{\lambda^{n-1}}{(n-1)!}  \\
 &amp; = \lambda \, .
 \end{align*}\]</span></p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="prp-sum-poisson" class="theorem proposition">
 <p><span class="theorem-title"><strong>Proposition 5.3</strong></span> Let <span class="math inline">\(X,Y\)</span> be independent and Poisson distributed over probability space <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span>, then <span class="math inline">\(X+Y\)</span> is Poisson distributed.</p>
+</div>
+</div>
+</div>
 </div>
 <br>
 <p>
@@ -402,11 +465,29 @@ Figure&nbsp;5.2: Poisson probability mass functions with different values of par
 <br>
 <p>
 </p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="exr-poisson-mode" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 5.2</strong></span> Check that the <em>mode</em> (maximum) of a Poisson probability mass function with parameter <span class="math inline">\(\lambda\)</span> is achieved at <span class="math inline">\(k= \lfloor \lambda \rfloor\)</span>. It is always unique?</p>
 </div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="exr-poisson-median" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 5.3</strong></span> Check that the median of a Poisson distribution with integer parameter <span class="math inline">\(\lambda\)</span> is not smaller than <span class="math inline">\(\lambda\)</span>.</p>
+</div>
+</div>
+</div>
 </div>
 <br>
 <p>
