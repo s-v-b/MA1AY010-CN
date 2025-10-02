@@ -556,7 +556,6 @@ G_{X+Y}(\lambda)
   &amp; = G_X(\lambda) \times G_Y(\lambda) \, .
 \end{array}
 \]</span></p>
-<p><span class="math inline">\(\square\)</span></p>
 </div>
 <p>Combining the inversion theorem and the explicit formula for the Laplace transform of Gamma distributions, we recover the fact that sums of independent Gamma-distributed random variables with the same intensity parameter is also Gamma distributed.</p>
 <div class="callout callout-style-simple callout-note no-icon">
@@ -755,7 +754,6 @@ G_{X+Y}(\lambda)
 \end{array}
 \]</span> Hence, <span class="math inline">\(\widehat{F}\)</span> is a solution of the differential equation: <span class="math inline">\(g'(t) = -t g(t)\)</span> with <span class="math inline">\(g(0)=1\)</span>.</p>
 <p>The differential equation is readily solved, and the solution is <span class="math inline">\(g(t)= \mathrm{e}^{- \frac{t^2}{2}}\)</span>.</p>
-<p><span class="math inline">\(\square\)</span></p>
 </div>
 <br>
 <p>
@@ -811,7 +809,6 @@ P \Big\{ X+Y  \in B\Big\}
   &amp; = \int_{\mathbb{R}} \mathbb{I}_B(z) p_x \star P_Y (z) \mathrm{d}z
 \end{array}
 \]</span> where the first equality follows from the Tonelli-Fubini Theorem, the second equality is obtained by change of variable <span class="math inline">\(x \mapsto z = x+y\)</span> for every <span class="math inline">\(y\)</span>, the third equality follows again from the Tonelli-Fubini Theorem.</p>
-<p><span class="math inline">\(\square\)</span></p>
 </div>
 <p><br></p>
 <div id="rem-convol-outside" class="proof remark">
@@ -861,7 +858,6 @@ P \Big\{ X+Y  \in B\Big\}
 \end{array}
 \]</span></p>
 <p>By monotone convergence, the first and third integrals converge respectively to <span class="math inline">\(P_Y(-\infty, a)\)</span> and <span class="math inline">\(0\)</span> while the second term equals <span class="math inline">\(\alpha P_Y\{a\}\)</span>.</p>
-<p><span class="math inline">\(\square\)</span></p>
 </div>
 </section>
 <section id="charinjectivity" class="level3" data-number="12.3.4">
@@ -945,7 +941,6 @@ P \Big\{ X+Y  \in B\Big\}
 <li>last equality follows by change of variable in the inner integral.</li>
 </ul>
 <p>The quantity <span class="math inline">\(\left( \frac{1}{{2 \pi}}\int_{\mathbb{R}} \mathrm{e}^{- \frac{t^2 \sigma^2}{2}}\mathrm{e}^{-ity} \widehat{F}(t)\mathrm{d}t   \right)\)</span> is a version of the density of the distribution of <span class="math inline">\(Y = X + \sigma Z\)</span> (why?). Note that it is obtained from the same inversion formula that readily worked for the Gaussian density.</p>
-<p><span class="math inline">\(\square\)</span></p>
 </div>
 <p>Now we have to show that an inversion formula works for all probability distributions, not only for the smooth probability distributions obtained by adding Gaussian noise. We shall check that we can recover the distribution function from the Fourier transform.</p>
 <div class="callout callout-style-simple callout-note no-icon">
@@ -1001,7 +996,6 @@ F(u_-) = \lim_{v \uparrow u} F(v) = P(-\infty, u)\, .
 \end{array}
 \]</span></p>
 <p>where interversion of limit and integration is justified by dominated convergence.</p>
-<p><span class="math inline">\(\square\)</span></p>
 </div>
 <p>We close this section by an alternative inversion formula.</p>
 <div class="callout callout-style-simple callout-note no-icon">
@@ -1068,7 +1062,6 @@ F(u_-) = \lim_{v \uparrow u} F(v) = P(-\infty, u)\, .
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>The direct part follows by integration by parts.</p>
 <p>To check the converse, note that if <span class="math inline">\(X\)</span> satisfies the identity in the Theorem, then for all <span class="math inline">\(t \in \mathbb{R}\)</span>, the functions <span class="math inline">\(t \mapsto \mathbb{E} \cos(tX)\)</span> and <span class="math inline">\(t \mapsto \mathbb{E} \sin(tX)\)</span> satisfy the differential equation <span class="math inline">\(g'(t) = t g(t)\)</span> with conditions <span class="math inline">\(\mathbb{E} \cos(0X)=1\)</span> and <span class="math inline">\(\mathbb{E} \sin(0X) =0\)</span>. This entails <span class="math inline">\(\mathbb{E} \mathrm{e}^{itX} = \exp\Big(-\frac{t^2}{2}\Big)\)</span>, that is <span class="math inline">\(X \sim \mathcal{N}(0,1)\)</span></p>
-<p><span class="math inline">\(\square\)</span></p>
 </div>
 <br>
 <p>
@@ -1102,14 +1095,13 @@ F(u_-) = \lim_{v \uparrow u} F(v) = P(-\infty, u)\, .
 <p>Applying this Taylor expansion to <span class="math inline">\(x=t X\)</span>, using the pointwise upper bounds and taking expectations leads to <span class="math display">\[\begin{array}{rl}
   \Big| \widehat{F}(t) - \sum_{k=0}^n \mathbb{E}\frac{(itX)^k}{k!}  \Big|
     &amp; \leq \mathbb{E} \Big[\min\Big( \frac{|tX|^{n+1}}{(n+1)!} ,2 \frac{|tX|^n}{n!}\Big)\Big] \\
-    &amp; = \frac{|t|^n}{(n+1)!} \mathbb{E} \Big[\min\Big(|tX|^{n+1} ,2 (n+1) |X|^n \Big)\Big] \, .
+    &amp; = \frac{|t|^n}{(n+1)!} \mathbb{E} \Big[\min\Big(|t||X|^{n+1} ,2 (n+1) |X|^n \Big)\Big] \, .
 \end{array}
 \]</span> Note that the right hand side is well defined as soon as <span class="math inline">\(\mathbb{E}|X|^n &lt; \infty\)</span>. Now, by dominated convergence, <span class="math display">\[
-\lim_{t \to 0} \mathbb{E} \Big[\min\Big(|tX|^{n+1} ,2 (n+1) |X|^n \Big)\Big] = 0\,
+\lim_{t \to 0} \mathbb{E} \Big[\min\Big(|t||X|^{n+1} ,2 (n+1) |X|^n \Big)\Big] = 0\,
 \]</span> Hence we have established that if <span class="math inline">\(\mathbb{E}|X|^n &lt; \infty\)</span>, <span class="math display">\[
 \widehat{F}(t) = \sum_{k=0}^n i^k \mathbb{E}X^k \frac{t^k}{k!} + o(|t|^n) \, .
 \]</span></p>
-<p><span class="math inline">\(\square\)</span></p>
 </div>
 <p>In the other direction, the connection is not as simple: differentiability of the Fourier transform does not imply integrability. But the following holds.</p>
 <div class="callout callout-style-simple callout-note no-icon">
@@ -1158,7 +1150,6 @@ F(u_-) = \lim_{v \uparrow u} F(v) = P(-\infty, u)\, .
 \sigma^2 \geq \mathbb{E} X^2 \, .
 \]</span></p>
 <p>The proof is completed by invoking <a href="#thm-fouriermoments" class="quarto-xref">Theorem&nbsp;<span>12.9</span></a>).</p>
-<p><span class="math inline">\(\square\)</span></p>
 </div>
 </section>
 <section id="sec-cauchy" class="level3" data-number="12.3.6">
@@ -1220,6 +1211,19 @@ X = \tan\left(\frac{\pi}{2} (2 \times U -1)\right)\, .
 <div id="rem-density-laplace" class="proof remark">
 <p><span class="proof-title"><em>Remark 12.4</em>. </span>The density of the Laplace distribution is not differentiable at <span class="math inline">\(0\)</span>, this is reflected in the fact that its Fourier transform (the characteristic function of the Laplace distribution) is not integrable.</p>
 <p>Conversely the lack of integrability of the Cauchy distribution is reflected in the non-differentiability of its characteristic function at <span class="math inline">\(0\)</span>.</p>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-tent" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 12.8</strong></span> Check that <span class="math inline">\(\int_0^1 \cos(sx) (1-s) \mathrm{d}s\geq 0\)</span> for all <span class="math inline">\(x \in \mathbb{R}\)</span>.</p>
+<p><em>Hint:</em> Check that <span class="math inline">\(t \mapsto \int_0^1 \cos(tw) (1-w) \mathrm{d}w\)</span> is the characteristic function of the <em>tent</em> distribution which has density <span class="math inline">\((1-|w|)\)</span> over <span class="math inline">\([-1,1]\)</span>. Check that this characteristic function is the squared modulus of another characteristic function.</p>
+</div>
+</div>
+</div>
 </div>
 </section>
 </section>

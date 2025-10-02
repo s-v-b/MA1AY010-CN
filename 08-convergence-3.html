@@ -508,7 +508,6 @@ P\Big\{\omega : F^\leftarrow\text{ is continuous at }\omega \Big\}=1\,.
 \]</span> Now, assume <span class="math inline">\(\omega\)</span> is a continuity point of <span class="math inline">\(F^{\leftarrow}\)</span>. Then by Proposition <a href="#prp-weakconvquantiles" class="quarto-xref">Proposition&nbsp;<span>15.1</span></a>, <span class="math inline">\(\lim_n F_n^{\leftarrow}(\omega) = F^\leftarrow(\omega)\)</span>. This translates to <span class="math display">\[
 P \Big\{\omega :  \lim_n Y_n(\omega) =Y(\omega) \Big\} = 1 \, .
 \]</span></p>
-<p><span class="math inline">\(\square\)</span></p>
 </div>
 </section>
 <section id="sec-LevyCont" class="level2" data-number="15.5">
@@ -551,7 +550,6 @@ P \Big\{\omega :  \lim_n Y_n(\omega) =Y(\omega) \Big\} = 1 \, .
 <p><span class="math display">\[
 \limsup_n \Big| \mathbb{E} h(X_n) - h(X_n + \sigma Z) \Big| \leq \epsilon \, .
 \]</span></p>
-<p><span class="math inline">\(\square\)</span></p>
 </div>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -576,13 +574,11 @@ P_n(A) - P(A) = \int_{\mathbb{R}} \mathbb{I}_A (f_n -f) \leq \int_{\mathbb{R}} |
 \]</span> We have proved more than weak convergence, namely <span class="math display">\[
 \lim_n \sup_{A \in \mathcal{B}(\mathbb{R})} |P_n(A) - P(A)| = 0 \, .
 \]</span></p>
-<p><span class="math inline">\(\square\)</span></p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em> (Proof of continuity theorem). </span>Assume the characteristic functions of <span class="math inline">\((X_n)_n\)</span> converges pointwise towards the characteristic function of <span class="math inline">\(X\)</span>.</p>
 <p>Let <span class="math inline">\(Z\)</span> be a standard Gaussian random variable, independent of all <span class="math inline">\((X_n)_n\)</span> and of <span class="math inline">\(X\)</span>. For <span class="math inline">\(\sigma&gt;0\)</span>, the distributions of <span class="math inline">\(X_n + \sigma Z\)</span> and <span class="math inline">\(X + \sigma Z\)</span> have densities that are uniquely determined by the characteristic functions of <span class="math inline">\(X_n\)</span> and <span class="math inline">\(X\)</span>. Moreover, a dominated convergence argument shows that the densities of <span class="math inline">\(X_n + \sigma Z\)</span> converge pointwise towards the density of <span class="math inline">\(X + \sigma Z\)</span>. By Scheffé’s Lemma, this entails that <span class="math inline">\(X_n + \sigma Z \rightsquigarrow X + \sigma Z\)</span>.</p>
 <p>As this holds for all <span class="math inline">\(\sigma&gt;0\)</span>, this entails that <span class="math inline">\(X_n \rightsquigarrow X.\)</span></p>
-<p><span class="math inline">\(\square\)</span></p>
 </div>
 </section>
 <section id="sec-refineLevy" class="level2" data-number="15.6">
@@ -698,7 +694,6 @@ Figure&nbsp;15.1: The proof of the truncation inequality takes advantage on easy
   &amp; \geq  \int_{|uw| \geq 1}  \Big( 1 - \frac{\sin(uw)}{uw}  \Big)\mathrm{d}F_n(w) \\
   &amp; \geq (1- \sin(1)) P \Big[\frac{-1}{u}, \frac{1}{u}\Big]^c \,
 \end{align*}\]</span> where the two inequalities follow from the bounds on the <span class="math inline">\(\operatorname{sinc}\)</span> function.</p>
-<p><span class="math inline">\(\square\)</span></p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em> (Proof of Uniform tightness Lemma). </span>Assume that the sequence <span class="math inline">\((\widehat{F}_n)_n\)</span> converge pointwise towards a function <span class="math inline">\(\widehat{F}\)</span> that is continuous at <span class="math inline">\(0\)</span>.</p>
@@ -715,11 +710,9 @@ Figure&nbsp;15.1: The proof of the truncation inequality takes advantage on easy
 <p>Applying the truncation Lemma, for sufficiently large <span class="math inline">\(n\)</span>, we have <span class="math display">\[
 P_n \Big[\frac{-1}{u}, \frac{1}{u}\Big]^c \leq 7 \epsilon \, .
 \]</span> The interval <span class="math inline">\(\Big[\frac{-1}{u}, \frac{1}{u}\Big]\)</span> is compact.</p>
-<p><span class="math inline">\(\square\)</span></p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em> (Proof of the second form of the continuity theorem). </span>We combine the Uniform Tightness Lemma and the Prokhorov-Le Cam Theorem. Under the assumptions of the second form of the continuity Theorem, there is a probability measure <span class="math inline">\(P\)</span> (with characteristic function <span class="math inline">\(\widehat{F}\)</span>), and a subsequence <span class="math inline">\((P_{n(k)})_{k \in \mathbb{N}}\)</span> such that <span class="math inline">\(P_{n(k)} \rightsquigarrow P \text{ as } {k \to \infty}\)</span>. This entails <span class="math inline">\(\widehat{F}_{n(k)} \rightarrow \widehat{F} \text{ as } {k \to \infty}\)</span> pointwise. This also entails that <span class="math inline">\(\widehat{F}_n \rightarrow \widehat{F}\)</span> pointwise for the whole sequence. Finally, we are able to invoke <a href="#thm-thmlevycont" class="quarto-xref">Theorem&nbsp;<span>15.2</span></a>) to conclude <span class="math inline">\(P_{n}\rightsquigarrow  P \text{ as }{n \to \infty}\)</span>.</p>
-<p><span class="math inline">\(\square\)</span></p>
 </div>
 <div id="rem-extension" class="proof remark">
 <p><span class="proof-title"><em>Remark 15.4</em>. </span>All definitions and results in this section can be extended to the <span class="math inline">\(k\)</span>-dimensional setting for all <span class="math inline">\(k \in \mathbb{N}\)</span>.</p>
@@ -744,7 +737,6 @@ P_n \Big[\frac{-1}{u}, \frac{1}{u}\Big]^c \leq 7 \epsilon \, .
 \end{align*}\]</span> Convergence in probability entails that <span class="math display">\[
 \limsup_n \Big| \mathbb{E}h(X_n) - \mathbb{E}h(X)  \Big| \leq \epsilon.
 \]</span> As this holds for every <span class="math inline">\(\epsilon &gt;0\)</span>, for every bounded Lipschitz function <span class="math inline">\(h\)</span>, <span class="math inline">\(\lim_n \Big| \mathbb{E}h(X_n) - \mathbb{E}h(X)  \Big|=0\)</span>. This is sufficient to establish convergence in distribution of <span class="math inline">\((X_n)_n\)</span>.</p>
-<p><span class="math inline">\(\square\)</span></p>
 </div>
 </section>
 <section id="sec-clt" class="level2" data-number="15.8">
@@ -775,7 +767,6 @@ P_n \Big[\frac{-1}{u}, \frac{1}{u}\Big]^c \leq 7 \epsilon \, .
 \lim_n \Big(1 - \frac{t^2}{2n} + \frac{t^2}{n} R(t/\sqrt{n})\Big)^n  = \mathrm{e}^{- \frac{t^2}{2}} \, .
 \]</span></p>
 <p>On the right-hand-side, we recognize the characteristic function of <span class="math inline">\(\mathcal{N}(0,1)\)</span>.</p>
-<p><span class="math inline">\(\square\)</span></p>
 </div>
 <div id="rem-cond-proof" class="proof remark">
 <p><span class="proof-title"><em>Remark 15.5</em>. </span>The conditions in the Theorem statement allows for a short proof. They are by no mean necessary. The summands need not be identically distributed. The summands need not be independent. A version of the Lindeberg-Feller Theorem states that under mild assumptions, centered and normalized sums of independent square-integrable random variables converge in distribution towards a Gaussian distribution.</p>

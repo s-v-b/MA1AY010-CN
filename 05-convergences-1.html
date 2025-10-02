@@ -324,8 +324,17 @@ window.Quarto = {
 <p>The notion of almost sure convergence mirrors the notion of pointwise convergence in probabilistic settings.</p>
 <p>Recall that a sequence of real-valued functions <span class="math inline">\((f_n)_n\)</span> mapping some space <span class="math inline">\(\Omega\)</span> to <span class="math inline">\(\mathbb{R}\)</span> <em>converges pointwise</em> to <span class="math inline">\(f: \Omega \to \mathbb{R}\)</span>, if for each <span class="math inline">\(\omega \in \Omega\)</span>, <span class="math inline">\(f_n(\omega) \to f(\omega)\)</span>. There is no uniformity condition.</p>
 <p>In the next definition, we assume that random variables are real-valued. The definition is easily extended to multivariate settings.</p>
-<div id="asc" name="Almost sure Convergences">
-<p>Let <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span> be a probability space, a sequence <span class="math inline">\((X_n)_n\)</span> of random variables converges <em>almost surely</em> (a.s.) towards a random variable <span class="math inline">\(X\)</span> if the event <span class="math display">\[E = \left\{ \omega : \lim_n X_n(\omega) = X(\omega)\right\}\]</span> has <span class="math inline">\(P\)</span>-probability <span class="math inline">\(1\)</span>.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-asc" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 14.1 (Almost sure Convergences)</strong></span> Let <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span> be a probability space, a sequence <span class="math inline">\((X_n)_n\)</span> of random variables converges <em>almost surely</em> (a.s.) towards a random variable <span class="math inline">\(X\)</span> if the event <span class="math display">\[E = \left\{ \omega : \lim_n X_n(\omega) = X(\omega)\right\}\]</span> has <span class="math inline">\(P\)</span>-probability <span class="math inline">\(1\)</span>.</p>
+</div>
+</div>
+</div>
 </div>
 <p>Almost sure convergence, is (just) pointwise convergence with probability <span class="math inline">\(1\)</span>. Almost sure convergence is not tied to integrability. Note that all random variables involved in the above statements live on the same probability space. We may wonder whether we can design a metric for almost-sure convergence? The answer is no, as for pointwise convergence, in general.</p>
 </section>
@@ -333,32 +342,87 @@ window.Quarto = {
 <h2 data-number="14.3" class="anchored" data-anchor-id="sec-Lpconvergence"><span class="header-section-number">14.3</span> Convergence in <span class="math inline">\(L_p\)</span></h2>
 <p>In this section, we consider random variables that satisfy integrability assumptions. The scope of <span class="math inline">\(L_p\)</span> convergences is narrower than the scope of <span class="math inline">\(L_p\)</span> convergences.</p>
 <p>We already introduced <span class="math inline">\(L_p\)</span> convergences in Lesson <a href="031-moments.html" class="quarto-xref"><span>Chapter 3</span></a>. We recall it for the sake of readibility.</p>
-<div id="def">
-<p>For <span class="math inline">\(p \in [1, \infty)\)</span>, <span class="math inline">\(L_p\)</span> is the set of random variables over <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span> that satisfy <span class="math inline">\(\mathbb{E} |X|^p &lt;\infty\)</span>. The <span class="math inline">\(p\)</span>-pseudo-norm is defined by <span class="math inline">\(\|X\|_p = \big(\mathbb{E} |X|^p \big)^{1/p}\)</span>. Convergence in <span class="math inline">\(L_p\)</span> means convergence for this pseudo-norm.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-convLp" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 14.2</strong></span> For <span class="math inline">\(p \in [1, \infty)\)</span>, <span class="math inline">\(L_p\)</span> is the set of random variables over <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span> that satisfy <span class="math inline">\(\mathbb{E} |X|^p &lt;\infty\)</span>. The <span class="math inline">\(p\)</span>-pseudo-norm is defined by <span class="math inline">\(\|X\|_p = \big(\mathbb{E} |X|^p \big)^{1/p}\)</span>.</p>
+<p>Convergence in <span class="math inline">\(L_p\)</span> means convergence for this pseudo-norm.</p>
+</div>
+</div>
+</div>
 </div>
 <p>Recall that <span class="math inline">\(L_p\)</span> spaces are nested (by Holder’s inequality) and complete.</p>
-<div id="prp">
-<p>Convergence in <span class="math inline">\(L_q, q\geq 1\)</span> implies convergence in <span class="math inline">\(L_p, 1\leq p \leq q\)</span>.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-convLp-comparison" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 14.1</strong></span> Convergence in <span class="math inline">\(L_q, q\geq 1\)</span> implies convergence in <span class="math inline">\(L_p, 1\leq p \leq q\)</span>.</p>
+</div>
+</div>
+</div>
 </div>
 <p>Almost sure convergence is not tied to integrability. We cannot ask whether almost sure convergence implies <span class="math inline">\(L_p\)</span> convergence. But we can ask whether <span class="math inline">\(L_p\)</span> convergence implies almost sure convergence. The next statement is a by-product of the proof of the completeness of <span class="math inline">\(L_p\)</span> spaces, see <a href="033-integration2moments.html#sec-lpspaces" class="quarto-xref">Section&nbsp;<span>4.7</span></a>).</p>
-<div id="thm">
-<p>Convergence in <span class="math inline">\(L_p\)</span> implies almost sure convergence <em>along a subsequence</em>.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-convLp-convAs" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 14.1</strong></span> Convergence in <span class="math inline">\(L_p\)</span> implies almost sure convergence <em>along a subsequence</em>.</p>
+</div>
+</div>
+</div>
 </div>
 <p>A counter-example given in <a href="033-integration2moments.html#sec-lpspaces" class="quarto-xref">Section&nbsp;<span>4.7</span></a>) shows that convergence in <span class="math inline">\(L_p\)</span> does not imply almost-sure convergence.</p>
 </section>
 <section id="sec-probaconvergence" class="level2" data-number="14.4">
 <h2 data-number="14.4" class="anchored" data-anchor-id="sec-probaconvergence"><span class="header-section-number">14.4</span> Convergence in probability</h2>
 <p>If we denote by <span class="math inline">\(L_0=L_0(\Omega, \mathcal{F}, P)\)</span> the set of real-valued random variables, the notion of convergence in probability is relevant to all sequences in <span class="math inline">\(L_0\)</span> like almost sure convergence. And like convergence in <span class="math inline">\(L_p, p\geq 1\)</span>, convergence in probability can be metrized.</p>
-<div id="def">
-<p>Let <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span> be a probability space.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-convproba" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 14.3</strong></span> Let <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span> be a probability space.</p>
 <p>A sequence <span class="math inline">\((X_n)_n\)</span> of random variables converges in probability towards a random variable <span class="math inline">\(X\)</span> if for any <span class="math inline">\(\epsilon&gt;0\)</span> <span class="math display">\[\lim_n P \{ |X_n -X| \geq \epsilon \}  = 0\, .\]</span></p>
 </div>
-<div id="prp">
-<p>Convergence in <span class="math inline">\(L_p, p\geq 1\)</span> implies convergence in probability.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-convproba" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 14.2</strong></span> Convergence in <span class="math inline">\(L_p, p\geq 1\)</span> implies convergence in probability.</p>
+</div>
+</div>
+</div>
 </div>
 <p>This is an immediate consequence of Markov’s inequality.</p>
-<div id="prp" name="A criterion for convergence in probability">
-<p>The sequence <span class="math inline">\((X_n)_n\)</span> converges in probability towards <span class="math inline">\(X\)</span> iff <span class="math display">\[\lim_n \mathbb{E} \Big[ 1 \wedge |X_n -X|\Big] = 0\]</span></p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-critConvProba" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 14.3 (A criterion for convergence in probability)</strong></span> The sequence <span class="math inline">\((X_n)_n\)</span> converges in probability towards <span class="math inline">\(X\)</span> iff <span class="math display">\[\lim_n \mathbb{E} \Big[ 1 \wedge |X_n -X|\Big] = 0\]</span></p>
+</div>
+</div>
+</div>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>Assuming convergence in probability, <span class="math display">\[\begin{array}{rl}
@@ -371,8 +435,17 @@ P \Big\{|X-X_n| \geq \epsilon \Big\}
 <br>
 <p>
 </p>
-<div id="prp">
-<p>Almost sure convergence implies convergence in probability.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-asconv-convproba" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 14.4</strong></span> Almost sure convergence implies convergence in probability.</p>
+</div>
+</div>
+</div>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>Assume <span class="math inline">\(X_n \to X\)</span> a.s., that is <span class="math inline">\(|X_n -X| \to 0\)</span>. Then by dominated convergence, <span class="math display">\[\lim_n \mathbb{E}\Big[ |X_n -X| \wedge 1\Big] = 0\]</span> which entails convergence in probability of <span class="math inline">\((X_n)_n\)</span> towards <span class="math inline">\(X\)</span>.</p>
@@ -388,14 +461,23 @@ P \Big\{|X-X_n| \geq \epsilon \Big\}
 </div>
 <div class="callout-body-container">
 <div id="def-kyfan" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 14.1 (Ky-Fan distance)</strong></span> The Ky-Fan distance is defined as <span class="math display">\[\mathrm{d}_{\mathrm{KF}}(X, Y) = \inf_{\epsilon\geq 0} P\Big\{ |X-Y| &gt;\epsilon\Big\}  \leq \epsilon \,.\]</span></p>
+<p><span class="theorem-title"><strong>Definition 14.4 (Ky-Fan distance)</strong></span> The Ky-Fan distance is defined as <span class="math display">\[\mathrm{d}_{\mathrm{KF}}(X, Y) = \inf_{\epsilon\geq 0} P\Big\{ |X-Y| &gt;\epsilon\Big\}  \leq \epsilon \,.\]</span></p>
 </div>
 </div>
 </div>
 </div>
 <p>Note that we have to check that <span class="math inline">\(\mathrm{d}_{\mathrm{KF}}\)</span> is indeed a distance. This is the content of Proposition @ref(prp:kyfanprop) below.</p>
-<div id="prp">
-<p>In the definition of the Ky-Fan distance, the infimum is attained.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-kyfan-min-inf" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 14.5</strong></span> In the definition of the Ky-Fan distance, the infimum is attained.</p>
+</div>
+</div>
+</div>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(a &gt; \mathrm{d}_{\mathrm{KF}}(X, Y)\)</span> the event <span class="math inline">\(A_a = \Big\{ |X-Y| &gt; a \Big\}\)</span> has probability smaller than <span class="math inline">\(\epsilon\)</span>. And if <span class="math inline">\(\epsilon &lt; a &lt; b\)</span>, <span class="math inline">\(A_b \subseteq  A_a\)</span>. By monotone converence, <span class="math inline">\(P\Big(\cap_n A_{\epsilon + 1/n}\Big)=  \lim_{n} \uparrow P\Big(A_{\epsilon + 1/n}\Big) = \epsilon\)</span>.</p>
@@ -410,7 +492,7 @@ P \Big\{|X-X_n| \geq \epsilon \Big\}
 </div>
 <div class="callout-body-container">
 <div id="prp-kyfanprop" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 14.1</strong></span> Ky-Fan distance satisfies:</p>
+<p><span class="theorem-title"><strong>Proposition 14.6</strong></span> Ky-Fan distance satisfies:</p>
 <ol type="1">
 <li><span class="math inline">\(\mathrm{d}_{\mathrm{KF}}(X, Y)=0 \Rightarrow X=Y \qquad \text{a.s.}\)</span></li>
 <li><span class="math inline">\(\mathrm{d}_{\mathrm{KF}}(X, Y) = \mathrm{d}_{\mathrm{KF}}(Y, X)\)</span></li>
@@ -435,12 +517,21 @@ P \Big( |X(\omega) - Z(\omega)| &gt; \mathrm{d}_{\mathrm{KF}}(X, Y) + \mathrm{d}
 <br>
 <p>
 </p>
-<div id="prp">
-<p>The two statements are equivalent:</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-kyfan-metrizes" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 14.7</strong></span> The two statements are equivalent:</p>
 <ol type="1">
 <li><span class="math inline">\((X_n)_n\)</span> converges in probability towards <span class="math inline">\(X\)</span></li>
 <li><span class="math inline">\(\mathrm{d}_{\mathrm{KF}}(X_n, X)\)</span> tends to <span class="math inline">\(0\)</span> as <span class="math inline">\(n\)</span> tends to infinity.</li>
 </ol>
+</div>
+</div>
+</div>
 </div>
 <div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
@@ -471,7 +562,7 @@ P \Big( |X(\omega) - Z(\omega)| &gt; \mathrm{d}_{\mathrm{KF}}(X, Y) + \mathrm{d}
 </div>
 <div class="callout-body-container">
 <div id="def-convproba" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 14.2 (Convergence in probability, multivariate setting)</strong></span> A sequence <span class="math inline">\((X_n)_{n \in \mathbb{N}}\)</span> of <span class="math inline">\(\mathbb{R}^k\)</span>-valued random variables living on the same probability space <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span> converges in probability (in <span class="math inline">\(\mathbb{P}\)</span>-probability) towards a <span class="math inline">\(\mathbb{R}^k\)</span>-valued random variable <span class="math inline">\(X\)</span> iff for every <span class="math inline">\(\epsilon &gt;0\)</span></p>
+<p><span class="theorem-title"><strong>Definition 14.5 (Convergence in probability, multivariate setting)</strong></span> A sequence <span class="math inline">\((X_n)_{n \in \mathbb{N}}\)</span> of <span class="math inline">\(\mathbb{R}^k\)</span>-valued random variables living on the same probability space <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span> converges in probability (in <span class="math inline">\(\mathbb{P}\)</span>-probability) towards a <span class="math inline">\(\mathbb{R}^k\)</span>-valued random variable <span class="math inline">\(X\)</span> iff for every <span class="math inline">\(\epsilon &gt;0\)</span></p>
 <p><span class="math display">\[\lim_{n \to \infty} \mathbb{P} \{ \Vert X_n -X\Vert &gt; \epsilon \} = 0 \,.\]</span></p>
 </div>
 </div>
@@ -488,7 +579,7 @@ P \Big( |X(\omega) - Z(\omega)| &gt; \mathrm{d}_{\mathrm{KF}}(X, Y) + \mathrm{d}
 </div>
 <div class="callout-body-container">
 <div id="thm-wlln" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 14.1 (Weak law of large numbers)</strong></span> If <span class="math inline">\(X_1, \ldots, X_n, \ldots\)</span> are independently, identically distributed, integrable <span class="math inline">\(\mathbb{R}^k\)</span>-valued random variables over <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span> with expectation <span class="math inline">\(\mu\)</span> then the sequence <span class="math inline">\((\overline{X}_n)\)</span> defined by <span class="math inline">\(\overline{X}_n := \frac{1}{n} \sum_{i=1}^n X_i\)</span> converges in <span class="math inline">\(P\)</span>-probability towards <span class="math inline">\(\mu\)</span>.</p>
+<p><span class="theorem-title"><strong>Theorem 14.2 (Weak law of large numbers)</strong></span> If <span class="math inline">\(X_1, \ldots, X_n, \ldots\)</span> are independently, identically distributed, integrable <span class="math inline">\(\mathbb{R}^k\)</span>-valued random variables over <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span> with expectation <span class="math inline">\(\mu\)</span> then the sequence <span class="math inline">\((\overline{X}_n)\)</span> defined by <span class="math inline">\(\overline{X}_n := \frac{1}{n} \sum_{i=1}^n X_i\)</span> converges in <span class="math inline">\(P\)</span>-probability towards <span class="math inline">\(\mu\)</span>.</p>
 </div>
 </div>
 </div>
@@ -528,7 +619,7 @@ P\Big\{ \Big|\frac{1}{n}\sum_{i=1}^n X_i - \mu\Big| &gt; \epsilon\Big\}
 </div>
 <div class="callout-body-container">
 <div id="thm-slln" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 14.2 (Strong law of large numbers, direct part)</strong></span> If <span class="math inline">\(X_1, \ldots, X_n, \ldots\)</span> are independently, identically distributed, integrable <span class="math inline">\(\mathbb{R}\)</span>-valued random variables over <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span> with expectation <span class="math inline">\(\mu\)</span> then <span class="math inline">\(P\)</span>-a.s. <span class="math display">\[\lim_{n \to \infty}    \overline{X}_n =   \mu \qquad\text{with} \quad \overline{X}_n := \frac{1}{n} \sum_{i=1}^n X_i  .\]</span></p>
+<p><span class="theorem-title"><strong>Theorem 14.3 (Strong law of large numbers, direct part)</strong></span> If <span class="math inline">\(X_1, \ldots, X_n, \ldots\)</span> are independently, identically distributed, integrable <span class="math inline">\(\mathbb{R}\)</span>-valued random variables over <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span> with expectation <span class="math inline">\(\mu\)</span> then <span class="math inline">\(P\)</span>-a.s. <span class="math display">\[\lim_{n \to \infty}    \overline{X}_n =   \mu \qquad\text{with} \quad \overline{X}_n := \frac{1}{n} \sum_{i=1}^n X_i  .\]</span></p>
 </div>
 </div>
 </div>
@@ -599,12 +690,11 @@ P\Big\{ \Big|\frac{1}{n}\sum_{i=1}^n X_i - \mu\Big| &gt; \epsilon\Big\}
 <p>If <span class="math inline">\(n(k) \leq n &lt; n(k+1)\)</span>, as <span class="math inline">\((S_n)_n\)</span> is non-decreasing, <span class="math display">\[\frac{n(k)}{n(k+1)}\frac{S_{n(k)}}{n(k)}\leq \frac{S_n}{n}\leq \frac{n(k+1)}{n(k)}\frac{S_{n(k+1)}}{n(k+1)}\]</span> with <span class="math display">\[\frac{1}{\alpha} \Big(1 - \frac{1}{\alpha^k} \Big)\leq \frac{n(k+1)}{n(k)}  \leq \alpha \left(1 + \frac{1}{\lfloor \alpha^k\rfloor}\right) \, .\]</span></p>
 <p>Taking <span class="math inline">\(k\)</span> to infinty, almost surely <span class="math display">\[\frac{1}{\alpha} \mathbb{E} X_1 \leq \liminf_n \frac{S_n}{n} \leq \limsup_n \frac{S_n}{n} \leq \alpha \mathbb{E}X_1 \, .\]</span></p>
 <p>Finally, we may choose <span class="math inline">\(\alpha\)</span> arbitrarily close to <span class="math inline">\(1\)</span>, to establish the desired result.</p>
-<p><span class="math inline">\(\square\)</span></p>
 </div>
 <div id="rem-slln" class="proof remark">
 <p><span class="proof-title"><em>Remark 14.1</em>. </span>In the statement of the Theorem, we can replace the independence assumption by a pairwise independence assumption.</p>
 </div>
-<p><a href="#thm-convslln" class="quarto-xref">Theorem&nbsp;<span>14.3</span></a>) shows that, under independence assumption, the conditions in <a href="#thm-slln" class="quarto-xref">Theorem&nbsp;<span>14.2</span></a>) are tight. Before proceeding to the proof of <a href="#thm-convslln" class="quarto-xref">Theorem&nbsp;<span>14.3</span></a>), we state and prove the second Borel-Cantelli Lemma.</p>
+<p><a href="#thm-convslln" class="quarto-xref">Theorem&nbsp;<span>14.4</span></a>) shows that, under independence assumption, the conditions in <a href="#thm-slln" class="quarto-xref">Theorem&nbsp;<span>14.3</span></a>) are tight. Before proceeding to the proof of <a href="#thm-convslln" class="quarto-xref">Theorem&nbsp;<span>14.4</span></a>), we state and prove the second Borel-Cantelli Lemma.</p>
 <br>
 <p>
 </p>
@@ -635,7 +725,6 @@ P\Big\{ \Big|\frac{1}{n}\sum_{i=1}^n X_i - \mu\Big| &gt; \epsilon\Big\}
   &amp; = \lim_n \uparrow 0 \\
   &amp; = 0 \, .
 \end{array}\]</span></p>
-<p><span class="math inline">\(\square\)</span></p>
 </div>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -644,7 +733,7 @@ P\Big\{ \Big|\frac{1}{n}\sum_{i=1}^n X_i - \mu\Big| &gt; \epsilon\Big\}
 </div>
 <div class="callout-body-container">
 <div id="thm-convslln" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 14.3 (Strong law of large numbers, converse part)</strong></span> Let <span class="math inline">\(X_1, \ldots, X_n, \ldots\)</span> be independently, identically distributed <span class="math inline">\(\mathbb{R}\)</span>-valued random variables over some <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span>. If for some finite constant <span class="math inline">\(\mu\)</span>, <span class="math display">\[\lim_{n \to \infty}    \sum_{i\leq n} X_i/n =   \mu \qquad \text{almost surely,}\]</span> then all <span class="math inline">\(X_i\)</span> are integrable and <span class="math inline">\(\mathbb{E}X_i = \mu.\)</span></p>
+<p><span class="theorem-title"><strong>Theorem 14.4 (Strong law of large numbers, converse part)</strong></span> Let <span class="math inline">\(X_1, \ldots, X_n, \ldots\)</span> be independently, identically distributed <span class="math inline">\(\mathbb{R}\)</span>-valued random variables over some <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span>. If for some finite constant <span class="math inline">\(\mu\)</span>, <span class="math display">\[\lim_{n \to \infty}    \sum_{i\leq n} X_i/n =   \mu \qquad \text{almost surely,}\]</span> then all <span class="math inline">\(X_i\)</span> are integrable and <span class="math inline">\(\mathbb{E}X_i = \mu.\)</span></p>
 </div>
 </div>
 </div>
@@ -658,7 +747,6 @@ P\Big\{ \Big|\frac{1}{n}\sum_{i=1}^n X_i - \mu\Big| &gt; \epsilon\Big\}
   &amp; =  \Big\{ \omega : \frac{S_{n+1}(\omega)}{n+1} - \frac{S_{n}(\omega)}{n} &gt; 1 + \frac{S_{n}(\omega)}{n(n+1)} \Big\} \, .
 \end{array}\]</span> Assume by contradiction that the <span class="math inline">\(X_i\)</span>’s are not integrable. Then by the second Borel-Cantelli Lemma, with probability <span class="math inline">\(1\)</span>, infinitely many events <span class="math display">\[\Big\{ \omega : \frac{S_{n+1}}{n+1} - \frac{S_{n}}{n} &gt; 1 + \frac{S_{n}}{n(n+1)} \Big\}\]</span></p>
 <p>occur. But this cannot happen if <span class="math inline">\(S_n/n\)</span> converges toward a finite limit.</p>
-<p><span class="math inline">\(\square\)</span></p>
 </div>
 <br>
 <p>
@@ -672,7 +760,7 @@ P\Big\{ \Big|\frac{1}{n}\sum_{i=1}^n X_i - \mu\Big| &gt; \epsilon\Big\}
 </div>
 <div class="callout-body-container">
 <div id="def-tailalgebra" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 14.3 (Tail sigma-algebra)</strong></span> Assume <span class="math inline">\(X_1, \ldots, X_n, \ldots\)</span> are random variables. The tail <span class="math inline">\(\sigma\)</span>-algebra (or the <span class="math inline">\(\sigma\)</span>-algebra of tail events) is defined as: <span class="math display">\[\mathcal{T} = \cap_{n=}^\infty \sigma\Big(X_n, X_{n+1}, \ldots \Big) \, .\]</span></p>
+<p><span class="theorem-title"><strong>Definition 14.6 (Tail sigma-algebra)</strong></span> Assume <span class="math inline">\(X_1, \ldots, X_n, \ldots\)</span> are random variables. The tail <span class="math inline">\(\sigma\)</span>-algebra (or the <span class="math inline">\(\sigma\)</span>-algebra of tail events) is defined as: <span class="math display">\[\mathcal{T} = \cap_{n=}^\infty \sigma\Big(X_n, X_{n+1}, \ldots \Big) \, .\]</span></p>
 </div>
 </div>
 </div>
@@ -685,7 +773,7 @@ P\Big\{ \Big|\frac{1}{n}\sum_{i=1}^n X_i - \mu\Big| &gt; \epsilon\Big\}
 </div>
 <div class="callout-body-container">
 <div id="thm-01law" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 14.4 (0-1-Law)</strong></span> Assume <span class="math inline">\(X_1, \ldots, X_n, \ldots\)</span> are independent random variables. Any event in the tail <span class="math inline">\(\sigma\)</span>-algebra <span class="math inline">\(\mathcal{T}\)</span> has probability either <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>.</p>
+<p><span class="theorem-title"><strong>Theorem 14.5 (0-1-Law)</strong></span> Assume <span class="math inline">\(X_1, \ldots, X_n, \ldots\)</span> are independent random variables. Any event in the tail <span class="math inline">\(\sigma\)</span>-algebra <span class="math inline">\(\mathcal{T}\)</span> has probability either <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>.</p>
 </div>
 </div>
 </div>
@@ -694,7 +782,6 @@ P\Big\{ \Big|\frac{1}{n}\sum_{i=1}^n X_i - \mu\Big| &gt; \epsilon\Big\}
 <p><span class="proof-title"><em>Proof</em>. </span>It suffices to check that any event <span class="math inline">\(A \in \mathcal{T}\)</span> satisfies <span class="math inline">\(P(A)^2 = P(A)\)</span>, or equivalently that <span class="math inline">\(P(A) = P(A \cap A) = P(A) \times P(A)\)</span>, that is <span class="math inline">\(A\)</span> is independent of itself.</p>
 <p>For any <span class="math inline">\(n\)</span>, as an event in <span class="math inline">\(\sigma\big(X_n, X_{n+1}, \ldots \big)\)</span>, <span class="math inline">\(A\)</span> is independent from any event in <span class="math inline">\(\sigma\big(X_1, \ldots, X_n\big)\)</span>. But this entails that <span class="math inline">\(A\)</span> is independent from any event in <span class="math inline">\(\cup_n \sigma\big(X_1, \ldots, X_n\big)\)</span>.</p>
 <p>Observe that <span class="math inline">\(\cup_n \sigma\big(X_1, \ldots, X_n\big)\)</span> is a <span class="math inline">\(\pi\)</span>-system. Hence, <span class="math inline">\(A\)</span> is independent from any event from the <span class="math inline">\(\sigma\)</span>-algebra generated by <span class="math inline">\(\cup_n \sigma\big(X_1, \ldots, X_n\big)\)</span>, which happens to be <span class="math inline">\(\mathcal{F}\)</span>. As <span class="math inline">\(A \in \mathcal{T}  \subset \mathcal{F}\)</span>, <span class="math inline">\(A\)</span> is independent from itself.</p>
-<p><span class="math inline">\(\square\)</span></p>
 </div>
 <br>
 <p>
@@ -731,7 +818,6 @@ P\Big\{ \Big|\frac{1}{n}\sum_{i=1}^n X_i - \mu\Big| &gt; \epsilon\Big\}
 \end{array}\]</span> Note that <span class="math inline">\(\psi_{Y}(0)  = \psi_{Y}'(0) =0\)</span>, and by Taylor’s theorem, for some <span class="math inline">\(\theta \in [0,\lambda]\)</span>, <span class="math display">\[  \psi_Y(\lambda) = \psi_Y(0) + \lambda\psi_Y'(0)
   + \frac{\lambda^2}{2}\psi_Y''(\theta)
    \leq  \frac{\lambda^2(b-a)^2}{8}~.\]</span></p>
-<p><span class="math inline">\(\square\)</span></p>
 </div>
 <br>
 <p>
@@ -745,7 +831,7 @@ P\Big\{ \Big|\frac{1}{n}\sum_{i=1}^n X_i - \mu\Big| &gt; \epsilon\Big\}
 </div>
 <div class="callout-body-container">
 <div id="thm-hoeffding" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 14.5 (Hoeffding’s inequality)</strong></span> Let <span class="math inline">\(X_1,\ldots,X_n\)</span> be independent random variables such that <span class="math inline">\(X_i\)</span> takes its values in <span class="math inline">\([a_i,b_i]\)</span> almost surely for all <span class="math inline">\(i\leq n\)</span>. Let <span class="math display">\[S=\sum_{i=1}^n\left(X_i- \mathbb{E} X_i \right)~.\]</span></p>
+<p><span class="theorem-title"><strong>Theorem 14.6 (Hoeffding’s inequality)</strong></span> Let <span class="math inline">\(X_1,\ldots,X_n\)</span> be independent random variables such that <span class="math inline">\(X_i\)</span> takes its values in <span class="math inline">\([a_i,b_i]\)</span> almost surely for all <span class="math inline">\(i\leq n\)</span>. Let <span class="math display">\[S=\sum_{i=1}^n\left(X_i- \mathbb{E} X_i \right)~.\]</span></p>
 <p>Then <span class="math display">\[\operatorname{var}(S) \leq \sum_{i=1}^n  \frac{(b_i-a_i)^2}{4} \, .\]</span></p>
 <p>Let <span class="math inline">\(v\)</span> denote the upper bound on the variance. For any <span class="math inline">\(\lambda \in \mathbb{R}\)</span>, <span class="math display">\[\log \mathbb{E} \mathrm{e}^{\lambda S} \leq \frac{\lambda^2 v}{2} \, .\]</span></p>
 <p>Then for every <span class="math inline">\(t&gt;0\)</span>, <span class="math display">\[P\left\{  S \geq t \right\}  \le
@@ -774,12 +860,11 @@ P\Big\{ \Big|\frac{1}{n}\sum_{i=1}^n X_i - \mu\Big| &gt; \epsilon\Big\}
   &amp; \leq \exp\Big(- \sup_{\lambda \geq 0}\big(  \lambda t - \frac{\lambda^2 v}{2}\big) \Big) \\
   &amp; = \mathrm{e}^{- \frac{t^2}{2v}  } \, .
 \end{array}\]</span></p>
-<p><span class="math inline">\(\square\)</span></p>
 </div>
 <br>
 <p>
 </p>
-<p>Hoeffding’s inequality provides interesting tail bounds for binomial random variables which are sums of independent <span class="math inline">\([0,1]\)</span>-valued random variables. However in some cases, the variance upper bound used in Hoeffding’s inequality is excessively conservative. Think for example of binomial random variable with parameters <span class="math inline">\(n\)</span> and <span class="math inline">\(\mu/n\)</span>, the variance upper-bound obtained from the boundedness assumption is <span class="math inline">\(n\)</span> while the true variance is <span class="math inline">\(\mu\)</span>. This motivates the next two exponential inequalities stated in <a href="#thm-zbennett" class="quarto-xref">Theorem&nbsp;<span>14.6</span></a>) and <a href="#thm-zbernstein" class="quarto-xref">Theorem&nbsp;<span>14.7</span></a>).</p>
+<p>Hoeffding’s inequality provides interesting tail bounds for binomial random variables which are sums of independent <span class="math inline">\([0,1]\)</span>-valued random variables. However in some cases, the variance upper bound used in Hoeffding’s inequality is excessively conservative. Think for example of binomial random variable with parameters <span class="math inline">\(n\)</span> and <span class="math inline">\(\mu/n\)</span>, the variance upper-bound obtained from the boundedness assumption is <span class="math inline">\(n\)</span> while the true variance is <span class="math inline">\(\mu\)</span>. This motivates the next two exponential inequalities stated in <a href="#thm-zbennett" class="quarto-xref">Theorem&nbsp;<span>14.7</span></a>) and <a href="#thm-zbernstein" class="quarto-xref">Theorem&nbsp;<span>14.8</span></a>).</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -787,7 +872,7 @@ P\Big\{ \Big|\frac{1}{n}\sum_{i=1}^n X_i - \mu\Big| &gt; \epsilon\Big\}
 </div>
 <div class="callout-body-container">
 <div id="thm-zbennett" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 14.6 (Bennett’s inequality)</strong></span> Let <span class="math inline">\(X_1,\ldots,X_n\)</span> be independent random variables with finite variance such that <span class="math inline">\(X_i\le b\)</span> for some <span class="math inline">\(b&gt;0\)</span> almost surely for all <span class="math inline">\(i\leq n\)</span>. Let <span class="math display">\[S=\sum_{i=1}^n \left(  X_i-\mathbb{E} X_i\right)\]</span></p>
+<p><span class="theorem-title"><strong>Theorem 14.7 (Bennett’s inequality)</strong></span> Let <span class="math inline">\(X_1,\ldots,X_n\)</span> be independent random variables with finite variance such that <span class="math inline">\(X_i\le b\)</span> for some <span class="math inline">\(b&gt;0\)</span> almost surely for all <span class="math inline">\(i\leq n\)</span>. Let <span class="math display">\[S=\sum_{i=1}^n \left(  X_i-\mathbb{E} X_i\right)\]</span></p>
 <p>and <span class="math inline">\(v=\sum_{i=1}^n \mathbb{E}\left[X_i^2\right]\)</span>. Let <span class="math inline">\(\phi(u)=e^u-u-1\)</span> for <span class="math inline">\(u\in \mathbb{R}\)</span>.</p>
 <p>Then, for all <span class="math inline">\(\lambda &gt; 0\)</span>, <span class="math display">\[\log \mathbb{E} e^{\lambda S}  \leq \frac{v}{b^2} \phi(b\lambda) \, ,\]</span> and for any <span class="math inline">\(t&gt;0\)</span>, <span class="math display">\[P\{  S\geq t\}  \leq
 \exp\left(  -\frac{v}{b^2}h\left(\frac{bt}{v}\right) \right)\]</span></p>
@@ -810,7 +895,6 @@ P\Big\{ \Big|\frac{1}{n}\sum_{i=1}^n X_i - \mu\Big| &gt; \epsilon\Big\}
 &amp; =  \mathbb{E} \phi(\lambda X_i) \\
 &amp; = \mathbb{E}X_i^2 \phi(\lambda) \, .
 \end{array}\]</span></p>
-<p><span class="math inline">\(\square\)</span></p>
 </div>
 <br>
 <p>
@@ -823,7 +907,7 @@ P\Big\{ \Big|\frac{1}{n}\sum_{i=1}^n X_i - \mu\Big| &gt; \epsilon\Big\}
 </div>
 <div class="callout-body-container">
 <div id="thm-zbernstein" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 14.7 (Bernstein’s inequality)</strong></span> Let <span class="math inline">\(X_1,\ldots,X_n\)</span> be independent real-valued random variables. Assume that there exist positive numbers <span class="math inline">\(v\)</span> and <span class="math inline">\(c\)</span> such that <span class="math inline">\(\sum_{i=1}^n \mathbb{E}\left[X_i^2\right]  \leq v\)</span> and <span class="math display">\[\sum_{i=1}^n
+<p><span class="theorem-title"><strong>Theorem 14.8 (Bernstein’s inequality)</strong></span> Let <span class="math inline">\(X_1,\ldots,X_n\)</span> be independent real-valued random variables. Assume that there exist positive numbers <span class="math inline">\(v\)</span> and <span class="math inline">\(c\)</span> such that <span class="math inline">\(\sum_{i=1}^n \mathbb{E}\left[X_i^2\right]  \leq v\)</span> and <span class="math display">\[\sum_{i=1}^n
 \mathbb{E}\left[  \left(X_i\right)_+^q \right]
 \leq\frac{q!}{2}vc^{q-2}\quad \text{for all integers $q\geq3$}~.\]</span></p>
 <p>Let <span class="math inline">\(S=\sum_{i=1}^n \left(X_i-\mathbb{E} X_i \right).\)</span></p>
@@ -851,7 +935,6 @@ P\Big\{ \Big|\frac{1}{n}\sum_{i=1}^n X_i - \mu\Big| &gt; \epsilon\Big\}
   &amp; \leq \frac{\lambda^2 v}{2} + \sum_{k=3}^\infty \frac{\lambda^k v c^{k-2}}{2} \\
   &amp; =  \frac{\lambda^2 v}{2 (1 - c \lambda)} \, .
 \end{array}\]</span> The tail bound follows by maximizing <span class="math display">\[\sup_{\lambda \in [0,1/c)}  \lambda t - \frac{\lambda^2 v}{2 (1 - c \lambda)} = \frac{v}{c^2} \sup_{\eta \in [0,1)} \eta \frac{ct}{v} - \frac{\eta^2}{2(1-\eta)} \, .\]</span></p>
-<p><span class="math inline">\(\square\)</span></p>
 </div>
 </section>
 <section id="sec-bibconvrv" class="level2" data-number="14.8">

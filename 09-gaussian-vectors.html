@@ -652,7 +652,6 @@ v^\top M v &gt; 0 \qquad (\text{resp.} \qquad v^\top M v \geq 0) \, .
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>The density formula is trivially correct for standard Gaussian vectors. For the general case, it is enough to invoke the image density formula to the image of the standard Gaussian vector by the bijective linear transformation defined by the Cholesky factorization of <span class="math inline">\(A\)</span>. The determinant of the Cholesky factor is the square root of the determinant of <span class="math inline">\(A\)</span>.</p>
-<p><span class="math inline">\(\square\)</span></p>
 </div>
 <div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
@@ -747,7 +746,6 @@ v^\top M v &gt; 0 \qquad (\text{resp.} \qquad v^\top M v \geq 0) \, .
 &amp; =  \mathbb{E} \left[ \mathrm{e}^{\imath \mu Z}  \right] \times
 \mathbb{E} \left[ \mathrm{e}^{\imath \mu' Y} \right] .
 \end{align*}\]</span></p>
-<p><span class="math inline">\(\square\)</span></p>
 </div>
 <p>The next proposition is a direct consequence.</p>
 <div class="callout callout-style-simple callout-note no-icon">
@@ -994,7 +992,6 @@ Y_{k+1}\\ \vdots \\ Y_n
 \begin{pmatrix}
 X_1\\ \vdots \\ X_k
 \end{pmatrix}\]</span> (the conditional expectation) and variance <span class="math inline">\(L_2 \times L_2^\top = W - B A^{-1} B^\top\)</span>.</p>
-<p><span class="math inline">\(\square\)</span></p>
 </div>
 <div id="exm-conditional-gaussian" class="theorem example">
 <p><span class="theorem-title"><strong>Example 16.1</strong></span> If <span class="math inline">\((X,Y)^\top\)</span> is a centered Gaussian vector with <span class="math inline">\(\operatorname{var}(X)=\sigma_x^2\)</span>, <span class="math inline">\(\operatorname{var}(Y)=\sigma^2_y\)</span> and <span class="math inline">\(\operatorname{cov}(X,Y)= \rho \sigma_x \sigma_y\)</span>, the conditional distribution of <span class="math inline">\(Y\)</span> with respect to <span class="math inline">\(X\)</span> is</p>
@@ -1129,7 +1126,6 @@ B(p,q):=   \int_0^{1} u^{p-1} (1 - u)^{q - 1}
 \mathrm{d} u
 \]</span></p>
 <p>satisfies <span class="math inline">\(B(p,q) = \frac{\Gamma(p)\Gamma(q)}{\Gamma(p+q)}.\)</span></p>
-<p><span class="math inline">\(\square\)</span></p>
 </div>
 <p>Gamma distributions with parameters <span class="math inline">\((k / 2, 1 / 2)\)</span> for <span class="math inline">\(k \in
 \mathbb{N}\)</span> deserve to be named: they are <span class="math inline">\(\chi^2\)</span> distributions with <span class="math inline">\(k\)</span> degrees of freedom.</p>
@@ -1169,7 +1165,6 @@ B(p,q):=   \int_0^{1} u^{p-1} (1 - u)^{q - 1}
 \end{align*}\]</span> Now, differentiating with respect to <span class="math inline">\(t\)</span>, applying the chain rule provides us with a formula for the density: <span class="math display">\[
 2 \frac{1}{2\sqrt{t}} \phi(\sqrt{t}) = \frac{1}{\sqrt{2\pi t}} \mathrm{e}^{-\frac{t}{2}} = \left(\frac{1}{2}\right)^{1/2} \frac{t^{-1/2}}{\Gamma(1/2)} \mathrm{e}^{-\frac{t}{2}} \,.
 \]</span></p>
-<p><span class="math inline">\(\square\)</span></p>
 </div>
 </section>
 <section id="norms-of-centred-gaussian-vectors" class="level2" data-number="16.6">
@@ -1194,7 +1189,6 @@ B(p,q):=   \int_0^{1} u^{p-1} (1 - u)^{q - 1}
 {X}\)</span> is thus distributed like <span class="math inline">\({Y}^\top {L}^\top M
 {L}  {Y}\)</span>. There exist an orthogonal transform <span class="math inline">\(O\)</span> such that <span class="math inline">\(L^\top M L = O^\top \operatorname{diag}
 (\lambda_i) O.\)</span> Random vector <span class="math inline">\(O {Y}\)</span> is distributed like <span class="math inline">\(\mathcal{N} (0, I_n)\)</span>.</p>
-<p><span class="math inline">\(\square\)</span></p>
 </div>
 </section>
 <section id="sec-norm-non-centered" class="level2" data-number="16.7">
@@ -1284,7 +1278,6 @@ O \theta = \begin{pmatrix}
 \Phi(\sqrt{x}- \|\theta\|_2) - \Phi(-\sqrt{x}-\|\theta\|_2)  \leq \Phi(\sqrt{x}) -  \Phi(-\sqrt{x}) \, .
 \]</span></p>
 <p>For <span class="math inline">\(y&gt;0\)</span>, the function mapping <span class="math inline">\([0,\infty)\)</span> to <span class="math inline">\(\mathbb{R}\)</span>, defined by <span class="math inline">\(a \mapsto \Phi(y-a) - \Phi(-y-a)\)</span> is non-increasing with respect to <span class="math inline">\(a\)</span>: it derivative with respect to <span class="math inline">\(a\)</span> equals <span class="math inline">\(-\phi(y-a)+\phi(-y-a)=\phi(y+a)-\phi(y-a)\leq 0\)</span>. The conclusion follows</p>
-<p><span class="math inline">\(\square\)</span></p>
 </div>
 <p>The last step of the proof reads as <span class="math display">\[
 \mathbb{P} \left\{ X \in \theta + C \right\} \leq \mathbb{P} \left\{ X \in C\right\}
@@ -1320,7 +1313,6 @@ O \theta = \begin{pmatrix}
 \alpha_j^\top \pi_{E_j} \pi_{E_{j'}} \beta_{j'}
 =  0 \, .
 \end{eqnarray*}\]</span></p>
-<p><span class="math inline">\(\square\)</span></p>
 </div>
 <p>The next result is a cornerstone of statistical inference in Gaussian models. It is a corollary of Cochran’s Theorem.</p>
 <div class="callout callout-style-simple callout-note no-icon">
@@ -1357,7 +1349,6 @@ Of <span class="math inline">\((X_1, \ldots, X_n)\)</span> are i.i.d. according 
 <p>According to Cochran’s Theorem (<a href="#sec-cochran" class="quarto-xref"><span>Section 16.8</span></a>), random vectors <span class="math inline">\((\overline{X}_n, \ldots , \overline{X}_n)^\top\)</span>, and <span class="math inline">\((X_1- \overline{X}_n, \ldots , X_n -\overline{X}_n)^\top\)</span> are independent.</p>
 <p>The distribution of <span class="math inline">\(\overline{X}_n\)</span> is trivially Gaussian.</p>
 <p>The distribution of <span class="math inline">\(V\)</span> is characterized using Cochran’s Theorem.</p>
-<p><span class="math inline">\(\square\)</span></p>
 </div>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -1444,7 +1435,6 @@ F'( \lambda) \leq \lambda L^2 F(\lambda) \,.
 F( \lambda) \leq \mathrm{e}^{\frac{\lambda^2L^2}{2}} \, .
 \]</span></p>
 <p>The same approach works for <span class="math inline">\(\lambda&lt;0\)</span>. It is enough to invoke Markov’s exponential inequality and to optimize with respect to <span class="math inline">\(\lambda=t/L^2\)</span>.</p>
-<p><span class="math inline">\(\square\)</span></p>
 </div>
 <p>Concentration inequalities describe the behavior of the norm of high-dimensional Gaussian vectors.</p>
 <div class="callout callout-style-simple callout-note no-icon">
@@ -1467,7 +1457,6 @@ F( \lambda) \leq \mathrm{e}^{\frac{\lambda^2L^2}{2}} \, .
 <p><span class="proof-title"><em>Proof</em>. </span>The Euclidean norm is <span class="math inline">\(1\)</span>-Lipschitz (triangle inequality). The first inequality follows fron Poincaré’s inequality.</p>
 <p>The upper bound on expectation follows from Jensen’s inequality.</p>
 <p>The lower bound on expectation follows from <span class="math inline">\((\mathbb{E} \|X\|_2)^2 = \mathbb{E} \|X\|_2^2 - \operatorname{var}(\|X\|_2)= d -\operatorname{var}(\|X\|_2)\)</span> and from the variance upper bound.</p>
-<p><span class="math inline">\(\square\)</span></p>
 </div>
 <div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
