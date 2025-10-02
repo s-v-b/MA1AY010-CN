@@ -468,7 +468,7 @@ P \Big\{ Y \leq y \Big\} = \int_{(-\infty, y] \cap \phi(\text{supp}(P))} \frac{f
 $$
 
 
-$\square$
+  
 
 :::
 
@@ -580,7 +580,7 @@ This suffices to conclude that $f\circ \phi^\leftarrow \Big|J_{\phi^\leftarrow}\
 the density of $P \circ \phi^{-1}$ with respect to Lebesgue measure over $\phi(U)$.
 
 
-$\square$
+  
 :::
 
 

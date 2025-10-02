@@ -597,7 +597,7 @@ $$
 The fourth equality is justified by the monotone convergence theorem, others
 equalities follow from the fact that we are handling non-negative series.
 
-$\square$
+  
 
 :::
 

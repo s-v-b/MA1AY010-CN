@@ -55,7 +55,7 @@ format:
     
   pdf:
     documentclass: memoir
-    classoption: [10pt, a4paper, twoside]
+    classoption: [11pt, a4paper, twoside]
     mainfont: EB Garamond
     sansfont: Iwona Cond Medium
     papersize: A4

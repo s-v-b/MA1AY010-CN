@@ -277,7 +277,7 @@ $$
 P \Big\{\omega :  \lim_n Y_n(\omega) =Y(\omega) \Big\} = 1 \, .
 $$
 
-$\square$
+  
 :::
 
 
@@ -346,7 +346,7 @@ $$
 \limsup_n \Big| \mathbb{E} h(X_n) - h(X_n + \sigma Z) \Big| \leq \epsilon \, .
 $$
 
-$\square$
+  
 
 :::
 
@@ -379,7 +379,7 @@ We have proved more than weak convergence, namely $$
 \lim_n \sup_{A \in \mathcal{B}(\mathbb{R})} |P_n(A) - P(A)| = 0 \, .
 $$
 
-$\square$
+  
 
 :::
 
@@ -399,7 +399,7 @@ this entails that $X_n + \sigma Z \rightsquigarrow X + \sigma Z$.
 
 As  this holds for all $\sigma>0$, this entails that $X_n \rightsquigarrow X.$
 
-$\square$
+  
 
 :::
 
@@ -541,7 +541,7 @@ $$
 \end{align*}
 where the two inequalities follow from the bounds on the $\operatorname{sinc}$ function.
 
-$\square$
+  
 
 :::
 
@@ -577,7 +577,7 @@ P_n \Big[\frac{-1}{u}, \frac{1}{u}\Big]^c \leq 7 \epsilon \, .
 $$
 The interval $\Big[\frac{-1}{u}, \frac{1}{u}\Big]$ is compact.
 
-$\square$
+  
 
 :::
 
@@ -592,7 +592,7 @@ This entails $\widehat{F}_{n(k)} \rightarrow \widehat{F} \text{ as } {k \to \inf
 This also entails that $\widehat{F}_n \rightarrow \widehat{F}$ pointwise for the whole sequence.
 Finally, we are able to invoke [Theorem @thm-thmlevycont])  to conclude $P_{n}\rightsquigarrow  P \text{ as }{n \to \infty}$.
 
-$\square$
+  
 
 :::
 
@@ -637,7 +637,7 @@ $\lim_n \Big| \mathbb{E}h(X_n) - \mathbb{E}h(X)  \Big|=0$. This is sufficient to
 convergence in distribution of $(X_n)_n$.
 
 
-$\square$
+  
 :::
 
 
@@ -683,7 +683,7 @@ $$
 
 On the right-hand-side, we recognize the characteristic function of $\mathcal{N}(0,1)$.
 
-$\square$
+  
 :::
 
 ::: {#rem-cond-proof}

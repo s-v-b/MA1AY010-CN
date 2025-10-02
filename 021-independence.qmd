@@ -221,7 +221,7 @@ event in $\mathcal{H}$ is a $\lambda$-class (by the same line of reasoning as ab
 As this $\lambda$-class contains $\mathcal{C}$, by the monotone class Lemma again,
 it contains $\sigma(\mathcal{C})=\mathcal{G}$.
 
-$\square$
+  
 
 :::
 
@@ -248,7 +248,7 @@ all $s, t \in \mathbb{Q}$.
 Events of the form $\{X \leq t\}, t \in \mathbb{R}$ form a $\pi$ class
 generating $\sigma(X)$.
 
-$\square$
+  
 
 :::
 

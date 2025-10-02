@@ -273,7 +273,7 @@ G_{X+Y}(\lambda)
 \end{array}
 $$
 
-$\square$
+  
 
 :::
 
@@ -474,7 +474,7 @@ Hence, $\widehat{F}$ is a solution of the differential equation: $g'(t) = -t g(t
 
 The differential equation is readily solved, and the solution is $g(t)= \mathrm{e}^{- \frac{t^2}{2}}$.
 
-$\square$
+  
 
 :::
 
@@ -545,7 +545,7 @@ where the first equality follows from the Tonelli-Fubini Theorem, the second
 equality is obtained by change of variable $x \mapsto z = x+y$ for every $y$,
 the third equality follows again from the Tonelli-Fubini Theorem.
 
-$\square$
+  
 
 :::
 
@@ -601,7 +601,7 @@ $$
 
 By monotone convergence, the first and third integrals converge respectively to  $P_Y(-\infty, a)$  and $0$ while the second term equals $\alpha P_Y\{a\}$.
 
-$\square$
+  
 
 :::
 
@@ -690,7 +690,7 @@ where
 
 The quantity $\left( \frac{1}{{2 \pi}}\int_{\mathbb{R}} \mathrm{e}^{- \frac{t^2 \sigma^2}{2}}\mathrm{e}^{-ity} \widehat{F}(t)\mathrm{d}t   \right)$ is a version of the density of the distribution of $Y = X + \sigma Z$  (why?). Note that it is obtained from the same inversion formula that readily worked for the Gaussian density.
 
-$\square$
+  
 
 :::
 
@@ -762,7 +762,7 @@ $$
 
 where interversion of limit and integration is justified by dominated convergence.
 
-$\square$
+  
 
 :::
 
@@ -840,7 +840,7 @@ with conditions $\mathbb{E} \cos(0X)=1$ and $\mathbb{E} \sin(0X) =0$.
 This entails $\mathbb{E} \mathrm{e}^{itX} = \exp\Big(-\frac{t^2}{2}\Big)$, that is
 $X \sim \mathcal{N}(0,1)$
 
-$\square$
+  
 
 :::
 
@@ -883,20 +883,20 @@ Applying this Taylor expansion to $x=t X$, using the pointwise upper bounds and 
 $$\begin{array}{rl}
   \Big| \widehat{F}(t) - \sum_{k=0}^n \mathbb{E}\frac{(itX)^k}{k!}  \Big|
     & \leq \mathbb{E} \Big[\min\Big( \frac{|tX|^{n+1}}{(n+1)!} ,2 \frac{|tX|^n}{n!}\Big)\Big] \\
-    & = \frac{|t|^n}{(n+1)!} \mathbb{E} \Big[\min\Big(|tX|^{n+1} ,2 (n+1) |X|^n \Big)\Big] \, .
+    & = \frac{|t|^n}{(n+1)!} \mathbb{E} \Big[\min\Big(|t||X|^{n+1} ,2 (n+1) |X|^n \Big)\Big] \, .
 \end{array}
 $$
 Note that the right hand side is well defined as soon as $\mathbb{E}|X|^n < \infty$.
 Now, by dominated convergence, 
 $$
-\lim_{t \to 0} \mathbb{E} \Big[\min\Big(|tX|^{n+1} ,2 (n+1) |X|^n \Big)\Big] = 0\,
+\lim_{t \to 0} \mathbb{E} \Big[\min\Big(|t||X|^{n+1} ,2 (n+1) |X|^n \Big)\Big] = 0\,
 $$
 Hence we have established that if $\mathbb{E}|X|^n < \infty$,
 $$
 \widehat{F}(t) = \sum_{k=0}^n i^k \mathbb{E}X^k \frac{t^k}{k!} + o(|t|^n) \, .
 $$
 
-$\square$
+  
 
 :::
 
@@ -963,7 +963,7 @@ $$
 
 The proof is completed by invoking [Theorem @thm-fouriermoments]).
 
-$\square$
+  
 
 :::
 
@@ -1055,7 +1055,13 @@ Conversely the lack of integrability of the Cauchy distribution is reflected in 
 
 :::
 
+::: {#exr-tent}
 
+Check that $\int_0^1 \cos(sx) (1-s) \mathrm{d}s\geq 0$ for all $x \in \mathbb{R}$.
+
+*Hint:* Check that $t \mapsto \int_0^1 \cos(tw) (1-w) \mathrm{d}w$  is the characteristic function of the *tent* distribution which has density $(1-|w|)$ over $[-1,1]$. Check that this characteristic function is the squared modulus of another characteristic function. 
+
+:::
 
 ## Bibliographic remarks {#sec-bibcharac}
 

@@ -116,7 +116,7 @@ A probability generating function $G$ satisfies the following conditions:
 Properties  1), 2) and 3) are obvious: $G$ is a convex combination
 of non-negative, non-decreasing, continuous and convex functions.
 
-$\square$
+  
 :::
 
 
@@ -160,7 +160,7 @@ The circle $\{ z : z \in \mathbb{C}, |z| = R \}$ is called the _circle of conver
 ::: {.proof}
 <!-- TODO -->
 
-$\square$
+  
 
 :::
 
@@ -195,7 +195,7 @@ convergence is exactly $1$.
 
 <!-- TODO: -->
 
-$\square$
+  
 :::
 
 Just knowing the radius of convergence of a function defined by a Power Series expansion
@@ -212,7 +212,7 @@ The derivative $G'$ and $G$ have the same radius of convergence.
 
 <!-- TODO: -->
 
-$\square$
+  
 :::
 
 This general statement about power series entails a very useful
@@ -262,7 +262,7 @@ for all $0<\delta<1$. By the Dominated Convergence Theorem,
    \sum_{k=n+1}^\infty \frac{k!}{(k-n-1)!} \times f(k) \times s^{k-n-1} \,.
 \end{align*}
 
-$\square$
+  
 
 :::
 
@@ -318,7 +318,7 @@ The union on the right-hand-side is a disjoint union.
 	& = G_X(s) \times G_Y(s) \, .
 \end{align*}
 
-$\square$
+  
 :::
 
 
@@ -380,7 +380,7 @@ Assume that $|X|$ is $p$-integrable.
 
 <!-- TODO: -->
 
-$\square$
+  
 :::
 
 <br> <p> </p>

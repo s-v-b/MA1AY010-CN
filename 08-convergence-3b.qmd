@@ -36,7 +36,7 @@ $$
 
 TODO
 
-$\square$
+  
 :::
 
  
@@ -198,7 +198,7 @@ et
 En choisissant $\epsilon = \sqrt{2\mathrm{d}_{M}(P,Q)/C}$, et en optimisant le choix de $x$,
 on obtient le résultat désiré.
 
-$\square$
+  
 :::
 
 
@@ -351,7 +351,7 @@ f^{\prime\prime}_h(w)
 \end{align*}
 On réutilise les calculs esquissés précédemment pour majorer $\|f^{\prime\prime}_h\|_\infty$.
 
-$\square$
+  
 
 :::
 
@@ -448,7 +448,7 @@ Pour majorer \textsf{(ii)}, on utilise Cauchy-Schwarz et l'hypothèse de kurtosi
 & \leq \|f'\|_\infty  \left(\kappa \sum_{i=1}^n \left( \frac{\operatorname{var}(X_i)}{\sum_{i=1}^n \operatorname{var}(X_i)} \right)^2\right)^{1/2}
 \end{align*}
 
-$\square$
+  
 
 :::
 

@@ -79,7 +79,7 @@ $F (y) = F (\lim_n z_n) = \lim_n F (z_n) \leq
 p.$ Hence $F (y) = p,$ that is  $F \circ F^\leftarrow (p) = p.$
 
 
-$\square$
+  
 
 :::
 
@@ -104,7 +104,7 @@ $$\begin{array}{rl}
   & = F(x) \, .
 \end{array}$$
 
-$\square$
+  
 :::
 
 ::: {#rem-quantile-transformation}

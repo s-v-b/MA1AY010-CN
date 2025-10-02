@@ -326,7 +326,7 @@ $$\sum_{n\in \mathbb{N}} \mu(\emptyset) = \mu(\emptyset)$$
 which implies $\mu(\emptyset)=0.$
 
 
-$\square$
+  
 
 :::
 
@@ -806,7 +806,7 @@ $$
 
 Hence $\mathcal{C}$ is closed by monotone limits.
 
-$\square$
+  
 
 :::
 
@@ -906,7 +906,7 @@ This shows that $\mathcal{M}^\circ= \mathcal{M}$.
 
 We are done.
 
-$\square$
+  
 
 :::
 

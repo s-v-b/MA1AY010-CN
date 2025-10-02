@@ -34,7 +34,7 @@ In the next definition, we assume that random
 variables are real-valued. The definition
 is easily extended to multivariate settings.
 
-::: {#def #asc name="Almost sure Convergences"}
+::: {#def-asc name="Almost sure Convergences"}
 
 Let $(\Omega, \mathcal{F}, P)$ be a probability space, a sequence $(X_n)_n$ of random variables converges _almost surely_ (a.s.) towards a random variable $X$ if
 the event
@@ -52,17 +52,18 @@ The scope of $L_p$ convergences is narrower than the scope of $L_p$ convergences
 
 We already introduced $L_p$ convergences in Lesson @sec-moments. We recall it for the sake of readibility.
 
-::: {#def}
+::: {#def-convLp}
 
 For $p \in [1, \infty)$, $L_p$ is the set of random variables over $(\Omega, \mathcal{F}, P)$ that satisfy $\mathbb{E} |X|^p <\infty$.
 The $p$-pseudo-norm is defined by $\|X\|_p = \big(\mathbb{E} |X|^p \big)^{1/p}$.
+
 Convergence in $L_p$ means convergence for this pseudo-norm.
 
 :::
 
 Recall that $L_p$ spaces are nested (by Holder's inequality) and complete.
 
-::: {#prp}
+::: {#prp-convLp-comparison}
 
 Convergence in $L_q, q\geq 1$  implies convergence in $L_p, 1\leq p \leq q$.
 
@@ -74,7 +75,7 @@ $L_p$ convergence implies almost sure convergence. The next statement
 is  a by-product  of the proof  of the completeness of $L_p$ spaces, see
 [Section @sec-lpspaces]).
 
-::: {#thm}
+::: {#thm-convLp-convAs}
 
 Convergence in $L_p$ implies almost sure convergence *along a subsequence*.
 
@@ -92,7 +93,7 @@ to all sequences in  $L_0$ like almost sure convergence. And like
 convergence in $L_p, p\geq 1$, convergence in probability can be metrized.
 
 
-::: {#def}
+::: {#def-convproba}
 
 Let $(\Omega, \mathcal{F}, P)$ be a probability space.
 
@@ -101,7 +102,7 @@ $$\lim_n P \{ |X_n -X| \geq \epsilon \}  = 0\, .$$
 
 :::
 
-::: {#prp}
+::: {#prp-convproba}
 
 Convergence in $L_p, p\geq 1$ implies convergence in probability.
 
@@ -110,7 +111,7 @@ Convergence in $L_p, p\geq 1$ implies convergence in probability.
 This is an immediate consequence of Markov's inequality.
 
 
-::: {#prp name="A criterion for convergence in probability"}
+::: {#prp-critConvProba name="A criterion for convergence in probability"}
 
 The sequence $(X_n)_n$ converges in probability towards $X$ iff
 $$\lim_n \mathbb{E} \Big[ 1 \wedge |X_n -X|\Big] = 0$$
@@ -136,11 +137,13 @@ $\lim_n P \big\{|X-X_n| \geq \epsilon \big\} =0$.
 As this holds for all $\epsilon>0$, $\lim_n \mathbb{E} \Big[ 1 \wedge |X_n -X|\Big] = 0$
 entails convergence in Probability.
 
+ 
+
 :::
 
 <br> <p></p>
 
-::: {#prp}
+::: {#prp-asconv-convproba}
 
 Almost sure convergence implies convergence in probability.
 
@@ -151,6 +154,8 @@ Almost sure convergence implies convergence in probability.
 Assume $X_n \to X$ a.s., that is $|X_n -X| \to 0$. Then by dominated convergence,
 $$\lim_n \mathbb{E}\Big[ |X_n -X| \wedge 1\Big] = 0$$
 which entails convergence in probability of $(X_n)_n$ towards $X$.
+
+ 
 
 :::
 
@@ -171,7 +176,7 @@ Note that we have to check that $\mathrm{d}_{\mathrm{KF}}$ is indeed a distance.
 This is the content of Proposition \@ref(prp:kyfanprop) below.
 
 
-::: {#prp}
+::: {#prp-kyfan-min-inf}
 
 In the definition of  the Ky-Fan distance, the infimum is attained.
 
@@ -180,6 +185,8 @@ In the definition of  the Ky-Fan distance, the infimum is attained.
 ::: {.proof}
 
 Let $a > \mathrm{d}_{\mathrm{KF}}(X, Y)$ the event $A_a = \Big\{ |X-Y| > a \Big\}$ has probability smaller than $\epsilon$. And if $\epsilon < a < b$, $A_b \subseteq  A_a$. By monotone converence, $P\Big(\cap_n A_{\epsilon + 1/n}\Big)=  \lim_{n} \uparrow P\Big(A_{\epsilon + 1/n}\Big) = \epsilon$.
+
+ 
 
 :::
 
@@ -221,12 +228,14 @@ P \Big( |X(\omega) - Z(\omega)| > \mathrm{d}_{\mathrm{KF}}(X, Y) + \mathrm{d}_{\
 & = \mathrm{d}_{\mathrm{KF}}(X, Y) + \mathrm{d}_{\mathrm{KF}}(Y, Z) \, .
 \end{array}$$
 
+ 
+
 :::
 
 <br> <p> </p>
 
 
-::: {#prp}
+::: {#prp-kyfan-metrizes}
 
 The two statements are equivalent:
 
@@ -327,6 +336,8 @@ that $\lim_{\tau \uparrow \infty}  \frac{\mathbb{E}\Big|Y^\tau_1 \Big|}{\epsilon
 
 This completes the proof of the WLLN.
 
+ 
+
 :::
 
 
@@ -377,6 +388,8 @@ $$\begin{array}{rl}
   & \leq \lim_n \downarrow \sum_{k \geq n} P \Big\{ A_k \Big\} \\
   & =  0 \, .
 \end{array}$$
+
+ 
 
 :::
 
@@ -479,7 +492,7 @@ $$\frac{1}{\alpha} \mathbb{E} X_1 \leq \liminf_n \frac{S_n}{n} \leq \limsup_n \f
 
 Finally, we may choose $\alpha$ arbitrarily close to $1$, to establish the desired result.
 
-$\square$
+ 
 
 :::
 
@@ -529,7 +542,7 @@ $$\begin{array}{rl}
   & = 0 \, .
 \end{array}$$
 
-$\square$
+ 
 :::
 
 
@@ -564,7 +577,7 @@ $$\Big\{ \omega : \frac{S_{n+1}}{n+1} - \frac{S_{n}}{n} > 1 + \frac{S_{n}}{n(n+1
 
 occur. But this cannot happen if $S_n/n$ converges toward a finite limit.
 
-$\square$
+ 
 
 :::
 
@@ -616,7 +629,6 @@ Hence, $A$ is independent from any event from the $\sigma$-algebra generated
 by $\cup_n \sigma\big(X_1, \ldots, X_n\big)$, which happens to be $\mathcal{F}$.
 As $A \in \mathcal{T}  \subset \mathcal{F}$, $A$ is independent from itself.
 
-$\square$
 :::
 
 <br> <p> </p>
@@ -688,7 +700,7 @@ $$  \psi_Y(\lambda) = \psi_Y(0) + \lambda\psi_Y'(0)
    \leq  \frac{\lambda^2(b-a)^2}{8}~.$$
 
 
-$\square$
+ 
 
 :::
 
@@ -760,7 +772,7 @@ $$\begin{array}{rl}
   & = \mathrm{e}^{- \frac{t^2}{2v}  } \, .
 \end{array}$$
 
-$\square$
+ 
 
 :::
 
@@ -821,7 +833,7 @@ $$\begin{array}{rl}
  & = \mathbb{E}X_i^2 \phi(\lambda) \, .
 \end{array}$$
 
-$\square$
+ 
 :::
 
 <br> <p> </p>
@@ -887,7 +899,7 @@ The tail bound follows by maximizing
 $$\sup_{\lambda \in [0,1/c)}  \lambda t - \frac{\lambda^2 v}{2 (1 - c \lambda)} = \frac{v}{c^2} \sup_{\eta \in [0,1)} \eta \frac{ct}{v} - \frac{\eta^2}{2(1-\eta)} \, .$$
 
 
-$\square$
+ 
 
 :::
 

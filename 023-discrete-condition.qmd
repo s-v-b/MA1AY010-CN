@@ -333,7 +333,7 @@ $\mu_i= \mathbb{E}[X\mathbf{1}_{A_i}]/ P\{A_i \}.$
 
 We can now conclude  $Z = \mathbb{E}[X \mid \mathcal{G}]$.
 
-$\square$
+  
 :::
 
 <br>
@@ -390,7 +390,7 @@ under $P\{\cdot \mid A_i\}.$ The best prediction of $Y$, in the sense of the qua
 among the  $\mathcal{G}$-measurable functions is the conditional expectation of $Y$
 with respect to $\mathcal{G}$.
 
-$\square$
+  
 :::
 
 

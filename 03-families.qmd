@@ -63,7 +63,7 @@ P\Big\{ \sum_{i=1}^n  X_i = k \Big\}
   & = \binom{n}{k} p^{k} (1-p)^{n-k}  \, .
 \end{align*}
 
-$\square$
+  
 
 :::
 
@@ -233,7 +233,7 @@ For each $k \in \mathbb{N}$:
 \end{align*}
 The last expression if the pmf of $\operatorname{Po}(\lambda + \mu)$ at $k$.
 
-$\square$
+  
 
 :::
 

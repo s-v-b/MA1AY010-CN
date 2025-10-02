@@ -197,7 +197,7 @@ measurable functions over $\mathcal{X}\times \mathcal{Y}$ uses a monotone conver
 
 The general case is handled by decomposing the measurable function into the sum of a positive part and a negative part.
 
-$\square$
+  
 
 :::
 
@@ -230,7 +230,7 @@ $$\begin{array}{rl}
   & =  \int_{[0,\infty)}  \Big( P\{ \omega : X(\omega) > t \} \Big) \mathrm{d}t
 \end{array}$$
 
-$\square$
+  
 
 :::
 

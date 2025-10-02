@@ -69,7 +69,7 @@ P\{Y>Y'\}=0 \, .
 $$
 We can conclude by proceeding in a similar way for event $\{Y<Y'\}$.
 
-$\square$
+  
 
 :::
 
@@ -113,7 +113,7 @@ We conclude as in the proceeding proof that  $P\{B\}=0.$
 
 The proof is completed by handling in a similar way the event $\{ a_1 Y_1 + a_2 Y_2 < Z\}\, .$
 
-$\square$
+  
 
 :::
 
@@ -154,7 +154,7 @@ $P \left\{ B_n \right\} = 0$, for all  $n$, $P \left\{ B_n
 \end{align*}
 Hence, for all $n$,   $P\{B_n \}= 0$.
 
-$\square$
+  
 :::
 
 The next corollary is a consequence of  @prp-nonnegcond.
@@ -374,7 +374,7 @@ so $0 \leq 2 \lambda \langle x - y, z \rangle + \lambda^2 \|z\|^2$.
 For this polynomial in $\lambda$ to be of constant sign, it is necessary that
 $\langle x - y, z \rangle = 0.$
 
-$\square$
+  
 :::
 
 
@@ -409,7 +409,7 @@ $$
 $$
 By @thm-hilbertProjection, $\mathbb{E}\left[(X-Y)\mathbb{I}_B\right]=0$.
 
-$\square$
+  
 
 :::
 
@@ -473,7 +473,7 @@ Recall that  $\mathbb{E} \left[ \mathbb{E} \left[ X \mid \mathcal{G} \right] \ri
 \right] \right] .
 \end{align*}
 
-$\square$
+  
 
 :::
 
@@ -529,7 +529,7 @@ $\left( \mathbb{E} \left[ Y_n \mid \mathcal{G} \right] \right)_n$ is an
 (a.s.) non-decreasing sequence  of $\mathcal{G}$-measurable random variables,
 it admits a  $\mathcal{G}$-measurable limit (finite or not).
 
-$\square$
+  
 :::
 
 We now proceed to the proof of @thm-kolmoespcond.
@@ -574,7 +574,7 @@ $$\lim_n \uparrow  \mathbb{E} \left[ \mathbb{I}_A \lim_n \mathbb{E} \left[ Y_n \
 \mathcal{G}\right] \right] = \mathbb{E} \left[ \mathbb{I}_A Z
 \right]$$
 
-$\square$
+  
 :::
 
 
@@ -668,7 +668,7 @@ But
 \mid \mathcal{G} \right] \right) \right] .
 \end{eqnarray*}
 
-$\square$
+  
 
 :::
 
@@ -713,7 +713,7 @@ For  $A \in \mathcal{G}$ :
 & =  0 \, .
 \end{align*}
 
-$\square$
+  
 
 :::
 
@@ -762,7 +762,7 @@ $$\mathbb{E} \left[ Z_k \mid \mathcal{G} \right] \leq \liminf_n \mathbb{E} \left
 This entails
 $$\lim_k \uparrow \mathbb{E} \left[ Z_k \mid \mathcal{G} \right] \leq\liminf_n  \mathbb{E} \left[ X_n \mid \mathcal{G} \right]\quad  \text{ a.s.}$$
 
-$\square$
+  
 
 :::
 
@@ -795,7 +795,7 @@ $$\mathbb{E} \left[ Y_n \mid \mathcal{G} \right] \leq \mathbb{E}
 \left[ X_n \mid \mathcal{G} \right] \leq \mathbb{E} \left[ Z_n
 \mid \mathcal{G} \right]  \hspace{1em} \text{a.s.}$$
 
-$\square$
+  
 
 :::
 
@@ -834,7 +834,7 @@ g \left( \mathbb{E} \left[ X \mid \mathcal{G} \right] \right) & = &
 \mathcal{G} \right] P \text{-a.s.}\\
 \end{eqnarray*}
 
-$\square$
+  
 :::
 
 
@@ -875,7 +875,7 @@ Let  $B \in \mathcal{G}$,
 Hence 
 $\mathbb{E} \left[ X \right] = \mathbb{E} \left[ X \mid\mathcal{G} \right]$.
 
-$\square$
+  
 :::
 
 [Proposition @prp-condexpind] can be generalized to a more general setting.
@@ -908,7 +908,7 @@ X \mid \mathcal{G} \right] \right]
 &  \qquad C  \text{ is independent from }  \sigma ( \mathcal{G}, \sigma (X))\,  .
 \end{align*}
 
-$\square$
+  
 :::
 
 ## Conditional probability distributions  {#sec-condProbDistrib}
@@ -1113,7 +1113,7 @@ Proof of iv), It follows from  i.),
 using the usual approximation by simple functions argument.
 
 
-$\square$
+  
 :::
 
 ::: {#exr-marginal}
@@ -1321,7 +1321,7 @@ So $B \in \mathcal{D}$.
 
 The Monotone class Theorem ([Section @sec-dynkin])) tells us that $\mathcal{F \subseteq \mathcal{D}}$.
 
-$\square$
+  
 
 :::
 
@@ -1530,7 +1530,7 @@ $$
 Note that this
 infimum is achieved whenever $Z_{i}=\mathbb{E}^{\left(  i\right)  } Z$.
 
-$\square$
+  
 
 :::
 
@@ -1635,7 +1635,7 @@ $$
 \leq \mathrm{e}^{\frac{\lambda^2}{2} \sum_{i=1}^{n-1} \frac{c_i^2}{4}} \, .
 $$
 
-$\square$
+  
 
 :::
 

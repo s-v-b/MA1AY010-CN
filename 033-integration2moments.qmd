@@ -94,7 +94,7 @@ Then, by linearity, the transfer formula holds for all simple functions from $\m
 By the definition of the Lebesgue integral, the transfer formula holds for non-negative measurable functions.
 The usual decomposition argument completes the proof.
 
-$\square$
+  
 
 :::
 
@@ -295,7 +295,7 @@ convexity, lower semi-continuity of $f$ and $f^*$ and the closure of $\operatorn
 conditions, every point $x$ in $\operatorname{Dom}(f)$ has a sub-gradient $y$ and
 this entails $f(x) + f^*(y)= xy$.
 
-$\square$
+  
 
 :::
 
@@ -370,7 +370,7 @@ $$
 \end{array}
 $$
 
-$\square$
+  
 
 :::
 
@@ -668,7 +668,7 @@ $$
 \end{array}
 $$
 
-$\square$
+  
 
 :::
 
@@ -792,7 +792,7 @@ $$
 
 The same line of reasoning allows to handle the case $a>m$ and to conclude.
 
-$\square$
+  
 
 :::
 
@@ -833,7 +833,7 @@ $$
 \end{array}
 $$
 
-$\square$
+  
 :::
 
 <br>
@@ -970,7 +970,7 @@ $$
 
 The last equation comes from the fact that the remainders of a convergent series are vanishing.
 
-$\square$
+  
 
 :::
 
@@ -1025,7 +1025,7 @@ $$
 \lim_m \mathbb{E} \Big| X - X_m \Big|^p \leq \lim_m \liminf_n \mathbb{E} \Big| X_n - X_m \Big|^p = 0 \, .
 $$
 
-$\square$
+  
 
 :::
 
