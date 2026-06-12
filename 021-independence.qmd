@@ -271,3 +271,24 @@ P (\cap_{j \in J} A_j) = \prod_{j \in J} P(A_j) \, .
 $$
 
 :::
+
+
+
+::::: {.content-visible when-profile="TODO"}
+
+Exercises on Fubini
+
+- Product of $L^1$ independent random variables is in $L^1$
+- Fubini and Fourier inversion in $L^1$ for densities (as in Stein and S.)
+
+
+
+- Independence and monotone class arguments
+- Rectangles/Cylinders
+
+
+- Tail $\sigma$-algebra
+
+- Product measures constructions and outer measure arguments
+
+:::::

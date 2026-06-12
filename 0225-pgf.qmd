@@ -387,3 +387,35 @@ Assume that $|X|$ is $p$-integrable.
 
 The next question arises quickly: when is a function from $[0,1]$ to $[0,\infty)$ a probability generating function?
 This question is  addressed later in a broader perspective.
+
+
+
+:::::: {.content-hidden unless-profile"WIP"}
+
+## PGF for joint distributions {#sec-multivariate=pgfs}
+
+::: {#def-multi-pgf name="Multivariate Probability Generating Function"}
+
+$$G_{X,Y}(s,t) = \mathbb{E} \left[s^Xt^Y\right] \qquad \text{for } s,t \in [0,1]$$
+
+
+:::
+
+
+
+
+## Conmpound distributions {#sec-compound-distributions}
+
+::: {#def-compound-distrib  name="Compount distribution"} 
+
+$$Y = \sum_{i=1}^X Z_i$$
+
+$$G_Y(s) = G_X \circ G_Z(s)$$
+
+:::
+
+Application Poisson thinning
+
+
+
+:::::

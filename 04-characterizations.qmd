@@ -887,7 +887,7 @@ $$\begin{array}{rl}
 \end{array}
 $$
 Note that the right hand side is well defined as soon as $\mathbb{E}|X|^n < \infty$.
-Now, by dominated convergence, 
+Now, by dominated convergence (@thm-thmdominatedConv), 
 $$
 \lim_{t \to 0} \mathbb{E} \Big[\min\Big(|t||X|^{n+1} ,2 (n+1) |X|^n \Big)\Big] = 0\,
 $$
@@ -900,7 +900,18 @@ $$
 
 :::
 
+::: {#rem-fourier-derivation}
 
+@thm-fouriermoments asserts  that integrability of $X$ is enough to warrant that $\widehat{F}^{(1)}(0)$ is well-defined and that at $t=0$ 
+
+$$\widehat{F}^{(1)}(t) = {\frac{\mathrm{d}\mathbb{E} \mathrm{e}^{i t X}}{\mathrm{d}t}}_{\mid t=0} = \mathbb{E} {\frac{\mathrm{d} \mathrm{e}^{i t X}}{\mathrm{d}t}}_{\mid t=0} = \mathbb{E}  [i X]$$
+
+and that a similar formula holds for higher order derivatives. 
+
+Like many other results in this area, @thm-fouriermoments is about interchanging derivation and expectation. The fact that the proof relies the dominated convergence theorem (@thm-thmdominatedConv) is not surprising.
+
+
+:::
 
 
 In the other direction, the connection is not as simple: differentiability
@@ -950,7 +961,7 @@ $$
 \geq 2\mathbb{E}\Big[\liminf_{h \downarrow 0} X^2 \int_0^1 \cos(shX) (1-s) \mathrm{d}s \Big]
 $$
 
-but for all $x \in \mathbb{R}$, by dominated convergence,
+but for all $x \in \mathbb{R}$, by dominated convergence (@thm-thmdominatedConv),
 
 $$
 \liminf_{h \downarrow 0} x^ 2 \int_0^1 \cos(shx) (1-s) \mathrm{d}s = \frac{x^2}{2} \, .
@@ -963,9 +974,9 @@ $$
 
 The proof is completed by invoking [Theorem @thm-fouriermoments]).
 
-  
-
 :::
+
+@rem-fourier-derivation is relevant here again. 
 
 ### Another application: understanding Cauchy distribution {#sec-cauchy}
 

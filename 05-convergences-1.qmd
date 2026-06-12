@@ -358,7 +358,68 @@ $$\lim_{n \to \infty}    \overline{X}_n =   \mu \qquad\text{with} \quad \overlin
 
 :::
 
-Recall
+Before proceeding to the proof of @thm-sllm, we point a general result about events
+that depend on the limiting behavior of sequences of independent random variables: the so-called zero-one law. In order to state @thm-01law, we need a new notion: the tail $\sigma$ algebra.  
+
+
+::: {#def-tailalgebra}
+
+### Tail $\sigma$-algebra
+
+Assume $X_1, \ldots, X_n, \ldots$ are  random variables over some measured space. The tail $\sigma$-algebra (or the $\sigma$-algebra of tail events) is defined as:
+$$\mathcal{T} = \cap_{n=}^\infty \sigma\Big(X_n, X_{n+1}, \ldots \Big) \, .$$
+
+:::
+
+Observe that the event 
+
+$$\left\{ \omega : \sum_{i=1}^n X_i(\omega)/n \text{ converges towards a finite limit} \right\}$$
+
+belongs to the tail $\sigma$-algebra. 
+
+The Strong Law of Large Numbers below tells us that under integrability and independence assumptions, this tail event has probability $1$.
+
+This is no accident.  The $0-1$-law asserts that under independence,  tail events
+have trivial probabilities.
+
+::: {#thm-01law}
+
+### 0-1-Law
+
+Assume $X_1, \ldots, X_n, \ldots$ are  *independent* random variables.
+Then, any event in the tail $\sigma$-algebra $\mathcal{T}$ has probability either $0$ or $1$.
+
+:::
+
+::: {.proof}
+
+It suffices to check that any event $A \in \mathcal{T}$ satisfies $P(A)^2 = P(A)$,
+or equivalently that $P(A) = P(A \cap A) = P(A) \times P(A)$, that is $A$ is
+independent of itself.
+
+For any $n$, as an event in  $\sigma\big(X_n, X_{n+1}, \ldots \big)$, $A$ is independent
+from any event in $\sigma\big(X_1, \ldots, X_n\big)$. But this entails that
+$A$ is independent from any event in $\cup_n \sigma\big(X_1, \ldots, X_n\big)$.
+
+Observe that $\cup_n \sigma\big(X_1, \ldots, X_n\big)$ is a $\pi$-system that generates the cylindrical $\sigma$-algebra (recall the definitions in @sec-dynkin around @thm-monotoneclasslemma).
+
+Hence, $A$ is independent from any event from the $\sigma$-algebra generated
+by $\cup_n \sigma\big(X_1, \ldots, X_n\big)$, which happens to be $\mathcal{F}$.
+
+
+As $A \in \mathcal{T}  \subset \mathcal{F}$, $A$ is independent from itself.
+
+:::
+
+<br> <p> </p>
+
+
+::: {#exr-bc2-01law}
+
+Derive the second Borel-Cantelli Lemma as a special case of the $0-1$-law.
+
+:::
+
 
 ::: {#lem-borel-cantelli}
 
@@ -394,14 +455,31 @@ $$\begin{array}{rl}
 :::
 
 
+::: {#def-tail-sigma-algebra}
 
+
+:::
+
+
+::: {#thm-zero-one-law}
+
+
+:::
+
+
+::: {.proof}
+
+
+:::
+
+We can now proceed to the proof of SLLN.
 
 ::: {.proof}
 
 ### Proof of SLLN (direct part)
 
 The event $\Big\{ \omega : \lim_n \sum_{i=1}^n \frac{X_i}{n} = \mu \Big\}$ belongs
-to the tail $\sigma$-algebra. To check  the Strong Law of Large Numbers, it
+to the tail $\sigma$-algebra. By @thm-zero-one-law, to check  the Strong Law of Large Numbers, it
 suffices to check that this event has non-zero probability.
 
 Moreover, using the usual decomposition $X = (X)_+ - (X)_-$ where $(X)_+$ and $(X)_-$
@@ -585,60 +663,6 @@ occur. But this cannot happen if $S_n/n$ converges toward a finite limit.
 
 The law of large numbers is the cornerstone of consistency proofs.
 
-Before shifting to non-exponential inequalities, we point a general result about events
-that depend on the limiting behavior of sequences of independent random variables.
-
-
-::: {#def-tailalgebra}
-
-### Tail sigma-algebra
-
-Assume $X_1, \ldots, X_n, \ldots$ are  random variables. The tail $\sigma$-algebra
-(or the $\sigma$-algebra of tail events) is defined as:
-$$\mathcal{T} = \cap_{n=}^\infty \sigma\Big(X_n, X_{n+1}, \ldots \Big) \, .$$
-
-:::
-
-Observe that the event $\sum_{i=1}^n X_i/n$ converges towards a finite limit belongs to
-the tail $\sigma$-algebra. The Strong Law of Large Numbers tells us that
-under integrability and independence assumptions, this tail event has probability $1$.
-This is no accident.  The $0-1$-law asserts that under independence,  tail events
-have trivial probabilities.
-
-::: {#thm-01law}
-
-### 0-1-Law
-
-Assume $X_1, \ldots, X_n, \ldots$ are  independent random variables.
-Any event in the tail $\sigma$-algebra $\mathcal{T}$ has probability either $0$ or $1$.
-
-:::
-
-::: {.proof}
-
-It suffices to check that any event $A \in \mathcal{T}$ satisfies $P(A)^2 = P(A)$,
-or equivalently that $P(A) = P(A \cap A) = P(A) \times P(A)$, that is $A$ is
-independent of itself.
-
-For any $n$, as an event in  $\sigma\big(X_n, X_{n+1}, \ldots \big)$, $A$ is independent
-from any event in $\sigma\big(X_1, \ldots, X_n\big)$. But this entails that
-$A$ is independent from any event in $\cup_n \sigma\big(X_1, \ldots, X_n\big)$.
-
-Observe that $\cup_n \sigma\big(X_1, \ldots, X_n\big)$ is a $\pi$-system.
-Hence, $A$ is independent from any event from the $\sigma$-algebra generated
-by $\cup_n \sigma\big(X_1, \ldots, X_n\big)$, which happens to be $\mathcal{F}$.
-As $A \in \mathcal{T}  \subset \mathcal{F}$, $A$ is independent from itself.
-
-:::
-
-<br> <p> </p>
-
-
-::: {#exr-bc2-01law}
-
-Derive the second Borel-Cantelli Lemma as a special case of the $0-1$-law.
-
-:::
 
 
 ## Exponential inequalities {#sec-expineq}

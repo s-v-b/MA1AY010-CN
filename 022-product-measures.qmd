@@ -287,7 +287,7 @@ of $\sigma$-algebras is not enough. This is the case when deriving or using laws
 We have to deal with a _countable collection of independent random variables_. In words,  we have to work with a countable collection of $\sigma$-algebras and we need to elaborate a notion of a countable collection of independent $\sigma$-algebras.
 
 
-::: {#def}
+::: {#def-indep-infinite-sigma-algebras}
 
 Let $(\Omega, \mathcal{F}, P)$ be a probability space. Let $\mathcal{G_1}, \ldots, \mathcal{G}_n, \ldots$
 be a countable colletion of sub-$\sigma$-algebras.
@@ -296,7 +296,7 @@ The collection $\mathcal{G_1}, \ldots, \mathcal{G}_n, \ldots$ is said to be inde
 
 if 
 
-every finite sub-collection is independent under $P$.
+every *finite* sub-collection is independent under $P$.
 
 :::
 
@@ -310,6 +310,8 @@ $$X_n(\omega) = \operatorname{sign}\Big(\sin\big(2^{n+1} \pi \omega \big)\Big)$$
 then $X_1, \ldots, X_n, \ldots$ form a countable independent collection of random variables.
 
 :::
+
+
 
 ## Infinite product spaces {#sec-infproductspaces}
 
@@ -340,7 +342,7 @@ where $m$ is any integer. The subsets are called _finite-dimensional rectangles_
 
 :::
 
-Observe that cylinders form a $\pi$-class.
+Observe that cylinders form a $\pi$-class (check the definition in @sec-dynkin).
 
 If each  $(\Omega_n, \mathcal{F}_n)$ is endowed with a probability distribution, assigning a probability
 to cylinders looks straightforward:
