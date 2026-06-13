@@ -1,0 +1,1648 @@
+# Conditionnement  {#sec-fullconditioning}
+
+
+## Définition de l'espérance conditionnelle {#sec-motivcondexp}
+
+Dans cette section et les suivantes, $(\Omega,\mathcal{F},P)$ désigne un
+espace de probabilité, et $\mathcal{G} \subseteq \mathcal{F}$ une sous-tribu.
+La sous-tribu n'a pas besoin d'être _atomique_ comme dans @sec-conditioning4dummies.
+On ne peut pas définir les probabilités conditionnelles en conditionnant par rapport aux atomes
+engendrant $\mathcal{G}$. Notre objectif est néanmoins de définir les espérances conditionnelles par rapport à la sous-tribu $\mathcal{G}$, tout en conservant les propriétés utiles passées en revue dans @sec-conditioning4dummies.
+
+La définition générale de l'espérance conditionnelle part de
+la propriété décrite dans @prp-espercond.
+
+::: {#def-defCondExp}
+
+### Espérance conditionnelle
+
+Soient $X \in \mathcal{L}_1 (\Omega, \mathcal{F}, P)$ et
+$\mathcal{G}$ une sous-tribu de $\mathcal{F}$. Une variable aléatoire
+ $Y$  est une version de l'espérance conditionnelle de
+$X$ par rapport à $\mathcal{G}$ si et seulement si
+
+i. $Y$ est $\mathcal{G}$-mesurable.
+i. Pour tout événement $B$ de $\mathcal{G}$ :
+
+$$\mathbb{E} \left[\mathbb{I}_B X \right] = \mathbb{E} \left[ \mathbb{I}_B Y \right]\,.$$
+
+:::
+
+
+
+En laissant de côté la question de l'existence d'une version de l'espérance conditionnelle
+de $X,$ nous vérifions d'abord que s'il existe plusieurs versions, elles
+ne diffèrent que sur un événement négligeable.
+
+
+::: {#prp}
+
+Soient $X \in \mathcal{L}_1 (\Omega, \mathcal{F}, P)$ et
+$\mathcal{G}$ une sous-tribu de $\mathcal{F}$. Si $Y'$ et $Y$
+sont deux versions de l'espérance conditionnelle de $X$ par rapport à $\mathcal{G}$ :
+
+$$P \left\{ Y = Y' \right\} = 1.$$
+
+:::
+
+::: {.proof}
+
+Comme $Y$ et $Y'$ sont $\mathcal{G}$-mesurables, l'événement
+$$
+B = \left\{ \omega~:~Y(\omega) >Y'(\omega)\right\}
+$$
+appartient à $\mathcal{G}.$ De plus,
+\begin{align*}
+\mathbb{E}\left[\mathbb{I}_B\, X\right]
+& =  \mathbb{E}\left[\mathbb{I}_B \, Y\right] \\
+& =  \mathbb{E}\left[\mathbb{I}_B \, Y'\right]  \, .
+\end{align*}
+Ainsi
+$$
+\mathbb{E}\left[\mathbb{I}_B (Y-Y') \right] = 0 \, .
+$$
+Comme la variable aléatoire $\mathbb{I}_B (Y-Y')$ est positive,
+son espérance est nulle, elle est donc nulle avec probabilité $1$.
+Ainsi
+$$
+P\{Y>Y'\}=0 \, .
+$$
+On conclut en procédant de même pour l'événement $\{Y<Y'\}$.
+
+  
+
+:::
+
+En reportant encore la question de l'existence, vérifions maintenant quelques propriétés
+que devraient satisfaire les versions de l'espérance conditionnelle de $X$.
+
+::: {#prp}
+
+Soient $X_1, X_2 \in \mathcal{L}_1 (\Omega,
+\mathcal{F}, P)$, $\mathcal{G}$ une sous-tribu de $\mathcal{F}$, $a_1, a_2$
+deux nombres réels. Si $Y_1$, $Y_2$ et $Z$ sont respectivement des versions
+de l'espérance conditionnelle de $X_1, X_2$ et $a_1 X_1
++ a_2 X_2$ par rapport à $\mathcal{G}$, on a
+$$
+P\{a_1 Y_1 + a_2 Y_2 = Z\} = 1 \, .
+$$
+
+:::
+
+::: {.proof}
+
+Soit $B$ l'événement de $\mathcal{G}$ défini par
+$$
+\{ a_1 Y_1 + a_2 Y_2 > Z\}\, .
+$$
+On obtient
+\begin{eqnarray*}
+\mathbb{E}
+[\mathbb{I}_B Z] & = &  \mathbb{E} [\mathbb{I}_B (a_1 X_1 + a_2 X_2)]  \\
+& = & a _1 \mathbb{E} [\mathbb{I}_B  X_1 ]+a_2 \mathbb{E} [\mathbb{I}_B X_2] \\
+& = & a_1  \mathbb{E} [\mathbb{I}_B  Y_1 ]+a_2 \mathbb{E}
+[\mathbb{I}_B Y_2] \\
+& = & \mathbb{E} [\mathbb{I}_B (a_1 Y_1 + a_2 Y_2)]  \, ,
+\end{eqnarray*}
+et donc
+$$
+\mathbb{E}
+[\mathbb{I}_B (Z-(a_1 Y_1 + a_2 Y_2))]=  0 \, .
+$$
+On conclut comme dans la démonstration précédente que $P\{B\}=0.$
+
+La démonstration se termine en traitant de même l'événement $\{ a_1 Y_1 + a_2 Y_2 < Z\}\, .$
+
+  
+
+:::
+
+
+
+::: {#prp-nonnegcond}
+
+Si $X \in \mathcal{L}_1 (\Omega, \mathcal{F}, P)$,
+$\mathcal{G}$ une sous-tribu de $\mathcal{F}$. Si $Z$ est une
+version de l'espérance conditionnelle de $X$ par rapport à $\mathcal{G}$ et
+si $X$ est $P$-p.s. positive, alors
+$$
+P\{Z \geq 0\} =1 \, .
+$$
+
+:::
+
+La démonstration reprend l'argument utilisé pour établir que
+des versions différentes de l'espérance conditionnelle sont presque sûrement égales.
+
+::: {.proof}
+
+Pour $n \in \mathbb{N}$, notons $B_n$ l'événement (de
+$\mathcal{G}$) défini par
+$$ B_n = \left\{ \mathbb{E} \left[ X \mid \mathcal{G} \right] < -
+ \frac{1}{n} \right\} . $$
+Pour démontrer la proposition, il suffit de vérifier
+$$ P \left\{ \cup_n B_n \right\} = 0 . $$
+Comme $P \left\{ \cup_n B_n \right\} = \lim_n P\{B_n \}$, il suffit de vérifier
+$P \left\{ B_n \right\} = 0$ pour tout $n$. Pour tout $n$,
+\begin{align*}
+  0
+  & \leq \mathbb{E}\big[\mathbb{I}_{B_n} X\big] \\
+  & = \mathbb{E} \left[ \mathbb{I}_{B_n} X \right] \\
+  & = \mathbb{E} \left[ \mathbb{I}_{B_n}  \mathbb{E} \left[ X \mid \mathcal{G} \right] \right] \\
+  & \leq  - \frac{P\{B_n \}}{n} \, .
+\end{align*}
+D'où, pour tout $n$, $P\{B_n \}= 0$.
+
+  
+:::
+
+Le corollaire suivant est une conséquence de @prp-nonnegcond.
+
+::: {#cor-monotonecond}
+Si $(X_n)_{n \in \mathbb{N}}$ est une suite de variables aléatoires de
+$\mathcal{L}_1 (\Omega, \mathcal{F}, P)$ telle que
+$X_{n + 1} \geq X_n$ $P$-p.s., alors il existe une suite $P$-p.s. croissante de versions
+d'espérances conditionnelles
+$$ 
+\forall n \in \mathbb{N},\quad\mathbb{E} \left[ X_{n + 1} \mid \mathcal{F} \right] \geq   \mathbb{E} \left[ X_n \mid \mathcal{F} \right] . 
+$$
+
+:::
+
+
+
+::: {#exr}
+
+Soit $\mathcal{E}$ un $\pi$-système engendrant $\mathcal{G}$ et contenant
+$\Omega$. Vérifier que $\mathbb{E} \left[ X \mid \mathcal{G} \right]$ est l'unique
+élément de $\mathcal{L}_1 \left( \Omega, \mathcal{G}, P
+\right)$ qui satisfait
+$$
+\forall B \in \mathcal{E}, \quad \mathbb{E} \left[
+\mathbb{I}_B X \right] = \mathbb{E} \left[ \mathbb{I}_B
+\mathbb{E} \left[ X \mid \mathcal{G} \right] \right] .
+$$
+
+:::
+
+Pour des sous-tribus emboîtées, les espérances conditionnelles satisfont la
+propriété de la tour :
+
+::: {#prp}
+
+Soient $(\Omega, \mathcal{F}, P)$ un espace de probabilité, et $\mathcal{G} \subseteq \mathcal{H} \subseteq \mathcal{F}$
+deux sous-tribus emboîtées.
+Alors, pour toute $X \in \mathcal{L}_1(\Omega, \mathcal{F}, P)$ :
+$$
+\mathbb{E} \Big[ \mathbb{E}\left[ X \mid \mathcal{G} \right] \mid \mathcal{H} \Big]
+= \mathbb{E} \Big[ \mathbb{E} \, \left[ X \mid \mathcal{H} \right] \mid \mathcal{G} \Big]
+= \mathbb{E} \left[ X \mid \mathcal{G} \right]\qquad \text{a.s.}
+$$
+
+:::
+
+
+::: {.proof}
+
+L'égalité presque sûre
+$\mathbb{E} \Big[ \mathbb{E}\left[ X \mid \mathcal{G} \right] \mid \mathcal{H} \Big]=\mathbb{E} \left[ X \mid \mathcal{G} \right]$ est triviale : toute
+variable aléatoire $\mathcal{G}$-mesurable est aussi $\mathcal{H}$-mesurable.
+
+Vérifions maintenant la seconde égalité.
+
+Pour tout $B \in \mathcal{G}$,
+\begin{eqnarray*}
+\mathbb{E} \left[ \mathbb{I}_B \mathbb{E} \left[ \mathbb{E}
+\left[ X \mid \mathcal{H} \right] \mid \mathcal{G} \right] \right] & = &
+\mathbb{E} \left[ \mathbb{I}_B \mathbb{E} \left[ X \mid
+\mathcal{H} \right] \right]\\
+&  & \text{comme } B \in \mathcal{H}\\
+& = & \mathbb{E} \left[ \mathbb{I}_B X \right] .
+\end{eqnarray*}
+
+:::
+
+## Espérance conditionnelle dans $\mathcal{L}_2(\Omega, \mathcal{F}, P)$  {#predictpoint}
+
+Si l'on se restreint aux variables aléatoires de carré intégrable, construire des versions de l'espérance conditionnelle s'avère facile.
+Rappelons que lorsque la sous-tribu de conditionnement $\mathcal{G}$ est atomique, d'après @prp-espercondpred,
+l'espérance conditionnelle $\mathbb{E}[X \mid \mathcal{G}]$ définit un prédicteur optimal de $X$ au sens de l'erreur quadratique
+parmi les variables aléatoires $\mathcal{G}$-mesurables. Cette caractérisation reste valide pour les variables de carré intégrable
+même lorsque la sous-tribu de conditionnement n'est plus atomique. C'est le contenu du théorème suivant.
+
+
+::: {#thm-l2condexp}
+
+### Espérance conditionnelle pour les variables de carré intégrable
+
+Soient $X \in \mathcal{L}_2 (\Omega, \mathcal{F}, P)$ et
+$\mathcal{G}$ une sous-tribu de $\mathcal{F}$.
+
+Il existe $Y \in \mathcal{L}_2(\Omega, \mathcal{G}, P)$
+qui minimise la distance $L_2$ à $X$ : 
+
+$$\exists Y \in \mathcal{L}_2(\Omega, \mathcal{G}, P) \qquad \mathbb{E}(Y-X)^2 =  \inf \Big\{ \mathbb{E}(Z-X)^2 : Z \in \mathcal{L}_2(\Omega, \mathcal{G}, P) \Big\}\, ,$$
+
+c'est-à-dire que $Y$ représente une version de la \emph{projection orthogonale} de $X$ sur $\mathcal{L}_2(\Omega, \mathcal{G}, P)$.
+
+Une version $Y$ de la \emph{projection orthogonale} de $X$ sur $\mathcal{L}_2(\Omega, \mathcal{G}, P)$ est aussi une version de l'espérance conditionnelle de $X$ par rapport à $\mathcal{G}$ :
+
+$$\forall B \in \mathcal{G}, \quad
+\mathbb{E} \left[
+\mathbb{I}_B X \right] = \mathbb{E} \left[ \mathbb{I}_B\, Y \right] \, .$$
+
+:::
+
+Notons que le théorème contient deux énoncés : d'abord, il existe un minimiseur de $\mathbb{E}(X-Z)^2$ dans
+$\mathcal{L}_2(\omega, \mathcal{F}, P)$ ; ensuite, un tel minimiseur est une version de l'espérance conditionnelle
+définie selon @def-defCondExp. Vérifier le premier énoncé revient à invoquer
+les arguments appropriés de la théorie des espaces de Hilbert.
+
+Pour référence, rappelons les bases de la théorie des espaces de Hilbert.
+
+::: {#def-hilbert}
+
+### Espace de Hilbert
+
+Un espace vectoriel réel $E$ muni d'une norme $\|\cdot\|$ est un espace de Hilbert si et seulement si $\langle \cdot, \cdot \rangle$
+définie par
+
+$$\forall x, y \in E, \langle x, y \rangle = \frac{1}{4} \Big(\Vert x+y \Vert^2 + \Vert x-y \Vert^2\Big)$$
+
+est un _produit scalaire_ et $E$ est complet pour la topologie induite par la norme.
+
+:::
+
+
+::: {#thm}
+
+Soit $(\Omega, \mathcal{F}, P)$ un espace de probabilité. L'ensemble $L_2(\Omega, \mathcal{F}, P)$ des classes d'équivalence de
+variables de carré intégrable,
+muni de $\Vert X\Vert^2=  (\mathbb{E} X^2)^{1/2}$, est un espace de Hilbert.
+
+:::
+
+::: {#rem-1} 
+
+Dans ce contexte,
+
+$$\langle X, Y \rangle  = \mathbb{E}\left[ XY \right] \, .$$
+
+:::
+
+De la théorie des espaces de Hilbert, l'outil essentiel que nous utiliserons est le
+théorème de projection ci-dessous. Notre point de départ est l'observation suivante (qui découle des résultats de @sec-moments).
+
+::: {#prp}
+
+Soient $(\Omega, \mathcal{F}, P)$ un espace de probabilité,
+$\mathcal{G} \subseteq \mathcal{F}$ une sous-tribu. Alors
+$L_2(\Omega, \mathcal{G}, P)$ est un sous-espace convexe fermé de $L_2(\Omega, \mathcal{F}, P)$.
+
+:::
+
+Nous cherchons l'élément de $L_2(\Omega, \mathcal{G}, P)$ le plus proche (au sens $L_2$)
+d'une variable aléatoire de $L_2(\Omega, \mathcal{F}, P)$. L'existence et l'unicité de cette variable aléatoire $\mathcal{G}$-mesurable la plus proche sont garanties par le théorème de projection.
+
+
+::: {#thm-hilbertProjection}
+
+### Théorème de projection
+
+Soient $E$ un espace de Hilbert et $F$ une partie convexe fermée de
+$F$. Pour tout $x \in E$, il existe un unique $y \in F$ tel que
+
+$$\|x - y\|= \inf_{z \in F} \|x - z\|.$$
+
+Ce point unique le plus proche dans $F$ s'appelle la projection (orthogonale) de $x$ sur $F$. Pour tout $z \in F$,
+$$\langle x-y, z-y\rangle \leq 0 \, .$$
+Si $F$ est un sous-espace vectoriel de $E$, la relation de Pythagore s'écrit :
+$$\|x\|^2 =  \|y\|^2 + \|x - y\|^2 \,$$
+et pour tout $z \in F$, $\langle x - y, z\rangle =0$.
+
+:::
+
+::: {.proof}
+
+Soit $d = \inf_{z \in F} \|x - z\|$.
+Soit $(z_n)_n$ une suite d'éléments de $F$ telle que
+$$\lim_n \|x - z_n \|= d .$$
+D'après la loi du parallélogramme,
+$$2 \left( \|x - z_n \|^2 +\|x - z_m \|^2 \right)  = \|2 x - (z_n + z_m)\|^2 + \| z_n - z_m \|^2 .$$
+Comme $F$ est convexe, $(z_n + z_m) / 2 \in F$, donc
+$$\|x - (z_n + z_m) / 2\| \geq d \,.$$
+Soit $\epsilon \in (0, 1]$ et $n_0$ tel que
+pour $n \geq n_0$, $\|x - z_n \| \leq d + \epsilon .$
+Pour $n, m \geq n_0$
+$$4 (d + \epsilon)^2 \geq 4 d^2 +\|z_n - z_m \|^2$$
+ou, de façon équivalente,
+$$\|z_n - z_m \|^2 \leq 4 (2 d + 1) \epsilon \,.$$
+Ainsi, la suite minimisante $(z_n)_n$ est de Cauchy. Comme $F$
+est fermé, elle admet une limite unique $y \in F$ et $d  = \|x - y\|$.
+
+Pour vérifier l'unicité, supposons qu'il existe $y' \in F$ tel que
+$\|x - y' \|= d$. Construisons une nouvelle suite $(z'_n)_{n \in
+\mathbb{N}}$ telle que $z'_{2 n} = z_n$ et $z'_{2 n + 1} = y'$. Cette suite à valeurs dans $F$
+satisfait $\lim_n \|z'_n - x\|= d.$ D'après l'argument ci-dessus, elle admet
+une limite $y^{\prime\prime}$ dans $F$. La limite $y^{\prime\prime}$ coïncide avec la
+limite de toute sous-suite, donc elle vaut $y$ et $y'.$
+
+Fixons $z \in F \setminus \{y\}$. Pour tout $u \in (0,1]$, posons $z_u = y + u (z-y)$. Alors
+$z_u \in F$ et
+$$\Vert  x - z_u\Vert^2 - \Vert x -y \Vert^2 = -2 u \langle x-y, z-y \rangle +  u^2 \Vert z - y \Vert^2 \, .$$
+Comme cette quantité est positive pour $u \in [0,1]$, $\langle x-y, z-y \rangle$ doit être négative ou nulle.
+
+Supposons maintenant que $F$ est un sous-espace de $E.$
+
+S'il existe $y \in F$ tel que $\langle x - y, z \rangle = 0$ pour tout $z
+\in F$, alors $y$ est la projection orthogonale de $x$ sur $F$, car pour tout $z \in F$ :
+\begin{align*}
+\|x - z\|^2
+  & =  \|x - y\|^2 - 2 \langle x - y, z \rangle +\|z\|^2\\
+  & \geq  \|x - y\||^2 .
+\end{align*}
+
+Réciproquement, si $y$ est la projection orthogonale de $x$ sur $F$, pour
+tout $z$ de $F$ et tout $\lambda \in \in \mathbb{R}$ :
+\begin{align*}
+\|x - y\||^2
+  & \leq  \|x - (y + \lambda z)\|^2 \\
+  & =  \|x - y\|^2 - 2 \lambda \langle x - y, z \rangle + \lambda^2 \|z\|^2,
+\end{align*}
+so $0 \leq 2 \lambda \langle x - y, z \rangle + \lambda^2 \|z\|^2$.
+Pour que ce polynôme en $\lambda$ soit de signe constant, il est nécessaire que
+$\langle x - y, z \rangle = 0.$
+
+  
+:::
+
+
+Comme $\mathcal{L}_2 (\Omega, \mathcal{G}, P)$ est une partie convexe
+de $\mathcal{L}_2 (\Omega, \mathcal{F}, P)$, l'existence et l'unicité de la
+projection sur une partie convexe fermée d'un espace de Hilbert
+donnent le corollaire suivant, qui correspond au premier énoncé du [théorème @thm-l2condexp].
+
+
+::: {#cor}
+
+Étant donné $X \in \mathcal{L}_2 (\Omega, \mathcal{F}, P)$ et
+$\mathcal{G}$ une sous-tribu de $\mathcal{F}$,
+il existe $Y \in \mathcal{L}_2 (\Omega, \mathcal{G}, P)$ qui minimise
+$$
+\mathbb{E} \left[ \left( X - Z \right)^2 \right] \qquad \text{ pour } Z \in
+\mathcal{L}_2 (\Omega, \mathcal{G}, P) .
+$$
+Tout autre minimiseur dans $\mathcal{L}_2 (\Omega, \mathcal{G},
+P)$ est $P$-presque sûrement égal à~$Y.$
+
+:::
+
+
+::: {.proof}
+Soit $Y$ une version de la projection orthogonale de $X$ sur
+$L_2(\Omega,\mathcal{G},P)$ et $B$ un élément de $\mathcal{G}.$
+
+Le produit scalaire de $\mathbb{I}_B \in \mathcal{L}_2(\Omega,\mathcal{G},P)$) et $X-Y$ vaut
+$$
+\langle X-Y, \mathbb{I}_B \rangle = \mathbb{E}\left[(X-Y)\mathbb{I}_B\right] \, .
+$$
+Par @thm-hilbertProjection, $\mathbb{E}\left[(X-Y)\mathbb{I}_B\right]=0$.
+
+  
+
+:::
+
+Nous terminons cette section par un théorème de Pythagore pour la variance.
+
+::: {#def-varcond}
+
+### Variance conditionnelle
+
+Soient $X \in \mathcal{L}_2(\Omega, \mathcal{F}, P)$
+et $\mathcal{G} \subseteq \mathcal{F}$ une sous-tribu.
+La *variance conditionnelle* de $X$ par rapport à $\mathcal{G}$ est définie par
+
+$$ \operatorname{Var} \left[ X \mid \mathcal{G} \right] = \mathbb{E} \left[\left( X - \mathbb{E} [X \mid \mathcal{G}] \right)^2 \mid \mathcal{G}\right] .$$
+
+:::
+
+La variance conditionnelle est une variable aléatoire ($\mathcal{G}$-mesurable), tout comme
+l'espérance conditionnelle. C'est l'espérance conditionnelle
+de l'erreur de prédiction commise lorsqu'on cherche à prédire $X$
+à l'aide de $\mathbb{E}[X \mid \mathcal{G}]$.
+
+::: {#prp-pythavariance}
+
+Soient $X \in \mathcal{L}_2(\Omega, \mathcal{F}, P)$
+et $\mathcal{G} \subseteq \mathcal{F}$ une sous-tribu. Alors
+
+$$\operatorname{Var} [X] = \operatorname{Var} \Big[ \mathbb{E} \left[ X \mid \mathcal{G} \right] \Big] + \mathbb{E} \Big[ \operatorname{Var} \left[ X \mid \mathcal{G} \right] \Big] \, .$$
+
+:::
+
+::: {.proof}
+
+Rappelons que $\mathbb{E} \left[ \mathbb{E} \left[ X \mid \mathcal{G} \right] \right] = \mathbb{E} \left[ X \right]$.
+
+
+\begin{align*}
+\operatorname{Var} \left[ X \right] & =  \mathbb{E} \left[ \left( X -
+\mathbb{E} \left[ X \right] \right)^2 \right]\\
+& =  \mathbb{E} \left[ \left( X - \mathbb{E} \left[ X \mid
+\mathcal{G} \right] + \mathbb{E} \left[ X \mid \mathcal{G} \right] -
+\mathbb{E} \left[ X \right] \right)^2 \right]\\
+& =  \mathbb{E} \left[ \left( X - \mathbb{E} \left[ X \mid
+\mathcal{G} \right] \right)^2 \right]\\
+&  \qquad + 2 \mathbb{E} \left[ \left( X - \mathbb{E} \left[ X \mid
+\mathcal{G} \right] \right) \left( \mathbb{E} \left[ X \mid \mathcal{G}
+\right] - \mathbb{E} \left[ X \right] \right) \right]\\
+&  \qquad + \mathbb{E} \left[ \left( \mathbb{E} \left[ X \mid
+\mathcal{G} \right] - \mathbb{E} \left[ X \right] \right)^2 \right]\\
+& =  \mathbb{E} \left[ \mathbb{E} \left[ \left( X - \mathbb{E}
+\left[ X \mid \mathcal{G} \right] \right)^2 \mid \mathcal{G} \right]
+\right]\\
+&  \qquad + 2 \mathbb{E} \Big[ \mathbb{E} \left[ \left( X -
+\mathbb{E} \left[ X \mid \mathcal{G} \right] \right) \mid \mathcal{G}
+\right]  \left( \mathbb{E} \left[ X \mid \mathcal{G} \right] -
+\mathbb{E} \left[ X \right] \right) \Big]\\
+&  \qquad + \operatorname{Var} \left[ \mathbb{E} \left[ X \mid \mathcal{G}
+\right] \right]\\
+& =  \mathbb{E} \left[ \operatorname{Var} \left[ X \mid \mathcal{G} \right]
+\right] + \operatorname{Var} \left[ \mathbb{E} \left[ X \mid \mathcal{G}
+\right] \right] .
+\end{align*}
+
+  
+
+:::
+
+## Espérance conditionnelle dans $\mathcal{L}_1 (\Omega, \mathcal{F}, P)$
+
+Pour construire l'espérance conditionnelle d'une variable aléatoire,
+l'intégrabilité au carré n'est pas nécessaire.
+C'est le sens du théorème suivant.
+
+
+
+::: {#thm-kolmoespcond}
+
+Si $Y \in \mathcal{L}_1 (\Omega, \mathcal{F},
+P)$, alors il existe une variable aléatoire intégrable $\mathcal{G}$-mesurable,
+notée $\mathbb{E} \left[ Y \mid \mathcal{G} \right]$
+telle que
+
+$$\forall B \in \mathcal{G}, \mathbb{E} \left[ \mathbb{I}_B Y \right] = \mathbb{E} \left[ \mathbb{I}_B \mathbb{E} \left[ Y \mid \mathcal{G}\right] \right]  .$$
+
+:::
+
+En d'autres termes, les espérances conditionnelles au sens de @def-defCondExp
+existent pour toute variable intégrable et toute sous-tribu.
+
+::: {#exr-monotone-class-condi}
+
+Soit $\mathcal{G}'$ un $\pi$-système contenant $\Omega$ et engendrant $\mathcal{G}$.
+Si $Z$ est une variable intégrable $\mathcal{G}$-mesurable qui satisfait
+
+$$\forall B \in \mathcal{G}', \mathbb{E} \left[ \mathbb{I}_B Y \right] = \mathbb{E} \left[ \mathbb{I}_B \mathbb{E} \left[ Y \mid \mathcal{G} \right] \right]$$
+
+alors $Z = \mathbb{E} \left[ Y \mid \mathcal{G} \right] .$
+
+:::
+
+Pour établir @thm-kolmoespcond, nous utilisons la _machinerie habituelle_
+des arguments limites.
+
+::: {#prp-monotech}
+
+Si $(Y_n)_n$ est une suite croissante de variables aléatoires positives
+de carré intégrable telle que $Y_n \uparrow Y$ p.s., alors il existe une variable aléatoire $\mathcal{G}$-mesurable $Z$ telle que
+
+$$\mathbb{E} \left[ Y_n \mid \mathcal{G} \right] \uparrow Z \qquad \text{a.s.}$$
+
+:::
+
+::: {.proof}
+
+Comme $(Y_n)_n$ est croissante, d'après @prp-nonnegcond,
+$\left( \mathbb{E} \left[ Y_n \mid \mathcal{G} \right] \right)_n$ est une suite
+(p.s.) croissante de variables aléatoires $\mathcal{G}$-mesurables ;
+elle admet une limite $\mathcal{G}$-mesurable (finie ou non).
+
+  
+
+:::
+
+Passons maintenant à la démonstration de @thm-kolmoespcond.
+
+::: {.proof}
+
+Sans perte de généralité, supposons $Y \geq 0$ (sinon, posons $Y = (Y)_+ - (Y)_-$ avec $(Y)_+ = |Y| \mathbb{I}_{Y
+\geq 0}$ et $(Y)_- = |Y| \mathbb{I}_{Y < 0}$, traitons $(Y)_+$ et $(Y)_-$
+séparément et utilisons la linéarité de l'espérance conditionnelle).
+
+Posons
+$$ Y_n = Y \mathbb{I}_{|Y| \leq n}$$
+de sorte que $Y_n \nearrow Y$ partout. La variable aléatoire $Y_n$ est bornée
+et donc de carré intégrable. La variable aléatoire
+$\mathbb{E}\left[ Y_n \mid \mathcal{G} \right]$ est donc bien définie pour chaque
+$n$.
+
+La suite $\mathbb{E} \left[ Y_n \mid \mathcal{G} \right]$
+est $P$-p.s. monotone. Elle converge monotone vers une variable aléatoire $\mathcal{G}$-mesurable
+$Z$ à valeurs dans $\mathbb{R}_+ \cup \{\infty\}$.
+Il reste à vérifier que cette variable aléatoire
+$Z \in \mathcal{L}_1 (\Omega, \mathcal{F}, P)$.
+
+Par convergence monotone :
+\begin{align*}
+\mathbb{E} Y
+& = \mathbb{E}\big[ \lim_n  \uparrow Y_n\big] \\
+& = \lim_n  \uparrow \mathbb{E}\big[  Y_n\big] \\
+& = \lim_n  \uparrow \mathbb{E} \Big[ \mathbb{E} \left[ Y_n \mid \mathcal{G} \right] \Big]  \\
+& = \mathbb{E} \Big[ \lim_n \uparrow  \mathbb{E} \left[ Y_n \mid \mathcal{G} \right] \Big] \\
+& = \mathbb{E} Z  \, .
+\end{align*}
+Si $A \in \mathcal{G}$, par convergence monotone,
+$$\lim_n \uparrow \mathbb{E} \left[ \mathbb{I}_A Y_n \right] = \mathbb{E}  \left[ \mathbb{I}_A Y \right]$$
+et donc
+$$\lim_n \uparrow  \mathbb{E} \left[ \mathbb{I}_A \mathbb{E} \left[ Y_n \mid
+\mathcal{G} \right] \right] = \mathbb{E} \left[ \mathbb{I}_A
+Y \right].$$
+Encore par convergence monotone :
+$$\lim_n \uparrow  \mathbb{E} \left[ \mathbb{I}_A \lim_n \mathbb{E} \left[ Y_n \mid
+\mathcal{G}\right] \right] = \mathbb{E} \left[ \mathbb{I}_A Z
+\right]$$
+
+  
+:::
+
+
+
+## Propriétés de l'espérance conditionnelle (générale)
+
+::: {#rem-prop-condexp}
+
+Dans cette section,
+$(\Omega, \mathcal{F}, P)$ est un espace de probabilité, $\mathcal{G}$ une sous-tribu de
+$\mathcal{F}$. Les variables aléatoires $(X_n)_n, (Y_n)_n, X, Y, Z$ sont supposées intégrables,
+et p.s. signifie $P$-p.s.
+
+:::
+
+La propriété la plus simple est :
+
+::: {#prp}
+
+Si $X \in \mathcal{L}_1 (\Omega, \mathcal{F}, P)$, alors
+
+$$\mathbb{E} \left[ X \right] = \mathbb{E} \left[ \mathbb{E}   \left[ X \mid \mathcal{G} \right] \right].$$
+
+:::
+
+::: {#exr-tower-1}
+
+Le démontrer.
+
+:::
+
+::: {#prp}
+
+Si $X \in \mathcal{L}_1 (\Omega, \mathcal{F}, P)$ et $X$ est
+$\mathcal{G}$-mesurable, alors
+
+$$X = \mathbb{E} \left[ X \mid \mathcal{G} \right]  \hspace{1em} P\text{-a.s.}$$
+
+:::
+
+::: {#exr-condexp-measur}
+
+Le démontrer.
+
+:::
+
+En utilisant la définition de l'espérance conditionnelle et l'approximation monotone par des fonctions simples (voir [section @sec-simplefunctions])),
+nous obtenons une caractérisation alternative de l'espérance conditionnelle.
+
+::: {#prp}
+
+Soient $X \in \mathcal{L}_1 (\Omega, \mathcal{F}, P)$
+et $\mathcal{G} \subseteq \mathcal{F}$ une sous-tribu. Alors,
+pour toute $Y \in\mathcal{L}_1 (\Omega, \mathcal{G}, P)$ telle que
+$\mathbb{E} \left[ |X Y| \right] < \infty$
+
+$$\mathbb{E} \left[ XY \right] = \mathbb{E} \left[ Y \mathbb{E} \left[ X \mid \mathcal{G} \right] \right] .$$
+
+:::
+
+::: {#exr-altercharac}
+Le démontrer.
+:::
+
+Nous gardons la proposition suivante pour un usage futur et fréquent. On pourrait continuer
+à énumérer bien d'autres propriétés utiles de l'espérance conditionnelle.
+Elles se découvrent et s'établissent mieux au moment où l'on en a besoin.
+
+::: {#prp}
+Si $X, Y \in \mathcal{L}_1 (\Omega, \mathcal{F}, P)$ et $Y$ est
+$\mathcal{G}$-mesurable, alors
+$$ \mathbb{E} \left[ XY \mid \mathcal{G} \right] = Y \mathbb{E} \left[X \mid \mathcal{G} \right]  \hspace{1em} P \text{-a.s.}$$
+
+:::
+
+::: {.proof}
+
+Comme $Y \mathbb{E} \left[ X \mid \mathcal{G} \right]$ est
+$\mathcal{G}$-mesurable, il suffit de vérifier que pour tout $B \in\mathcal{G}$,
+
+$$ \mathbb{E} \left[ \mathbb{I}_B XY \right] = \mathbb{E} \left[\mathbb{I}_B \left( Y \mathbb{E} \left[ X \mid \mathcal{G} \right]\right) \right] .$$
+
+Or
+
+\begin{eqnarray*}
+\mathbb{E} \left[ \mathbb{I}_B XY \right] & = & \mathbb{E} \left[
+( \mathbb{I}_B Y) X \right]\\
+& = & \mathbb{E} \left[ ( \mathbb{I}_B Y) \mathbb{E} \left[ X
+\mid \mathcal{G} \right] \right]\\
+& = & \mathbb{E} \left[ \mathbb{I}_B \left( Y \mathbb{E} \left[ X
+\mid \mathcal{G} \right] \right) \right] .
+\end{eqnarray*}
+
+  
+
+:::
+
+
+
+## Théorèmes de convergence conditionnelle {#sec-condconvtheorems}
+
+Les théorèmes limites de la théorie de l'intégration (théorème de convergence monotone,
+lemme de Fatou, théorème de convergence dominée) peuvent être adaptés au
+cadre de l'espérance conditionnelle.
+
+::: {#thm-cmon}
+
+### Convergence monotone
+
+Soit $(X_n)_n$ une suite de variables aléatoires positives convergeant monotone vers $X$ ($X_n \uparrow X$ p.s.), avec $X$
+intégrable. Alors, pour toute suite de versions
+d'espérances conditionnelles :
+
+$$\lim_n \uparrow \mathbb{E} \left[ X_n \mid \mathcal{G} \right] = \mathbb{E}  \left[ X \mid \mathcal{G} \right]  \text{ a.s.}$$
+
+:::
+
+::: {.proof}
+
+La suite $X - X_n$ est positive et décroît vers $0$ p.s.
+Il suffit de montrer que $\lim_n \downarrow \mathbb{E} \left[ X - X_n \mid
+\mathcal{G} \right] = 0$ p.s. Notons d'abord que la suite
+$\mathbb{E} \left[ X - X_n \mid \mathcal{G} \right]$ converge p.s. vers
+une limite positive. Il reste à vérifier que cette limite est p.s. nulle.
+
+Pour $A \in \mathcal{G}$ :
+\begin{align*}
+\mathbb{E} \left[ \mathbb{I}_A \lim_n \mathbb{E} \left[ X - X_n
+\mid \mathcal{G} \right] \right] & =  \lim_n \mathbb{E} \left[
+\mathbb{I}_A  \mathbb{E} \left[ X - X_n \mid \mathcal{G} \right]
+\right]\\
+&  \qquad \text{ monotone convergence theorem}\\
+& = \lim_n \mathbb{E} \left[ \mathbb{I}_A \left( X_n - X \right)
+\right]\\
+&  \qquad \text{ monotone convergence theorem}\\
+& =  0 \, .
+\end{align*}
+
+  
+
+:::
+
+
+
+
+::: {#thm-condfatou}
+
+### Lemme de Fatou conditionnel
+
+Soit $(X_n)_n$ une suite de variables aléatoires positives. Alors
+
+$$\mathbb{E} \left[ \liminf_n X_n \mid \mathcal{G} \right] \leq \liminf_n \mathbb{E} \left[ X_n \mid \mathcal{G} \right]  \hspace{1em} \text{a.s.}$$
+
+:::
+
+Comme pour la démonstration du lemme de Fatou, l'argument se réduit
+à des arguments de convergence monotone.
+
+
+::: {.proof}
+
+Soit $B \in \mathcal{G}$. Posons $X = \liminf_n X_n$ ; $X$
+est une variable aléatoire positive.
+Posons $Y = \liminf_n \mathbb{E} \left[
+X_n \mid \mathcal{G} \right]$ ; $Y$ est une
+variable aléatoire intégrable $\mathcal{G}$-mesurable.
+Le théorème compare $\mathbb{E} \left[ X
+\mid \mathcal{G} \right]$ et $Y.$
+
+
+Posons $Z_k = \inf_{n \geq k} X_n$.
+Ainsi $\lim_k \uparrow Z_k =  \liminf_n X_n = X$.
+D'après @thm-cmon,
+$$
+\mathbb{E} \left[ Z_k \mid \mathcal{G} \right] \uparrow_k
+\mathbb{E} \left[ \liminf_n X_n \mid \mathcal{G} \right]
+\text{ a.s.} $$
+Pour tout $n \geq k$, $X_n \geq Z_k$ p.s. D'où, par le théorème de comparaison ([corollaire @cor-monotonecond]),
+
+$$\forall n \geq k \hspace{1em} \mathbb{E} \left[ Z_k \mid \mathcal{G} \right] \leq \mathbb{E} \left[ X_n \mid \mathcal{G}\right]   \text{ a.s.}$$
+
+car une réunion dénombrable d'événements $P$-négligeables est
+$P$-négligeable. Ainsi, pour tout $k$,
+$$\mathbb{E} \left[ Z_k \mid \mathcal{G} \right] \leq \liminf_n \mathbb{E} \left[ X_n \mid \mathcal{G} \right]  \hspace{1em} \text{a.s.}$$
+Il s'ensuit que
+$$\lim_k \uparrow \mathbb{E} \left[ Z_k \mid \mathcal{G} \right] \leq\liminf_n  \mathbb{E} \left[ X_n \mid \mathcal{G} \right]\quad  \text{ a.s.}$$
+
+  
+
+:::
+
+
+
+::: {#thm}
+
+### Convergence dominée
+
+Soit $V \in \mathcal{L}_1(\Omega, \mathcal{F}, P)$.
+Supposons que la suite $(X_n)_n$ satisfasse $|X_n | \leq V$ pour tout $n$ et
+ $X_n \rightarrow X \text{a.s.}$. Alors,
+pour toute suite de versions d'espérances conditionnelles
+de $(X_n)_n$ et de $X$,
+$$\mathbb{E} \left[ X_n \mid \mathcal{G} \right] \rightarrow \mathbb{E} \left[ X \mid \mathcal{G} \right]  \hspace{1em} \text{a.s.}$$
+
+:::
+
+::: {.proof}
+
+Posons $Y_n = \inf_{m \geq n} X_m$ et $Z_n = \sup_{m \geq n} X_m$.
+Ainsi $-V \leq Y_n \leq Z_n \leq V$. Comme $Y_n \uparrow X$ et $Z_n \downarrow X$,
+par le théorème de convergence monotone conditionnelle ([théorème @thm-cmon]),
+$\mathbb{E} \left[ Y_n \mid \mathcal{G} \right] \uparrow
+\mathbb{E} [X \mid \mathcal{G}]$ et $\mathbb{E} \left[ Z_n \mid
+\mathcal{G} \right] \downarrow \mathbb{E} [X \mid \mathcal{G}] \text{p.s}
+.$ Observons que pour tout $n$
+
+$$\mathbb{E} \left[ Y_n \mid \mathcal{G} \right] \leq \mathbb{E}
+\left[ X_n \mid \mathcal{G} \right] \leq \mathbb{E} \left[ Z_n
+\mid \mathcal{G} \right]  \hspace{1em} \text{a.s.}$$
+
+  
+
+:::
+
+L'inégalité de Jensen possède aussi une version conditionnelle. La démonstration
+s'appuie encore sur la représentation variationnelle des fonctions convexes semi-continues inférieures
+et sur la propriété de monotonie de l'espérance conditionnelle ([corollaire @cor-monotonecond]).
+
+::: {#thm}
+
+### Inégalité de Jensen
+
+Si $g$ est une fonction convexe semi-continue inférieure sur
+$\mathbb{R}$, avec $\mathbb{E} \left[ | g (X) | \right] < \infty$,
+alors
+
+$$g \left( \mathbb{E} \left[ X \mid \mathcal{G} \right] \right) \leq
+\mathbb{E} \left[ g (X) \mid \mathcal{G} \right]  \text{a.s.} .$$
+
+:::
+
+
+::: {.proof}
+
+Une fonction convexe semi-continue inférieure est un supremum dénombrable de
+fonctions affines : il existe une collection dénombrable $(a_n, b_n)_n$ telle que,
+pour tout $x$ :
+$$g (x) = \sup_n  \left[ a_n x + b_n \right] .$$
+
+\begin{eqnarray*}
+g \left( \mathbb{E} \left[ X \mid \mathcal{G} \right] \right) & = &
+\sup_n \left[ a_n \mathbb{E} \left[ X \mid \mathcal{G} \right] + b_n
+\right] \\
+& = & \sup_n \left[ \mathbb{E} \left[ a_n X + b_n \mid \mathcal{G}
+\right] \right]\\
+& \leq & \mathbb{E} \left[ \sup_n \left( a_n X + b_n \right) \mid
+\mathcal{G} \right] P \text{-a.s.}\\
+\end{eqnarray*}
+
+  
+:::
+
+
+
+
+
+
+### Indépendance  {#sec-condIndependance}
+
+Lorsque la tribu de conditionnement $\mathcal{G}$ est atomique, si la variable
+aléatoire conditionnée $X$ est indépendante de la tribu de conditionnement,
+il est évident que l'espérance conditionnelle est une variable aléatoire p.s. constante
+dont la valeur vaut $\mathbb{E}X$. Cela reste vrai dans le cadre général.
+Une démonstration s'impose.
+
+
+::: {#prp-condexpind}
+
+Si $X$ est indépendante de $\mathcal{G}$, alors
+
+$$\mathbb{E} \left[ X \mid \mathcal{G} \right] = \mathbb{E} \left[ X\right] .$$
+
+:::
+
+::: {.proof}
+
+Notons que $\mathbb{E} \left[ X \right]$ est $\mathcal{G}$-mesurable.
+Soit $B \in \mathcal{G}$,
+
+\begin{align*}
+\mathbb{E} \left[ \mathbb{I}_B X \right]
+& =  \mathbb{E} \left[ \mathbb{I}_B \right]  \mathbb{E} \left[ X \right]\\
+&  \qquad \text{by  independence} \\
+& =  \mathbb{E} \left[ \mathbb{I}_B \times \mathbb{E} \left[ X
+\right] \right] .
+\end{align*}
+
+D'où
+$\mathbb{E} \left[ X \right] = \mathbb{E} \left[ X \mid\mathcal{G} \right]$.
+
+  
+:::
+
+La [proposition @prp-condexpind] peut être généralisée dans un cadre plus large.
+
+::: {#prp}
+
+Si la sous-tribu $\mathcal{H}$ est indépendante de $\sigma (\mathcal{G}, \sigma (X))$, alors
+
+$$\mathbb{E} \left[ X \mid \sigma ( \mathcal{G}, \mathcal{H}) \right] = \mathbb{E}\left[ X \mid \mathcal{G} \right] \hspace{1em} \text{a.s.}$$
+
+:::
+
+::: {.proof}
+
+Rappelons que l'espérance conditionnelle par rapport à $\sigma(
+\mathcal{G}, \mathcal{H})$ peut se caractériser
+à l'aide d'un
+$\pi$-système contenant $\Omega$ et engendrant $\sigma \left( \mathcal{G,
+H} \right)$, par exemple $\mathcal{G} \times \mathcal{H}$. Soient $B \in
+\mathcal{G}$ et $C \in \mathcal{H}$,
+
+\begin{align*}
+\mathbb{E} \left[ \mathbb{I}_B  \mathbb{I}_C  \mathbb{E} \left[
+X \mid \mathcal{G} \right] \right]
+& =  \mathbb{E} \left[\mathbb{I}_B  \mathbb{E} \left[ X \mid \mathcal{G} \right] \right]
+      \times \mathbb{E} \left[ \mathbb{I}_C  \right]\\
+&   \qquad C \text{ est indépendante de }     \sigma ( \mathcal{G}, \sigma (X))\\
+& =  \mathbb{E} \left[ \mathbb{I}_B X \right] \times \mathbb{E}\left[ \mathbb{I}_C  \right]\\
+& =  \mathbb{E} \left[ \mathbb{I}_C  \mathbb{I}_B X \right] \\
+&  \qquad C \text{ est indépendante de }  \sigma ( \mathcal{G}, \sigma (X))\,  .
+\end{align*}
+
+  
+:::
+
+## Lois conditionnelles  {#sec-condProbDistrib}
+
+### Cas simple : conditionnement par rapport à une tribu discrète  {#sec-easyregcondprob}
+
+Revenons au cadre de base :
+$(\Omega,\mathcal{F},P)$ désigne un espace de probabilité,
+tandis que $\mathcal{G}\subseteq \mathcal{F}$ est une sous-tribu _atomique_
+engendrée par une partition dénombrable $(A_n)_n$ de $\Omega.$
+
+Que ce soit à partir des espérances conditionnelles par rapport à $\mathcal{G}$, ou à partir
+des probabilités conditionnelles sachant les événements $A_n,$ on peut
+définir une fonction $N$ de $\Omega \times \mathcal{F}$ par
+
+$$N(\omega, B) = \mathbb{E}_{P}[\mathbb{I}_B\mid \mathcal{G}](\omega) =
+P\{B\mid A_n\}\text{  when } \omega \in A_n \, .$$
+
+La fonction $N$ possède deux propriétés remarquables :
+
+i. Pour tout $\omega \in \Omega,$ $N(\omega,\cdot)$ définit une probabilité sur $(\Omega,\mathcal{F}).$
+i. Pour tout événement $B\in \mathcal{F},$ la fonction $N(\cdot,B)$ est $\mathcal{G}$-mesurable.
+
+Dans ce cadre atomique simple, on observe que s'il est intuitif de
+définir l'espérance conditionnelle à partir des probabilités conditionnelles,
+on peut aussi procéder en sens inverse :
+construire des probabilités conditionnelles à partir des espérances conditionnelles.
+
+### Obstacles {#sec-impediments}
+
+Dans le cas général, on tente de construire des probabilités conditionnelles
+lorsque la tribu de conditionnement n'est pas atomique.
+
+Pour chaque $B \in \mathcal{F}$, on peut s'appuyer sur l'existence d'une
+variable aléatoire $\sigma (X)$-mesurable qui est $P$-p.s. une version de
+l'espérance conditionnelle de $\mathbb{I}_B$ par rapport à $X$. En effet, pour toute collection dénombrable d'événements $(B_n)_n$ de $\mathcal{F}$,
+on peut admettre qu'il existe une collection de variables aléatoires
+qui forment, presque sûrement, une collection cohérente de versions
+des espérances de $(\mathbb{I}_{B_n})_n$ par rapport à $X$. Si
+$(B_n)_n$ est croissante et tend vers $B$, d'après [théorème @thm-cmon],
+on a confiance dans le fait que l'égalité suivante vaut
+
+$$\lim_n \uparrow \mathbb{E} \left[ \mathbb{I}_{B_n} \mid X \right]  = \mathbb{E}\left[ \mathbb{I}_B \mid X \right] \qquad \text{a.s.}$$
+
+Il est donc tentant de définir une probabilité conditionnelle
+par rapport à $\sigma(X)$ comme une fonction
+
+\begin{align*}
+\Omega \times \mathcal{F} &
+\to [0, 1] \\
+(\omega, B) & \mapsto \mathbb{E} \left[ \mathbb{I}_B \mid
+\sigma(X) \right](\omega) \, .
+\end{align*}
+
+Malheureusement,
+on ne peut pas garantir que $P$-p.s., cet objet possède les
+propriétés d'une loi de probabilité sur $(\Omega, \mathcal{F})$. Le
+problème ne vient pas de la nature diffuse de la loi de $X$ mais de
+la taille de $\mathcal{F}$. Comme $\mathcal{F}$ peut ne pas être dénombrable,
+il est possible de construire une suite croissante non dénombrable d'événements.
+Vérifier la monotonie p.s. de la suite des probabilités conditionnelles correspondantes
+dépasse notre portée (une réunion non dénombrable d'événements $P$-négligeables n'est pas nécessairement $P$-négligeable).
+
+Heureusement, la situation n'est pas désespérée. Dans la plupart des cadres envisagés
+dans un cours introductif de probabilités, on peut admettre l'existence de probabilités conditionnelles.
+
+Dans [section @sec-jointdensity]), nous passons d'abord en revue le cas simple, où l'on peut
+définir des probabilités conditionnelles qui possèdent même une densité
+par rapport à une mesure de référence. Dans [section @sec-regconprob]), nous verrons que si $\Omega$
+n'est pas trop grand, on peut s'appuyer sur l'existence de probabilités conditionnelles.
+
+
+
+### Cadre des densités jointes  {#sec-jointdensity}
+
+Si $\Omega = \mathbb{R}^k$, $\mathcal{F} = \mathcal{B}(\mathbb{R}^k)$ et
+la loi de probabilité $P$ est absolument continue par rapport à
+la mesure de Lebesgue (possède une densité notée $p$), définir une densité conditionnelle
+par rapport aux projections sur les coordonnées est presque aussi simple
+que le conditionnement par rapport à une tribu atomique.
+
+Pour simplifier, nous nous limitons au cas $k=2$. Un résultat générique est noté $\omega = (x, y)$
+et les projections coordonnées définissent deux variables aléatoires $X(x, y) = x$ et $Y (x, y) = y$.
+Notons $p_X$ la _densité marginale_ de la loi de $X$ :
+
+$$p_X (x) = \int_{\mathcal{\mathbb{R}}} p (x, y) \mathrm{d} y .$$
+
+Convenons que $D =\{x : p_X (x) > 0\}$. C'est le support de la densité $p_X$ (attention, cela peut différer du
+support de la loi $P \circ X^{- 1}$).
+
+::: {#exr-cond-dens}
+Vérifier que $p_X$ est la densité de $P \circ X^{- 1}$.
+:::
+
+Disposer d'une densité permet de calculer
+l'espérance conditionnelle et de définir aussi facilement ce que nous
+appellerons une probabilité conditionnelle de $Y$ sachant $X$.
+
+
+
+::: {#thm-conddensity}
+
+### Densité conditionnelle
+
+Soient $X, Y$ les coordonnées de projection sur $\mathbb{R}^2$. Soit $P$
+une loi absolument continue sur $(\mathbb{R}^2, \mathcal{B}(\mathbb{R}^2))$ de densité $p (., .)$ par rapport à la mesure de Lebesgue.
+Notons $p_X$ la première densité marginale (densité de $P \circ X^{-1}$).
+
+La fonction
+
+\begin{align*}
+N: \qquad\mathbb{R}^2 &  \to  [0,\infty)  \\
+    (x, y) &  \mapsto N (x, y) =
+\begin{cases}
+\frac{p (x, y)}{p_X (x)} & \text{if } p_X (x) > 0\\
+0 &\text{ otherwise,}
+\end{cases}
+\end{align*}
+
+satisfait les propriétés suivantes.
+
+i. Pour chaque $x$ tel que $p_X (x) > 0$, la fonction d'ensemble $P_{\cdot \mid X=x}$
+ définie par
+\begin{align*}
+\mathcal{B}(\mathbb{R}^2) & \to [0, 1]\\
+B & \mapsto P_{\cdot \mid X=x} \{B\} = \int_{\mathbb{R}} \mathbb{I}_B(x,y) N (x, y) \mathrm{d} y
+\end{align*}
+est une mesure de probabilité sur $(\mathbb{R}^2, \mathcal{B} ( \mathbb{R}^2))$.
+Cette loi de probabilité est portée par $\{x\} \times \mathbb{R}$.
+
+i. Pour tout $B \in \mathcal{B} ( \mathbb{R}^2)$, la fonction
+$$
+\omega \mapsto \int_{\mathbb{R}} \mathbb{I}_B(X(\omega),y) N (X(\omega), y) \mathrm{d} y
+= \mathbb{E}_{P_{\cdot \mid X=X(\omega)}} \mathbb{I}_B
+$$
+pour $\Omega = \mathbb{R}^2$, est $\sigma(X)$-mesurable et peut être appelée une version de
+$\mathbb{E}\big[\mathbb{I}_B \mid \sigma(X)\big]$.
+
+i. Pour tout $B \in \mathcal{B} ( \mathbb{R}^2)$
+$$
+P(B) = \int \left( \int \mathbb{I}_B (s,y) N (s,y) \mathrm{d} y
+\right) p_X (s) \mathrm{d} s =  \int P_{\cdot \mid X=s}(B) p_X(s) \mathrm{d} s .
+$$
+
+i. Pour toute fonction $f$ $P$-intégrable sur $\mathbb{R}^2$, la
+variable aléatoire obtenue en appliquant
+$$
+x \mapsto \int_{\mathbb{R}} f (x, y) N (x, y) \mathrm{d} y
+$$
+à $X$ est une version de l'espérance conditionnelle de $f(X, Y)$ par rapport à $\sigma (X).$
+
+
+:::
+
+::: {#rem-cond-prob}
+
+Pour chaque $x$ tel que $p_X(x)>0$, $P_{\cdot \mid X=x}$
+est une probabilité sur $\mathbb{R}^2$. Mais cette mesure de probabilité est portée par $\{x\} \times \mathbb{R}$ ; c'est le produit de la masse de Dirac en $\{x\}$ par la loi de probabilité
+sur $\mathbb{R}$ définie par la densité $N(x, \cdot)$. C'est pourquoi $N(x, \cdot)$ est souvent
+appelée la densité conditionnelle de $Y$ sachant $X=x$, et la loi sur $\mathbb{R}$ définie
+par cette densité est souvent appelée la loi conditionnelle de $Y$ sachant $X$.
+
+:::
+
+
+::: {#exr-normal-density-cond}
+
+$N(x,y)$ est-elle une densité de probabilité ? Si oui, par rapport à quelle mesure $\sigma$-finie ?
+
+:::
+
+
+La démonstration du [théorème @thm-conddensity] consiste à exploiter le théorème de Tonelli-Fubini.
+
+
+::: {.proof}
+
+Démonstration de (i). Convenons des notations :
+$$ P_x \{B\}= \int_{\mathbb{R}} \mathbb{I}_B(x,y) N (x, y) \mathrm{d} y . $$
+Le fait que $P_x$ soit à valeurs dans $[0, 1]$ est
+immédiat. Il en va de même pour $P_x (\{x\} \times \{\emptyset\}) = 0$
+et $P_x (\{x\} \times \{\mathbb{R}\}) = 1$. Il en va de même pour l'additivité.
+
+Il reste à vérifier que si $(B_n)$ est une suite croissante de boréliens de $\mathbb{R}^2$
+qui tend vers une limite $B$, alors
+$$
+\lim_n \uparrow P_x (B_n) = P_x (B) \, .
+$$
+C'est une conséquence immédiate du théorème de convergence monotone : pour chaque $(x',y')$,
+$\lim_n \uparrow \mathbb{I}_{B_n} (x', y') N (x', y') =  \mathbb{I}_{B} (x', y') N (x', y')$.
+
+Démonstration de ii) Comme la fonction $(x, y) \mapsto p (x, y) \mathbb{I}_B (x,y)$
+est $\mathcal{B} ( \mathbb{R}^2)$-mesurable et intégrable, d'après le théorème de Tonelli-Fubini,
+$$ x \mapsto \int_B p (x, y) \mathbb{I}_B (x,y) \mathrm{d} y $$
+est définie presque partout et borélienne.
+
+Démonstration de iii) C'est aussi une conséquence immédiate du
+théorème de Tonelli-Fubini.
+
+Démonstration de iv) Elle découle de i.),
+en utilisant l'argument habituel d'approximation par des fonctions simples.
+
+
+  
+:::
+
+::: {#exr-marginal}
+Nous considérons la loi uniforme sur la surface de $\mathbb{R}^2$ définie
+par $0 \leq x \leq y \leq y \leq 1$.
+Donner la densité jointe $p()$, la densité marginale $p_X$ et le noyau $N (,).$
+:::
+
+
+
+### Probabilités conditionnelles régulières, noyaux   {#sec-regconprob}
+
+
+Nous esquissons quelques résultats qui permettent de travailler dans un cadre plus général.
+Nous introduisons deux nouvelles notions.
+
+::: {#def}
+
+### Noyau de probabilité conditionnelle
+
+Soient $(\Omega, \mathcal{F})$ un espace mesurable, et $\mathcal{G}$ une sous-tribu de $\mathcal{F}.$
+
+On appelle _noyau de probabilité conditionnelle par rapport à_ $\mathcal{G}$
+une fonction $N : \Omega \times \mathcal{F} \rightarrow
+\mathbb{R}_+$ qui satisfait :
+
+i. Pour tout $\omega \in \Omega$, $N (\omega, \cdot)$ définit une probabilité
+sur $(\Omega, \mathcal{F})$.
+i. Pour tout $A \in \mathcal{F}$, $N (\cdot, A)$ est
+$\mathcal{G}$-mesurable
+
+:::
+
+Si l'espace mesurable est muni d'une loi de probabilité $P$,
+nous nous intéressons aux noyaux de probabilité conditionnelle par rapport à $\mathcal{G}$
+compatibles avec $P$. On les appelle _noyaux de probabilité conditionnelle régulière_.
+
+::: {#def}
+
+### Probabilité conditionnelle régulière
+
+Soient $(\Omega, \mathcal{F}, P)$ un espace de probabilité
+ et $\mathcal{G} \subseteq \mathcal{F}$ une sous-tribu.
+Un noyau $N : \Omega \times \mathcal{F} \to \mathbb{R}_+$ est une
+_probabilité conditionnelle régulière_ par rapport à $\mathcal{G}$ si et seulement si
+
+i. Pour tout $B \in \mathcal{F}$, $\omega \mapsto N (\omega, B)$
+est une version de l'espérance conditionnelle de $\mathbb{I}_B$
+sachant $\mathcal{G}$ ($N (\cdot, B)$ est donc
+$\mathcal{G}$-mesurable) :
+$$
+N (\cdot, B) = \mathbb{E}[\mathbb{I}_B \mid \mathcal{G}]\quad P-\text{a.s.}
+$$
+i. Pour $P$-presque tout $\omega \in \Omega$, $B \mapsto N
+(\omega, B)$ définit une probabilité sur $(\Omega, \mathcal{F})$.
+
+:::
+
+Une probabilité conditionnelle régulière (lorsqu'elle existe) se
+définit à partir de versions d'espérances conditionnelles. Réciproquement,
+une probabilité conditionnelle régulière nous fournit un moyen de
+calculer les espérances conditionnelles.
+
+
+
+::: {#thm}
+
+Soient $(\Omega, \mathcal{F}, P)$ un espace de probabilité
+et $\mathcal{G} \subseteq \mathcal{F}$ une sous-tribu. Soit $N$
+un noyau de probabilité sur $(\Omega,\mathcal{F})$ par rapport à $\mathcal{G}$.
+
+Les propriétés suivantes sont équivalentes
+
+1. $N(\cdot,\cdot)$ définit un noyau de probabilité conditionnelle régulière par rapport à $\mathcal{G}$ pour $(\Omega, \mathcal{G}, P)$.
+1. $P$-presque sûrement, pour toute fonction $f$ $P$-intégrable sur $(\Omega, \mathcal{F})$ :
+$$
+\mathbb{E} \left[ f \mid \mathcal{G} \right](\omega) =
+\mathbb{E}_{N(\omega,\cdot)}[f] \, .
+$$
+1. Pour toute variable aléatoire $X$ $P$-intégrable sur $(\Omega, \mathcal{F})$
+$$ \mathbb{E} \left[ X \right] =
+\mathbb{E}\left[ \mathbb{E}_{N(\omega,\cdot)}[X]\right] \, .
+$$
+
+:::
+
+::: {#rem-1}
+
+La démonstration de $1) \Rightarrow 2)$ s'appuie sur la machinerie habituelle :
+approximation des fonctions intégrables positives par
+des suites croissantes de fonctions simples,
+convergence monotone de l'espérance et de l'espérance conditionnelle.
+
+$2) \Rightarrow 3)$ est trivial.
+
+$3) \Rightarrow 1)$ est plus intéressant.
+
+:::
+
+### Existence de lois conditionnelles régulières lorsque $\Omega =\mathbb{R}$
+
+Nous vérifions l'existence de probabilités conditionnelles dans au moins
+un cas non trivial.
+
+
+::: {#thm}
+Soit $P$ une probabilité sur $( \mathbb{R}, \mathcal{B} (
+\mathbb{R}))$ et $\mathcal{G} \subseteq \mathcal{B} (
+\mathbb{R})$. Alors il existe un noyau de probabilité conditionnelle régulière
+ par rapport à $\mathcal{G}.$
+:::
+
+::: {#rem}
+Nous profitons du fait que
+$\mathcal{B} (\mathbb{R})$ est engendrée de façon dénombrable.
+:::
+
+::: {.proof}
+Soit $\mathcal{C}$ l'ensemble formé des demi-droites à extrémité rationnelle, de l'ensemble vide et de $\mathbb{R}$ :
+$$
+  \mathcal{C}  = \big\{ (-\infty, q]:  q \in \mathbb{Q} \big\} \cup \{\emptyset, \mathbb{R} \}\, .
+$$
+Cette collection dénombrable de demi-droites est un $\pi$-système (voir [section @sec-dynkin]) qui engendre $\mathcal{B}(\mathbb{R})$.
+
+Pour $q < q' \in \mathbb{Q},$ nous pouvons choisir des versions de $Y_q$
+et $Y_{q'}$ des espérances conditionnelles de $\mathbb{I}_{(-
+\infty, q]}$ et $\mathbb{I}_{(- \infty, q']}$ telles que
+$$
+  Y_q < Y_{q'} \qquad P\text{-a.s.}
+$$
+Observons que $Y_{q'} - Y_q$ est aussi une version de l'espérance conditionnelle
+ de $\mathbb{I}_{(q, q']}$.
+
+Une réunion dénombrable d'événements $P$-négligeables est $P$-négligeable ;
+comme $\mathbb{Q}^2$ est dénombrable,
+nous pouvons choisir des versions $\left( Y_q \right)_{q \in
+\mathbb{Q}}$ des espérances conditionnelles de $\mathbb{I}_{(-
+\infty, q]}$ telles que
+$$
+P\text{-a.s.} \qquad\forall q,q' \in \mathbb{Q}, \quad q < q' \Rightarrow Y_q < Y_{q'},
+$$
+Soit $\Omega_0$ l'événement $P$-presque sûr sur lequel
+tous les $Y_q$, $q \in \mathbb{Q}$, satisfont les bonnes propriétés.
+
+Pour chaque $x \in \mathbb{R}$, définissons $Z_x$ pour
+chaque $\omega \in \mathbb{R}$ par
+$$ Z_x (\omega) = \inf \left\{ Y_q (\omega) : q \in \mathbb{Q}, x < q
+\right\}$$
+Sur $\Omega_0$, la fonction $x \mapsto Z_x (\omega)$
+est croissante, possède une limite à gauche en chaque point et
+est continue à droite. La fonction $x \mapsto Z_x(\omega)$ tend vers $0$ lorsque $x$ tend vers $- \infty$, vers $1$
+lorsque $x$ tend vers $+ \infty$. En d'autres termes, sur $\Omega_0$, $x
+\mapsto Z_x (\omega)$ est une fonction de répartition ; elle définit
+donc (uniquement) une mesure de probabilité sur $\mathbb{R}$.
+Nous la noterons $\nu (\omega, .)$.
+
+De plus, pour chaque $x$, $Z_x$ est définie comme un infimum dénombrable de variables aléatoires $\mathcal{G}$-mesurables ; $Z_x$ est donc $\mathcal{G}$-mesurable.
+
+Il reste à vérifier que, pour tout $B \in \mathcal{F}$, $\omega
+\mapsto \nu (\omega, B)$ pour $\omega \in \Omega_0$, $0$ ailleurs, définit
+une version de l'espérance conditionnelle de $\mathbb{I}_B$ par rapport à
+$\mathcal{G}$.
+
+Cette propriété est satisfaite pour $B \in \mathcal{C}$.
+
+Appelons $\mathcal{D}$ l'ensemble de tous les événements pour lesquels
+$\omega \mapsto \nu (\omega, B)$ (sur $\Omega_0$, $0$ ailleurs)
+définit une version de l'espérance conditionnelle de
+$\mathbb{I}_B$ par rapport à $\mathcal{G}$. Nous montrons que
+$\mathcal{D}$ est un $\lambda$-système, c'est-à-dire
+
+i. $\mathcal{D}$ contient $\emptyset$ et $\mathbb{R} = \Omega$.
+i. Si $B, B'$ appartiennent à $\mathcal{D}$ et $B \subseteq B'$,
+alors $B' \setminus B \in \mathcal{D} .$
+i. Si $(B_n)_n$ est une suite croissante d'événements de
+$\mathcal{D}$, de limite $B$, alors $B \in \mathcal{D} .$
+
+Le point i.) est garanti par construction.
+
+Point ii.) Si $B' \subseteq B$ appartiennent à $\mathcal{D}$, alors,
+par linéarité des espérances conditionnelles, si $\mathbb{E}
+\left[ \mathbb{I}_{B' \setminus B} \mid \mathcal{G} \right]$ est une
+version de l'espérance conditionnelle de $\mathbb{I}_{B' \setminus
+B}$ par rapport à $\mathcal{G}$, sur un événement presque sûr $\Omega_1 \subseteq
+\Omega_0$ :
+\begin{align*}
+\mathbb{E} \left[ \mathbb{I}_{B' \setminus B} \mid \mathcal{G} \right]
+  & = \mathbb{E} \left[ \mathbb{I}_{B'} - \mathbb{I}_B \mid \mathcal{G} \right] \\
+  & = \mathbb{E} \left[ \mathbb{I}_{B'} \mid \mathcal{G} \right] - \mathbb{E} \left[ \mathbb{I}_B \mid \mathcal{G} \right] \\
+  & = \nu (\omega, B') - \nu (\omega, B) \\
+  & = \nu (\omega, B' \setminus B) \, .
+\end{align*}
+Point iii.) Si $(B_n)_n$ est
+une suite croissante d'événements de $\mathcal{D}$, avec $B_n \uparrow B$,
+si $\mathbb{E} \left[ \mathbb{I}_B \mid \mathcal{G} \right]$ est
+une version de l'espérance conditionnelle de $\mathbb{I}_B$ par rapport à
+$\mathcal{G}$, sur un événement $\Omega_1 \subseteq \Omega_0$ de
+probabilité $1$ :
+$$
+\mathbb{E} \left[ \mathbb{I}_B \mid \mathcal{G} \right] = \lim_n
+\mathbb{E} \left[ \mathbb{I}_{B_n} \mid \mathcal{G} \right] =
+\lim_n \nu (\omega, B_n) = \nu (\omega, B) \, .
+$$
+Donc $B \in \mathcal{D}$.
+
+Le théorème de la classe monotone ([section @sec-dynkin]) nous dit que $\mathcal{F \subseteq \mathcal{D}}$.
+
+  
+
+:::
+
+::: {#rem}
+En travaillant davantage, on pourrait montrer que l'existence de probabilités conditionnelles régulières
+est garantie dès que $\Omega$
+peut être muni d'une structure d'espace métrique complet séparable
+et que la tribu $\mathcal{F}$ est la tribu borélienne induite par cette métrique.
+:::
+
+
+On définit souvent une loi de probabilité à partir d'une loi marginale
+et d'un noyau.
+
+::: {#prp}
+
+Soient $(\Omega, \mathcal{F})$ un espace mesurable,
+$X$ une variable aléatoire sur $(\Omega, \mathcal{F})$,
+et $N$ un noyau de probabilité conditionnelle par rapport à $\sigma(X)$.
+Soit $P_X$ une mesure de probabilité sur $(\Omega \sigma(X))$.
+
+Alors il existe une unique mesure de probabilité $P$ sur
+$(\Omega, \mathcal{F})$ telle que $P_X = P \circ X^{- 1}$ et $N$
+soit un noyau de probabilité conditionnelle régulière par rapport à $\sigma(X)$. On a,
+pour tout $B \in \mathcal{F}$ :
+$$
+P(B) = \int_{X(\Omega)} N(x, B) \mathrm{d}P_x(x)
+$$
+
+:::
+
+Le théorème suivant garantit l'existence
+d'une probabilité conditionnelle régulière dans tous les scénarios qui nous intéressent.
+
+
+
+## Inégalités d'Efron-Stein-Steele {#sec-ess}
+
+Dans cette section, $X_1, \ldots, X_n$ désignent des variables aléatoires indépendantes sur
+un espace de probabilité, à valeurs dans $\mathcal{X}_1, \ldots, \mathcal{X}_n$, et $f$ une fonction mesurable
+de $\mathcal{X}_1 \times  \ldots \times \mathcal{X}_n$ dans $\mathbb{R}$. Posons $Z=f(X_1, \ldots, X_n)$.
+La variable aléatoire $Z$ est une fonction générale de variables aléatoires indépendantes. Nous supposons $Z$ intégrable.
+
+Si nous avions $Z = \sum_{i=1}^n X_i$, nous pourrions écrire $$
+\operatorname{var}(Z)
+= \sum_{i=1}^n \operatorname{var}(X_i)
+= \sum_{i=1}^n \mathbb{E}\Big[\operatorname{var}( Z \mid X_1, \ldots, X_{i-1}, X_{i+1}, \ldots X_n)\Big]
+$$
+même si la dernière expression paraît pédante. L'objectif de cette section est de
+montrer que même si $f$ n'est pas aussi simple que la somme de ses arguments, la dernière expression peut encore
+servir de majoration de la variance.
+
+Il est naturel de majorer la variance d'une telle fonction générale
+en exprimant $Z-\mathbb{E} Z$
+comme une somme de différences et en
+utilisant l'orthogonalité de ces différences.
+
+Plus précisément, si nous notons
+$\mathbb{E}_i$ l'opérateur d'espérance conditionnelle, conditionné par
+$\left(X_{1},\ldots,X_{i}\right)$, et adoptons la convention
+$\mathbb{E}_0=\mathbb{E}$, nous pouvons définir
+$$
+\Delta_{i}=\mathbb{E}_i Z  -\mathbb{E}_{i-1} Z
+$$
+pour tout $i=1,\ldots,n$.
+
+::: {#exr-ess-1}
+Vérifier que $\mathbb{E} \Delta_i=0$ et que, pour $j>i$, $\mathbb{E}_i \Delta_j=0$ p.s.
+:::
+
+À partir de la décomposition
+$$
+Z-\mathbb{E} Z  =\sum_{i=1}^{n}\Delta_{i}
+$$
+on a
+$$
+\operatorname{var}\left(  Z\right)  =\mathbb{E}\left[  \left(  \sum_{i=1}
+^{n}\Delta_{i}\right)  ^{2}\right]  =\sum_{i=1}^{n}\mathbb{E}\left[
+\Delta_{i}^{2}\right]  +2\sum_{j>i}\mathbb{E}\left[  \Delta_{i}\Delta
+_{j}\right]  \text{.}
+$$
+Or, si $j>i$, $\mathbb{E}_i \Delta_{j}  =0$ implique que
+$$
+\mathbb{E}_i\left[  \Delta_{j}\Delta_{i}\right]  =\Delta_{i}
+\mathbb{E}_{i} \Delta_{j}  =0~,
+$$
+et, a fortiori, $\mathbb{E}\left[  \Delta_{j}\Delta_{i}\right]  =0$.
+Ainsi, nous obtenons l'analogue suivant de la formule d'additivité
+de la variance :
+$$
+\operatorname{var}\left(  Z\right)  =\mathbb{E}\left[  \left(  \sum_{i=1}
+^{n}\Delta_{i}\right)  ^{2}\right]  =\sum_{i=1}^{n}\mathbb{E}\left[
+\Delta_{i}^{2}\right]~.
+$$
+Observons que jusqu'ici, nous n'avons pas utilisé le fait que $Z$ est une fonction de
+ variables indépendantes $X_{1},\ldots,X_{n}$.
+
+L'indépendance peut être utilisée comme dans l'argument suivant :
+pour toute fonction intégrable $Z= f\left(  X_{1},\ldots,X_{n}\right)$, on peut écrire,
+d'après le théorème de Tonelli-Fubini,
+$$
+\mathbb{E}_i Z  =\int
+_{\mathcal{X}^{n-i}}f\left(  X_{1},\ldots,X_{i},x_{i+1},\ldots,x_{n}\right)
+d\mu_{i+1}\left(  x_{i+1}\right)  \ldots d\mu_{n}\left(  x_{n}\right)  \text{,}
+$$
+où, pour tout $j= 1,\ldots,n$, $\mu_{j}$ désigne la
+loi de probabilité de $X_{j}$. De plus, si nous notons
+$\mathbb{E}^{(i)}$ l'opérateur d'espérance conditionnelle conditionné par
+$X^{(i)}=(X_{1},\ldots,X_{i-1},X_{i+1},\ldots,X_{n})$, nous avons
+$$
+\mathbb{E}^{(i)}Z %%%%%\left[  Z\right]
+=\int_{\mathcal{X}}
+f\left(  X_{1},\ldots,X_{i-1},x_{i},X_{i+1},\ldots,X_{n}\right)  d\mu_{i}\left(
+x_{i}\right)~.
+$$
+Alors, encore d'après le théorème de Tonelli-Fubini,
+\begin{equation}
+\mathbb{E}_i\left[  \mathbb{E}^{\left(  i\right)  } Z \right]
+ =\mathbb{E}_{i-1} Z  \text{.}
+  (\#eq:efundind)
+\end{equation}
+Cette observation est la clé de la démonstration du résultat principal de cette
+section, que nous énonçons maintenant :
+
+::: {#thm-zefron-stein}
+
+### Inégalités d'Efron-Stein-Steele
+
+Soient $X_1,\ldots,X_n$
+des variables aléatoires indépendantes et
+ $Z=f(X)$ une
+fonction de carré intégrable de $X=\left(  X_{1},\ldots,X_{n}\right)$.
+Alors
+$$
+\operatorname{var}\left(  Z\right)  \leq\sum_{i=1}^n\mathbb{E}\left[
+\left(  Z-\mathbb{E}^{(i)} Z  \right)^2\right]  = v~.
+$$
+De plus, si
+$X_1',\ldots,X_n'$ sont des copies indépendantes de $X_1,\ldots,X_n$ et si nous définissons,
+pour tout $i=1,\ldots,n$,
+$$
+Z_i'=  f\left(X_1,\ldots,X_{i-1},X_i',X_{i+1},\ldots,X_n\right)~,
+$$
+alors
+$$
+v=\frac{1}{2}\sum_{i=1}^n\mathbb{E}\left[  \left(  Z-Z_i'\right)^2\right]
+=\sum_{i=1}^n\mathbb{E}\left[  \left(  Z-Z_i'\right)_+^2\right]
+=\sum_{i=1}^n\mathbb{E}\left[  \left(  Z-Z_i'\right)_-^2\right]
+$$
+où $x_+=\max(x,0)$ et $x_-=\max(-x,0)$ désignent les parties positive et
+négative d'un nombre réel $x$.
+En outre,
+$$
+v=\inf_{Z_{i}}\sum_{i=1}^{n}\mathbb{E}\left[  \left(  Z-Z_{i}\right)^2\right]~,
+$$
+où l'infimum est pris sur la classe de toutes les variables $Z_{i}$ mesurables par rapport à $X^{(i)}$
+et de carré intégrable, $i=1,\ldots,n$.
+
+:::
+
+::: {.proof}
+
+Commençons par la démonstration du premier énoncé.
+Notons que, d'après \@ref(eq:efundind), nous pouvons écrire
+$$
+\Delta_{i}=\mathbb{E}_i\left[  Z-\mathbb{E}^{\left(  i\right)  } Z  \right]  \text{.}
+$$
+Par l'inégalité de Jensen conditionnelle,
+$$
+\Delta_{i}^{2}\leq\mathbb{E}_i\left[  \left(  Z-\mathbb{E}^{\left(
+i\right)  }Z  \right)  ^{2}\right]~.
+$$
+En utilisant $\operatorname{var}(Z) = \sum_{i=1}^n \mathbb{E}\left[ \Delta_i^2\right]$,
+nous obtenons l'inégalité souhaitée.
+Pour démontrer les identités pour $v$,
+notons
+$\operatorname{var}^{\left(i\right) }$ l'opérateur de variance conditionnelle conditionné par
+$X^{\left(  i\right)  }$. Nous pouvons écrire $v$ sous la forme
+$$
+v=\sum_{i=1}^{n}\mathbb{E}\left[  \operatorname{var}^{\left(  i\right)  }\left(
+Z\right)  \right]  \text{.}
+$$
+Observons que l'on peut
+simplement
+utiliser (conditionnellement) le fait élémentaire que,
+si $X$ et $Y$ sont indépendantes et identiquement
+distribuées, variables réelles, alors $\operatorname{var}(X)=(1/2) \mathbb{E}[(X-Y)^2]$.
+Comme, conditionnellement à $X^{\left(  i\right)  }$,
+  $Z_i'$ est une copie indépendante de $Z$, nous pouvons écrire
+$$
+\operatorname{var}^{\left(  i\right)  }\left(  Z\right)  =\frac{1}{2}\mathbb{E}
+^{\left(  i\right)  }\left[  \left(  Z-Z_i'\right)^2\right]
+=\mathbb{E}^{\left(  i\right)  }\left[  \left(  Z-Z_i'\right)_+^2\right]
+=\mathbb{E}^{\left(  i\right)  }\left[  \left(  Z-Z_i'\right)_-^2\right]
+$$
+où nous avons utilisé le fait que les lois conditionnelles de $Z$ et $Z_i'$
+sont identiques.
+La dernière identité s'obtient
+en rappelant que, pour toute variable aléatoire réelle $X$,
+$\operatorname{var}(X) = \inf_{a\in \mathbb{R}} \mathbb{E}[(X-a)^2]$.
+En utilisant ce fait conditionnellement, nous avons, pour tout $i=1,\ldots,n$,
+$$
+\operatorname{var}^{\left(  i\right)  }\left(  Z\right)  =\inf_{Z_{i}}
+\mathbb{E}^{\left(  i\right)  }\left[  \left(  Z-Z_{i}\right)^2\right]~.
+$$
+Notons que cet
+infimum est atteint lorsque $Z_{i}=\mathbb{E}^{\left(  i\right)  } Z$.
+
+  
+
+:::
+
+Observons que dans le cas où $Z=\sum_{i=1}^n X_i$ est une somme de
+variables aléatoires indépendantes (de variance finie), l'inégalité d'Efron-Stein-Steele devient une égalité.
+Ainsi, la borne de l'inégalité d'Efron-Stein-Steele est, en un certain sens,
+non améliorable.
+
+
+## Inégalités des différences bornées {#sec-mcdiarmid}
+
+Dans cette section, nous combinons l'inégalité de Hoeffding et le conditionnement
+pour établir la _inégalité des différences bornées_ (également connue sous le nom
+d'inégalité de McDiarmid). Cette inégalité est un premier exemple du
+_phénomène de concentration de la mesure_. Ce phénomène se résume ainsi :
+
+> Une fonction de nombreuses variables aléatoires indépendantes qui ne dépend pas trop
+de chacune d'elles est concentrée autour de sa moyenne ou de sa médiane.
+
+
+::: {#thm}
+
+### Inégalités des différences bornées
+
+Soient $X_1, \ldots, X_n$ des variables aléatoires indépendantes sur un espace de probabilité,
+à valeurs dans $\mathcal{X}_1, \mathcal{X}_2, \ldots, \mathcal{X}_n$.
+Soit $f : \mathcal{X}_1 \times \mathcal{X}_2 \times  \ldots \times  \mathcal{X}_n \to \mathbb{R}$
+une fonction mesurable telle qu'il existe des constantes non négatives $c_1, \ldots, c_n$ satisfaisant
+$\forall x_1, \ldots, x_n \in \prod_{i=1}^n \mathcal{X}_i$,
+$\forall y_1, \ldots, y_n \in \prod_{i=1}^n \mathcal{X}_i$,
+$$
+\Big| f(x_1, \ldots, x_n) - f(y_1, \ldots, y_n)\Big|  \leq \sum_{i=1}^n c_i \mathbb{I}_{x_i\neq y_i} \,.
+$$
+Posons $Z =  f(X_1, \ldots, X_n)$ et $v = \sum_{i=1}^n \frac{c_i^2}{4}$.
+Alors $$
+\operatorname{var}(Z)  \leq v \, ,
+$$
+$$
+\log \mathbb{E} \mathrm{e}^{\lambda (Z -\mathbb{E}Z)} \leq \frac{\lambda^2 v}{2}
+$$
+et
+$$
+P \Big\{ Z \geq \mathbb{E}Z + t \Big\} \leq \mathrm{e}^{-\frac{t^2}{2v}} \,.
+$$
+
+:::
+
+::: {.proof}
+La borne sur la variance est une conséquence immédiate des inégalités d'Efron-Stein-Steele.
+
+La borne sur la queue découle de la majoration de la fonction génératrice des moments logarithmique
+par la méthode de Cramér-Chernoff.
+
+Vérifions maintenant la majoration de la fonction génératrice des moments logarithmique.
+
+Nous procédons par récurrence sur le nombre d'arguments $n$.
+
+Si $n=1$, la majoration de la fonction génératrice des moments logarithmique n'est autre que le lemme de Hoeffding (voir [section @sec-expineq]).
+
+Supposons la majoration valide jusqu'à $n-1$.
+
+Nous adoptons les mêmes notations que dans [section @sec-ess]).
+\begin{align*}
+\mathbb{E} \mathrm{e}^{\lambda (Z - \mathbb{E}Z)}
+  & = \mathbb{E}\Big[ \mathbb{E}_{n-1}\mathrm{e}^{\lambda (Z - \mathbb{E}Z)} \Big] \\
+  & = \mathbb{E}\Big[ \mathbb{E}_{n-1}\big[\mathrm{e}^{\lambda (Z - \mathbb{E}_{n-1}Z)}\big] \times \mathrm{e}^{\lambda (\mathbb{E}_{n-1}Z - \mathbb{E}Z)}  \Big] \,.
+\end{align*}
+Or,
+$$
+\mathbb{E}_{n-1}Z = \int_{\mathcal{X}_n} f(x_1,\ldots,x_{n-1}, u) \mathrm{d}P_{X_n}(u) \qquad\text{a.s.}
+$$
+et
+\begin{align*}
+& \mathbb{E}_{n-1}\big[\mathrm{e}^{\lambda (Z - \mathbb{E}_{n-1}Z)}\big] \\
+  & = \int_{\mathcal{X}_n}  \exp\Big(\lambda  \int_{\mathcal{X}_n} f(x_1,\ldots,x_{n-1}, v) -f(x_1,\ldots,x_{n-1}, u) \mathrm{d}P_{X_n}(u)  \Big) \mathrm{d}P_{X_n}(v) \, .
+\end{align*}
+Pour tout $x_1, \ldots, x_{n-1} \in \mathcal{X_1} \times \ldots \times \mathcal{X}_{n-1}$,
+pour tout $v, v' \in \mathcal{X}_n$,
+\begin{align*}
+& \Big| \int_{\mathcal{X}_n} f(x_1,\ldots,x_{n-1}, v) -f(x_1,\ldots,x_{n-1}, u) \mathrm{d}P_{X_n}(u) \\
+& - \int_{\mathcal{X}_n} f(x_1,\ldots,x_{n-1}, v') -f(x_1,\ldots,x_{n-1}, u) \mathrm{d}P_{X_n}(u)\Big| \leq c_n
+\end{align*}
+d'où, par le lemme de Hoeffding,
+$$
+\mathbb{E}_{n-1}\big[\mathrm{e}^{\lambda (Z - \mathbb{E}_{n-1}Z)}\big] \leq \mathrm{e}^{\frac{\lambda^2 c_n^2}{8}} \, .
+$$
+\begin{align*}
+  \mathbb{E} \mathrm{e}^{\lambda (Z - \mathbb{E}Z)}
+  & \leq \mathbb{E}\Big[  \mathrm{e}^{\lambda (\mathbb{E}_{n-1}Z - \mathbb{E}Z)}  \Big] \times \mathrm{e}^{\frac{\lambda^2 c_n^2}{8}} \, .
+\end{align*}
+Or, si $X_1=x_1, \ldots X_{n-1}=x_{n-1}$,
+$$
+\mathrm{e}^{\lambda (\mathbb{E}_{n-1}Z - \mathbb{E}Z)}
+= \int_{\mathcal{X}_n} f(x_1,\ldots,x_{n-1}, v) \mathrm{d}P_{X_n}(v) - \mathbb{E}Z \,,
+$$
+c'est une fonction de $n-1$ variables aléatoires indépendantes qui satisfait les conditions de différences bornées
+avec les constantes $c_1, \ldots, c_{n-1}$. Par hypothèse de récurrence :
+$$
+\mathbb{E}\Big[  \mathrm{e}^{\lambda (\mathbb{E}_{n-1}Z - \mathbb{E}Z)}  \Big]
+\leq \mathrm{e}^{\frac{\lambda^2}{2} \sum_{i=1}^{n-1} \frac{c_i^2}{4}} \, .
+$$
+
+  
+
+:::
+
+
+## Remarques bibliographiques {#sec-bibconditionning}
+
+Les espérances conditionnelles peuvent être construites à partir du théorème de Radon-Nikodym, voir [@MR1932358].
+
+Il est aussi possible de démontrer le théorème de Radon-Nikodym à partir de la construction de l'espérance conditionnelle dans $\mathcal{L}_2$, voir [@MR1155402].
+
+La section sur les inégalités d'Efron-Stein-Steele est tirée de [@BoLuMa13]
+
+L'inégalité des différences bornées est due à C. McDiarmid. Elle est devenue populaire en informatique (théorique) dans les années 1990.
+Voir [@McD97]

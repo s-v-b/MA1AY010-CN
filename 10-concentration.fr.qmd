@@ -1,0 +1,28 @@
+# Concentration  {#chapConcentration}
+
+## Feuille de route
+
+##  Inégalités exponentielles {#secExpIneq}
+
+### Inégalité de Hoeffding
+
+### Inégalité de Bennett
+
+### Inégalité de Bernstein
+
+## Inégalités d'Efron-Stein-Steele
+
+### Une inégalité de corrélation
+
+### Estimations de variance d'Efron-Stein-Steele
+
+## Inégalité des différences bornées
+
+## Concentration gaussienne
+
+### Inégalité de Poincaré
+
+### Inégalité de Borrell-Gross-Cirelson
+
+
+## Remarques bibliographiques

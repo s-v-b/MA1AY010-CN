@@ -1,0 +1,561 @@
+# Conditionnement discret  {#sec-conditioning4dummies}
+
+{{< include _packages_requirements.qmd >}}
+
+## Feuille de route
+
+Le conditionnement est central dans le raisonnement probabiliste. Dans cette leçon, nous
+étudions le conditionnement discret. Dans ce cadre, la définition
+de la probabilité conditionnelle ne pose pas de difficulté. La définition
+de l'espérance conditionnelle peut paraître déceptivement simple. Néanmoins,
+le cadre discret se prête à des définitions et manipulations intuitives.
+
+
+La notion la plus simple que nous rencontrons est la probabilité conditionnelle par rapport
+à un événement de probabilité strictement positive (@sec-condevent).
+La probabilité conditionnelle offre une interprétation intuitive de l'indépendance.
+
+Dans @sec-bayesformula, nous énonçons, vérifions et discutons
+la formule de Bayes.
+
+Dans @sec-conddiscretealgebra, nous définissons l'espérance conditionnelle par rapport à une
+$\sigma$-algèbre atomique. Cela définit l'espérance conditionnelle par rapport à une variable aléatoire
+discrète.
+
+Dans @sec-condpred, nous caractérisons l'espérance conditionnelle comme
+un prédicteur optimal. Cette caractérisation est très utile pour
+définir l'espérance conditionnelle dans le cadre général.
+
+
+
+## Conditionnement par rapport à un événement {#sec-condevent}
+
+::: {#def-condevent}
+
+Soit $P$ une loi de probabilité sur $(\Omega, \mathcal{F})$. Soit $A \in \mathcal{F}$ tel que $P\{A\} > 0$. Soit $B$ un autre événement ($B \in \mathcal{F}$). La _probabilité de $B$ sachant $A$_ est définie par
+
+$$P\{B \mid A\}= \frac{P\{A \cap B\}}{P\{A\}} .$$
+
+:::
+
+<br> <p> </p>
+
+::: {#exm}
+
+Si $X$ est une variable aléatoire gaussienne standard sur $(\Omega, \mathcal{F})$,
+et si l'événement $A$ est défini par $\{ \omega : X(\omega) \geq t\}$ pour un certain $t\geq 0$, nous pouvons conditionner sur l'événement $A$
+et définir $P\{B \mid A\}$ pour $B = \{ \omega : |X(\omega)|\geq 2t\}$.
+
+Nous obtenons
+
+$$P\{ B \mid A \} =  \frac{P\{ X \geq 2 t\}}{P\{ X \geq t\}} \,.$$
+
+:::
+
+<p> </p>
+
+
+Nous pouvons vérifier la proposition suivante en revenant à la définition des lois de probabilité.
+
+
+::: {#prp-probcond}
+
+Soit $P$ une loi de probabilité sur $(\Omega, \mathcal{F})$.
+
+Soit $A \in \mathcal{F})$ tel que $P\{A\} > 0$. Alors
+$P\{\cdot \mid A\}$ ($P$ sachant $A$) définit une loi de probabilité sur $(\Omega, \mathcal{F}).$
+
+:::
+
+<br>  <p> </p>
+
+::: {.proof}
+
+$P(\cdot \mid A)$ associe à $\mathcal{F}$ des valeurs dans $[0,1]$.
+
+Nous avons $P(\Omega \mid A)= P(A \cap \Omega)/ P(A) = P(A) /P(A)= 1$
+
+Soit $(B_n)_n$ une suite croissante d'événements. Alors
+$$
+\begin{array}{rl}
+  P (\cup_n B_n \mid A) & = \frac{P((\cup_n B_n) \cap A)}{P(A)} \\
+  & = \frac{P(\cup_n (B_n \cap A))}{P(A)} \\
+  & = \frac{\lim_n P(B_n \cap A)}{P(A)} \\
+  & = \lim_n P(B_n \mid A) \, .
+\end{array}
+$$
+
+:::
+
+<br>  <p> </p>
+
+Nous pouvons considérer la loi des variables aléatoires
+sur $(\Omega, \mathcal{F})$
+sous $P\{\cdot \mid A\}$. Nous calculons l'espérance
+de $X$ sous $P\{ \cdot \mid A\}$ :
+
+$$\mathbb{E}_{P\{\cdot \mid A\}} X =  \frac{\mathbb{E} [\mathbb{I}_A\, X]}{P\{A\}} \,.$$
+
+Ceci est souvent noté $\mathbb{E}[X \mid A]$ ; nous essaierons d'éviter cette
+notation potentiellement trompeuse.
+
+<br>  <p> </p>
+
+
+::: {#exm-condevent1}
+
+Supposons que $X$ suit une loi normale standard. On peut étudier
+la loi de $X^2$
+conditionnellement à l'événement $A = \{ \omega : X(\omega)\geq t\}$. Pour $t>1$, nous avons
+
+$$
+\begin{array}{rl}
+\mathbb{E}_{P\{\cdot \mid X \geq t\}} X^2
+& = \frac{\int_t^\infty x^2 \phi(x) \mathrm{d}x}{\int_t^\infty \phi(x) \mathrm{d}x}\\
+& \leq \frac{t^2}{1-1/t} + 1 \, .
+\end{array}
+$$
+
+où la majoration est obtenue par intégrations par parties répétées.
+
+La loi de $X$ sachant $A$ n'est pas gaussienne. Sous
+$A$, $X$ est très concentrée au voisinage de $t$ et tend à l'être davantage lorsque $t$ tend vers l'infini.
+
+:::
+
+<br>  <p> </p>
+
+Connaître la loi de probabilité sachant l'événement $A$
+permet d'étudier l'indépendance d'événements par rapport à $A$.
+La proposition triviale suivante mérite d'être rappelée.
+<p> </p>
+
+
+::: {#prp-indep-probcond}
+Si $A$ et $B \in \mathcal{F}$ satisfont $P\{A\}> 0$, alors $A$ et $B$ sont indépendants au sens de $P$ si et seulement si
+
+$$P\{B\mid A\}= P\{B\}.$$
+
+:::
+
+<br> <p> </p>
+
+
+
+## Formule de Bayes {#sec-bayesformula}
+
+<br>  <p> </p>
+
+La formule de Bayes est parfois utilisée en théorie de la causalité probabiliste. C'est un sujet difficile. La causalité est une notion subtile et nous nous abstiendrons d'interprétations causales.
+
+::: {#prp-bayesformula}
+
+### Formule de Bayes
+
+Soit $P$ une loi de probabilité sur $(\Omega, \mathcal{F})$,
+soit $(A_i)_{i \in \mathcal{I} \subseteq \mathbb{N}}$ une collection d'événements deux à deux disjoints,
+de probabilité non nulle,
+telle que $\cup_{i \in \mathcal{I}} A_i = \Omega$ ($(A_i)_i$ forme un système complet d'événements). Soit $B$ un événement de probabilité non nulle. Alors, pour tout $i \in \mathcal{I}$,
+
+
+$$P\{A_i \mid B\} = \frac{P\{A_i \} \times P\{B \mid A_i \}}{\sum_{j \in \mathcal{I}} P\{A_j\}\times P\{B \mid A_j\}}$$
+
+:::
+
+
+<br> <p> </p>
+
+
+::: {.proof}
+
+Par définition, $P\{A_i \mid B\}= P\{A_i \cap B\}/ P\{B\}= P\{A_i \}
+\times P\{B \mid A_i \}/ P\{B\}$.
+
+De plus
+$$
+\begin{array}{rl}
+P \{ B\} & = P\{B \cap (\cup_{j \in \mathcal{I}} A_j)\}\\
+& = P\{\cup_{j \in \mathcal{I}} (B \cap A_j)\}  \\
+& = \sum_{j \in \mathcal{I}} P\{B \cap A_j \} \\
+& = \sum_{j \in \mathcal{I}} P\{A_j \} \times P\{B \mid A_j \}.
+\end{array}
+$$
+
+:::
+
+<br> <p> </p>
+
+Dans la proposition précédente, $P\{A_i \}$ est appelée la probabilité *a priori*
+de $A_i$ et $P\{A_i \mid B\}$ la probabilité *a posteriori*.
+
+
+## Espérance conditionnelle par rapport à une $\sigma$-algèbre discrète {#sec-conddiscretealgebra}
+
+Alors que la notion générale d'espérance conditionnelle requiert un certain niveau d'abstraction,
+nous pouvons introduire le conditionnement par rapport à une $\sigma$-algèbre discrète
+à partir de la notion élémentaire de probabilité conditionnelle
+par rapport à un événement de probabilité strictement positive.
+
+<br>  <p> </p>
+
+
+::: {#def-condexp}
+
+Soit $\Omega$ un univers, $\mathcal{F}$ une
+$\sigma$-algèbre d'événements sur
+$\Omega$, $P$ une loi de probabilité sur $(\Omega, \mathcal{F})$. Soient
+$(A_i)_{i \in \mathcal{I} \subseteq \mathbb{N}}$ des événements deux à deux disjoints,
+de probabilité non nulle, tels que $\cup_i A_i = \Omega$. Soit $\mathcal{G}$ la $\sigma$-algèbre atomique
+engendrée par $(A_i)_{i \in \mathcal{I}}$.
+
+Soit $X$ une variable aléatoire de $(\Omega, \mathcal{F})$ vers $(\mathcal{X}, \mathcal{H})$. L'_espérance conditionnelle de $X$ par rapport à $\mathcal{G}$_ est la variable aléatoire définie par
+
+$$
+\mathbb{E} [X \mid \mathcal{G}] = \sum_{i \in  \mathcal{I}}  \mathbb{E}_{P_{\{\cdot |A_i
+\}}} [X] \times \mathbf{1}_{A_i} .
+$$
+
+
+:::
+
+<br>  <p> </p>
+
+
+Alors que $\mathbb{E}_{P_{\{\cdot |A_i \}}} [X]$ est un nombre réel,
+$\mathbb{E} [X \mid \mathcal{G}]$ est une fonction $\mathcal{G}$-mesurable de $\Omega$ vers $\mathcal{X}$ :
+
+$$
+\mathbb{E} [X \mid \mathcal{G}](\omega) =  \sum_{i \in  \mathcal{I}}  \mathbb{E}_{P_{\{\cdot |A_i
+\}}} [X] \times \mathbf{1}_{A_i}(\omega) \qquad \forall \omega \in \Omega\, .
+$$
+
+
+Ces deux types d'objets ne doivent pas être confondus. Nous nous abstiendrons d'utiliser la notation $\mathbb{E}[X \mid A_i]$ car elle peut prêter à confusion : $\mathbb{E}[X \mid A_i]$ pourrait désigner soit
+$\mathbb{E}_{P_{\{\cdot |A_i     \}}} [X]$, soit $\mathbb{E} [X \mid \sigma(A_i)]$ où $\sigma(A_i)$
+est la $\sigma$-algèbre engendrée par $A_i$ : $\{ A_i, A_i^c, \Omega, \emptyset\}$.
+
+<br>  <p> </p>
+
+::: {#prp-espercond}
+
+Soit $P$ une loi de probabilité sur $(\Omega, \mathcal{F})$.
+Soit $(A_i)_{i \in \mathcal{I} \subseteq \mathbb{N}}$ une collection d'événements
+deux à deux disjoints, de probabilité non nulle, telle que $\cup_{i \in \mathcal{I}} A_i = \Omega.$
+Soit $\mathcal{G}=\sigma\Big((A_i)_{i \in \mathcal{I}}\Big)$
+la $\sigma$-algèbre engendrée par $(A_i)_{i \in \mathcal{I}}$. La variable aléatoire $X$ est supposée $P$-
+intégrable.
+
+
+1. L'espérance conditionnelle $\mathbb{E} [X \mid \mathcal{G}]$ est une
+variable aléatoire $\mathcal{G}$-mesurable qui satisfait
+
+$$
+\mathbb{E} \left[ YX \right] = \mathbb{E} \left[ Y \mathbb{E} [X \mid
+\mathcal{G}] \right] \qquad \forall Y \in \sigma(\mathcal{G}), Y \text{ bounded.}
+$$
+
+2. Si deux variables aléatoires $\mathcal{G}$-mesurables $Z, T$ satisfont
+$\mathbb{E} \left[ YX \right] = \mathbb{E} \left[ Y Z \right] = \mathbb{E}[YT]$, pour tout $Y \in \sigma(\mathcal{G}), Y \text{ bounded}$,
+alors $Z=T$ presque sûrement.
+
+:::
+
+<br> <p> </p>
+
+::: {.proof}
+
+Il faut vérifier les points 1.) et 2.) :
+
+1. $\mathbb{E} \left[ X \mid \mathcal{G} \right]$ satisfait la première propriété de la Proposition @prp-espercond.
+2. Si $Z$ satisfait @prp-espercond, alors $Z = \mathbb{E}\left[ X \mid \mathcal{G} \right]$ $P$-presque sûrement.
+
+
+Vérification de i.)
+
+Si $Y$ est $\mathcal{G}$-mesurable, alors $Y = \sum_{i \in \mathcal{I}} \lambda_i \mathbf{1}_{A_i}$ pour une certaine suite de réels $(\lambda_i)_{i \in
+\mathcal{I}}$.
+
+Alors
+$$
+\begin{array}{rl}
+\mathbb{E} [Y \mathbb{E} \left[ X \mid \mathcal{G} \right]] & =
+\mathbb{E} \left[ \left( \sum_{i \in \mathcal{I}}   \lambda_i
+\mathbf{1}_{A_i} \right)    \left( \sum_{j \in \mathcal{I}}
+\mathbf{1}_{A_j}  \frac{\mathbb{E} [ \mathbf{1}_{A_j} X]}{P\{A_j \}}
+\right) \right]\\
+& =  \left.  \mathbb{E} \left[ \sum_{i \in \mathcal{I}}
+\lambda_i  \mathbf{1}_{A_i}     \frac{\mathbb{E} [
+\mathbf{1}_{A_i} X]}{P\{A_i \}} \right) \right]\\
+& =  \sum_{i \in \mathcal{I}}   \lambda_i  \mathbb{E} [
+\mathbf{1}_{A_i} X] \frac{\mathbb{E} \left[ \mathbf{1}_{A_i}
+\right]}{P\{A_i \}} \quad \text{linearity of expectation}\\
+& =  \sum_{i \in \mathcal{I}}   \lambda_i  \mathbb{E} [
+\mathbf{1}_{A_i} X]\\
+& =  \mathbb{E} \left[ \left( \sum_{i \in \mathcal{I}} \lambda_i
+\mathbf{1}_{A_i} \right) X   \right]\\
+& =  \mathbb{E} \left[ YX \right] .
+\end{array}
+$$
+
+<p></p>
+
+Vérification de ii.)
+
+<p></p>
+
+
+Supposons que $Z$ satisfasse @prp-espercond.
+
+Définissons $Y$ par
+$Y = \mathbf{1}_{A_i}$, pour un certain indice $i \in \mathcal{I}$.
+
+Comme $Z$ est $\mathcal{G}$-mesurable, il existe une suite de réels $\left( \mu_j
+\right)_{j \in \mathcal{I}}$ telle que $Z = \sum_{j \in \mathcal{I}} \mu_j
+\mathbf{1}_{A_j}.$
+
+Ainsi, en utilisant le fait que les événements $A_j$ sont deux à deux disjoints :
+
+$$
+\begin{array}{rl}
+\mathbb{E} \left[ ZY \right] & =  \mathbb{E} \left[ \sum_{j \in
+\mathcal{I}} \mu_j  \mathbf{1}_{A_j}  \mathbf{1}_{A_i}
+\right] = \mu_i P\{A_i \}
+\end{array}
+$$
+
+Par la propriété définissante de $Z$, nous avons
+$$\mathbb{E} [ZY] = \mathbb{E} [XY] = \mathbb{E} [X \mathbf{1}_{A_i}]\,.$$
+
+Enfin, pour tout $i \in \mathcal{I}$,
+$\mu_i= \mathbb{E}[X\mathbf{1}_{A_i}]/ P\{A_i \}.$
+
+Nous pouvons maintenant conclure que $Z = \mathbb{E}[X \mid \mathcal{G}]$.
+
+  
+:::
+
+<br>
+<p> </p>
+
+
+## Espérance conditionnelle comme prédiction {#sec-condpred}
+
+
+
+La proposition suivante révèle le rôle de l'espérance conditionnelle
+dans les problèmes de prédiction et d'approximation.
+
+<p> </p>
+
+
+::: {#prp-espercondpred}
+
+Soit $Y$ une variable aléatoire de carré intégrable sur $(\Omega, \mathcal{F}, P)$ et $\mathcal{G}$ une sous-$\sigma$-algèbre discrète de $\mathcal{F}$. L'espérance conditionnelle de $Y$ par rapport à $\mathcal{G}$ minimise
+
+$$\mathbb{E}\left[\big(Y - Z\big)^2\right]$$
+
+parmi les variables aléatoires de carré intégrable $\mathcal{G}$-mesurables.
+
+:::
+
+Rappelons qu'une variable aléatoire $\mathcal{G}$-mesurable est une
+fonction qui reste constante sur chaque $A_i$, $i \in \mathcal{I}$.
+
+::: {.proof}
+
+Si $Y$ est une variable aléatoire sur $(\Omega,\mathcal{F})$ et
+si nous cherchons à prédire au mieux $Y$ à l'aide d'une variable aléatoire $\mathcal{G}$-mesurable,
+nous cherchons une suite de coefficients
+$(b_i)_{i\in \mathcal{I}}$ qui minimise :
+
+$$
+\begin{array}{rl}
+\mathbb{E}_P \left[ \Big( Y -  \sum_{i\in \mathcal{I}} b_i \mathbf{I}_{A_i} \Big)^2 \right]
+& = \mathbb{E}_P \left[ \Big(  \sum_{i\in \mathcal{I}} (Y-b_i)
+\mathbf{I}_{A_i} \Big)^2 \right] \\
+& =
+\sum_{i\in \mathcal{I}}
+\mathbb{E}_P \left[ \left( Y-b_i\right)^2
+\mathbf{I}_{A_i} \right]
+\\
+& = \sum_{i\in \mathcal{I}} P\{A_i\}\,
+\mathbb{E}_{P\{\cdot \mid A_i\}} \left[ \left( Y-b_i\right)^2  \right]
+\end{array}
+$$
+
+Ainsi, pour chaque $i$, $b_i$ doit coïncider avec l'espérance de $Y$
+sous $P\{\cdot \mid A_i\}$. La meilleure prédiction de $Y$, au sens de l'erreur quadratique,
+parmi les fonctions $\mathcal{G}$-mesurables est l'espérance conditionnelle de $Y$
+par rapport à $\mathcal{G}$.
+
+  
+:::
+
+
+
+Les propriétés identifiées par les propositions @prp-espercond et \@ref(prp:espercondpred)
+serviront de définition à l'espérance conditionnelle par rapport à une $\sigma$-algèbre générale.
+
+
+## Propriétés de l'espérance conditionnelle {#sec-easypropcondexp}
+
+Nous énonçons sans preuve un certain nombre de propriétés utiles de l'espérance conditionnelle par rapport à des $\sigma$-algèbres discrètes.
+Nous les démontrerons en toute généralité plus tard.
+
+
+::: {#prp-espercond-prop1}
+
+Si $X \leq Y$, $P$-p.s., alors
+
+$$\mathbb{E}[X \mid \mathcal{G}] \leq \mathbb{E}[Y \mid \mathcal{G}] \qquad P \text{-p.s.}$$
+
+:::
+
+
+::: {#prp-espercond-prop2}
+$$
+\mathbb{E}[ aX + bY \mid \mathcal{G}] = a \mathbb{E}[X \mid \mathcal{G}] + b \mathbb{E}[Y \mid \mathcal{G}] \,.
+$$
+
+:::
+
+
+::: {#prp-espercond-prop3}
+Si $\mathcal{H} \subseteq \mathcal{G} \subseteq \mathcal{F}$
+
+$$ 
+\mathbb{E}\left[\mathbb{E}\left[ X \mid \mathcal{G}\right] \mid \mathcal{H} \right]
+  = \mathbb{E}\left[ X \mid \mathcal{H} \right] \, .
+$$
+
+
+$$\mathbb{E}\left[\mathbb{E}\left[ X \mid \mathcal{H}\right] \mid \mathcal{G} \right]
+  = \mathbb{E}\left[ X \mid \mathcal{H} \right] \, .
+$$
+
+:::
+
+::: {#exr}
+
+Démontrer la proposition.
+
+:::
+
+
+::: {#cor}
+
+$$\mathbb{E} X = \mathbb{E}[\mathbb{E}[X \mid \mathcal{G}]] \, .$$
+
+:::
+
+## Application : processus de Galton-Watson I {#sec-gw1}
+
+
+La taille de la génération $k\geq 0$ est définie récursivement par
+
+$$Z_0 = 1, \qquad Z_{k+1} = \sum_{i=1}^{Z_k} X^k_{i} \, .$$
+
+
+La $\sigma$-algèbre $\sigma(Z_k)$ est discrète/atomique ; elle est engendrée par les événements deux à deux disjoints
+$\Big\{ Z_k = a\Big\}$ pour $a \in \mathbb{N}$.
+<br>
+
+::: {#prp-galton-watson}
+
+Dans un processus de branchement de Galton-Watson (homogène) de nombre de reproduction $\mu$, l'espérance conditionnelle de la taille de la $k+1^{\text{e}}$ génération par rapport à la taille de la $k^{
+\text{e}}$ génération est une fonction linéaire de la taille de la $k^{
+\text{e}}$ génération :
+
+$$\mathbb{E}\Big[Z_{k+1} \mid \sigma(Z_k)\Big] = \mathbb{E}X^0_1 \times Z_k = \mu \times Z_k$$
+
+:::
+
+<br>
+
+
+::: {.proof}
+
+Sur l'événement $\Big\{ Z_k = a\Big\}$, nous pouvons déterminer la loi conditionnelle de $Z_{k+1}$.
+
+$$
+\begin{array}{rl}
+\{ Z_{k+1} = b \wedge Z_k = a\Big\}
+  & = \Big\{ \sum_{i=1}^a X^k_i = b \wedge Z_k = a\Big\} \\
+  & = \Big\{ \sum_{i=1}^a X^k_i  = b\Big\} \cap \Big\{ Z_k = a \Big\}
+\end{array}
+$$
+
+nous avons
+$$
+\begin{array}{rl}
+P \Big\{ Z_{k+1} = b \mid Z_k = a\Big\} = P \Big\{ \sum_{i=1}^a X^k_i  = b \mid Z_k = a\Big\} = P \Big\{ \sum_{i=1}^a X^k_i  = b \Big\}
+\end{array}
+$$
+
+Sur l'événement $\{Z_k = a\}$, $Z_{k+1}$ a la même loi que la somme de $a$ copies indépendantes de $X^0_1$ :
+
+$$
+\begin{array}{rl}
+\mathbb{E} \Big[ Z_{k+1}\mid \sigma(Z_k)\Big]
+  & = \sum_{a=0}^\infty \mathbb{E}_{P(\mid Z_k=a)}\Big[Z_{k+1}\Big] \times \mathbb{I}_{Z_k=a} \\
+  & = \sum_{a=0}^\infty \mathbb{E}_{P(\mid Z_k=a)}\Big[ \sum_{i=1}^a X^k_i \Big] \times \mathbb{I}_{Z_k=a} \\
+  & = \sum_{a=0}^\infty \mathbb{E}\Big[ \sum_{i=1}^a X^k_i \Big] \times \mathbb{I}_{Z_k=a} \\
+  & = \sum_{a=0}^\infty \sum_{i=1}^a  \mathbb{E}\Big[ X^k_i \Big] \times \mathbb{I}_{Z_k=a} \\
+  & = \sum_{a=0}^\infty a  \mathbb{E} X^0_1 \times \mathbb{I}_{Z_k=a}  \\
+  & = \mathbb{E} X^0_1 \times Z_k \, .
+\end{array}
+$$
+:::
+<br>
+
+Un corollaire immédiat est :
+
+$$\mathbb{E}Z_k = (\mathbb{E} X^0_1)^k  \qquad\text{forall } k\geq 0\,.$$
+
+La suite des tailles attendues des générations forme une suite géométrique.
+
+Un processus de Galton-Watson est dit _sous-critique_
+si l'espérance de la loi de reproduction est strictement inférieure à $1$.
+
+<br>
+
+::: {#prp-gw-extinction}
+
+### Extinction sous loi de reproduction sous-critique
+
+
+La probabilité d'extinction d'un processus de branchement sous-critique est égale à $1$.
+
+:::
+
+<br>
+
+
+::: {.proof}
+
+Notons par $E_k$ l'événement $\{ Z_k = 0\}$. Observez
+que la suite $(E_k)_k$ est croissante. Notons par $E_{\infty} = \cup_{k=0}^\infty E_k$.
+
+$$P \{ E_k^c \} = P\{ Z_k \geq 1 \} \leq \mathbb{E} Z_k \,.$$
+
+D'où $P\{E_k^c\} \downarrow 0$ et $P\{ E_k\} \uparrow 1$.
+Par convergence monotone, $P(E_\infty) = 1$.
+
+:::
+
+<br>
+
+L'espérance de la taille totale de la descendance d'un processus de branchement sous-critique vaut
+$$
+\sum_{k=0}^\infty \mathbb{E} Z_k  = \sum_{k=0}^\infty (\mathbb{E} X^0_1)^k = \frac{1}{1 - \mathbb{E} X^0_1} \, .
+$$
+
+
+::: {#rem}
+
+Travailler avec le conditionnement discret nous permet d'obtenir des résultats non triviaux sur le
+processus de Galton-Watson sans en savoir beaucoup sur la loi de reproduction
+au-delà du fait que son espérance est strictement inférieure à $1$. Nous ignorons encore les
+détails de la loi de $Z_k$, sans parler de la loi de $\sum_{k=0}^\infty Z_k$.
+
+:::

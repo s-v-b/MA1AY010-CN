@@ -138,3 +138,20 @@ editor: source
 # always_allow_html: true
 
 
+babelquarto:
+  languagelinks: sidebar
+  languagecodes:
+  - name: fr
+    text: "Version in fr"
+  - name: en
+    text: "Version in en"
+  mainlanguage: 'en'
+  languages: ['fr']
+  
+title-fr: MA1AU015 Notes de cours en français
+description-fr: Notes du cours de Probabiltés M1 ISIFAR en français
+abstract-fr: Résumé du cours de Probabiltés M1 ISIFAR en français
+author-fr: Enseignants du cours de Probabiltés M1 ISIFAR
+lang: en
+
+

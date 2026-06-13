@@ -1,0 +1,374 @@
+
+# Lois produit {#sec-productdistributions}
+
+
+{{< include _packages_requirements.qmd >}}
+
+
+Dans cette leçon, nous construisons des *mesures produit*. Nous partons de deux espaces mesurés
+$(\mathcal{X}, \mathcal{F}, \mu)$ et $(\mathcal{Y}, \mathcal{G}, \nu)$. 
+
+Notre objectif est de construire un espace mesuré $(\mathcal{X}\times \mathcal{Y}, \mathcal{H}, \rho)$
+et deux fonctions mesurables $X : \mathcal{X}\times \mathcal{Y} \to \mathcal{X}$
+et $Y : \mathcal{X}\times \mathcal{Y} \to \mathcal{Y}$ avec les propriétés supplémentaires
+
+$$\mu = \rho \circ X^{-1} \quad \text{and} \quad \nu = \rho \circ Y^{-1}$$
+
+ainsi que
+
+$$\rho(A \times B) =  \mu(A) \times \nu(B) \qquad \forall A \in \mathcal{F}, B\in \mathcal{G} \,.$$
+Notez qu'exiger que $X$ et $Y$ soient mesurables est prématuré : nous n'avons pas encore défini la $\sigma$-algèbre $\mathcal{H}$ sur $\mathcal{X}\times \mathcal{Y}$.
+
+
+## $\sigma$-algèbres produit  {#sec-algebras}
+
+
+Pour atteindre notre objectif, nous définissons d'abord une $\sigma$-algèbre $\mathcal{H}$ de sous-ensembles
+de $\mathcal{X} \times \mathcal{Y}$. Nous utilisons la _$\sigma$-algèbre produit_.
+
+::: {#def-prodsigalg}
+
+### $\sigma$-algèbre produit
+
+Soient $(\mathcal{X}, \mathcal{F})$ et $(\mathcal{Y}, \mathcal{G})$ deux espaces mesurables.
+La $\sigma$-algèbre produit $\mathcal{F} \otimes \mathcal{G}$ est la $\sigma$-algèbre
+de sous-ensembles de $2^{\mathcal{X} \times \mathcal{Y}}$ engendrée par les _rectangles_ :
+
+$$\Big\{ A \times B : A \in \mathcal{F}, B \in \mathcal{G}\Big\} \, .$$
+
+En d'autres termes, 
+$$\mathcal{F} \otimes \mathcal{G} = \sigma\left(\mathcal{F} \times \mathcal{G}\right)$$
+
+:::
+
+
+::: {#prp-prodsigmaalg-1}
+
+La $\sigma$-algèbre produit rend les fonctions $X$ et $Y$ (parfois appelées *projections coordonnées*) mesurables.
+
+:::
+
+::: {#exr-prodsigmaalg-1}
+
+Vérifier @prp-prodsigmaalg-1.
+
+:::
+
+
+::: {#exr-prodsigmaalg-2}
+
+Vérifier que la $\sigma$-algèbre borélienne sur $\mathbb{R}^2$ (la $\sigma$-algèbre engendrée par les ouverts de $mathbb{R}^2$) peut être décrite comme une $\sigma$-algèbre produit (la $\sigma$-algèbre engendrée par le produit cartésien de $\mathcal{B}(\mathbb{R})$ avec elle-même). 
+En d'autres termes, 
+$$\mathcal{B}(\mathbb{R}^2) = \sigma\left(\mathcal{B}(\mathbb{R}) \times \mathcal{B}(\mathbb{R})\right)$$
+
+:::
+
+## Mesures produit {#sec-productmeasures}
+
+
+Une fois munis des $\sigma$-algèbres produit, nous pouvons passer à la définition
+des mesures produit.
+
+Rappelons la définition des mesures $\sigma$-finies de [Section @sec-dynkin]). 
+
+Une mesure $\mu$ sur $(\Omega, \mathcal{F})$ est *$\sigma$-finie* si et seulement s'il existe $(A_n)_n$ avec $\Omega \subseteq \cup_n A_n$
+et $\mu(A_n) < \infty$ pour chaque $n$. 
+
+Les mesures finies (ce qui englobe les lois de probabilité) sont $\sigma$-finies.
+La mesure de Lebesgue est $\sigma$-finie. La mesure de comptage sur $\mathbb{R}$ n'est pas $\sigma$-finie.
+
+::: {#thm-prodmeas}
+
+Soient $(\mathcal{X}, \mathcal{F}, \mu)$ et $(\mathcal{Y}, \mathcal{G}, \nu)$ deux
+espaces mesurés où $\mu,\nu$ sont $\sigma$-finies. 
+
+Alors il existe une mesure *unique* $\sigma$-finie $\alpha$ sur $\mathcal{X} \times \mathcal{Y}$ muni de la $\sigma$-algèbre produit
+$\mathcal{F} \otimes \mathcal{G} = \sigma(\mathcal{F} \times \mathcal{G})$ qui satisfait
+
+$$\alpha (A \times B) = \mu(A) \times \nu(B)\qquad \forall A \in \mathcal{F}, B \in \mathcal{G} \, .$$
+
+De plus, pour tout $E \in \mathcal{F} \otimes \mathcal{G}$,
+
+1. pour chaque $x \in \mathcal{X}$, $y \mapsto \mathbb{I}_E(x,y)$ est $\mathcal{G}$-mesurable ;
+2. $x \mapsto \int_{\mathcal{Y}} \mathbb{I}_E(x,y) \, \mathrm{d} \nu(y)$
+est $\mathcal{F}$-mesurable ;
+1. pour chaque $y \in \mathcal{Y}$, $x \mapsto \mathbb{I}_E(x,y)$ est $\mathcal{F}$-mesurable ;
+2. $y \mapsto \int_{\mathcal{X}}  \mathbb{I}_E(x,y) \,  \mathrm{d}\mu(x)$
+est $\mathcal{G}$-mesurable,
+
+et l'on a :
+
+\begin{align*}
+\int_{\mathcal{X}\times \mathcal{Y}} \mathbb{I}_E \, \mathrm{d}\alpha
+ & = \int_{\mathcal{X}} \Big(\int_{\mathcal{Y}} \mathbb{I}_E(x,y) \, \mathrm{d} \nu(y)\Big) \, \mathrm{d}\mu(x) \\
+& = \int_{\mathcal{Y}} \Big( \int_{\mathcal{X}}  \mathbb{I}_E(x,y) \,  \mathrm{d}\mu(x)\Big) \,\mathrm{d} \nu(y)
+\end{align*}
+
+où les trois intégrales sont soit finies, soit infinies.
+
+La mesure $\alpha$ est appelée une _mesure produit_ ; elle est parfois notée $\mu \otimes \nu$.
+
+:::
+
+<br><p></p>
+
+::: {#rem-prodmeas-1}
+
+L'hypothèse que $\mu$ et $\nu$ sont toutes deux $\sigma$-finies est essentielle.
+Choisissons $\mu$ comme la mesure de comptage sur $[0,1]$ et $\nu$ comme la mesure de Lebesgue sur
+$[0,1]$. Considérons la diagonale $E = \{(x,x) : x \in [0,1]\}$. L'ensemble $E$
+appartient à $\mathcal{B}(\mathbb{R}) \otimes \mathcal{B}(\mathbb{R}) = \mathcal{B}(\mathbb{R}^2)$
+(vérifier cela). Mais l'interversion de l'ordre d'intégration conduit à des résultats différents :
+
+$$\begin{array}{rl}
+1      & = \int_{[0,1]} \Big(\int_{[0,1]} \mathbb{I}_E (x,y) \, \mathrm{d}\mu(x)\Big) \, \mathrm{d}\nu(y) \\
+0      & = \int_{[0,1]} \Big(\int_{[0,1]} \mathbb{I}_E (x,y) \, \mathrm{d}\nu(y)\Big) \, \mathrm{d}\mu(x)
+\end{array}$$
+
+:::
+
+<br><p></p>
+
+Le [Théorème @thm-prodmeas] contient trois affirmations :
+
+a. existence d'une mesure
+sur $(\mathcal{X} \times \mathcal{Y}, \mathcal{F} \otimes \mathcal{G})$ qui
+satisfait la propriété produit sur les rectangles ;
+a. unicité de cette mesure ;
+a. la possibilité de calculer la mesure de $E \in \mathcal{F} \otimes \mathcal{G}$
+par intégration itérée dans un ordre arbitraire.
+
+La première affirmation (existence) est démontrée à l'aide d'un théorème de prolongement ; la seconde (unicité)
+découle d'un argument de classe monotone ([Théorème @thm-monotoneclasslemma]) : les rectangles forment
+une classe $\pi$ engendrante, ce qui règle le cas où $\mu$ et $\nu$ sont des mesures finies.
+Si $\mu$ ou $\nu$ n'est que $\sigma$-finie, on considère des restrictions aux rectangles de mesure finie, puis on procède par approximation. La troisième affirmation est triviale pour les rectangles.
+
+<br>
+
+::: {#rem-product-probas}
+
+Si $\mu, \nu$ sont des lois de probabilité, alors la
+mesure produit $\mu \otimes \nu$ est une loi de probabilité ;
+on l'appelle une loi de probabilité produit.
+
+:::
+
+## Théorème de Tonelli-Fubini  {#sec-tonellifubini}
+
+Dans cette section, nous considérons des mesures produit construites
+à partir de mesures $\sigma$-finies comme dans le [Théorème @thm-prodmeas]). Le théorème
+de Tonelli-Fubini montre que (sous des conditions légères) l'intégration par rapport
+à une mesure produit se réduit à une intégration itérée sur les mesures composantes.
+
+
+::: {#thm-tonelli} 
+
+### Tonelli-Fubini
+
+
+Soient $( \mathcal{X}, \mathcal{A})$ et $(\mathcal{Y}, \mathcal{B})$ deux espaces mesurables, $\mu$ et $\nu$ deux
+mesures $\sigma$-finies sur ces espaces, $\mu \otimes \nu$ la mesure produit,
+et $f$ une fonction réelle $\mathcal{A} \otimes \mathcal{B}$-mesurable
+telle que $\int |f| \mathrm{d} \mu \otimes \nu < 0$. Les
+propriétés suivantes sont satisfaites :
+
+i. $\forall x \in \mathcal{X}, \hspace{1em} y \mapsto f (x, y)$ est
+$\mathcal{B}$-mesurable.
+i. La fonction $x \mapsto \int_{\mathcal{Y}} f (x, y) \mathrm{d}\nu(y)$ est $\mathcal{A}$-mesurable, finie $\mu$-presque partout et
+$$\int_{\mathcal{X} \times \mathcal{Y}} f \mathrm{d} \mu \otimes \nu
+= \int_{\mathcal{X}} \left[ \int_{\mathcal{Y}} f (x, y) \mathrm{d} \nu (y)
+\right]  \mathrm{d} \mu (x)$$
+
+:::
+
+<br><p></p>
+
+::: {.proof}
+
+La preuve peut être trouvée dans 
+
+La preuve consiste à établir l'affirmation pour des classes de plus en plus larges de fonctions mesurables. 
+
+Notez d'abord que @thm-prodmeas règle le cas des indicatrices de sous-ensembles mesurables de $\mathcal{X}\times \mathcal{Y}$.
+
+À partir de cette observation, en utilisant la linéarité, on traite les fonctions simples positives. Puis le cas des fonctions
+mesurables non négatives sur $\mathcal{X}\times \mathcal{Y}$ utilise un argument de convergence monotone (@thm-thmConvMonInt). 
+
+Le cas général est traité en décomposant la fonction mesurable en somme d'une partie positive et d'une partie négative.
+
+  
+
+:::
+
+La caractérisation suivante de l'espérance de variables aléatoires non négatives
+comme intégrale de la fonction de queue est une conséquence simple du théorème de Tonelli-Fubini.
+
+<br><p></p>
+
+::: {#prp-ipp}
+
+### Formule IPP
+
+
+Soit $X$ une variable aléatoire réelle non négative. Alors
+
+$$\mathbb{E}X = \int_0^\infty  P\{ X > t \} \mathrm{d}t$$
+
+:::
+
+<br><p></p>
+
+
+::: {.proof}
+
+$$\begin{array}{rl}
+\mathbb{E}X
+  & = \int_{\Omega}  X(\omega) \, \mathrm{d}P(\omega) \\
+  & = \int_{\Omega}  \Big( \int_{[0,\infty)} \mathbb{I}_{X(\omega)> t} \mathrm{d}t \Big)\, \mathrm{d}P(\omega) \\
+  & =  \int_{[0,\infty)}  \Big( \int_{\Omega} \mathbb{I}_{X(\omega)> t} \,  \mathrm{d}P(\omega) \Big) \mathrm{d}t \\
+  & =  \int_{[0,\infty)}  \Big( P\{ \omega : X(\omega) > t \} \Big) \mathrm{d}t
+\end{array}$$
+
+  
+
+:::
+
+<br>
+<p></p>
+
+
+
+## Lois jointes, indépendance et lois produit {#sec-indepproduct}
+
+
+Soient les deux variables aléatoires $X, Y$ de $(\Omega, \mathcal{F})$ vers $(\mathcal{X}, \mathcal{G})$
+et $(\mathcal{Y}, \mathcal{H})$. Munissons $(\Omega, \mathcal{F})$ de la loi de probabilité $P$.
+Soient $Q_X = P \circ X^{-1}$ et $Q_Y =  P \circ Y^{-1}$ les deux lois image (appelées les
+lois _marginales_). Nous pouvons définir une application $Z: \Omega \to \mathcal{X} \times \mathcal{Y}$ par
+$Z(\omega) = (X(\omega), Y(\omega))$ ; cette application est $\mathcal{F}/\sigma(\mathcal{G}\times \mathcal{H})$ mesurable.
+
+Soit $Q$ la _loi jointe_ de $Z = (X,Y)$ sous $P$, c'est-à-dire la loi de probabilité
+sur $\mathcal{X} \times \mathcal{Y}$ muni de $\sigma(\mathcal{G}\times \mathcal{H})$ qui est uniquement définie par
+
+$$Q( A \times B) = P\Big\{ \omega: X(\omega) \in A, Y(\omega) \in B \Big\} \, .$$
+
+Notez que $Q$ n'est pas nécessairement une loi produit.
+
+La proposition (triviale) suivante nous dit que deux variables aléatoires sont indépendantes
+si et seulement si leur loi jointe est une loi produit (en fait la loi produit définie par les deux lois marginales).
+
+::: {#prp}
+
+$$X \perp\!\!\!\perp Y \text{ under } P \Longleftrightarrow  Q = Q_X \otimes Q_Y \, ,$$
+
+:::
+
+
+en d'autres termes, $X$ et $Y$ sont indépendantes si et seulement si leur loi jointe est le produit
+de leurs lois marginales.
+
+::: {.proof}
+
+TODO: FIX THIS 
+
+:::
+
+
+
+## Indépendance de collections de $\sigma$-algèbres  {#sec-indepcollectionsalgebras}
+
+<!-- TODO:  -->
+<!-- - independence of a family of $\sigma$-algebras -->
+<!--  -->
+
+Dans de nombreuses applications, l'indépendance entre deux $\sigma$-algèbres ou une collection finie
+de $\sigma$-algèbres ne suffit pas. C'est le cas lorsque l'on démontre ou utilise des lois des grands nombres.
+Nous devons traiter une _collection dénombrable de variables aléatoires indépendantes_. En d'autres termes, nous devons travailler avec une collection dénombrable de $\sigma$-algèbres et élaborer une notion de collection dénombrable de $\sigma$-algèbres indépendantes.
+
+
+::: {#def-indep-infinite-sigma-algebras}
+
+Soit $(\Omega, \mathcal{F}, P)$ un espace probabilisé. Soient $\mathcal{G_1}, \ldots, \mathcal{G}_n, \ldots$
+une collection dénombrable de sous-$\sigma$-algèbres.
+
+La collection $\mathcal{G_1}, \ldots, \mathcal{G}_n, \ldots$ est dite indépendante au sens de $P$ 
+
+si 
+
+toute sous-collection *finie* est indépendante au sens de $P$.
+
+:::
+
+
+::: {#exm-countable-collection-independent}
+
+Considérons la loi uniforme sur $[0,1]$ et définissons $X_1, X_2, \ldots$ par
+
+$$X_n(\omega) = \operatorname{sign}\Big(\sin\big(2^{n+1} \pi \omega \big)\Big)$$
+
+alors $X_1, \ldots, X_n, \ldots$ forment une collection dénombrable de variables aléatoires indépendantes.
+
+:::
+
+
+
+## Espaces produits infinis {#sec-infproductspaces}
+
+Dans de nombreux scénarios de modélisation (marches aléatoires, processus de branchement, statistique asymptotique, ...), nous nous appuyons sur
+la disponibilité d'une collection infinie de variables aléatoires indépendantes. Alors qu'il est (relativement) facile de concevoir la notion d'espaces probabilisés produits finis,
+la notion d'espaces probabilisés produits infinis est plus délicate. Et cela reste vrai
+même si les composantes individuelles sont des espaces probabilisés finis (par exemple $\{0, 1\}$, muni de la partie et de la
+loi uniforme).
+
+Pensons à $\Omega_i = \{0,1\}$ et supposons que chaque $P_i$ suit la loi de Bernoulli équilibrée. Soit $\omega$
+une suite infinie de $0$ et $1$ ; $\{\omega\} = \prod_{i=1}^\infty \{ \omega_i \}$
+est un produit cartésien infini d'événements de probabilité $1/2$. Quelle devrait être sa probabilité
+dans l'espace probabilisé produit infini ? Existe-t-il un moyen d'attribuer des probabilités de manière cohérente ?
+Si la réponse est positive, cette opération est-elle unique ?
+
+
+::: {#def-cylindrical}
+
+### $\sigma$-algèbre cylindrique
+
+Soit $(\Omega_n, \mathcal{F}_n)_n$ une collection dénombrable d'espaces mesurables. La $\sigma$-algèbre cylindrique
+est la $\sigma$-algèbre de sous-ensembles de $\prod_{n=1}^\infty \Omega_n$ engendrée par les sous-ensembles de la forme :
+
+$$\prod_{n=1}^m A_n \times \prod_{n=m+1}^\infty \Omega_n \qquad\text{with } A_n \in \mathcal{F}_n \text{ for } n \leq m$$
+
+où $m$ est un entier quelconque. Ces sous-ensembles sont appelés _rectangles de dimension finie_ ou _cylindres_.
+
+:::
+
+Observez que les cylindres forment une classe $\pi$ (vérifier la définition dans @sec-dynkin).
+
+Si chaque $(\Omega_n, \mathcal{F}_n)$ est muni d'une loi de probabilité, attribuer une probabilité
+aux cylindres semble direct :
+$$\mathbb{P} \left( \prod_{n=1}^m A_n \times \prod_{n=m+1}^\infty \Omega_n \right) = \prod_{n=1}^m P_n(A_n) \times \prod_{n=m+1}^\infty P_n(\Omega_n) =
+ \prod_{n=1}^m P_n(A_n) \, .$$
+
+La question est : $\mathbb{P}$ se prolonge-t-elle à la $\sigma$-algèbre cylindrique ? Si un prolongement existe, est-il unique ?
+La réponse est oui.
+
+::: {#thm-kolmoextension} 
+
+### Théorème de prolongement (version simple)
+
+Soit $(\Omega_n, \mathcal{F}_n, P_n)_n$ une collection dénombrable d'espaces probabilisés. Alors il existe une loi de probabilité unique
+$\mathbb{P}$ sur la $\sigma$-algèbre cylindrique qui satisfait :
+
+$$\mathbb{P} \left( \prod_{n=1}^m A_n \times \prod_{n=m+1}^\infty \Omega_n \right) =  \prod_{n=1}^m P_n(A_n)$$
+
+pour toute suite finie $A_1, \ldots, A_m$ dans $\mathcal{F}_1 \times \ldots \times \mathcal{F}_m$.
+
+:::
+
+## Remarques bibliographiques {#bibproduct}
+
+Le matériel couvrant cette leçon se trouve dans tout ouvrage sur la théorie de la mesure et de l'intégration.
+La section 4.4 de [@MR1932358] est consacrée aux mesures produit.
+
+Des preuves complètes du théorème de Tonelli-Fubini se trouvent dans [@MR1932358].
+
+Le théorème d'existence pour les probabilités produit infinies provient de la section 8.2 de [@MR1932358].
+Une preuve complète du théorème s'y trouve.

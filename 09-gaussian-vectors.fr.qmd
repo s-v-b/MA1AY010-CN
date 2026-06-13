@@ -1,0 +1,1577 @@
+# Vecteurs gaussiens  {#sec-chapGaussianVectors}
+
+{{< include _packages_requirements.qmd >}}
+
+## Loi gaussienne univariée {#sec-secGaussUnivar}
+
+
+La densité gaussienne standard est notée $\phi$ :
+$$
+\phi(x) = \frac{\mathrm{e}^{- \frac{x^2}{2} }}{\sqrt{2 \pi}} \, .
+$$
+La fonction de répartition correspondante est notée $\Phi$. La fonction de survie
+$1- \Phi$  est notée  $\overline{\Phi}$.
+$$
+\Phi(x) =  \int_{- \infty}^x \phi(u) \mathrm{d}u \, .
+$$
+Notons $\mathcal{N} (0, 1)$ (espérance $0$, variance $1$)
+la loi gaussienne standard, c'est-à-dire la loi de probabilité
+définie par $\phi$.
+
+
+Toute transformation affine d'une variable aléatoire gaussienne standard suit une loi
+gaussienne univariée. Si $X \sim \mathcal{N} (0, 1)$, alors $\sigma X + \mu \sim
+\mathcal{N} \left( \mu, \sigma^2 \right)$, de densité $\frac{1}{\sigma}\phi\left(\frac{\cdot- \mu}{\sigma}\right)$ et de fonction de répartition  $\Phi\left(\frac{\cdot - \mu}{\sigma}\right)$.
+
+<!-- ::: {#fig-plotdensity} -->
+
+```{r}
+#| echo: false
+#| eval: false
+#| label: fig-plotdensity
+#| 
+ggplot2::ggplot(data = tibble::tibble(x=seq(-5, 5,by=0.01)),
+                mapping= ggplot2::aes(x=x)) +
+  ggplot2::scale_linetype_manual(values = c("solid", "dashed", "dotted"),
+                                 guide = ggplot2::guide_legend(override.aes = list(
+                        linetype = c("solid", "dashed", "dotted"),
+                        title = "Parameters"))) +
+  ggplot2::labs(linetype="Parameters") +
+  ggplot2::ggtitle("Gaussian densities",subtitle = "variation on location and scale parameters") +
+  ggplot2::xlab("x") +
+  ggplot2::ylab("density") +
+  ggplot2::xlim(xlim = c(-2, 2)) +
+  ggplot2::stat_function(fun=dnorm, args = c(0, 1),
+                         ggplot2::aes(linetype="a. standard")) +
+  ggplot2::stat_function(fun=dnorm, args = c(1, 1),  ggplot2::aes(linetype="b. mean=1")) +
+  ggplot2::stat_function(fun=dnorm, args = c(0, sqrt(1/2)),
+                         ggplot2::aes(linetype="c. var=.5"))
+
+```
+
+<!-- ::: -->
+
+<!-- ::: {#fig-witgetdensity} -->
+
+::: {.content-visible when-format="html"}
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-witgetdensity
+#| eval: false # "`r if (knitr::is_html_output())`"
+#| 
+
+
+p <- ggplot2::ggplot(data = tibble::tibble(x=seq(-5, 5,by=0.01)),
+                mapping= ggplot2::aes(x=x)) +
+  ggplot2::scale_linetype_manual(values = c("solid", "dashed", "dotted"),
+                                 guide = ggplot2::guide_legend(override.aes = list(
+                        linetype = c("solid", "dashed", "dotted"),
+                        title = "Parameters"))) +
+  ggplot2::labs(linetype="Parameters") +
+  ggplot2::ggtitle("Gaussian densities",subtitle = "variation on location and scale parameters") +
+  ggplot2::xlab("x") +
+  ggplot2::ylab("density") +
+  ggplot2::xlim(xlim = c(-2, 2)) +
+  ggplot2::stat_function(fun=dnorm, args = c(0, 1),
+                         ggplot2::aes(linetype="a. standard")) +
+  ggplot2::stat_function(fun=dnorm, args = c(1, 1),  ggplot2::aes(linetype="b. mean=1")) +
+  ggplot2::stat_function(fun=dnorm, args = c(0, sqrt(1/2)),
+                         ggplot2::aes(linetype="c. var=.5"))
+ggplotly(p)
+```
+
+:::
+
+<!-- ::: -->
+
+La loi gaussienne standard est caractérisée par l'identité suivante.
+
+::: {#lem-steinslemma}
+
+### Lemme de Stein
+
+Soit $X \sim \mathcal{N}(0,1)$, soit $g$ une fonction absolument continue de dérivée $g'$ telle que $\mathbb{E}[ |X g(X)|]<\infty$. Alors $g'(X)$ est intégrable et  
+
+$$
+\mathbb{E}[g'(X)] = \mathbb{E}[Xg(X)] \, .
+$$
+
+:::
+
+::: {.proof}
+La preuve repose sur une intégration par parties. Notons d'abord que remplacer
+$g$ par $g - g(0)$ ne modifie ni $g'$, ni  $\mathbb{E}[Xg(X)]$. On peut supposer que $g(0)=0$.
+
+\begin{align*}
+ \mathbb{E}[Xg(X)] & = \int_{\mathbb{R}} xg(x) \phi(x) \mathrm{d}x \\
+& = \int_0^\infty xg(x) \phi(x) \mathrm{d}x + \int_{-\infty}^0 xg(x) \phi(x) \mathrm{d}x \\
+& = \int_0^\infty x \int_0^\infty g'(y) \mathbb{I}_{y\leq x}\mathrm{d}y \phi(x) \mathrm{d}x -\int^0_{-\infty} x \int^0_{-\infty} g'(y) \mathbb{I}_{y\geq x}\mathrm{d}y \phi(x) \mathrm{d}x\\
+& = \int_0^\infty g'(y) \int_0^\infty  \mathbb{I}_{y\leq x} x\phi(x)\mathrm{d}x  \mathrm{d}y -
+\int_{-\infty}^0 g'(y) \int^0_{-\infty}  x \phi(x)\mathbb{I}_{y\geq x}\mathrm{d}x \mathrm{d}y  \\
+& = \int_0^\infty g'(y) \int_y^\infty x\phi(x)\mathrm{d}x  \mathrm{d}y -
+\int_{-\infty}^0 g'(y) \int^y_{-\infty}  x \phi(x)\mathrm{d}x \mathrm{d}y  \\
+& = \int_0^\infty g'(y) \phi(y) \mathrm{d}y -
+\int_{-\infty}^0 - g'(y) \phi(y)\mathrm{d}y \\
+& = \int_{-\infty}^\infty g'(y) \phi(y) \mathrm{d}y \, .
+\end{align*}
+
+La dernière égalité est justifiée par le théorème de Tonelli-Fubini. On utilise ensuite $\phi'(x)=-x \phi(x)$.
+
+:::
+
+La fonction caractéristique est un outil très efficace pour manipuler les lois gaussiennes.
+
+
+::: {#prp-gausscharfunc}
+
+La fonction caractéristique de  $\mathcal{N}(\mu,\sigma^2)$  est
+$$
+\widehat{\Phi}(t):= \mathbb{E}\left[\mathrm{e}^{\imath t X}\right] = \mathrm{e}^{\imath t \mu - \frac{t^2 \sigma^2}{2}}  \, .
+$$
+
+:::
+
+::: {.proof}
+
+Il suffit de vérifier la proposition pour $\mathcal{N}(0,1)$. Comme  $\phi$ est paire,
+
+\begin{eqnarray*}
+\widehat{\Phi}(t) &= & \int_{-\infty}^{\infty} \mathrm{e}^{\imath t x} \frac{\mathrm{e}^{- \frac{x^2}{2}}}{\sqrt{2 \pi}} \mathrm{d} x \\
+& = & \int_{-\infty}^{\infty} \cos(tx) \frac{\mathrm{e}^{- \frac{x^2}{2}}}{\sqrt{2 \pi}} \mathrm{d} x \, .
+\end{eqnarray*}
+
+En dérivant par rapport à $t$, en intervertissant dérivation et espérance  (pourquoi peut-on le faire ?)
+
+\begin{eqnarray*}
+\widehat{\Phi}'(t)  & = &    \int_{-\infty}^{\infty} -x \sin(tx) \frac{\mathrm{e}^{- \frac{x^2}{2}}}{\sqrt{2 \pi}} \mathrm{d} x    \, .
+\end{eqnarray*}
+On applique ensuite l'identité de Stein avec $g(x)=-\sin(tx)$ et $g'(x)=-t\cos(tx)$
+\begin{eqnarray*}
+\widehat{\Phi}'(t)  & = &
+- t \int_{-\infty}^{\infty} \cos(tx) \phi(x) \mathrm{d} x \\
+& = & -t \widehat{\Phi}(t) \, .
+\end{eqnarray*}
+
+On obtient immédiatement $\widehat{\Phi}(0)=1$, et la résolution de l'équation différentielle donne
+$$
+\log \widehat{\Phi}(t) =  - \frac{t^2}{2} \, .
+$$
+
+:::
+
+Le fait que la fonction caractéristique détermine entièrement la loi de probabilité
+fournit une réciproque de @lem-steinslemma.
+
+
+::: {#lem-steinslemmabis}
+
+### Lemme de Stein (bis)
+
+
+Soit $X$ une variable aléatoire réelle sur un espace de probabilité. Si, pour toute
+fonction différentiable $g$ telle que  $g'$ et $x \mapsto xg(x)$ sont intégrables, on a
+$$
+\mathbb{E}[g'(X)] = \mathbb{E}[X g(X)]
+$$
+alors la loi de $X$ est gaussienne standard.
+
+:::
+
+::: {.proof}
+
+Considérons la partie réelle $\widehat{F}$ et la partie imaginaire  $\widehat{G}$ de la fonction caractéristique
+de la loi de $X$.
+L'identité entraîne que  $\widehat{F}'(t) = -t \widehat{F}(t)$ et  $\widehat{G}'(t) = -t \widehat{G}(t)$,
+avec  $\widehat{F}(0)=1$ et  $\widehat{G}(0)=0$. La résolution des deux équations différentielles donne
+ $\widehat{F}(t) = \mathrm{e}^{-t^2/2}$
+et $\widehat{G}(t)=0$.
+On vient de vérifier que la fonction caractéristique de la loi de $X$ est celle de  $\mathcal{N}(0,1).$
+
+:::
+
+Il est maintenant facile de vérifier que la somme de deux variables aléatoires gaussiennes indépendantes
+est une variable aléatoire gaussienne.
+
+::: {#prp}
+
+Si  $X$ et  $Y$  sont deux variables aléatoires indépendantes de lois
+$\mathcal{N} (\mu, \sigma^2)$ et  $\mathcal{N}
+(\mu', \sigma^{\prime 2})$, alors $X + Y$ suit la loi $\text{$\mathcal{N} (\mu + \mu', \sigma^2 +
+\sigma^{\prime 2})$}$.
+
+:::
+
+
+::: {#exr}
+Vérifier et justifier.
+
+:::
+
+La fonction génératrice des moments d'une variable aléatoire gaussienne est
+$$
+s \mapsto \mathbb{E} \left[ \mathrm{e}^{s X} \right] =
+\text{e}^{\frac{s^2}{2}} \,  .
+$$
+
+De l'inégalité de Markov, on obtient des majorations intéressantes de la queue gaussienne.
+Un calcul permet d'affiner ces bornes.
+
+::: {#prp-millsratio}
+
+### Probabilités de queue pour la loi gaussienne
+
+Pour $x \geq 0,$
+$$
+\frac{\phi(x)}{x} \left( 1
+- \frac{1}{x^2} \right)  \leq \overline{\Phi} (x) \leq \min \left( \mathrm{e}^{-\frac{x^2}{2}},
+\frac{\phi(x)}{x} \right)\, .
+$$
+
+:::
+
+::: {.proof}
+La preuve se réduit à des intégrations par parties répétées.
+
+\begin{eqnarray*}
+\overline{\Phi}(x) & = & \int_x^{\infty}  \frac{1}{ \sqrt{2
+\pi}} \mathrm{e}^{- \frac{u^2}{2}} \mathrm{d} u\\
+& = & \left[ -  \frac{1}{ \sqrt{2 \pi} u} \mathrm{e}^{-
+\frac{u^2}{2}} \right]^{\infty}_x - \int_x^{\infty}  \frac{1}{
+\sqrt{2 \pi}}  \frac{1}{u^2} \mathrm{e}^{- \frac{u^2}{2}} \mathrm{d} u .
+\end{eqnarray*}
+
+Comme le second terme est non positif,
+
+$$ 
+\overline{\Phi}(x)\leq  \left[ -  \frac{1}{ \sqrt{2
+\pi} u} \mathrm{e}^{- \frac{u^2}{2}} \right]^{\infty}_x =  \frac{\phi(x)}{
+x}  . 
+$$
+
+C'est la première partie de l'inégalité de droite ; l'autre partie
+provient de l'inégalité de Markov.
+Pour l'inégalité de gauche, il faut majorer $\int_x^{\infty}  \frac{1}{ \sqrt{2 \pi}}  \frac{1}{u^2} \mathrm{e}^{- \frac{u^2}{2}} \mathrm{d} u$.
+
+\begin{eqnarray*}
+\int_x^{\infty}  \frac{1}{ \sqrt{2 \pi}}  \frac{1}{u^2} \mathrm{e}^{-
+\frac{u^2}{2}} \mathrm{d} u & = & \left[ \frac{- 1}{ \sqrt{2 \pi}}
+\frac{1}{u^3} \mathrm{e}^{- \frac{u^2}{2}} \right]_x^{\infty} -
+\int_x^{\infty}  \frac{1}{ \sqrt{2 \pi}}  \frac{3}{u^4} \mathrm{e}^{-
+\frac{u^2}{2}} \mathrm{d} u\\
+& \leq  & \frac{1}{ \sqrt{2 \pi}}  \frac{1}{x^3} \mathrm{e}^{-
+\frac{x^2}{2}} .
+\end{eqnarray*}
+
+:::
+
+
+::: {#prp-gaussmoments}
+
+### Moments
+
+Pour une variable aléatoire gaussienne standard,
+$$
+\mathbb{E} \left[ X^k \right] =
+=
+\begin{cases}
+0 &  \text{ if } k \text{ is odd}\\
+\frac{k!}{2^{k / 2} (k / 2) !} = \frac{\Gamma (k + 1)}{2^{k / 2}
+\Gamma (k / 2 + 1)} & \text{ if }  k \text{ is even.}
+\end{cases}
+$$
+
+:::
+
+
+::: {.proof}
+
+Grâce à la symétrie de la loi,
+$\mathbb{E} \left[ X^k \right]=0$  pour tout $k$ impair. On traite les puissances paires par
+intégration par parties :
+
+\begin{eqnarray*}
+\mathbb{E} \left[ X^{k+2} \right] & = & (k+1) \mathbb{E} \left[ X^{k} \right]  \, .
+\end{eqnarray*}
+
+Une récurrence sur  $k$  donne,
+
+\begin{eqnarray*}
+\mathbb{E} \left[ X^{2k} \right] &= & \prod_{j=1}^k (2j-1) =  \frac{(2k) !}{2^k k! } \, .
+\end{eqnarray*}
+
+:::
+
+Notons que  $(2k)!/(2^k k!)$ est aussi le nombre de partitions de  $\{1, \ldots, 2k\}$
+en parties de cardinal $2$.
+
+
+
+Le _coefficient d'asymétrie_ est nul ; le kurtosis (rapport du quatrième moment centré au carré de la variance) vaut $3$ :
+
+$$
+\mathbb{E}[X^4] =  3 \times  \mathbb{E}[X^2]^2 \, .
+$$
+
+
+## Vecteurs gaussiens  {#sec-GaussVec}
+
+
+Un vecteur gaussien est une collection de variables aléatoires gaussiennes univariées qui
+vérifie une propriété très exigeante :
+
+::: {#def-gaussVector}
+
+### Vecteur gaussien
+
+Un vecteur aléatoire $(X_1, \ldots, X_n)^\top$ est un
+_vecteur gaussien_ si et seulement si, pour tout vecteur réel  $(\lambda_1, \lambda_2, \ldots, \lambda_n)^\top$, la loi de la variable aléatoire univariée $\sum_{i = 1}^n \ \lambda_i X_i$ est gaussienne.
+
+:::
+
+::: {#rem-caution-gaussian}
+
+Toute collection de variables aléatoires gaussiennes ne forme pas un vecteur gaussien.
+
+Le vecteur aléatoire $(X, \epsilon X)$ avec $X \sim \mathcal{N}(0.1)$, indépendante de $\epsilon$ valant $\pm 1$ avec probabilité $1/2$, n'est pas un vecteur gaussien, bien que $X$ et $\epsilon X$ soient des variables aléatoires gaussiennes univariées.
+
+:::
+
+::: {#exr-caution-gaussian}
+
+Vérifier que $\epsilon X$ est une variable aléatoire gaussienne.
+
+:::
+
+Il existe pourtant des vecteurs gaussiens ! Une manière simple d'en obtenir un est fournie par la proposition suivante
+(vérifiée par un argument de fonction caractéristique).
+
+::: {#prp-indep-gaussian-vectors}
+
+Si  $X_1, \ldots, X_n$ est une suite de variables aléatoires gaussiennes indépendantes, alors
+$(X_1, \ldots, X_n)^\top$ est un vecteur gaussien.
+
+:::
+
+Par la suite, un _vecteur gaussien standard_ est un vecteur aléatoire à coordonnées indépendantes,
+chaque coordonnée suivant la loi $\mathcal{N}(0,1)$.
+
+Nous verrons comment construire des vecteurs gaussiens généraux. Auparavant, vérifions que
+la loi jointe d'un vecteur aléatoire gaussien
+est entièrement caractérisée par sa matrice de covariance et son vecteur d'espérance.
+
+
+Rappelons que la _covariance_ du vecteur aléatoire $X= (X_1, \ldots, X_n)^\top$ est la matrice
+$K$ de dimension $n \times n$ de coefficients
+
+$$ 
+K [i, j] = \operatorname{Cov} (X_i, X_j) = \mathbb{E} [X_i X_j] - \mathbb{E} [X_i] \mathbb{E} [X_j] .
+$$
+
+Sans perte de généralité, on peut supposer que le vecteur aléatoire $X$  est centré.
+Pour tout  $\lambda = (\lambda_1, \ldots, \lambda_n)^\top \in \mathbb{R}^n$, on a :
+
+$$
+\operatorname{var}(\langle \lambda, X \rangle) =  \lambda^\top K \lambda = \text{trace} (K \lambda \lambda^\top)\,
+$$ 
+(ceci ne dépend d'aucune hypothèse de gaussianité).
+
+En effet,
+
+\begin{eqnarray*}
+\operatorname{var}(\langle \lambda, X \rangle) & = &
+\mathbb{E} \left[ \left( \sum_{i=1}^n \lambda_i X_i\right)^2\right]  \\
+& = & \sum_{i,j=1}^n \mathbb{E} \left[\lambda_i \lambda_j X_i X_j \right] \\
+& = & \sum_{i,j=1}^n \lambda_i \lambda_j K[i,j] \\
+& = & \lambda^\top K \lambda\, .
+\end{eqnarray*}
+
+La fonction caractéristique d'un vecteur gaussien  $X$ de vecteur d'espérance  $\mu$  et de covariance $K$ vérifie
+
+$$
+\mathbb{E} \mathrm{e}^{\imath \langle \lambda, X \rangle } =  \mathrm{e}^{\imath \langle \lambda, \mu \rangle - \frac{\lambda^\top K \lambda}{2}} \,  \, .
+$$
+
+Une transformation linéaire d'un vecteur gaussien est un vecteur gaussien.
+
+::: {#prp-linear-transform-gaussian}
+
+Si  ${Y} = (Y_1, \ldots, Y_n)^\top$ est un vecteur gaussien de
+covariance $K$ et si $A$ est une matrice réelle de dimensions $p \times n$, alors $A \times Y$ est un vecteur gaussien
+d'espérance $A \times \mathbb{E}Y$ et de matrice de covariance
+
+$$A K A^\top .$$
+
+:::
+
+::: {.proof}
+
+Sans perte de généralité, on suppose  $Y$  centré.
+
+Pour tout  $\lambda \in \mathbb{R}^p$, $\langle \lambda , A Y \rangle = \langle A^\top \lambda, Y \rangle$ ; ainsi $A \times Y$  est  gaussien de variance
+
+$$
+\lambda^\top A K A^\top \lambda \, .
+$$
+
+La covariance de $A \times Y$ est déterminée par cette observation.
+
+:::
+
+Pour fabriquer des vecteurs gaussiens de matrices de covariance générales, on s'appuie
+sur une notion importante de l'analyse matricielle.
+
+::: {#def-sdp}
+
+### Matrices définies positives
+
+Une matrice symétrique  $M$ de dimensions $k \times k$  est _définie positive_  (respectivement _semi-définie positive_) si et seulement si, pour tout vecteur non nul $v \in \mathbb{R}^k$, 
+
+$$
+v^\top M v > 0 \qquad (\text{resp.} \qquad v^\top M v \geq 0) \, .
+$$
+
+On note  $\textsf{dp}(k)$ (resp. $\textsf{sdp}(k)$) les cônes
+des matrices définies positives (resp. semi-définies positives).
+
+:::
+
+
+::: {#prp-sdp-cov}
+
+Si $K$ est la matrice de covariance d'un vecteur aléatoire, $K$
+est symétrique et semi-définie positive.
+
+:::
+
+::: {.proof}
+Si  $X$  est un vecteur aléatoire à valeurs dans $\mathbb{R}^k$, de covariance $K$,
+pour tout vecteur  $\lambda \in \mathbb{R}^n$,
+
+$$
+\lambda^\top K \lambda = \sum_{i,j\leq k} K_{i,j} \lambda_i \lambda_j = \operatorname{cov}(\langle \lambda, X \rangle, \langle \lambda, X \rangle)
+$$
+soit  $\lambda^\top K \lambda =  \operatorname{var}(\langle \lambda, X \rangle)$. La variance d'une variable aléatoire univariée est toujours non négative.
+
+:::
+
+
+L'observation suivante est la clé de la construction de vecteurs gaussiens généraux.
+
+::: {#prp-choleskyfac}
+
+### Factorisation de Cholesky
+
+Si $A$ est une matrice symétrique semi-définie positive, il existe
+(au moins) une matrice réelle $B$ telle que $A = B^\top B$.
+
+:::
+
+Nous ne démontrons pas cette proposition. C'est un théorème de base de l'analyse matricielle.
+Il peut s'établir à partir du _théorème de décomposition spectrale_ pour les matrices symétriques.
+Il peut aussi s'établir par une approche constructive simple :
+une matrice définie positive  $K$ admet une _décomposition de Cholesky_, autrement dit, il existe
+une matrice triangulaire inférieure $L$ telle que $K = L \times L^\top$.
+
+La proposition suivante est un corollaire de la formule générale pour les densités d'image.
+
+::: {#prp-sdp-gaussian-density}
+
+Si  $A$ est une matrice symétrique définie positive  ($A \in \textsf{dp}(n)$), alors
+la loi du vecteur gaussien centré de matrice de covariance $A$
+est absolument continue par rapport à la mesure de Lebesgue sur $\mathbb{R}^n$ :
+$$
+\frac{1}{({2 \pi})^{n/2}  \operatorname{det}(A)^{1/2}} \exp\left( - \frac{x^\top A^{-1} x}{2} \right) \, .
+$$
+
+:::
+
+::: {.proof}
+
+La formule de densité est trivialement correcte pour les vecteurs gaussiens standards. Dans le cas général,
+il suffit d'invoquer la formule de densité d'image appliquée à l'image du vecteur gaussien standard
+par la transformation linéaire bijective définie par la factorisation de Cholesky de $A$.
+Le déterminant du facteur de Cholesky est la racine carrée
+du déterminant de $A$.
+
+  
+
+:::
+
+::: {#exr-sing-covariance}
+
+La loi d'un vecteur gaussien $X$ de matrice de covariance _singulière_ est-elle absolument continue par rapport à la mesure de Lebesgue ?
+
+:::
+
+
+
+::: {#def-gaussspace}
+
+### Espace gaussien
+
+Si $X= (X_1, \ldots, X_n)^\top$ est un vecteur gaussien centré de matrice de covariance $K$,
+l'ensemble  $\left\{ \sum_{i = 1}^n \lambda_i X_i = \langle \lambda, X\rangle ; \lambda \in \mathbb{R}^n\right\}$
+est l'espace gaussien engendré par  $X = (X_1, \ldots, X_n)^\top$).
+
+:::
+
+L'espace gaussien est un espace vectoriel réel.
+Si $(\Omega, \mathcal{F},P)$ désigne l'espace de probabilité sur lequel vit $X$,
+l'espace gaussien est un sous-espace de  $L^2_{\mathbb{R}}(\Omega, \mathcal{F},P)$.
+Il hérite de la structure de produit scalaire de $L^2_{\mathbb{R}}(\Omega, \mathcal{F},P)$.
+
+Ce produit scalaire est entièrement défini par la matrice de covariance  $K$.
+
+\begin{eqnarray*}
+\left\langle \sum_{i = 1}^n \lambda_i X_i, \sum_{i = 1}^n \lambda'_i X_i
+\right\rangle & \equiv & \mathbb{E}_P \left[ \left( \sum_{i = 1}^n
+\lambda_i X_i \right) \left( \sum_{i = 1}^n \lambda'_i X_i \right) \right]\\
+& = & \sum^n_{i, i' = 1} \lambda_i \lambda_{i'}'  K [i, i']\\
+& = & (\lambda_1, \ldots, \lambda_n) K \left(\begin{array}{c}
+\lambda'_1\\
+\vdots\\
+\lambda'_n
+\end{array}\right) \\
+& = & \text{trace} \left( K \left(\begin{array}{c}
+\lambda_1\\
+\vdots\\
+\lambda_n
+\end{array}\right) \left(\begin{array}{ccc}
+\lambda'_1 &
+\dots &
+\lambda'_n
+\end{array}\right) \right).
+\end{eqnarray*}
+
+
+::: {#rem-diff-gaussian-vectors}
+Des vecteurs gaussiens différents peuvent engendrer le même espace gaussien. Expliquer comment et pourquoi.
+:::
+
+Les espaces gaussiens jouissent de propriétés remarquables. L'indépendance de variables aléatoires
+appartenant au même espace gaussien se vérifie très facilement.
+
+::: {#prp-indepgaussspace}
+
+Deux variables aléatoires  $Z$
+et $Y$, appartenant au même espace gaussien, sont indépendantes si et seulement si
+elles sont orthogonales (ou décorrélées), c'est-à-dire si et seulement si
+$$ 
+\operatorname{Cov}_P [Y ,Z] = \mathbb{E}_P [Y Z] = 0 .
+$$
+
+:::
+
+Sans perte de généralité, on suppose que la matrice de covariance $K$ est définie positive.
+
+::: {.proof}
+L'indépendance implique toujours l'orthogonalité.
+
+Sans perte de généralité, on suppose que l'espace gaussien est
+engendré par un vecteur gaussien standard ; posons
+$Z = \sum_{i = 1}^n \lambda_i X_i$ et  $Y = \sum_{i = 1}^n \lambda'_i X_i$.
+
+Si  $Z$ et $Y$ sont orthogonales (ou non corrélées),
+
+$$\mathbb{E} [ZY] =  \sum_{i = 1}^n \lambda_i \lambda_{i}' = 0 .$$
+
+Pour montrer que  $Z$ et  $Y$ sont indépendantes, il suffit de vérifier que,
+pour tout $\mu$ et  $\mu'$ dans $\mathbb{R}$,
+$$\mathbb{E} \left[ \mathrm{e}^{\imath \mu Z} \mathrm{e}^{\imath \mu' Y} \right] =
+\mathbb{E} \left[ \mathrm{e}^{\imath \mu Z}  \right] \times \mathbb{E}
+\left[ \mathrm{e}^{\imath \mu' Y} \right] .
+$$
+
+\begin{align*}
+\mathbb{E} \left[ \mathrm{e}^{\imath \mu Z} \mathrm{e}^{\imath \mu' Y} \right] &
+=  \mathbb{E} \left[ \mathrm{e}^{\imath \mu \sum_i \lambda_i    X_i} \mathrm{e}^{\imath \mu' \sum_i \lambda'_i    X_i} \right]\\
+& =  \mathbb{E} \left[ \prod_{i = 1}^n    \mathrm{e}^{\imath (\mu
+\lambda_i + \mu' \lambda'_i)    X_i} \right]\\
+&   X_i \text{ sont  indépendantes} \ldots\\
+& =  \prod_{i = 1}^n  \mathbb{E} \left[ \mathrm{e}^{\imath (\mu \lambda_i +
+\mu' \lambda'_i)    X_i} \right]\\
+& =  \prod_{i = 1}^n \mathrm{e}^{- (\mu \lambda_i + \mu' \lambda'_i)
+^2 / 2}\\
+& =  \exp \left( - \frac{1}{2} \sum_{i = 1}^n \mu^2 \lambda_i^2 + 2 \mu
+\mu' \lambda_i \lambda'_i + \mu'^2 \lambda'^2_i    \right)\\
+&   \text{orthogonalité}\\
+& =  \exp \left( - \frac{1}{2} \sum_{i = 1}^n \mu^2 \lambda_i^2 + \mu'^2
+\lambda'^2_i    \right)\\
+&   \ldots\\
+& =  \mathbb{E} \left[ \mathrm{e}^{\imath \mu Z}  \right] \times
+\mathbb{E} \left[ \mathrm{e}^{\imath \mu' Y} \right] .
+\end{align*}
+
+  
+
+:::
+
+La proposition suivante en est une conséquence directe.
+
+::: {#cor-indepemdence-correlation}
+
+Si $E$ et $E'$ sont deux sous-espaces linéaires de l'espace gaussien
+engendré par le vecteur gaussien à coordonnées indépendantes
+$X_1, \ldots, X_n$, les variables aléatoires (gaussiennes) appartenant au sous-espace  $E$  et les variables aléatoires (gaussiennes) appartenant au sous-espace $E'$ sont indépendantes si et seulement si ces deux sous-espaces sont orthogonaux.
+
+:::
+
+
+## Convergence des vecteurs gaussiens  {#sec-convergenceGaussVectors}
+
+
+Rappelons le théorème de continuité de Lévy ([Théorème @thm-thmlevycont])), qui relie convergence faible des lois de probabilité et convergence simple des fonctions caractéristiques.
+
+::: {#thm-levycont-recall}
+
+Une suite de lois de probabilité $(P_n)_{n \in \mathbb{N}}$ sur $\mathbb{R}^k$
+converge faiblement vers $P$ si et seulement si, pour tout  $\vec{s} \in \mathbb{R}^k$ :
+
+$$\mathbb{E}_{P_n} \left[ \mathrm{e}^{\imath \langle \vec{s},
+\vec{X} \rangle} \right] \rightarrow \mathbb{E}_{P_{}} \left[
+\mathrm{e}^{\imath \langle \vec{s}, \vec{X} \rangle} \right] .
+$$
+
+:::
+
+Pour tout $\vec{s} \in \mathbb{R}^k$, les fonctions $\vec{x}\mapsto \cos ( \left\langle \vec{s}, \vec{x} \right\rangle)$ et
+$\vec{x} \mapsto \sin ( \left\langle \vec{s}, \vec{x}\right\rangle)$ sont continues et bornées ; elles sont aussi infiniment dérivables.
+
+Il est remarquable et utile que la convergence faible puisse se vérifier
+sur ce petit ensemble de fonctions.
+
+::: {#thm-levycont-bis}
+
+### Théorème de continuité de Lévy (bis)
+
+Une suite de lois de probabilité $(P_n)_{n \in \mathbb{N}}$ sur $\mathbb{R}^k$
+converge faiblement vers une loi de probabilité si et seulement si
+il existe une fonction  $f$ sur  $\mathbb{R}^k$, continue en
+$\vec{0}$, telle que, pour tout
+$\vec{s} \in \mathbb{R}^k$ :
+
+$$
+\mathbb{E}_{P_n} \left[ \mathrm{e}^{\imath \langle \vec{s}, \vec{X} \rangle} \right] \rightarrow f(\vec{s})\,.
+$$
+
+Alors, la fonction $f$ est la fonction caractéristique d'une certaine loi de probabilité $P$.
+
+:::
+
+La condition de continuité en  $0$  est nécessaire.
+La fonction caractéristique d'une loi de probabilité est toujours continue en $0$.
+La continuité en $0$ garantit la tension de la suite de lois de probabilité.
+
+
+::: {#prp-conv-gaussiamn}
+
+Si une suite de vecteurs gaussiens de dimension $k$ $(X_n)$ est définie par une suite à valeurs dans $\mathbb{R}^k$  $(\vec{\mu}_n)_n$ et une suite à valeurs dans $\textsf{SDP}(k)$  $(K_n)_n$ et si
+
+\begin{eqnarray*}
+\lim_n \vec{\mu}_n & = & \mu \in \mathbb{R}^k\\
+\lim_n K_n & = & K \in \textsf{SDP}(k)
+\end{eqnarray*}
+
+alors la suite  $(X_n)_n$  converge en loi vers $\mathcal{N}\left(\vec{\mu}, K\right)$ (si $K = 0$,
+la loi limite est $\delta_\mu$).
+
+:::
+
+## Conditionnement gaussien   {#sec-gauss-conditioning}
+
+Soit $(X_1,\ldots,X_n)^\top$  un vecteur gaussien de loi $\mathcal{N}(\mu, K)$ où   $K \in \textsf{DP}(n)$.
+La matrice de covariance  $K$  est partitionnée en blocs
+$$
+K = \left[
+\begin{array}{cc}
+A & B^\top \\
+B & W
+\end{array}
+\right]
+$$
+
+où  $A \in \textsf{DP}(k)$, $1 \leq k < n$, et $W \in \textsf{DP}(n-k)$.
+
+
+Nous nous intéressons à l'espérance conditionnelle de  $(X_1, \ldots, X_k)^\top$  par rapport à $\sigma(X_{k+1},\ldots,X_n)$
+et à la loi conditionnelle de $(X_1, \ldots, X_k)^\top$  par rapport à  $\sigma(X_{k+1},\ldots,X_n)$.
+
+Le complément de Schur de $A$  dans $K$  est défini par
+$$
+W - B A^{-1} B^\top\, .
+$$
+
+Cette définition a un sens pour les matrices symétriques lorsque $A$ est inversible.
+
+Si $K \in \textsf{DP}(n)$, alors le complément de Schur de  $A$ dans  $K$ appartient aussi à $\textsf{DP}(n-k)$.
+
+Dans l'énoncé des théorèmes suivants,  $A^{-1/2}$ désigne le facteur de Cholesky
+de  $A^{-1}$ :   $A^{-1} = A^{-1/2} \times (A^{-1/2})^\top$.
+
+
+::: {#thm-cond-expectation}
+
+L'espérance conditionnelle de  $(X_{k+1}, \ldots, X_n)^\top$  sachant $(X_{1},\ldots,X_k)^\top$ est une transformation affine de $(X_{1},\ldots,X_{k})^\top$:
+
+$$
+\mathbb{E}\left[ \begin{pmatrix}
+X_{k+1} \\ \vdots \\ X_{n}
+\end{pmatrix} \mid \begin{matrix}
+X_{1} \\ \vdots \\ X_k
+\end{matrix}\right] = \begin{pmatrix}
+\mu_{k+1} \\ \vdots \\ \mu_n \end{pmatrix}   + \left(B A^{-1}  \right) \times  \left( \begin{pmatrix}
+X_{1} \\ \vdots \\ X_{k}
+\end{pmatrix}  - \begin{pmatrix}
+\mu_{1} \\ \vdots \\ \mu_k
+\end{pmatrix}\right) \, .
+$$
+
+:::
+
+
+
+::: {#thm-cond-gaussian-density}
+
+La loi conditionnelle de $(X_{k+1}, \ldots, X_n)^\top$ par rapport à $\sigma(X_{1},\ldots,X_k)$ est gaussienne ; son espérance est l'espérance conditionnelle de
+$(X_{k+1}, \ldots, X_n)^\top$ par rapport à $\sigma(X_{1},\ldots,X_k)$,
+et sa variance est le complément de Schur de la covariance de $(X_{1},\ldots,X_k)^\top$
+dans la matrice de covariance de $(X_1, \ldots, X_n)^\top$.
+
+:::
+
+
+Nous étudions d'abord la densité conditionnelle et, avec un minimum de calcul, établissons qu'elle est gaussienne. L'espérance conditionnelle sera calculée comme espérance sous la loi conditionnelle.
+
+Pour caractériser la densité conditionnelle, nous nous appuyons sur un argument de représentation distributionnelle (tout vecteur gaussien a la loi de l'image d'un vecteur gaussien standard par une transformation affine) et sur un résultat d'analyse matricielle au cœur de la factorisation de Cholesky des matrices semi-définies positives.
+
+$(X_1, \ldots, X_n)^\top$ a la loi de l'image d'un vecteur gaussien standard
+par une matrice triangulaire par blocs ; nous utilisons ensuite des propriétés des lois conditionnelles pour établir les deux résultats.
+
+::: {#prp-schur-complement}
+
+Soit $K$ une matrice symétrique définie positive de dimensions
+$n \times n$
+
+$$
+K = \left[
+\begin{array}{cc}
+A & B^\top \\
+B & W
+\end{array}
+\right]
+$$
+
+où  $A$ a dimensions  $k \times k$, $1 \leq k < n$.
+
+
+Alors, le complément de Schur de $A$ par rapport à  $K$
+
+$$
+W - B A^{-1} B^\top
+$$
+
+est définie positive. Les sous-matrices $A$ et   $W - B A^{-1} B^\top$
+admettent toutes deux une décomposition de Cholesky $A = L_1 L_1^\top $,
+$W - B A^{-1} B^\top = L_2 L_2^\top$ où   $L_1, L_2$  sont triangulaires inférieures,
+et la factorisation de $K$ s'écrit :
+
+$$
+K = \left[
+\begin{array}{cc}
+L_1 & 0 \\
+B (L_1^\top)^{-1}  & L_2
+\end{array}
+\right] \times \left[
+\begin{array}{cc}
+L_1^\top & L_1^{-1} B^\top \\
+0 & L_2^\top
+\end{array}
+\right] \, .
+$$
+
+:::
+
+
+::: {.proof}
+
+Sans perte de généralité, on vérifie l'énoncé sur des vecteurs centrés.
+La factorisation de Cholesky de $K$ permet d'écrire
+
+$$
+\begin{pmatrix}
+X_1 \\
+\vdots \\
+X_n
+\end{pmatrix} \sim \left[
+\begin{array}{cc}
+L_1 & 0 \\
+B (L_1^\top)^{-1}  & L_2
+\end{array}
+\right] \times \begin{pmatrix}
+Y_1 \\
+\vdots \\
+Y_n
+\end{pmatrix}
+$$
+
+où  $( Y_1,
+\ldots,
+Y_n)^\top$ est un vecteur gaussien standard centré.
+
+Par la suite, on suppose  $(X_1, \ldots,X_n)^\top$  et
+$(Y_1,\ldots,Y_n)^\top$ définis sur le même espace de probabilité.
+Comme $L_1$ est  inversible, les tribus engendrées par  $(X_1, \ldots,X_k)^\top$ et
+$(Y_1, \ldots,Y_k)^\top$ coïncident. Posons  $\mathcal{G}=\sigma(X_1, \ldots,X_k)$.
+Les espérances et lois conditionnelles coïncident également.
+
+\begin{eqnarray*}
+\mathbb{E} \left[ \begin{pmatrix}
+X_{k+1} \\
+\vdots \\
+X_n
+\end{pmatrix} \mid \mathcal{G} \right] &= &\mathbb{E} \left[ B (L_1^\top)^{-1} \begin{pmatrix}
+Y_{1} \\
+\vdots \\
+Y_k
+\end{pmatrix} \mid \mathcal{G} \right] + \mathbb{E} \left[ L_2 \begin{pmatrix}
+Y_{k+1} \\
+\vdots \\
+Y_n
+\end{pmatrix} \mid \mathcal{G} \right]  \\
+& = & B (L_1^\top)^{-1} L_1^{-1}\begin{pmatrix}
+X_{1} \\
+\vdots \\
+X_k
+\end{pmatrix} =  B A^{-1} \begin{pmatrix}
+X_{1} \\
+\vdots \\
+X_k
+\end{pmatrix} \, ,
+\end{eqnarray*} 
+
+
+car $(Y_{k+1}, \ldots,Y_n)^\top$ est centré et indépendant de $\mathcal{G}$.
+
+Notons que les résidus 
+
+$$
+\begin{pmatrix}
+X_{k+1} \\
+\vdots \\
+X_n
+\end{pmatrix} -\mathbb{E} \left[ \begin{pmatrix}
+X_{k+1} \\
+\vdots \\
+X_n
+\end{pmatrix} \mid \mathcal{G} \right] = L_2 \begin{pmatrix}
+Y_{k+1} \\
+\vdots \\
+Y_n
+\end{pmatrix}
+$$ 
+
+sont indépendants de  $\mathcal{G}$. C'est une propriété gaussienne.
+Pour des variables aléatoires carré-intégrables générales,
+on ne peut qu'affirmer que les résidus sont  orthogonaux aux variables aléatoires $\mathcal{G}$-mesurables.
+
+
+La loi conditionnelle de  $(X_{k+1},\ldots, X_n)^\top$ sachant $(X_1,\ldots, X_k)^\top$
+coïncide avec la loi conditionnelle de
+
+$$
+B (L_1^\top)^{-1}   \times
+\begin{pmatrix}
+Y_1\\ \vdots \\ Y_k
+\end{pmatrix} + L_2 \times
+\begin{pmatrix}
+Y_{k+1}\\ \vdots \\ Y_n
+\end{pmatrix}
+$$ 
+
+conditionnellement à   $(Y_1,\ldots, Y_k)^\top$.
+Comme  $(Y_1,\ldots, Y_k)^\top = L_1^{-1}(X_1,\ldots,X_k)^\top$,
+la loi conditionnelle recherchée est gaussienne,
+d'espérance $$B A^{-1}   \times
+\begin{pmatrix}
+X_1\\ \vdots \\ X_k
+\end{pmatrix}$$ (l'espérance conditionnelle) et de variance
+$L_2 \times L_2^\top = W - B A^{-1} B^\top$.
+
+
+  
+
+:::
+
+
+
+::: {#exm-conditional-gaussian}
+
+Si  $(X,Y)^\top$  est un  vecteur gaussien centré avec  $\operatorname{var}(X)=\sigma_x^2$, $\operatorname{var}(Y)=\sigma^2_y$ et  $\operatorname{cov}(X,Y)= \rho \sigma_x \sigma_y$, la loi conditionnelle de  $Y$ sachant $X$ est
+
+$$
+\mathcal{N}\left( \rho \sigma_y/\sigma_x X, \sigma^2_y (1- \rho^2)  \right) \, .
+$$ 
+
+La quantité $\rho$ est appelée le _coefficient de corrélation linéaire_ entre  $X$ et  $Y$.
+Par l'inégalité de Cauchy-Schwarz, $\rho \in [-1,1]$.
+
+:::
+
+
+Ces deux théorèmes sont habituellement traités dans l'ordre où ils sont énoncés. L'espérance conditionnelle se caractérise en adoptant le point de vue $L^2$ (prédictif) : l'espérance conditionnelle du vecteur aléatoire $Y$ sachant $X$ est définie comme le meilleur prédicteur de $Y$ mesurable par rapport à $X$ au sens de l'erreur quadratique (le vecteur aléatoire $Z$, mesurable par rapport à $X$, qui minimise $\mathbb{E} \left[ \| Y- Z\|^2 \right]$).
+
+Pour caractériser l'espérance conditionnelle,
+on calcule d'abord le prédicteur affine optimal de
+$(X_{k+1},\ldots,X_n)^\top$  à partir de $(X_{1},\ldots,X_k)^\top$. Ce prédicteur affine optimal est
+
+$$
+\begin{pmatrix}
+\mu_{k+1} \\ \vdots \\ \mu_n \end{pmatrix}   + \left(B A^{-1}  \right) \times  \left( \begin{pmatrix}
+X_{1} \\ \vdots \\ X_{k}
+\end{pmatrix}  - \begin{pmatrix}
+\mu_{1} \\ \vdots \\ \mu_k
+\end{pmatrix}\right) \, ,
+$$
+
+(Si les vecteurs gaussiens sont centrés, cela revient à déterminer la matrice $P$  de dimensions $(n-k)\times k$
+qui minimise  $\text{trace}(PA P^\top -2 B P^\top$)).
+Le prédicteur affine optimal est un vecteur gaussien ;
+on vérifie que le vecteur résiduel
+
+$$
+\begin{pmatrix}
+X_{k+1}\\ \vdots \\ X_n
+\end{pmatrix} - \left\{ \begin{pmatrix}
+\mu_{k+1} \\ \vdots \\ \mu_n \end{pmatrix}   + \left(B A^{-1}\right) \times  \left( \begin{pmatrix}
+X_{1} \\ \vdots \\ X_{k}
+\end{pmatrix}  - \begin{pmatrix}
+\mu_{1} \\ \vdots \\ \mu_k
+\end{pmatrix}\right) \right\}
+$$ 
+
+est aussi gaussien et orthogonal au prédicteur affine. Le vecteur résiduel  est indépendant
+du prédicteur affine.
+
+Cela suffit à établir que le prédicteur affine est la projection orthogonale de
+$(X_{k+1}, \ldots, X_n)^\top$ sur le sous-espace vectoriel fermé des variables aléatoires carré-intégrables
+mesurables par rapport à $(X_{1},\ldots,X_k)^\top$.
+
+On en déduit que le prédicteur affine est l'espérance conditionnelle.
+
+
+Dans ces notes, nous traitons un cas particulier de conditionnement linéaire.
+
+Pour aborder le conditionnement linéaire général, considérons  $X \sim \mathcal{N}(0, {K})$
+(on suppose le centrage pour alléger les notations et les calculs ; une translation ne modifie pas les tribus pertinentes et donc le conditionnement), où ${K} \in \textsf{DP}(n)$, et une transformation linéaire définie par la matrice
+$H$ de dimensions $m \times n$. On suppose que $H$ est de rang $m$. Posons $Y= {H} X$.
+Considérons le vecteur gaussien $[ X^\top : Y^\top]$ de matrice de covariance 
+$$
+\left[
+\begin{array}{cc}
+{K} & {K} {H}^\top \\
+{H}{K} & {H} {K} {H}^\top
+\end{array}
+\right]
+$$
+
+et en adaptant les calculs précédents (la matrice de covariance n'est plus définie positive),
+on vérifie que la loi conditionnelle de $X$ sachant $Y$ est gaussienne d'espérance
+$$
+K H^\top (HKH^\top)^{-1}
+$$ 
+
+et de variance 
+
+$$
+K - K H^\top (HKH^\top)^{-1} H K \, .
+$$
+
+La linéarité de l'espérance conditionnelle est une propriété des vecteurs gaussiens et du conditionnement linéaire.
+Si l'on conditionne par rapport à la norme  $\| X\|_2$, la loi conditionnelle n'est plus gaussienne.
+
+## À propos des lois Gamma  {#sec-about-gamma}
+
+L'étude de la norme des vecteurs gaussiens nous amène
+à introduire les lois $\chi^2$, une sous-famille des lois Gamma.
+
+::: {#def-gamma-distrib}
+
+### Lois Gamma
+
+Une loi Gamma de paramètres $(p, \lambda)$  ($\lambda \in
+\mathbb{R}_+$ et  $p \in \mathbb{R}_+$) est une loi sur $(\mathbb{R}_+, \mathcal{B}(\mathbb{R}_+))$
+de densité
+
+$$g_{p, \lambda} (x) \equiv \frac{\lambda^p}{\Gamma (p)} \mathbf{1}_{x
+\geq 0} x^{p - 1} e^{- \lambda x} 
+$$ 
+où  $\Gamma (p) \equiv \int_0^{\infty} t^{p - 1} e^{- t} \mathrm{d} t$.
+
+Le paramètre  $p$ est appelé paramètre de _forme_,
+$\lambda$ est appelé paramètre de _taux_  ou d'_intensité_ ; $1/\lambda$ est appelé paramètre d'_échelle_.
+
+:::
+
+Si  $X \sim  \text{Gamma}(p,1)$, alors $\sigma X \sim \text{Gamma}(p,1/\sigma)$ pour  $\sigma>0$.
+
+
+La fonction $\Gamma$ d'Euler  interpole la factorielle.
+Pour tout  réel $p$ strictement positif, $\Gamma (p + 1) = p \Gamma
+(p) .$ Si  $p$ est entier,  $\Gamma (p + 1) = p!$
+
+::: {#exr-gamma-half}
+
+Vérifier que $\Gamma(1/2)=\sqrt{\pi}$.
+
+:::
+
+
+::: {#prp-moments-gamma}
+
+Si  $X \sim \mathrm{Gamma}(p, \lambda)$,
+$\mathbb{E}X = \frac{p}{\lambda}$ et $\operatorname{var}(X) = \frac{p}{\lambda^2}$.
+
+:::
+
+La proposition suivante est une pierre angulaire du calcul Gamma.
+La somme de deux variables aléatoires indépendantes de loi Gamma est de loi Gamma
+si elles ont le même paramètre d'intensité (ou d'échelle).
+
+
+::: {#prp-sum-gamma}
+Si $X$ et  $Y$ sont des variables aléatoires indépendantes de loi Gamma
+de même paramètre d'intensité $\lambda$,  $X \sim \mathrm{Gamma}(p,
+\lambda), Y\sim \mathrm{Gamma}(q, \lambda)$, alors $X + Y \sim \mathrm{Gamma}(p+q, \lambda)$.
+
+:::
+
+::: {.proof}
+
+La densité de la loi de $X+Y$ est la convolution des densités
+ $g_{p, \lambda}$ et $g_{q, \lambda}$.
+\begin{eqnarray*}
+g_{p, \lambda} \ast g_{q, \lambda} (x) & = & \int_{\mathbb{R_{}}}
+g_{p, \lambda} (z) g_{_{q, \lambda}} (x - z) \mathrm{d} z\\
+& = & \int_0^x    g_{p, \lambda} (z) g_{_{q,
+\lambda}} (x - z) \mathrm{d} z\\
+& = & \int_0^x  \frac{\lambda^p}{\Gamma (p)} z^{p - 1} \mathrm{e}^{- \lambda
+z}     \frac{\lambda^q}{\Gamma (q)} (x - z)^{q - 1} \mathrm{e}^{-
+\lambda (x - z)} \mathrm{d} z\\
+& = & \frac{\lambda^{p + q}}{\Gamma (p) \Gamma (q)} \mathrm{e}^{- \lambda x}
+\int_0^x z^{p - 1} (x - z)^{q - 1}    \mathrm{d} z\\
+&  & \operatorname{changement} \operatorname{de} \operatorname{variable} z = x u\\
+& = & \frac{\lambda^{p + q}}{\Gamma (p) \Gamma (q)} \mathrm{e}^{- \lambda x}
+x^{p + q - 1} \int_0^{1} u^{p-1} (1 - u)^{q - 1}
+\mathrm{d} u\\
+& = & g_{p + q, \lambda} (x) \frac{\Gamma(p+q)}{\Gamma(p)\Gamma(q)} \int_0^{1} u^{p-1} (1 - u)^{q - 1}
+\mathrm{d} u \, .
+\end{eqnarray*}
+Retenons l'observation suivante :  
+$$
+B(p,q):=   \int_0^{1} u^{p-1} (1 - u)^{q - 1}
+\mathrm{d} u
+$$
+
+satisfait  $B(p,q) = \frac{\Gamma(p)\Gamma(q)}{\Gamma(p+q)}.$
+
+  
+
+:::
+
+Les lois Gamma  de paramètres  $(k / 2, 1 / 2)$ pour $k \in
+\mathbb{N}$ méritent un nom : ce sont les lois $\chi^2$ à
+$k$ degrés de liberté.
+
+
+::: {#prp-chixdeux}
+
+### Lois du chi-deux
+
+La loi  $\chi^2$ à $k$ degrés de liberté (notée $\chi^2_k$)
+a pour densité sur $[0,\infty)$,
+$$
+\frac{x^{ \frac{1}{2} (k - 2)} e^{- \frac{x}{2}}}{2^{k / 2} \Gamma (k /
+2)} .
+$$
+
+:::
+
+::: {#prp-chisq-sum-indep-gauss}
+
+La somme de  $k$ carrés de variables aléatoires gaussiennes standards indépendantes
+suit la loi du chi-deux à $k$ degrés de liberté  $\chi^2_k$.
+
+:::
+
+::: {.proof}
+
+D'après la proposition @prp-gammabeta),
+il  suffit d'établir la proposition pour $k = 1.$
+
+Soit $X \sim \mathcal{N}(0,1)$ ; pour $t\geq 0$,
+\begin{align*}
+\mathbb{P} \left\{ X^2 \leq t\right\}
+& = & \Phi(\sqrt{t}) - \Phi(-\sqrt{t}) \\
+& = & 2 \Phi(\sqrt{t})  - 1 \,.
+\end{align*}
+En dérivant par rapport à $t$ et en appliquant
+la règle de la chaîne, on obtient une formule pour la densité :
+$$
+2 \frac{1}{2\sqrt{t}} \phi(\sqrt{t}) = \frac{1}{\sqrt{2\pi t}} \mathrm{e}^{-\frac{t}{2}} = \left(\frac{1}{2}\right)^{1/2} \frac{t^{-1/2}}{\Gamma(1/2)} \mathrm{e}^{-\frac{t}{2}} \,.
+$$
+
+  
+
+:::
+
+
+## Normes de vecteurs gaussiens centrés
+
+La loi du carré de la norme euclidienne d'un
+vecteur gaussien centré ne dépend que du spectre de sa matrice de covariance.
+
+
+::: {#thm-norm-centered}
+
+Si  ${X}:= (X_1, X_2,
+\ldots, X_n)^{^\top} \sim \mathcal{N}\left(0, A\right)$ avec  $A = L L^\top$ ($L$ triangulaire inférieure), si
+$M \in \mathrm{SDP}(n)$,  alors
+${X}^\top M {X}$ a la même loi que $\sum_{i = 1}^n \lambda_i Z_i$ où
+$(\lambda_i)_{i \in \{1, \ldots, n\}}$ désignent les valeurs propres de $L^\top \times M\times L$
+et où  les  $Z_i$ sont des variables aléatoires indépendantes de loi  $\chi^2_1$.
+
+:::
+
+C'est un corollaire d'une propriété importante des vecteurs gaussiens standards : l'invariance par rotation.
+La loi gaussienne standard est invariante par transformation orthogonale
+(une matrice $O$  est  orthogonale si et seulement si   $OO^\top=\text{Id})$.
+
+::: {.proof}
+
+La matrice $A$ se factorise sous la forme $A = LL^\top$ (Cholesky), et  ${X}$ a la même loi que
+$L {Y}$ où ${Y}$ est gaussien standard. La forme quadratique ${X}^\top M
+{X}$ a donc la même loi que ${Y}^\top {L}^\top M
+{L}  {Y}$.  Il existe une transformation orthogonale
+ $O$ telle que $L^\top M L = O^\top \operatorname{diag}
+(\lambda_i) O.$ Le vecteur aléatoire $O {Y}$ a la loi
+$\mathcal{N} (0, I_n)$.
+
+  
+
+:::
+
+## Norme de vecteurs gaussiens non centrés  {#sec-norm-non-centered}
+
+
+La loi du carré de la norme d'un vecteur gaussien de matrice de covariance $\sigma^2 \operatorname{Id}$
+dépend de la norme du  vecteur d'espérance mais non de sa direction. De plus, cette loi se compare stochastiquement à la loi du carré de la norme d'un vecteur gaussien centré de même covariance.
+
+
+::: {#def-name}
+
+### Ordre stochastique
+
+Sur un espace de probabilité muni de la loi $\mathbb{P}$, une variable aléatoire réelle   $X$  est
+_stochastiquement plus petite_ que la variable aléatoire $Y$ si 
+$$
+\mathbb{P} \{ X \leq Y \} =  1 \, .
+$$
+
+On dit que la loi de $Y$  domine stochastiquement la loi de  $X$.
+
+:::
+
+Si  $X$  est stochastiquement plus petite que $Y$  et si  $F$  et  $G$  désignent les fonctions de répartition de $X$ et $Y$, alors pour tout  $x \in  \mathbb{R}$, $F(x)\geq G(x)$. Les fonctions quantiles $F^\leftarrow, G^\leftarrow$  vérifient  $F^\leftarrow(p) \leq G^\leftarrow(p)$ pour $p \in (0,1)$.
+
+Réciproquement.
+
+::: {#prp-stoch-ordering}
+
+Si  $F$ et $G$  sont deux fonctions de répartition telles que  $\forall x \in \mathbb{R}$, $F(x)\geq G(x)$, alors il existe un espace de probabilité muni d'une loi $\mathbb{P}$ et  deux variables aléatoires $X$ et $Y$  de fonctions de répartition $F, G$  telles que :
+
+$$
+\mathbb{P}\{ X \leq Y\} = 1 \, .
+$$
+
+:::
+
+La preuve repose sur un argument de _couplage quantile_.
+
+
+::: {.proof}
+
+Il suffit de munir  $([0,1], \mathcal{B}([0,1])$  de la loi uniforme.
+Posons $X (\omega)=  F^{\leftarrow}(\omega)$,  $Y(\omega) = G^\leftarrow(\omega)$. Alors
+la loi de  $X$  (resp. $Y$) a pour fonction de répartition $F$ (resp. $G$) et l'on a :
+
+$$
+\mathbb{P} \{ X \leq Y\}  = \mathbb{P} \{ F^{\leftarrow}(U) \leq  G^{\leftarrow}(U)\} = 1 \, .
+$$
+
+:::
+
+
+
+
+::: {#thm-non-central-chi}
+
+Si $X \sim \mathcal{N}\left( 0, \sigma^2 \operatorname{Id}\right)$ et
+$Y \sim \mathcal{N}\left( \theta, \sigma^2 \operatorname{Id}\right)$ avec $\theta \in \mathbb{R}^d$,
+alors  
+$$
+\left\Vert Y \right\Vert^2 \sim  \left( (Z_1 + \|\theta\|_2)^2 + \sum_{i=1}^d Z_i^2 \right)
+$$
+
+où  les  $Z_i$  sont  i.i.d. de loi $\mathcal{N}(0,\sigma^2)$.
+
+Pour tout  $x \geq 0$, 
+
+$$
+\mathbb{P} \left\{ \| Y \|\leq x\right\} \leq \mathbb{P} \left\{ \| X \| \leq x \right\} \, .
+$$
+
+La loi de  $\| Y\|^2/\sigma^2$ (chi-deux non centré de paramètre $\| \theta\|_2/\sigma$)
+_domine stochastiquement_ la loi de   $\| X\|^2/\sigma^2$ (chi-deux centré avec le même nombre de
+degrés de liberté).
+
+
+:::
+
+::: {.proof}
+Le vecteur gaussien $Y$ a la même loi que $\theta + X$.   Il existe une transformation orthogonale
+$O$ telle que 
+$$
+O \theta = \begin{pmatrix}
+\| \theta\|_2 \\
+0 \\
+\vdots \\
+0
+\end{pmatrix} \, .
+$$
+
+Les vecteurs  $OY$ et $OX$ ont respectivement les mêmes normes que  $Y$ et $X$.
+
+Le carré de la norme de  $Y$
+a la même loi que le carré de la norme de $OY$, c'est-à-dire $(Z_1+ \|\theta\|_2)^2 +\sum_{i=2}^d Z_i^2$.
+Cela prouve la première partie du théorème.
+
+Pour établir la seconde partie du théorème, il suffit de vérifier que, pour tout $x\geq 0$,
+$$
+\mathbb{P} \left\{ (Z_1+ \|\theta\|_2)^2  \leq x \right\} \leq
+\mathbb{P} \left\{ X_1^2 \leq x \right\} \, ,
+$$
+
+c'est-à-dire  
+$$
+\mathbb{P} \left\{ |Z_1+ \|\theta\|_2|  \leq \sqrt{x} \right\} \leq
+\mathbb{P} \left\{ |X_1| \leq \sqrt{x} \right\} \, ,
+$$
+
+ou 
+$$
+\Phi(\sqrt{x}- \|\theta\|_2) - \Phi(-\sqrt{x}-\|\theta\|_2)  \leq \Phi(\sqrt{x}) -  \Phi(-\sqrt{x}) \, .
+$$
+
+Pour  $y>0$, l'application de $[0,\infty)$ dans $\mathbb{R}$, définie par $a \mapsto \Phi(y-a) - \Phi(-y-a)$,
+est décroissante en $a$ :
+sa dérivée par rapport à $a$ vaut  $-\phi(y-a)+\phi(-y-a)=\phi(y+a)-\phi(y-a)\leq 0$.
+La conclusion s'ensuit.
+
+  
+
+:::
+
+
+La dernière étape de la preuve s'écrit
+$$
+\mathbb{P} \left\{ X \in \theta + C \right\} \leq \mathbb{P} \left\{ X \in C\right\}
+$$
+
+où  $X \sim \mathcal{N}(0,\operatorname{Id}_1)$, $\theta \in \mathbb{R}$ et $C = [-\sqrt{x},\sqrt{x}]$.
+Cette inégalité vaut en dimension $d\geq 1$ si   $C$ est compact, convexe et symétrique.
+Ce résultat (subtil) s'appelle le lemme d'Anderson.
+
+## Théorème de Cochran et conséquences   {#sec-cochran}
+
+::: {#thm-cochran}
+
+### Cochran
+
+Soit $X \sim \mathcal{N}(0, \text{I}_n)$  et
+$\mathbb{R}^n = \oplus_{j=1}^k E_j$ où  les  $E_j$  sont des sous-espaces vectoriels deux à deux orthogonaux de
+$\mathbb{R}^n$. Notons  $\pi_{E_j}$  la projection orthogonale sur $E_j$.
+
+La collection de vecteurs gaussiens  $\left( \pi_{E_j} X\right)_{j \leq k}$
+est  indépendante et, pour chaque~$j$,
+$$
+\| \pi_{E_j} X\|_2^2 \sim \chi^2_{\text{dim}(E_j)} \, .
+$$
+
+:::
+
+::: {.proof}
+
+La matrice de covariance de  $\pi_{E_j} X$  est $\pi_{E_j} \pi_{E_j}^\top = \pi_{E_j}$. Les valeurs propres de $\pi_{E_j}$  valent $1$ avec  multiplicité $\text{dim}(E_j)$ et  $0$. L'assertion sur la loi de $\| \pi_{E_j} X\|_2^2$ est
+un corollaire de @prp-normgaussstand et @prp-normespectre.
+
+Pour prouver l'indépendance stochastique, considérons $\mathcal{I}, \mathcal{J} \subset \{1,\ldots,k\}$
+avec $\mathcal{I} \cap \mathcal{J} = \emptyset.$ Il suffit de vérifier que, pour tout $(\alpha)_{j \in \mathcal{I}}, (\beta_j)_{j \in \mathcal{J}}$, les fonctions caractéristiques de
+$$
+\left(\sum_{j\in \mathcal{I}} \langle \alpha_j, \pi_{E_j} X \rangle, \sum_{j\in \mathcal{J}} \langle \beta_j, \pi_{E_j} X \rangle\right)
+$$ 
+
+se factorisent. Il suffit de vérifier que les deux gaussiennes sont orthogonales.
+
+\begin{eqnarray*}
+{ \mathbb{E} \left[ \left(\sum_{j\in \mathcal{I}} \langle \alpha_j, \pi_{E_j} X \rangle \right) \times \left(\sum_{j'\in \mathcal{J}} \langle \beta_{j'}, \pi_{E_{j'}} X \rangle\right)\right]}
+& = & \sum_{j \in \mathcal{I}, j' \in \mathcal{J}}
+\alpha_j^\top \pi_{E_j} \pi_{E_{j'}} \beta_{j'}
+=  0 \, .
+\end{eqnarray*}
+
+  
+
+:::
+
+Le résultat suivant est une pierre angulaire de l'inférence statistique dans les modèles gaussiens.
+C'est un corollaire du théorème de Cochran.
+
+::: {#thm-student} 
+
+### Student
+
+Si $(X_1, \ldots, X_n)$ sont i.i.d. de loi  $\mathcal{N} (\mu, \sigma^2)$, si  $\overline{X}_n:=
+\sum^n_{i = 1}  X_i / n$ et
+$V:= \sum^{n}_{i = 1} (X_i - \overline{X}_n)^2$,
+alors
+\begin{enumerate}
+\item $\overline{X}_n$ suit la loi $\mathcal{N} (\mu,
+\sigma^2/n)$,
+\item $V$ est  indépendante de $\overline{X}_n$
+\item $V/\sigma^2$ suit la loi $\chi_{n - 1}^2$.
+\end{enumerate}
+
+:::
+
+::: {.proof}
+Sans perte de généralité, on peut supposer que $\mu=0$ et $\sigma=1$.
+
+Comme
+$$
+\begin{pmatrix}
+\overline{X}_n \\
+\vdots\\
+\overline{X}_n \\
+\end{pmatrix}
+=  \frac{1}{n} \begin{pmatrix}
+1 \\
+\vdots\\
+1 \\
+\end{pmatrix} \times \begin{pmatrix}
+1 & \ldots & 1
+\end{pmatrix} X
+$$
+le vecteur $(\overline{X}_n, \ldots , \overline{X}_n)^\top$  est la projection orthogonale
+du vecteur gaussien standard $X$ sur la
+droite engendrée par  $(1, \ldots, 1)^\top$.
+
+Le vecteur  $(X_1- \overline{X}_n, \ldots , X_n -\overline{X}_n)^\top$ est la projection orthogonale du vecteur gaussien $X$
+sur l'hyperplan orthogonal à $(1, \ldots, 1)^\top$.
+
+D'après le théorème de Cochran (@sec-cochran), les vecteurs aléatoires  $(\overline{X}_n, \ldots , \overline{X}_n)^\top$
+et   $(X_1- \overline{X}_n, \ldots , X_n -\overline{X}_n)^\top$ sont indépendants.
+
+La loi de  $\overline{X}_n$ est trivialement gaussienne.
+
+La loi de $V$ se caractérise à l'aide du théorème de Cochran.
+
+  
+
+:::
+
+::: {#def-student-dsitrib}
+
+###  Loi de Student
+
+Si $X \sim \mathcal{N}(0,1)$, $Y \sim \chi_p^2$ et si $X$  et  $Y$ sont indépendantes, alors
+$Z =  X/ \sqrt{Y/p}$ suit une loi de Student  (centrée) à
+ $p$  degrés de liberté.
+
+:::
+
+
+## Concentration gaussienne
+
+La définition même des vecteurs gaussiens caractérise la loi de toute fonction affine d'un
+vecteur gaussien standard. Si la partie linéaire de la fonction affine est définie par un vecteur $\lambda$, on sait que
+la variance vaut $\|\lambda\|^2_2$. Que se passe-t-il si l'on s'intéresse à des fonctions assez régulières d'un vecteur gaussien standard ? Par exemple si l'on considère des fonctions $L$-lipschitziennes ? Ce sont des généralisations des fonctions affines. On ne peut donc pas espérer, en général, une croissance de la variance des fonctions $L$-lipschitziennes d'un vecteur gaussien standard inférieure à $L^2$ (dans le cas linéaire, la constante de Lipschitz est la norme euclidienne de $\lambda$).
+Il est remarquable que la borne obtenue pour les fonctions linéaires s'étende aux fonctions lipschitziennes.
+Il est encore plus remarquable que cette borne ne dépende pas de la dimension de l'espace ambiant.
+
+
+::: {#thm-gauss-conc}
+
+Soit  $X \sim \mathcal{N}(0 , \text{Id}_d)$.
+
+- si  $f$ est  différentiable sur $\mathbb{R}^d$,
+    $$
+    \operatorname{var}(f(X)) \leq \mathbb{E} \| \nabla f \|^2   \qquad \text{(Poincaré's inequality)}
+    $$
+
+- si  $f$  est  $L$-lipschitzienne sur  $\mathbb{R}^d$,
+
+    $$
+    \operatorname{var}(f(X)) \leq L^2
+    $$
+
+    et, pour  $\lambda>0$,
+    $$
+    \log \mathbb{E} \mathrm{e}^{\lambda(f(X)-\mathbb{E}f)} \leq \frac{\lambda^2 L^2}{2} \, .
+    $$
+
+    Pour tout  $t\geq 0$, 
+    $$
+    \mathbb{P} \left\{ f(X) - \mathbb{E} f(X) \geq t \right\} \leq \mathrm{e}^{-\frac{t^2}{2 L^2}} \, .
+    $$
+
+:::
+
+
+La preuve repose sur l'identité suivante.
+
+::: {#prp-cov-identity}
+
+### Identité de covariance
+
+Soient  $X,Y$  deux vecteurs gaussiens standards indépendants à valeurs dans $\mathbb{R}^d$ ; soient $f,g$  deux
+fonctions différentiables de $\mathbb{R}^d$ dans $\mathbb{R}$.
+$$
+\operatorname{cov}(f(X),g(X)) = \int_0^1 \mathbb{E}\left\langle \nabla f(X) , \nabla g\left(\alpha X +\sqrt{1- \alpha^2} Y \right) \right\rangle \mathrm{d} \alpha
+$$
+
+:::
+
+On commence par vérifier cette proposition  sur  les fonctions $x \mapsto  \mathrm{e}^{\imath \langle \lambda, x\rangle}, x \in \mathbb{R}^d$.
+
+::: {.proof}
+Vérifions d'abord l'inégalité de Poincaré.
+
+On choisit $f=g$. En partant de l'identité de covariance, grâce à l'inégalité de Cauchy-Schwarz :
+
+\begin{eqnarray*}
+\operatorname{var}(f(X) )     &= & \operatorname{cov}(f(X),f(X)) \\
+& = & \int_0^1  \mathbb{E}\left\langle \nabla f(X) , \nabla f\left(\alpha X +\sqrt{1- \alpha^2} Y \right) \right\rangle \mathrm{d} \alpha \\
+& \leq & \int_0^1 \left( \mathbb{E}\|  \nabla f(X) \|^2\right)^{1/2} \times
+\left(\mathbb{E} \|\nabla f\left(\alpha X +\sqrt{1- \alpha^2} Y\right)\|^2 \right)^{1/2} \mathrm{d} \alpha \, .
+\end{eqnarray*}
+
+Le résultat souhaité s'obtient en remarquant que  $X$ et  $\alpha X + \sqrt{1- \alpha^2}Y$  ont tous deux la loi
+ $\mathcal{N}(0,\text{Id})$.
+
+Pour obtenir l'inégalité exponentielle, choisissons  $f$ différentiable et  1-lipschitzienne, et $g = \exp(\lambda f)$ pour $\lambda\geq 0$.
+Sans perte de généralité, supposons  $\mathbb{E}f(X)=0$.
+L'identité de covariance et la règle de la chaîne donnent
+
+\begin{eqnarray*}
+\operatorname{cov}\left(f(X),\mathrm{e}^{\lambda f(X)}\right)  & = & \lambda
+\int_0^1  \mathbb{E}\left[\left\langle \nabla f(X) , \nabla f\left(\alpha X +\sqrt{1- \alpha^2} Y \right) \right\rangle \mathrm{e}^{\lambda f\left(\alpha X +\sqrt{1- \alpha^2} Y \right)}\right] \mathrm{d} \alpha \\
+& \leq & \lambda L^2
+\int_0^1  \mathbb{E}\left[ \mathrm{e}^{\lambda f\left(\alpha X +\sqrt{1- \alpha^2} Y \right)}\right] \mathrm{d} \alpha \\
+& = & \lambda L^2 \mathbb{E}\left[ \mathrm{e}^{\lambda f\left(X\right)}\right]
+\end{eqnarray*}
+
+Posons  $F(\lambda):= \mathbb{E}\left[ \mathrm{e}^{\lambda f\left(X\right)}\right]$.
+On vient d'établir une inégalité différentielle pour  $F$, en vérifiant que
+$\operatorname{cov}( f , \mathrm{e}^{\lambda f})= F'(\lambda)$ puisque $f$ est centré :
+
+$$
+F'( \lambda) \leq \lambda L^2 F(\lambda) \,.
+$$
+
+En résolvant cette inégalité différentielle sous la condition  $F(0)=1$, pour $\lambda\geq 0$,
+$$
+F( \lambda) \leq \mathrm{e}^{\frac{\lambda^2L^2}{2}} \, .
+$$
+
+La même approche fonctionne pour $\lambda<0$.
+Il suffit d'invoquer l'inégalité exponentielle de Markov et d'optimiser par rapport à  $\lambda=t/L^2$.
+
+  
+
+:::
+
+Les inégalités de concentration décrivent le comportement de la norme de vecteurs gaussiens de grande dimension.
+
+::: {#cor-norm-gaussvector}
+
+Si  $X$ est un vecteur gaussien standard de dimension $d$, alors
+$$
+\operatorname{var}(\|X\|_2) \leq 1 \,
+$$
+and
+$$
+\sqrt{d-1} \leq \mathbb{E} \|X\|_2 \leq \sqrt{d} \, .
+$$
+
+:::
+
+::: {.proof}
+La norme euclidienne est  $1$-lipschitzienne (inégalité triangulaire).
+La première inégalité découle de l'inégalité de Poincaré.
+
+La majoration de l'espérance suit de l'inégalité de Jensen.
+
+La minoration de l'espérance suit de $(\mathbb{E} \|X\|_2)^2 = \mathbb{E} \|X\|_2^2 - \operatorname{var}(\|X\|_2)= d -\operatorname{var}(\|X\|_2)$  et de la borne sur la variance.
+
+  
+
+:::
+
+
+
+::: {#exr-norm-non-centered-gauss-vec}
+Soit  $X \sim \mathcal{N} (0,K)$ où   $K \in \textsf{DP}(d)$ et
+$Z=  \max_{i\leq d} X_i$.
+
+Montrer que
+$$
+\operatorname{Var}(Z) \leq \max_{i \leq d } K_{i,i}:= \max_{i \leq d} \operatorname{Var} (X_i) .
+$$
+
+:::
+
+::: {#exr-diff-gaussvec}
+
+Soient  $X, Y\sim \mathcal{N} (0,\text{Id}_n)$, avec $X,Y$ indépendants.
+
+Montrer que   
+$$
+\sqrt{2n-1} \leq   \mathbb{E}[\|X-Y\|] \leq \sqrt{2 n}
+$$
+et  
+$$
+\mathbb{P}   \left\{ \|X-Y\| - \mathbb{E}[\|X-Y\|] \geq t \right\} \leq \mathrm{e}^{-t^2} \, .
+$$
+
+:::
+
+## Remarques bibliographiques
+
+
+La littérature gaussienne est très abondante ; voir par exemple [@janson1997gaussian].
+Une grande partie de cette littérature est pertinente pour la statistique.
+
+Les lemmes @lem-stein et @lem-steinbis qui caractérisent la loi gaussienne standard sont le point de départ de la méthode de Stein (Charles) pour démontrer le théorème central limite (et bien d'autres résultats). Ce développement relativement récent est décrit dans [@2011arXiv1109.1880R].
+
+L'analyse matricielle et l'algorithmique jouent un rôle important dans l'analyse gaussienne et la statistique.
+Les ouvrages [@HorJoh90], et pour aller plus loin [@Bha97], introduisent les concepts et techniques de factorisation matricielle et des éléments de théorie des perturbations.
+
+Il existe une version multidimensionnelle des lois du $\chi^2$ qui
+interviennent lors de la détermination de la loi de la variance
+empirique. Ce sont les lois de Wishart. Elles ont fait l'objet d'études intensives en théorie des matrices aléatoires ; voir par exemple [@AnGuZe10].
+
+
+La concentration gaussienne joue un rôle important en statistique non paramétrique et inspire l'apprentissage statistique. L'ouvrage de M. Ledoux [@ledoux:2001] offre une perspective élégante sur cette question.

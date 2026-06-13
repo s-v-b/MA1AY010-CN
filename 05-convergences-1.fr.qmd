@@ -1,0 +1,928 @@
+# Convergences I : presque sûre, $L_2$, $L_1$, en probabilité  {#sec-convergences1}
+
+
+## Motivations {#sec-motivconvergences}
+
+
+
+Il nous faut munir le monde des variables aléatoires vivant sur un espace de probabilité d'une structure topologique. Comme les variables aléatoires sont des fonctions (mesurables), nous emprunterons et adapterons les notions utilisées en analyse : convergence ponctuelle ([Section @sec-asconvergence])), convergence en $L_p$, $1 \leq p <\infty$ ([Section @sec-Lpconvergence])).
+
+Enfin, nous définissons et étudions la _convergence en probabilité_. Cette notion affaiblit à la fois la convergence en $L_p$ et la convergence presque sûre (ponctuelle). Comme les convergences en $L_p$, elle peut se métriser.
+
+La convergence en probabilité et la convergence presque sûre sont illustrées par la loi faible et la loi forte des grands nombres (Sections @sec-wlln et @sec-slln). Les lois des grands nombres affirment que les moyennes empiriques convergent vers les espérances (sous des conditions légères) ; ce sont les chevaux de trait de la théorie de l'apprentissage statistique.
+
+Dans [Section @sec-expineq]), nous examinons des contreparties non asymptotiques de la loi faible des grands nombres. Nous établissons des bornes exponentielles sur les queues de distribution pour des sommes de variables aléatoires indépendantes (sous des hypothèses d'intégrabilité fortes).
+
+
+## Convergence presque sûre  {#sec-asconvergence}
+
+La notion de convergence presque sûre reflète celle de convergence ponctuelle en contexte probabiliste.
+
+Rappelons qu'une suite de fonctions à valeurs réelles $(f_n)_n$ définies sur un espace $\Omega$
+à valeurs dans $\mathbb{R}$ _converge ponctuellement_ vers $f: \Omega \to \mathbb{R}$ si, pour tout
+$\omega \in \Omega$, $f_n(\omega) \to f(\omega)$. Il n'y a aucune condition d'uniformité.
+
+Dans la définition suivante, nous supposons que les variables aléatoires sont à valeurs réelles. La définition
+s'étend facilement au cas multivarié.
+
+::: {#def-asc name="Convergence presque sûre"}
+
+Soit $(\Omega, \mathcal{F}, P)$ un espace de probabilité. Une suite $(X_n)_n$ de variables aléatoires converge _presque sûrement_ (p.s.) vers une variable aléatoire $X$ si
+l'événement
+$$E = \left\{ \omega : \lim_n X_n(\omega) = X(\omega)\right\}$$
+est de probabilité $P$ égale à $1$.
+
+:::
+
+La convergence presque sûre n'est (que) la convergence ponctuelle avec probabilité $1$. Elle n'est pas liée à l'intégrabilité. Notons que toutes les variables aléatoires intervenant ci-dessus vivent sur le même espace de probabilité. On peut se demander s'il est possible de concevoir une métrique pour la convergence presque sûre. La réponse est non, comme pour la convergence ponctuelle, en général.
+
+## Convergence en $L_p$  {#sec-Lpconvergence}
+
+Dans cette section, nous considérons des variables aléatoires satisfaisant des hypothèses d'intégrabilité.
+La portée des convergences en $L_p$ est plus étroite que celle des convergences presque sûres.
+
+Nous avons déjà introduit les convergences en $L_p$ dans la Leçon @sec-moments. Nous les rappelons pour la lisibilité.
+
+::: {#def-convLp}
+
+Pour $p \in [1, \infty)$, $L_p$ est l'ensemble des variables aléatoires sur $(\Omega, \mathcal{F}, P)$ qui satisfont $\mathbb{E} |X|^p <\infty$.
+La $p$-pseudo-norme est définie par $\|X\|_p = \big(\mathbb{E} |X|^p \big)^{1/p}$.
+
+La convergence en $L_p$ signifie la convergence pour cette pseudo-norme.
+
+:::
+
+Rappelons que les espaces $L_p$ sont emboîtés (par l'inégalité de Hölder) et complets.
+
+::: {#prp-convLp-comparison}
+
+La convergence en $L_q$, $q\geq 1$, implique la convergence en $L_p$, $1\leq p \leq q$.
+
+:::
+
+La convergence presque sûre n'est pas liée à l'intégrabilité. On ne peut pas se demander si la convergence presque sûre implique la convergence en $L_p$. En revanche, on peut se demander si la convergence en $L_p$ implique la convergence presque sûre. L'énoncé suivant
+est un sous-produit de la preuve de la complétude des espaces $L_p$, voir
+[Section @sec-lpspaces]).
+
+::: {#thm-convLp-convAs}
+
+La convergence en $L_p$ implique la convergence presque sûre *le long d'une sous-suite*.
+
+:::
+
+Un contre-exemple donné en [Section @sec-lpspaces]) montre que la convergence en $L_p$
+n'implique pas la convergence presque sûre.
+
+
+## Convergence en probabilité {#sec-probaconvergence}
+
+Si l'on note $L_0=L_0(\Omega, \mathcal{F}, P)$ l'ensemble des variables aléatoires à valeurs réelles,
+la notion de convergence en probabilité concerne toutes les suites de $L_0$, comme la convergence presque sûre. Et comme
+la convergence en $L_p$, $p\geq 1$, la convergence en probabilité peut se métriser.
+
+
+::: {#def-convproba}
+
+Soit $(\Omega, \mathcal{F}, P)$ un espace de probabilité.
+
+Une suite $(X_n)_n$ de variables aléatoires converge en probabilité vers une variable aléatoire $X$ si, pour tout $\epsilon>0$,
+$$\lim_n P \{ |X_n -X| \geq \epsilon \}  = 0\, .$$
+
+:::
+
+::: {#prp-convproba}
+
+La convergence en $L_p$, $p\geq 1$, implique la convergence en probabilité.
+
+:::
+
+C'est une conséquence immédiate de l'inégalité de Markov.
+
+
+::: {#prp-critConvProba name="Un critère de convergence en probabilité"}
+
+La suite $(X_n)_n$ converge en probabilité vers $X$ si et seulement si
+$$\lim_n \mathbb{E} \Big[ 1 \wedge |X_n -X|\Big] = 0$$
+
+:::
+
+::: {.proof}
+
+En supposant la convergence en probabilité,
+$$\begin{array}{rl}
+\mathbb{E} \Big[ 1 \wedge |X_n -X|\Big]  & \leq \mathbb{E} \Big[ (1 \wedge |X_n -X|)\mathbb{I}_{|X-X_n| \geq \epsilon}\Big]  + \mathbb{E} \Big[ (1 \wedge |X_n -X|)\mathbb{I}_{|X-X_n| < \epsilon}\Big] \\  & \leq P \Big\{|X-X_n| \geq \epsilon \Big\} + \epsilon\end{array}$$
+la limite du membre de droite n'est pas supérieure à $\epsilon$. Comme on peut prendre
+$\epsilon$ arbitrairement petit, cela entraîne que la limite du
+membre de gauche est nulle.
+
+Réciproquement, pour tout $0< \epsilon< 1$,
+$$\begin{array}{rl}
+P \Big\{|X-X_n| \geq \epsilon \Big\}
+  & \leq \frac{1}{\epsilon} \mathbb{E}\Big[ 1 \wedge |X-X_n|\Big] \,.
+\end{array}$$
+Ainsi $\lim_n \mathbb{E} \Big[ 1 \wedge |X_n -X|\Big] = 0$ entraîne
+$\lim_n P \big\{|X-X_n| \geq \epsilon \big\} =0$.
+Comme cela vaut pour tout $\epsilon>0$, $\lim_n \mathbb{E} \Big[ 1 \wedge |X_n -X|\Big] = 0$
+entraîne la convergence en probabilité.
+
+ 
+
+:::
+
+<br> <p></p>
+
+::: {#prp-asconv-convproba}
+
+La convergence presque sûre implique la convergence en probabilité.
+
+:::
+
+::: {.proof}
+
+Supposons $X_n \to X$ p.s., c'est-à-dire $|X_n -X| \to 0$. Alors, par convergence dominée,
+$$\lim_n \mathbb{E}\Big[ |X_n -X| \wedge 1\Big] = 0$$
+ce qui entraîne la convergence en probabilité de $(X_n)_n$ vers $X$.
+
+ 
+
+:::
+
+<br> <p></p>
+
+Nous arrivons maintenant à une métrique qui s'accorde parfaitement avec la convergence en probabilité.
+
+::: {#def-kyfan}
+
+### Distance de Ky-Fan
+
+La distance de Ky-Fan est définie par
+$$\mathrm{d}_{\mathrm{KF}}(X, Y) = \inf_{\epsilon\geq 0} P\Big\{ |X-Y| >\epsilon\Big\}  \leq \epsilon \,.$$
+
+:::
+
+Il faut vérifier que $\mathrm{d}_{\mathrm{KF}}$ est bien une distance.
+C'est le contenu de la Proposition \@ref(prp:kyfanprop) ci-dessous.
+
+
+::: {#prp-kyfan-min-inf}
+
+Dans la définition de la distance de Ky-Fan, l'infimum est atteint.
+
+:::
+
+::: {.proof}
+
+Soit $a > \mathrm{d}_{\mathrm{KF}}(X, Y)$. L'événement $A_a = \Big\{ |X-Y| > a \Big\}$ a une probabilité inférieure à $\epsilon$. Et si $\epsilon < a < b$, $A_b \subseteq  A_a$. Par convergence monotone, $P\Big(\cap_n A_{\epsilon + 1/n}\Big)=  \lim_{n} \uparrow P\Big(A_{\epsilon + 1/n}\Big) = \epsilon$.
+
+ 
+
+:::
+
+<br> <p> <p/>
+
+
+::: {#prp-kyfanprop}
+
+La distance de Ky-Fan satisfait :
+
+1. $\mathrm{d}_{\mathrm{KF}}(X, Y)=0 \Rightarrow X=Y \qquad \text{a.s.}$
+1. $\mathrm{d}_{\mathrm{KF}}(X, Y) = \mathrm{d}_{\mathrm{KF}}(Y, X)$
+1. $\mathrm{d}_{\mathrm{KF}}(X, Z) \leq  \mathrm{d}_{\mathrm{KF}}(X, Y) + \mathrm{d}_{\mathrm{KF}}(Y, Z)$
+
+:::
+
+::: {.proof}
+
+Nous vérifions que $\mathrm{d}_{\mathrm{KF}}$ satisfait l'inégalité triangulaire.
+Il existe deux événements $B$ et $C$ de probabilités respectives
+$\mathrm{d}_{\mathrm{KF}}(X, Y)$ et $\mathrm{d}_{\mathrm{KF}}(Y, Z)$
+tels que
+$$|X(\omega) -Y(\omega)| \leq \mathrm{d}_{\mathrm{KF}}(X, Y) \qquad \text{on } B^c$$
+et
+$$|Z(\omega) -Y(\omega)| \leq \mathrm{d}_{\mathrm{KF}}(Z, Y) \qquad \text{on } C^c\,.$$
+
+
+Sur $B^c \cap C^c$, par l'inégalité triangulaire sur $\mathbb{R}$ :
+$$|X(\omega) - Z(\omega)|  \leq \mathrm{d}_{\mathrm{KF}}(X, Y) + \mathrm{d}_{\mathrm{KF}}(Y, Z)\, .$$
+
+
+Nous concluons en observant
+$$\begin{array}{rl}
+P \Big( |X(\omega) - Z(\omega)| > \mathrm{d}_{\mathrm{KF}}(X, Y) + \mathrm{d}_{\mathrm{KF}}(Y, Z)
+\Big)
+& \leq P\Big( (B^c \cap C^c)^c\Big)\\
+& =  P(B \cup C) \\
+& \leq P(B) + P(C) \\
+& = \mathrm{d}_{\mathrm{KF}}(X, Y) + \mathrm{d}_{\mathrm{KF}}(Y, Z) \, .
+\end{array}$$
+
+ 
+
+:::
+
+<br> <p> </p>
+
+
+::: {#prp-kyfan-metrizes}
+
+Les deux affirmations suivantes sont équivalentes :
+
+1. $(X_n)_n$ converge en probabilité vers $X$
+1. $\mathrm{d}_{\mathrm{KF}}(X_n, X)$ tend vers $0$ lorsque $n$ tend vers l'infini.
+
+:::
+
+::: {#exr-check-prp-kyfan}
+
+Vérifier la proposition.
+
+:::
+
+<br> <p> </p>
+
+Nous laissons les questions suivantes comme exercices :
+
+- $\mathcal{L}_0(\Omega, \mathcal{F}, P)$ est-il complet pour la métrique de Ky-Fan ?
+- La convergence en probabilité implique-t-elle la convergence presque sûre ?
+- La convergence en probabilité implique-t-elle la convergence en $L_p$, $p\geq 1$ ?
+
+Enfin, nous énonçons une définition plus générale de la convergence en probabilité.
+La notion peut s'adapter aux variables aléatoires à valeurs dans un espace métrique quelconque. Les liens avec la convergence presque sûre
+et les convergences en $L_p$ restent inchangés.
+
+::: {#def-convproba}
+
+### Convergence en probabilité, cadre multivarié
+
+Une suite $(X_n)_{n \in \mathbb{N}}$ de variables aléatoires à valeurs dans $\mathbb{R}^k$, définies sur le même espace de probabilité $(\Omega, \mathcal{F}, P)$, converge en probabilité (en probabilité $\mathbb{P}$) vers une
+variable aléatoire $X$ à valeurs dans $\mathbb{R}^k$ si et seulement si,
+pour tout $\epsilon >0$,
+
+$$\lim_{n \to \infty} \mathbb{P} \{ \Vert X_n -X\Vert > \epsilon \} = 0 \,.$$
+
+:::
+
+## Loi faible des grands nombres {#sec-wlln}
+
+La loi faible et la loi forte des grands nombres concernent
+la convergence des moyennes empiriques de variables aléatoires indépendantes, identiquement distribuées et intégrables vers leur espérance commune.
+
+::: {#thm-wlln}
+
+### Loi faible des grands nombres
+
+Si $X_1, \ldots, X_n, \ldots$ sont des variables aléatoires indépendantes, identiquement distribuées, intégrables, à valeurs dans $\mathbb{R}^k$, sur $(\Omega, \mathcal{F}, P)$, d'espérance $\mu$, alors la suite $(\overline{X}_n)$ définie par $\overline{X}_n := \frac{1}{n} \sum_{i=1}^n X_i$ converge en probabilité $P$ vers $\mu$.
+
+:::
+
+::: {.proof}
+
+Supposons d'abord que $\mathbb{E}\Big[\Big(X_i-\mu\Big)^2\Big] = \sigma^2 < \infty.$
+Alors, pour tout $\epsilon>0$, par l'inégalité de Markov-Tchebychev :
+$$\begin{array}{rl}
+P\Big\{ \Big|\frac{1}{n}\sum_{i=1}^n X_i - \mu\Big| > \epsilon\Big\}
+& \leq \frac{\mathbb{E} \Big|\frac{1}{n}\sum_{i=1}^n X_i - \mu\Big|^2 }{\epsilon^2} \\
+& =  \frac{\mathbb{E}\Big[\Big(X_i-\mu\Big)^2\Big] }{n \epsilon^2} \\
+& = \frac{\sigma^2}{n \epsilon^2}
+\end{array}$$
+car la variance d'une somme de variables aléatoires indépendantes est la
+somme des variances des termes.
+
+Le membre de droite converge vers $0$ pour tout $\epsilon >0$. La LFGN vaut pour les variables aléatoires de carré intégrable.
+
+Passons au cas général. Sans perte de généralité, supposons
+que toutes les $X_n$ sont centrées. Soit $\tau >0$ un seuil de troncature (dont la valeur sera ajustée plus tard). Pour chaque $i \in \mathbb{N}$, $X_i$ se décompose en une somme :
+$$X_i = X^\tau_i + Y^\tau_i$$
+
+
+avec $X^\tau_i =  \mathbb{I}_{|X_i|\leq \tau} X_i$ et $Y^\tau_i =  \mathbb{I}_{|X_i|>\tau} X_i$. Pour tout $\epsilon >0$,
+
+$$\Big\{ \Big|\frac{1}{n}\sum_{i=1}^n X_i \Big| >\epsilon\Big\}
+\subseteq \Big\{ \Big|\frac{1}{n}\sum_{i=1}^n X^\tau_i \Big| > \frac{\epsilon}{2}\Big\} \cup
+\Big\{ \Big|\frac{1}{n}\sum_{i=1}^n Y^\tau_i \Big| >\frac{\epsilon}{2}\Big\} \, .$$
+
+
+En invoquant la borne de l'union, l'inégalité de Markov (deux fois), et la bornitude des variances des $X^\tau_i$, on obtient :
+
+$$\begin{array}{rl}   P\Big\{ \Big|\frac{1}{n}\sum_{i=1}^n X_i - \mu\Big| > \epsilon\Big\} & \leq P \Big\{ \Big|\frac{1}{n}\sum_{i=1}^n X^\tau_i \Big| > \frac{\epsilon}{2}\Big\} + P \Big\{ \Big|\frac{1}{n}\sum_{i=1}^n Y^\tau_i \Big| >\frac{\epsilon}{2}\Big\} \\ & \leq 4 \frac{\mathbb{E}\Big|\frac{1}{n}\sum_{i=1}^n X^\tau_i \Big|^2}{\epsilon^2}  + 2 \frac{\mathbb{E}\Big|\frac{1}{n}\sum_{i=1}^n Y^\tau_i \Big|}{\epsilon} \\ & \leq  \frac{4 \tau^2}{n\epsilon^2} + 2 \frac{\mathbb{E}\Big|\frac{1}{n}\sum_{i=1}^n Y^\tau_i \Big|}{\epsilon} \\
+& \leq  \frac{4 \tau^2}{n\epsilon^2} + 2 \frac{1}{n}\sum_{i=1}^n  \frac{\mathbb{E}\Big|Y^\tau_i \Big|}{\epsilon} \\
+& \leq  \frac{4 \tau^2}{n\epsilon^2} + 2 \frac{\mathbb{E} \Big|Y^\tau_1 \Big|}{\epsilon}
+ \, .
+\end{array}$$
+
+En faisant tendre $n$ vers l'infini, on obtient
+$$\limsup_n P\Big\{ \Big|\frac{1}{n}\sum_{i=1}^n X_i - \mu\Big| > \epsilon\Big\} \leq
+2  \frac{\mathbb{E}\Big|Y^\tau_1 \Big|}{\epsilon} \, .$$
+
+
+Or, lorsque ${\tau \uparrow \infty}$, $|Y^\tau_1|  \downarrow 0$ tandis que $|Y^\tau_1| \leq |X_1|$ ;
+la convergence dominée (ici un cas particulier de convergence monotone) garantit
+que $\lim_{\tau \uparrow \infty}  \frac{\mathbb{E}\Big|Y^\tau_1 \Big|}{\epsilon}=0$.
+
+
+Ceci achève la preuve de la LFGN.
+
+ 
+
+:::
+
+
+
+## Loi forte des grands nombres {#sec-slln}
+
+Espace produit infini muni de la tribu cylindrique et
+de la mesure produit infinie.
+
+::: {#thm-slln}
+
+### Loi forte des grands nombres, partie directe
+
+Si $X_1, \ldots, X_n, \ldots$ sont des variables aléatoires indépendantes, identiquement distribuées, intégrables, à valeurs dans $\mathbb{R}$, sur $(\Omega, \mathcal{F}, P)$, d'espérance $\mu$, alors $P$-p.s.
+$$\lim_{n \to \infty}    \overline{X}_n =   \mu \qquad\text{with} \quad \overline{X}_n := \frac{1}{n} \sum_{i=1}^n X_i  .$$
+
+
+
+:::
+
+Avant d'aborder la preuve de @thm-sllm, nous signalons un résultat général sur les événements
+qui dépendent du comportement limite de suites de variables aléatoires indépendantes : la loi 0-1. Pour énoncer @thm-01law, nous avons besoin d'une nouvelle notion : la tribu terminale.
+
+
+::: {#def-tailalgebra}
+
+### Tribu terminale
+
+Supposons que $X_1, \ldots, X_n, \ldots$ sont des variables aléatoires sur un espace mesuré. La tribu terminale (ou tribu des événements terminaux) est définie par :
+$$\mathcal{T} = \cap_{n=}^\infty \sigma\Big(X_n, X_{n+1}, \ldots \Big) \, .$$
+
+:::
+
+Observons que l'événement 
+
+$$\left\{ \omega : \sum_{i=1}^n X_i(\omega)/n \text{ converges towards a finite limit} \right\}$$
+
+appartient à la tribu terminale.
+
+La loi forte des grands nombres ci-dessous nous dit que, sous des hypothèses d'intégrabilité et d'indépendance, cet événement terminal a pour probabilité $1$.
+
+Ce n'est pas un hasard. La loi 0-1 affirme que, sous indépendance, les événements terminaux
+ont des probabilités triviales.
+
+::: {#thm-01law}
+
+### Loi 0-1
+
+Supposons que $X_1, \ldots, X_n, \ldots$ sont des variables aléatoires *indépendantes*.
+Alors tout événement de la tribu terminale $\mathcal{T}$ a pour probabilité $0$ ou $1$.
+
+:::
+
+::: {.proof}
+
+Il suffit de vérifier que tout événement $A \in \mathcal{T}$ satisfait $P(A)^2 = P(A)$,
+ou, de façon équivalente, que $P(A) = P(A \cap A) = P(A) \times P(A)$, c'est-à-dire que $A$ est
+indépendant de lui-même.
+
+Pour tout $n$, en tant qu'événement de $\sigma\big(X_n, X_{n+1}, \ldots \big)$, $A$ est indépendant
+de tout événement de $\sigma\big(X_1, \ldots, X_n\big)$. Cela entraîne que
+$A$ est indépendant de tout événement de $\cup_n \sigma\big(X_1, \ldots, X_n\big)$.
+
+Observons que $\cup_n \sigma\big(X_1, \ldots, X_n\big)$ est un $\pi$-système qui engendre la tribu cylindrique (rappel des définitions en @sec-dynkin autour de @thm-monotoneclasslemma).
+
+Ainsi, $A$ est indépendant de tout événement de la tribu engendrée
+par $\cup_n \sigma\big(X_1, \ldots, X_n\big)$, qui n'est autre que $\mathcal{F}$.
+
+
+Comme $A \in \mathcal{T}  \subset \mathcal{F}$, $A$ est indépendant de lui-même.
+
+:::
+
+<br> <p> </p>
+
+
+::: {#exr-bc2-01law}
+
+Déduire le second lemme de Borel-Cantelli comme cas particulier de la loi 0-1.
+
+:::
+
+
+::: {#lem-borel-cantelli}
+
+### Borel-Cantelli I
+
+Soient $A_1, A_2, \ldots, A_n$ des événements d'un espace de probabilité $(\Omega, \mathcal{F}, P)$.
+
+Si
+$$\sum_{n} P(A_n) < \infty$$
+alors :
+
+avec probabilité $1$, seulement un nombre fini d'événements parmi $A_1, A_2, \ldots, A_n$ se réalisent :
+$$P \Big\{ \omega : \sum_{n} \mathbb{I}_{A_n}(\omega) < \infty\Big\} = 1 \,.$$
+
+
+
+:::
+
+::: {.proof}
+
+Un résultat $\omega$ appartient à une infinité d'événements $A_k$ si et seulement si $\omega \in \cap_{n} \cup_{k\geq n} A_k$.
+Par convergence monotone,
+$$\begin{array}{rl}
+  P \Big\{ \omega : \omega \text{ belongs to infinitely many events } A_k\Big\}
+  & = P \Big\{ \cap_{n} \cup_{k\geq n} A_k \Big\} \\
+  & = \lim_n \downarrow P \Big\{ \cup_{k\geq n} A_k \Big\} \\
+  & \leq \lim_n \downarrow \sum_{k \geq n} P \Big\{ A_k \Big\} \\
+  & =  0 \, .
+\end{array}$$
+
+ 
+
+:::
+
+
+::: {#def-tail-sigma-algebra}
+
+
+:::
+
+
+::: {#thm-zero-one-law}
+
+
+:::
+
+
+::: {.proof}
+
+
+:::
+
+Nous pouvons maintenant aborder la preuve de la LFGN forte.
+
+::: {.proof}
+
+### Preuve de la LFGN forte (partie directe)
+
+L'événement $\Big\{ \omega : \lim_n \sum_{i=1}^n \frac{X_i}{n} = \mu \Big\}$ appartient
+à la tribu terminale. Par @thm-zero-one-law, pour vérifier la loi forte des grands nombres, il
+suffit de vérifier que cet événement a une probabilité non nulle.
+
+De plus, en utilisant la décomposition usuelle $X = (X)_+ - (X)_-$ où $(X)_+$ et $(X)_-$
+sont les parties positive et négative de $X$, nous observons que l'on peut supposer sans perte de
+généralité que les $X_i$ sont non négatives.
+
+Rappelons la définition des variables tronquées $X_i^i = \mathbb{I}_{X_i \leq i}X_i$ pour $i \in \mathbb{N}$.
+Posons $S_n = \sum_{i=1}^n X_i$ et $T_n = \sum_{i=1}^n X_i^i$.
+
+La différence $S_n - T_n = \sum_{i=1}^n (X_i - X^i_i)$ est une somme de variables aléatoires non négatives.
+Comme $$P \{ X_i - X^i_i >0 \} = P\{ X_i >i \} = P\{ X_1 > i\} \, ,$$
+
+
+grâce à $\mathbb{E} X_1 < \infty$,
+$$\sum_{i \in \mathbb{N}} P \{ X_i - X^i_i >0 \} < \infty \, .$$
+
+
+Par le premier lemme de Borel-Cantelli, cela implique que, presque sûrement,
+seulement un nombre fini d'événements $\{ X_i - X^i_i >0 \}$ se réalisent. Ainsi, presque
+sûrement, $T_n$ et $S_n$ diffèrent d'au plus un nombre borné de termes, et $\lim_n \uparrow (S_n - T_n)$
+est fini.
+
+Or
+$$\lim_n \uparrow \mathbb{E} \frac{T_n}{n} = \mathbb{E} X_1 \, .$$
+
+Nous vérifierons d'abord que $T_{n(k)}/n(k)$ converge presque sûrement vers $\mathbb{E} X_1$ pour une sous-suite $(n(k))_{k \in \mathbb{N}}$ (presque) géométriquement croissante.
+
+Fixons $\alpha>1$ et posons $n(k) = \lfloor \alpha^k \rfloor$. Si, pour tout $\epsilon>0$, presque sûrement, seulement un nombre fini d'événements
+$$\Big\{ \Big|T_{n(k)} - \mathbb{E}T_{n(k)} \Big| \geq n(k) > \epsilon \Big\}$$
+se réalisent, alors $\Big|T_{n(k)} - \mathbb{E}T_{n(k)} \Big|/n(k)$ converge presque sûrement vers $0$ et donc $T_{n(k)}/n(k)$ converge presque sûrement vers $\mathbb{E}X_1$.
+
+Posons
+$$\Theta = \sum_{k\in \mathbb{N}}  P\Big\{ \Big|T_{n(k)} - \mathbb{E}T_{n(k)} \Big| \geq n(k) > \epsilon \Big\} \, .$$
+
+
+Grâce à la troncature, chaque $T_{n(k)}$ est de carré intégrable. Par l'inégalité de Tchebychev :
+$$P\Big\{ \Big|T_{n(k)} - \mathbb{E}T_{n(k)} \Big| \geq n(k) > \epsilon \Big\}
+\leq \frac{\operatorname{var}(T_{n(k)})}{\epsilon^2 n(k)^2} \, .$$
+
+
+Comme les $X_i^i$ sont indépendantes,
+$$\begin{array}{rl}
+\operatorname{var}(T_{n(k)})
+& = \sum_{i \leq n(k)} \operatorname{var}(X_i^i)  \\
+& \leq \sum_{i \leq n(k)} \mathbb{E}\Big[(X_i^i)^2\Big] \\
+& =  \sum_{i \leq n(k)} \int_0^\infty 2 t P \{ X^i_i >t \} \mathrm{d}t \\
+& \leq \sum_{i \leq n(k)} \int_0^i 2 t P \{ X_1 >t \} \mathrm{d}t
+\, .
+\end{array}$$
+
+$$\begin{array}{rl}
+\Theta
+  & \leq \sum_{k\in \mathbb{N}} \frac{1}{\epsilon^2 n(k)^2}\sum_{i \leq n(k)} \int_0^i 2 t P \{ X_1 >t \} \mathrm{d}t \\
+  & = \frac{1}{\epsilon^2} \sum_{i \in \mathbb{N}} \int_0^i 2 t P \{ X_1 >t \} \mathrm{d}t \sum_{k: n(k)\geq i} \frac{1}{n(k)^2} \, .
+\end{array}$$
+Grâce au fait que $\alpha^k >1$ pour $k\geq 1$, la relation suivante vaut :
+$$ \sum_{k: n(k)\geq i} \frac{1}{n(k)^2} =  \sum_{k: \lfloor \alpha^k \rfloor \geq i} \frac{1}{\lfloor \alpha^k \rfloor^2}
+ \leq \frac{4}{i^2} \frac{\alpha^2}{\alpha^2- 1} \, .$$
+
+
+$$\begin{array}{rl}
+\Theta
+  & \leq \frac{4\alpha^2}{\epsilon^2(\alpha^2-1)} \sum_{i \in \mathbb{N}} \frac{1}{i^2}  \int_0^i 2 t P \{ X_1 >t \} \mathrm{d}t \\
+  & \leq \frac{4\alpha^2}{\epsilon^2(\alpha^2-1)} \sum_{i \in \mathbb{N}} \frac{1}{i^2} \sum_{j<i} \int_{j}^{j+1} 2P \{ X_1 >t \} \mathrm{d}t \\
+  & \leq \frac{4\alpha^2}{\epsilon^2(\alpha^2-1)} \sum_{j=0}^\infty  \int_{j}^{j+1} 2t P \{ X_1 >t \} \mathrm{d}t \sum_{i >j} \frac{1}{i^2} \\
+  & \leq \frac{4\alpha^2}{\epsilon^2(\alpha^2-1)} \sum_{j=0}^\infty  \int_{j}^{j+1} 2t P \{ X_1 >t \} \mathrm{d}t
+   \frac{2}{j\vee 1} \\
+   & \leq 8\frac{4\alpha^2}{\epsilon^2(\alpha^2-1)} \sum_{j=0}^\infty  \int_{j}^{j+1}  P \{ X_1 >t \} \mathrm{d}t \\
+   & \leq 8\frac{4\alpha^2}{\epsilon^2(\alpha^2-1)} \mathbb{E} X_1 \\
+   & < \infty \, .
+\end{array}$$
+Par le premier lemme de Borel-Cantelli, avec probabilité $1$, seulement un nombre fini d'événements
+$$\Big\{ \Big|T_{n(k)} - \mathbb{E}T_{n(k)} \Big| \geq n(k) > \epsilon \Big\}$$
+se réalisent. Comme cela vaut pour chaque $\epsilon>0$, cela vaut simultanément pour tous les $\epsilon= 1/n$,
+ce qui implique que $\Big|T_{n(k)} - \mathbb{E}T_{n(k)} \Big|/n(k)$ converge presque sûrement vers $0$.
+Cela implique aussi que $S_{n(k)}/n(k)$ converge presque sûrement vers $\mathbb{E}X_1$.
+
+Pour achever la preuve, il reste à vérifier que cela vaut pour $S_n/n$.
+
+Si $n(k) \leq n < n(k+1)$, comme $(S_n)_n$ est non décroissante, $$\frac{n(k)}{n(k+1)}\frac{S_{n(k)}}{n(k)}\leq \frac{S_n}{n}\leq \frac{n(k+1)}{n(k)}\frac{S_{n(k+1)}}{n(k+1)}$$
+avec
+$$\frac{1}{\alpha} \Big(1 - \frac{1}{\alpha^k} \Big)\leq \frac{n(k+1)}{n(k)}  \leq \alpha \left(1 + \frac{1}{\lfloor \alpha^k\rfloor}\right) \, .$$
+
+
+En faisant tendre $k$ vers l'infini, presque sûrement
+$$\frac{1}{\alpha} \mathbb{E} X_1 \leq \liminf_n \frac{S_n}{n} \leq \limsup_n \frac{S_n}{n} \leq \alpha \mathbb{E}X_1 \, .$$
+
+
+Enfin, on peut choisir $\alpha$ arbitrairement proche de $1$ pour établir le résultat souhaité.
+
+ 
+
+:::
+
+::: {#rem-slln}
+
+Dans l'énoncé du théorème, on peut remplacer l'hypothèse d'indépendance par une indépendance deux à deux.
+
+:::
+
+[Théorème @thm-convslln]) montre que, sous l'hypothèse d'indépendance, les conditions du [Théorème @thm-slln]) sont optimales.
+Avant d'aborder la preuve du [Théorème @thm-convslln]), nous énonçons et démontrons le second lemme de Borel-Cantelli.
+
+<br> <p> </p>
+
+
+::: {#lem-borel-cantelli-2}
+
+### Borel-Cantelli II
+
+Soient $A_1, A_2, \ldots, A_n$ des événements indépendants d'un espace de probabilité $(\Omega, \mathcal{F}, P)$.
+
+Si $$\sum_{n} P(A_n) = \infty$$
+
+alors
+
+avec probabilité $1$, une infinité d'événements parmi $A_1, A_2, \ldots, A_n$ se réalisent :
+$$P \Big\{ \omega : \sum_{n} \mathbb{I}_{A_n}(\omega) = \infty \Big\} = 1 \,.$$
+
+
+
+:::
+
+
+::: {.proof}
+
+Un résultat $\omega$ n'appartient pas à une infinité d'événements $A_k$ si et seulement si $\omega \in \cup_{n} \cap_{k\geq n} A^c_k$.
+Par convergence monotone,
+$$\begin{array}{rl}
+  P \Big\{ \omega : \omega \text{ does not belong to infinitely many events } A_k\Big\}
+  & = P \Big\{ \omega \in \cup_{n} \cap_{k\geq n} A^c_k  \Big\} \\
+  & = \lim_n \uparrow P \Big\{ \cap_{k\geq n} A^c_k  \Big\} \\
+  & = \lim_n \uparrow \lim_{m \uparrow \infty } \downarrow P \Big\{ \cap_{k=n}^m A^c_k  \Big\} \\
+  & = \lim_n \uparrow \lim_{m \uparrow \infty } \downarrow \prod_{k=n}^m \Big( 1 - P (A_k)   \Big\} \Big) \\
+  & = \lim_n \uparrow  \prod_{k=n}^\infty \Big( 1 - P ( A_k ) \Big) \\
+  & = \lim_n \uparrow \exp\Big( - \sum_{k=n}^\infty P ( A_k)\Big) \\
+  & = \lim_n \uparrow 0 \\
+  & = 0 \, .
+\end{array}$$
+
+ 
+:::
+
+
+
+::: {#thm-convslln}
+
+### Loi forte des grands nombres, partie réciproque
+
+Soient $X_1, \ldots, X_n, \ldots$ des variables aléatoires indépendantes, identiquement distribuées, à valeurs dans $\mathbb{R}$, sur un espace $(\Omega, \mathcal{F}, P)$. Si, pour une constante finie $\mu$,
+$$\lim_{n \to \infty}    \sum_{i\leq n} X_i/n =   \mu \qquad \text{almost surely,}$$
+alors toutes les $X_i$ sont intégrables et $\mathbb{E}X_i = \mu.$
+
+:::
+
+On peut supposer que les $X_i$ sont des variables aléatoires non négatives.
+
+::: {.proof}
+
+Pour vérifier que les $X_i$ sont intégrables, il suffit de montrer que $$\sum_{n=0}^\infty P \big\{ X_1 > n \big\} = \sum_{n=0}^\infty P \big\{ X_n > n \big\} < \infty.$$
+
+
+Posons $S_n = \sum_{i=1}^n X_i$. Observons que
+$$\begin{array}{rl}
+\Big\{ \omega : X_{n+1}(\omega) > n+1 \Big\}
+  & =  \Big\{ \omega : S_{n+1}(\omega) - S_{n}(\omega) > n+1 \Big\} \\
+  & =  \Big\{ \omega : \frac{S_{n+1}(\omega)}{n+1} - \frac{S_{n}(\omega)}{n} > 1 + \frac{S_{n}(\omega)}{n(n+1)} \Big\} \, .
+\end{array}$$
+Supposons par l'absurde que les $X_i$ ne sont pas intégrables. Alors, par le second lemme de Borel-Cantelli,
+avec probabilité $1$, une infinité d'événements
+$$\Big\{ \omega : \frac{S_{n+1}}{n+1} - \frac{S_{n}}{n} > 1 + \frac{S_{n}}{n(n+1)} \Big\}$$
+
+
+se réalisent. Or cela ne peut pas arriver si $S_n/n$ converge vers une limite finie.
+
+ 
+
+:::
+
+<br> <p> </p>
+
+La loi des grands nombres est la pierre angulaire des preuves de consistance.
+
+
+
+## Inégalités exponentielles {#sec-expineq}
+
+Les lois des grands nombres sont des énoncés asymptotiques.
+En application, en statistique, en théorie de l'apprentissage statistique, il est souvent souhaitable
+d'obtenir des garanties pour $n$ fixé. Les inégalités exponentielles sont
+des raffinements de l'inégalité de Tchebychev. Sous des hypothèses d'intégrabilité fortes
+sur les termes de la somme, il est possible et relativement facile d'obtenir des bornes fines sur les queues
+pour des sommes de variables aléatoires indépendantes.
+
+
+
+::: {lem-hoeffding}
+
+### Lemme de Hoeffding
+
+Soit $Y$ une variable aléatoire prenant
+ses valeurs dans un intervalle borné $[a,b]$ et posons
+$\psi_Y(\lambda)=\log \mathbb{E} e^{\lambda (Y- \mathbb{E}Y)}$.
+Alors
+$$\operatorname{var}(Y) \leq \frac{(b-a)^2}{4}\qquad \text{and} \qquad \psi_Y(\lambda) \leq \frac{1}{2} \frac{(b-a)^2}{4} \, .$$
+
+
+
+:::
+
+::: {.proof}
+
+La borne supérieure sur la variance de $Y$ a été établie en [Section @sec-variance]).
+
+Posons $P$ la loi de $Y$ et $P_{\lambda}$ la
+loi de probabilité de densité
+$$x \rightarrow e^{-\psi_{Y}\left(  \lambda\right)  }e^{\lambda (x - \mathbb{E}Y)}$$
+
+
+par rapport à $P$.
+
+Comme $P_{\lambda}$ est concentrée sur
+$[a,b]$ ($P_\lambda([a, b]) = P([a, b]) =1$), la variance d'une variable aléatoire $Z$ de loi $P_{\lambda}$ est majorée par $(b-a)^2/4$.
+Notons que $P_0 = P$.
+
+Des arguments de convergence dominée permettent de calculer les dérivées de $\psi_Y(\lambda)$.
+À savoir $$\psi'_Y(\lambda) = \frac{\mathbb{E}\Big[ (Y- \mathbb{E}Y) e^{\lambda (Y- \mathbb{E}Y)} \Big]}{\mathbb{E} e^{\lambda (Y- \mathbb{E}Y)}}
+= \mathbb{E}_{P_\lambda} Z \, .$$ et $$\psi^{\prime\prime}_Y(\lambda) = \frac{\mathbb{E}\Big[ (Y- \mathbb{E}{Y})^2 e^{\lambda (Y- \mathbb{E}Y)} \Big]}{\mathbb{E} e^{\lambda (Y- \mathbb{E}Y)}} - \Bigg(\frac{\mathbb{E}\Big[ (Y- \mathbb{E}{Y}) e^{\lambda (Y- \mathbb{E}Y)} \Big]}{\mathbb{E} e^{\lambda (Y- \mathbb{E}Y)}}\Bigg)^2 = \operatorname{var}_{P_\lambda}(Z) \, .$$
+
+
+Ainsi, grâce à la borne sur la variance :
+$$\begin{array}{rl}
+\psi_Y^{\prime\prime}(\lambda) & \leq \frac{(b-a)^2}{4}~.
+\end{array}$$
+Notons que
+$\psi_{Y}(0)  = \psi_{Y}'(0) =0$, et
+par le théorème de Taylor, pour un certain
+$\theta \in [0,\lambda]$,
+$$  \psi_Y(\lambda) = \psi_Y(0) + \lambda\psi_Y'(0)
+  + \frac{\lambda^2}{2}\psi_Y''(\theta)
+   \leq  \frac{\lambda^2(b-a)^2}{8}~.$$
+
+
+ 
+
+:::
+
+<br> <p> </p>
+
+La borne supérieure sur la variance est optimale dans le
+cas particulier d'une variable aléatoire de _Rademacher_
+$X$ dont la loi est définie par
+$P\{X =-1\} = P\{X =1\} = 1/2$. On peut alors prendre $a=-b=1$ et $\operatorname{var}(X)  =1=\left(  b-a\right)^2/4$.
+
+
+Nous pouvons maintenant nous appuyer sur le lemme de Hoeffding pour obtenir des bornes sur les queues très pratiques
+pour des sommes de variables aléatoires indépendantes bornées.
+
+::: {#thm-hoeffding}
+
+### Inégalité de Hoeffding
+
+Soient $X_1,\ldots,X_n$ des
+variables aléatoires indépendantes telles que $X_i$
+prend ses valeurs dans $[a_i,b_i]$ presque sûrement pour tout $i\leq n$.
+Posons
+$$S=\sum_{i=1}^n\left(X_i- \mathbb{E} X_i \right)~.$$
+
+
+Alors $$\operatorname{var}(S) \leq \sum_{i=1}^n  \frac{(b_i-a_i)^2}{4} \, .$$
+
+
+Notons $v$ la borne supérieure sur la variance.
+Pour tout $\lambda \in \mathbb{R}$,
+$$\log \mathbb{E} \mathrm{e}^{\lambda S} \leq \frac{\lambda^2 v}{2} \, .$$
+
+
+Alors, pour tout $t>0$,
+$$P\left\{  S \geq t \right\}  \le
+\exp\left( -\frac{t^2}{2 v}\right)~.$$
+
+
+
+:::
+
+La preuve repose sur la technique de majoration de Cramér-Chernoff et sur le lemme de Hoeffding.
+
+::: {.proof}
+
+La borne supérieure sur la variance découle de $\operatorname{var}(S) = \sum_{i=1}^n \operatorname{var}(X_i)$ et
+de la première partie du lemme de Hoeffding.
+
+Pour la borne supérieure sur $\log \mathbb{E} \mathrm{e}^{\lambda S}$,
+$$\begin{array}{rl}
+\log \mathbb{E} \mathrm{e}^{\lambda S}
+& = \log \mathbb{E} \mathrm{e}^{\sum_{i=1}^n \lambda (X_i - \mathbb{E} X_i)} \\
+& = \log \mathbb{E} \Big[\prod_{i=1}^n  \mathrm{e}^{\lambda (X_i - \mathbb{E} X_i)}\Big]  \\
+& = \log \Big(\prod_{i=1}^n  \mathbb{E} \Big[\mathrm{e}^{\lambda (X_i - \mathbb{E} X_i)}\Big]\Big)  \\
+& = \sum_{i=1}^n \log \mathbb{E} \Big[\mathrm{e}^{\lambda (X_i - \mathbb{E} X_i)}\Big] \\
+& \leq  \sum_{i=1}^n \frac{\lambda^2 (b_i-a_i)^2}{8} \\
+& = \frac{\lambda^2 v}{2}
+\end{array}$$
+où la troisième égalité vient de l'indépendance des $X_i$ et l'inégalité découle de
+l'application du lemme de Hoeffding à chaque terme.
+
+La technique de Cramér-Chernoff consiste à utiliser l'inégalité de Markov avec des moments exponentiels.
+$$\begin{array}{rl}
+  P \big\{ S \geq t \big\}
+  & \leq \inf_{\lambda
+  \geq 0}\frac{\mathbb{E} \mathrm{e}^{\lambda S}}{\mathrm{e}^{\lambda t}} \\
+  & \leq \exp\Big(- \sup_{\lambda \geq 0} \big( \lambda t - \log \mathbb{E} \mathrm{e}^{\lambda S}\big) \Big)\\
+  & \leq \exp\Big(- \sup_{\lambda \geq 0}\big(  \lambda t - \frac{\lambda^2 v}{2}\big) \Big) \\
+  & = \mathrm{e}^{- \frac{t^2}{2v}  } \, .
+\end{array}$$
+
+ 
+
+:::
+
+<br> <p> </p>
+
+L'inégalité de Hoeffding fournit des bornes intéressantes sur les queues pour des variables aléatoires binomiales, qui sont des sommes de variables aléatoires indépendantes à valeurs dans
+$[0,1]$. Cependant, dans certains cas, la borne supérieure sur la variance utilisée dans l'inégalité de Hoeffding
+est excessivement conservative. Pensez par exemple à une variable aléatoire binomiale de paramètres $n$ et $\mu/n$ :
+la borne sur la variance obtenue à partir de la bornitude vaut $n$ alors que la vraie variance est $\mu$.
+Cela motive les deux inégalités exponentielles suivantes énoncées dans [Théorème @thm-zbennett]) et [Théorème @thm-zbernstein]).
+
+
+::: {#thm-zbennett}
+
+### Inégalité de Bennett
+
+Soient $X_1,\ldots,X_n$ des variables aléatoires indépendantes de variance finie telles que $X_i\le b$ pour un certain $b>0$
+presque sûrement pour tout $i\leq n$. Posons
+$$S=\sum_{i=1}^n \left(  X_i-\mathbb{E} X_i\right)$$
+
+
+et $v=\sum_{i=1}^n \mathbb{E}\left[X_i^2\right]$.
+Posons $\phi(u)=e^u-u-1$ pour $u\in \mathbb{R}$.
+
+Alors, pour tout $\lambda > 0$,
+$$\log \mathbb{E} e^{\lambda S}  \leq \frac{v}{b^2} \phi(b\lambda) \, ,$$
+et, pour tout $t>0$,
+$$P\{  S\geq t\}  \leq
+\exp\left(  -\frac{v}{b^2}h\left(\frac{bt}{v}\right) \right)$$
+
+
+où $h(u)=\phi^*(u) = (1+u)\log(1+u) -u$ pour $u>0$.
+
+:::
+
+::: {#rem-bennett}
+
+L'inégalité de Bennett nous fournit des bornes améliorées sur les queues pour la variable aléatoire binomiale de paramètres $n$ et $\mu/n$. Cette variable binomiale a la même loi que la somme de $n$ variables de Bernoulli indépendantes de paramètre $\mu/n$. Cela entre dans le cadre de l'inégalité de Bennett : on peut choisir $b=1$ et $v=\mu.$ La borne obtenue sur la fonction génératrice des moments logarithmique coïncide avec celle d'une variable de Poisson centrée de paramètre $\mu$, voir [Théorème @thm-bennettpoisson]).
+
+:::
+
+::: {.proof}
+
+La preuve combine la technique de Cramér-Chernoff avec une borne _ad hoc_
+sur $\log \mathbb{E} \mathrm{e}^{\lambda (X_i - \mathbb{E}X_i)}$.
+
+Par homogénéité, on peut supposer $b=1$.
+
+Notons que $\phi(\lambda)/\lambda^2$ est non décroissante sur $\mathbb{R}$. Pour
+$x\leq 1, \lambda \geq 0$, $\phi(\lambda x)\leq x^2 \phi(\lambda)$.
+
+$$\begin{array}{rl}
+\log \mathbb{E} \mathrm{e}^{\lambda (X_i - \mathbb{E}X_i)}
+ & = \log \mathbb{E} \mathrm{e}^{\lambda X_i}  - \lambda \mathbb{E}X_i \\
+ & \leq \mathbb{E} \mathrm{e}^{\lambda X_i} - 1 - \lambda \mathbb{E}X_i \\
+ & =  \mathbb{E} \phi(\lambda X_i) \\
+ & = \mathbb{E}X_i^2 \phi(\lambda) \, .
+\end{array}$$
+
+ 
+:::
+
+<br> <p> </p>
+Alors que la borne de Bennett convient bien aux variables de type Poisson,
+notre dernière borne est adaptée aux variables de type Gamma. C'est
+l'un des piliers de la théorie de l'apprentissage statistique.
+
+::: {#thm-zbernstein}
+
+### Inégalité de Bernstein
+
+Soient $X_1,\ldots,X_n$ des variables aléatoires indépendantes
+à valeurs réelles.
+Supposons qu'il existe des nombres positifs
+$v$ et $c$ tels que
+$\sum_{i=1}^n \mathbb{E}\left[X_i^2\right]  \leq v$
+et
+$$\sum_{i=1}^n
+\mathbb{E}\left[  \left(X_i\right)_+^q \right]
+\leq\frac{q!}{2}vc^{q-2}\quad \text{for all integers $q\geq3$}~.$$
+
+
+Posons $S=\sum_{i=1}^n \left(X_i-\mathbb{E} X_i \right).$
+
+Alors, pour tout $\lambda\in (0,1/c)$,
+$$\log \mathbb{E} \mathrm{e}^{\lambda (S- \mathbb{E}S)} \leq
+\frac{v\lambda^2}{2(1-c\lambda)} \, .$$
+
+
+Pour $t>0$,
+$$P \big\{ S > t \big\} \leq
+\exp\Big( - \frac{v}{c^2} h_1\big(\frac{ct}{v}\big)\Big)$$
+
+
+avec $h_1(x)= 1+x - \sqrt{1+2x}$.
+
+:::
+
+::: {.proof}
+
+La preuve combine encore la technique de Cramér-Chernoff avec une borne _ad hoc_
+sur $\log \mathbb{E} \mathrm{e}^{\lambda (S - \mathbb{E}S)}$.
+
+
+Posons à nouveau $\phi(u)=e^u-u-1$ pour $u\in \mathbb{R}$.
+
+Pour $\lambda>0$,
+$$\begin{array}{rl}
+  \phi(\lambda X_i)
+  & = \sum_{k=2}^\infty \frac{\lambda^k X_i^k}{\lambda^k} \\
+  & \leq \frac{\lambda^2 X_i^2}{2!} + \sum_{k=3}^\infty \frac{\lambda^k (X_i)_+^k}{\lambda^k} \, .
+\end{array}$$
+Pour $c> \lambda>0$,
+$$\begin{array}{rl}
+\log \mathbb{E} \mathrm{e}^{\lambda S}
+  & = \sum_{i=1}^n \log \mathbb{E} \mathrm{e}^{\lambda (X_i - \mathbb{E}X_i)} \\
+  & \leq \sum_{i=1}^n \mathbb{E} \phi(\lambda X_i) \\
+  & \leq \frac{\lambda^2 \sum_{i=1}^n  \mathbb{E} X_i^2}{2!} + \sum_{k=3}^\infty \frac{\lambda^k \sum_{i=1}^n \mathbb{E}(X_i)_+^k}{k!} \\
+  & \leq \frac{\lambda^2 v}{2} + \sum_{k=3}^\infty \frac{\lambda^k v c^{k-2}}{2} \\
+  & =  \frac{\lambda^2 v}{2 (1 - c \lambda)} \, .
+\end{array}$$
+La borne sur la queue découle en maximisant
+$$\sup_{\lambda \in [0,1/c)}  \lambda t - \frac{\lambda^2 v}{2 (1 - c \lambda)} = \frac{v}{c^2} \sup_{\eta \in [0,1)} \eta \frac{ct}{v} - \frac{\eta^2}{2(1-\eta)} \, .$$
+
+
+ 
+
+:::
+
+## Remarques bibliographiques {#sec-bibconvrv}
+
+[@MR1932358] contient une discussion approfondie des différents types de convergences que l'on peut définir
+pour les variables aléatoires. En particulier, [@MR1932358] offre une perspective générale sur les questions topologiques
+dans les espaces de probabilité. [@MR1932358] aborde aussi le problème posé par les variables aléatoires à valeurs
+dans des espaces métriques (éventuellement de dimension infinie).
+
+Les lois des grands nombres et les lois 0-1 s'inscrivent dans le cadre plus général des théorèmes ergodiques, voir
+[@MR1932358] ou [@Dur10].
+Un exemple important de loi des grands nombres est la propriété d'équipartition asymptotique (PEA) en
+théorie de l'information. Notons qu'elle vaut pour une classe de sources bien plus large que l'ensemble
+des sources sans mémoire (espaces produits de probabilité infinis). Voir [@cover:thomas:1991] ou
+[csiszar:korner:1981].
+
+Une introduction aux inégalités exponentielles et à leurs applications se trouve dans [@massart:2003], [@BoLuMa13].

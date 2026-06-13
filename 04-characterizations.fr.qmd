@@ -1,0 +1,1068 @@
+# Caractérisations des lois de probabilité  {#sec-chapchar}
+
+{{< include _packages_requirements.qmd >}}
+
+## Motivation {#sec-roadmapcharac}
+
+En toute généralité, une loi de probabilité est un objet complexe et opaque.
+Il s'agit d'une fonction à valeurs dans $[0,1]$ définie sur une $\sigma$-algèbre de parties d'un certain univers. Une $\sigma$-algèbre concrète, sans parler de la notion abstraite de $\sigma$-algèbre, n'est pas facile à appréhender. Il est donc naturel de chercher des caractérisations plus simples des lois de probabilité. Lorsqu'on se pose des questions du type : *deux lois de probabilité sont-elles égales ?*, nous savons qu'il suffit de vérifier que les deux lois coïncident sur des classes $\pi$ génératrices (voir @thm-cmon et ses conséquences). Les fonctions de répartition (FDR) sont ainsi des outils précieux.
+Les fonctions de répartition et leurs inverses généralisés (fonctions quantiles, voir @sec-chap-quantiles) sont très pratiques pour traiter les maxima, minima, ou plus généralement les statistiques d'ordre de collections de variables aléatoires indépendantes ; en revanche, pour les sommes de variables aléatoires indépendantes ou les processus de branchement, les fonctions de répartition ne sont d'une aide que modérée.
+
+Dans cette leçon, nous passons en revue deux façons liées de caractériser les lois de probabilité par des fonctions définies sur la droite réelle : les transformées de Laplace (@sec-laplace)) et les fonctions caractéristiques, qui étendent les transformées de Fourier aux lois de probabilité (@sec-charfun). Ces deux méthodes diffèrent par leur portée, mais reposent sur la même idée que les fonctions génératrices des probabilités (@sec-chappgf) et partagent des propriétés communes.
+
+En effet, les fonctions génératrices des probabilités peuvent être vues comme des cas particuliers des transformées de Laplace, qui elles-mêmes sont des cas particuliers des transformées de Fourier. Ces trois méthodes caractérisent bien les lois de probabilité. Elles sont munies de formules d'inversion. Elles permettent un traitement unifié des sommes de variables aléatoires indépendantes. Elles relient l'intégrabilité des lois de probabilité et la régularité des transformées.
+
+Dans les leçons suivantes ([Chapitre @sec-chaprevisiCLT]), nous verrons que les trois transformées caractérisent également la _convergence en loi_.
+
+Les fonctions génératrices des probabilités, les transformées de Laplace et les fonctions caractéristiques fournissent un important appareil analytique à la théorie des probabilités. De l'analyse, nous tirons des arguments tout faits pour établir la régularité des transformées, et avec un peu plus de travail, nous pouvons construire les formules d'inversion.
+
+
+
+## Transformée de Laplace  {#sec-laplace}
+
+Les transformées de Laplace caractérisent les lois de probabilité sur $[0, \infty).$
+
+### Définition et propriétés élémentaires
+
+::: {#def-laplace}
+
+Soit $P$ une loi de probabilité sur $[0,\infty]$ de fonction de répartition $F$.
+La transformée de Laplace de $P$ est la fonction $U$ de $[0,\infty)$ dans $[0,1]$ définie par
+
+$$
+U(\lambda) =  \mathbb{E}\left[\mathrm{e}^{- \lambda X}\right] = \int_{[0,\infty)} \mathrm{e}^{- \lambda x} \mathrm{d}F(x) \,
+$$
+
+où $X \sim P$.
+
+:::
+
+::: {#rem}
+
+Une loi de probabilité $P$ sur $\mathbb{N}$ est aussi une loi de probabilité sur $[0,\infty)$ ; elle possède donc à la fois une fonction génératrice des probabilités $G$ et une transformée de Laplace $U$. Elles sont reliées par
+
+$$U(\lambda) =  G(\mathrm{e}^{-\lambda}) \, .$$
+
+Quelles propriétés des fonctions génératrices des probabilités sont également satisfaites par les transformées de Laplace ?
+
+:::
+
+::: {#prp-laplace-prop}
+
+Si $U: [0,\infty) \to [0,1]$ est la transformée de Laplace d'une loi de probabilité $P$ sur $[0, \infty)$, alors
+
+- $U(0)=1$ ;
+- $U$ est continue ;
+- $U$ est non croissante.
+- $U$ est convexe.
+
+:::
+
+
+::: {#exr-check-laplace-prop}
+
+Vérifier les assertions de la proposition.
+
+:::
+
+Peut-on reconnaître la transformée de Laplace d'une loi de probabilité sur $[0,\infty)$ ?
+C'est l'objet du théorème suivant (dont la preuve dépasse le cadre de ce cours).
+
+
+::: {#thm-bernstein}
+
+### Théorème de Bernstein
+
+Une fonction $U: (0, \infty) \to (0,\infty)$ est la transformée de Laplace d'une loi de probabilité sur $[0,\infty)$ si et seulement si
+
+- $U$ est infiniment dérivable sur $(0, \infty)$
+- $U(0)=1$
+- $U$ est _complètement monotone_ : $(-1)^k U^{(k)} \geq 0$ sur $(0, \infty)$
+
+:::
+
+En utilisant le lien entre fonctions génératrices des probabilités et transformées de Laplace,
+nous sommes en mesure de caractériser les séries entières qui sont des fonctions génératrices des probabilités.
+
+
+::: {#cor-pgf}
+
+Une fonction $G: [0, 1] \to [0,1]$ est la fonction génératrice des probabilités d'une loi de probabilité sur $\mathbb{N}$ si et seulement si
+
+- $G$ est infiniment dérivable sur $(0,1)$
+- $G(1)=1$
+- $G$ est complètement monotone : $(-1)^k G^{(k)} \geq 0$ sur $(0, 1)$
+
+:::
+
+::: {#exm-laplace-gamma}
+
+Soit $X$ de loi $\text{Gamma}(p, \nu)$. La transformée de Laplace de (la loi de) $X$ est
+
+$$
+\begin{array}{rl}
+U(\lambda)
+  & = \int_0^\infty \nu \mathrm{e}^{-\lambda x} \mathrm{e}^{-\nu x} \frac{(\nu x)^{p-1}}{\Gamma(p)} \mathrm{d} x \\
+  & = \frac{\nu^p}{(\lambda +\nu)^p} \int_0^\infty (\lambda +\nu) \mathrm{e}^{-(\lambda +\nu) x}  \frac{((\nu+\lambda) x)^{p-1}}{\Gamma(p)} \mathrm{d} x \\
+  & = \frac{\nu^p}{(\lambda +\nu)^p} \, .
+\end{array}
+$$
+
+:::
+
+
+### Injectivité des transformées de Laplace et formule d'inversion  {#widder}
+
+
+::: {#thm-invLaplace}
+
+### Théorème de Widder
+
+Une loi de probabilité sur $[0, \infty)$ est caractérisée par sa transformée de Laplace.
+
+:::
+
+
+La construction de la formule d'inversion repose sur des inégalités de déviation pour la loi de Poisson. La proposition suivante se vérifie facilement en utilisant l'inégalité de Markov avec des fonctions exponentielles et une optimisation.
+
+::: {#thm-bennettpoisson}
+
+### Majorations de queue pour la loi de Poisson
+
+Soit $Z$ de loi de Poisson. Posons $h(x) = \mathrm{e}^x - x -1$ et $h^*(x)= (x+1)\log (x+1) -x$, $x\geq -1$, son conjugué convexe.
+Alors, pour tout $\lambda \in \mathbb{R}$
+
+$$\log \mathbb{E} \mathrm{e}^{\lambda (Z-\mathbb{E}Z)} = \mathbb{E}Z h(\lambda) \, .$$
+
+Pour $t\geq 0$
+$$
+\Pr \Big\{ Z \geq \mathbb{E}Z + t \Big\} \leq \mathrm{e}^{-\mathbb{E}Z h^*\Big(\frac{t}{\mathbb{E}Z}\Big)}
+$$
+et pour $0 \leq t \leq \mathbb{E}Z$
+$$
+\Pr \Big\{ Z \leq \mathbb{E}Z -t \Big\} \leq \mathrm{e}^{-\mathbb{E}Z h^*\Big(\frac{-t}{\mathbb{E}Z}\Big)} \, .
+$$
+
+:::
+
+
+::: {#rem-bennettpoisson}
+
+- Voir [Section @sec-jensensec]) pour la notion de conjugaison convexe.
+- Les majorations suivantes de $h^*$ fournissent des bornes de queue plus grossières mais plus simples
+
+$$\begin{array}{rll}
+  h^*(t) & \geq \frac{t^2}{2(1 + t/3)}    & \text{for } t >0 \\
+  h^*(t) & \geq \frac{t^2}{2}             & \text{for } t <0 \, .
+\end{array}
+$$
+
+:::
+
+
+::: {#cor-corrpoisson}
+
+Pour tous $x, y$ positifs, $y \neq x$,
+$$
+\lim_{n \to \infty} \sum_{k=0}^{nx} e^{-n y} \frac{(ny)^k}{k!} = \mathbb{I}_{y<x} \,.
+$$
+
+:::
+
+Nous vérifierons dans une des prochaines leçons que, pour $x >0$ :
+$$
+\lim_{n \to \infty} \sum_{k=0}^{\lfloor nx\rfloor} e^{-n x} \frac{(nx)^k}{k!} = \frac{1}{2} \, .
+$$
+
+
+<br>
+
+
+::: {.proof}
+
+Soit $F$ la fonction de répartition de $P$ et $U$ sa transformée de Laplace. Soit $X \sim P$.
+
+Il suffit de montrer que $F(x)$ peut être calculée à partir de $U$ en tout point $x$ où $F$ est continue.
+
+La fonction $U$ est infiniment dérivable sur $(0, \infty)$.
+Pour $k\in  \mathbb{N},$
+
+$$
+\frac{\mathrm{d}^kU}{\mathrm{d}\lambda^k}  = (-1)^k \int_{[0,\infty)} x^k e^{-\lambda x} \mathrm{d}F(x)  \, .
+$$
+et $U$ admet un développement en série entière en tout $\lambda \in (0,1)$, pour
+$\lambda' \in (0,1)$ :
+
+$$\begin{array}{rl}
+U(\lambda')
+   & = \sum_{k=0}^\infty \frac{(\lambda' -\lambda)^k}{k!} \frac{\mathrm{d}^kU}{\mathrm{d}\lambda^k}  \, .
+\end{array}
+$$
+
+D'après [[Corollaire @cor-corrpoisson]), pour tout $0 < y \neq x$, $\lim_{n \to \infty} \sum_{k=0}^{nx} e^{-n y} \frac{(ny)^k}{k!} = \mathbb{I}_{y<x}$.
+
+$$\begin{array}{rl}
+F(x)
+  & =  \int_{\mathbb{R_+}} \mathbb{I}_{y\leq x} \mathrm{d}F(y) \\
+  & = \int_{\mathbb{R_+}} \mathbb{I}_{y< x} \mathrm{d}F(y) \\
+  & = \int_{(-\infty, x)} \mathbb{I}_{y< x} \mathrm{d}F(y) + \int_{\{x\}} 1 \mathrm{d}F(y) + \int_{(x, \infty)} \mathbb{I}_{y< x} \mathrm{d}F(y) \\
+  & = \int_{(-\infty, x)} \mathbb{I}_{y< x} \mathrm{d}F(y) + \int_{\{x\}} 1 \mathrm{d}F(y) + \int_{(x, \infty)} \mathbb{I}_{y< x} \mathrm{d}F(y) \\
+  & =  \int_{(-\infty, x) \cup (x, \infty)} \lim_{n \to \infty} \sum_{k=0}^{nx} e^{-n y} \frac{(ny)^k}{k!} \mathrm{d}F(y) + \int_{\{x\}} 1 \mathrm{d}F(y) \\
+  & =  \lim_{n \to \infty} \sum_{k=0}^{nx} \frac{(-n)^k}{k!}\int_{(-\infty, x) \cup (x, \infty)}  e^{-n y} {(-y)^k} \mathrm{d}F(y) + \int_{\{x\}} 1 \mathrm{d}F(y)\\
+       &  \text{by dominated convergence} \\
+  & =  \lim_{n \to \infty} \sum_{k=0}^{nx} \frac{(-n)^k}{k!} \frac{\mathrm{d}^kU}{\mathrm{d}\lambda^k}_{\mid \lambda=n}  \, .
+\end{array}
+$$
+
+Si $F$ est continue en $x$,
+$$
+F(x) = \lim_{n \to \infty} \sum_{k=0}^{nx} \frac{(-n)^k}{k!} \frac{\mathrm{d}^kU}{\mathrm{d}\lambda^k}_{\mid \lambda=n} \, .
+$$
+
+Si $F$ saute en $x$,
+
+$$
+F(x) - \frac{P\{X=x\}}{2} =\lim_{n \to \infty} \sum_{k=0}^{nx} \frac{(-n)^k}{k!} \frac{\mathrm{d}^kU}{\mathrm{d}\lambda^k}_{\mid \lambda=n} \, .
+$$
+
+Ce procédé montre que la transformée de Laplace contient assez d'information pour reconstruire la fonction de répartition, qui caractérise à son tour la loi de probabilité.
+
+
+:::
+
+<br>
+
+Les transformées de Laplace des sommes de variables aléatoires indépendantes non négatives s'obtiennent facilement à partir des transformées de Laplace des termes.
+
+<br>
+
+::: {#prp-laplace-sums}
+
+Soient $X$ et $Y$ deux variables aléatoires indépendantes à valeurs dans $[0,\infty)$, de transformées de Laplace $U_X$ et $U_Y$. La transformée de Laplace de (la loi de) $X+Y$ est 
+
+$$
+G_{X+Y} = G_X \times G_Y \, .
+$$
+
+:::
+
+::: {.proof}
+
+
+$$
+\begin{array}{rl}
+G_{X+Y}(\lambda)
+  & = \mathbb{E}\Big[\mathrm{e}^{\lambda (X+Y)}\Big] \\
+  & = \mathbb{E}\Big[\mathrm{e}^{\lambda X} \times \mathrm{e}^{\lambda Y}\Big] \\
+  & = \mathbb{E}\Big[\mathrm{e}^{\lambda X} \Big] \times \mathbb{E}\Big[\mathrm{e}^{\lambda Y}\Big]\\ 
+  & \text{independence}\\
+  & = G_X(\lambda) \times G_Y(\lambda) \, .
+\end{array}
+$$
+
+  
+
+:::
+
+
+En combinant le théorème d'inversion et la formule explicite de la transformée de Laplace
+des lois gamma, nous retrouvons le fait que la somme de variables aléatoires indépendantes
+de loi gamma de même paramètre d'intensité est encore de loi gamma.
+
+::: {#cor-laplace-gamma}
+
+Si $X \sim \text{Gamma}(p, \lambda)$ est indépendante de $Y \sim \text{Gamma}(q, \lambda)$,
+alors $X+Y$ a pour transformée de Laplace $\Big(\frac{\nu}{\lambda+\nu}\Big)^{p+q}$ et suit la loi $\text{Gamma}(p+q, \lambda)$.
+
+:::
+
+
+### Régularité de la transformée de Laplace et intégrabilité {#sec-lap-integrability}
+
+## Fonctions caractéristiques et transformées de Fourier {#sec-charfun}
+
+La transformée de Laplace caractérise les lois de probabilité à support dans $[0, \infty)$.
+Les fonctions caractéristiques traitent des lois de probabilité générales. Elles s'étendent aux lois multivariées.
+
+
+### Fonction caractéristique {#sec-charFuncDef}
+
+La transformée suivante peut être définie pour toute loi de probabilité sur $\mathbb{R}$. La définition peut être étendue aux lois sur $\mathbb{R}^k$, $k\geq 1$.
+
+::: {#def-charac-function}
+
+### Fonction caractéristique 
+
+Soit la variable aléatoire réelle $X$ de loi $P$ et de fonction de répartition $F$.
+La *fonction caractéristique* de la loi $P$ est la fonction de $\mathbb{R}$ dans $\mathbb{C}$ définie par
+$$
+\widehat{F}(t) = \mathbb{E}\left[\mathrm{e}^{i t X}\right]
+= \int_{\mathbb{R}} \mathrm{e}^{i t x} \mathrm{d}F(x)
+=	\int_{\mathbb{R}} \cos(t x) \mathrm{d}F(x) + i \int_{\mathbb{R}} \sin(t x) \mathrm{d}F(x) \, .
+$$
+
+:::
+
+::: {#rem-charfunc}
+
+Si $F$ est absolument continue de densité $f$, alors $\widehat{F}$ est (à une constante multiplicative près) la transformée de Fourier de $f$.
+
+:::
+
+::: {#prp-prop-charfunc}
+
+Soit la variable aléatoire réelle $X$ de loi $P$ et de fonction caractéristique $\widehat{F}$.
+
+- $\widehat{F}$ est (uniformément) continue sur $\mathbb{R}$
+- $\widehat{F}(0)=1$
+- Si $X$ est symétrique, $\widehat{F}$ est à valeurs réelles
+- La fonction caractéristique de la loi de $a X +b$ est
+$$\mathrm{e}^{it b} \widehat{F}(at) \, .$$
+
+:::
+
+::: {.proof}
+
+Vérifions la propriété de continuité. Les trois autres sont laissées en exercice.
+
+Le calcul trigonométrique donne
+$$
+\begin{array}{rl}
+\Big| \mathrm{e}^{i(t+ \delta)x} - \mathrm{e}^{itx}\Big|
+  & = \Big| \mathrm{e}^{itx}\Big| \times \Big|\mathrm{e}^{i\delta x} - 1\Big|\\
+  & \leq \Big|\mathrm{e}^{i\delta x} - 1\Big| \\
+  & \leq 2 \Big( 1 \wedge \big| \delta x \big| \Big)
+\end{array}
+$$
+
+pour tout $t\in \mathbb{R}, \delta \in \mathbb{R}, x \in \mathbb{R}$.
+En intégrant par rapport à $F$,
+
+$$
+\begin{array}{rl}
+  \Big| \widehat{F}(t+\delta) - \widehat{F}(t)\Big|
+  & \leq \int 2 \Big( 1 \wedge \big| \delta x \big| \Big) \mathrm{d}F(x) \,.
+\end{array}
+$$
+
+Par le théorème de convergence dominée, nous concluons  
+$$
+\lim_{\delta \to 0} \Big| \widehat{F}(t+\delta) - \widehat{F}(t)\Big| = 0
+$$
+
+uniformément en $t$.
+
+:::
+
+<br> <p> </p>
+
+::: {#exr-trivial-charcfunc}
+
+Les propriétés suivantes se vérifient facilement :
+
+- $|\widehat{F}(t)|\leq 1$ pour tout $t\in \mathbb{R}$ ;
+-
+
+:::
+
+<br> <p> </p>
+
+
+::: {#exr-charfunc-suual}
+
+Calculer la fonction caractéristique de :
+
+- la loi de Poisson de paramètre $\lambda>0$ ;
+- la loi uniforme sur $[-1,1]$ ;
+- la loi triangulaire sur $[-1,1]$ (densité : $1-|x|$ sur $[-1,1]$) ;
+- la loi de Laplace, de densité $1/2 \exp(-|x|)$ ;
+- la loi exponentielle de densité $\exp(-x)$ sur $[0,+\infty)$ ;
+
+:::
+
+<br> <p> </p>
+
+Comme pour les fonctions génératrices des probabilités et les transformées de Laplace,
+les fonctions caractéristiques des sommes de variables aléatoires indépendantes
+ont une structure simple.
+
+::: {#prp-fouriersum}
+
+Soient $X$ et $Y$ des variables aléatoires indépendantes de fonctions de répartition $F_X$ et $F_Y$, alors
+
+$$\widehat{F}_{X+Y}(t) =  \widehat{F}_X(t) \times \widehat{F}_Y(t)$$
+
+pour tout $t \in \mathbb{R}$.
+
+:::
+
+::: {.proof}
+
+La troisième égalité découle de l'indépendance de $X$ et $Y$ :
+$$\begin{array}{rl}
+\widehat{F}_{X+Y}(t)
+  & = \mathbb{E}\Big[\mathrm{e}^{it (X+Y)}\big] \\
+  & = \mathbb{E}\Big[\mathrm{e}^{it X} \mathrm{e}^{it Y}\big] \\
+  & = \mathbb{E}\Big[\mathrm{e}^{it X} \big] \times \mathbb{E}\big[\mathrm{e}^{it Y}\big] \\
+  & =  \widehat{F}_X(t) \times \widehat{F}_Y(t) \, .
+\end{array}
+$$
+
+:::
+
+::: {#exr-counter-example}
+
+Donner un contre-exemple pour montrer que
+$$
+\Big(\forall t \in \mathbb{R}, \quad \widehat{F}_{X+Y}(t) =  \widehat{F}_X(t) \times \widehat{F}_Y(t) \Big)
+\not\Rightarrow X \perp\!\!\!\perp Y \, .
+$$
+
+:::
+
+### Fonction caractéristique d'une loi gaussienne univariée {#charfungaussian}
+
+Il est possible de calculer les fonctions caractéristiques en recourant à l'analyse complexe.
+Mais nous nous abstiendrons d'y recourir pour calculer la fonction caractéristique la plus importante,
+celle de la loi gaussienne centrée réduite.
+
+
+::: {#prp-proCharFunGauss}
+
+Soit $\widehat{\Phi}$ la fonction caractéristique de la loi gaussienne univariée centrée réduite $\mathcal{N}(0,1)$.
+On a
+
+$$\widehat{\Phi}(t) = \mathrm{e}^{-\frac{t^2}{2}} \, .$$
+
+:::
+
+::: {.proof}
+
+Rappelons que, la densité gaussienne centrée réduite étant paire, la fonction caractéristique est réelle et paire.
+
+De plus, $\widehat{\Phi}$ est dérivable et la dérivée s'obtient en intervertissant espérance et dérivation par rapport à $t$.
+$$
+\begin{array}{rl}
+\widehat{\Phi}'(t)
+& = - \mathbb{E}\left[X \sin(t X) \right] \\
+& =  - \frac{1}{\sqrt{2 \pi}}\int_{\mathbb{R}} x \sin(tx) \mathrm{e}^{-\frac{x^2}{2}} \mathrm{d}x \\
+& = \frac{1}{\sqrt{2 \pi}} \Big[\sin(tx) \mathrm{e}^{-\frac{x^2}{2}} \Big]_{-\infty}^{\infty} - t \frac{1}{\sqrt{2 \pi}}\int_{\mathbb{R}}  \cos(tx) \mathrm{e}^{-\frac{x^2}{2}} \mathrm{d}x \\
+& = - t \widehat{\Phi}(t) \,.
+\end{array}
+$$
+Ainsi, $\widehat{F}$ est solution de l'équation différentielle : $g'(t) = -t g(t)$ avec $g(0)=1$.
+
+Cette équation différentielle se résout immédiatement, et la solution est $g(t)= \mathrm{e}^{- \frac{t^2}{2}}$.
+
+  
+
+:::
+
+<br> <p> </p>
+
+::: {#exr-propcharfungauss}
+
+Pourquoi $\widehat{\Phi}$ est-elle dérivable ? Pourquoi peut-on intervertir espérance et dérivation ?
+
+:::
+
+<br> <p> </p>
+
+Notons qu'un sous-produit de @prp-proCharFunGauss est la représentation intégrale suivante de la densité gaussienne.
+
+$$
+\phi(x)  =  \frac{1}{2 \pi} \int_{\mathbb{R}} \widehat{\Phi}(t) \mathrm{e}^{-itx} \mathrm{d}t \, .
+$$
+
+Elle ne paraît pas intéressante en soi, mais elle constitue une étape clé pour l'établissement de la formule générale d'inversion ci-dessous.
+
+
+### Sommes de variables aléatoires indépendantes et convolutions {#sec-convol}
+
+L'interaction entre fonctions caractéristiques/transformées de Fourier et
+sommation de variables aléatoires indépendantes est
+l'une des propriétés les plus attrayantes de cette transformation. Pour la comprendre, nous aurons besoin d'une opération issue de l'analyse. Rappelons
+que si $f$ et $g$ sont deux fonctions intégrables, la convolution de $f$ et $g$
+est définie par
+$$
+f \star g (x)  = \int_{\mathbb{R}} f(x-y)g(y) \mathrm{d}y = \int_{\mathbb{R}} g(x-y)f(y) \mathrm{d}y \, .
+$$
+
+Notons que $f \star g$ est également intégrable. Il n'est pas difficile de vérifier que
+si $f$ et $g$ sont deux densités de probabilité, alors $f \star g$ l'est aussi ; de plus, $f \star g$
+est la densité de la loi de $X+Y$ où $X \sim f$ est indépendante de $Y \sim g$.
+La proposition suivante étend cette observation.
+
+
+::: {#prp-convsum}
+
+Soient $X,Y$ deux variables aléatoires indépendantes de lois $P_X$ et $P_Y$.
+Supposons que $P_X$ est absolument continue de densité $p_X$. Alors la loi
+de $X+Y$ est absolument continue et admet pour densité
+$$
+p_x \star P_Y (z) = \int_{\mathbb{R}} p_X(z -y ) \mathrm{d}P_Y(y) \, .
+$$
+
+:::
+
+
+
+
+::: {.proof}
+
+Soit $B$ une partie borélienne de $\mathbb{R}$.
+$$
+\begin{array}{rl}
+P \Big\{ X+Y  \in B\Big\}
+  & = \int_{\mathbb{R}} \Big( \int_{\mathbb{R}} \mathbb{I}_B(x+y) p_X(x)\mathrm{d}x\Big) \mathrm{d}P_Y(y) \\
+  & = \int_{\mathbb{R}} \Big(\int_{\mathbb{R}} \mathbb{I}_B(z) p_X(z-y)\mathrm{d}z\Big) \mathrm{d}P_Y(y) \\
+  & = \int_{\mathbb{R}} \mathbb{I}_B(z) \Big(\int_{\mathbb{R}}  p_X(z-y) \mathrm{d}P_Y(y) \Big) \mathrm{d}z \\
+  & = \int_{\mathbb{R}} \mathbb{I}_B(z) p_x \star P_Y (z) \mathrm{d}z
+\end{array}
+$$
+où la première égalité suit du théorème de Tonelli-Fubini, la seconde
+s'obtient par le changement de variable $x \mapsto z = x+y$ pour tout $y$,
+et la troisième suit encore du théorème de Tonelli-Fubini.
+
+  
+
+:::
+
+<br>
+
+::: {#rem-convol-outside}
+
+La convolution n'est pas propre à la théorie des probabilités.
+
+- En analyse, la convolution est connue pour être une opération régularisante (lissante). Il en va de même en probabilités : si la loi de $X$ ou de $Y$ admet une densité et $X \perp\!\!\!\perp Y$, alors la loi de $X+Y$ admet une densité.
+- La convolution avec des lois régulières joue un rôle important en statistique non paramétrique ; elle est à l'origine de l'estimation par noyau.
+- La convolution est un outil important en traitement du signal.
+
+:::
+
+::: {#exr-density-convolution}
+
+Vérifier que si $X$ et $Y$ sont indépendantes de densités $f_X$ et $f_Y$,
+alors $f_X \star f_Y$ est une densité de la loi de $X+Y$.
+
+:::
+
+<br>
+
+
+Si $Y =0$ presque sûrement (sa loi est $\delta_0$), alors $p_X \star \delta_0 = p_X$.
+
+Que se passe-t-il dans @prp-convsum si l'on considère les lois de $\sigma X +Y$ et que l'on fait tendre $\sigma$ vers $0$ ? C'est l'objet de la proposition suivante.
+
+
+::: {#prp-approxident}
+
+Soient $X,Y$ deux variables aléatoires indépendantes de lois $P_X$ et $P_Y$.
+Supposons que $P_X$ est absolument continue de densité $p_X$ et que $P_X(-\infty, 0] = \alpha \in (0,1)$.
+Alors 
+$$
+\lim_{\sigma \downarrow 0} \mathbb{P}\big\{ Y + \sigma X \leq a \Big\} = P_Y(-\infty, a) + \alpha P_Y\{a\} \, .
+$$
+
+:::
+
+::: {.proof}
+
+$$\begin{array}{rl}
+\mathbb{P}\big\{ Y + \sigma X \leq a \Big\}
+    & = \int_{\mathbb{R}} \int_{\mathbb{R}} \mathbb{I}_{x \leq  \frac{a-y}{\sigma}} p_X(x) \mathrm{d}x \mathrm{d}P_Y(y) \\
+    & = \int_{(-\infty,a)} \int_{\mathbb{R}} \mathbb{I}_{x \leq  \frac{a-y}{\sigma}} p_X(x) \mathrm{d}x \mathrm{d}P_Y(y) \\
+    & + \int_{\mathbb{R}} \mathbb{I}_{x \leq  \frac{a-a}{\sigma}} p_X(x) \mathrm{d}x P_Y\{a\} \\
+    & + \int_{(a, \infty)} \int_{\mathbb{R}} \mathbb{I}_{x \leq  \frac{a-y}{\sigma}} p_X(x) \mathrm{d}x \mathrm{d}P_Y(y)
+\end{array}
+$$
+
+Par convergence monotone, les premier et troisième intégrales convergent respectivement vers $P_Y(-\infty, a)$ et $0$, tandis que le second terme vaut $\alpha P_Y\{a\}$.
+
+  
+
+:::
+
+
+### Théorème d'injectivité et formule d'inversion  {#charinjectivity}
+
+La fonction caractéristique associe à chaque mesure de probabilité une fonction à valeurs dans $\mathbb{C}$.
+Le résultat principal de cette section est que les fonctions caractéristiques/transformées de Fourier définissent
+un opérateur injectif sur l'ensemble des mesures de probabilité sur la droite réelle.
+
+::: {#thm-injeccharfunc}
+
+Si deux lois de probabilité $P$ et $Q$ ont la même fonction caractéristique, elles sont égales.
+
+:::
+
+La propriété d'injectivité découle d'une formule d'inversion explicite. La fonction caractéristique
+permet de retrouver la fonction de répartition en tous ses points de continuité (comme le faisait la transformée de Laplace).
+Comme les points de continuité des fonctions de répartition sont denses dans $\mathbb{R}$, cela suffit.
+
+
+::: {#prp-reginversion}
+
+Soient $X \sim F$ et $Z \sim \mathcal{N}(0,1)$ indépendantes.
+Alors :
+
+- la loi de $X+ \sigma Z$ a pour fonction caractéristique 
+    $$
+    	\widehat{F}_\sigma(t) = \widehat{\Phi}(t\sigma) \times \widehat{F}(t) = \mathrm{e}^{- \frac{t^2 \sigma^2}{2}} \widehat{F}(t)
+    $$
+
+- la loi de $X + \sigma Z$ est absolument continue par rapport à la mesure de Lebesgue
+- une version de la densité de la loi de $X+ \sigma Z$ est donnée par
+    $$
+    y \mapsto \frac{1}{{2 \pi}}\int_{\mathbb{R}} \mathrm{e}^{- \frac{t^2 \sigma^2}{2}} \widehat{F}(t)\mathrm{e}^{-ity} \mathrm{d}t
+    = \frac{1}{{2 \pi}}\int_{\mathbb{R}}  \widehat{F}_\sigma(t)\mathrm{e}^{-ity} \mathrm{d}t \,.
+    $$
+
+:::
+
+::: {#exr-existence-probaspace}
+
+Pourquoi peut-on admettre l'existence d'un espace de probabilité portant deux variables aléatoires indépendantes $X, Z$ distribuées comme ci-dessus ?
+
+:::
+
+La proposition affirme qu'une densité de la loi de $X + \sigma Z$ peut être retrouvée à partir de la fonction caractéristique de la loi de $X + \sigma Z$ par la formule d'inversion de Fourier pour les fonctions à transformée de Fourier intégrable.
+
+
+::: {.proof}
+
+Le fait que, pour tout $\sigma >0$, la loi de $Y = X + \sigma Z$ est absolument continue par rapport à la mesure de Lebesgue découle de @prp-convsum.
+
+Une densité de la loi de $X + \sigma Z$ est donnée par 
+
+$$
+\int_{\mathbb{R}} \frac{1}{\sigma} \phi\Big(\frac{y -x}{\sigma}\Big) \mathrm{d}F(x)
+$$
+
+La fonction caractéristique de $X+\sigma Z$ en $t$ vaut $\mathrm{e}^{- \frac{t^2 \sigma^2}{2}} \widehat{F}(t)$.
+
+$$\begin{array}{rl}
+\mathbb{P}\Big\{ X+ \sigma Z \leq u\Big\}
+& = \int_{-\infty}^u \int_{\mathbb{R}} \frac{1}{\sigma} \phi\Big(\frac{y -x}{\sigma}\Big) \mathrm{d}F(x)  \mathrm{d}y \\
+& = \int_{-\infty}^u \int_{\mathbb{R}} \frac{1}{\sigma}
+\left(\frac{1}{{2 \pi}} \int_{\mathbb{R}} \mathrm{e}^{- \frac{t^2}{2}} \mathrm{e}^{-it 	\frac{y-x}{\sigma}} \mathrm{d}t\right)
+\mathrm{d}F(x)  \mathrm{d}y \\
+& = \int_{-\infty}^u \left(\int_{\mathbb{R}} \frac{1}{\sigma}
+\frac{1}{{2 \pi}} \mathrm{e}^{- \frac{t^2}{2}} \mathrm{e}^{-\frac{ity}{\sigma}} \left(\int_{\mathbb{R}}  \mathrm{e}^{\frac{itx}{\sigma}} \mathrm{d}F(x)\right)  \mathrm{d}t\right)
+ \mathrm{d}y \\
+& = \int_{-\infty}^u \left(\int_{\mathbb{R}} \frac{1}{\sigma}
+\frac{1}{{2 \pi}} \mathrm{e}^{- \frac{t^2}{2}} \mathrm{e}^{-\frac{ity}{\sigma}} \widehat{F}(t/\sigma)  \mathrm{d}t\right)
+ \mathrm{d}y \\
+& = \int_{-\infty}^u  \left( \frac{1}{{2 \pi}}\int_{\mathbb{R}} \mathrm{e}^{- \frac{t^2 \sigma^2}{2}}\mathrm{e}^{-ity} \widehat{F}(t)\mathrm{d}t   \right) \mathrm{d}y \,
+\end{array}
+$$
+
+où 
+
+- la première égalité suit du théorème de Tonelli-Fubini
+- la seconde égalité suit de la représentation intégrale de la densité gaussienne
+- la troisième égalité suit encore du théorème de Tonelli-Fubini
+- la dernière égalité suit d'un changement de variable dans l'intégrale intérieure.
+
+
+La quantité $\left( \frac{1}{{2 \pi}}\int_{\mathbb{R}} \mathrm{e}^{- \frac{t^2 \sigma^2}{2}}\mathrm{e}^{-ity} \widehat{F}(t)\mathrm{d}t   \right)$ est une version de la densité de la loi de $Y = X + \sigma Z$ (pourquoi ?). Notons qu'elle s'obtient par la même formule d'inversion qui fonctionnait déjà pour la densité gaussienne.
+
+  
+
+:::
+
+
+Il reste à montrer qu'une formule d'inversion fonctionne pour toute loi de probabilité,
+et pas seulement pour les lois régulières obtenues en ajoutant un bruit gaussien. Nous vérifierons
+que l'on peut retrouver la fonction de répartition à partir de la transformée de Fourier.
+
+::: {#thm-invfourier1}
+
+Soit $X$ de loi $P$, de fonction de répartition $F$ et de fonction caractéristique $\widehat{F}$.
+
+Alors :
+$$
+\lim_{\sigma \downarrow 0} \int_{-\infty}^u  \left( \frac{1}{{2 \pi}}\int_{\mathbb{R}} \mathrm{e}^{-ity}  \mathrm{e}^{- \frac{t^2 \sigma^2}{2}}\widehat{F}(t)\mathrm{d}t   \right) \mathrm{d}y =  F(u_-) + \frac{1}{2} P\{u\}
+$$
+
+où 
+$$
+F(u_-) = \lim_{v \uparrow u} F(v) = P(-\infty, u)\, .
+$$
+
+:::
+
+
+::: {.proof}
+
+La preuve consiste à combiner @prp-approxident et @prp-reginversion.
+
+:::
+
+
+Notons que [Théorème @thm-invfourier1] ne fournit pas directement la fonction de répartition $F$. En effet, si $F$ n'est pas continue,
+l'application $u \mapsto \widetilde{F}(u) = F(u_-) + \frac{1}{2} P\{u\}$ n'est pas une fonction de répartition. Mais
+la modification à droite de $\widetilde{F}$ : $u \mapsto \lim_{v \downarrow u} \widetilde{F}(v)$ coïncide avec $F$.
+Nous avons établi [Théorème @thm-injeccharfunc]).
+
+
+Lorsque la fonction de répartition est absolument continue, l'inversion de Fourier est plus simple.
+
+::: {#thm-simple-inversion-densities}
+
+Soit $X$ de loi $P$, de fonction de répartition $F$ et de fonction caractéristique $\widehat{F}$.
+Supposons que $\widehat{F}$ est intégrable (par rapport à la mesure de Lebesgue).
+Alors :
+
+- $P$ est absolument continue par rapport à la mesure de Lebesgue ;
+- $y \mapsto \frac{1}{{2 \pi}} \int_{\mathbb{R}} \widehat{F}(t) \mathrm{e}^{-ity} \mathrm{d}t$ est une version uniformément continue de la densité de $P$.
+
+:::
+
+
+::: {.proof}
+
+Soit $X$ de loi $P$, de fonction de répartition $F$ et de fonction caractéristique $\widehat{F}$.
+Soit $Z$ indépendante de $X$ et de loi $\mathcal{N}(0,1)$. Soit $x$ un point de continuité de $F$.
+
+$$
+\lim_{\sigma \downarrow 0} P\Big\{ X + \sigma Z  \leq x \Big\} = F(x)
+$$
+
+$$\begin{array}{rl}
+\lim_{\sigma \downarrow 0} P\Big\{ X + \sigma Z  \leq x \Big\}
+ & = \lim_{\sigma \downarrow 0}
+ \int_{-\infty}^x  \left( \frac{1}{{2 \pi}}\int_{\mathbb{R}} \mathrm{e}^{- \frac{t^2 \sigma^2}{2}}\mathrm{e}^{-ity} \widehat{F}(t)\mathrm{d}t   \right) \mathrm{d}y \\
+ & = \int_{-\infty}^x   \frac{1}{{2 \pi}}\int_{\mathbb{R}} \lim_{\sigma \downarrow 0} \mathrm{e}^{- \frac{t^2 \sigma^2}{2}}\mathrm{e}^{-ity} \widehat{F}(t)\mathrm{d}t    \mathrm{d}y \\
+ & = \int_{-\infty}^x   \frac{1}{{2 \pi}}\int_{\mathbb{R}} \mathrm{e}^{-ity} \widehat{F}(t)\mathrm{d}t    \mathrm{d}y \,
+\end{array}
+$$
+
+où l'interversion limite-intégration est justifiée par convergence dominée.
+
+  
+
+:::
+
+
+Nous terminons cette section par une formule d'inversion alternative.
+
+::: {#thm-invformula}
+
+### Formule d'inversion
+
+Soit $P$ une loi de probabilité sur $\mathbb{R}$ de fonction de répartition $F$, alors
+$$
+\lim_{T \to \infty} \frac{1}{2\pi} \int_{-T}^T \frac{\mathrm{e}^{-it a} - \mathrm{e}^{-it b}}{it} \widehat{F}(t) \mathrm{d}t
+= F(b_-) - F(a) + \frac{1}{2} \Big(P\{b\} + P\{a\}\Big) \, .
+$$
+
+:::
+
+
+La preuve du [Théorème @thm-invformula]) se trouve dans des ouvrages comme [@Dur10] ou [@MR2893652].
+
+
+::: {#cor-char-standard-gaussian-charac}
+
+Soit $\widehat{F}$ la fonction caractéristique de la loi de probabilité $P$.
+Si
+$\widehat{F}(t) = \mathrm{e}^{-\frac{t^2}{2}}$,
+alors $P$ est la loi gaussienne univariée centrée réduite ($\mathcal{N}(0,1)$).
+
+:::
+
+
+
+::: {#cor-char-general-gaussians}
+
+Soit $\widehat{F}$ la fonction caractéristique de la loi de probabilité $P$.
+Si
+$\widehat{F}(t) = \mathrm{e}^{i\mu t -\frac{\sigma^2 t^2}{2}}$,
+alors $P$ est la loi gaussienne ($\mathcal{N}(\mu,\sigma^2)$).
+
+:::
+
+Un autre sous-produit important de la preuve d'injectivité de la fonction caractéristique
+est l'identité de Stein, propriété fondamentale de la loi gaussienne centrée réduite.
+
+::: {#thm-steinIdentity}
+
+### Identité de Stein
+
+Soit $X \sim \mathcal{N}(0,1)$, et $g$ une fonction dérivable telle que $\mathbb{E}|g'(X)|< \infty$. Alors
+
+$$
+\mathbb{E}[g'(X)] = \mathbb{E}[Xg(X)] \, .
+$$
+
+Réciproquement, si $X$ est une variable aléatoire telle que
+
+$$
+\mathbb{E}[g'(X)] = \mathbb{E}[X g(X)]
+$$ 
+
+pour toute fonction dérivable $g$ telle que $g'$ est intégrable, alors $X \sim \mathcal{N}(0,1)$.
+
+:::
+
+
+::: {.proof}
+
+La partie directe suit par intégration par parties.
+
+Pour la réciproque, notons que si $X$ satisfait l'identité du théorème,
+alors, pour tout $t \in \mathbb{R}$, les fonctions $t \mapsto \mathbb{E} \cos(tX)$
+et $t \mapsto \mathbb{E} \sin(tX)$ satisfont l'équation différentielle $g'(t) = t g(t)$
+avec les conditions $\mathbb{E} \cos(0X)=1$ et $\mathbb{E} \sin(0X) =0$.
+Il s'ensuit que $\mathbb{E} \mathrm{e}^{itX} = \exp\Big(-\frac{t^2}{2}\Big)$, c'est-à-dire que
+$X \sim \mathcal{N}(0,1)$
+
+  
+
+:::
+
+<br> <p> </p>
+
+### Dérivabilité et intégrabilité {#sec-diffintfourier}
+
+La dérivabilité de la transformée de Fourier en $0$ et l'intégrabilité
+sont intimement liées.
+
+::: {#thm-fouriermoments}
+
+Si $X$ est $p$-intégrable pour un certain $p \in \mathbb{N}$, alors
+la transformée de Fourier de la loi de $X$ est $p$ fois
+dérivable en $0$ et la dérivée d'ordre $p$ vaut $i^k \mathbb{E}X^k$.
+
+:::
+
+
+
+::: {.proof}
+
+La preuve repose sur un développement de Taylor avec reste de $x \mapsto \mathrm{e}^{ix}$ en $x=0$ : 
+
+$$
+\mathrm{e}^{ix} - \sum_{k=0}^n \frac{(ix)^k}{k!} = \frac{i^{n+1}}{n!} \int_0^x (x-s)^n \mathrm{e}^{is} \mathrm{d}s \, .
+$$
+Le module du membre de droite peut être majoré de deux façons différentes. 
+$$
+\frac{1}{n+!}\Big| \int_0^x (x-s)^n \mathrm{e}^{is} \mathrm{d}s \Big|
+  \leq \frac{|x|^{n+1}}{(n+1)!}
+$$
+ce qui convient lorsque $|x|$ est petit. Pour les grandes valeurs de $|x|$, une intégration par parties donne 
+$$
+\frac{i^{n+1}}{n!} \int_0^x (x-s)^n \mathrm{e}^{is} \mathrm{d}s =  \frac{i^{n}}{(n-1)!} \int_0^x (x-s)^{n-1} \left(\mathrm{e}^{is}-1\right) \mathrm{d}s \,.
+$$
+Le module du membre de droite peut être majoré par $2|x|^n/n!$.
+
+En appliquant ce développement de Taylor à $x=t X$, en utilisant les majorations ponctuelles et en prenant l'espérance, on obtient
+$$\begin{array}{rl}
+  \Big| \widehat{F}(t) - \sum_{k=0}^n \mathbb{E}\frac{(itX)^k}{k!}  \Big|
+    & \leq \mathbb{E} \Big[\min\Big( \frac{|tX|^{n+1}}{(n+1)!} ,2 \frac{|tX|^n}{n!}\Big)\Big] \\
+    & = \frac{|t|^n}{(n+1)!} \mathbb{E} \Big[\min\Big(|t||X|^{n+1} ,2 (n+1) |X|^n \Big)\Big] \, .
+\end{array}
+$$
+Notons que le membre de droite est bien défini dès que $\mathbb{E}|X|^n < \infty$.
+Par convergence dominée (@thm-thmdominatedConv), 
+$$
+\lim_{t \to 0} \mathbb{E} \Big[\min\Big(|t||X|^{n+1} ,2 (n+1) |X|^n \Big)\Big] = 0\,
+$$
+Nous avons donc établi que, si $\mathbb{E}|X|^n < \infty$,
+$$
+\widehat{F}(t) = \sum_{k=0}^n i^k \mathbb{E}X^k \frac{t^k}{k!} + o(|t|^n) \, .
+$$
+
+  
+
+:::
+
+::: {#rem-fourier-derivation}
+
+@thm-fouriermoments affirme que l'intégrabilité de $X$ suffit pour garantir que $\widehat{F}^{(1)}(0)$ est bien définie et qu'en $t=0$ 
+
+$$\widehat{F}^{(1)}(t) = {\frac{\mathrm{d}\mathbb{E} \mathrm{e}^{i t X}}{\mathrm{d}t}}_{\mid t=0} = \mathbb{E} {\frac{\mathrm{d} \mathrm{e}^{i t X}}{\mathrm{d}t}}_{\mid t=0} = \mathbb{E}  [i X]$$
+
+et qu'une formule analogue vaut pour les dérivées d'ordre supérieur. 
+
+Comme beaucoup d'autres résultats de ce domaine, @thm-fouriermoments porte sur l'interversion dérivation et espérance. Le fait que la preuve repose sur le théorème de convergence dominée (@thm-thmdominatedConv) n'est pas surprenant.
+
+
+:::
+
+
+Dans l'autre sens, le lien est moins simple : la dérivabilité
+de la transformée de Fourier n'implique pas l'intégrabilité. Mais le résultat suivant reste vrai.
+
+::: {#thm-fouriervariance}
+
+Si la transformée de Fourier $\widehat{F}$ de la loi de $X$ satisfait 
+
+$$
+\lim_{h \downarrow 0} \frac{2 - \widehat{F}(h) - \widehat{F}(-h)}{h^2} = \sigma^2 < \infty
+$$
+
+alors $\mathbb{E}X^2 = \sigma^2$.
+
+:::
+
+
+::: {.proof}
+
+Notons que
+
+$$
+2 - \widehat{F}(h) - \widehat{F}(-h) =  2\mathbb{E}\Big[1 - \cos(hX)\Big] \, ,
+$$
+
+et utilisons la formule de Taylor avec reste pour $\cos$ en $0$ : 
+
+$$
+1 - \cos x = \int_0^x \cos(s) (x-s) \mathrm{d}s = x^ 2 \int_0^1 \cos(sx) (1-s) \mathrm{d}s
+$$
+
+Notons que $\int_0^1 \cos(sx) (1-s) \mathrm{d}s\geq 0$ pour tout $x \in \mathbb{R}$.
+
+$$
+\begin{array}{rl}
+  \frac{2\mathbb{E}\Big[1 - \cos(hX)\Big]}{h^2}
+    & = 2 \frac{\mathbb{E}\Big[ h^2 X^2 \int_0^1 \cos(shX) (1-s) \mathrm{d}s\Big]}{h^2} \\
+    & = 2 \mathbb{E}\Big[ X^2 \int_0^1 \cos(shX) (1-s) \mathrm{d}s\Big] \, .
+\end{array}
+$$
+
+Par le lemme de Fatou :
+
+$$
+\sigma^2 = \lim_{h \downarrow 0} 2\mathbb{E}\Big[ X^2 \int_0^1 \cos(shX) (1-s) \mathrm{d}s\Big]
+\geq 2\mathbb{E}\Big[\liminf_{h \downarrow 0} X^2 \int_0^1 \cos(shX) (1-s) \mathrm{d}s \Big]
+$$
+
+mais, pour tout $x \in \mathbb{R}$, par convergence dominée (@thm-thmdominatedConv),
+
+$$
+\liminf_{h \downarrow 0} x^ 2 \int_0^1 \cos(shx) (1-s) \mathrm{d}s = \frac{x^2}{2} \, .
+$$
+
+Donc 
+$$
+\sigma^2 \geq \mathbb{E} X^2 \, .
+$$
+
+La preuve s'achève en invoquant [Théorème @thm-fouriermoments]).
+
+:::
+
+@rem-fourier-derivation est à nouveau pertinent ici. 
+
+### Autre application : comprendre la loi de Cauchy {#sec-cauchy}
+
+Supposons que $U$ suit la loi uniforme sur $]0,1[$, et définissons la variable aléatoire réelle $X$ par
+
+$$
+X = \tan\left(\frac{\pi}{2} (2 \times U -1)\right)\, .
+$$
+
+Comme $\tan$ est strictement croissante et continue de $-\pi/2$ à $\pi/2$, la fonction de répartition de la loi de $X$ est
+
+$$
+\begin{array}{rl}
+\mathbb{P}\{ X \leq x\} & = \mathbb{P}\left\{\tan\left(\frac{\pi}{2}(2U-1)\right) \leq x\right\} \\
+& = \mathbb{P}\left\{U \leq \frac{1}{2} + \frac{1}{\pi}\arctan(x) \right\} \\
+& = \frac{1}{2} + \frac{1}{\pi}\arctan(x)
+\end{array}
+$$
+
+pour $x \in \mathbb{R}$.
+
+Comme $\arctan$ a pour dérivée $x \mapsto \frac{1}{1+x^2}$, la fonction de répartition est absolument continue de densité :
+
+$$\frac{1}{\pi} \frac{1}{1  + x^2}$$
+
+Il s'agit de la densité de la loi de Cauchy.
+
+Notons que $\mathbb{E}(X)_+ = \mathbb{E} (X)_- = \mathbb{E}|X| =\infty$. La loi de Cauchy n'est pas intégrable.
+
+Supposons maintenant que $X_1, X_2,, \ldots, X_n$ sont i.i.d. de loi de Cauchy. Posons $Z = \sum_{i=1}^n X_i/n$. Quelle est la loi de $Z$ ? On pourrait calculer la puissance de convolution de la densité de Cauchy. Il s'avère qu'il est bien plus simple de partir de la fonction caractéristique.
+
+Nous nous abstiendrons de calculer directement la fonction caractéristique de la loi de Cauchy. Nous emprunterons un détour.
+
+Soit $Y$ de loi de Laplace, c'est-à-dire de densité $y \mapsto  \frac{1}{2} \exp(-|y|)$ pour $y \in \mathbb{R}$. La variable aléatoire $Y$ est symétrique ($Y \sim -Y$). Notons $\widehat{F}_Y$ la fonction caractéristique de (la loi de) $Y$.
+
+$$
+\begin{array}{rl}
+  \widehat{F}_Y(t) & = \mathbb{E}\mathrm{e}^{tY} \\
+  & = \mathbb{E}\cos(tY) \\
+  & =  \int_0^{\infty} \mathrm{e}^{-y} \cos(ty) \mathrm{d}y \\
+  & = \left[- \mathrm{e}^{-y} \cos(ty)\right]_0^\infty - t \int_{0}^\infty \mathrm{e}^{-ty} \sin(ty) \mathrm{d}y \\
+  & = 1 - t \int_{0}^\infty \mathrm{e}^{-y} \sin(ty) \mathrm{d}y \\
+  & = 1 -t \left[- \mathrm{e}^{-y} \sin(ty)\right]_0^\infty  - t^2 \int_0^\infty \mathrm{e}^{-y} \cos(ty) \mathrm{d}y \\
+  & = 1 - t^2 \widehat{F}_Y(t)
+\end{array}
+$$
+
+où nous avons effectué deux intégrations par parties.
+
+La fonction caractéristique $\widehat{F}_Y$ satisfait
+
+$$\widehat{F}_Y(t) = \frac{1}{1+ t^2}\, ,$$
+
+qui, à un facteur $\frac{1}{\pi}$ près, est la densité de la loi de Cauchy.
+
+$$
+\begin{array}{rl}
+\widehat{F}_X(t) & = \mathbb{E}\mathrm{e}^{itX}\\
+  & =  \int_{-\infty}^{\infty} \frac{1}{\pi} \frac{1}{1+x^2}  \cos(tx)\mathrm{d}x \\
+  & = \frac{2}{\pi} \int_0^\infty \cos(tx) \widehat{F}_Y(x) \mathrm{d}x \\
+  & = 2 \times \frac{1}{2\pi} \int_{-\infty}^{\infty} \mathrm{e}^{-itx} \widehat{F}_Y(x) \mathrm{d}x \\
+  & = 2 \times \frac{1}{2} \mathrm{e}^{-|t|} = \mathrm{e}^{-|t|}
+\end{array}
+$$
+
+où nous avons utilisé la formule d'inversion.
+
+La fonction caractéristique de la loi de $Z$ est
+$$\widehat{F}_Z(t) =\left(\mathrm{e}^{-\frac{|t|}{n}}\right)^n=  \widehat{F}_X(t)$$
+
+ce qui signifie que $Z \sim X$.
+
+Les outils de base de la théorie des fonctions caractéristiques nous permettent de
+
+- calculer la fonction caractéristique de la loi de Laplace
+- calculer la fonction caractéristique de la loi de Cauchy par inversion
+- calculer la fonction caractéristique des sommes de variables aléatoires de Cauchy indépendantes
+- montrer que la loi de Cauchy est $1$-stable.
+
+
+
+:::{#rem-density-laplace}
+
+La densité de la loi de Laplace n'est pas dérivable en $0$ ; cela se reflète dans le fait que sa transformée de Fourier (la fonction caractéristique de la loi de Laplace) n'est pas intégrable.
+
+Réciproquement, le manque d'intégrabilité de la loi de Cauchy se reflète dans la non-dérivabilité de sa fonction caractéristique en $0$.
+
+:::
+
+::: {#exr-tent}
+
+Vérifier que $\int_0^1 \cos(sx) (1-s) \mathrm{d}s\geq 0$ pour tout $x \in \mathbb{R}$.
+
+*Indication :* Vérifier que $t \mapsto \int_0^1 \cos(tw) (1-w) \mathrm{d}w$ est la fonction caractéristique de la loi *tente*, de densité $(1-|w|)$ sur $[-1,1]$. Vérifier que cette fonction caractéristique est le carré du module d'une autre fonction caractéristique. 
+
+:::
+
+## Remarques bibliographiques {#sec-bibcharac}
+
+@wilf2005generatingfunctionology explore
+l'interaction entre combinatoire, analyse d'algorithmes et
+théorie des fonctions génératrices.
+
+@widder2015laplace est une référence classique sur les transformées de Laplace.
+Celles-ci jouent un rôle important dans la théorie des processus ponctuels
+et la théorie des valeurs extrêmes, pour n'en citer que quelques domaines d'application.
+
+La première partie du chapitre 9 de @MR1873379 décrit
+les fonctions caractéristiques comme transformées de Fourier.
+Les propriétés et applications des fonctions caractéristiques sont
+abondamment traitées dans [@Dur10], [@MR2893652].

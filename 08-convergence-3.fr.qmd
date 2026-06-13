@@ -1,0 +1,815 @@
+# Convergence en loi {#sec-chapweakdistrib}
+
+
+
+{{< include _packages_requirements.qmd >}}
+
+
+## Motivation
+
+Rappelons [Leçon @sec-intro].
+Considérons des lois binomiales de paramètres $(n, \lambda/n)$ et
+une loi de Poisson de paramètre $\lambda$. L'inspection graphique des
+fonctions de masse suggère que, lorsque $n$ croît, les lois binomiales de paramètres $(n, \lambda/n)$ ressemblent de plus en plus à
+la loi de Poisson de paramètre $\lambda$. La comparaison des
+fonctions génératrices des probabilités est plus convaincante. La
+fonction génératrice des probabilités de la loi binomiale de
+paramètres $(n, \lambda/n)$ est $s \mapsto (1 +\lambda(s-1)/n )^n$.
+Lorsque $n$ tend vers l'infini, les fonctions génératrices des probabilités
+des binomiales convergent ponctuellement vers la fonction génératrice des probabilités
+de la loi de Poisson de moyenne $\lambda : $ $s \mapsto \exp(\lambda(s-1))$. Dans [Leçon @sec-intro], nous avons vu d'autres exemples de lois
+qui tendent à ressembler à certaines lois limites lorsque certains paramètres
+varient.
+
+Dans [Leçon @sec-convergences1], nous avons muni l'ensemble $L_0(\Omega, \mathcal{F}, P)$
+de topologies ($L_p$, convergence presque sûre, convergence en probabilité).
+Dans cette leçon, nous considérons l'ensemble des lois de probabilité
+sur un espace mesurable $(\Omega, \mathcal{F})$. Cet ensemble peut être muni
+de diverses topologies. Nous nous concentrerons sur la topologie définie
+par la _convergence en loi_, également appelée _convergence faible_.
+
+
+Dans [Section @sec-weakandvague]), nous introduisons les convergences faible et vague pour des suites de lois de probabilité.
+Dans [Section @sec-ConvDistribution]), la convergence faible induit la définition de la convergence en loi pour des variables aléatoires pouvant vivre sur des espaces de probabilité différents (comme nos scores d'occupation dans [Leçon @sec-intro]).
+
+[Section @sec-PortManteau]) est consacrée au théorème de Portmanteau. Ce théorème
+énumère plusieurs caractérisations alternatives et équivalentes de la convergence en loi.
+Des caractérisations alternatives sont utiles à deux titres : elles peuvent être plus faciles à vérifier
+que la caractérisation utilisée dans la définition ; elles peuvent offrir un champ d'applications plus large.
+
+Dans [Section @sec-LevyCont]), nous énonçons et démontrons le théorème de continuité de Lévy.
+Le théorème de continuité de Lévy relie la convergence en loi à la convergence ponctuelle des fonctions caractéristiques : les fonctions caractéristiques nous permettent non seulement d'identifier les lois de probabilité, elles sont aussi
+déterminantes pour la convergence. Cela pourrait constituer une ligne de plus dans l'énoncé
+du [Théorème @thm-portemanteau]). Mais le théorème de continuité de Lévy se distingue
+car il fournit une preuve concise du théorème central limite
+pour des sommes normalisées de variables aléatoires i.i.d. centrées. C'est le contenu de
+[Section @sec-clt]).
+
+
+
+## Convergence faible, convergence vague {#sec-weakandvague}
+
+La convergence faible de mesures de probabilité évalue la proximité de mesures de probabilité en
+comparant leur action sur une collection de fonctions tests.
+
+::: {#def-weak}
+
+### Convergence faible
+
+Une suite de lois de probabilité $(P_n)_{n \in\mathbb{N}}$ sur $\mathbb{R}^k$ converge _faiblement_ vers la loi de probabilité $P$ (sur $\mathbb{R}^k$) 
+
+si et seulement si
+
+pour toute fonction $f$ bornée et continue de $\mathbb{R}^k$ vers
+$\mathbb{R}$, la suite $(\mathbb{E}_{P_n} [f])_{n \in \mathbb{N}}$ converge vers
+$\mathbb{E}_P [f]$.
+
+:::
+
+::: {#rem-vague}
+
+Nous verrons qu'il existe une certaine flexibilité dans le choix de la classe de fonctions tests.
+
+Mais ce choix n'est pas illimité.
+
+Si nous restreignons la collection de fonctions tests aux fonctions continues à
+_support compact_ (qui sont toujours bornées), nous obtenons une notion de convergence différente.
+
+:::
+
+::: {#def-vagueconv}
+
+### Convergence vague
+
+Une suite de lois de probabilité $(P_n)_{n \in
+\mathbb{N}}$ sur $\mathbb{R}^k$ converge vaguement vers la mesure $\mu$ (sur $\mathbb{R}^k$) si et seulement si
+pour toute fonction $f$ continue à support compact
+de $\mathbb{R}^k$ vers
+$\mathbb{R}$, la suite $(\mathbb{E}_{P_n} [f])_{n \in \mathbb{N}}$ converge vers $\mathbb{E}_P [f]$.
+
+:::
+
+
+::: {#exm-vague}
+
+Considérons la suite de masses de probabilité sur les 
+entiers $(\delta_n)_{n \in \mathbb{N}}$. Cette suite converge vaguement vers la mesure nulle. Elle ne converge pas faiblement.
+
+:::
+
+La question suivante mérite réflexion.
+
+::: {#exr-conv-vague}
+
+Si une suite de lois de probabilité sur $\mathbb{R}^k$ converge vaguement vers une mesure de probabilité, converge-t-elle aussi faiblement vers cette mesure de probabilité ?
+
+:::
+
+## Convergence en loi {#sec-ConvDistribution}
+
+::: {#def-weakcon}
+
+### Convergence en loi
+
+Une suite $(X_n)_{n \in \mathbb{N}}$ de variables aléatoires à valeurs dans $\mathbb{R}^k$, définies
+sur une suite d'espaces de probabilité $(\Omega_n, \mathcal{F}_n, P_n)$, converge en loi
+si la suite $(P_n \circ X_n^{-1})_{n \in \mathbb{N}}$ converge faiblement. On note
+$$
+X_n \rightsquigarrow X \qquad \text{ou} \qquad  X_n \rightsquigarrow \mathcal{L}
+$$ 
+
+($\mathcal{L}$ désigne une loi de probabilité),
+les espaces de probabilité sont définis implicitement
+
+:::
+
+Pour vérifier ou utiliser la convergence en loi, de nombreuses caractérisations équivalentes sont disponibles.
+Certaines d'entre elles sont énumérées dans le théorème de Portmanteau.
+
+## Théorème de Portmanteau  {#sec-PortManteau}
+
+La liste suivante de caractérisations équivalentes de la convergence faible n'est pas exhaustive.
+
+::: {#thm-portemanteau}
+
+### Théorème de Portmanteau
+
+Une suite de lois de probabilité $(P_n)_{n \in \mathbb{N}}$ sur $\mathbb{R}^k$ converge faiblement
+vers une loi de probabilité $P$ (sur $\mathbb{R}^k$) si et seulement si l'une des propriétés équivalentes suivantes est satisfaite :
+
+1. Pour toute fonction $f$ bornée continue de $\mathbb{R}^k$ vers
+$\mathbb{R}$, la suite $\mathbb{E}_{P_n} [f]$ converge vers
+$\mathbb{E}_P [f]$.
+1. Pour toute fonction $f$ bornée uniformément continue de
+$\mathbb{R}^k$ vers $\mathbb{R}$, la suite $\mathbb{E}_{P_n} [f]$
+converge vers $\mathbb{E}_P [f]$.
+1. Pour toute fonction $f$ bornée lipschitzienne de $\mathbb{R}^k$ vers $\mathbb{R}$, la suite $\mathbb{E}_{P_n} [f]$ converge vers $\mathbb{E}_P [f]$.
+1. Pour toute fonction $f$ bornée $P$-presque sûrement et continue de $\mathbb{R}^k$ vers $\mathbb{R}$, la suite
+$(\mathbb{E}_{P_n} [f])$ converge vers $\mathbb{E}_P [f]$.
+1. Pour tout fermé $F$ de $\mathbb{R}^k$, $\limsup P_n (F) \leq  P(F).$
+1. Pour tout ouvert $O$ de $\mathbb{R}^k$, $\liminf P_n (O) \geq  P(O).$
+1. Pour tout borélien $A$ tel que $P(A^\circ) = P(\overline{A})$ (la frontière de $A$ est $P$-négligeable), $\lim_n P_n(A)=P(A)$.
+
+:::
+
+En anglais comme en français, un _portemanteau_ est une valise.
+
+::: {.proof}
+Les implications $1) \Rightarrow 2) \Rightarrow 3)$ sont évidentes.
+Le théorème de continuité de Lévy, résultat majeur de [Section @sec-LevyCont])
+entraîne que $3) \Rightarrow 1)$.
+
+$4)$.
+
+Le fait que $5) \Leftrightarrow 6)$ découle du fait que le complémentaire d'un fermé
+est un ouvert.
+
+$5)$ et $6)$ impliquent $7)$ : $$
+\limsup_n P_n(\overline{A}) \leq P(\overline{A}) = P(A^\circ) \leq \liminf_n P_n(A^\circ) \, .
+$$
+Par monotonie :
+$$
+\liminf_n P_n(A^\circ) \leq \liminf_n P_n (A) \leq \limsup_n P_n(A) \leq \limsup_n P_n (\overline(A)) \, .
+$$
+En combinant, on obtient $$
+\lim_n P_n(A) = \liminf_n P_n (A) = \limsup_n P_n(A) = P(A^\circ) = P(\overline{A}) \, .
+$$
+
+
+Vérifions que $3) \Rightarrow 5)$. Soit $F$ un fermé de $\mathbb{R}^k$. Pour $x\in \mathbb{R}^k$, notons $\mathrm{d}(x,F)$
+la distance de $x$ à $F$. Pour $m \in \mathbb{N}$, posons $f_m(x) = \big(1 - m \mathrm{d}(x, F)\big)_+$. La fonction $f_m$
+est $m$-lipschitzienne, minorée par $\mathbb{I}_F$, et pour tout $x \in \mathbb{R}^k$, $\lim_m \downarrow f_m(x)= \mathbb{I}_F(x)$.
+
+La convergence faible de $P_n$ vers $P$ implique $$
+\lim_n \mathbb{E}_{P_n} f_m = \mathbb{E}_P f_m
+$$ d'où, pour tout $m \in \mathbb{N}$, $$
+\limsup_n \mathbb{E}_{P_n} \mathbb{I}_F \leq \mathbb{E}_P f_m \, .
+$$
+En prenant la limite du côté droit, on obtient $$
+\limsup_n P_n(F) = \limsup_n \mathbb{E}_{P_n} \mathbb{I}_F \leq \lim_m \downarrow \mathbb{E}_P f_m = \mathbb{E}_P \mathbb{I_F} = P(F) \, .
+$$
+
+Supposons maintenant que $7)$ soit vérifiée. Montrons que cela entraîne $1)$.
+
+Soit $f$ une fonction bornée continue. Sans perte de généralité, supposons que $f$ est non négative et majorée par $1$. Rappelons que pour toute mesure $\mu$ $\sigma$-finie $$
+\int f \mathrm{d}\mu = \int_{[0,\infty)} \mu\{f > t\} \mathrm{d}t \, .
+$$ Cela vaut pour toutes les $P_n$ et $P$. Ainsi
+$$
+\mathbb{E}_{P_n} f = \int_{[0,\infty)} P_n \{ f > t \} \mathrm{d}t
+$$
+Comme $\overline{\{ f > t\}}= \{ f \geq t\}$,  $\overline{\{ f > t\}} \setminus \{ f > t\}^\circ = \{ f = t\}$. L'ensemble des valeurs $t$ telles
+que $P \{ f = t\}>0$ est au plus dénombrable et donc de mesure de Lebesgue négligeable. Soit $E$ son complémentaire. Pour $t\in E$, $\lim_n P_n\{ f> t\} = P\{f >t\}$.
+\begin{align*}
+  \lim_n \mathbb{E}_{P_n} f
+    & = \lim_n \int_{[0, 1]} P_n \{ f >t \} \mathrm{d}t \\
+    & = \lim_n \int_{[0, 1]} P_n \{ f >t \} \mathbb{I}_E(t) \mathrm{d}t \\
+    & = \int_{[0, 1]} \lim_n  P_n \{ f >t \} \mathbb{I}_E(t) \mathrm{d}t \\
+    & = \int_{[0,1]} P\{f >t\}  \mathbb{I}_E(t) \mathrm{d}t \\
+    & = \int_{[0,1]} P\{f >t\}   \mathrm{d}t \\
+    & = \mathbb{E}_P f \, .
+\end{align*}
+
+:::
+
+
+
+Pour des mesures de probabilité sur $(\mathbb{R}, \mathcal{B}(\mathbb{R}))$, la convergence faible est déterminée par les fonctions de répartition cumulatives. C'est parfois pris comme définition de la convergence faible dans les ouvrages élémentaires.
+
+::: {#cor-weakconvecdf}
+
+Une suite de mesures de probabilité définies par leurs fonctions de répartition cumulatives $(F_n)_n$ converge faiblement vers une mesure de probabilité définie par la fonction de répartition cumulative $F$ si et seulement si $\lim_n F_n(x) = F(x)$ en tout point $x$ de continuité de $F$.
+
+:::
+
+Pour des mesures de probabilité sur $(\mathbb{R}, \mathcal{B}(\mathbb{R}))$, la convergence faible est également déterminée par les fonctions quantiles.
+
+
+::: {#prp-weakconvquantiles}
+
+Une suite de mesures de probabilité définies par leurs fonctions quantiles $(F^\leftarrow_n)_n$ converge faiblement vers une mesure de probabilité définie par la fonction quantile $F^\leftarrow$ 
+si et seulement si $\lim_n F_n^\leftarrow(x) = F^\leftarrow(x)$ en tout point $x$ de continuité de $F^\leftarrow$.
+
+:::
+
+
+::: {#exr}
+Démontrer la proposition @prp-weakconvquantiles.
+
+:::
+
+::: {#prp-asrepweakconv}
+
+### Représentation presque sûre
+
+Si $(X_n)_n$ converge en loi vers $X$, alors il existe
+un espace de probabilité $(\Omega, \mathcal{F}, P)$ avec des variables aléatoires $(Y_n)_n$
+et $Y$ telles que $X_n \sim Y_n$ pour tout $n$, $X\sim Y$, et $$
+Y_n \to Y \qquad P\text{-p.s.}
+$$
+
+:::
+
+::: {#rem-alternative-universes}
+Les variables aléatoires $(X_n)_n$ et $X$ peuvent vivre sur des espaces de probabilité différents.
+:::
+
+Lorsque les variables aléatoires $X_n$ sont réelles, @prp-asrepweakconv découle facilement de la proposition @prp-weakconvquantiles.
+
+::: {.proof}
+Posons $\Omega= [0,1], \mathcal{F}=\mathcal{B}(\mathbb{R})$ et soit $\omega$ uniformément distribué sur $\Omega = [0,1]$. Posons
+$Y_n = F_n^\leftarrow(\omega)$ et $Y = F^\leftarrow(\omega)$.
+
+Alors, pour chaque $n$,
+$$
+P \Big\{ Y_n \leq t \Big\} = P\Big\{\omega : F_n^\leftarrow(\omega) \leq t \Big\}
+= P\Big\{\omega : \omega \leq F_n(t) \Big\} = F_n(t)
+$$
+de sorte que $Y_n \sim F_n$. Et par le même argument, $Y \sim F$.
+
+Comme une fonction non décroissante admet au plus dénombrablement de discontinuités,
+$$
+P\Big\{\omega : F^\leftarrow\text{ est continue en }\omega \Big\}=1\,.
+$$
+Supposons maintenant que $\omega$ soit un point de continuité de $F^{\leftarrow}$.
+Alors, par la proposition @prp-weakconvquantiles, $\lim_n F_n^{\leftarrow}(\omega) = F^\leftarrow(\omega)$. Cela se traduit par
+$$
+P \Big\{\omega :  \lim_n Y_n(\omega) =Y(\omega) \Big\} = 1 \, .
+$$
+
+  
+:::
+
+
+## Théorème de continuité de Lévy {#sec-LevyCont}
+
+
+
+::: {#thm-thmlevycont}
+
+### Théorème de continuité de Lévy
+
+Une suite $(P_n)_n$ de lois de probabilité sur $\mathbb{R}^d$ converge faiblement vers
+une loi de probabilité $P$ sur $\mathbb{R}^d$ si et seulement si la suite
+des fonctions caractéristiques converge ponctuellement vers la fonction caractéristique de $P$.
+
+:::
+
+::: {#rem-levycont1}
+
+Le [Théorème @thm-thmlevycont] affirme que la convergence faible
+de mesures de probabilité est caractérisée par un très petit sous-ensemble
+de fonctions bornées continues. Pour garantir la convergence faible de
+$(P_n)_n$ vers $P$, il suffit de vérifier que $\mathbb{E}_{P_n}f \to \mathbb{E}_Pf$
+pour les fonctions $f$ de la famille $\{ \cos(t \cdot), \sin(t \cdot) : t \in \mathbb{R} \}$.
+Ces fonctions sont bornées et infiniment dérivables.
+
+:::
+
+::: {#lem}
+
+Soient $(X_n)_n$, $X$ et $Z$ définies sur le même espace de probabilité.
+Si $(X_n)_n$, $X$ et $Z$ sont des variables aléatoires telles que pour tout $\sigma>0$,
+$X_n + \sigma Z \rightsquigarrow X+\sigma Z$, alors $X_n \rightsquigarrow X$.
+
+:::
+
+::: {.proof}
+
+Soit $h$ bornée par $1$ et $1$-lipschitzienne
+\begin{align*}
+\Big| \mathbb{E} h(X_n) -h(X) \Big|
+& \leq \Big| \mathbb{E} h(X_n) - h(X_n + \sigma Z) \Big| \\
+& \qquad +  \Big| \mathbb{E} h(X_n + \sigma Z) - h(X + \sigma Z) \Big| \\
+& \qquad +  \Big| \mathbb{E} h(X + \sigma Z) - h(X) \Big|
+\end{align*}
+Le premier et le troisième terme se traitent de la même manière.
+
+Soit $\epsilon >0$,
+\begin{align*}
+\Big| \mathbb{E} h(X_n) - h(X_n + \sigma Z) \Big|
+& \leq \Big| \mathbb{E} (h(X_n) - h(X_n + \sigma Z)) \mathbb{I}_{\sigma |Z|>\epsilon} \Big| \\
+& \qquad + \Big| \mathbb{E} (h(X_n) - h(X_n + \sigma Z)) \mathbb{I}_{\sigma |Z|\leq\epsilon} \Big| \\
+& \leq 2 P\{\sigma |Z|>\epsilon\} + \epsilon \, .
+\end{align*}
+En combinant les différentes majorations, on obtient
+\begin{align*}
+  \Big| \mathbb{E} h(X_n) -h(X) \Big|
+  & \leq  2  P\{\sigma |Z|>\epsilon\} + \epsilon + \Big| \mathbb{E} h(X_n + \sigma Z) - h(X + \sigma Z) \Big|
+\end{align*}
+Le dernier terme du membre de droite tend vers $0$ lorsque $n$ tend vers l'infini. Le premier terme
+tend vers $0$ lorsque $\sigma$ tend vers $0$.
+
+Ainsi 
+
+$$
+\limsup_n \Big| \mathbb{E} h(X_n) - h(X_n + \sigma Z) \Big| \leq \epsilon \, .
+$$
+
+  
+
+:::
+
+
+::: {#lem-scheffe}
+
+### Lemme de Scheffé
+
+Soit $(P_n)_n$ une suite de lois de probabilité absolument continues
+de densités $(f_n)_n$. Si les densités $(f_n)_n$ convergent ponctuellement vers la
+densité $f$ d'une certaine loi de probabilité $P$, alors $P_n \rightsquigarrow P$.
+
+:::
+
+::: {.proof}
+
+\begin{align*}
+\int_{\mathbb{R}} |f_n(x) - f(x)| \mathrm{d}x
+ & = \int_{\mathbb{R}} (f(x) - f_n(x))_+  \mathrm{d}x + \int_{\mathbb{R}} (f(x) - f_n(x))_-  \mathrm{d}x \\
+ & = 2 \int_{\mathbb{R}} (f(x) - f_n(x))_+  \mathrm{d}x  \, .
+\end{align*}
+Observons que $(f - f_n)_+ \leq f$, qui appartient à $\mathcal{L}_1(\mathbb{R}, \mathcal{B}(\mathbb{R}), \text{Lebesgue})$.
+Et $(f-f_n)_+$ converge ponctuellement vers $0$. Par le théorème de convergence dominée,
+$\lim_n \int_{\mathbb{R}} |f_n - f| \mathrm{d}x =0$.
+
+Pour tout $A \in \mathcal{B}(\mathbb{R})$, $$
+P_n(A) - P(A) = \int_{\mathbb{R}} \mathbb{I}_A (f_n -f) \leq \int_{\mathbb{R}} |f_n -f| \, .
+$$
+Nous avons prouvé plus que la convergence faible, à savoir $$
+\lim_n \sup_{A \in \mathcal{B}(\mathbb{R})} |P_n(A) - P(A)| = 0 \, .
+$$
+
+  
+
+:::
+
+::: {.proof}
+
+### Preuve du théorème de continuité
+
+Supposons que les fonctions caractéristiques de $(X_n)_n$ convergent ponctuellement vers la fonction caractéristique
+de $X$.
+
+Soit $Z$ une variable aléatoire gaussienne standard, indépendante de toutes les $(X_n)_n$ et de $X$.
+Pour $\sigma>0$, les lois de $X_n + \sigma Z$ et $X + \sigma Z$ ont des densités
+uniquement déterminées par les fonctions caractéristiques de $X_n$ et $X$. De plus,
+un argument de convergence dominée montre que les densités de $X_n + \sigma Z$
+convergent ponctuellement vers la densité de $X + \sigma Z$. Par le lemme de Scheffé,
+cela entraîne que $X_n + \sigma Z \rightsquigarrow X + \sigma Z$.
+
+Comme cela vaut pour tout $\sigma>0$, cela entraîne que $X_n \rightsquigarrow X.$
+
+  
+
+:::
+
+## Affiner le théorème de continuité {#sec-refineLevy}
+
+
+Dans certaines situations, nous pouvons prouver qu'une suite de fonctions caractéristiques
+converge ponctuellement vers une certaine fonction, mais nous n'avons aucun candidat
+pour la loi limite. La question se pose de savoir si la limite ponctuelle
+des fonctions caractéristiques est la fonction caractéristique d'une certaine loi de probabilité ou autre chose.
+
+La réponse peut être négative : si $P_n = \mathcal{N}(0, n)$, la suite
+de fonctions caractéristiques est $\big(t \mapsto \exp(-nt^2/2)\big)_n$, qui converge ponctuellement
+vers $0$ sauf en $0$ où elle vaut $1$ tout au long. La limite n'est pas la fonction caractéristique d'une
+mesure de probabilité : elle n'est pas continue en $0$.
+
+Le théorème suivant tranche la question.
+
+
+::: {#thm-levycont2}
+
+### Théorème de continuité de Lévy, deuxième forme
+
+Une suite $(P_n)_n$ de lois de probabilité sur $\mathbb{R}$ converge faiblement vers
+une loi de probabilité sur $\mathbb{R}$ si et seulement si la suite
+de fonctions caractéristiques converge ponctuellement vers une fonction continue en $0$.
+La fonction limite est la fonction caractéristique d'une certaine loi de probabilité.
+
+:::
+
+::: {#def-utight}
+
+### Compacité uniforme
+
+Une suite de mesures de probabilité $(P_n)_n$ sur $\mathbb{R}$ est _uniformément
+tendue_ si pour tout $\epsilon >0$, il existe un compact $K \subseteq \mathbb{R}$
+tel que 
+
+$$\forall n, \qquad P_n(K) \geq 1 - \epsilon\, .$$
+
+:::
+
+::: {#exr-utight-enough}
+
+Pour établir la compacité uniforme de $(P_n)_n$, il suffit de montrer que pour tout $\epsilon>0$,
+il existe un certain $n_0(\epsilon)$ et un compact $K \subseteq \mathbb{R}$ tels que
+
+$$\forall n \geq n_(\epsilon), \qquad P_n(K) \geq 1 - \epsilon\, .$$
+
+:::
+
+Nous admettons le théorème (important) suivant.
+
+::: {#thm-plc}
+
+### Prokhorov-Le Cam
+
+Si $(P_n)_n$ est une suite uniformément tendue de mesures de probabilité sur $\mathbb{R}$, alors
+il existe une mesure de probabilité $P$ et une sous-suite $(P_{n(k)})_{k \in \mathbb{N}}$ telle que 
+
+$$P_{n(k)} \rightsquigarrow P \, .$$
+
+:::
+
+Puis 
+
+::: {#lem-utl}
+
+### Lemme de compacité uniforme
+
+Soit $(P_n)_n$ une suite de lois de probabilité sur $\mathbb{R}$,
+de fonctions caractéristiques $\widehat{F}_n$. Si la suite
+$(\widehat{F}_n)_n$ converge ponctuellement vers une fonction continue en $0$,
+alors la suite $(P_n)_n$ est _uniformément tendue_.
+
+:::
+
+Nous utiliserons la majoration technique suivante, illustrée dans @fig-techdude :
+
+$$
+\forall t \in \mathbb{R} \setminus[-1,1], \qquad   \frac{\sin(t)}{t} \leq \sin(1) \leq \frac{6}{7}\, .
+$$
+
+
+
+
+
+<!-- ::: {#fig-techdude} -->
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| label: fig-techdude
+#| fig-cap: | 
+#|   The proof of the truncation inequality takes advantage on easy bounds satisfied by 
+#|   the $\operatorname{sinc}$ function.
+
+
+ggplot2::ggplot(data=tibble::tibble(x=seq(-15,15,by=.001)),
+       mapping=ggplot2::aes(x=x)) +
+  ggplot2::stat_function(fun= \(x){ifelse(abs(x) < .Machine[["double.eps"]], 1,  sin(x)/x)}, linetype=1) +
+  ggplot2::geom_hline(yintercept = sin(1), linetype="dotted") +
+  ggplot2::geom_vline(xintercept = 1, linetype= "dotted", alpha=.5) +
+  ggplot2::geom_vline(xintercept = -1, linetype= "dotted", alpha=.5) +
+  ggplot2::scale_x_continuous(breaks=c(-1, 0, 1)) +
+  ggplot2::scale_y_continuous(breaks=c(-.25, 0, sin(1), 1),labels = c("-.25", "0", "sin(1)", "1")) +
+  ggplot2::ylab("sinc(x)")
+
+```
+
+<!-- ::: -->
+
+
+
+::: {#prp-trunc-lem}
+
+### Lemme de troncature
+
+Soit $\widehat{F}$ la fonction caractéristique d'une mesure de probabilité $P$ sur la droite réelle, alors pour tout $u > 0$ :
+$$
+\frac{1}{u}\int_0^u \big(1 - \operatorname{Re}\widehat{F}(v)\big) \mathrm{d}v  \geq \frac{1}{7} P \Big[\frac{-1}{u}, \frac{1}{u}\Big]^c \, .
+$$
+
+:::
+
+::: {.proof}
+
+### Preuve du lemme de troncature
+
+\begin{align*}
+\frac{1}{u}\int_0^u \big(1 - \operatorname{Re}\widehat{F}_n(v)\big) \mathrm{d}v
+  & = \frac{1}{u}\int_0^u \Big(\int_{\mathbb{R}} \big(1 - \cos(v w)\big)\mathrm{d}F(w) \Big)\mathrm{d}v \\
+  & =  \int_{\mathbb{R}}\int_0^u \frac{1}{u} \Big( \big(1 - \cos(v w)\big) \mathrm{d}v  \Big)\mathrm{d}F(w) \\
+  & =  \int_{\mathbb{R}}  \Big( 1 - \frac{\sin(uw)}{uw}  \Big)\mathrm{d}F(w) \\
+  & \geq  \int_{|uw| \geq 1}  \Big( 1 - \frac{\sin(uw)}{uw}  \Big)\mathrm{d}F_n(w) \\
+  & \geq (1- \sin(1)) P \Big[\frac{-1}{u}, \frac{1}{u}\Big]^c \,
+\end{align*}
+où les deux inégalités découlent des bornes sur la fonction $\operatorname{sinc}$.
+
+  
+
+:::
+
+::: {.proof}
+
+### Preuve du lemme de compacité uniforme
+
+
+Supposons que la suite
+$(\widehat{F}_n)_n$ converge ponctuellement vers une fonction $\widehat{F}$ continue en $0$.
+
+Notons que $\widehat{F}_n(0)=1$ pour tout $n$, d'où, trivialement, $1 =\lim_n \widehat{F}_n(0) = \widehat{F}(0)$.
+
+Comme $|\operatorname{Re}\widehat{F}_n(t)|\leq 1$, on a aussi $|\operatorname{Re}\widehat{F}(t)|\leq 1$.
+
+Fixons $\epsilon>0$. Comme $\widehat{F}$ est continue en $0$, pour un certain $u>0$, pour tout $v \in [-u,u]$, $0 \geq 1- \widehat{F}(u) \leq \epsilon/2.$
+Ainsi, 
+$$
+0 \leq \frac{1}{u}\int_0^u \big(1 - \operatorname{Re}\widehat{F}(v)\big) \mathrm{d}v \leq \epsilon/2 \, .
+$$
+
+Par convergence dominée,
+$$
+\lim_n \frac{1}{u}\int_0^u \big(1 - \operatorname{Re}\widehat{F}_n(v)\big) \mathrm{d}v
+= \frac{1}{u}\int_0^u \big(1 - \operatorname{Re}\widehat{F}(v)\big) \mathrm{d}v  \leq \epsilon/2 \, .
+$$
+
+Pour $n$ suffisamment grand, $0 \leq \frac{1}{u}\int_0^u \big(1 - \operatorname{Re}\widehat{F}_n(v)\big) \mathrm{d}v \leq \epsilon$.
+
+En appliquant le lemme de troncature, pour $n$ suffisamment grand, nous avons 
+$$
+P_n \Big[\frac{-1}{u}, \frac{1}{u}\Big]^c \leq 7 \epsilon \, .
+$$
+L'intervalle $\Big[\frac{-1}{u}, \frac{1}{u}\Big]$ est compact.
+
+  
+
+:::
+
+::: {.proof}
+
+### Preuve de la deuxième forme du théorème de continuité
+
+Nous combinons le lemme de compacité uniforme et le théorème de Prokhorov-Le Cam. Sous les hypothèses de la deuxième forme du théorème de continuité,
+il existe une mesure de probabilité $P$ (de fonction caractéristique $\widehat{F}$) et une sous-suite
+$(P_{n(k)})_{k \in \mathbb{N}}$ telle que $P_{n(k)} \rightsquigarrow P \text{ lorsque } {k \to \infty}$.
+Cela entraîne $\widehat{F}_{n(k)} \rightarrow \widehat{F} \text{ lorsque } {k \to \infty}$ ponctuellement.
+Cela entraîne aussi que $\widehat{F}_n \rightarrow \widehat{F}$ ponctuellement pour toute la suite.
+Enfin, nous pouvons invoquer le [Théorème @thm-thmlevycont]) pour conclure $P_{n}\rightsquigarrow  P \text{ lorsque }{n \to \infty}$.
+
+  
+
+:::
+
+::: {#rem-extension}
+
+Toutes les définitions et résultats de cette section peuvent être étendus au cadre $k$-dimensionnel pour tout $k \in \mathbb{N}$.
+
+:::
+
+
+## Relations entre convergences  {#sec-relatconv}
+
+Les caractérisations alternatives de la convergence faible fournies par le
+théorème de Portmanteau ([Théorème @thm-portemanteau]) facilitent la
+preuve de la proposition suivante.
+
+::: {#prp}
+La convergence en probabilité implique la convergence en loi.
+:::
+
+::: {.proof}
+Supposons que $(X_n)_n$ converge en probabilité vers $X$.
+
+Soit $h$ une fonction bornée lipschitzienne.
+Sans perte de généralité, supposons que $|f(x)|\leq 1$ pour tout $x$ et $|f(x)-f(y)|\leq \mathrm{d}(x,y)$.
+
+Soit $\epsilon>0$.
+\begin{align*}
+\Big| \mathbb{E}h(X_n) - \mathbb{E}h(X)  \Big|
+ & = \Big| \mathbb{E}\Big[(h(X_n) - h(X) \mathbb{I}_{\mathrm{d}(X,X_n)> \epsilon}\Big] \\
+ & \qquad  + \mathbb{E}\Big[(h(X_n) - h(X) \mathbb{I}_{\mathrm{d}(X,X_n)\leq \epsilon}\Big] \Big| \\
+ & \leq  \mathbb{E}\Big[2 \mathbb{I}_{\mathrm{d}(X,X_n)> \epsilon} \Big] \\
+ & \qquad + \mathbb{E}\Big[ |h(X_n) - h(X)| \mathbb{I}_{\mathrm{d}(X,X_n)\leq \epsilon}\Big] \\
+ & \leq 2 P\big\{ \mathrm{d}(X,X_n)> \epsilon \big\} + \epsilon \, .
+\end{align*}
+La convergence en probabilité entraîne que 
+$$
+\limsup_n \Big| \mathbb{E}h(X_n) - \mathbb{E}h(X)  \Big| \leq \epsilon.
+$$
+Comme cela vaut pour tout $\epsilon >0$, pour toute fonction bornée lipschitzienne $h$,
+$\lim_n \Big| \mathbb{E}h(X_n) - \mathbb{E}h(X)  \Big|=0$. Cela suffit à établir
+la convergence en loi de $(X_n)_n$.
+
+
+  
+:::
+
+
+## Théorème central limite {#sec-clt}
+
+Le théorème de continuité de Lévy ([Théorème @thm-thmlevycont])
+est la pierre angulaire d'une preuve très concise de la version la plus simple du
+théorème central limite (TCL). Sous l'hypothèse d'intégrabilité au carré, le
+TCL affine les lois des grands nombres. Il affirme que, lorsque $n$ tend vers l'infini,
+les fluctuations de la moyenne empirique $\sum_{i=1}^n X_i/n$ autour de son espérance
+sont d'ordre $1/\sqrt{n}$ et, une fois renormalisées, suivent une loi normale.
+
+
+::: {#thm-cltbasics}
+
+Soient $X_1, \ldots, X_n, \ldots$ i.i.d. de variance finie $\sigma^2$ et d'espérance $\mu$.
+Posons $S_n = \sum_{i=1}^n X_i$. 
+
+$$\sqrt{n} \left(\frac{S_n}{n} - \mu \right) \rightsquigarrow \mathcal{N}\big(0, \sigma^2 \big) \, .$$
+
+:::
+
+::: {.proof}
+
+Notons $\widehat{F}$ la fonction caractéristique de la loi (commune)
+des variables aléatoires $((X_i-\mu)/\sigma)_i$. Rappelons de [Leçon @sec-chapchar], que
+les hypothèses de centrage et d'intégrabilité au carré impliquent que 
+
+$$
+\widehat{F}(t) = \widehat{F}(0) + \widehat{F}'(0) t + \frac{\widehat{F}'(0)}{2} t^2
++ t^2 R(t)= 1 - \frac{t^2}{2} + t^2 R(t)
+$$
+où $\lim_{t \to 0} R(t)=0$. Notons $\widehat{F}_n$ la fonction caractéristique
+de $\sqrt{n} \left(\frac{S_n}{n} - \mu \right)/\sigma$. Fixons $t \in \mathbb{R}$, 
+$$
+\widehat{F}_n(t) = \Big(\widehat{F}(t/\sqrt{n})\Big)^n
+= \Big(1 - \frac{t^2}{2n} + \frac{t^2}{n} R(t/\sqrt{n})\Big)^n \, .
+$$
+Lorsque $n\to \infty$, 
+$$
+\lim_n \Big(1 - \frac{t^2}{2n} + \frac{t^2}{n} R(t/\sqrt{n})\Big)^n  = \mathrm{e}^{- \frac{t^2}{2}} \, .
+$$
+
+Au membre de droite, nous reconnaissons la fonction caractéristique de $\mathcal{N}(0,1)$.
+
+  
+:::
+
+::: {#rem-cond-proof}
+
+Les conditions de l'énoncé du théorème permettent une preuve courte. Elles ne sont nullement nécessaires. Les termes de la somme n'ont pas besoin d'être identiquement distribués. Les termes de la somme n'ont pas besoin d'être
+indépendants. Une version du théorème de Lindeberg-Feller affirme que, sous des hypothèses légères, des sommes centrées et normalisées de variables aléatoires indépendantes intégrables au carré convergent en loi vers une loi gaussienne.
+
+:::
+
+
+
+<!-- ::: {#fig-cltbinom} -->
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| eval: false
+#| label: fig-cltbinom
+#| 
+#| fig-cap: |
+#|   Pointwise convergence of cumulative distribution functions towards the Gaussian cumulative
+#|   distribution functions of $\mathcal{N}(0,1)$ (plain line) illustrates the Central Limit Theorem. 
+#|   The dotted and the dashed lines represent the cumulative distribution function of 
+#|   $(X_n -np)/\sqrt{n(p*(1-p))}$ where  $X_n \sim \text{Binomial}(n,p)$ for $p=.3$ 
+#|   and $n=30 \text(dotted), 100 \text(dashed)$.
+
+foo <- function(x, size, prob){
+  pbinom(sqrt(size*prob*(1-prob))*x+size*prob, size=size, prob=prob)
+}
+
+ggplot2::ggplot(data=tibble::tibble(x=seq(-3,3,by=.01)),
+       mapping=ggplot2::aes(x=x)) +
+  ggplot2::stat_function(fun=pnorm, args=list(mean=0, sd=1), linetype=1) +
+  ggplot2::geom_step(mapping=ggplot2::aes(y=foo(x, 100, .3)), linetype='dashed') +
+  ggplot2::geom_step(mapping=ggplot2::aes(y=foo(x, 30, .3)), linetype='dotted')
+
+rm(foo)
+```
+
+<!-- ::: -->
+
+
+## Dispositif de Cramér-Wold  {#sec-cramerwolddevice}
+
+Jusqu'ici, nous avons discuté des fonctions caractéristiques pour des variables aléatoires réelles. Mais les fonctions caractéristiques
+peuvent être définies pour des variables aléatoires vectorielles. Si $X$ est une variable aléatoire à valeurs dans $\mathbb{R}^k$,
+sa fonction caractéristique applique $\mathbb{R}^k$ dans $\mathbb{C}$ :
+\begin{align*}
+\mathbb{R}^k & \to \mathbb{C} \\
+t & \mapsto \mathbb{E}\mathrm{e}^{i \langle t, X\rangle} \, .
+\end{align*}
+
+L'importance des fonctions caractéristiques multivariées se reflète
+dans le dispositif suivant, dont la preuve est laissée au lecteur. Il consiste à adapter la
+preuve du [Théorème @thm-injeccharfunc]).
+
+::: {#thm-cramerwold}
+
+### Cramér-Wold
+
+La loi d'un vecteur aléatoire à valeurs dans $\mathbb{R}^k$, $X = (X_1, \ldots, X_k)^T$, est entièrement déterminée
+par la collection des lois des variables aléatoires univariées $\langle t, X\rangle =\sum_{i=1}^n t_i X_i$ où
+$(t_1, \ldots, t_n)^T$ appartient à $\mathbb{R}^n.$
+
+:::
+
+Le [Théorème @thm-cramerwold]) fournit un chemin court vers le théorème central limite multivarié.
+
+
+::: {#thm-cltmuli}
+
+Soient $X_1, \ldots, X_n, \ldots$ des variables aléatoires vectorielles i.i.d. de covariance finie $\Gamma$ et d'espérance $\mu$.
+Posons $S_n = \sum_{i=1}^n X_i$. 
+$$
+\sqrt{n} \left(\frac{S_n}{n} - \mu \right) \rightsquigarrow \mathcal{N}\big(0, \Gamma\big) \, . s
+$$
+
+:::
+
+
+
+## Convergence faible et transformations {#sec-weakconvtransforms}
+
+Dans Lesson @sec-chapchar, nous avons introduit différentes caractérisations des lois de probabilité : fonctions génératrices des probabilités,
+transformées de Laplace, transformées de Fourier (fonctions caractéristiques), fonctions de répartition cumulatives, fonctions quantiles.
+Dans leur domaine de validité, toutes ces transformations sont _déterminantes pour la convergence_ : si une suite de lois de probabilité converge
+faiblement, il en est de même (ponctuellement) de la suite correspondante de transformations, au moins aux points de continuité de la transformation limite.
+
+Dans les deux théorèmes suivants, chaque variable aléatoire est supposée vivre sur
+un espace de probabilité (implicite).
+
+::: {#thm}
+
+Une suite de variables aléatoires _non négatives_ $(X_n)_n$ converge en loi
+vers la variable aléatoire _non négative_ $X$ si et seulement si la suite des transformées de Laplace converge ponctuellement vers la transformée de Laplace de la
+loi de $X$.
+
+:::
+
+La preuve suit la dérivation du [Théorème @thm-thmlevycont]).
+
+Comme les fonctions génératrices des probabilités permettent de retrouver les transformées de Laplace, le théorème suivant est un cas particulier de l'énoncé
+concernant les transformées de Laplace.
+
+::: {#thm}
+Une suite de variables aléatoires à valeurs entières $(X_n)_n$ converge en loi
+vers la variable aléatoire à valeurs entières $X$ si et seulement si la suite des transformées de Laplace converge ponctuellement vers la transformée de Laplace de la
+loi de $X$.
+
+:::
+
+
+## Remarques bibliographiques {#sec-rem-biblio-conv-3}
+
+@MR1932358 traite de la convergence en loi en deux chapitres : le premier est consacré aux lois sur $\mathbb{R}^d$ et au théorème central limite ;
+le second aborde des univers plus généraux. Dans le premier chapitre, le théorème central limite est étendu aux tableaux triangulaires,
+c'est-à-dire aux suites de variables aléatoires pas nécessairement identiquement distribuées (théorème de Lindeberg).
+
+@MR1932358 étudie la convergence en loi comme _convergence de lois sur des espaces métriques séparables_, c'est-à-dire dans un cadre
+beaucoup plus large que celui de ces notes. Le lecteur y trouvera une preuve complète du théorème de Prokhorov-Le Cam
+et une discussion approfondie de ses corollaires. Dans [@MR1932358], une grande partie de l'effort est consacrée à la métrization
+de la topologie de convergence faible. Le lecteur y trouvera aussi un panorama complet des arguments de représentation presque sûre.
+
+La preuve du théorème de continuité de Lévy donnée ici est tirée de [@MR1873379].
+
+L'utilisation de métrizations pour la convergence faible permet d'étudier la vitesse de convergence dans les théorèmes limites.
+Cela remonte au moins au théorème de Berry-Esseen (1942). Les approches quantitatives de la convergence faible
+ont pris un nouvel élan avec la popularisation de la méthode de Stein.
+Cette méthode vise des versions générales et quantitatives du théorème central limite [@MR2732624].
+Une introduction complète mais accessible à la méthode de Stein est [@MR2861132].

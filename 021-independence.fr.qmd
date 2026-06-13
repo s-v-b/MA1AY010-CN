@@ -1,0 +1,292 @@
+# Indépendance et espaces produits  {#sec-independence}
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(
+  comment= '',
+  fig.width= 12,
+  fig.asp= .75,
+  fig.align="center",
+  echo=FALSE,
+  eval=TRUE,
+  message=FALSE,
+  warning=FALSE
+)
+```
+
+{{< include _packages_requirements.qmd >}}
+
+
+## Feuille de route
+
+L'indépendance entre événements, variables aléatoires et, plus
+généralement, $\sigma$-algèbres est au cœur de nombreuses constructions
+et résultats en théorie des probabilités. Les lois des grands nombres, les théorèmes centraux limites
+et les inégalités de concentration sont d'abord énoncés et démontrés lorsque l'on traite des collections
+potentiellement infinies de variables aléatoires indépendantes. Les résultats que l'on peut
+établir pour des collections de variables aléatoires indépendantes
+constituent une référence. Une grande partie de la théorie des martingales
+ou de la théorie des chaînes de Markov est consacrée à l'extension des
+lois des grands nombres, des théorèmes centraux limites et des inégalités de concentration.
+
+Nous rappelons d'abord la définition d'événements indépendants. Cette
+notion est élémentaire et utile. Dans [Section @sec-indepalgebras]),
+la notion d'indépendance est étendue aux $\sigma$-algèbres
+et aux variables aléatoires. Nous observons que la vérification de
+l'indépendance entre $\sigma$-algèbres est facilitée par le théorème de la classe monotone ([Théorème @thm-monotoneclasslemma]).
+Enfin, nous étendons la notion d'indépendance aux collections dénombrables
+de $\sigma$-algèbres.
+
+
+Dans de nombreuses circonstances, nous tenons pour acquis la disponibilité
+d'une collection dénombrable infinie de variables aléatoires indépendantes
+sur un espace probabilisé. Par exemple,
+nous envisageons la possibilité de lancer un dé une infinité de fois,
+et nous supposons que les résultats sont indépendants. C'est légitime. Mais vérifier
+que c'est légitime, c'est-à-dire prouver l'existence
+de tels espaces probabilisés riches, n'est pas trivial. La construction
+de mesures produit et de lois de probabilité produit
+est une première étape dans cette direction.
+
+Dans [Section @sec-productmeasures]), nous définissons les $\sigma$-algèbres produit
+et les mesures produit. Dans [Section @sec-tonellifubini]), nous énonçons le
+théorème de Tonelli-Fubini. Ce théorème est un outil fondamental pour traiter
+les intégrales multiples ; il joue un rôle important dans le calcul
+des espérances dans les espaces produits. Dans [Section @sec-indepproduct]), nous esquissons la
+manière dont la construction d'espaces produits permet de construire des collections de variables aléatoires indépendantes.
+Dans [Section @sec-indepcollectionsalgebras]), nous considérons
+le produit de collections dénombrables d'espaces probabilisés.
+Nous introduisons la notion de $\sigma$-algèbre cylindrique et énonçons
+le théorème de cohérence de Kolmogorov. Cela définit
+le cadre des résultats limites classiques de la théorie des probabilités.
+
+## Indépendance de deux événements  {#sec-indepevents}
+
+
+
+Nous rappelons les définitions de [Leçon introductive]() @sec-intro, [Section @sec-random]-variables-and-independence)
+
+
+::: {#def}
+
+### Indépendance de deux événements
+
+Soit $P$ une loi de probabilité sur $(\Omega, \mathcal{F})$. Soient $A, B \in \mathcal{F}$ deux événements.
+
+Les événements $A$ et $B$ sont dits _indépendants au sens de $P$_ ($A \perp\!\!\!\perp B$ au sens de $P$)
+si et seulement si $P(A \cap B)=  P(A) \times P(B)$.
+
+:::
+
+<p></p>
+
+
+::: {#exr-independence-1}
+
+Démontrer les affirmations suivantes :
+
+- $A$ et $B$ sont indépendants si et seulement si $A^c = \Omega \setminus A$ et $B^c= \Omega \setminus B$ sont indépendants.
+- $A$ et $B$ sont indépendants si et seulement si $A$ et $B^c$ sont indépendants.
+- $\emptyset$ est indépendant de tout événement.
+
+:::
+
+
+<p></p>
+
+::: {#exr-independence-2}
+
+Exprimer $P(A \cup B)$ en fonction de $P(A)$ et $P(B)$ lorsque $A \perp\!\!\!\perp B$.
+
+:::
+
+
+<p></p>
+
+<p></p>
+
+::: {#exr-independence-3}
+
+Dans une expérience d'allocation aléatoire poissonisée,
+nous tirons d'abord $N$ selon une loi de Poisson de paramètre $\mu$, puis nous
+lançons $N$ boules indépendamment au hasard dans $m$ urnes. La probabilité
+qu'une boule tombe dans l'urne $j$ est $p_j$ (nous avons $\sum_{j=1}^n p_j=1$).
+
+Notons par $Y_j$ le nombre de boules dans l'urne $j$ ($j\leq m$).
+
+Vérifier que les événements $\{Y_j \leq r\}$ et $\{ Y_k \leq s\}$ pour $j\neq k$
+et $r,s \in \mathbb{N}$ sont indépendants.
+
+:::
+
+::: {#exr-independence-4}
+
+Exprimer $P(A \cup B)$ en fonction de $P(A)$ et $P(B)$ lorsque $A \perp\!\!\!\perp B$.
+
+:::
+
+::: {#exr-independence-5}
+
+Est-il possible d'avoir $A \perp\!\!\!\perp B$, $B \perp\!\!\!\perp C$,
+et $A \perp\!\!\!\perp C$ sans avoir $A \cap B  \perp\!\!\!\perp C$ ?
+
+:::
+
+
+## Indépendance de $\sigma$-algèbres et de variables aléatoires {#sec-indepalgebras}
+
+:::: {#def}
+
+### Indépendance de $\sigma$-algèbres
+
+Soit $P$ une loi de probabilité sur $(\Omega, \mathcal{F})$. Soient $\mathcal{G}$
+et $\mathcal{H}$ deux sous-$\sigma$-algèbres de $\mathcal{F}$.
+Les sous-$\sigma$-algèbres $\mathcal{G}$ et $\mathcal{H}$ sont indépendantes au sens de $P$
+si et seulement si, pour tout couple $A \in \mathcal{G},B \in \mathcal{H}$, $A$ est indépendant de $B$
+au sens de $P$.
+
+:::
+
+Les deux définitions d'indépendance sont cohérentes. Cela doit être vérifié.
+
+::: {#exr-indep-sigma-1}
+
+Étant donné un espace probabilisé $(\Omega, \mathcal{F}, P)$ et deux événements $A$ et $B$, vérifier
+que $A$ et $B$ sont indépendants au sens de $P$ si et seulement si $\sigma(A)$ et $\sigma(B)$ sont indépendantes
+au sens de $P$.
+
+:::
+
+Deux variables aléatoires $X$ et $Y$ sur le même espace probabilisé sont indépendantes
+si et seulement si les $\sigma$-algèbres engendrées par les deux variables sont indépendantes. Nous notons
+l'indépendance de $X$ et $Y$ par $X \perp\!\!\!\perp  Y$.
+Là encore, c'est cohérent : deux événements sont indépendants si et seulement si leurs fonctions indicatrices sont
+indépendantes.
+
+::: {#exr-exoindep-1}
+
+Soit $P$ une loi de probabilité sur $(\Omega, \mathcal{F})$.
+Soit $B$ un événement de $\mathcal{G}$. Soit $\mathcal{A} \subseteq \mathcal{F}$
+défini par
+$$
+\mathcal{A} = \left\{ A : A \in \mathcal{F}, A \text{ est indépendant de } B \text{ au sens de } P  \right\}\,.
+$$
+Prouver que $\mathcal{A}$ est une $\sigma$-algèbre.
+
+:::
+
+
+Vérifier si deux sous-$\sigma$-algèbres $\mathcal{G}$ et $\mathcal{H}$
+sont indépendantes ou non semble une tâche difficile.
+Heureusement, nous n'avons pas besoin de
+vérifier l'indépendance de toute paire d'événements de $\mathcal{G}$ et $\mathcal{H}$.
+Il suffit de vérifier l'indépendance par rapport à $\mathcal{H}$ pour une collection bien choisie
+d'événements qui engendre $\mathcal{G}$.
+
+
+::: {#thm-indepmonotone}
+
+Soit $(\Omega, \mathcal{F}, P)$ un espace probabilisé.
+Soient $\mathcal{G}, \mathcal{H}$ deux sous-$\sigma$-algèbres de $\mathcal{F}$.
+Soient $\mathcal{C}$ et $\mathcal{C}'$ deux classes $\pi$ telles que $\sigma(\mathcal{C})= \mathcal{G}$
+et $\sigma(\mathcal{C}')=\mathcal{H}$. Les deux affirmations sont équivalentes :
+
+- $\mathcal{G} \perp\!\!\!\perp \mathcal{H}$ au sens de $P$ ;
+- pour tout $A\in \mathcal{C}$, tout $A' \in \mathcal{C}'$, $P(A \cap A') = P(A) \times P(A')$.
+
+:::
+
+<p></p>
+
+La preuve du [Théorème @thm-indepmonotone] est une autre application du théorème de la classe monotone [Théorème @thm-monotoneclasslemma].
+
+<p></p>
+
+::: {.proof}
+
+Soit $A \in \mathcal{G}$. Définissons $\mathcal{E}$ par $$
+\mathcal{E} = \Big\{ B : B \in \mathcal{H}, A \perp\!\!\!\perp B  \Big\} \,.
+$$
+La définition de l'indépendance d'événements nous permet de vérifier que
+$\mathcal{E}$ est une classe $\lambda$ (une classe monotone).
+Par conséquent, si $A \in \mathcal{C}$, $A$ est indépendant de tout événement
+de la plus petite classe $\lambda$ contenant $\mathcal{C}'$.
+Il en découle que tout événement de $\mathcal{C}$ est indépendant de tout
+événement de $\mathcal{H}$. De même, tout événement de $\mathcal{C}'$ est indépendant
+de tout événement de $\mathcal{G}$.
+
+L'ensemble des événements de $\mathcal{G}$ qui sont indépendants de tout
+événement de $\mathcal{H}$ est une classe $\lambda$ (par le même raisonnement qu'au-dessus).
+Comme cette classe $\lambda$ contient $\mathcal{C}$, par le lemme de la classe monotone encore,
+elle contient $\sigma(\mathcal{C})=\mathcal{G}$.
+
+  
+
+:::
+
+<br>
+<p></p>
+Pour vérifier l'indépendance de deux variables aléatoires à valeurs réelles, il suffit
+de vérifier que la fonction de répartition jointe est
+le produit des deux fonctions de répartition marginales.
+<p></p>
+
+::: {#cor-indepcumul}
+
+Soient $X$ et $Y$ deux variables aléatoires réelles sur $(\Omega, \mathcal{F}, P)$.
+$X$ et $Y$ sont indépendantes ($X \perp\!\!\!\perp Y$) au sens de $P$
+si et seulement si l'événement $\{X \leq t\}$ est indépendant de l'événement $\{Y \leq s\}$ au sens de $P$ pour
+tout $s, t \in \mathbb{Q}$.
+
+:::
+
+<br>
+<p></p>
+
+::: {.proof}
+Les événements de la forme $\{X \leq t\}$, $t \in \mathbb{R}$, forment une classe $\pi$
+engendrant $\sigma(X)$.
+
+  
+
+:::
+
+<br>
+<p></p>
+
+La notion d'indépendance s'étend aux collections dénombrables d'événements, de $\sigma$-algèbres et de variables aléatoires.
+
+::: {#def-indep-collections}
+
+### Indépendance de collections dénombrables
+
+Soit $P$ une loi de probabilité sur $(\Omega, \mathcal{F})$. Soit $(\mathcal{G}_i)_{i \in I \subseteq \mathcal{N}}$
+une collection de sous-$\sigma$-algèbres de $\mathcal{F}$.
+La collection $(\mathcal{G}_i)_{i \in I \subseteq \mathcal{N}}$ est indépendante dans
+$(\Omega, \mathcal{F}, P)$ si et seulement si, pour toute sous-collection finie $J \subseteq I$,
+pour toute suite d'événements $(A_j)_{j \in J}$ avec $A_j \in \mathcal{G}_j$ pour tout $j \in J$,
+$$
+P (\cap_{j \in J} A_j) = \prod_{j \in J} P(A_j) \, .
+$$
+
+:::
+
+
+
+::::: {.content-visible when-profile="TODO"}
+
+Exercices sur Fubini
+
+- Produit de variables aléatoires $L^1$ indépendantes est dans $L^1$
+- Fubini et inversion de Fourier dans $L^1$ pour les densités (comme dans Stein et S.)
+
+
+
+- Indépendance et arguments de classe monotone
+- Rectangles/Cylindres
+
+
+- $\sigma$-algèbre de queue
+
+- Constructions de mesures produit et arguments de mesure extérieure
+
+:::::

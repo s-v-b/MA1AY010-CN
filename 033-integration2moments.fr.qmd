@@ -1,0 +1,1066 @@
+
+# Des intégrales à l'espérance et aux moments {#sec-integrals-moments}
+
+
+{{< include _packages_requirements.qmd >}}
+
+## Feuille de route
+
+
+Dans [Section @sec-expectation]), nous relions la notion d'_espérance_
+d'une variable aléatoire à celle d'intégrale. Le _théorème de transfert_
+( @thm-transfertheorem) est un outil essentiel pour
+caractériser les lois images.
+
+Dans @sec-jensensec, nous énonçons, démontrons et illustrons l'inégalité de Jensen. Cette inégalité permet d'obtenir facilement des majorations de l'espérance de fonctions convexes
+de variables aléatoires réelles. C'est l'occasion de rappeler les bases de la convexité.
+
+Dans @sec-variance, nous portons une attention particulière à la *variance*. Nous énonçons
+plusieurs caractérisations de la variance.
+
+Dans @sec-highermoments
+
+Dans @sec-lpspaces
+
+## Espérance  {#sec-expectation}
+
+L'espérance d'une variable aléatoire réelle est une intégrale (au sens de Lebesgue)
+par rapport à une mesure de probabilité. Il faut se familiariser
+avec la notation probabiliste.
+
+::: {#def-expectation}
+
+Soit $(\Omega, \mathcal{F}, P)$ un espace probabilisé. La variable aléatoire $X$
+définie sur $(\Omega, \mathcal{F})$ est $P$-intégrable si la fonction mesurable
+$|X| : \omega \mapsto |X(\omega)|$ est $P$-intégrable : on convient de poser
+
+$$
+\mathbb{E} X = \mathbb{E}_P X = \int_{\mathcal{X}} X(\omega) \mathrm{d}P(\omega) =\int X \mathrm{d}P \, .
+$$
+
+:::
+
+<br><p></p>
+
+::: {#exr-def-exp}
+
+Vérifier la cohérence de cette définition avec celle utilisée dans le cadre discret.
+
+:::
+
+<p></p>
+
+L'énoncé suivant, appelé _formule de transfert_, permet de calculer la densité
+d'une loi image ou de simplifier le calcul d'une espérance.
+
+::: {#thm-transfertheorem}
+
+### Formule de transfert
+
+Soit $(\mathcal{X}, \mathcal{F}, P)$ un espace probabilisé,
+$(\mathcal{Y}, \mathcal{G})$ un espace mesurable, $f$ une fonction mesurable de $(\mathcal{X}, \mathcal{F})$ vers $(\mathcal{Y}, \mathcal{G})$.
+Notons $Q$ la loi de probabilité image de $P$ par $f$ : $Q = P \circ f^{-1}$.
+
+Alors, pour toute fonction mesurable $h$ de $(\mathcal{Y}, \mathcal{G})$ vers $(\mathbb{R}, \mathcal{B}(\mathbb{R}))$
+
+$$
+\mathbb{E}[h(Y)] = \int_{\mathcal{Y}} h(y) \mathrm{d}Q(y)  = \int_{\mathcal{X}} h\circ f(x) \mathrm{d}P(x) = \mathbb{E} h\circ f(X) \,
+$$
+
+si l'une au moins des intégrales est définie.
+
+:::
+
+<p></p>
+
+::: {.proof}
+
+Supposons d'abord que $h= \mathbb{I}_B$ où $C \in \mathcal{G}$. Alors
+
+$$
+\begin{array}{rl}
+\mathbb{E} h(Y)
+& = \int_{\mathcal{Y}} \mathbb{I}_B(y) \, \mathrm{d}Q(y) \\
+& = Q(B) \\
+& = P \circ f^{-1}(B) \\
+& = P \Big\{ x : f(x) \in B \Big\} \\
+& = P \Big\{ x : h \circ f(x) =1 \Big\}  \\
+& = \int_{\mathcal{X}}  h \circ f(x) \mathrm{d}P(x) \\
+& = \mathbb{E} h\circ f(X) \, .
+\end{array}
+$$
+
+Par linéarité, la formule de transfert vaut alors pour toutes les fonctions simples de $\mathcal{Y}$ vers $\mathbb{R}$.
+Par la définition de l'intégrale de Lebesgue, elle vaut pour les fonctions mesurables non négatives.
+L'argument de décomposition habituel achève la preuve.
+
+  
+
+:::
+
+<p></p>
+
+
+
+Il est clair que l'espérance d'une variable aléatoire ne dépend que de la loi de cette variable.
+
+## Inégalité de Jensen {#sec-jensensec}
+
+Les outils de théorie de l'intégration que nous avons revus servent à calculer ou approximer
+des intégrales et des espérances. Le théorème suivant évite les calculs et permet de comparer des espérances.
+
+L'inégalité de Jensen est un outil central en théorie de l'information, en statistique et dans une large part de la théorie des probabilités. Elle traduit l'interaction entre convexité et espérance.
+
+Nous introduisons d'abord un minimum de théorie et de notation sur la convexité.
+
+::: {#def-semicont}
+
+### Semi-continuité inférieure
+
+Une fonction $f$ d'un espace métrique $\mathcal{X}$ vers $\mathbb{R}$ est semi-continue inférieurement
+en $x \in \mathcal{X}$ si
+
+$$\liminf_{x_n \to x} f(x_n) \geq f(x) \, .$$
+
+:::
+
+::: {#rem}
+
+Une fonction continue est semi-continue inférieurement. La réciproque est fausse. Si $A \subseteq \mathcal{X}$
+est un ouvert, alors $\mathbb{I}_A$ est semi-continue inférieurement mais, sauf si elle est constante, elle n'est pas
+continue au bord de $A.$
+
+:::
+
+
+<br>
+
+::: {#def-convexset} 
+
+### Partie convexe
+
+Soit $\mathcal{X}$ un espace vectoriel. Une partie $C \subseteq \mathcal{X}$ est dite convexe
+si, pour tous $x,y \in C$ et tout $\lambda \in [0,1]$ :
+
+$$\lambda x + (1-\lambda) y \in C \, .$$
+
+:::
+
+<br>
+
+::: {#exr}
+
+Soit $C$ une partie convexe d'un espace vectoriel (topologique réel), et $\overline{C}$ l'adhérence de $C$. Montrer que $\overline{C}$ et $\overline{C} \setminus C$ sont convexes.
+
+Une partie convexe peut n'être ni fermée ni ouverte. Donner des exemples.
+
+:::
+
+<br>
+
+Dans la définition suivante, nous considérons des fonctions d'un espace vectoriel vers $\mathbb{R} \cup \{+\infty\}$.
+
+::: {#def-convexfun}
+
+### Fonctions convexes
+
+Soit $\mathcal{X}$ un espace vectoriel (topologique). Soit $C \subseteq \mathcal{X}$
+une partie convexe. Une fonction $f$ de $\mathcal{C}$ vers $\mathbb{R} \cup \{\infty\}$
+est convexe si, pour $x,y \in C$ et tout $\lambda \in [0,1]$,
+
+$$f(\lambda x + (1-\lambda) y) \leq \lambda f(x) + (1-\lambda) f(y) \, .$$
+
+Le _domaine_ de $f$, $\operatorname{Dom}(f)$, est la partie de $C$ où $f$ est finie.
+
+:::
+
+<br>
+
+
+<!-- ::: {#fig-convexfunfig} -->
+
+```{r}  
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-convexfunfig
+#| 
+#| fig-cap: |
+#|   The function $f : x \mapsto \mathbb{I}_{x<0}|x| + \mathbb{I}_{x\geq 0} x^2$ is convex,
+#|   continuous. It is differentiable everywhere except at $x=0$. The dotted lines define 
+#|   affine functions that are below the cruve $y=f(x)$. The dotted lines define supporting
+#|   hyperplanes for the epigraph of $f$.
+# %%
+foo <- function(x){
+  ifelse(x < 0, -x, x^2)
+}
+
+data <- tibble::enframe(x=seq(-1, 2, 0.01), name=NULL, value="x")
+
+data |>
+  ggplot2::ggplot(ggplot2::aes(x=x)) +
+  ggplot2::geom_abline(slope = 2, intercept = -1, color="red", linetype="dotted") +
+  ggplot2::geom_hline(yintercept = 0, linetype="dotted", color="red") +
+  ggplot2::geom_abline(intercept = 0, slope=-0.5, linetype="dotted", color="red") +
+  ggplot2::stat_function(fun=foo, xlim=c(-1,2)) +
+  ggplot2::ylim(-2,4)
+# %%
+```
+
+<!-- ::: -->
+
+::: {#exr-lsc}
+
+Vérifier qu'une fonction convexe $f$ est semi-continue inférieurement si et seulement si les ensembles $\{ x : f(x) \leq t\}$ sont des intervalles fermés pour tout $t \in \mathbb{R}$.
+
+:::
+
+Le résultat suivant garantit que toute fonction convexe semi-continue inférieurement admet une représentation duale.
+Cette représentation duale est un outil précieux pour comparer les espérances de variables aléatoires.
+
+<br>
+
+::: {#thm-fenchel}
+
+### Dualité de Fenchel-Legendre
+
+Soit $f$ une fonction convexe semi-continue inférieurement sur $\mathbb{R}$ à domaine fermé.
+
+La fonction duale $f^*$ de $f$ est définie sur $\mathbb{R}$ par
+
+$$f^*(y) = \sup_{x \in \text{Dom}(f)} xy - f(x) \, .$$
+
+Alors
+
+- $f^*$ est convexe
+- $f^*$ est semi-continue inférieurement
+- Si $f^*(y)= xy - f(x)$, alors $y$ est un sous-gradient de $f$ en $x$.
+- Si $y$ est un sous-gradient de $f$ en $x$, $f^*(y) = xy -f(x)$.
+- $f= (f^{*})^*$ : la fonction duale de la fonction duale coïncide avec la fonction d'origine, $f(x) = \sup_{y} xy -f^*(y).$
+
+:::
+
+<br>
+
+
+::: {#exm-fenchel}
+
+Les paires duales suivantes seront utilisées à plusieurs reprises.
+
+- si $f(x) = \frac{|x|^p}{p}$ ($p> 1$), alors $f^*(y)= \frac{|y|^q}{q}$ où $q=p/(p-1)$.
+- si $f(x) = |x|$, alors $f^*(y)= 0$ pour $y \in [-1,1]$ et $\infty$ pour $|y|>1$.
+- si $f(x) = \exp(x)$, alors $f^*(y) = y \log y - y$ pour $y>0$, $f^*(y)=\infty$ pour $y<0$
+
+:::
+
+<br>
+
+::: {.proof}
+
+Le fait que $f^*$ soit à valeurs dans $\mathbb{R} \cup \{\infty\}$ et convexe est immédiat.
+
+Pour la semi-continuité inférieure, supposons $y_n \to y$, avec $y_n \in \operatorname{Dom}(f^*)$
+et $f^*(y) > \liminf_n f^*(y_n)$.
+
+Supposons d'abord $y \in \operatorname{Dom}(f^*)$.
+Alors, pour $m$ assez grand et un certain $x \in \operatorname{Dom}(f)$,
+
+$$
+f^*(y) \geq xy - f(x) -\frac{1}{m} > \liminf_n f^*(y_n) \geq \liminf_n y_n x -f(x) = yx -f(x)
+$$
+
+ce qui est contradictoire.
+
+Supposons maintenant $y \not\in \operatorname{Dom}(f^*)$ et $\liminf_n f^*(y_n) < \infty$.
+Extrayons une sous-suite $(y_{m_n})_n$ telle que $\lim_n f^*(y_{m_n}) = \liminf_n f^*(y_n)$.
+Il existe $x \in \operatorname{Dom}(f)$ tel que
+$$
+f^*(y) > xy -f(x) > \liminf_n f^*(y_n) = \lim_n f^*(y_{m_n}) \geq \lim_n xy_{m_n} -f (x) = xy - f(x)
+$$
+
+ce qui est encore contradictoire.
+
+Le fait que $y$ soit un sous-gradient de $f$ en $x$ si
+$f^*(y)= xy - f(x)$ est une reformulation de la définition des sous-gradients.
+
+Notons que si $x \in \operatorname{Dom}(f)$ et $y\in \operatorname{Dom}(f^*)$, alors $f(x)+f^*(y)\geq xy$.
+
+Cette observation entraîne $(f^*)^*(x)\leq f(x)$ pour tout $x \in \operatorname{Dom}(f)$. S'il existait
+$x \in \operatorname{Dom}(f)$ avec $(f^*)^*(x)>x$, il existerait $y \in \operatorname{Dom}(f^*)$
+tel que $xy - f^*(y) > f(x)$, ce qui est impossible.
+
+Pour prouver $(f^*)^*(x)\geq f(x)$ pour tout $x \in \operatorname{Dom}(f)$, nous utilisons la
+convexité, la semi-continuité inférieure de $f$ et $f^*$, et la fermeture de $\operatorname{Dom}(f)$. Sous ces
+conditions, tout point $x$ de $\operatorname{Dom}(f)$ admet un sous-gradient $y$ et
+cela entraîne $f(x) + f^*(y)= xy$.
+
+  
+
+:::
+
+<br>
+
+::: {#exr-fenchel-lsc}
+
+Étendre la notion de dualité de Fenchel-Legendre aux fonctions convexes semi-continues inférieurement sur $\mathbb{R}^k$.
+
+:::
+
+<br>
+
+::: {#exr-fenchel-lsc-2}
+
+Toute fonction convexe est-elle semi-continue inférieurement ? mesurable ?
+
+Toute fonction convexe semi-continue inférieurement est-elle mesurable ?
+
+:::
+
+<br>
+
+
+::: {#rem-fenchel}
+
+Il est possible de définir $f^*$ par $f^*(y) =\sup_x xy -f(x)$ même si $f$ n'est pas convexe
+ni semi-continue inférieurement. La fonction $f^*$ conserve la convexité et la semi-continuité inférieure.
+Mais $f \neq (f^{*})^*$ : on n'obtient que $f \geq (f^{*})^*$. En effet,
+$(f^{*})^*$ est la plus grande minorante convexe de $f$.
+
+:::
+
+
+<br>
+
+::: {#thm-thmjensen}
+
+### Inégalité de Jensen
+
+
+Soit $X$ une variable aléatoire réelle et $f: \mathbb{R} \to \mathbb{R}$ une fonction
+_convexe, semi-continue inférieurement_ telle que l'ensemble fermé $\text{Dom}(f) \subseteq \text{supp}(\mathcal{L}(X))$
+et $\mathbb{E} |f(X)|< \infty.$, alors
+
+$$f(\mathbb{E} X) \leq \mathbb{E} f(X) \, .$$
+
+:::
+
+<br>
+
+
+::: {#remjensenineq}
+
+Au regard de la définition de la convexité et du fait que prendre une espérance prolonge l'idée de combinaison convexe, l'inégalité de Jensen n'est pas surprenante.
+
+:::
+
+<br>
+
+
+::: {.proof}
+
+$$
+\begin{array}{rl}
+\mathbb{E} f(X) & = \mathbb{E} (f^*)^*(X) \\
+& = \mathbb{E} \Big[ \sup_y \Big( yX - f^*(y)\Big)\Big] \\
+ & \geq   \sup_y  \Big( y \mathbb{E} X - f^*(y)\Big) \\
+& =  (f^*)^*\Big( \mathbb{E} X \Big) \\
+ & = f\Big( \mathbb{E} X \Big)  \, .
+\end{array}
+$$
+
+  
+
+:::
+
+<br><p></p>
+
+<br>
+
+::: {#exr-jensenineq-meqsure}
+
+Dans l'argument ci-dessus, il n'est pas _a priori_ évident que $\sup_y \Big( yX - f^*(y)\Big)$ soit mesurable,
+puisque le supremum est pris sur une collection non dénombrable. Vérifier que cela ne pose pas de problème.
+
+:::
+
+
+Nous verrons de nombreuses applications de l'inégalité de Jensen :
+
+- comparaison de l'échantillonnage avec remise et sans remise (comparaison des queues binomiale et hypergéométrique)
+- inégalités de Cauchy-Schwarz et de Hölder
+- dérivation d'inégalités maximales
+- non-négativité de l'entropie relative
+- dérivation des inégalités d'Efron-Stein-Steele
+- ...
+
+
+## Variance  {#sec-variance}
+
+La variance (lorsqu'elle est définie) est un indice de dispersion de la loi d'une
+variable aléatoire.
+
+::: {#prp-var}
+
+### Caractérisations de la variance
+
+Soit $X$ une variable aléatoire sur un espace probabilisé.
+La variance de $X$ est finie si et seulement si $\mathbb{E}X^2 <\infty$, et elle peut
+être définie par les trois égalités suivantes :
+
+$$
+\begin{array}{rl}
+\operatorname{var}(X) & =  \mathbb{E}\left[(X - \mathbb{E}X)^2\right] \\
+ & = \inf_{a \in \mathbb{R}} \mathbb{E}\left[(X - a)^2\right] \\
+ & = \mathbb{E}X^2 - (\mathbb{E}X)^2 \,.
+\end{array}
+$$
+
+:::
+
+Il reste à vérifier que les trois membres de droite sont finis si l'un d'eux l'est, et
+qu'ils sont tous égaux lorsqu'ils sont finis.
+
+::: {.proof}
+
+Supposons $\mathbb{E}X^2 < \infty$. Comme $|X| \leq \frac{X^2}{2} + \frac{1}{2}$, cela entraîne $\mathbb{E} |X|<\infty$.
+Si $\mathbb{E}X^2 < \infty$, alors $\mathbb{E}|X|$ l'est aussi.
+Le membre de droite de la troisième ligne est fini si $\mathbb{E}X^2 < \infty$.
+Comme $(x-b)^2 \leq 2 x^2 + 2 b^2$ pour tous $x,b$,
+les membres de droite de la première ligne et l'infimum de la deuxième ligne sont finis lorsque $\mathbb{E} X^2 <\infty.$
+
+Comme $X^2 \leq 2 (X- \mathbb{E}X)^2 + 2 (\mathbb{E}X)^2$, $\mathbb{E}X^2<\infty$ si $\mathbb{E}\left[(X - \mathbb{E}X)^2\right] <\infty.$
+
+Supposons maintenant $\mathbb{E}X^2 < \infty$.
+$$
+\begin{array}{rl}
+  \mathbb{E}\left[(X - a)^2\right]
+  & = \mathbb{E}\left[(X - \mathbb{E}X - (a-\mathbb{E}X))^2\right] \\
+  & = \mathbb{E}\left[(X- \mathbb{E}X)^2 - 2 \mathbb{E}[(X-\mathbb{E}X)](a-\mathbb{E}X) + (a-\mathbb{E}X)^2 \right]\\
+  & = \mathbb{E}\left[(X- \mathbb{E}X)^2\right] + (a-\mathbb{E}X)^2   \, .
+\end{array}
+$$
+
+Comme $(a- \mathbb{E}X)^2\geq 0$, nous avons établi que
+$\mathbb{E}\left[(X - \mathbb{E}X)^2\right]   = \inf_{a \in \mathbb{R}} \mathbb{E}\left[(X - a)^2\right]$.
+De plus, l'infimum est un minimum, atteint en un unique point $\mathbb{E}X$.
+
+:::
+
+<br> <p></p>
+
+
+
+::: {#rem-charac-variance}
+
+Les première et deuxième caractérisations de la variance affirment que l'espérance minimise
+l'erreur quadratique moyenne. Un fait d'une grande importance en statistique.
+
+:::
+
+<br> <p></p>
+
+::: {#exr-var-bounded}
+
+Vérifier que si $P\left\{ X \in [a,b]\right\} =1$, alors $\operatorname{var}(X)\leq \frac{(b-a)^2}{4}$ \, .
+
+:::
+
+
+
+## Moments d'ordre supérieur  {#sec-highermoments}
+
+Dans cette section, nous relions $\mathbb{E} |X|^p$ et $\mathbb{E} |X|^q$ pour
+différentes valeurs de $p, q \in \mathbb{R}_+$. Notre point de départ est un
+petit résultat technique d'analyse réelle.
+
+::: {#prp-young}
+
+### Inégalité de Young
+
+Soient $p, q>1$ _conjugués_ ($1/p + 1/q =1$), et $x, y>0$. Alors
+$$xy \leq \frac{x^p}{p} + \frac{y^q}{q} \,.$$
+
+:::
+
+::: {.proof}
+
+Si $p$ et $q$ sont conjugués, alors $q= p/(p-1)$ et $(p-1)(q-1)=1$.
+
+Il suffit de vérifier que, pour tous $x,y>0$,
+
+$$\frac{x^p}{p} \geq xy - \frac{y^q}{q} \, .$$
+
+Fixons $x>0$ et considérons la fonction sur $[0,\infty)$ définie par
+
+$$z \mapsto xz - \frac{z^q}{q} \,.$$
+
+Cette fonction est dérivable, de dérivée $x - z^{q-1} = x - z^{1/(p-1)}$.
+Elle atteint son maximum en $z=x^{p-1}$, et ce maximum vaut
+
+$$x x^{p-1} - \frac{x^{q(p-1)}}{q} = x^p - \frac{x^p}{q} = \frac{x^p}{p} \, .$$
+
+:::
+
+<br> <p></p>
+
+```{r, echo=FALSE}
+# %%
+p <- 3/2
+q <- p/(p-1)
+
+x <- 1.5
+y <- 1
+# %%
+```
+
+
+[Figure @fig-graphyoung] propose une preuve graphique de l'inégalité de Young.
+
+
+<!-- ::: {#fig-graphyoung} -->
+
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-graphyoung
+#| 
+#| fig.cap: |
+#|   Graphical illlustration of Young's inequality. We choose $p=`r p`$ 
+#|   and $q= `r q`$, $x = `r x`$ and $y= `r y`$. The black point is located 
+#|   at $(x,y)^T$. The product $xy$ equals the area of the rectangle located 
+#|   between the origin and $(x,y)^T$ (delimited by the dashed segments). The 
+#|   dotted line represents function $s \mapsto s^{p-1}$, and interchanging  the 
+#|   axes, the function $t \mapsto t^{q-1} = t^{1/(p-1)}$. The area of the light 
+#|   grey surface under the dotted line equals 
+#|   $\frac{x^p}{p} = \int_0^x s^{p-1} \mathrm{d}s$, while the area of the 
+#|   darker grey surface below line $y=1$ and above the dotted line, 
+#|   equals  $\frac{y^q}{q} = \int_0^y t^{q-1} \mathrm{d}t$. The union of the
+#|   two disjoint surfaces covers the rectangle  located 
+#|   between the origin and $(x,y)^\top$. 
+#|   Equality occurs when the dotted line passes though $(x,y)^\top$, 
+#|   that is when $y=x^{p-1}$.
+# 
+data1 <- tibble::as_tibble(list(s=seq(0, 2, by=.001))) |>
+  dplyr::mutate(t = s^(p-1))
+
+data2 <- data1 |>
+  dplyr::filter(s <= 1)
+
+data1 |>
+  ggplot2::ggplot() +
+  ggplot2::xlim(0, 2) +
+  ggplot2::xlab("s") +
+  ggplot2::ylab("t") +
+  ggplot2::stat_function(fun= ~ .^(p-1), linetype="dotted")  +
+  ggplot2::geom_point(mapping=ggplot2::aes(x=x, y=y)) +
+  ggplot2::stat_function(fun= ~ .^(p-1), xlim=c(0, x), linetype="dotted", geom="area", alpha=.1) +
+  ggplot2::geom_segment(x=0, y=y, xend=x, yend=y, linetype="dashed", linewidth=.5) +
+  ggplot2::geom_segment(x=x, y=0, xend=x, yend=y, linetype="dashed", linewidth=.5) +
+  ggplot2::geom_ribbon(data=data2, ggplot2::aes(x=s, ymin=t, ymax=1), alpha=.3)
+# %%
+```
+<!-- ::: -->
+
+<br> <p></p>
+
+
+::: {#rem-young-special}
+
+Un cas particulier de l'inégalité de Young s'obtient en prenant $p=q=2$.
+
+:::
+
+Nous sommes maintenant en mesure de démontrer trois inégalités fondamentales : Cauchy-Schwarz, Hölder
+et Minkowski.
+
+
+::: {#thm-thmcauchyschwartz}
+
+### Cauchy-Schwarz
+
+Soient $X$ et $Y$ deux variables aléatoires sur le même espace probabilisé.
+Supposons que $\mathbb{E}X^2$ et $\mathbb{E}Y^2$ sont finies. Alors
+
+$$\mathbb{E} [XY] \leq  \sqrt{\mathbb{E}X^2} \times  \sqrt{\mathbb{E}Y^2} \,.$$
+
+:::
+
+::: {.proof}
+
+Si $\sqrt{\mathbb{E}X^2}=0$ ou
+$\sqrt{\mathbb{E}Y^2}=0$, l'inégalité est trivialement satisfaite.
+
+Sans perte de généralité, supposons $\sqrt{\mathbb{E}X^2}>0$ et
+$\sqrt{\mathbb{E}Y^2}>0$. Alors, puisque $ab \leq a^2/2 + b^2/2$ pour tous
+réels $a,b$, partout,
+
+$$
+\frac{|XY|}{\sqrt{\mathbb{E}X^2}\sqrt{\mathbb{E}Y^2}}
+\leq \frac{|X|^2}{2\mathbb{E}X^2} + \frac{|Y|^2}{2\mathbb{E}Y^2} \,.
+$$
+
+En prenant l'espérance des deux côtés, on obtient le résultat voulu.
+
+:::
+
+
+
+<br> <p> </p>
+
+::: {#exr-cauchy-trivial}
+
+Pourquoi l'inégalité est-elle trivialement satisfaite si $\sqrt{\mathbb{E}X^2}=0$ ?
+
+:::
+
+<br> <p> </p>
+
+@thm-thmcauchyschwartz nous dit que si $X$ et $Y$ sont
+de carré intégrables, alors $XY$ est intégrable.
+
+<br> <p> </p>
+
+L'inégalité de Hölder généralise celle de Cauchy-Schwarz.
+En effet, l'inégalité de Cauchy-Schwarz n'est que l'inégalité de Hölder
+pour $p=q=2$ ($2$ est son propre conjugué).
+
+::: {#thm-thmholder}
+
+### Inégalité de Hölder
+
+Soient $X$ et $Y$ deux variables aléatoires sur le même espace probabilisé.
+Soient $p, q>1$ _conjugués_ ($1/p + 1/q =1$).
+Supposons que $\mathbb{E}|X|^p$ et $\mathbb{E}|Y|^q$ sont finies. Alors
+
+$$
+\mathbb{E} [XY] \leq  \left(\mathbb{E}|X|^p\right)^{1/p} \times  \left(\mathbb{E}|Y|^q\right)^{1/q} \,.
+$$
+
+:::
+
+::: {.proof}
+
+Si $\mathbb{E}|X|^p=0$ ou
+$\mathbb{E}|Y|^q=0$, l'inégalité est trivialement satisfaite.
+
+Supposons $\mathbb{E}|X|^p > 0$ et $\mathbb{E}|Y|^q > 0$.
+
+Suivons la preuve de l'inégalité de Cauchy-Schwarz, en remplaçant $2 ab \leq a^2 +b^2$ par
+l'inégalité de Young :
+
+$$ab \leq \frac{|a|^p}{p} + \frac{|b|^q}{q}\qquad  \forall a,b \in \mathbb{R}$$
+si $1/p+ 1/q=1$.
+
+L'inégalité ci-dessous découle de l'inégalité de Young et de la monotonie de l'espérance :
+
+$$
+\begin{array}{rl}
+\frac{\mathbb{E}|XY|}{\mathbb{E}[|X|^p]^{1/p}\mathbb{E}[|Y|^q]^{1/q}}
+& =  \mathbb{E}\Big[\frac{|X|}{\mathbb{E}[|X|^p]^{1/p}} \frac{|Y|}{\mathbb{E}[|Y|^q]^{1/q}} \Big] \\
+& \leq \mathbb{E}\Big[\frac{|X|^p}{p \mathbb{E}[|X|^p]} + \frac{|Y|^q}{q \mathbb{E}[|Y|^q]} \\
+& = \frac{1}{p} + \frac{1}{q} \\
+& = 1 \, .
+\end{array}
+$$
+
+  
+
+:::
+
+
+
+<br> <p> </p>
+
+::: {#cor-holder}
+
+Pour $1\leq p < q$,
+$$\mathbb{E}\Big[|X|^p\Big]^{1/p} \leq \mathbb{E}\Big[|X|^q\Big]^{1/q} \, .$$
+
+:::
+
+Pour $p \in [0, \infty)$, $X \mapsto (\mathbb{E}|X|^p)^{1/p}$
+définit une semi-norme sur l'ensemble des variables aléatoires pour lesquelles $(\mathbb{E}|X|^p)^{1/p}$
+est fini. L'inégalité de Minkowski affirme que $X \mapsto (\mathbb{E}|X|^p)^{1/p}$
+satisfait l'inégalité triangulaire.
+
+::: {#thm-thmminko}
+
+### Inégalité de Minkowski
+
+Soient $X, Y$ deux variables aléatoires réelles définies sur le même espace probabilisé. Soit $p \in [1, \infty)$. Supposons $\mathbb{E}|X|^p <\infty$ et
+$\mathbb{E}|Y|^p<\infty.$ Alors
+
+$$
+\left(\mathbb{E} [| X + Y|^p]\right)^{1/p}
+\leq \left(\mathbb{E} [| X|^p]\right)^{1/p} + \left(\mathbb{E} [|Y|^p]\right)^{1/p}
+$$
+
+ce qui entraîne $\mathbb{E}|X+Y|^p <\infty.$
+
+:::
+
+La preuve de @thm-thmminko découle de l'inégalité de Hölder (@thm-thmholder).
+
+::: {.proof}
+
+
+L'inégalité ci-dessous découle aussi
+de l'inégalité triangulaire sur $\mathbb{R}$ et de la monotonie.
+La dernière égalité vient de la linéarité de l'espérance :
+
+$$
+\begin{array}{rl}
+\mathbb{E} \Big[ |X+Y|^p\Big]
+& \leq \mathbb{E} \Big[ (|X|+|Y|) \times |X+Y|^{p-1}\Big] \\
+& = \mathbb{E} \Big[ |X| \times |X+Y|^{p-1}\Big] + \mathbb{E} \Big[ |Y| \times |X+Y|^{p-1}\Big] \, .
+\end{array}
+$$
+
+Cela suffit pour traiter le cas $p=1$.
+
+Désormais, supposons $p>1$.
+L'inégalité de Hölder entraîne l'inégalité suivante, et une majoration analogue pour $\mathbb{E} \Big[ |Y| \times |X+Y|^{p-1}\Big]$.
+
+$$
+\begin{array}{rl}
+\mathbb{E} \Big[ |X| \times |X+Y|^{p-1}\Big]
+& \leq \mathbb{E} \Big[ |X|^p\Big]^{1/p} \times  \mathbb{E} \Big[ |X+Y|^{p}\Big]^{(p-1)/p} \,
+\end{array}
+$$
+
+En sommant les deux majorations, nous obtenons
+
+$$
+\begin{array}{rl}
+  \mathbb{E} \Big[ |X+Y|^p\Big]
+  & \leq \left(\mathbb{E} \Big[ |X|^p\Big]^{1/p} + \mathbb{E} \Big[ |Y|^p\Big]^{1/p}\right) \times \mathbb{E} \Big[ |X+Y|^{p}\Big]^{(p-1)/p} \, .
+\end{array}
+$$
+
+Cela prouve l'inégalité de Minkowski pour $p>1$.
+
+$square$
+
+:::
+
+
+## Médiane et écart interquartile  {#sec-medianiqr}
+
+Indices robustes et non robustes de position.
+
+
+::: {#def-median}
+
+Soit $X$ une variable aléatoire réelle sur un espace probabilisé. Soit $F$
+sa fonction de répartition. La médiane de la loi de $X$
+est $F^{\leftarrow}(1/2)$.
+
+:::
+
+La médiane minimise l'écart absolu moyen.
+
+::: {#prp-median-variational}
+
+Si $m$ est tel que $P\{ X > m\} = P\{ X<m\}$, alors $m$ est une médiane
+de la loi de $X$, et si $X$ est intégrable :
+
+$$\mathbb{E}\Big| X - m \Big| = \min_{a \in \mathbb{R}} \mathbb{E}\Big| X - a \Big|$$
+
+:::
+
+<br> <p> </p>
+
+::: {.proof}
+
+Supposons $a<m$,
+
+$$
+\begin{array}{rl}
+  \mathbb{E} \left[\Big| X - a \Big| - \Big| X - m \Big| \right]
+  & = - (m-a) P(-\infty, a] + \int_{(a, m]} (2 X - (a+m)) \mathrm{d}P(x) + (m-a)P(m,\infty) \\
+  & \geq  - (m-a) P(-\infty, a] - (m-a) P(a,m] + (m-a)P(m,\infty) \\
+  & = (m-a) \Big(P(m,\infty) - P(-\infty, m]\Big) \\
+  & = 0 \, .
+\end{array}
+$$
+
+Le même raisonnement traite le cas $a>m$ et permet de conclure.
+
+  
+
+:::
+
+<br> <p> </p>
+En combinant trois des inégalités que nous venons de démontrer, nous pouvons
+établir un lien intéressant entre espérance, médiane
+et écart-type.
+
+::: {#thm-levy1}
+
+### Inégalité de Lévy
+
+Soit $m$ la médiane de la loi de $X$, variable aléatoire de carré intégrable
+sur un espace probabilisé. Alors
+
+$$\Big| m - \mathbb{E} X\Big| \leq \sqrt{\operatorname{var}(X)} \, .$$
+
+:::
+
+<br> <p> </p>
+Les indices robustes et non robustes de position diffèrent au plus de
+l'écart-type, qui peut être infini.
+
+<br> <p> </p>
+
+::: {.proof}
+
+Par convexité de $x \mapsto |x|$, nous avons
+
+$$
+\begin{array}{rl}
+\Big| m - \mathbb{E} X\Big| & \leq \mathbb{E} \Big| m - X\Big| \\
+& \text{by Jensen's inequality} \\
+& \leq \mathbb{E} \Big| \mathbb{E}X - X\Big| \\
+& \text{the median minimizes the mean absolute error} \\
+& \leq \left(\mathbb{E} \Big| \mathbb{E}X - X\Big|^2\right)^{1/2}  \\
+& \text{by Cauchy-Schwarz inequality.}
+\end{array}
+$$
+
+  
+:::
+
+<br>
+
+::: {#rem-mean-median}
+
+L'espérance et la médiane peuvent différer. D'abord, la médiane est toujours définie, tandis que l'espérance peut ne pas l'être.
+Pensez par exemple à la loi de Cauchy standard, de densité $\frac{1}{\pi}\frac{1}{1+x^2}$
+sur $\mathbb{R}$. Si $X$ suit une loi de Cauchy, alors $\mathbb{E}|X|=\infty$. L'espérance n'est pas définie.
+Mais comme la densité est paire, $X$ est symétrique ($X$ et $-X$ ont la même loi),
+ce qui implique que la médiane de (la loi de) $X$ vaut $0$.
+
+Considérons la loi exponentielle de densité $\exp(-x)$ sur $[0, \infty)$ : espérance $1$, médiane $\log(2)$,
+variance $1$. Pour la loi exponentielle de densité $\lambda \exp(-\lambda x)$, l'espérance vaut $1/\lambda$, la médiane
+$\log(2)/\lambda$, et la variance $1/\lambda^2$. L'inégalité de Lévy n'apporte pas plus que ce que l'on peut
+calculer directement.
+
+Enfin, considérons les lois Gamma de paramètre de forme $p$ et d'intensité $\lambda$.
+L'espérance vaut $p/\lambda$, la variance $p/\lambda^2$. La médiane
+n'est pas facile à calculer, mais l'on vérifie aisément qu'elle vaut $g(p)/\lambda$, où $g(p)$ est la médiane
+de la loi Gamma de paramètres $p$ et $1$. L'inégalité de Lévy nous dit que $|g(p) - p|\leq \sqrt{p}$.
+
+:::
+
+<br> <p> </p>
+
+## Espaces $\mathcal{L}_p$ et $L_p$ {#sec-lpspaces}
+
+Soit $p \in [1, \infty)$. Soit $(\Omega, \mathcal{F}, P)$ un espace probabilisé. Définissons $\mathcal{L}_p(\Omega, \mathcal{F}, P)$
+(souvent abrégé en $\mathcal{L}_p(P)$ ou même $\mathcal{L}_p$ s'il n'y a pas d'ambiguïté) par
+
+$$
+\mathcal{L}_p(\Omega, \mathcal{F}, P) = \Big\{ X : X \text{ is a real random variable over } (\Omega, \mathcal{F}, P), \quad \mathbb{E}|X|^p < \infty \Big\} \, .
+$$
+
+Posons $\| X \|_p = \Big(\mathbb{E} |X|^p\Big)^{1/p}$.
+
+Notons $\mathcal{L}_0(\Omega, \mathcal{F}, P)$ l'espace vectoriel des variables aléatoires sur $(\Omega, \mathcal{F}, P)$.
+
+Nous observons d'abord que les ensembles $\mathcal{L}_p(\Omega, \mathcal{F}, P)$ forment une suite emboîtée.
+
+::: {#prp-nestinglp}
+
+Soit $(\Omega, \mathcal{F}, P)$ un espace probabilisé. Alors, pour $1 \leq p \leq q <\infty$ :
+
+1. $\|X\|_p < \| X\|_q$.
+2. $\mathcal{L}_q(\Omega, \mathcal{F}, P) \subset \mathcal{L}_p(\Omega, \mathcal{F}, P)$.
+
+:::
+
+::: {.proof}
+
+
+Supposons $1 \leq p \leq q <\infty$.
+Comme $x \mapsto x^{q/p}$ est convexe sur $[0, \infty)$,
+par l'inégalité de Jensen (@thm-thmjensen), nous avons
+
+$$
+\begin{array}{rl}
+  \mathbb{E} [|X|^p]^{q/p} & \leq \mathbb{E} [|X|^q] \,.
+\end{array}
+$$
+
+Cela établit 1.) Et 2.) est une conséquence immédiate de 1.
+
+:::
+
+<br>
+
+@prp-nestinglp porte sur l'inclusion d'ensembles. Le théorème suivant
+résume plusieurs points : les ensembles $\mathcal{L}_p$ sont des sous-espaces vectoriels de $\mathcal{L}_0$,
+et ils sont complets en tant qu'espaces pseudo-métriques (pseudo-normés).
+
+::: {#thm-Lp-completeness}
+
+Pour $p \in [1, \infty)$, soient $\mathcal{L}_p(\Omega, \mathcal{F}, P)$ et $\|\cdot\|_p$ définis comme ci-dessus. Alors,
+
+1. $\mathcal{L}_p(\Omega, \mathcal{F}, P)$ est un sous-espace vectoriel de l'espace des variables aléatoires réelles.
+2. $\| \cdot\|_p$ est une pseudo-norme sur $\mathcal{L}_p(\Omega, \mathcal{F}, P)$.
+3. Si $(X_n)_n$ est une suite dans $\mathcal{L}_p(\Omega, \mathcal{F}, P)$ telle que
+$$\lim_n \sup_{m\geq n} \Big| X_n - X_m \Big|_p = 0$$
+alors il existe $X \in \mathcal{L}_p(\Omega, \mathcal{F}, P)$ tel que $\lim_n \| X_n - X\|_p=0$.
+1. Il existe une sous-suite $(X_{m_n})_{n}$ telle que $X_{m_n} \to X$ $P$-presque sûrement.
+
+:::
+
+<br>
+
+
+::: {#rem-cauchy-sequences}
+
+Dans un espace pseudo-métrique, pour prouver qu'une suite de Cauchy converge, il suffit de vérifier la convergence d'une sous-suite.
+
+En choisissant une sous-suite convenable, et en renumérotant éventuellement, on peut supposer $\Big\| X_n - X_m \Big\|_p \leq 2^{- n \wedge m}$ pour tous $n,m$.
+
+:::
+
+<br>
+
+
+::: {#lem-borelCant1}
+
+### Premier lemme de Borel-Cantelli
+
+Soit $(A_n)_n$ une suite d'événements d'un espace probabilisé $(\Omega, \mathcal{F}, P)$. Supposons
+$\sum_{n} P(A_n) < \infty$. Alors, avec probabilité $1$, seulement un nombre fini d'événements $A_n$ se réalisent :
+
+$$P \left\{ \omega : \sum_n \mathbb{I}_{A_n}(\omega) < \infty \right\} = 1 \,.$$
+
+:::
+
+
+::: {.proof}
+
+L'événement $\left\{ \omega : \sum_n \mathbb{I}_{A_n}(\omega) = \infty \right\}$ coïncide avec $\cap_n \cup_{m\geq n} A_n$ :
+
+$$
+P \left\{ \sum_n \mathbb{I}_{A_n}(\omega) = \infty\right\} = P(\cap_n \cup_{m\geq n} A_n) \, .
+$$
+
+La suite $(\cup_{m\geq n} A_n)_n$ est décroissante : $\lim_n \downarrow \cup_{m\geq n} A_n = \cap_n \cup_{m\geq n} A_n \,.$
+
+Par le lemme de Fatou,
+
+$$
+\begin{array}{rl}
+\mathbb{E} \lim_m \mathbb{I}_{\cup_{m\geq n} A_m}
+  & = \mathbb{E} \liminf_n\mathbb{I}_{\cup_{m\geq n} A_m}  \\
+  & \leq  \liminf_n  \mathbb{E} \mathbb{I}_{\cup_{m\geq n} A_m} \\
+  & \leq  \liminf_n  \sum_{m\geq n} P(A_m) \\
+  & =   0 \, .
+\end{array}
+$$
+
+La dernière égalité vient du fait que les restes d'une série convergente tendent vers $0$.
+
+  
+
+:::
+
+::: {.proof}
+
+Les points 1) et 2) découlent de l'inégalité de Minkowski. Cela entraîne que $\|\cdot\|_p$ définit une pseudo-norme
+sur $\mathcal{L}_p$. Si deux variables aléatoires $X,Y$ de $\mathcal{L}_p$ satisfont $\| X- Y\|_p=0$, alors $X=Y$ $P$-p.s.
+
+Pour établir 3), il faut vérifier que la suite converge presque sûrement, et qu'une
+limite presque sûre appartient à $\mathcal{L}_p$.
+
+
+
+Définissons l'événement $A_n$ par $$A_n = \Big\{ \omega : \Big| X_n(\omega) - X_{n+1}(\omega) \Big| > \frac{1}{n^2}\Big\} \, .$$
+Par l'inégalité de Markov, $$P(A_n) \leq \mathbb{E}\Big[n^{2p} \Big| X_n - X_m \Big|^p \Big] \leq n^{2p} 2^{-np} \, .$$
+Donc $\sum_{n\geq 1} P(A_n) < \infty.$ Par le premier lemme de Borel-Cantelli, sur un événement $E$ de probabilité $1$,
+seulement un nombre fini de $A_n$ se réalisent.
+
+Si $\omega \in E$, la condition $\Big| X_n(\omega) - X_{n+1}(\omega) \Big| > \frac{1}{n^2}$ n'est réalisée que pour
+un nombre fini d'indices $n$. Ainsi la suite réelle $(X_n(\omega))_n$ est de Cauchy. Elle admet une
+limite que nous notons $X(\omega)$. Si $\omega \not\in E$, convenons que $X(\omega)=0.$ Sur $\Omega$, nous avons $$X(\omega) = \lim_n \mathbb{I}_E(\omega) X(\omega) \, .$$
+Une limite de variables aléatoires est une variable aléatoire. Donc $X$ est une variable aléatoire.
+
+Il reste à vérifier que $X \in \mathcal{L}_p$. Notons d'abord que
+
+$$
+\Big| \big\| X_m \big\|_p - \big\|X_n \big\|_p \Big| \leq \big\| X_m - X_n \big\|_p \,.
+$$
+
+Ainsi $\big(\big\|X_n \big\|_p \big)_n$ est une suite de Cauchy et converge vers une limite finie. Comme
+$$
+|X(\omega)|  \leq  \liminf |X_n(\omega)|
+$$
+
+par le lemme de Fatou
+$$
+\mathbb{E} |X|^p  \leq \liminf \mathbb{E} |X_n|^p < \infty\, .
+$$
+
+Donc $X \in \mathcal{L}_p$.
+
+Enfin, vérifions que $\lim_m \|X_n - X\|_p =0$.
+Par le lemme de Fatou encore,
+
+$$
+\mathbb{E} \Big| X - X_m \Big|^p \leq \liminf_n \mathbb{E} \Big| X_n - X_m \Big|^p
+$$
+
+d'où
+
+$$
+\lim_m \mathbb{E} \Big| X - X_m \Big|^p \leq \lim_m \liminf_n \mathbb{E} \Big| X_n - X_m \Big|^p = 0 \, .
+$$
+
+  
+
+:::
+
+<br> <p> </p>
+
+::: {#rem-asconv-subsequence}
+
+Peut-on étendre la convergence presque sûre à toute la suite ?
+Ce n'est pas le cas. Considérons $([0,1], \mathcal{B}([0,1]), P)$ où $P$ est la loi uniforme.
+Pour $k= j+ n(n-1)/2$, $1\leq j\leq n$, posons $X_n = \mathbb{I}_{[(j-1)/n, j/n]}$.
+La suite $X_n$ converge vers $0$ dans $\mathcal{L}_p$ pour tout $p \in [1, \infty)$.
+En effet $\|X_k\|_p = n^{-p}$ pour $k= j+ n(n-1)/2$, $1\leq j\leq n$. Pour tout $\omega \in [0,1]$,
+la suite $X_n(\omega)$ oscille entre $0$ et $1$ une infinité de fois.
+
+:::
+
+<br>
+
+Les espaces $\mathcal{L}_p$ nous offrent un pont entre probabilités et analyse.
+En analyse, le fait que $\|\cdot \|_p$ ne soit qu'une pseudo-norme conduit à
+considérer les espaces $L_p$. Les espaces $L_p$ sont définis à partir des espaces $\mathcal{L}_p$
+en prenant des classes d'équivalence de variables aléatoires. Définissons la relation $\equiv$
+sur $\mathcal{L}_p(\Omega, \mathcal{F}, P)$ par $X \equiv X'$ ssi $P\{X=X'\}=1$.
+Cette relation est une relation d'équivalence (réflexive, symétrique et transitive).
+Si $X \equiv X'$ et $Y \equiv Y'$, alors $\|X -Y\|_p = \|X' -Y\|_p = \|X' - Y'\|_p$.
+$L_p(\Omega, \mathcal{F}, P)$ est l'espace quotient de $\mathcal{L}_p$ par la relation $\equiv$.
+Nous avons le résultat fondamental suivant.
+
+::: {#thm-Lp}
+
+Pour $p \in [1, \infty)$, $L_p(\Omega, \mathcal{F}, P)$ muni de
+$\| \cdot\|_p$ est un espace vectoriel normé complet (espace de Banach).
+
+:::
+
+<br>
+
+Cela permet finalement d'invoquer des théorèmes d'analyse fonctionnelle.
+
+
+## Remarques bibliographiques {#sec-bib-033}

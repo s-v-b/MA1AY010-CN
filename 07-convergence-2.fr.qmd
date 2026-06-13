@@ -1,0 +1,46 @@
+# Convergence en probabilité  {#chapConvProba}
+
+
+
+
+##  Convergence en probabilité {#secConvProba}
+
+
+
+
+::: {#def-convproba, name="Convergence en probabilité"}
+Une suite $(X_n)_{n \in \mathbb{N}}$ de variables aléatoires à valeurs dans $\mathbb{R}^k$, définies sur le même espace de probabilité $(\Omega, \mathcal{F}, P)$, _converge en probabilité_ (en probabilité $\mathbb{P}$) vers une variable aléatoire $X$ à valeurs dans $\mathbb{R}^k$ si et seulement si,
+pour tout $\epsilon >0$
+
+$$
+\lim_{n \to \infty} \mathbb{P} \{ \Vert X_n -X\Vert > \epsilon \} = 0 \,.
+$$
+
+```
+
+## Loi faible des grands nombres {#wlln}
+
+
+::: {#thm-wlln}
+
+### name="Loi faible des grands nombres"}
+Si $X_1, \ldots, X_n, \ldots$ sont des variables aléatoires indépendantes, identiquement distribuées, intégrables, à valeurs dans $\mathbb{R}^k$, sur $(\Omega, \mathcal{F}, P)$, d'espérance $\mu$, alors la suite $(\overline{X}_n)$ définie par $\overline{X}_n := \frac{1}{n} \sum_{i=1}^n X_i$ converge en probabilité $P$ vers $\mu$.
+```
+
+::: {.proof}
+TODO:
+```
+
+## Loi forte des grands nombres {#secslln}
+
+::: {#thm-slln}
+
+### name="Loi forte des grands nombres"}
+Si $X_1, \ldots, X_n, \ldots$ sont des variables aléatoires indépendantes, identiquement distribuées, intégrables, à valeurs dans $\mathbb{R}^k$, sur $(\Omega, \mathcal{F}, P)$, d'espérance $\mu$, alors $P$-p.s.
+$$
+\lim_{n \to \infty}    \overline{X}_n =   \mu \qquad\text{avec} \quad \overline{X}_n := \frac{1}{n} \sum_{i=1}^n X_i  .
+$$
+
+```
+
+La loi des grands nombres est la pierre angulaire des preuves de consistance.

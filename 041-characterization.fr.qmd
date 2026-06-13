@@ -1,0 +1,389 @@
+
+# Fonctions quantiles {#sec-chap-quantiles}
+
+Jusqu'ici, nous avons vu plusieurs caractérisations des lois de probabilité :
+fonctions de répartition (FDR), transformées de Laplace pour les lois supportées sur $[0, \infty)$, fonctions caractéristiques. Cette dernière caractérisation est prisée
+pour son comportement vis-à-vis des sommes de variables aléatoires indépendantes.
+
+Pour les lois univariées, le compagnon de la fonction de répartition est la *fonction quantile*. Elle joue un rôle important en simulation, en statistique et en théorie du risque.
+
+
+Une fonction de répartition $F$ est non négative, à valeurs dans $[0,1]$,
+non décroissante, continue à droite, avec limite à gauche en tout point.
+La fonction de répartition d'une mesure de probabilité diffuse
+est continue en tout point.
+
+## Définition {#sec-def-quantiles}
+
+La fonction quantile $F^{\leftarrow}$ est définie comme un inverse étendu
+de la fonction de répartition $F$.
+
+::: {#def-quantfun}
+
+### Fonction quantile
+
+La fonction quantile $F^{\leftarrow}$ de la variable aléatoire $X$
+de loi $P$ (de fonction de répartition $F$) est définie par
+$$\begin{array}{rl}
+F^{\leftarrow} (p)
+   & = \inf \Big\{ x : P\{X \leq x\} \geq p \Big\} \\
+   & = \inf \Big\{ x : F (x) \geq p \Big\} \qquad \text{for } p \in (0,1).
+\end{array}$$
+
+:::
+
+
+
+
+La fonction quantile est non décroissante et continue à gauche.
+L'interaction entre les fonctions quantile et de répartition
+est résumée dans la proposition suivante.
+
+::: {#prp-quantilekit}
+
+Si $F$ et $F^\leftarrow$ sont la fonction de répartition et la fonction quantile de
+(la loi de) $X$, les affirmations suivantes sont vraies pour $p \in] 0, 1 [$ :
+
+1. $p \leq  F (x)$ si et seulement si $F^\leftarrow (p) \leq  x$.
+1. $F \circ F^\leftarrow (p) \geq p$ .
+1. $F^\leftarrow \circ F (x) \leq  x$ .
+1. Si $F$ est absolument continue, alors $F \circ F^\leftarrow (p) = p$
+
+:::
+
+::: {.proof}
+D'après la définition de $F^\leftarrow$, si $F (x) \geq p$, alors $F^\leftarrow
+(p) \leq  x.$
+
+Pour prouver la réciproque, il suffit de vérifier que $F \circ F^\leftarrow (p) \geq p$.
+
+En effet, si $x \geq F^\leftarrow (p)$, comme
+$F$ est non décroissante, $F (x) \geq F \circ F^\leftarrow (p)$. Si $y = F^\leftarrow
+(p)$, par définition de $y = F^\leftarrow (p)$, il existe une
+suite non croissante $(z_n)_{n \in \mathbb{N}}$ convergeant vers $y$ telle que
+$F (z_n) \geq p.$ Mais comme $F$ est continue à droite, $\lim_n F
+(z_n) = F (\lim_n z_n) = F (y).$ D'où $F (y) \geq p$.
+
+Nous venons de prouver les points 1. et 2.
+
+3.) est une conséquence immédiate de 1.). Posons $p = F (x).$ Alors
+$p \leq  F (x),$ et d'après 1.), cela équivaut à $F^\leftarrow (p)
+\leq  x,$ c'est-à-dire $F^\leftarrow \circ F (x) \leq  x.$
+
+4.) Pour tout $p$ dans $] 0, 1 [,$ l'ensemble $\{ x : p = F (x)\}$ est non vide (théorème des valeurs intermédiaires).
+Posons $y = \inf \{ x : p = F (x)\} =F^\leftarrow (p)$.
+D'après 1.), $F (y) \geq p$.
+Maintenant, si $(z_n)_{n \in \mathbb{N}}$ est une suite croissante
+convergeant vers $y$, pour tout $n$, $F (z_n) < p,$ et, par continuité à gauche,
+$F (y) = F (\lim_n z_n) = \lim_n F (z_n) \leq
+p.$ D'où $F (y) = p,$ c'est-à-dire $F \circ F^\leftarrow (p) = p.$
+
+
+  
+
+:::
+
+<br>
+
+## Fonctions quantiles et simulation stochastique {#sec-quantile-coupling}
+
+::: {#prp-quatile-transformation}
+
+### Transformation quantile
+
+Si $U$ suit la loi uniforme sur $(0,1)$ et si $F$ est une fonction de répartition
+sur $\mathbb{R}$, alors $F^{\leftarrow}(U)$ a pour fonction de répartition $F$.
+
+:::
+
+::: {.proof}
+
+$$\begin{array}{rl}
+  P\Big\{ F^\leftarrow(U) \leq x \Big\}
+  & = P\Big\{ U \leq F(x) \Big\} \\
+  & = F(x) \, .
+\end{array}$$
+
+  
+:::
+
+::: {#rem-quantile-transformation}
+
+La transformation quantile fonctionne quelles que soient les propriétés de continuité de $F$.
+
+:::
+
+La transformation quantile a de nombreuses applications. Elle peut être utilisée pour
+démontrer des propriétés de domination stochastique.
+
+::: {#exm-exmples-quantiles}
+
+Dans les [Figures @fig-quantiles] jusqu'à [@fig-quantiles4], nous illustrons les fonctions quantiles pour des lois discrètes (binomiales)
+et pour des lois qui ne sont ni discrètes ni continues. La fonction quantile
+d'une loi discrète est une fonction en escalier qui saute aux probabilités cumulées de chaque issue possible.
+Si une loi de probabilité est un mélange d'une loi discrète et d'une loi continue, la
+fonction quantile saute aux probabilités cumulées de chaque issue possible de la composante discrète.
+
+:::
+
+
+<!-- ::: {#fig-quantiles} -->
+
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| label: fig-quantiles
+#|
+#| fig-cap: |
+#|    Quantile functions of binomial distributions.
+#|
+n <- 10
+p <- seq(0, 1, by=.01)
+probs <-  c(.2,  .5)
+
+df <- as.data.frame(c(list("p"=p),
+                      probs |> purrr::map(.f = function(prob) qbinom(p, n, prob))))
+
+names(df) <- c("p", format(probs, digits=2))
+
+df <- tidyr::gather(df, key="prob", value="quantile", -p)
+
+p <- ggplot2::ggplot(data = df) +
+     ggplot2::geom_step(mapping=ggplot2::aes(x=p, y=quantile, linetype=prob), color=1, direction = "hv", lineend="butt") +
+     ggplot2::xlab("p") +
+     ggplot2::ylab("Quantile function ") +
+     ggplot2::xlim(xlim = c(-.1, 1.1))  +
+     ggplot2::scale_y_continuous(breaks=seq(0,10)) +
+     ggplot2::scale_x_continuous(breaks=seq(0, 1, by=.25)) +
+     ggplot2::theme_minimal()
+p
+
+rm(df, probs, p)
+# %%
+```
+
+<!-- ::: -->
+
+<!-- ::: {#fig-quantiles2} -->
+
+ 
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| label: fig-quantiles2
+#| fig-cap: |
+#|   Quantile functions $\max(X, \tau)$ where $X \sim \mathcal{N}(0,1)$ for $\tau \in \{0, 2\}$.  Let $\Phi^\leftarrow$ 
+#|   denote the quantile function of $\mathcal{N}(0,1)$. The quantile  function of $\max(X,\tau)$ is 
+#|   $\mathbb{I}_{(0,\Phi(\tau)]}(p) \times \tau + \Phi^{\leftarrow}(p) \times \mathbb{I}_{(\Phi(\tau), 1)}(p)= \Phi^{\leftarrow}(p \vee \Phi(\tau))$. 
+#|   The two distributions are neither absolutely continuous nor discrete.
+
+
+# %%
+tau <-  c(0,  -1)
+df <- tibble::tibble(p=seq(0.01, .99, by=0.01)) |>
+      dplyr::mutate(
+        '0' = qnorm(pmax(pnorm(0), p)),
+        '-1' =qnorm(pmax(pnorm(-1), p))) |>
+      tidyr::gather(key="tau", value="quantile", -p)
+
+p <- ggplot2::ggplot(data = df,
+                     mapping= ggplot2::aes(x=p, y=quantile, group=tau)) +
+  ggplot2::xlab("p") +
+  ggplot2::ylab("quantile function") +
+  ggplot2::xlim(xlim = c(-0.1, 1.1)) +
+  ggplot2::ylim(ylim = c(-1.1, 2.5)) +
+  ggplot2::geom_line(ggplot2::aes(linetype=tau)) +
+  ggplot2::scale_y_continuous(breaks=seq(-2,10)) +
+  ggplot2::scale_x_continuous(breaks=seq(0, 1, by=.25), limits=c(-0.1, 1.1)) +
+  ggplot2::theme_minimal()
+
+p
+
+rm(df, tau, p)
+# %%
+```
+
+<!-- ::: -->
+
+
+<!-- ::: {#fig-quantiles3} -->
+
+
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| label: fig-quantiles3
+#| fig-cap: |
+#|   Cumulative distribution functions for the probability distributions illustrated in [Figure @fig-quantiles2]
+
+df2 <- tibble::tibble(x=seq(-2, 2, by=0.01)) |>
+      dplyr::mutate('0' = ifelse(x<0, 0, pnorm(x)),
+             '-1' = ifelse(x< (-1), 0, pnorm(x))) |>
+      tidyr::gather(key="tau", value="cdf", -x)
+
+q <- ggplot2::ggplot(data = df2,
+                     mapping= ggplot2::aes(x=x, y=cdf, group=tau)) +
+  ggplot2::xlab("x") +
+  ggplot2::ylab("cumulative distribution function") +
+  ggplot2::geom_line(ggplot2::aes(linetype=tau)) +
+  ggplot2::scale_x_continuous(breaks=seq(-2, 2, by=1.), limits=c(-2, 2)) +
+  ggplot2::scale_y_continuous(breaks=seq(0, 1, by=.25), limits=c(-0.1, 1.1)) +
+  ggplot2::theme_minimal()
+
+q
+
+rm(df2, q)
+```
+<!-- ::: -->
+
+<!-- ::: {#fig-quantiles4} -->
+
+
+
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| label: fig-quantiles4
+#| fig-cap: |
+#|   Representation of $F \circ F^{\leftarrow}$ for the probability distributions illustrated in [Figures @fig-quantiles2]  and [@fig-quantiles3]. 
+#|   The function $F \circ F^{\leftarrow}$ always lies above the line $y=x$ (dotted line) as prescribed in [Proposition @prp-quantilekit]. 
+#|   Plateaux that lie strictly above the dotted line are in correspondence with  jumps of the quantile function.
+#| 
+
+df <- tibble::tibble(p=seq(0.01, .99, by=0.001)) |>
+      dplyr::mutate(tau0 = qnorm(pmax(pnorm(0), p)),
+             tau1 =qnorm(pmax(pnorm(-1), p))) |>
+      dplyr::mutate('0' = ifelse(tau0<=0, pnorm(0), pnorm(tau0)),
+             '-1' = ifelse(tau1<=(-1), pnorm(-1), pnorm(tau1))) |>
+      dplyr::select(-dplyr::starts_with('tau')) |>
+      tidyr::gather(key="tau", value="value", -p)
+
+p <- ggplot2::ggplot(data = df,
+                     mapping= ggplot2::aes(x=p, y=value, group=tau)) +
+  ggplot2::xlab("p") +
+  ggplot2::ylab("...") +
+  ggplot2::geom_line(ggplot2::aes(linetype=tau)) +
+  ggplot2::scale_y_continuous(breaks=c(0, pnorm(-1), .25, .5, .75, 1.), limits=c(-0.1, 1.1)) +
+  ggplot2::scale_x_continuous(breaks=c(0, pnorm(-1), .25, .5, .75, 1.),
+                              labels=format(c(0, pnorm(-1), .25, .5, .75, 1.), digits=2),
+                              limits=c(-0.1, 1.1)) +
+  ggplot2::geom_abline(slope=1, intercept=0, linetype=81) +
+  ggplot2::theme_minimal()
+
+p
+
+rm(df, p)
+
+```
+<!-- ::: -->
+
+<!-- ::: {#fig-qqplot} -->
+
+
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| label: fig-qqplot
+#|
+#| fig-cap: |
+#|   Quantile-Quantile plot (QQ-plot). This is a popular device for comparing two probability distributions on the real line defined 
+#|   by their cumulative distributions $F$ and $G$. The QQ-plot consists in plotting function $G^{\leftarrow} \circ F$. 
+#|   If the two distributions are the same, the line $y = G^{\leftarrow} \circ F(x)$ should lie 
+#|   below $y=x$ (according to [Proposition @prp-quantilekit]), and should even coincide with the diagonal 
+#|   if $F=G$ is continuous and increasing. Here $F$ is the cumulative distribution function of $\mathcal{N}(0,1)$. 
+#|   And $G$ is the empirical distribution of a sample of size $500$ of $\mathcal{N}(0,1)$.
+
+n <- 500
+sample <- sort(rnorm(n))
+p <- seq(.01, .99, by=1/n)
+df <- tibble::tibble('x'=qnorm(p),
+                     'y'=quantile(sample, p, type=1))
+
+q <- ggplot2::ggplot(data = df) +
+     ggplot2::geom_step(mapping=ggplot2::aes(x=x, y=y), color=1, direction = "hv", lineend="butt") +
+     ggplot2::geom_abline(slope=1, intercept=0, linetype="dotted") +
+     ggplot2::ylim(range(df[["x"]])) +
+     ggplot2::xlab("Theoretical quantiles") +
+     ggplot2::ylab("Empirical quantiles") +
+     ggplot2::theme_minimal()
+q
+
+rm(n, sample, p, df, q)
+# %%
+```
+
+<!-- ::: -->
+
+<br>
+
+
+Concluons cette section par une observation importante concernant
+le comportement de $F(X)$ lorsque $X \sim P$ avec fonction de répartition
+$F$.
+<br>
+
+::: {#cor-corscore}
+
+Si $X \sim P$ avec fonction de répartition continue
+$F$, alors $F (X)$ et
+$1 - F (X)$ suivent la loi uniforme sur $[0, 1]$.
+
+:::
+
+::: {#exr-corscore}
+
+Démontrer le [Corollaire @cor-corscore]
+
+:::
+
+
+## Statistiques d'ordre {#sec-order-statistics}
+
+
+::: {#def-order-statistics}
+
+### Statistiques d'ordre
+
+
+
+:::  
+
+
+
+::: {#prp-order-statistics-joint-density}
+
+### Densité jointe
+
+
+:::  
+
+
+
+::: {#exr-renyi-representation}
+
+### Représentation de Rényi
+
+:::
+
+
+::: {#exr-uniform-order-statistics}
+
+### Statistiques d'ordre d'un échantillon uniforme
+
+
+
+:::
+
+
+
+## Remarques bibliographiques {#sec-biblio-quantiles}
+

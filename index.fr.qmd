@@ -1,0 +1,103 @@
+---
+editor: source
+---
+
+<!-- ![](images/Universite_Paris_logo_horizontal.jpg) -->
+
+# Mise en route {#foreword .unnumbered}
+
+::: {.callout-warning}
+
+### `r as.Date(Sys.time())`
+
+:::
+
+## Un court cours de licence sur la théorie des probabilités dans un [cursus de mathématiques appliquées](http://master.math.u-paris.fr/annee/m1-isifar/)
+
+Ce cours de *Probabilités* fait partie intégrante du [`Master ISIFAR`](http://master.math.u-paris.fr/annee/m1-mi/), une formation en statistique, finance mathématique et informatique à l'[Université Paris Cité](http://u-paris.fr). Il est lié à d'autres cours du même cursus.
+
+```{r}
+#| echo: false
+#| fig-align: right
+#| eval: false # knitr::is_html_output()
+#| 
+knitr::include_url("http://master.math.u-paris.fr/annee/m1-isifar/", height = '300px')
+```
+
+1.  [Statistique M1](https://master.math.u-paris.fr/modules/m1isifar-statistiques)
+2.  [Mathématiques financières M1](https://master.math.u-paris.fr/modules/m1isifar-math-fi)
+3.  [Mathématiques financières M2](https://master.math.u-paris.fr/modules/m2isifar-mathematiques-financieres/)
+4.  [Apprentissage statistique M2](https://master.math.u-paris.fr/modules/m2isifar-apprentissage-statistique/)
+
+Cette liste n'est pas exhaustive.
+
+Ce cours est orienté vers les applications. Nous empruntons des exemples et des applications de la théorie des probabilités à la statistique, à l'informatique et à l'ingénierie des données massives. Comme le temps est limité, nous passons sous silence de nombreux points techniques. Nous supposons acquis des résultats clés de l'intégration et de la théorie de la mesure. Néanmoins, nous nous appuyons sur des définitions rigoureuses et énonçons et utilisons les théorèmes de manière cohérente.
+
+-   `r fontawesome::fa("link")` [Page d'accueil du cours](https://s-v-b.github.io/MA1AY010).
+-   `r fontawesome::fa("link")` [Page Moodle du cours](https://moodle.u-pariscite.fr/course/view.php?id=13045).
+
+## Prérequis
+
+Ce cours s'appuie sur deux cours de niveau licence :
+
+-   [Probabilités Licence 3](http://licence.math.u-paris.fr/modules/l3-maths-mfa-maths-s5-probas/)
+-   [Intégration](http://licence.math.u-paris.fr/modules/l3-maths-mfa-maths-s6-Integration/)
+
+```{=html}
+<!-- 
+
+## Feuille de route
+
+__Planning provisoire__|  Séance   |  Date  |
+|:--------|:-------|:-------:|:-------:|
+ -->
+```
+
+<!-- ## Notebooks
+
+Throughout the course, we illustrate problems and concepts using `Python` and `R` notebooks. You should be able to explore the notebooks by yourself. My current configuration relies on:
+
+-   [`Python`](https://www.python.org) (3.12, use [`virtualenv`]())
+    -   `Numpy` for nice numerical arrays and random generation
+    -   `Scipy` with module `stats` for a zoo of probability distributions
+    -   `Pandas` for data analysis
+    -   `Networkx` to play with random graphs
+    -   `igraph` to play with random graphs (again)
+    -   `vega`/`altair` for graphics
+    -   `plotly` for graphics
+    -   `Jupyter` for its interactive kernels, an easy path to literate programming, and technical reporting
+    -   `Dask` if you enjoy multicore processing
+    -   I use [`vs code`](https://code.visualstudio.com) + extensions as a `Python` IDE
+-   [`R`]() (4.1 and above)
+    -   `tidyverse`
+    -   I use [`vs code`](https://code.visualstudio.com) + extensions as a `Python` IDE
+    -   [`rstudio`]() is also very convenient
+    -   [`positron`]() provides us with nice features of both worlds -->
+
+```{=html}
+<!-- The notebooks are available at the following URLs:
+
+1. [Hashing and random functions](http://stephane-v-boucheron.fr/post/2019-09-02-idealizedhashing/)
+[.ipynb](http://stephane-v-boucheron.fr/files/notebooks_proba/hashing.ipynb)
+1. [Roulette]()
+2. [Branching processes]()
+3. [Random graphs]()
+4. [Randomized algorithms]()
+5. [Chinese Restaurant Process]()
+6. Law(s) of large numbers
+7. Central limit theorem(s)
+8. Gaussian vectors
+9. Law(s) of rare events
+10. Weak convergence
+
+11. Longest Common Subsequence
+12. [Longest Increasing Subsequence]()
+13. [Chinese Restaurant Process]() -->
+```
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```

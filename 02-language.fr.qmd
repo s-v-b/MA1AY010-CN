@@ -1,0 +1,1109 @@
+# Un minimum de théorie de la mesure
+
+
+## Feuille de route
+
+Pour faire de la modélisation stochastique de manière confortable, il faut des fondements et une notation cohérents. Dans ce chapitre, nous posons les bases du développement à venir. La théorie des probabilités est née de l'interaction entre la combinatoire et les jeux de hasard (XVIIe siècle). À cette époque, l'ensemble des issues était fini, et il était légitime de penser que tout ensemble d'issues avait une probabilité bien définie. Lorsque les mathématiciens ont commencé à faire de la modélisation stochastique dans différentes branches des sciences (astronomie, thermodynamique, génétique, ...), ils ont dû traiter des ensembles d'issues non dénombrables.
+Concevoir une définition rigoureuse de ce qu'est une loi de probabilité a pris du temps.
+Les progrès de l'intégration et de la théorie de la mesure au cours du XIXe siècle et des premières décennies du XXe siècle ont conduit aux fondements modernes de la théorie des probabilités, fondés sur la théorie de la mesure.
+
+
+
+{{< include _packages_requirements.qmd >}}
+
+## Univers, partie et $\sigma$-algèbres  {#sec-tribe}
+
+Un _univers_ est un ensemble (d'_issues_ possibles) que nous décidons d'appeler univers. L'univers est souvent noté $\Omega$. Les éléments génériques de $\Omega$ (les issues) sont notés $\omega$.
+
+<br><p></p>
+
+::: {#exm-universe}
+
+Si l'on considère le lancer d'un dé comme un phénomène aléatoire, l'ensemble des issues est l'ensemble des étiquettes sur les faces $\Omega = \{1, 2, 3, 4, 5, 6\}$. Si l'on lance deux dés, l'ensemble des issues est constitué de couples d'étiquettes $\Omega' = \{(1,1), (1, 2), (1, 3), \ldots, (6,6)\} =\Omega^2$.
+
+:::
+
+<br><p></p>
+
+
+::: {#exm-unverse-hashing}
+
+Dans le problème idéalisé de hachage (@sec-hashing), l'univers est l'ensemble des fonctions de $1, \ldots, n$ vers $1, \ldots, m$. La taille de l'univers est $m^n$.
+
+:::
+
+<br><p></p>
+
+Un univers peut être fini ou dénombrable, ou non. Si l'univers est dénombrable, tous ses sous-ensembles peuvent être appelés _événements_. Des probabilités sont attribuées aux événements.
+Si l'univers est dénombrable, il est possible d'attribuer une probabilité à chacun de ses sous-ensembles.
+Lorsque l'univers n'est pas dénombrable (par exemple $\mathbb{R}$), attribuer une probabilité
+à tous les sous-ensembles n'est pas possible. Il faut restreindre la collection de sous-ensembles afin d'attribuer des probabilités aux éléments de la collection de manière cohérente.
+
+Dans la suite, $2^{\Omega}$ désigne la collection de tous les sous-ensembles de $\Omega$ (la partie de $\Omega$).
+
+Une collection raisonnable d'événements doit être une $\sigma$-algèbre.
+
+<br><p></p>
+
+::: {#def-sigalgebra}
+
+### $\sigma$-algèbre"
+
+Étant donné un ensemble $\Omega$, une collection $\mathcal{G}$ de sous-ensembles de $\Omega$ ($\mathcal{G} \subseteq 2^{\Omega}$) est appelée une $\sigma$-algèbre (une sigma-algèbre) si et seulement si
+
+- $\mathcal{G}$ est stable par union dénombrable
+- $\emptyset \in \mathcal{G}$
+- $\mathcal{G}$ est stable par passage au complémentaire ($A \in \mathcal{G} \Rightarrow A^c = \Omega \setminus A \in \mathcal{G}$)
+
+:::
+
+<br><p></p>
+
+
+::: {#exr}
+
+Quelle est la plus petite $\sigma$-algèbre (au sens de l'inclusion)
+qui contient le sous-ensemble $A$ de $\Omega$ ?
+
+:::
+
+<br><p></p>
+
+La proposition suivante montre que les $\sigma$-algèbres sont stables
+sous les opérations ensemblistes dénombrables. On aurait pu remplacer
+l'union dénombrable par l'intersection dénombrable dans la définition des $\sigma$-algèbres.
+C'est une conséquence des lois de De Morgan :
+
+
+$$
+(A \cup B)^c  = A^c \cap B^c \qquad \text{and} (A \cap B)^c  = A^c \cup B^c
+$$
+
+
+::: {#prp}
+
+Une $\sigma$-algèbre de sous-ensembles est stable par intersections dénombrables.
+
+:::
+
+<br><p></p>
+
+
+::: {.proof}
+
+Pour $A \subseteq \Omega$, posons $A^c = \Omega \setminus A$.
+Soient $A_1, \ldots, A_n, \ldots$ des éléments de la $\sigma$-algèbre $\mathcal{G}$ de sous-ensembles
+de $\Omega$. Pour chaque $n$, $A_n^c \in \mathcal{G}$, par définition de $\sigma$-algèbre,
+\begin{align*}
+\cap_n A_n
+ & = \Big(\big(\cap_n A_n\big)^c\Big)^c \\
+ & = \Big(\cup_n A_n^c\Big)^c  \qquad \text{De Morgan} \, .
+\end{align*}
+Par définition d'une $\sigma$-algèbre, $\cup_n A_n^c \in \mathcal{G}$, et
+pour la même raison, $\Big(\cup_n A_n^c \Big)^c \in \mathcal{G}$.
+
+:::
+
+<br><p></p>
+
+La proposition suivante nous permet de parler de la plus petite $\sigma$-algèbre
+contenant une collection de sous-ensembles ; cela conduit à la notion
+de $\sigma$-algèbre engendrée.
+
+<br><p></p>
+
+
+::: {#prp}
+
+L'intersection de deux $\sigma$-algèbres de sous-ensembles de $\Omega$
+est une $\sigma$-algèbre de sous-ensembles de $\Omega$.
+
+:::
+
+
+<br><p></p>
+
+
+::: {.proof}
+
+Soient $\mathcal{G}$ et $\mathcal{G}'$ deux $\sigma$-algèbres de sous-ensembles
+de $\Omega$. L'intersection des deux $\sigma$-algèbres est
+
+$$
+\Big\{ A : A\subseteq \Omega, A \in \mathcal{G}, A \in \mathcal{G}' \Big\}\, .
+$$
+
+
+:::
+
+<br><p></p>
+
+En effet, l'intersection d'une collection éventuellement non dénombrable de $\sigma$-algèbres
+est une $\sigma$-algèbre (vérifier cela).
+Grâce à cette propriété, la notion de $\sigma$-algèbre engendrée par une collection de sous-ensembles est bien fondée.
+
+::: {#lem} 
+
+### $\sigma$-algèbre engendrée
+
+Étant donné une collection $\mathcal{C}$ de sous-ensembles de $\Omega$, il existe une _plus petite $\sigma$-algèbre unique_ contenant tous les sous-ensembles de $\mathcal{C}$ ; elle est appelée la $\sigma$-algèbre engendrée par $\mathcal{H}$ et notée $\sigma(\mathcal{C})$.
+
+:::
+
+<br><p></p>
+
+::: {#exr-generated-sigma-algebra}
+
+Vérifier la proposition précédente.
+
+:::
+
+<br><p></p>
+
+::: {#exm-sigma-dice} 
+
+Considérons le lancer d'un dé, $\Omega = \{1, \ldots, 6\}$, et posons $$\mathcal{H} = \Big\{\{1, 3, 5\}\Big\}\, .$$ Il s'agit d'une collection constituée d'un seul événement (l'issue est impaire). L'algèbre engendrée par $\mathcal{H}$ est $$\sigma(\mathcal{H}) = \Big\{ \{1, 3, 5\}, \{2, 4, 6\}, \emptyset, \Omega \Big\} \, .$$
+
+:::
+
+<p>
+Deux types de $\sigma$-algèbres jouent un rôle central dans un cours de probabilités de base :
+
+1. la partie des ensembles dénombrables ou finis.
+1. les $\sigma$-algèbres boréliennes des espaces topologiques.
+
+<p>
+
+
+::: {#def-borel-sigma-algebra} 
+
+### $\sigma$-algèbre borélienne
+
+La $\sigma$-algèbre borélienne sur $\mathbb{R}$ est la $\sigma$-algèbre engendrée
+par les ensembles _ouverts_. Elle est notée $\mathcal{B}(\mathbb{R})$.
+
+:::
+
+<p>
+Cette définition s'applique à tout espace topologique. Rappelons qu'une topologie
+sur un ensemble $E$ est définie par une collection $\mathcal{E}$ d'_ensembles ouverts_. Cette collection
+est caractérisée par les propriétés suivantes :
+
+- $\emptyset, E \in \mathcal{E}$
+- Une union (_éventuellement non dénombrable_) d'éléments de $\mathcal{E}$ (ensembles ouverts)
+appartient à $\mathcal{E}$ (est un ensemble ouvert)
+- Une intersection finie d'ensembles ouverts est un ensemble ouvert.
+
+Dans la topologie usuelle sur $\mathbb{R}$, un ensemble $A$ est ouvert si pour tout $x \in A$, il
+existe un $r>0$ tel que $]x-r, x+r[ \subseteq A$. Tout intervalle de la forme $]a,b[$
+est ouvert (ce sont les intervalles ouverts).
+
+Cette topologie se généralise à toute dimension finie $\mathbb{R}^d$.
+<p>
+
+::: {#exr-sigma-alg-open-inter}
+
+Considérer la $\sigma$-algèbre engendrée par les intervalles ouverts de $\mathbb{R}$.
+S'agit-il de la $\sigma$-algèbre borélienne ?
+
+:::
+
+::: {#exr-sigma-alge-inter-rational}
+
+Considérer la $\sigma$-algèbre engendrée par les intervalles ouverts de $\mathbb{R}$ à bornes rationnelles.
+S'agit-il de la $\sigma$-algèbre borélienne ?
+
+:::
+
+::: {#exr-sigma-open-balls}
+
+Considérer un espace métrique $(E,d)$ quelconque. La métrique $d$ définit une topologie sur $E$.
+La $\sigma$-algèbre borélienne sur $(E, d)$ coïncide-t-elle avec la
+$\sigma$-algèbre engendrée par les boules ouvertes $B(x,r) = \Big\{  y : y\in E, d(x,y)<r\Big\}$ ?
+
+:::
+
+Nous sommes maintenant prêts à poser le cadre de la modélisation stochastique. Le terrain de jeu
+consiste toujours en un espace mesurable.
+
+::: {#def-measspace}
+
+### Espace mesurable
+
+Un univers $\Omega$ muni d'une $\sigma$-algèbre de sous-ensembles $\mathcal{F}$
+est appelé un espace mesurable. Il est noté $(\Omega, \mathcal{F})$.
+
+:::
+
+<p>
+
+::: {#exm-measurable-spaces} 
+
+- Si $\Omega$ est un ensemble dénombrable ou fini, alors $(\Omega, 2^\Omega)$ est
+un espace mesurable.
+- Si $\Omega=\mathbb{R}$, alors $(\mathbb{R}, \mathcal{B}({\mathbb{R}}))$ est un espace mesurable.
+
+:::
+
+Jusqu'ici, nous n'avons pas parlé de théorie des probabilités, mais
+nous sommes maintenant équipés pour définir des lois de probabilité et pour les manipuler.
+
+
+
+## Lois de probabilité  {#sec-distribution}
+
+
+Une _loi de probabilité_ associe une $\sigma$-algèbre à $[0,1]$. C'est
+un cas particulier d'un concept plus général appelé _mesure_. Nous énonçons ou rappelons
+des notions importantes de la théorie de la mesure. L'idée clé qui sous-tend l'élaboration de la théorie de la mesure
+est que l'on doit s'abstenir d'essayer de mesurer _tous_ les sous-ensembles d'un univers (sauf si cet univers
+est dénombrable). Les tentatives de mesurer tous les sous-ensembles de $\mathbb{R}$ conduisent à des paradoxes et sont de peu d'utilité pratique. La théorie de la mesure commence par reconnaître les propriétés souhaitables que toute mesure utile
+devrait posséder, puis elle construit des objets satisfaisant ces propriétés sur des
+$\sigma$-algèbres d'événements aussi larges que possible, par exemple sur les $\sigma$-algèbres boréliennes.
+
+Cela motive la définition de la $\sigma$-additivité.
+
+::: {#def-sigadd} 
+
+### $\sigma$-additivité
+
+Étant donné $\Omega$ et $\mathcal{A} \subseteq 2^\Omega$, une fonction $\mu$ de
+$\mathcal{A}$ vers $[0,\infty)$ est dite $\sigma$-_additive_ sur $\mathcal{A}$ si pour toute collection dénombrable de sous-ensembles _deux à deux disjoints_ $(A_n)_{n \in \mathbb{N}} \in \mathcal{A}$,
+avec $\cup_n A_n \in \mathcal{A}$, on a
+$$\mu (\cup_{n \in \mathbb{N}} A_n) = \sum_{n \in \mathbb{N}} \mu(A_n)  \, .$$
+
+:::
+
+Notons que si $\mathcal{F}$ est une $\sigma$-algèbre, $\Big(\cup_{n \in \mathbb{N}} A_n\Big) \in \mathcal{F}$.
+La $\sigma$-additivité s'accorde bien avec les $\sigma$-algèbres, mais il est pertinent de
+définir la $\sigma$-additivité par rapport à des collections de sous-ensembles plus générales.
+
+<br><p></p>
+
+::: {#prp-sigma-add-continuity}
+
+Étant donné $\Omega$, une $\sigma$-algèbre $\mathcal{A} \subseteq 2^\Omega$, une fonction $\sigma$-_additive_ $\mu$ de $\mathcal{A}$ vers $[0,\infty)$ satisfait 
+
+a. pour toute suite croissante $(A_n)_{n \in \mathbb{N}}$ d'éléments de $\mathcal{A}$
+    
+    $$\lim_n \mu(A_n) = \mu\left(\cup_{n} A_n\right)$$
+
+a. pour toute suite décroissante $(A_n)_{n \in \mathbb{N}}$ d'éléments de $\mathcal{A}$
+
+    $$\lim_n \mu(A_n) = \mu\left(\cap_{n} A_n\right)$$
+
+a.
+    $$\mu(\emptyset) = 0$$
+
+:::
+
+
+::: {.proof}
+
+a.) Posons $B_{1} = A_1$, et $B_{n+1} =  A_{n+1} \setminus A_n$ pour chaque $n$ ; alors $(B_n)_n$ est une suite d'éléments de $\mathcal{A}$ deux à deux disjoints. On a $\cup_n B_n = \cup_n A_n$ et, par $\sigma$-additivité, $\mu(\cup_n A_n) = \sum_n \mu(B_n)$
+
+$$\sum_{n\leq m} \mu(B_n) = \mu\left(\cup_{n\leq m} B_m\right) = \mu(A_m)$$
+
+D'où $\lim_{m\to \infty} \mu(A_m) = \sum_{n\in \mathbb{N}} \mu(B_n)= \mu(\cup_n A_n)$
+
+b.) Le second énoncé se démontre de manière analogue.
+
+c.) Soit $(A_n)_n$ telle que $A_n = \emptyset$ pour chaque $n$ ; c'est une suite d'éléments de $\mathcal{A}$ deux à deux disjoints ; par $\sigma$-additivité, on a
+
+$$\sum_{n\in \mathbb{N}} \mu(\emptyset) = \mu(\emptyset)$$
+
+ce qui implique $\mu(\emptyset)=0.$
+
+
+  
+
+:::
+
+::: {#def-pmeasure} 
+
+### Mesure positive
+
+Étant donné un espace mesurable $(\Omega, \mathcal{F})$, une fonction $\sigma$-additive $\mu$ de
+$\mathcal{F}$ vers $[0,\infty)$ est appelée une _mesure positive_ sur $(\Omega, \mathcal{F})$.
+
+Le triplet $(\Omega, \mathcal{F}, \mu)$ est appelé un espace mesuré.
+
+:::
+
+Par @prp-sigma-add-continuity, pour toute mesure positive $\mu$, on a $\mu(\emptyset)=0$. Lorsque $\mu(\Omega)$ est fini, on dit que $\mu$ est une mesure positive *finie*.
+
+
+::: {#exr-fundspace} 
+
+Soit $\Omega = \{0,1\}^*$ l'ensemble des suites infinies de $0$ et $1$ (indexées
+à partir de $1$).
+Soit $\mathcal{F}_n \subseteq 2^\Omega$ la $\sigma$-algèbre engendrée par
+les événements de la forme suivante : $\{ \omega : \omega \in \Omega, \omega_i = 1\}$
+pour $1\leq i\leq n$.
+
+- Définir une fonction $\sigma$-additive sur $(\Omega, \mathcal{F}_n)$.
+- Quelle est la $\sigma$-algèbre engendrée par $\cup_{n\geq 1} \mathcal{F}_n$ ?
+- Peut-on définir une fonction $\sigma$-additive sur $(\Omega, \sigma(\cup_{n\geq 1} \mathcal{F}_n))$ ?
+
+:::
+
+<p>
+Une mesure positive $\mu$ n'est pas nécessairement une loi de probabilité. Par exemple,
+la _mesure de comptage_ $\mu$ sur $\mathbb{N}$ satisfait $\mu(A) = |A|$ pour tout $A \subseteq \mathbb{N}$, donc on a $\mu(\mathbb{N})=\infty.$
+
+
+<p>
+
+::: {#def-probmeasure} 
+
+### Loi de probabilité
+
+Étant donné un espace mesurable $(\Omega, \mathcal{F})$, une fonction $\mu$ de
+$\mathcal{F}$ vers $[0,\infty)$ est une loi de probabilité sur $(\Omega, \mathcal{F})$ si
+
+1. $\mu$ est une mesure positive sur $(\Omega, \mathcal{F})$ et
+1. $\mu(\Omega)=1$.
+
+:::
+
+::: {#exr-challenge}
+ 
+Si l'on pense que $(\mathbb{R}, 2^{\mathbb{R}})$ est un espace mesurable, définir une mesure $\sigma$-additive sur celui-ci.
+Essayer même de définir une mesure de probabilité.
+
+:::
+
+
+::: {#rem-sigma-add} 
+
+La notion de $\sigma$-additivité est strictement plus forte que l'additivité finie.
+En supposant l'\emph{axiome du choix} (comme d'usage en analyse ou en probabilités), il existe une fonction $\mu$
+qui associe à $2^{\mathbb{N}}$ des valeurs dans $[0,1]$, qui est additive ($\mu(A \cup B)= \mu(A) + \mu(B)$ pour tous $A, B$ tels que $A\cap B=\emptyset$),
+nulle sur tous les sous-ensembles finis de $\mathbb{N}$ et telle que $\mu(\mathbb{N})=1$. Une telle fonction n'est pas $\sigma$-additive.
+
+:::
+
+## Mesure de Lebesgue {#sec-lebesgue}
+
+
+<p>
+
+Nous admettons l'existence de la mesure de Lebesgue. C'est le contenu du théorème suivant.
+
+<p>
+
+::: {#thm-lebesgue}
+
+### Existence de la mesure de Lebesgue
+
+Il existe une mesure $\sigma$-additive unique $\ell$ sur $(\mathbb{R}, \mathcal{B}(\mathbb{R}))$
+telle que $\ell((a, b]) = b - a$ pour tous $a < b$ finis.
+
+:::
+
+<p>
+
+[Le théorème @thm-lebesgue] est typique des énoncés de la théorie de la mesure. Il définit un objet complexe
+(une mesure) par sa trace sur une collection simple d'ensembles (les intervalles).
+
+La démonstration de [le théorème @thm-lebesgue] peut être découpée en plusieurs étapes significatives. D'abord définir
+une fonction de longueur sur les intervalles. Montrer que cette fonction peut être prolongée en
+une fonction additive sur les unions finies, intersections finies et complémentaires d'intervalles.
+Puis vérifier que le prolongement est en fait $\sigma$-additif sur la fermeture
+des intervalles sous les opérations ensemblistes finies (qui n'est pas une $\sigma$-algèbre).
+
+Une fois ce prolongement additif construit, utiliser le théorème de prolongement de Carathéodory ci-dessous
+pour prouver que la fonction de longueur peut être prolongée en une fonction $\sigma$-additive
+sur la $\sigma$-algèbre engendrée par les intervalles (la $\sigma$-algèbre borélienne).
+
+Il reste alors à vérifier que le prolongement est unique. Cela peut se faire par un argument de classe engendrante,
+par exemple le _lemme des classes monotones_ [lemme @thm-monotoneclasslemma].
+
+::: {#thm-caratheodory}
+
+### Théorème de prolongement de Carathéodory"
+
+Soit $\mathcal{A} \subseteq 2^{\Omega}$. Supposons que $\mathcal{A}$ contient $\emptyset, \Omega$,
+et est stable par unions finies et par passage au complémentaire. Supposons que $\rho : \mathcal{A} \to [0, \infty]$
+est $\sigma$-additive sur $\mathcal{A}$.
+
+Alors il existe une mesure $\mu$ sur $\sigma(\mathcal{A})$ telle que $\mu(A)=\rho(A)$
+pour tout $A \in \mathcal{A}$.
+
+:::
+
+Le théorème d'existence de la mesure de Lebesgue garantit que l'on peut définir
+la loi de probabilité uniforme sur un intervalle fini $[a,b]$. Si
+l'on note $\ell$ la mesure de Lebesgue, la loi de probabilité uniforme
+sur $[a,b]$ attribue la probabilité 
+
+
+$$
+P(A) = \frac{\ell(A)}{b-a} = \frac{\ell(A)}{\ell([a,b])}
+$$
+ 
+
+à tout $A \in \mathcal{B}(\mathbb{R}) \cap [a,b]$.
+
+
+<br><p></p>
+
+La loi uniforme sur $([0,1], \mathcal{B}([0,1]))$ peut sembler
+une curiosité académique sans utilité pratique. Cette opinion superficielle doit être écartée.
+À l'aide d'un générateur pour la loi uniforme, il est possible de construire
+un générateur pour toute loi de probabilité sur $(\mathbb{R}, \mathcal{B}(\mathbb{R}))$.
+Cela peut se faire à l'aide d'un procédé appelé la _transformation quantile_. En ce sens,
+la loi uniforme est la mère de toutes les lois.
+
+Une issue $\omega$ de la loi uniforme est un nombre réel. À quoi ressemble une
+issue typique ? Un nombre réel $\omega \in [0,1]$ admet des développements binaires : $\omega = \sum_{i=1}^\infty b_i 2^{-1}$
+avec $b_i \in \{0,1\}$. Quelle est la probabilité qu'il existe un développement binaire unique ?
+D'abord, vérifier si cette probabilité est bien définie.
+En supposant que le développement binaire est unique, on dit que $\omega$ est _normal_ si
+$\lim_n \frac{1}{n}\sum_{i=1}^n b_i(\omega) = 1/2$. La probabilité d'obtenir un nombre normal est-elle
+bien définie ? Si oui, la calculer.
+
+<br><p></p>
+
+::: {#exr-}
+
+Vérifier que $\mathcal{B}(\mathbb{R}) \cap [a,b] =  \Big\{ A \cap [a,b] : A \in \mathcal{B}(\mathbb{R}) \Big\}$
+est la $\sigma$-algèbre engendrée par la trace de la topologie usuelle de $\mathbb{R}$ sur $[a,b]$.
+
+:::
+
+Le théorème d'existence de Lebesgue peut être prolongé. En effet, toute définition raisonnable
+de la longueur d'un intervalle peut servir de point de départ.
+
+Rappelons qu'une fonction réelle est CADLAG si elle est continue à droite partout,
+et possède des limites à gauche partout.
+
+Le théorème suivant peut être établi d'une manière parallèle à la construction
+de la mesure de Lebesgue.
+
+<br><p></p>
+
+::: {#thm-dudley3-1-3}
+
+Toute fonction CADLAG non décroissante $F$ sur $\mathbb{R}$ définit une mesure $\sigma$-additive
+$\mu$ sur $(\mathbb{R}, \mathcal{B}(\mathbb{R}))$ qui satisfait :
+
+$$
+\mu((a, b]) = F(b) - F(a)
+$$
+
+:::
+
+
+<br><p></p>
+
+On retrouve le théorème d'existence de Lebesgue en prenant $F(x)=x$.
+
+Si l'on se restreint aux fonctions $F$ qui satisfont $\lim_{x \to -\infty} F(x)=0$
+et $\lim_{x \to \infty} F(x)=1$, le théorème @thm-dudley3-1-3 définit
+des lois de probabilité par leurs _fonctions de répartition_
+(plus de détails à ce sujet dans @sec-distribfun).
+
+<br><p></p>
+
+::: {#exr-dudley3-1-3}
+
+Faut-il vraiment supposer que la fonction $F$ possède des limites à gauche dans le théorème @thm-dudley3-1-3 ?
+
+:::
+
+<br><p></p>
+
+
+## Fonctions mesurables et variables aléatoires {#sec-measurablefunctionsrv}
+
+Jusqu'ici, nous n'avons parlé que de probabilités et de mesures d'ensembles (événements). Comme
+la modélisation stochastique est à la base de l'analyse quantitative, nous introduisons
+la notion de fonction mesurable.
+Cela nous permet de traiter des fonctions numériques qui associent des issues à $\mathbb{R}$
+ou $\mathbb{R}^d$.
+
+Toute fonction numérique n'est pas mesurable. Pour définir ce qu'on appelle une fonction mesurable,
+il faut la notion d'_image réciproque_ ou de _préimage_.
+
+::: {#def-preimage} 
+
+### Préimage
+
+Soit $f$ une fonction de $\mathcal{X}$ vers $\mathcal{Y}$ ; on note $f^{-1}$
+la fonction qui associe à $2^{\mathcal{Y}}$ un élément de $2^{\mathcal{X}}$ définie par
+
+\begin{align*}
+f^{-1}: \qquad 2^{\mathcal{Y}} & \rightarrow  2^{\mathcal{X}} \\
+B & \mapsto f^{-1}(B) = \Big\{ x : x \in \mathcal{X}, f(x) \in B \Big\} \, .
+\end{align*}
+
+L'ensemble $f^{-1}(B)$ est appelé la _préimage_ ou l'_image réciproque_ de $B$ sous $f$.
+
+:::
+
+
+Notons que $f^{-1}$ ne désigne pas l'inverse de la fonction $f$, qui peut ne pas être injective.
+Dans ce cours, $f^{-1}$ est une fonction d'ensembles de la partie du codomaine de $f$ vers la partie du domaine de $f$. La fonction inverse, si elle existe (ou la fonction inverse généralisée), est notée $f^\leftarrow$. La fonction inverse, lorsqu'elle existe, associe $f(\mathcal{X})\subseteq \mathcal{Y}$ à $\mathcal{X}$.
+
+::: {#exm-ideal-hashing} 
+
+Rappelons le cadre idéalisé du hachage de @sec-hashing.
+Soit $\Omega$ l'ensemble des fonctions de $1, \ldots, n$ vers $1, \ldots, m$
+(supposons $n \leq m$). Pour $\omega \in \Omega$ ($\omega$ est une fonction, mais c'est aussi
+une suite de longueur $n$ à valeurs dans $1, \ldots, m$), posons $f(\omega)$ égal au
+nombre de valeurs dans $1, \ldots, m$ qui n'apparaissent pas dans $\omega$
+(le nombre de cases vides dans l'allocation définie par $\omega$). La fonction
+$f$ est une fonction numérique qui associe à $\Omega=\{1, \ldots, m\}^n$ .
+Pour $B \in \mathbb{N}$, $f^{-1}(B)$ est le sous-ensemble des allocations
+qui ont $k$ cases vides, $k \in B$.
+
+:::
+
+L'opération de préimage s'accorde bien avec les opérations ensemblistes.
+
+Les propriétés élémentaires des fonctions mesurables découlent des propriétés des
+images réciproques. L'image réciproque préserve les opérations ensemblistes.
+
+::: {#prp-propinvimage}
+
+Soit $f: E \mapsto F$ ; pour $A, B, A_1, \ldots,A_n , \ldots   \subseteq F$,
+
+\begin{align*}
+f^{-1}(A \cup B) & = f^{-1}(A) \cup f^{-1}(B) \\
+f^{-1}(A \cap B) & = f^{-1}(A) \cap f^{-1}(B) \\
+f^{-1}(\cup_{n \in \mathbb{N}}A_n ) & = \cup_{n \in \mathbb{N}} f^{-1}(A_n) \\
+f^{-1}(\cap_{n \in \mathbb{N}}A_n ) & = \cap_{n \in \mathbb{N}} f^{-1}(A_n) \\
+f^{-1}(F \setminus A) & =  f^{-1}(F) \setminus f^{-1}(A)
+\end{align*}
+
+:::
+
+<br><p></p>
+
+::: {#exr-propinvimage}
+
+Vérifier la proposition @prp-propinvimage de @sec-distribfun
+
+:::
+
+<br><p></p>
+
+::: {#cor}
+
+Prendre les préimages des éléments d'une $\sigma$-algèbre définit une
+$\sigma$-algèbre.
+
+:::
+
+
+
+::: {#exr-preimage}
+
+Soient $(\Omega, \mathcal{F})$ et $(\Omega', \mathcal{G})$ deux espaces mesurables.
+Soit $f$ une application de $\Omega$ vers $\Omega'$ ; prouver que
+$$\mathcal{H} = \Big\{ f^{-1}(B) : B \in \mathcal{G}\Big\}$$
+est une $\sigma$-algèbre de sous-ensembles de $f^{-1}(\Omega')$.
+
+:::
+
+<p>
+
+
+::: {#def-measfunc} 
+
+### Fonctions mesurables
+Soient $(\Omega, \mathcal{F})$ et $(\Omega', \mathcal{G})$ deux espaces mesurables.
+Une fonction $f: \Omega \to \Omega'$ est dite $\mathcal{F}/\mathcal{G}$-mesurable si et seulement si pour tout $B \in \mathcal{G}$,
+$f^{-1}(B) \in \mathcal{F}$.
+
+:::
+
+<p>
+
+
+Sous quelle condition sur $\mathcal{H}$ la fonction $f$ est-elle $\mathcal{F}/\mathcal{G}$-mesurable ?
+
+
+::: {#exm-hashing-measurable-functions} 
+
+Rappelons le scénario idéalisé du hachage de @sec-hashing.
+
+:::
+
+::: {#exr-continuous-measurable}
+
+Vérifier que si $\Omega$ est un espace topologique et $\mathcal{F}$ la $\sigma$-algèbre borélienne associée, alors toute fonction continue de $\Omega$ vers $\mathbb{R}$
+est mesurable.
+
+:::
+
+
+::: {#exr-borel-continuous-measurable}
+
+Si $\Omega=\mathbb{R}^d$ est muni de la $\sigma$-algèbre borélienne, s'agit-il de la plus petite
+$\sigma$-algèbre qui rend mesurables toutes les fonctions continues ?
+
+:::
+
+::: {#prp-limmeasurable}
+
+La limite ponctuelle de fonctions mesurables est une fonction mesurable :
+si $(f_n)_n$ est une suite de fonctions mesurables de $(\Omega, \mathcal{F})$
+vers $(\mathcal{X}, \mathcal{G})$, et $f_n \to f$ ponctuellement, alors $f$ est une fonction mesurable.
+
+:::
+
+<p>
+::: {#exr-limmeasurable}
+
+Démontrer la proposition @prp-limmeasurable
+
+:::
+
+<p>
+
+
+::: {#prp-summeasurable}
+
+La somme de fonctions mesurables est une fonction mesurable :
+si $f, g$ sont des fonctions mesurables de $(\Omega, \mathcal{F})$
+vers $(\mathbb{R}, \mathcal{B}(\mathbb{R}))$, alors $a f + b g$ est une fonction mesurable pour tous $a,b \in \mathbb{R}$.
+
+:::
+
+<p>
+::: {#exr-summeasurable}
+
+Démontrer la proposition @prp-summeasurable
+
+:::
+<p>
+
+
+::: {#prp-compmeasurable}
+
+La composition de fonctions mesurables est une fonction mesurable :
+si $f$ est une fonction mesurable de $(\Omega, \mathcal{F})$ vers $(\mathcal{X}, \mathcal{G})$,
+et $g$ est une fonction mesurable de $(\mathcal{X}, \mathcal{G})$ vers $(\mathcal{Y}, \mathcal{H})$, alors $g \circ f$
+($g \circ f(\omega) = g(f(\omega))$ pour tout $\omega$)
+est une fonction mesurable de $(\Omega, \mathcal{F})$ vers $(\mathcal{Y}, \mathcal{H})$.
+
+:::
+<br><p>
+
+::: {#exr-compmeasurable}
+
+Démontrer la proposition @prp-compmeasurable
+
+:::
+
+<br><p>
+
+
+## Le théorème des classes monotones  {#sec-dynkin}
+
+Le théorème (ou lemme) des classes monotones est un exemple puissant des arguments de classe engendrante qui peuvent servir à prouver que deux lois de probabilité, voire deux
+mesures $\sigma$-finies, sont égales.
+
+
+::: {#def-pi-class} 
+
+### Classe $\pi$
+
+Une collection $\mathcal{G}$ de sous-ensembles de $\Omega$ est dite être une
+classe $\pi$ si :
+
+- $\Omega \in \mathcal{G}$
+- elle est stable / fermée par intersection finie
+$$A, B \in \mathcal{G} \Rightarrow A \cap B \in \mathcal{G} \, .$$
+
+:::
+
+<p>
+
+Une $\sigma$-algèbre est une classe $\pi$, mais la réciproque est fausse.
+
+<p>
+
+::: {#def-monotone-class} 
+
+### Classe monotone
+
+Une collection $\mathcal{M}$ de sous-ensembles de $\Omega$ est dite être
+une classe monotone ou un système $\lambda$ si elle satisfait les propriétés suivantes :
+
+- $\Omega \in \mathcal{M}$
+- Si $A, B \in \mathcal{M}$, et $A \subseteq B$, alors $B \setminus A \in \mathcal{M}$
+- Si $A_n \in \mathcal{M}$ et $A_n \subseteq A_{n+1}$ pour tout $n \in \mathbb{N}$,
+alors $\lim_n A_n = \cup_{n \in \mathbb{N}} A_n \in \mathcal{M}$.
+
+:::
+
+<p>
+Une $\sigma$-algèbre est un système $\lambda$.
+
+<p>
+
+L'intersection d'une collection de systèmes $\lambda$ est un système $\lambda$.
+Il est donc pertinent de parler de la plus petite classe $\lambda$
+contenant une collection d'ensembles.
+
+<p>
+
+La proposition facile suivante rend les systèmes $\lambda$ très utiles lorsque
+l'on veut vérifier que deux lois de probabilité sont égales.
+
+
+::: {#prp-keyobservation}
+
+La classe d'ensembles sur laquelle deux lois de probabilité coïncident est un
+système $\lambda$.
+
+:::
+
+
+<p></p>
+
+
+::: {.proof}
+
+Soit $(\Omega, \mathcal{F})$ un espace mesurable. Soient $P, Q$ deux lois de probabilité
+sur $(\Omega, \mathcal{F})$. Posons $\mathcal{C} \subseteq \mathcal{F}$ définie par
+
+$$
+\mathcal{C} = \Big\{ A : A \in \mathcal{F},  P(A)=Q(A) \Big\} \, .
+$$
+
+Par la définition même des mesures, on a $P(\Omega)=Q(\Omega)$, donc $\Omega \in \mathcal{C}$.
+
+Si $A \subseteq B$ appartiennent tous deux à $\mathcal{C}$, encore par la définition même des mesures,
+
+$$
+P (B \setminus A) = P(B) - P(A) = Q(B) - Q(A) = Q(B \setminus A) \, ,
+$$
+
+donc $B\setminus A \subseteq \mathcal{C}$.
+
+Soit $A_1 \subseteq A_2 \subseteq A_n \subseteq \ldots$ une suite croissante d'éléments de $\mathcal{C}$ ;
+encore par la définition même des mesures,
+
+$$
+P(\cup_n A_n) = \lim_n \uparrow P(A_n) = \lim_n \uparrow Q(A_n) = Q(\cup_n A_n) \, .
+$$
+
+Donc $\mathcal{C}$ est fermée par limites monotones.
+
+  
+
+:::
+
+<p></p>
+
+
+
+::: {#exr-keyobs} 
+
+Que se passe-t-il si l'on considère les collections d'ensembles mesurables sur lesquels deux mesures sont égales ? Que se passe-t-il si l'on suppose que les deux mesures sont finies ?
+
+:::
+
+
+::: {#def-sigfinite} 
+
+### Mesures $\sigma$-finies
+
+Une mesure $\mu$
+sur $(\Omega, \mathcal{F})$ est $\sigma$-finie si et seulement s'il existe $(A_n)_n$ avec $\Omega \subseteq \cup_n A_n$
+et $\mu(A_n) < \infty$ pour chaque $n$. 
+
+:::
+
+Les mesures finies (ce qui inclut les mesures de probabilité) sont $\sigma$-finies.
+La mesure de Lebesgue est $\sigma$-finie. La mesure de comptage sur $\mathbb{R}$ n'est pas $\sigma$-finie.
+
+<p></p>
+
+Que se passe-t-il si l'on suppose seulement que les deux mesures sont $\sigma$-finies ?
+
+<br><p></p>
+
+
+::: {#thm-monotoneclasslemma}
+
+### Lemme des classes monotones 
+
+Si $\mathcal{A}$ est un système $\pi$ dans $\Omega$ et $\mathcal{M}$ un système $\lambda$
+dans $\Omega$ tels que $\mathcal{A} \subseteq \mathcal{M}$, alors
+la $\sigma$-algèbre engendrée par $\mathcal{A}$, $\sigma(A)$, est la plus petite classe $\lambda$
+contenant $\mathcal{A}$ :
+$$\sigma(\mathcal{A}) \subseteq \mathcal{M} \,.$$
+
+:::
+
+<p></p>
+
+::: {.proof}
+
+Soit $\mathcal{M}$ l'intersection de toutes les classes monotones qui contiennent
+tyhe le système $\pi$ $\mathcal{A}$.
+Comme une $\sigma$-algèbre est une classe monotone (un système $\lambda$), on a $\mathcal{M} \subseteq \sigma(\mathcal{A})$ ; le seul point à
+vérifier est $\sigma(\mathcal{A}) \subseteq \mathcal{M}$. Il suffit de vérifier
+que $\mathcal{M}$ est bien une $\sigma$-algèbre.
+
+Pour vérifier que $\mathcal{M}$ est une $\sigma$-algèbre, il suffit de vérifier qu'elle
+est stable par union finie, ou de façon équivalente par intersection finie.
+
+Pour chaque $A \in \mathcal{A}$, posons $\mathcal{M}_A$ définie par 
+$$
+\mathcal{M}_A = \Big\{ B : B \in \mathcal{M}, A \cap B \in \mathcal{M}\Big\} \, .
+$$
+
+Rappelons que $\mathcal{A}$ est un système $\pi$, et $\mathcal{A} \subseteq \mathcal{M}$ ;
+on a $\mathcal{A} \subseteq \mathcal{M}_A$. Pour montrer que $\mathcal{M} = \mathcal{M}_A$,
+il suffit de montrer que $\mathcal{M}_A$ est une classe monotone.
+
+Si $(B_n)_n$ est une suite croissante d'éléments de $\mathcal{M}_A$, alors
+
+$$
+(\cup_n B_n) \cap A = \cup_n \Big(\underbrace{B_n \cap A }_{\in \mathcal{M}}\Big) \, ,
+$$
+
+le membre de droite appartient à $\mathcal{M}$ puisque $\mathcal{M}$ est monotone. Donc
+$\mathcal{M}_A$ est fermée par limite croissante monotone.
+
+
+Pour vérifier la stabilité par complémentaire, soient $B \subseteq C$ avec $B, C \in \mathcal{M}_A$. Comme
+
+$$
+ A \cap (C \setminus B) = \Big(\underbrace{A \cap C}_{\in \mathcal{M}}\Big) \setminus \Big(\underbrace{A \cap B}_{\in \mathcal{M}}\Big)
+ ) \,
+$$
+
+la stabilité de $\mathcal{M}$ par complémentaire implique $A \cap (C \setminus B) \in \mathcal{M}$
+et $C \setminus B  \in \mathcal{M}_A.$
+
+Maintenant, posons $\mathcal{M}^{\circ}$ définie par 
+$$
+\mathcal{M}^\circ = \Big\{  A : A \in \mathcal{M}, \forall B \in \mathcal{M},   A \cap B \in \mathcal{M} \Big\} \,.
+$$
+
+Nous venons d'établir que $\mathcal{A} \subseteq \mathcal{M}^{\circ}$.
+Le même raisonnement permet de vérifier que $\mathcal{M}^\circ$ est aussi une classe monotone.
+Cela montre que $\mathcal{M}^\circ= \mathcal{M}$.
+
+C'est terminé.
+
+  
+
+:::
+
+
+<br><p></p>
+
+En combinant [la proposition @prp-keyobservation] et le lemme des classes monotones ([théorème @thm-monotoneclasslemma]), on obtient le corollaire utile suivant.
+
+<br><p></p>
+
+
+
+::: {#cor}
+
+Si deux probabilités $P, Q$ sur $(\Omega, \mathcal{F})$
+coïncident sur un système $\pi$ $\mathcal{A}$
+qui engendre $\mathcal{F}$ :
+
+$$
+\mathcal{A} \subseteq \{ A : A \in \mathcal{F}  \text{ and } P(A)=Q(A)\} \qquad\text{and} \qquad \mathcal{F} \subseteq \sigma(\mathcal{A})
+$$
+
+alors $P, Q$ coïncident sur $\mathcal{F}$.
+
+:::
+
+<p></p>
+
+## Lois de probabilité sur la droite réelle  {#sec-distribfun}
+
+Une loi de probabilité est un objet complexe : elle associe une grande collection d'ensembles
+(une $\sigma$-algèbre) à $[0,1]$. Heureusement, il est possible
+de caractériser une loi de probabilité par un objet plus simple. Si l'on se restreint aux
+lois de probabilité sur $(\mathbb{R}, \mathcal{B}(\mathbb{R}))$,
+elles peuvent être caractérisées par des fonctions réelles sur $\mathbb{R}$.
+
+
+::: {#def-distrib-fun} 
+
+### Fonction de répartition
+
+Étant donné une loi de probabilité $P$ sur $(\mathbb{R}, \mathcal{B}(\mathbb{R}))$,
+la fonction de répartition
+$F$ de $P$ associe $\mathbb{R}$ à $[0,1]$ ; elle est définie par
+
+$$
+x \mapsto F(x) = P(-\infty, x].
+$$
+
+
+:::
+
+Une loi de probabilité définit une fonction de répartition unique. Ce qui est peut-être surprenant,
+c'est qu'une fonction de répartition définit une loi de probabilité unique.
+
+::: {#prp-prop-distrib-function}
+
+Soit $F$ une fonction de $\mathbb{R}$ vers $[0,1]$.
+
+La fonction $F$ est la fonction de répartition d'une loi de probabilité sur $(\mathbb{R}, \mathcal{B}(\mathbb{R}))$ si et seulement si les cinq propriétés suivantes sont satisfaites :
+
+1. $F$ est non décroissante,
+1. $F$ est continue à droite
+1. $\lim_{y \nearrow x} F(y)$ existe pour tout $x \in \mathbb{R}$ ($F$ possède des limites à gauche partout)
+1. $\lim_{x \to -\infty}F(x)=0$
+1. $\lim_{x \to \infty} F(x)= 1.$
+
+:::
+
+Il s'agit d'une reformulation de @thm-dudley3-1-3.
+
+La figure @fig-distribpoisson montre la fonction de répartition
+des lois de Poisson pour différentes valeurs du paramètre (voir les sections @sec-conv2poisson
+et @sec-poisson pour plus de détails sur les lois de Poisson).
+Pour le paramètre $\mu$, $F_{\mu}(x) = \sum_{k \leq x}  \mathrm{e}^{-\mu} \frac{\mu^k}{k!}$.
+
+
+
+
+<!-- ::: {#fig-distribpoisson} -->
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| label: fig-distribpoisson
+#| 
+#| fig-cap: |
+#|   Cumulative distribution functions for Poisson distributions with 
+#|   different parameters. 
+#|   Observe that, apparently, $\mu \leq \nu \Rightarrow F_{\mu} \geq F_{\nu}$. 
+#|   How would you establish this domination property?
+
+
+x = as.integer(seq(0, 20, by=1))
+lambdas =  c(1, 5, 10)
+
+df <- as.data.frame(c(list("x"=x),
+                      lambdas |> purrr::map(.f = function(p) ppois(x, p))))
+
+names(df) <- c("k", format(lambdas, digits=2))
+
+df <- tidyr::gather(df, key="lambda", value="cdf", -k)
+
+df <- df  |>
+          dplyr::mutate(kend = ifelse(k<max(x), k+1, NA),
+                 cdfend = ifelse(k<max(x), cdf, NA))
+
+p <- df |>
+     ggplot2::ggplot() +
+     ggplot2::aes(x=k, y=cdf, xend=kend, yend=cdfend, linetype=lambda)+
+     ggplot2::geom_segment() +
+     ggplot2::geom_vline(ggplot2::aes(xintercept=k), linetype=2, color="grey") +
+     ggplot2::geom_point(mapping=ggplot2::aes(x=k, y=cdf), size=.75, color=1) +
+     ggplot2::scale_fill_discrete(guide=ggplot2::guide_legend(title="Parameter")) +
+     ggplot2::xlab("k") +
+     ggplot2::ylab("cdf") +
+     ggplot2::xlim(xlim = c(-1, 20))
+
+p
+
+rm(df, lambdas, x)
+
+# %%
+```
+
+<!-- ::: -->
+
+## Variables aléatoires générales  {#sec-randomvariablesperse}
+
+Une variable aléatoire réelle n'est ni une variable, ni aléatoire.
+Une variable aléatoire réelle est une fonction mesurable d'un
+espace mesurable vers la droite réelle munie de la
+$\sigma$-algèbre borélienne. Il n'y a rien d'aléatoire dans une variable aléatoire.
+
+::: {#def-realrv}
+
+### Variable aléatoire réelle
+
+Étant donné un espace mesurable $(\Omega, \mathbb{F})$,
+une application $X$ de $\Omega$ vers $\mathbb{R}$ est une variable aléatoire réelle si pour tout $B \in \mathcal{B}(\mathbb{R})$
+l'image réciproque de $B$ :
+
+$$
+X^{-1}(B) = \{ \omega : \omega \in \Omega, X(\omega) \in {B}\}
+$$
+
+appartient à $\mathcal{F}$
+
+:::
+
+
+Une fois qu'un espace mesurable est muni d'une loi de probabilité,
+il est possible
+de définir la loi (de probabilité) d'une variable aléatoire.
+
+
+::: {#def-disrv}
+
+Étant donné $(\Omega, \mathcal{F}, P)$ et une variable aléatoire réelle $X$,
+la loi ou loi de probabilité de $X$, notée $P \circ X^{-1}$, est la loi de probabilité
+sur $(\mathbb{R}, \mathcal{B}(\mathbb{R}))$ définie par
+
+$$
+(P \circ X^{-1})(B) =  P(X^{-1}(B)) \quad \text{for all } B \in \mathcal{B}(\mathbb{R}).
+$$
+
+
+:::
+
+
+
+Les variables aléatoires peuvent être à valeurs vectorielles, à valeurs fonctionnelles, _etc_.
+Les variables aléatoires générales sont définies comme des fonctions mesurables
+entre espaces mesurables.
+
+::: {#def-rv} 
+
+### Variable aléatoire
+
+Étant donné deux espaces mesurables $(\Omega, \mathcal{F})$ et $(\Omega', \mathcal{G})$,
+une application $X$ de $\Omega$ vers $\Omega'$ est une variable aléatoire $\mathcal{F}/\mathcal{G}$ si
+pour tout $B \in \mathcal{G}$ l'image réciproque de $B$ :
+
+$$
+X^{-1}(B) = \{ \omega : \omega \in \Omega, X(\omega) \in {B}\}
+$$
+
+appartient à $\mathcal{F}$.
+
+:::
+
+## Remarques bibliographiques  {#bibliolanguage}
+
+Il existe de nombreux beaux ouvrages sur la théorie des probabilités. Ils s'adressent à
+des publics différents. Certains peuvent convenir davantage aux étudiants du double cursus
+[Mathématiques-Informatique ](http://master.math.univ-paris-diderot.fr/annee/m1-mi/).
+J'ai trouvé les ouvrages suivants particulièrement utiles.
+
+[Youssef (2019)](https://www.lpsm.paris/pageperso/youssef/Enseignement_files/M1-proba-2018.pdf)
+est une collection claire et concise de notes de cours conçues pour un cours de probabilités de niveau Master 1
+nettement plus ambitieux que ce cours minimal.
+
+
+@MR1932358 propose un cours autonome d'analyse et de probabilités. L'ouvrage peut servir
+à la fois d'introduction et d'ouvrage de référence. Au-delà de démonstrations prudentes et transparentes, il
+contient des notes historiques qui aident à comprendre les liens entre les résultats fondamentaux.
+
+
+@MR1873379 introduit la théorie de la mesure et de l'intégration à un public qui a été
+exposé à la théorie des probabilités discrètes et qui est familier du raisonnement
+probabiliste.

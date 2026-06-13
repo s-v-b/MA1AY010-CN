@@ -1,0 +1,323 @@
+# Familles de lois discrètes  {#sec-families}
+
+L'objectif de cette leçon est de se familiariser avec d'importantes familles de lois discrètes et de maîtriser le calcul sur les lois.
+Les lois de probabilité discrètes seront présentées via les fonctions de répartition et surtout les fonctions de masse.
+
+Dans cette leçon, l'univers $\Omega$$ est un sous-ensemble de $\mathbb{N}^d$, fini ou dénombrable ; la $\sigma$-algèbre naturelle à considérer est la partie $2^\Omega$.
+
+
+## Bernoulli et binomiale  {#sec-bernoulli}
+
+::: {#def-bernoulli}
+
+Une loi de Bernoulli est une loi de probabilité $P$ sur $\Omega=\{0,1 \}$. Le *paramètre* de $P$ est $P\{1\} \in [0,1]$.
+
+:::
+
+Une loi de Bernoulli est entièrement déterminée par son paramètre.
+
+L'espérance d'une loi de Bernoulli de paramètre $p$ vaut $p$.
+
+::: {#def-binomial}
+
+### Loi binomiale
+
+Une loi binomiale de paramètres $n \in \mathbb{N}, p \in [0,1]$ ($n$ est la taille et $p$ la probabilité de succès) est une loi de probabilité $P$ sur $\Omega = \{0, 1, 2, \ldots, n\}$, définie
+par
+$$P\{k\} = \binom{n}{k} p^k (1-p)^k$$
+
+:::
+
+<p>
+
+Le lien entre les lois de Bernoulli et binomiale est évident : une loi de Bernoulli
+est une loi binomiale de taille $1$. Ce lien va plus loin : la somme
+de variables aléatoires de Bernoulli *indépendantes* de même paramètre de succès suit une loi binomiale.
+
+Supposons maintenant $\Omega^{\prime} = \{0,1\}^n$.
+
+
+::: {#prp-bernoulli-binomial}
+
+Soient $X_1, X_2, \ldots, X_n$ des variables aléatoires de Bernoulli indépendantes et de même loi, de paramètre de succès
+$p \in [0,1]$. Alors $Y = \sum_{i=1}^n X_i$ suit une loi
+binomiale de taille $n$ et de probabilité de succès $p$.
+
+:::
+
+<p>
+
+::: {.proof}
+
+Il suffit de vérifier que les fonctions de masse coïncident. 
+
+Pour $k \in 0, \ldots, n$
+
+
+\begin{align*}
+P\Big\{ \sum_{i=1}^n  X_i = k \Big\}
+  & = \sum_{x_1, \ldots, x_n \in \{0,1 \}^p} \mathbb{I}_{\sum_{i=1}^n x_i=k} P \Big\{ \wedge_{i=1}^n X_i = x_i\Big\} \\
+  & = \sum_{x_1, \ldots, x_n \in \{0,1 \}^p} \mathbb{I}_{\sum_{i=1}^n x_i=k} \prod_{i=1}^n P \Big\{ X_i = x_i\Big\} \\
+  & = \sum_{x_1, \ldots, x_n \in \{0,1 \}^p} \mathbb{I}_{\sum_{i=1}^n x_i=k} \prod_{i=1}^n  p^{x_i} (1-p)^{1-x_i} \\
+  & = \sum_{x_1, \ldots, x_n \in \{0,1 \}^p} \mathbb{I}_{\sum_{i=1}^n x_i=k}\,   p^{k} (1-p)^{n-k} \\
+  & = \binom{n}{k} p^{k} (1-p)^{n-k}  \, .
+\end{align*}
+
+  
+
+:::
+
+Cette observation facilite le calcul des *moments* de la loi binomiale.
+
+L'espérance d'une loi de Bernoulli de paramètre $p$ vaut $p$ ! Sa variance vaut $p(1-p)$.
+
+Par linéarité de l'espérance, l'espérance de la loi binomiale de paramètres $n$ et $p$ vaut $np$.
+
+La variance d'une somme de variables aléatoires indépendantes est la somme des variances ; la variance de la loi binomiale de paramètres $n$ et $p$ vaut donc $np(1-p)$.
+
+{{< include _packages_requirements.qmd >}}
+
+<!-- ::: {#fig-witbinom} -->
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-witbinom
+#| fig-cap: |
+#|   Binomial probability mass functions with $n=20$ and 
+#|   different values of $p$ : $.5, .7, .2$.
+
+n <- 20
+x <-  as.integer(seq(0, 20, by=1))
+probs <-  c(.5, .7, .2)
+
+df <- as.data.frame(c(list("k"=x),
+                      probs |> purrr::map(.f = function(p) dbinom(x, n, p))))
+
+names(df) <- c("k", format(probs, digits=2))
+
+df <- tidyr::gather(df, key="p", value="pmf", -k)
+
+p <- ggplot2::ggplot(data = df) +
+     ggplot2::geom_col(mapping=ggplot2::aes(x=k, y=pmf,  alpha=p, linetype=p), position="dodge2", color=1) +
+     ggplot2::scale_fill_discrete(guide=ggplot2::guide_legend(title="Parameter")) +
+     ggplot2::xlab("k") +
+     ggplot2::ylab("Probability Mass Function (pmf)") +
+     ggplot2::xlim(xlim = c(-1, 20))
+p
+
+rm(df, probs, x)
+# %%
+```
+
+Plus d'informations sur [wikipedia](https://en.wikipedia.org/wiki/Binomial_distribution).
+
+<!-- ::: -->
+
+<p>
+
+Lois binomiales de même paramètre de succès
+
+::: {#prp-sum-binom}
+
+Soient $X,Y$ indépendantes sur l'espace probabilisé $(\Omega, \mathcal{F}, P)$
+et de lois $\text{Bin}(n_1, p)$ et $\text{Bin}(n_2, p)$.
+
+Alors $X+Y$ suit la loi $\text{Bin}(n_1+n_2, p)$.
+
+:::
+
+<p>
+
+::: {#exr-sum-binom}
+
+Vérifier la proposition précédente. 
+
+:::
+
+## Poisson {#sec-poisson}
+
+La loi de Poisson apparaît comme limite de lois binomiales dans diverses
+circonstances liées aux phénomènes d'événements rares.
+
+::: {#def-poisson}
+
+Une loi de Poisson de paramètre $\lambda >0$ est une loi de probabilité $P$ sur $\Omega=\mathbb{N}$ avec
+
+$$P\{k\} = \mathrm{e}^{-\lambda} \frac{\lambda^k}{k!}$$
+
+:::
+
+
+<!-- ::: {#fig-witgetpoisson} -->
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| label: fig-witgetpoisson
+#| 
+#| fig-cap: |
+#|   Poisson probability mass functions with different values
+#|   of parameter: $1, 5, 10$. Recall that the parameter of a Poisson
+#|   distribution equals its expectation and its variance. 
+#|   The probability mass function of a Poisson distribution 
+#|   achieves its maximum (called the mode) close to its expectation.
+#|   
+
+x = as.integer(seq(0, 20, by=1))
+lambdas =  c(1, 5, 10)
+
+df <- as.data.frame(c(list("x"=x),
+                      lambdas |> purrr::map(.f = function(p) dpois(x, p))))
+
+names(df) <- c("k", format(lambdas, digits=2))
+
+df <- tidyr::gather(df, key="lambda", value="pmf", -k)
+
+p <- ggplot2::ggplot(data = df) +
+     ggplot2::geom_col(mapping=ggplot2::aes(x=k, y=pmf, alpha=lambda, linetype=lambda), position="dodge2", color=1) +
+     # ggplot2::ggtitle("Poisson pmf",subtitle = "variation on parameter") +
+     # ggplot2::scale_fill_discrete(guide=ggplot2::guide_legend(title="Parameter")) +
+     ggplot2::xlab("k") +
+     ggplot2::ylab("Probability Mass Function (pmf)") +
+     ggplot2::xlim(xlim = c(-1, 20))
+
+p
+
+# ggplotly(p)
+rm(df, lambdas, x)
+# %%
+```
+
+<!-- ::: -->
+
+L'espérance de la loi de Poisson de paramètre $\lambda$ vaut $\lambda$.
+La variance d'une loi de Poisson est égale à son espérance.
+
+\begin{align*}
+\mathbb{E} X
+& = \sum_{n=0}^\infty \mathrm{e}^{-\lambda} \frac{\lambda^n}{n!} \times n\\
+& = \lambda \times \sum_{n=1}^\infty \mathrm{e}^{-\lambda} \frac{\lambda^{n-1}}{(n-1)!}  \\
+& = \lambda \, .
+\end{align*}
+
+
+::: {#prp-sum-poisson}
+
+Soient $X,Y$ indépendantes et de lois de Poisson sur l'espace probabilisé $(\Omega, \mathcal{F}, P)$.
+Alors $X+Y$ suit une loi de Poisson.
+
+:::
+
+<br><p></p>
+
+::: {.proof}
+
+
+Nous vérifions la proposition de la manière la plus simple et la plus fastidieuse.
+Nous calculons la fonction de masse de la loi de $X+Y$.
+Supposons $X \sim \operatorname{Po}(\lambda), Y \sim \operatorname{Po}(\mu)$.
+
+Pour chaque $k \in \mathbb{N}$ :
+\begin{align*}
+\Pr \{ X+Y =k\}
+& = \Pr \{ \bigvee_{m=0}^k (X =m \wedge Y =k-m) \} \\
+& = \sum_{m=0}^k \Pr \{ X =m \wedge Y =k-m \} \\
+& = \sum_{m=0}^k \Pr \{ X =m \} \times \Pr\{ Y =k-m \} \\
+& = \sum_{m=0}^k \mathrm{e}^{-\lambda} \frac{\lambda^m}{m!} \mathrm{e}^{-\mu} \frac{\mu^{k-m}}{(k-m)!} \\
+& = \mathrm{e}^{-\lambda - \mu}  \frac{(\lambda+\mu)^k}{k!} \sum_{m=0}^k \frac{k!}{m! (k-m)!}\left(\frac{\lambda}{\lambda+\mu}\right)^m \left(\frac{\mu}{\lambda+\mu}\right)^{k-m} \\
+& = \mathrm{e}^{-\lambda - \mu}  \frac{(\lambda+\mu)^k}{k!} \sum_{m=0}^k \binom{k}{m}\left(\frac{\lambda}{\lambda+\mu}\right)^m \left(\frac{\mu}{\lambda+\mu}\right)^{k-m} \\
+& = \mathrm{e}^{-\lambda - \mu}  \frac{(\lambda+\mu)^k}{k!} \left( \frac{\lambda}{\lambda+\mu} + \frac{\mu}{\lambda+\mu}\right)^k  \\
+& = \mathrm{e}^{-(\lambda + \mu)}  \frac{(\lambda+\mu)^k}{k!}
+\end{align*}
+La dernière expression est la fonction de masse de $\operatorname{Po}(\lambda + \mu)$ en $k$.
+
+  
+
+:::
+
+<br><p></p>
+
+
+::: {#exr-poisson-mode}
+
+Vérifier que le _mode_ (maximum) d'une fonction de masse de Poisson de paramètre $\lambda$
+est atteint en $k= \lfloor \lambda \rfloor$. Est-il toujours unique ?
+
+:::
+
+::: {#exr-poisson-median}
+
+Vérifier que la médiane d'une loi de Poisson de paramètre entier $\lambda$ n'est pas inférieure à $\lambda$.
+
+:::
+
+<br><p></p>
+
+
+## Géométrique   {#sec-geometric}
+
+Une loi géométrique est une loi de probabilité sur $\mathbb{N} \subset \{0,1\}$. Elle dépend
+d'un paramètre $p>0$.
+
+Supposons que nous puissions lancer une pièce biaisée une infinité de fois. Le nombre de
+lancers nécessaires _jusqu'à_ obtenir un _pile_ suit une loi géométrique.
+
+Soit $X$ de loi géométrique de paramètre $p$.
+La loi géométrique se définit aisément par sa *fonction de queue*.
+Dans l'événement $X>k$, les $k$ premiers résultats doivent être des _faces_.
+$$
+P \{ X > k \} = (1-p)^k
+$$
+La fonction de masse de la loi géométrique s'en déduit :
+$$
+P \{X = k \} = (1-p)^{k-1} - (1-p)^k = p \times (1-p)^{k-1} \qquad \text{for } k=1, 2, \ldots
+$$
+En moyenne, il faut lancer la pièce $p$ fois jusqu'à obtenir un _pile_ :
+$$
+\mathbb{E}X = \sum_{k=0}^\infty P \{ X > k \} = \frac{1}{p}
+$$
+
+
+::: {#rem}
+
+Il est aussi possible de définir les variables aléatoires géométriques comme
+le nombre de lancers nécessaires __avant__ d'obtenir un _pile_.
+Cela nécessite de modifier la fonction quantile, la fonction de masse, l'espérance,
+et ainsi de suite. C'est la convention utilisée par `R`.
+
+:::
+
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| screenshot.force: true 
+#| fig-cap: |
+#|   Geometric probability mass functions with different values of
+#|   parameter $p$: $1/2, 1/3, 1/5$. The probability mass function 
+#|   equals $p \times (1-p)^{k-1}$ at $k\geq 1$. The mode is 
+#|   achieved at $k=1$ whatever the value of $p$. The expectation equals $1/p$
+
+x <- as.integer(seq(0, 9, by=1))
+probs <-  c(1/2, 1/3, 1/5)
+
+df <- as.data.frame(c(list("x"=x+1),
+                      probs |> purrr::map(.f = function(p) dgeom(x, p))))
+names(df) <- c("k", format(probs, digits = 2))
+df <- tidyr::gather(df, key="p", value="pmf", -k)
+
+p <- ggplot2::ggplot(data = df) +
+     ggplot2::geom_col(mapping=ggplot2::aes(x=k, y=pmf, linetype=p, alpha=p), color=1, position="dodge2") +
+     ggplot2::scale_fill_discrete(guide=ggplot2::guide_legend(title="Parameter p")) +
+     ggplot2::xlab("k") +
+     ggplot2::ylab("Probability Mass Function (pmf)") +
+     ggplot2::xlim(xlim = c(0, 10))
+
+p
+# %%
+```
+
+Les sommes de variables aléatoires géométriques indépendantes ne suivent pas une loi géométrique.

@@ -1,0 +1,419 @@
+# Caractérisations des lois de probabilité discrètes  {#sec-chappgf}
+
+
+{{< include _packages_requirements.qmd >}}
+
+
+## Motivation {#sec-roadmapcharacpgf}
+
+En toute généralité, une loi de probabilité est un objet complexe.
+C'est une fonction à valeurs dans $[0,1]$ définie sur une $\sigma$-algèbre de sous-ensembles. Une
+$\sigma$-algèbre concrète, sans parler de la notion abstraite de $\sigma$-algèbre,
+n'est pas facile à appréhender. Chercher des caractérisations plus simples des lois de probabilité
+est un objectif raisonnable. Face à des questions du type : « deux lois de probabilité sont-elles
+égales ? », nous savons qu'il suffit de vérifier qu'elles coïncident sur des familles engendrantes
+d'événements. Les fonctions de répartition cumulatives sont alors des outils précieux.
+Les fonctions de répartition cumulatives et leurs inverses généralisés (fonctions quantiles)
+sont très pratiques pour traiter des maxima, minima, ou plus généralement
+des statistiques d'ordre de collections de variables aléatoires indépendantes, mais
+lorsqu'il s'agit de traiter des sommes de variables aléatoires indépendantes ou des processus de branchement,
+les fonctions de répartition cumulatives sont d'une aide modérée.
+
+Dans cette leçon, nous passons en revue une manière de caractériser les lois de probabilité
+sur $(\mathbb{N}, \mathcal{F}=2^{\mathbb{N}})$
+à l'aide de fonctions définies sur la droite réelle : les fonctions génératrices de probabilité ([Section @sec-PGF]).
+Plus tard (Chapitre @sec-chapchar), nous examinerons des outils plus généraux : les transformées de Laplace ([Section @sec-laplace])) et les fonctions caractéristiques,
+qui étendent les transformées de Fourier aux lois de probabilité ([Section @sec-charfun])).
+
+Ces trois méthodes diffèrent par leur portée, mais elles reposent sur la même idée et
+partagent des propriétés communes. En effet, les fonctions génératrices de probabilité peuvent être vues comme un cas particulier des
+transformées de Laplace. Ces dernières peuvent être vues comme des cas particuliers des transformées de Fourier.
+
+Ces trois méthodes *caractérisent* les lois de probabilité. Elles sont munies
+de *formules d'inversion*. Elles nous offrent un traitement fluide
+des sommes de variables aléatoires indépendantes.
+
+Ces trois méthodes relient l'intégrabilité des lois de probabilité et la régularité des transformées.
+
+Les fonctions génératrices de probabilité, les transformées de Laplace et les fonctions caractéristiques
+apportent un important appareil analytique à la théorie des probabilités. De l'analyse,
+nous tirons des arguments prêts à l'emploi pour établir des propriétés de régularité des transformées,
+et avec un peu plus de travail, nous pouvons construire les formules d'inversion.
+
+## Fonction génératrice de probabilité  {#sec-PGF}
+
+Dans cette section, $X$ est une variable aléatoire à valeurs entières, de loi $P$, de fonction de répartition
+$F$ et de fonction de masse $p$. Rappelons que $P$ est entièrement caractérisée
+par les objets plus simples $F$ et $p$. Soit maintenant $Y$ une autre variable aléatoire à valeurs entières vivant sur le même espace probabilisé que $X$, indépendante de $X$, de loi $Q$, de fonction de répartition
+$G$ et de fonction de masse $q$. Que pouvons-nous dire
+de la loi de $X+Y$ ?
+Est-il facile de déterminer sa fonction de répartition cumulative, sa fonction de masse ?
+
+La fonction de masse de (la loi de) $X+Y$ est la _convolution_ de $p$ et $q$
+\begin{align*}
+\mathbb{P}\{ X + Y = n\}
+  & = \sum_{k=0}^n \mathbb{P}\{ X + Y = n \wedge X = k\} \\
+  & = \sum_{k=0}^n \mathbb{P}\{ Y = n - k \wedge X = k\}  \\
+  & = \sum_{k=0}^n p(k) q(n-k) \\
+  & =  p \star q (n) \, .
+\end{align*}
+
+
+Une autre fonction caractérise les lois de probabilité et fournit
+immédiatement des informations sur la loi des sommes de variables aléatoires
+à valeurs entières indépendantes et bien d'autres choses encore.
+
+::: {#def-pgf}
+
+### Fonction génératrice de probabilité
+
+La fonction génératrice de probabilité (FGP) d'une loi de probabilité sur $\mathbb{N}$, définie par sa fonction de masse (FM) $f$, est la fonction $G: [0,1] \to \mathbb{R}$ définie par :
+$$
+G(s) =  \sum_{n=0}^\infty f(n) s^n \, .
+$$
+:::
+
+::: {#exm-pgf-1}
+La fonction génératrice de probabilité des lois discrètes élémentaires se calcule aisément. Les résultats sont utiles et suggestifs.
+
+- Loi de Bernoulli de paramètre $p$ : 
+$$
+G(s) = (1 - p) s^0 + p s^1 = 1 + p (s-1)
+$$
+- Loi binomiale de paramètres $n$ et $p$ : 
+$$
+G(s) = \sum_{k=0}^n \binom{n}{k} p^k (1-p)^{n-k} s^k =  \left(ps + 1- p\right)^n = \left( 1 + p(s-1)\right)^n
+$$
+- Loi de Poisson de paramètre $\mu$ : 
+$$
+G(s) = \sum_{n=0}^\infty \mathrm{e}^{-\mu} \frac{\mu^n}{n!} s^n = \mathrm{e}^{\mu (s-1)} \,.
+$$
+Notez que si $p=\mu/n$ et $n ↑ ∞$ :
+$$
+\lim_{n ↑ ∞} \left( 1 + \frac{μ}{n}(s-1)\right)^n = \mathrm{e}^{\mu(s-1)} \, .
+$$
+Nous reviendrons sur cette observation plus tard.
+
+:::
+
+L'observation suivante découle presque immédiatement de la définition des fonctions génératrices de probabilité.
+
+::: {#prp-pgf-trivial}
+Une fonction génératrice de probabilité $G$ satisfait les conditions suivantes :
+
+- $G$ est non négative sur $[0,1]$ ;
+- $G(0) = P\{0\}, \quad G(1)=1$ ;
+- $G$ est non décroissante sur $[0,1]$ ;
+- $G$ est continue et convexe.
+
+:::
+
+<br> <p> </p>
+
+
+::: {.proof}
+Les propriétés 1), 2) et 3) sont évidentes : $G$ est une combinaison convexe
+de fonctions non négatives, non décroissantes, continues et convexes.
+
+  
+:::
+
+
+
+## Formule d'inversion {#sec-invformula-pgf}
+
+
+La _génératologie_ se situe au carrefour de la combinatoire,
+de l'analyse réelle, de l'analyse complexe et de la théorie des probabilités.
+Définir la FGP comme une _série entière_ introduit en théorie des probabilités
+un ensemble de théorèmes qui facilitent l'identification des lois de probabilité
+ou qui relient les propriétés d'intégrabilité de la loi
+aux propriétés de régularité de la FGP.
+
+Gardez à l'esprit qu'une fonction génératrice définit une fonction de l'ensemble des nombres complexes
+$\mathbb{C}$ vers $\mathbb{C}$ : 
+$$
+G(z) = \sum_{n=0}^\infty p(n) z^n \qquad\text{for all } z \in \mathbb{C} \text{ such that the series converges}\, .
+$$
+
+Caractériser le domaine d'une fonction définie de cette manière est crucial.
+La proposition suivante est au cœur de la théorie des séries entières.
+
+::: {#prp-radius}
+
+Le _rayon de convergence_ de la fonction génératrice $G$ 
+
+$$
+G(z) = \sum_{n\in \mathbb{N}} p(n) z^n, \qquad z \in \mathbb{C}
+$$
+est l'unique $R \in [0, \infty) \cup \{+ \infty\}$ tel que :
+
+- pour tout $z \in \mathbb{C}$ avec $|z| > R$, la série $\sum_{n\in \mathbb{N}} p(n) z^n$ diverge.
+- pour tout $z \in \mathbb{C}$ avec $|z| < R$, la série $\sum_{n\in \mathbb{N}} p(n) z^n$ est absolument convergente.
+
+Le disque ouvert $\{ z : z \in \mathbb{C}, |z| < R \}$ est appelé le _disque de convergence_ de $G$.
+Le cercle $\{ z : z \in \mathbb{C}, |z| = R \}$ est appelé le _cercle de convergence_ de $G$.
+
+:::
+
+::: {.proof}
+<!-- TODO -->
+
+  
+
+:::
+
+La règle d'Hadamard permet de déterminer rapidement le rayon de convergence :
+
+::: {#prp-hadamard}
+
+### Règle d'Hadamard
+
+Le rayon de convergence $R$ de la fonction génératrice de probabilité
+$G(z) = \sum_{n \in \mathbb{N}} p(n)z^n$ satisfait
+$$
+\frac{1}{R} =  \limsup_n (p(n))^{1/n} \, .
+$$
+Le rayon de convergence d'une fonction génératrice de probabilité est toujours au moins $1$.
+
+:::
+
+::: {exm-hadamard-1}
+Le rayon de convergence contient des informations qualitatives sur le comportement de la queue :
+
+- Pour les lois de Poisson, le rayon de convergence est infini. Cela reflète la décroissance rapide
+des probabilités de queue des lois de Poisson.
+- Pour les lois géométriques, $p(n) = q (1-q)^{n-1}$, le rayon de convergence
+vaut $1/(1-q)$.
+- Pour des lois en loi de puissance comme $p(n) = n^{-r}/\zeta(r)$ avec $r>1$, le rayon de
+convergence vaut exactement $1$.
+
+:::
+
+::: {.proof}
+
+<!-- TODO: -->
+
+  
+:::
+
+Le simple fait de connaître le rayon de convergence d'une fonction définie par un développement en série entière
+nous renseigne sur les propriétés de régularité de la fonction.
+
+::: {#thm}
+Si $G$ est définie comme une série entière $G(z) = \sum_{n \in \mathbb{N}} a_n z^n$,
+sa dérivée (complexe) est $G'(z)=  \sum_{n \in \mathbb{N}} (n+1) a_{n+1} z^n$.
+La dérivée $G'$ et $G$ ont le même rayon de convergence.
+
+:::
+
+::: {.proof}
+
+<!-- TODO: -->
+
+  
+:::
+
+Cette affirmation générale sur les séries entières entraîne un corollaire
+très utile pour les fonctions génératrices de probabilité.
+
+
+::: {#cor-invpgf}
+
+### Formule d'inversion
+
+Soit $g$ la fonction génératrice de probabilité associée à la fonction de masse $f$. Alors
+$g$ est infiniment dérivable sur $[0,1)$ avec des dérivées
+$$
+	g^{(n)}(s) =  \sum_{k=n}^\infty \frac{k!}{(k-n)!} \times f(k) s^{k-n} \, ,
+$$
+plus précisément :
+$$
+	g^{(n)}(0) =  n! \times f(n) \, .
+$$
+Une loi de probabilité sur $\mathbb{N}$ est caractérisée par sa fonction génératrice de probabilité.
+
+:::
+
+
+<br> <p> </p>
+
+::: {.proof}
+La propriété est vraie pour $n=0$.
+
+Supposons qu'elle soit vraie pour tous les entiers jusqu'à $n$.
+Pour $s\in [0, 1)$ et $|h|<1-s-\delta$ où $\delta$
+est un petit nombre positif,
+\begin{align*}
+  \frac{g^{(n)}(s+h) - g^{(n)}(s)}{h}
+  & =  \sum_{k=n}^\infty \frac{k!}{(k-n)!} \times f(k)
+    \Big(\sum_{j=0}^{k-n-1}(s+h)^{k-n-1-j} s^{j}  \Big)
+\end{align*}
+La valeur absolue de la somme interne est inférieure à $(k-n) (1-\delta)^{k-n-1}$. Comme 
+$$
+\sum_{k=n}^\infty \frac{k!}{(k-n-1)!} \times p(k) \times  (1-\delta)^{k-n-1} < \infty
+$$ 
+pour tout $0<\delta<1$. Par le théorème de convergence dominée,
+\begin{align*}
+\lim_{h \to 0} \frac{g^{(n)}(s+h) - g^{(n)}(s)}{h}
+    & =
+   \sum_{k=n+1}^\infty \frac{k!}{(k-n-1)!} \times f(k) \times s^{k-n-1} \,.
+\end{align*}
+
+  
+
+:::
+
+<br> <p> </p>
+
+::: {#exm-invformula}
+
+La fonction génératrice de probabilité d'une loi de Poisson de paramètre $\mu$ vaut $\exp(\mu(s-1))$.
+\begin{align*}
+g(s)
+  & = \sum_{k=0}^\infty \mathrm{e}^{-\mu} \frac{\mu^k}{k!} s^k \\
+  & = \mathrm{e}^{-\mu} \times \mathrm{e}^{\mu s} \, .
+\end{align*}
+Si nous rencontrons une loi de probabilité avec une telle FGP, nous savons qu'il s'agit d'une loi de Poisson (de paramètre $\mu$).
+
+:::
+
+
+
+## Sommes de variables aléatoires indépendantes et fonctions génératrices de probabilité {#sec-pgf-sums}
+
+
+Les fonctions génératrices de probabilité nous offrent un outil pratique pour étudier les sommes de variables aléatoires indépendantes.
+
+::: {#prp-pgf-inversion}
+
+Soient $X$, $Y$ des variables aléatoires à valeurs entières indépendantes, de fonctions génératrices de probabilité $G_X$ et $G_Y$.
+La fonction génératrice de probabilité $G_{X+Y}$
+de $X+Y$ vaut $G_X\times G_Y$ : 
+$$
+G_{X+Y} = G_X \times G_Y \, .
+$$
+
+:::
+
+<br> <p> </p>
+
+::: {.proof}
+La preuve repose sur le fait que les séries convergentes non négatives
+sont commutativement convergentes.
+
+Pour tout $n$ :
+$$
+\left\{ \omega : X(\omega) + Y(\omega) = n \right\} =
+\cup_{k=0}^n \left\{ \omega : X(\omega)=k \text{ et }  Y(\omega) = n -k \right\} \,.
+$$
+L'union au membre de droite est une union disjointe.
+\begin{align*}
+\sum_{n=0}^\infty \mathbb{P}\{ X + Y = n\}\times s^n   & =
+	\sum_{n=0}^\infty \left( \sum_{k=0}^n \mathbb{P}\{ X=k\}\times \mathbb{P}\{ Y=n-k\} \right) s^n \\
+	&  =
+	\sum_{k=0}^\infty \mathbb{P}\{ X=k\} s^k  \sum_{n\geq k}^\infty \mathbb{P}\{ Y=n-k\} s^{n-k} \\
+	& = G_X(s) \times G_Y(s) \, .
+\end{align*}
+
+  
+:::
+
+
+En langage de la théorie de la mesure, la proposition est une conséquence
+du théorème de Tonelli-Fubini :
+\begin{align*}
+  G_{X+Y}(s)
+  & = \mathbb{E}\left[s^{X+Y}\right] \\
+  & = \mathbb{E}\left[s^{X} \times s^{Y}\right]  \\
+  & = \int_{\mathbb{R}^2} s^x s^y \mathrm{d}P_X \otimes P_Y(x,y) \\
+  & = \int_{\mathbb{R}} \int_{\mathbb{R}} s^x s^y \mathrm{d}P_X(x) \mathrm{d}P_Y(y) \\
+  & = \int_{\mathbb{R}} s^y \int_{\mathbb{R}} s^x  \mathrm{d}P_X(x) \mathrm{d}P_Y(y) \\
+  & = \int_{\mathbb{R}} s^y G_X(s) \mathrm{d}P_Y(y) \\
+  & = G_X(s) \times G_Y(s) \, .
+\end{align*}
+
+<br> <p> </p>
+
+::: {#exm-sum-pgf}
+Si $X$ et $Y$ sont des variables aléatoires de Poisson indépendantes de paramètres $\mu$ et $\nu$,
+alors $G_{X+Y}(s) = \exp(\mu(s-1))\times \exp(\nu(s-1))=  \exp((\mu+\nu)(s-1))$.
+C'est une autre preuve que $X+Y$ suit une loi de Poisson de paramètre $\mu+\nu$.
+:::
+
+
+## Régularité et intégrabilité {#sec-smooth-integrable-pgf}
+
+Une FGP est infiniment dérivable à l'intérieur du disque de convergence (ouvert). Si
+le rayon de convergence est strictement supérieur à $1$ (comme pour les lois de Poisson ou géométriques),
+cela entraîne que la FGP est infiniment dérivable en $1$.
+Si le rayon de convergence vaut exactement $1$, la différentiabilité
+sur le cercle de convergence n'est pas prescrite par la théorie générale.
+
+
+
+::: {#thm-pgfintegr}
+
+### Intégrabilité et fonctions génératrices de probabilité
+
+Soit $X$ une variable aléatoire à valeurs entières, de fonction génératrice de probabilité $f$.
+Alors $\mathbb{E} X^p < \infty$ si et seulement si $f$ est $p$ fois dérivable en $1$
+et
+$$
+f^{(p)}(1) = \mathbb{E}\left[X (X-1) \ldots (X-p+1)\right] \, .
+$$
+
+:::
+
+<br> <p> </p>
+
+
+
+::: {.proof}
+Supposons que $G$ soit $p$ fois dérivable à gauche en $1$.
+
+Il faut établir que $|X|$ est $p$-intégrable.
+
+Supposons que $|X|$ soit $p$-intégrable.
+
+<!-- TODO: -->
+
+  
+:::
+
+<br> <p> </p>
+
+La question suivante se pose rapidement : quand une fonction de $[0,1]$ vers $[0,\infty)$ est-elle une fonction génératrice de probabilité ?
+Cette question sera traitée plus tard dans une perspective plus large.
+
+
+
+:::::: {.content-hidden unless-profile"WIP"}
+
+## FGP pour les lois jointes {#sec-multivariate=pgfs}
+
+::: {#def-multi-pgf name="Fonction génératrice de probabilité multivariée"}
+
+$$G_{X,Y}(s,t) = \mathbb{E} \left[s^Xt^Y\right] \qquad \text{for } s,t \in [0,1]$$
+
+
+:::
+
+
+
+
+## Lois composées {#sec-compound-distributions}
+
+::: {#def-compound-distrib  name="Loi composée"} 
+
+$$Y = \sum_{i=1}^X Z_i$$
+
+$$G_Y(s) = G_X \circ G_Z(s)$$
+
+:::
+
+Application : éclaircissement de Poisson
+
+
+
+:::::
