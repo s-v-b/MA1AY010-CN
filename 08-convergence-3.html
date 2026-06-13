@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<link rel="alternate" hreflang="en" href="/08-convergence-3.html" />
+<link rel="alternate" hreflang="fr" href="/fr/08-convergence-3.fr.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.24">
-
+<meta name="generator" content="quarto-1.9.36">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>15&nbsp; Convergence in distribution – MA1AY010 Class Notes</title>
+<title>15  Convergence in distribution – MA1AY010 Class Notes</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -41,28 +44,13 @@ div.csl-right-inline {
 div.csl-indent {
   margin-left: 2em;
 }</style>
-
-
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script><script src="site_libs/quarto-nav/headroom.min.js"></script><script src="site_libs/clipboard/clipboard.min.js"></script><script src="site_libs/quarto-search/autocomplete.umd.js"></script><script src="site_libs/quarto-search/fuse.min.js"></script><script src="site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="./">
 <link href="./09-gaussian-vectors.html" rel="next">
 <link href="./05-convergences-1.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-3a70adc2469c323d0515427c5f9cb542.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script><script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script><link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-eb98473aa13ec2f8694b0a204f8986fa.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -89,12 +77,7 @@ div.csl-indent {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
+}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
     // MathJax Typeset
@@ -120,18 +103,12 @@ window.Quarto = {
   typesetMath
 };
 </script>
-
 </head>
-
 <body class="nav-sidebar floating nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">MA1AY010 Class Notes</span>
     </a>
@@ -142,29 +119,21 @@ window.Quarto = {
 </div>
           <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
-    </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+    </nav><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./08-convergence-3.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Convergence in distribution</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./08-convergence-3.html"><span class="chapter-number">15</span>  <span class="chapter-title">Convergence in distribution</span></a></li></ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
-      </div>
-    <div class="sidebar-menu-container"> 
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="dropdown" id="languages-links-parent">
+<button class="btn btn-primary dropdown-toggle babelquarto-languages-button" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> Version in en</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="/fr/08-convergence-3.fr.html" id="language-link-fr">Version in fr</a></li></ul>
+</div>
+<div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Warm up</span></a>
@@ -173,110 +142,108 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01-intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>  <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-language.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">A modicum of measure theory</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>  <span class="chapter-title">A modicum of measure theory</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./031-moments.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">A modicum of integration</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>  <span class="chapter-title">A modicum of integration</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./033-integration2moments.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">From integrals to expectation and moments</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>  <span class="chapter-title">From integrals to expectation and moments</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-families.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Families of discrete distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>  <span class="chapter-title">Families of discrete distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0225-pgf.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Characterizations of discrete probability distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>  <span class="chapter-title">Characterizations of discrete probability distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./022-product-measures.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Product distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>  <span class="chapter-title">Product distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./021-independence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Independence and product spaces</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>  <span class="chapter-title">Independence and product spaces</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./032-acfamilies.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Absolutely continuous probability measures</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>  <span class="chapter-title">Absolutely continuous probability measures</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./023-discrete-condition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Discrete Conditioning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>  <span class="chapter-title">Discrete Conditioning</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06-conditioning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Conditioning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>  <span class="chapter-title">Conditioning</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-characterizations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Characterizations of probability distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>  <span class="chapter-title">Characterizations of probability distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./041-characterization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Quantile functions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>  <span class="chapter-title">Quantile functions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-convergences-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Convergences I : almost sure, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, in Probability</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>  <span class="chapter-title">Convergences I : almost sure, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, in Probability</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-convergence-3.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Convergence in distribution</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>  <span class="chapter-title">Convergence in distribution</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./09-gaussian-vectors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Gaussian vectors</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>  <span class="chapter-title">Gaussian vectors</span></span></a>
   </div>
 </li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation"><span class="header-section-number">15.1</span> Motivation</a></li>
+<li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation"><span class="header-section-number">15.1</span> Motivation</a></li>
   <li><a href="#sec-weakandvague" id="toc-sec-weakandvague" class="nav-link" data-scroll-target="#sec-weakandvague"><span class="header-section-number">15.2</span> Weak convergence, vague convergence</a></li>
   <li><a href="#sec-ConvDistribution" id="toc-sec-ConvDistribution" class="nav-link" data-scroll-target="#sec-ConvDistribution"><span class="header-section-number">15.3</span> Convergence in distribution</a></li>
   <li><a href="#sec-PortManteau" id="toc-sec-PortManteau" class="nav-link" data-scroll-target="#sec-PortManteau"><span class="header-section-number">15.4</span> Portemanteau Theorem</a></li>
@@ -288,14 +255,14 @@ window.Quarto = {
   <li><a href="#sec-weakconvtransforms" id="toc-sec-weakconvtransforms" class="nav-link" data-scroll-target="#sec-weakconvtransforms"><span class="header-section-number">15.10</span> Weak convergence and transforms</a></li>
   <li><a href="#sec-rem-biblio-conv-3" id="toc-sec-rem-biblio-conv-3" class="nav-link" data-scroll-target="#sec-rem-biblio-conv-3"><span class="header-section-number">15.11</span> Bibliographic remarks</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/08-convergence-3.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
-    </div>
+<div class="toc-actions"><ul>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/08-convergence-3.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li>
+</ul></div></nav>
+</div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title"><span id="sec-chapweakdistrib" class="quarto-section-identifier"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Convergence in distribution</span></span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title"><span id="sec-chapweakdistrib" class="quarto-section-identifier"><span class="chapter-number">15</span>  <span class="chapter-title">Convergence in distribution</span></span></h1>
 </div>
 
 
@@ -309,19 +276,15 @@ window.Quarto = {
   
 
 
-</header>
-
-
-<section id="motivation" class="level2" data-number="15.1">
-<h2 data-number="15.1" class="anchored" data-anchor-id="motivation"><span class="header-section-number">15.1</span> Motivation</h2>
-<p>Recall <a href="01-intro.html" class="quarto-xref">Lesson&nbsp;<span>1</span></a>. Consider Binomial distributions with parameters <span class="math inline">\((n, \lambda/n)\)</span> and Poisson distribution with parameter <span class="math inline">\(\lambda\)</span>. Graphical inspection of probability mass functions suggests that as <span class="math inline">\(n\)</span> grows, Binomial distributions with parameters <span class="math inline">\((n, \lambda/n)\)</span> look more and more alike Poisson distribution with parameter <span class="math inline">\(\lambda\)</span>. Comparing probability generating functions is more compelling. The probability generating function of the Binomial distribution with parameters <span class="math inline">\((n, \lambda/n)\)</span> is <span class="math inline">\(s \mapsto (1 +\lambda(s-1)/n )^n\)</span>. As <span class="math inline">\(n\)</span> tends towards infinity, the probability generating functions of the Binomials converge pointwise towards the probability generating function of the Poisson distribution with mean <span class="math inline">\(\lambda\)</span>: <span class="math inline">\(s \mapsto \exp(\lambda(s-1))\)</span>. In <a href="01-intro.html" class="quarto-xref">Lesson&nbsp;<span>1</span></a>, we saw other examples of distributions which tend to look alike some limiting distributions as some parameter moves.</p>
-<p>In <a href="05-convergences-1.html" class="quarto-xref">Lesson&nbsp;<span>14</span></a>, we equipped the set <span class="math inline">\(L_0(\Omega, \mathcal{F}, P)\)</span> with topologies (<span class="math inline">\(L_p\)</span>, almost sure convergence, convergence in probability). In this lesson, we consider the set of probability distributions over some measurable space <span class="math inline">\((\Omega, \mathcal{F})\)</span>. This set can be equipped with a variety of topologies. We shall focus on the topology defined by <em>convergence in distribution</em> also called <em>weak convergence</em>.</p>
-<p>In <a href="#sec-weakandvague" class="quarto-xref">Section&nbsp;<span>15.2</span></a>), we introduce weak and vague convergences for sequences of probability distributions. In <a href="#sec-ConvDistribution" class="quarto-xref">Section&nbsp;<span>15.3</span></a>) Weak convergence induces the definition of convergence in distribution for random variables that possibly live on different probability spaces (just as our occupancy scores in <a href="01-intro.html" class="quarto-xref">Lesson&nbsp;<span>1</span></a>).</p>
-<p><a href="#sec-PortManteau" class="quarto-xref">Section&nbsp;<span>15.4</span></a>) is dedicated to the Portemanteau Theorem. This theorem lists a number of alternative and equivalent characterizations of convergence in distribution. Alternative characterizations are useful in two respects: they may be easier to check than the characterization used in the definition; they may supply a larger range of applications.</p>
-<p>In <a href="#sec-LevyCont" class="quarto-xref">Section&nbsp;<span>15.5</span></a>), we state and prove the Lévy continuity theorem. The Levy continuity theorem relates convergence in distribution with pointwise convergence of characteristic functions: characteristic functions not only allow us to identify probability distributions, they are also convergence determining. It could be one more line in the statement of <a href="#thm-portemanteau" class="quarto-xref">Theorem&nbsp;<span>15.1</span></a>). But the Lévy continuity Theorem stands out because it provides us with a concise proof of the Central Limit Theorem for normalized sums of centered i.i.d. random variables. This is the content of <a href="#sec-clt" class="quarto-xref">Section&nbsp;<span>15.8</span></a>).</p>
-</section>
-<section id="sec-weakandvague" class="level2" data-number="15.2">
-<h2 data-number="15.2" class="anchored" data-anchor-id="sec-weakandvague"><span class="header-section-number">15.2</span> Weak convergence, vague convergence</h2>
+</header><section id="motivation" class="level2" data-number="15.1"><h2 data-number="15.1" class="anchored" data-anchor-id="motivation">
+<span class="header-section-number">15.1</span> Motivation</h2>
+<p>Recall <a href="01-intro.html" class="quarto-xref">Lesson <span>1</span></a>. Consider Binomial distributions with parameters <span class="math inline">\((n, \lambda/n)\)</span> and Poisson distribution with parameter <span class="math inline">\(\lambda\)</span>. Graphical inspection of probability mass functions suggests that as <span class="math inline">\(n\)</span> grows, Binomial distributions with parameters <span class="math inline">\((n, \lambda/n)\)</span> look more and more alike Poisson distribution with parameter <span class="math inline">\(\lambda\)</span>. Comparing probability generating functions is more compelling. The probability generating function of the Binomial distribution with parameters <span class="math inline">\((n, \lambda/n)\)</span> is <span class="math inline">\(s \mapsto (1 +\lambda(s-1)/n )^n\)</span>. As <span class="math inline">\(n\)</span> tends towards infinity, the probability generating functions of the Binomials converge pointwise towards the probability generating function of the Poisson distribution with mean <span class="math inline">\(\lambda\)</span>: <span class="math inline">\(s \mapsto \exp(\lambda(s-1))\)</span>. In <a href="01-intro.html" class="quarto-xref">Lesson <span>1</span></a>, we saw other examples of distributions which tend to look alike some limiting distributions as some parameter moves.</p>
+<p>In <a href="05-convergences-1.html" class="quarto-xref">Lesson <span>14</span></a>, we equipped the set <span class="math inline">\(L_0(\Omega, \mathcal{F}, P)\)</span> with topologies (<span class="math inline">\(L_p\)</span>, almost sure convergence, convergence in probability). In this lesson, we consider the set of probability distributions over some measurable space <span class="math inline">\((\Omega, \mathcal{F})\)</span>. This set can be equipped with a variety of topologies. We shall focus on the topology defined by <em>convergence in distribution</em> also called <em>weak convergence</em>.</p>
+<p>In <a href="#sec-weakandvague" class="quarto-xref">Section <span>15.2</span></a>), we introduce weak and vague convergences for sequences of probability distributions. In <a href="#sec-ConvDistribution" class="quarto-xref">Section <span>15.3</span></a>) Weak convergence induces the definition of convergence in distribution for random variables that possibly live on different probability spaces (just as our occupancy scores in <a href="01-intro.html" class="quarto-xref">Lesson <span>1</span></a>).</p>
+<p><a href="#sec-PortManteau" class="quarto-xref">Section <span>15.4</span></a>) is dedicated to the Portemanteau Theorem. This theorem lists a number of alternative and equivalent characterizations of convergence in distribution. Alternative characterizations are useful in two respects: they may be easier to check than the characterization used in the definition; they may supply a larger range of applications.</p>
+<p>In <a href="#sec-LevyCont" class="quarto-xref">Section <span>15.5</span></a>), we state and prove the Lévy continuity theorem. The Levy continuity theorem relates convergence in distribution with pointwise convergence of characteristic functions: characteristic functions not only allow us to identify probability distributions, they are also convergence determining. It could be one more line in the statement of <a href="#thm-portemanteau" class="quarto-xref">Theorem <span>15.1</span></a>). But the Lévy continuity Theorem stands out because it provides us with a concise proof of the Central Limit Theorem for normalized sums of centered i.i.d. random variables. This is the content of <a href="#sec-clt" class="quarto-xref">Section <span>15.8</span></a>).</p>
+</section><section id="sec-weakandvague" class="level2" data-number="15.2"><h2 data-number="15.2" class="anchored" data-anchor-id="sec-weakandvague">
+<span class="header-section-number">15.2</span> Weak convergence, vague convergence</h2>
 <p>Weak convergence of probability measures assesses the proximity of probability measures by comparing their action on a collection of test functions.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -371,9 +334,8 @@ window.Quarto = {
 </div>
 </div>
 </div>
-</section>
-<section id="sec-ConvDistribution" class="level2" data-number="15.3">
-<h2 data-number="15.3" class="anchored" data-anchor-id="sec-ConvDistribution"><span class="header-section-number">15.3</span> Convergence in distribution</h2>
+</section><section id="sec-ConvDistribution" class="level2" data-number="15.3"><h2 data-number="15.3" class="anchored" data-anchor-id="sec-ConvDistribution">
+<span class="header-section-number">15.3</span> Convergence in distribution</h2>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -390,9 +352,8 @@ X_n \rightsquigarrow X \qquad \text{or} \qquad  X_n \rightsquigarrow \mathcal{L}
 </div>
 </div>
 <p>In order to check or use convergence in distribution, many equivalent characterizations are available. Some of them are listed in the Portemanteau Theorem.</p>
-</section>
-<section id="sec-PortManteau" class="level2" data-number="15.4">
-<h2 data-number="15.4" class="anchored" data-anchor-id="sec-PortManteau"><span class="header-section-number">15.4</span> Portemanteau Theorem</h2>
+</section><section id="sec-PortManteau" class="level2" data-number="15.4"><h2 data-number="15.4" class="anchored" data-anchor-id="sec-PortManteau">
+<span class="header-section-number">15.4</span> Portemanteau Theorem</h2>
 <p>The next list of equivalent characterizations of weak convergence is not exhaustive.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -407,8 +368,10 @@ X_n \rightsquigarrow X \qquad \text{or} \qquad  X_n \rightsquigarrow \mathcal{L}
 <li>For every bounded uniformly continuous function <span class="math inline">\(f\)</span> from <span class="math inline">\(\mathbb{R}^k\)</span> to <span class="math inline">\(\mathbb{R}\)</span>, the sequence <span class="math inline">\(\mathbb{E}_{P_n} [f]\)</span> converges towards <span class="math inline">\(\mathbb{E}_P [f]\)</span>.</li>
 <li>For every bounded Lipschitz function <span class="math inline">\(f\)</span> from <span class="math inline">\(\mathbb{R}^k\)</span> to <span class="math inline">\(\mathbb{R}\)</span>, the sequence <span class="math inline">\(\mathbb{E}_{P_n} [f]\)</span> converges towards <span class="math inline">\(\mathbb{E}_P [f]\)</span>.</li>
 <li>For every <span class="math inline">\(P\)</span>-almost surely bounded and continuous function <span class="math inline">\(f\)</span> from <span class="math inline">\(\mathbb{R}^k\)</span> to <span class="math inline">\(\mathbb{R}\)</span>, the sequence <span class="math inline">\((\mathbb{E}_{P_n} [f])\)</span> converges towards <span class="math inline">\(\mathbb{E}_P [f]\)</span>.</li>
-<li>For every closed subset <span class="math inline">\(F\)</span> of <span class="math inline">\(\mathbb{R}^k\)</span>, <span class="math inline">\(\limsup P_n (F) \leq  P(F).\)</span></li>
-<li>For every open subset <span class="math inline">\(O\)</span> of <span class="math inline">\(\mathbb{R}^k\)</span>, <span class="math inline">\(\liminf P_n (O) \geq  P(O).\)</span></li>
+<li>For every closed subset <span class="math inline">\(F\)</span> of <span class="math inline">\(\mathbb{R}^k\)</span>, <span class="math inline">\(\limsup P_n (F) \leq  P(F).\)</span>
+</li>
+<li>For every open subset <span class="math inline">\(O\)</span> of <span class="math inline">\(\mathbb{R}^k\)</span>, <span class="math inline">\(\liminf P_n (O) \geq  P(O).\)</span>
+</li>
 <li>For every Borelian <span class="math inline">\(A\)</span> such that <span class="math inline">\(P(A^\circ) = P(\overline{A})\)</span> (the boundary of <span class="math inline">\(A\)</span> is <span class="math inline">\(P\)</span>-negligible), <span class="math inline">\(\lim_n P_n(A)=P(A)\)</span>.</li>
 </ol>
 </div>
@@ -417,7 +380,7 @@ X_n \rightsquigarrow X \qquad \text{or} \qquad  X_n \rightsquigarrow \mathcal{L}
 </div>
 <p>In English, as in French, a <em>portemanteau</em> is a suitcase.</p>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>Implications <span class="math inline">\(1) \Rightarrow 2) \Rightarrow 3)\)</span> are obvious. Lévy’s continuity theorem, the major result from <a href="#sec-LevyCont" class="quarto-xref">Section&nbsp;<span>15.5</span></a>) entails that <span class="math inline">\(3) \Rightarrow 1)\)</span>.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>Implications <span class="math inline">\(1) \Rightarrow 2) \Rightarrow 3)\)</span> are obvious. Lévy’s continuity theorem, the major result from <a href="#sec-LevyCont" class="quarto-xref">Section <span>15.5</span></a>) entails that <span class="math inline">\(3) \Rightarrow 1)\)</span>.</p>
 <p><span class="math inline">\(4)\)</span>.</p>
 <p>That <span class="math inline">\(5) \Leftrightarrow 6)\)</span> follows from the fact that the complement of a closed set is an open set.</p>
 <p><span class="math inline">\(5)\)</span> and <span class="math inline">\(6)\)</span> imply <span class="math inline">\(7)\)</span>: <span class="math display">\[
@@ -477,7 +440,7 @@ X_n \rightsquigarrow X \qquad \text{or} \qquad  X_n \rightsquigarrow \mathcal{L}
 </div>
 </div>
 <div id="exr">
-<p>Prove Proposition <a href="#prp-weakconvquantiles" class="quarto-xref">Proposition&nbsp;<span>15.1</span></a>.</p>
+<p>Prove Proposition <a href="#prp-weakconvquantiles" class="quarto-xref">Proposition <span>15.1</span></a>.</p>
 </div>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -496,7 +459,7 @@ Y_n \to Y \qquad P\text{-a.s.}
 <div id="rem-alternative-universes" class="proof remark">
 <p><span class="proof-title"><em>Remark 15.2</em>. </span>The random variables <span class="math inline">\((X_n)_n\)</span> and <span class="math inline">\(X\)</span> may live on different probability spaces.</p>
 </div>
-<p>When random variables <span class="math inline">\(X_n\)</span> are real-valued, <a href="#prp-asrepweakconv" class="quarto-xref">Proposition&nbsp;<span>15.2</span></a> follows easily from Proposition <a href="#prp-weakconvquantiles" class="quarto-xref">Proposition&nbsp;<span>15.1</span></a>.</p>
+<p>When random variables <span class="math inline">\(X_n\)</span> are real-valued, <a href="#prp-asrepweakconv" class="quarto-xref">Proposition <span>15.2</span></a> follows easily from Proposition <a href="#prp-weakconvquantiles" class="quarto-xref">Proposition <span>15.1</span></a>.</p>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(\Omega= [0,1], \mathcal{F}=\mathcal{B}(\mathbb{R})\)</span> and <span class="math inline">\(\omega\)</span> be uniformly distributed over <span class="math inline">\(\Omega = [0,1]\)</span>. Let <span class="math inline">\(Y_n = F_n^\leftarrow(\omega)\)</span> and <span class="math inline">\(Y = F^\leftarrow(\omega)\)</span>.</p>
 <p>Then for each <span class="math inline">\(n\)</span>, <span class="math display">\[
@@ -505,13 +468,12 @@ P \Big\{ Y_n \leq t \Big\} = P\Big\{\omega : F_n^\leftarrow(\omega) \leq t \Big\
 \]</span> so that <span class="math inline">\(Y_n \sim F_n\)</span>. And by the same argument, <span class="math inline">\(Y \sim F\)</span>.</p>
 <p>As a non-decreasing function has at most countably many discontinuities, <span class="math display">\[
 P\Big\{\omega : F^\leftarrow\text{ is continuous at }\omega \Big\}=1\,.
-\]</span> Now, assume <span class="math inline">\(\omega\)</span> is a continuity point of <span class="math inline">\(F^{\leftarrow}\)</span>. Then by Proposition <a href="#prp-weakconvquantiles" class="quarto-xref">Proposition&nbsp;<span>15.1</span></a>, <span class="math inline">\(\lim_n F_n^{\leftarrow}(\omega) = F^\leftarrow(\omega)\)</span>. This translates to <span class="math display">\[
+\]</span> Now, assume <span class="math inline">\(\omega\)</span> is a continuity point of <span class="math inline">\(F^{\leftarrow}\)</span>. Then by Proposition <a href="#prp-weakconvquantiles" class="quarto-xref">Proposition <span>15.1</span></a>, <span class="math inline">\(\lim_n F_n^{\leftarrow}(\omega) = F^\leftarrow(\omega)\)</span>. This translates to <span class="math display">\[
 P \Big\{\omega :  \lim_n Y_n(\omega) =Y(\omega) \Big\} = 1 \, .
 \]</span></p>
 </div>
-</section>
-<section id="sec-LevyCont" class="level2" data-number="15.5">
-<h2 data-number="15.5" class="anchored" data-anchor-id="sec-LevyCont"><span class="header-section-number">15.5</span> Lévy continuity theorem</h2>
+</section><section id="sec-LevyCont" class="level2" data-number="15.5"><h2 data-number="15.5" class="anchored" data-anchor-id="sec-LevyCont">
+<span class="header-section-number">15.5</span> Lévy continuity theorem</h2>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -525,7 +487,7 @@ P \Big\{\omega :  \lim_n Y_n(\omega) =Y(\omega) \Big\} = 1 \, .
 </div>
 </div>
 <div id="rem-levycont1" class="proof remark">
-<p><span class="proof-title"><em>Remark 15.3</em>. </span><a href="#thm-thmlevycont" class="quarto-xref">Theorem&nbsp;<span>15.2</span></a> asserts that weak convergence of probability measures is characterized by a very small subset of bounded continuous functions. To warrant weak convergence of <span class="math inline">\((P_n)_n\)</span> towards <span class="math inline">\(P\)</span> it is enough to check that <span class="math inline">\(\mathbb{E}_{P_n}f \to \mathbb{E}_Pf\)</span> for functions <span class="math inline">\(f\)</span> in family <span class="math inline">\(\{ \cos(t \cdot), \sin(t \cdot) : t \in \mathbb{R} \}\)</span>. These functions are bounded and infinitely many times differentiable.</p>
+<p><span class="proof-title"><em>Remark 15.3</em>. </span><a href="#thm-thmlevycont" class="quarto-xref">Theorem <span>15.2</span></a> asserts that weak convergence of probability measures is characterized by a very small subset of bounded continuous functions. To warrant weak convergence of <span class="math inline">\((P_n)_n\)</span> towards <span class="math inline">\(P\)</span> it is enough to check that <span class="math inline">\(\mathbb{E}_{P_n}f \to \mathbb{E}_Pf\)</span> for functions <span class="math inline">\(f\)</span> in family <span class="math inline">\(\{ \cos(t \cdot), \sin(t \cdot) : t \in \mathbb{R} \}\)</span>. These functions are bounded and infinitely many times differentiable.</p>
 </div>
 <div id="lem">
 <p>Let <span class="math inline">\((X_n)_n, X\)</span> and <span class="math inline">\(Z\)</span> live on the same probability space. If <span class="math inline">\((X_n)_n\)</span>, <span class="math inline">\(X\)</span> and <span class="math inline">\(Z\)</span> are random variables such that for every <span class="math inline">\(\sigma&gt;0\)</span>, <span class="math inline">\(X_n + \sigma Z \rightsquigarrow X+\sigma Z\)</span>, then <span class="math inline">\(X_n \rightsquigarrow X\)</span>.</p>
@@ -580,9 +542,8 @@ P_n(A) - P(A) = \int_{\mathbb{R}} \mathbb{I}_A (f_n -f) \leq \int_{\mathbb{R}} |
 <p>Let <span class="math inline">\(Z\)</span> be a standard Gaussian random variable, independent of all <span class="math inline">\((X_n)_n\)</span> and of <span class="math inline">\(X\)</span>. For <span class="math inline">\(\sigma&gt;0\)</span>, the distributions of <span class="math inline">\(X_n + \sigma Z\)</span> and <span class="math inline">\(X + \sigma Z\)</span> have densities that are uniquely determined by the characteristic functions of <span class="math inline">\(X_n\)</span> and <span class="math inline">\(X\)</span>. Moreover, a dominated convergence argument shows that the densities of <span class="math inline">\(X_n + \sigma Z\)</span> converge pointwise towards the density of <span class="math inline">\(X + \sigma Z\)</span>. By Scheffé’s Lemma, this entails that <span class="math inline">\(X_n + \sigma Z \rightsquigarrow X + \sigma Z\)</span>.</p>
 <p>As this holds for all <span class="math inline">\(\sigma&gt;0\)</span>, this entails that <span class="math inline">\(X_n \rightsquigarrow X.\)</span></p>
 </div>
-</section>
-<section id="sec-refineLevy" class="level2" data-number="15.6">
-<h2 data-number="15.6" class="anchored" data-anchor-id="sec-refineLevy"><span class="header-section-number">15.6</span> Refining the continuity theorem</h2>
+</section><section id="sec-refineLevy" class="level2" data-number="15.6"><h2 data-number="15.6" class="anchored" data-anchor-id="sec-refineLevy">
+<span class="header-section-number">15.6</span> Refining the continuity theorem</h2>
 <p>In some situations, we can prove that a sequence of characteristic functions converges pointwise towards some function, but we have no candidate for the limiting distribution. The question arises whether the pointwise limit of characteristic functions is the characteristic function of some probability distribution or something else.</p>
 <p>The answer may be negative: if <span class="math inline">\(P_n = \mathcal{N}(0, n)\)</span>, the sequence of characteristic functions is <span class="math inline">\(\big(t \mapsto \exp(-nt^2/2)\big)_n\)</span> which converges pointwise to <span class="math inline">\(0\)</span> except at <span class="math inline">\(0\)</span> where it is equal to <span class="math inline">\(1\)</span> all along. The limit is not the characteristic function of any probability measure: it is not continuous at <span class="math inline">\(0\)</span>.</p>
 <p>The next Theorem settles the question.</p>
@@ -651,7 +612,7 @@ P_n(A) - P(A) = \int_{\mathbb{R}} \mathbb{I}_A (f_n -f) \leq \int_{\mathbb{R}} |
 </div>
 </div>
 </div>
-<p>We shall use the following technical upper bound which is illustrated in <a href="#fig-techdude" class="quarto-xref">Figure&nbsp;<span>15.1</span></a>:</p>
+<p>We shall use the following technical upper bound which is illustrated in <a href="#fig-techdude" class="quarto-xref">Figure <span>15.1</span></a>:</p>
 <p><span class="math display">\[
 \forall t \in \mathbb{R} \setminus[-1,1], \qquad   \frac{\sin(t)}{t} \leq \sin(1) \leq \frac{6}{7}\, .
 \]</span></p>
@@ -659,14 +620,12 @@ P_n(A) - P(A) = \int_{\mathbb{R}} \mathbb{I}_A (f_n -f) \leq \int_{\mathbb{R}} |
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-techdude" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-techdude-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-techdude-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="08-convergence-3_files/figure-html/fig-techdude-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-techdude-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;15.1: The proof of the truncation inequality takes advantage on easy bounds satisfied by the <span class="math inline">\(\operatorname{sinc}\)</span> function.
-</figcaption>
-</figure>
+Figure 15.1: The proof of the truncation inequality takes advantage on easy bounds satisfied by the <span class="math inline">\(\operatorname{sinc}\)</span> function.
+</figcaption></figure>
 </div>
 </div>
 </div>
@@ -712,15 +671,14 @@ P_n \Big[\frac{-1}{u}, \frac{1}{u}\Big]^c \leq 7 \epsilon \, .
 \]</span> The interval <span class="math inline">\(\Big[\frac{-1}{u}, \frac{1}{u}\Big]\)</span> is compact.</p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em> (Proof of the second form of the continuity theorem). </span>We combine the Uniform Tightness Lemma and the Prokhorov-Le Cam Theorem. Under the assumptions of the second form of the continuity Theorem, there is a probability measure <span class="math inline">\(P\)</span> (with characteristic function <span class="math inline">\(\widehat{F}\)</span>), and a subsequence <span class="math inline">\((P_{n(k)})_{k \in \mathbb{N}}\)</span> such that <span class="math inline">\(P_{n(k)} \rightsquigarrow P \text{ as } {k \to \infty}\)</span>. This entails <span class="math inline">\(\widehat{F}_{n(k)} \rightarrow \widehat{F} \text{ as } {k \to \infty}\)</span> pointwise. This also entails that <span class="math inline">\(\widehat{F}_n \rightarrow \widehat{F}\)</span> pointwise for the whole sequence. Finally, we are able to invoke <a href="#thm-thmlevycont" class="quarto-xref">Theorem&nbsp;<span>15.2</span></a>) to conclude <span class="math inline">\(P_{n}\rightsquigarrow  P \text{ as }{n \to \infty}\)</span>.</p>
+<p><span class="proof-title"><em>Proof</em> (Proof of the second form of the continuity theorem). </span>We combine the Uniform Tightness Lemma and the Prokhorov-Le Cam Theorem. Under the assumptions of the second form of the continuity Theorem, there is a probability measure <span class="math inline">\(P\)</span> (with characteristic function <span class="math inline">\(\widehat{F}\)</span>), and a subsequence <span class="math inline">\((P_{n(k)})_{k \in \mathbb{N}}\)</span> such that <span class="math inline">\(P_{n(k)} \rightsquigarrow P \text{ as } {k \to \infty}\)</span>. This entails <span class="math inline">\(\widehat{F}_{n(k)} \rightarrow \widehat{F} \text{ as } {k \to \infty}\)</span> pointwise. This also entails that <span class="math inline">\(\widehat{F}_n \rightarrow \widehat{F}\)</span> pointwise for the whole sequence. Finally, we are able to invoke <a href="#thm-thmlevycont" class="quarto-xref">Theorem <span>15.2</span></a>) to conclude <span class="math inline">\(P_{n}\rightsquigarrow  P \text{ as }{n \to \infty}\)</span>.</p>
 </div>
 <div id="rem-extension" class="proof remark">
 <p><span class="proof-title"><em>Remark 15.4</em>. </span>All definitions and results in this section can be extended to the <span class="math inline">\(k\)</span>-dimensional setting for all <span class="math inline">\(k \in \mathbb{N}\)</span>.</p>
 </div>
-</section>
-<section id="sec-relatconv" class="level2" data-number="15.7">
-<h2 data-number="15.7" class="anchored" data-anchor-id="sec-relatconv"><span class="header-section-number">15.7</span> Relations between convergences</h2>
-<p>The alternative characterizations of weak convergence provided by the Portemanteau Theorem (<a href="#thm-portemanteau" class="quarto-xref">Theorem&nbsp;<span>15.1</span></a>)) facilitate the proof of the next Proposition.</p>
+</section><section id="sec-relatconv" class="level2" data-number="15.7"><h2 data-number="15.7" class="anchored" data-anchor-id="sec-relatconv">
+<span class="header-section-number">15.7</span> Relations between convergences</h2>
+<p>The alternative characterizations of weak convergence provided by the Portemanteau Theorem (<a href="#thm-portemanteau" class="quarto-xref">Theorem <span>15.1</span></a>)) facilitate the proof of the next Proposition.</p>
 <div id="prp">
 <p>Convergence in probability implies convergence in distribution.</p>
 </div>
@@ -738,10 +696,9 @@ P_n \Big[\frac{-1}{u}, \frac{1}{u}\Big]^c \leq 7 \epsilon \, .
 \limsup_n \Big| \mathbb{E}h(X_n) - \mathbb{E}h(X)  \Big| \leq \epsilon.
 \]</span> As this holds for every <span class="math inline">\(\epsilon &gt;0\)</span>, for every bounded Lipschitz function <span class="math inline">\(h\)</span>, <span class="math inline">\(\lim_n \Big| \mathbb{E}h(X_n) - \mathbb{E}h(X)  \Big|=0\)</span>. This is sufficient to establish convergence in distribution of <span class="math inline">\((X_n)_n\)</span>.</p>
 </div>
-</section>
-<section id="sec-clt" class="level2" data-number="15.8">
-<h2 data-number="15.8" class="anchored" data-anchor-id="sec-clt"><span class="header-section-number">15.8</span> Central limit theorem</h2>
-<p>The Lévy Continuity Theorem (<a href="#thm-thmlevycont" class="quarto-xref">Theorem&nbsp;<span>15.2</span></a>)) is the conerstone of a very concise proof the simplest version of the Central Limit Theorem (CLT). Under square-integrability assumption, the CLT refines the Laws of Large Numbers. It states that as <span class="math inline">\(n\)</span> tends to infinity, the fluctuations of the empirical mean <span class="math inline">\(\sum_{i=1}^n X_i/n\)</span> around its expectation tends to be of order <span class="math inline">\(1/\sqrt{n}\)</span> and, once rescaled, to be normally distributed.</p>
+</section><section id="sec-clt" class="level2" data-number="15.8"><h2 data-number="15.8" class="anchored" data-anchor-id="sec-clt">
+<span class="header-section-number">15.8</span> Central limit theorem</h2>
+<p>The Lévy Continuity Theorem (<a href="#thm-thmlevycont" class="quarto-xref">Theorem <span>15.2</span></a>)) is the conerstone of a very concise proof the simplest version of the Central Limit Theorem (CLT). Under square-integrability assumption, the CLT refines the Laws of Large Numbers. It states that as <span class="math inline">\(n\)</span> tends to infinity, the fluctuations of the empirical mean <span class="math inline">\(\sum_{i=1}^n X_i/n\)</span> around its expectation tends to be of order <span class="math inline">\(1/\sqrt{n}\)</span> and, once rescaled, to be normally distributed.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -756,7 +713,7 @@ P_n \Big[\frac{-1}{u}, \frac{1}{u}\Big]^c \leq 7 \epsilon \, .
 </div>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(\widehat{F}\)</span> denote the characteristic function of the (common) distribution of the random variables <span class="math inline">\(((X_i-\mu)/\sigma)_i\)</span>. Recall fron <a href="04-characterizations.html" class="quarto-xref">Lesson&nbsp;<span>12</span></a>, that the centering and square integrability assumptions imply that</p>
+<p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(\widehat{F}\)</span> denote the characteristic function of the (common) distribution of the random variables <span class="math inline">\(((X_i-\mu)/\sigma)_i\)</span>. Recall fron <a href="04-characterizations.html" class="quarto-xref">Lesson <span>12</span></a>, that the centering and square integrability assumptions imply that</p>
 <p><span class="math display">\[
 \widehat{F}(t) = \widehat{F}(0) + \widehat{F}'(0) t + \frac{\widehat{F}'(0)}{2} t^2
 + t^2 R(t)= 1 - \frac{t^2}{2} + t^2 R(t)
@@ -773,14 +730,13 @@ P_n \Big[\frac{-1}{u}, \frac{1}{u}\Big]^c \leq 7 \epsilon \, .
 </div>
 <!-- ::: {#fig-cltbinom} -->
 <!-- ::: -->
-</section>
-<section id="sec-cramerwolddevice" class="level2" data-number="15.9">
-<h2 data-number="15.9" class="anchored" data-anchor-id="sec-cramerwolddevice"><span class="header-section-number">15.9</span> Cramer-Wold device</h2>
+</section><section id="sec-cramerwolddevice" class="level2" data-number="15.9"><h2 data-number="15.9" class="anchored" data-anchor-id="sec-cramerwolddevice">
+<span class="header-section-number">15.9</span> Cramer-Wold device</h2>
 <p>So far, we have discussed characteristic functions for real valued random variables. But characteristic functions can be defined for vector-valued random variables. If <span class="math inline">\(X\)</span> is a <span class="math inline">\(\mathbb{R}^k\)</span>-valued random variable, its characteristic function maps <span class="math inline">\(\mathbb{R}^k\)</span> to <span class="math inline">\(\mathbb{C}\)</span>: <span class="math display">\[\begin{align*}
 \mathbb{R}^k &amp; \to \mathbb{C} \\
 t &amp; \mapsto \mathbb{E}\mathrm{e}^{i \langle t, X\rangle} \, .
 \end{align*}\]</span></p>
-<p>The importance of multivariate characteristic functions is reflected in the next device which proof is left to the reader. It consists in the adapting the proof of <a href="04-characterizations.html#thm-injeccharfunc" class="quarto-xref">Theorem&nbsp;<span>12.4</span></a>).</p>
+<p>The importance of multivariate characteristic functions is reflected in the next device which proof is left to the reader. It consists in the adapting the proof of <a href="04-characterizations.html#thm-injeccharfunc" class="quarto-xref">Theorem <span>12.4</span></a>).</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -793,7 +749,7 @@ t &amp; \mapsto \mathbb{E}\mathrm{e}^{i \langle t, X\rangle} \, .
 </div>
 </div>
 </div>
-<p><a href="#thm-cramerwold" class="quarto-xref">Theorem&nbsp;<span>15.6</span></a>) provides a short path to the Multivariate Central Limit Theorem.</p>
+<p><a href="#thm-cramerwold" class="quarto-xref">Theorem <span>15.6</span></a>) provides a short path to the Multivariate Central Limit Theorem.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -808,22 +764,20 @@ t &amp; \mapsto \mathbb{E}\mathrm{e}^{i \langle t, X\rangle} \, .
 </div>
 </div>
 </div>
-</section>
-<section id="sec-weakconvtransforms" class="level2" data-number="15.10">
-<h2 data-number="15.10" class="anchored" data-anchor-id="sec-weakconvtransforms"><span class="header-section-number">15.10</span> Weak convergence and transforms</h2>
+</section><section id="sec-weakconvtransforms" class="level2" data-number="15.10"><h2 data-number="15.10" class="anchored" data-anchor-id="sec-weakconvtransforms">
+<span class="header-section-number">15.10</span> Weak convergence and transforms</h2>
 <p>In Lesson <a href="04-characterizations.html" class="quarto-xref"><span>Chapter 12</span></a>, we introduced different characterizations of probability distributions: probability generating functions, Laplace transforms, Fourier transforms (characteristic functions), cumulative distribution functions, quantiles functions. Within their scope, all those transforms are <em>convergence determining</em>: if a sequence of probability distributions converges weakly, so does (pointwise) the corresponding sequence of transforms, at least at the continuity points of the limiting transform.</p>
 <p>In the next two theorems, each random variable is assumed to live on some (implicit) probability space.</p>
 <div id="thm">
 <p>A sequence of <em>non-negative</em> random variables <span class="math inline">\((X_n)_n\)</span> converges in distribution towards the <em>non negative</em> random variable <span class="math inline">\(X\)</span> iff the sequence of Laplace transforms converges pointwise towards the Laplace transform of the probability distribution of <span class="math inline">\(X\)</span>.</p>
 </div>
-<p>The proof parallels the derivation of <a href="#thm-thmlevycont" class="quarto-xref">Theorem&nbsp;<span>15.2</span></a>).</p>
+<p>The proof parallels the derivation of <a href="#thm-thmlevycont" class="quarto-xref">Theorem <span>15.2</span></a>).</p>
 <p>As probability generating functions allows us to recover Laplace transforms, the next theorem is a special case of the statement concerning Laplace transforms.</p>
 <div id="thm">
 <p>A sequence of integer-valued random variables <span class="math inline">\((X_n)_n\)</span> converges in distribution towards the integer-valued random variable <span class="math inline">\(X\)</span> iff the sequence of Laplace transforms converges pointwise towards the Laplace transform of the probability distribution of <span class="math inline">\(X\)</span>.</p>
 </div>
-</section>
-<section id="sec-rem-biblio-conv-3" class="level2" data-number="15.11">
-<h2 data-number="15.11" class="anchored" data-anchor-id="sec-rem-biblio-conv-3"><span class="header-section-number">15.11</span> Bibliographic remarks</h2>
+</section><section id="sec-rem-biblio-conv-3" class="level2" data-number="15.11"><h2 data-number="15.11" class="anchored" data-anchor-id="sec-rem-biblio-conv-3">
+<span class="header-section-number">15.11</span> Bibliographic remarks</h2>
 <p><span class="citation" data-cites="MR1932358">Dudley (<a href="#ref-MR1932358" role="doc-biblioref">2002</a>)</span> discusses convergence in distributions in two chapters: the first one is dedicated to distributions on <span class="math inline">\(\mathbb{R}^d\)</span> and the central limit theorem; the second chapter addresses more general universes. In the first chapter, the central limit theorem is extended to triangular arrays that is to sequences of not necessarily identically distributed random variables (Lindeberg’s Theorem).</p>
 <p><span class="citation" data-cites="MR1932358">Dudley (<a href="#ref-MR1932358" role="doc-biblioref">2002</a>)</span> investigates convergence in distributions as <em>convergence of laws on separable metric spaces</em>, that is in a much broader context than we do in these notes. The reader will find there a complete proof of the Prokhorov-Le Cam Theorem and an in-depth discussion of its corollaries. In <span class="citation" data-cites="MR1932358">(<a href="#ref-MR1932358" role="doc-biblioref">Dudley, 2002</a>)</span>, a great deal of effort is dedicated to the metrization of the weak convergence topology. The reader will also find in this book a full picture of almost sure representation arguments.</p>
 <p>The proof of the Lévy Continuity Theorem given here is taken from <span class="citation" data-cites="MR1873379">(<a href="#ref-MR1873379" role="doc-biblioref">Pollard, 2002</a>)</span>.</p>
@@ -844,10 +798,7 @@ Pollard, D. (2002). <em>A user’s guide to measure theoretic probability</em> (
 Ross, N. (2011). Fundamentals of <span>S</span>tein’s method. <em>Probab. Surv.</em>, <em>8</em>, 210–293. <a href="https://doi.org/10.1214/11-PS182">https://doi.org/10.1214/11-PS182</a>
 </div>
 </div>
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -1246,16 +1197,14 @@ Ross, N. (2011). Fundamentals of <span>S</span>tein’s method. <em>Probab. Surv
       }
     }
   });
-  </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./05-convergences-1.html" class="pagination-link" aria-label="Convergences I : almost sure, $L_2$, $L_1$, in Probability">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Convergences I : almost sure, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, in Probability</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>  <span class="chapter-title">Convergences I : almost sure, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, in Probability</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./09-gaussian-vectors.html" class="pagination-link" aria-label="Gaussian vectors">
-        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Gaussian vectors</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">16</span>  <span class="chapter-title">Gaussian vectors</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1264,4 +1213,9 @@ Ross, N. (2011). Fundamentals of <span>S</span>tein’s method. <em>Probab. Surv
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/08-convergence-3.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/08-convergence-3.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li>
+</ul></div></div></div></footer>
+</body>
+</html>

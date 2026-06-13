@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<link rel="alternate" hreflang="en" href="/04-characterizations.html" />
+<link rel="alternate" hreflang="fr" href="/fr/04-characterizations.fr.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.24">
-
+<meta name="generator" content="quarto-1.9.36">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>12&nbsp; Characterizations of probability distributions – MA1AY010 Class Notes</title>
+<title>12  Characterizations of probability distributions – MA1AY010 Class Notes</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -41,28 +44,13 @@ div.csl-right-inline {
 div.csl-indent {
   margin-left: 2em;
 }</style>
-
-
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script><script src="site_libs/quarto-nav/headroom.min.js"></script><script src="site_libs/clipboard/clipboard.min.js"></script><script src="site_libs/quarto-search/autocomplete.umd.js"></script><script src="site_libs/quarto-search/fuse.min.js"></script><script src="site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="./">
 <link href="./041-characterization.html" rel="next">
 <link href="./06-conditioning.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-3a70adc2469c323d0515427c5f9cb542.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script><script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script><link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-eb98473aa13ec2f8694b0a204f8986fa.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -89,12 +77,7 @@ div.csl-indent {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
+}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
     // MathJax Typeset
@@ -120,18 +103,12 @@ window.Quarto = {
   typesetMath
 };
 </script>
-
 </head>
-
 <body class="nav-sidebar floating nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">MA1AY010 Class Notes</span>
     </a>
@@ -142,29 +119,21 @@ window.Quarto = {
 </div>
           <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
-    </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+    </nav><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-characterizations.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Characterizations of probability distributions</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-characterizations.html"><span class="chapter-number">12</span>  <span class="chapter-title">Characterizations of probability distributions</span></a></li></ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
-      </div>
-    <div class="sidebar-menu-container"> 
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="dropdown" id="languages-links-parent">
+<button class="btn btn-primary dropdown-toggle babelquarto-languages-button" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> Version in en</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="/fr/04-characterizations.fr.html" id="language-link-fr">Version in fr</a></li></ul>
+</div>
+<div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Warm up</span></a>
@@ -173,135 +142,137 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01-intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>  <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-language.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">A modicum of measure theory</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>  <span class="chapter-title">A modicum of measure theory</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./031-moments.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">A modicum of integration</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>  <span class="chapter-title">A modicum of integration</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./033-integration2moments.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">From integrals to expectation and moments</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>  <span class="chapter-title">From integrals to expectation and moments</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-families.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Families of discrete distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>  <span class="chapter-title">Families of discrete distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0225-pgf.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Characterizations of discrete probability distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>  <span class="chapter-title">Characterizations of discrete probability distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./022-product-measures.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Product distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>  <span class="chapter-title">Product distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./021-independence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Independence and product spaces</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>  <span class="chapter-title">Independence and product spaces</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./032-acfamilies.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Absolutely continuous probability measures</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>  <span class="chapter-title">Absolutely continuous probability measures</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./023-discrete-condition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Discrete Conditioning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>  <span class="chapter-title">Discrete Conditioning</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06-conditioning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Conditioning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>  <span class="chapter-title">Conditioning</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-characterizations.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Characterizations of probability distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>  <span class="chapter-title">Characterizations of probability distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./041-characterization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Quantile functions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>  <span class="chapter-title">Quantile functions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-convergences-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Convergences I : almost sure, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, in Probability</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>  <span class="chapter-title">Convergences I : almost sure, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, in Probability</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-convergence-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Convergence in distribution</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>  <span class="chapter-title">Convergence in distribution</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./09-gaussian-vectors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Gaussian vectors</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>  <span class="chapter-title">Gaussian vectors</span></span></a>
   </div>
 </li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#sec-roadmapcharac" id="toc-sec-roadmapcharac" class="nav-link active" data-scroll-target="#sec-roadmapcharac"><span class="header-section-number">12.1</span> Motivation</a></li>
-  <li><a href="#sec-laplace" id="toc-sec-laplace" class="nav-link" data-scroll-target="#sec-laplace"><span class="header-section-number">12.2</span> Laplace transform</a>
+<li><a href="#sec-roadmapcharac" id="toc-sec-roadmapcharac" class="nav-link active" data-scroll-target="#sec-roadmapcharac"><span class="header-section-number">12.1</span> Motivation</a></li>
+  <li>
+<a href="#sec-laplace" id="toc-sec-laplace" class="nav-link" data-scroll-target="#sec-laplace"><span class="header-section-number">12.2</span> Laplace transform</a>
   <ul class="collapse">
-  <li><a href="#definition-and-elementary-properties" id="toc-definition-and-elementary-properties" class="nav-link" data-scroll-target="#definition-and-elementary-properties"><span class="header-section-number">12.2.1</span> Definition and elementary properties</a></li>
+<li><a href="#definition-and-elementary-properties" id="toc-definition-and-elementary-properties" class="nav-link" data-scroll-target="#definition-and-elementary-properties"><span class="header-section-number">12.2.1</span> Definition and elementary properties</a></li>
   <li><a href="#widder" id="toc-widder" class="nav-link" data-scroll-target="#widder"><span class="header-section-number">12.2.2</span> Injectivity of Laplace transforms and an inversion formula</a></li>
   <li><a href="#sec-lap-integrability" id="toc-sec-lap-integrability" class="nav-link" data-scroll-target="#sec-lap-integrability"><span class="header-section-number">12.2.3</span> Laplace transform smoothness and integrability</a></li>
-  </ul></li>
-  <li><a href="#sec-charfun" id="toc-sec-charfun" class="nav-link" data-scroll-target="#sec-charfun"><span class="header-section-number">12.3</span> Characteristic functions and Fourier transforms</a>
+  </ul>
+</li>
+  <li>
+<a href="#sec-charfun" id="toc-sec-charfun" class="nav-link" data-scroll-target="#sec-charfun"><span class="header-section-number">12.3</span> Characteristic functions and Fourier transforms</a>
   <ul class="collapse">
-  <li><a href="#sec-charFuncDef" id="toc-sec-charFuncDef" class="nav-link" data-scroll-target="#sec-charFuncDef"><span class="header-section-number">12.3.1</span> Characteristic function</a></li>
+<li><a href="#sec-charFuncDef" id="toc-sec-charFuncDef" class="nav-link" data-scroll-target="#sec-charFuncDef"><span class="header-section-number">12.3.1</span> Characteristic function</a></li>
   <li><a href="#charfungaussian" id="toc-charfungaussian" class="nav-link" data-scroll-target="#charfungaussian"><span class="header-section-number">12.3.2</span> Characteristic function of a univariate Gaussian distribution</a></li>
   <li><a href="#sec-convol" id="toc-sec-convol" class="nav-link" data-scroll-target="#sec-convol"><span class="header-section-number">12.3.3</span> Sums of independent random variables and convolutions</a></li>
   <li><a href="#charinjectivity" id="toc-charinjectivity" class="nav-link" data-scroll-target="#charinjectivity"><span class="header-section-number">12.3.4</span> Injectivity Theorem and inversion formula</a></li>
   <li><a href="#sec-diffintfourier" id="toc-sec-diffintfourier" class="nav-link" data-scroll-target="#sec-diffintfourier"><span class="header-section-number">12.3.5</span> Differentiability and integrability</a></li>
   <li><a href="#sec-cauchy" id="toc-sec-cauchy" class="nav-link" data-scroll-target="#sec-cauchy"><span class="header-section-number">12.3.6</span> Another application: understanding Cauchy distribution</a></li>
-  </ul></li>
+  </ul>
+</li>
   <li><a href="#sec-bibcharac" id="toc-sec-bibcharac" class="nav-link" data-scroll-target="#sec-bibcharac"><span class="header-section-number">12.4</span> Bibliographic remarks</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/04-characterizations.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
-    </div>
+<div class="toc-actions"><ul>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/04-characterizations.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li>
+</ul></div></nav>
+</div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title"><span id="sec-chapchar" class="quarto-section-identifier"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Characterizations of probability distributions</span></span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title"><span id="sec-chapchar" class="quarto-section-identifier"><span class="chapter-number">12</span>  <span class="chapter-title">Characterizations of probability distributions</span></span></h1>
 </div>
 
 
@@ -315,22 +286,18 @@ window.Quarto = {
   
 
 
-</header>
-
-
-<section id="sec-roadmapcharac" class="level2" data-number="12.1">
-<h2 data-number="12.1" class="anchored" data-anchor-id="sec-roadmapcharac"><span class="header-section-number">12.1</span> Motivation</h2>
-<p>In full generality, a probability distribution is a complex and opaque object. It is a <span class="math inline">\([0,1]\)</span>-valued function defined over a <span class="math inline">\(\sigma\)</span>-algebra of subsets of some universe. A concrete <span class="math inline">\(\sigma\)</span>-algebra, let alone the abstract notion of <span class="math inline">\(\sigma\)</span>-algebra, is not easily grasped. Hence, looking for simpler characterizations of probability distributions is a sensible goal. When facing questions like: <em>are two probability distributions equal?</em>, we know it suffices to check that the two distributions coincide on generating <span class="math inline">\(\pi\)</span>-classes (see <a href="06-conditioning.html#thm-cmon" class="quarto-xref">Theorem&nbsp;<span>11.4</span></a> and consequences). This makes Cumulative Distribution Functions (CDFs) precious tools. Cumulative Distribution Functions and their generalized inverse functions (quantile functions see <a href="041-characterization.html" class="quarto-xref"><span>Chapter 13</span></a>) are very convenient when handling maxima, minima, or more generally order statistics of collections of independent random variables, but when it comes to handling sums of independent random variables or branching processes, cumulative distribution functions are of moderate help.</p>
+</header><section id="sec-roadmapcharac" class="level2" data-number="12.1"><h2 data-number="12.1" class="anchored" data-anchor-id="sec-roadmapcharac">
+<span class="header-section-number">12.1</span> Motivation</h2>
+<p>In full generality, a probability distribution is a complex and opaque object. It is a <span class="math inline">\([0,1]\)</span>-valued function defined over a <span class="math inline">\(\sigma\)</span>-algebra of subsets of some universe. A concrete <span class="math inline">\(\sigma\)</span>-algebra, let alone the abstract notion of <span class="math inline">\(\sigma\)</span>-algebra, is not easily grasped. Hence, looking for simpler characterizations of probability distributions is a sensible goal. When facing questions like: <em>are two probability distributions equal?</em>, we know it suffices to check that the two distributions coincide on generating <span class="math inline">\(\pi\)</span>-classes (see <a href="06-conditioning.html#thm-cmon" class="quarto-xref">Theorem <span>11.4</span></a> and consequences). This makes Cumulative Distribution Functions (CDFs) precious tools. Cumulative Distribution Functions and their generalized inverse functions (quantile functions see <a href="041-characterization.html" class="quarto-xref"><span>Chapter 13</span></a>) are very convenient when handling maxima, minima, or more generally order statistics of collections of independent random variables, but when it comes to handling sums of independent random variables or branching processes, cumulative distribution functions are of moderate help.</p>
 <p>In this lesson, we review two related ways of characterizing probability distributions through functions defined on the real line: Laplace transforms (<a href="#sec-laplace" class="quarto-xref"><span>Section 12.2</span></a>)) and characteristic functions which extend Fourier transforms to probability distributions (<a href="#sec-charfun" class="quarto-xref"><span>Section 12.3</span></a>). The two methods are distinct in scope but they rely on the same idea as Probability Generating Functions (<a href="0225-pgf.html" class="quarto-xref"><span>Chapter 6</span></a>) and share common features.</p>
 <p>Indeed, Probability Generating Functions can be seen as special case of Laplace transforms. The latter can be seen as special cases of Fourier transforms.All three methods do characterize probability distributions. They are equipped with inversion formulae. The three methods provide us with a seamless treatment of sums of independent random variables. All three methods relate the integrability of probability distributions and the smoothness of transforms.</p>
 <p>In the next lessons (<span class="quarto-unresolved-ref">?sec-chaprevisiCLT</span>), we shall see that the three transforms also characterize <em>convergence in distribution</em>.</p>
 <p>Probability generating functions, Laplace transforms and characteristic functions deliver an important analytical machinery to Probability Theory. From Analysis, we get off-the-shelf arguments to establish smoothness properties of transforms, and with little more work, we can construct the inversion formulae.</p>
-</section>
-<section id="sec-laplace" class="level2" data-number="12.2">
-<h2 data-number="12.2" class="anchored" data-anchor-id="sec-laplace"><span class="header-section-number">12.2</span> Laplace transform</h2>
+</section><section id="sec-laplace" class="level2" data-number="12.2"><h2 data-number="12.2" class="anchored" data-anchor-id="sec-laplace">
+<span class="header-section-number">12.2</span> Laplace transform</h2>
 <p>Laplace transforms characterize probability distributions on <span class="math inline">\([0, \infty).\)</span></p>
-<section id="definition-and-elementary-properties" class="level3" data-number="12.2.1">
-<h3 data-number="12.2.1" class="anchored" data-anchor-id="definition-and-elementary-properties"><span class="header-section-number">12.2.1</span> Definition and elementary properties</h3>
+<section id="definition-and-elementary-properties" class="level3" data-number="12.2.1"><h3 data-number="12.2.1" class="anchored" data-anchor-id="definition-and-elementary-properties">
+<span class="header-section-number">12.2.1</span> Definition and elementary properties</h3>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -361,10 +328,14 @@ U(\lambda) =  \mathbb{E}\left[\mathrm{e}^{- \lambda X}\right] = \int_{[0,\infty)
 <div id="prp-laplace-prop" class="theorem proposition">
 <p><span class="theorem-title"><strong>Proposition 12.1</strong></span> If <span class="math inline">\(U: [0,\infty) \to [0,1]\)</span> is the Laplace transform of a probability distribution <span class="math inline">\(P\)</span> over <span class="math inline">\([0, \infty)\)</span>, then</p>
 <ul>
-<li><span class="math inline">\(U(0)=1\)</span>;</li>
-<li><span class="math inline">\(U\)</span> is continuous;</li>
-<li><span class="math inline">\(U\)</span> is non-increasing.</li>
-<li><span class="math inline">\(U\)</span> is convex.</li>
+<li>
+<span class="math inline">\(U(0)=1\)</span>;</li>
+<li>
+<span class="math inline">\(U\)</span> is continuous;</li>
+<li>
+<span class="math inline">\(U\)</span> is non-increasing.</li>
+<li>
+<span class="math inline">\(U\)</span> is convex.</li>
 </ul>
 </div>
 </div>
@@ -392,9 +363,13 @@ U(\lambda) =  \mathbb{E}\left[\mathrm{e}^{- \lambda X}\right] = \int_{[0,\infty)
 <div id="thm-bernstein" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 12.1 (Bernstein’s Theorem)</strong></span> A function <span class="math inline">\(U: (0, \infty) \to (0,\infty)\)</span> is the Laplace transform of a probability distribution over <span class="math inline">\([0,\infty)\)</span> iff</p>
 <ul>
-<li><span class="math inline">\(U\)</span> is infinitely many times differentiable over <span class="math inline">\((0, \infty)\)</span></li>
+<li>
+<span class="math inline">\(U\)</span> is infinitely many times differentiable over <span class="math inline">\((0, \infty)\)</span>
+</li>
 <li><span class="math inline">\(U(0)=1\)</span></li>
-<li><span class="math inline">\(U\)</span> is <em>completely monotonous</em>: <span class="math inline">\((-1)^k U^{(k)} \geq 0\)</span> over <span class="math inline">\((0, \infty)\)</span></li>
+<li>
+<span class="math inline">\(U\)</span> is <em>completely monotonous</em>: <span class="math inline">\((-1)^k U^{(k)} \geq 0\)</span> over <span class="math inline">\((0, \infty)\)</span>
+</li>
 </ul>
 </div>
 </div>
@@ -410,9 +385,13 @@ U(\lambda) =  \mathbb{E}\left[\mathrm{e}^{- \lambda X}\right] = \int_{[0,\infty)
 <div id="cor-pgf" class="theorem corollary">
 <p><span class="theorem-title"><strong>Corollary 12.1</strong></span> A function <span class="math inline">\(G: [0, 1] \to [0,1]\)</span> is the Probability Generating Function of a probability distribution over <span class="math inline">\(\mathbb{N}\)</span> iff</p>
 <ul>
-<li><span class="math inline">\(G\)</span> is infinitely many times differentiable over <span class="math inline">\((0,1)\)</span></li>
+<li>
+<span class="math inline">\(G\)</span> is infinitely many times differentiable over <span class="math inline">\((0,1)\)</span>
+</li>
 <li><span class="math inline">\(G(1)=1\)</span></li>
-<li><span class="math inline">\(G\)</span> is completely monotonous: <span class="math inline">\((-1)^k G^{(k)} \geq 0\)</span> over <span class="math inline">\((0, 1)\)</span></li>
+<li>
+<span class="math inline">\(G\)</span> is completely monotonous: <span class="math inline">\((-1)^k G^{(k)} \geq 0\)</span> over <span class="math inline">\((0, 1)\)</span>
+</li>
 </ul>
 </div>
 </div>
@@ -429,9 +408,8 @@ U(\lambda)
 \end{array}
 \]</span></p>
 </div>
-</section>
-<section id="widder" class="level3" data-number="12.2.2">
-<h3 data-number="12.2.2" class="anchored" data-anchor-id="widder"><span class="header-section-number">12.2.2</span> Injectivity of Laplace transforms and an inversion formula</h3>
+</section><section id="widder" class="level3" data-number="12.2.2"><h3 data-number="12.2.2" class="anchored" data-anchor-id="widder">
+<span class="header-section-number">12.2.2</span> Injectivity of Laplace transforms and an inversion formula</h3>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -466,7 +444,7 @@ U(\lambda)
 <div id="rem-bennettpoisson" class="proof remark">
 <p><span class="proof-title"><em>Remark 12.1</em>. </span></p>
 <ul>
-<li>See <a href="033-integration2moments.html#sec-jensensec" class="quarto-xref">Section&nbsp;<span>4.3</span></a>) for the notion of convex duality.</li>
+<li>See <a href="033-integration2moments.html#sec-jensensec" class="quarto-xref">Section <span>4.3</span></a>) for the notion of convex duality.</li>
 <li>The next bounds on <span class="math inline">\(h^*\)</span> deliver looser but easier tail bounds</li>
 </ul>
 <p><span class="math display">\[\begin{array}{rll}
@@ -505,7 +483,7 @@ U(\lambda')
    &amp; = \sum_{k=0}^\infty \frac{(\lambda' -\lambda)^k}{k!} \frac{\mathrm{d}^kU}{\mathrm{d}\lambda^k}  \, .
 \end{array}
 \]</span></p>
-<p>By [<a href="#cor-corrpoisson" class="quarto-xref">Corollary&nbsp;<span>12.2</span></a>), for all <span class="math inline">\(0 &lt; y \neq x\)</span>, <span class="math inline">\(\lim_{n \to \infty} \sum_{k=0}^{nx} e^{-n y} \frac{(ny)^k}{k!} = \mathbb{I}_{y&lt;x}\)</span>.</p>
+<p>By [<a href="#cor-corrpoisson" class="quarto-xref">Corollary <span>12.2</span></a>), for all <span class="math inline">\(0 &lt; y \neq x\)</span>, <span class="math inline">\(\lim_{n \to \infty} \sum_{k=0}^{nx} e^{-n y} \frac{(ny)^k}{k!} = \mathbb{I}_{y&lt;x}\)</span>.</p>
 <p><span class="math display">\[\begin{array}{rl}
 F(x)
   &amp; =  \int_{\mathbb{R_+}} \mathbb{I}_{y\leq x} \mathrm{d}F(y) \\
@@ -570,16 +548,13 @@ G_{X+Y}(\lambda)
 </div>
 </div>
 </div>
-</section>
-<section id="sec-lap-integrability" class="level3" data-number="12.2.3">
-<h3 data-number="12.2.3" class="anchored" data-anchor-id="sec-lap-integrability"><span class="header-section-number">12.2.3</span> Laplace transform smoothness and integrability</h3>
-</section>
-</section>
-<section id="sec-charfun" class="level2" data-number="12.3">
-<h2 data-number="12.3" class="anchored" data-anchor-id="sec-charfun"><span class="header-section-number">12.3</span> Characteristic functions and Fourier transforms</h2>
+</section><section id="sec-lap-integrability" class="level3" data-number="12.2.3"><h3 data-number="12.2.3" class="anchored" data-anchor-id="sec-lap-integrability">
+<span class="header-section-number">12.2.3</span> Laplace transform smoothness and integrability</h3>
+</section></section><section id="sec-charfun" class="level2" data-number="12.3"><h2 data-number="12.3" class="anchored" data-anchor-id="sec-charfun">
+<span class="header-section-number">12.3</span> Characteristic functions and Fourier transforms</h2>
 <p>The Laplace transform characterizes probability distributions supported by <span class="math inline">\([0, \infty)\)</span>. Characteristic functions deal with general probability distributions. They extend to multivariate distributions.</p>
-<section id="sec-charFuncDef" class="level3" data-number="12.3.1">
-<h3 data-number="12.3.1" class="anchored" data-anchor-id="sec-charFuncDef"><span class="header-section-number">12.3.1</span> Characteristic function</h3>
+<section id="sec-charFuncDef" class="level3" data-number="12.3.1"><h3 data-number="12.3.1" class="anchored" data-anchor-id="sec-charFuncDef">
+<span class="header-section-number">12.3.1</span> Characteristic function</h3>
 <p>The next transform can be defined for all probability distributions over <span class="math inline">\(\mathbb{R}\)</span>. And the definition can be extended to distributions on <span class="math inline">\(\mathbb{R}^k, k\geq 1\)</span>.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -609,10 +584,13 @@ G_{X+Y}(\lambda)
 <div id="prp-prop-charfunc" class="theorem proposition">
 <p><span class="theorem-title"><strong>Proposition 12.3</strong></span> Let the real-valued random variable <span class="math inline">\(X\)</span> be distributed according to <span class="math inline">\(P\)</span> with characteristic function <span class="math inline">\(\widehat{F}\)</span>.</p>
 <ul>
-<li><span class="math inline">\(\widehat{F}\)</span> is (uniformly) continuous over <span class="math inline">\(\mathbb{R}\)</span></li>
+<li>
+<span class="math inline">\(\widehat{F}\)</span> is (uniformly) continuous over <span class="math inline">\(\mathbb{R}\)</span>
+</li>
 <li><span class="math inline">\(\widehat{F}(0)=1\)</span></li>
 <li>If <span class="math inline">\(X\)</span> is symmetric, <span class="math inline">\(\widehat{F}\)</span> is real-valued</li>
-<li>The characteristic function of the distribution of <span class="math inline">\(a X +b\)</span> is <span class="math display">\[\mathrm{e}^{it b} \widehat{F}(at) \, .\]</span></li>
+<li>The characteristic function of the distribution of <span class="math inline">\(a X +b\)</span> is <span class="math display">\[\mathrm{e}^{it b} \widehat{F}(at) \, .\]</span>
+</li>
 </ul>
 </div>
 </div>
@@ -635,14 +613,12 @@ G_{X+Y}(\lambda)
   &amp; \leq \int 2 \Big( 1 \wedge \big| \delta x \big| \Big) \mathrm{d}F(x) \,.
 \end{array}
 \]</span></p>
-<p>Resorting to the dominated convergence theorem, we conclude<br>
-<span class="math display">\[
+<p>Resorting to the dominated convergence theorem, we conclude<br><span class="math display">\[
 \lim_{\delta \to 0} \Big| \widehat{F}(t+\delta) - \widehat{F}(t)\Big| = 0
 \]</span></p>
 <p>uniformly in <span class="math inline">\(t\)</span>.</p>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 <div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
@@ -653,15 +629,15 @@ G_{X+Y}(\lambda)
 <div id="exr-trivial-charcfunc" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 12.2</strong></span> The next properties are easily checked:</p>
 <ul>
-<li><span class="math inline">\(|\widehat{F}(t)|\leq 1\)</span> for every <span class="math inline">\(t\in \mathbb{R}\)</span>;</li>
-<li></li>
+<li>
+<span class="math inline">\(|\widehat{F}(t)|\leq 1\)</span> for every <span class="math inline">\(t\in \mathbb{R}\)</span>;</li>
+<li>
 </ul>
 </div>
 </div>
 </div>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 <div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
@@ -682,8 +658,7 @@ G_{X+Y}(\lambda)
 </div>
 </div>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 <p>Just as Probability Generating Functions and Laplace transforms, Characteristic functions of sums of independent random variables have a simple structure.</p>
 <div class="callout callout-style-simple callout-note no-icon">
@@ -725,9 +700,8 @@ G_{X+Y}(\lambda)
 </div>
 </div>
 </div>
-</section>
-<section id="charfungaussian" class="level3" data-number="12.3.2">
-<h3 data-number="12.3.2" class="anchored" data-anchor-id="charfungaussian"><span class="header-section-number">12.3.2</span> Characteristic function of a univariate Gaussian distribution</h3>
+</section><section id="charfungaussian" class="level3" data-number="12.3.2"><h3 data-number="12.3.2" class="anchored" data-anchor-id="charfungaussian">
+<span class="header-section-number">12.3.2</span> Characteristic function of a univariate Gaussian distribution</h3>
 <p>It is possible to compute characteristic functions by resorting to Complex Analysis. But we shall refrain from this when computing the most important characteristic function, the characteristic function of the standard Gaussian distribution.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -755,8 +729,7 @@ G_{X+Y}(\lambda)
 \]</span> Hence, <span class="math inline">\(\widehat{F}\)</span> is a solution of the differential equation: <span class="math inline">\(g'(t) = -t g(t)\)</span> with <span class="math inline">\(g(0)=1\)</span>.</p>
 <p>The differential equation is readily solved, and the solution is <span class="math inline">\(g(t)= \mathrm{e}^{- \frac{t^2}{2}}\)</span>.</p>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 <div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
@@ -770,17 +743,15 @@ G_{X+Y}(\lambda)
 </div>
 </div>
 </div>
-<br>
-<p>
+<br><p>
 </p>
-<p>Note that a byproduct of <a href="#prp-proCharFunGauss" class="quarto-xref">Proposition&nbsp;<span>12.5</span></a> is the following integral representation of the Gaussian density.</p>
+<p>Note that a byproduct of <a href="#prp-proCharFunGauss" class="quarto-xref">Proposition <span>12.5</span></a> is the following integral representation of the Gaussian density.</p>
 <p><span class="math display">\[
 \phi(x)  =  \frac{1}{2 \pi} \int_{\mathbb{R}} \widehat{\Phi}(t) \mathrm{e}^{-itx} \mathrm{d}t \, .
 \]</span></p>
 <p>It does not look interesting, but it is a milestone for the derivation of the general inversion formula below.</p>
-</section>
-<section id="sec-convol" class="level3" data-number="12.3.3">
-<h3 data-number="12.3.3" class="anchored" data-anchor-id="sec-convol"><span class="header-section-number">12.3.3</span> Sums of independent random variables and convolutions</h3>
+</section><section id="sec-convol" class="level3" data-number="12.3.3"><h3 data-number="12.3.3" class="anchored" data-anchor-id="sec-convol">
+<span class="header-section-number">12.3.3</span> Sums of independent random variables and convolutions</h3>
 <p>The interplay between Characteristic functions/Fourier transforms and summation of independent random variables is one of the most attractive features of this transformation. In order to understand it, we shall need an operation stemming from analysis. Recall that if <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> are two integrable functions, the convolution of <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> is defined as <span class="math display">\[
 f \star g (x)  = \int_{\mathbb{R}} f(x-y)g(y) \mathrm{d}y = \int_{\mathbb{R}} g(x-y)f(y) \mathrm{d}y \, .
 \]</span></p>
@@ -833,7 +804,7 @@ P \Big\{ X+Y  \in B\Big\}
 </div>
 <p><br></p>
 <p>If <span class="math inline">\(Y =0\)</span> almost surely (its distribution is <span class="math inline">\(\delta_0\)</span>), then <span class="math inline">\(p_X \star \delta_0 = p_X\)</span>.</p>
-<p>What happens in <a href="#prp-convsum" class="quarto-xref">Proposition&nbsp;<span>12.6</span></a> if we consider the distributions of <span class="math inline">\(\sigma X +Y\)</span> and let <span class="math inline">\(\sigma\)</span> decrease to <span class="math inline">\(0\)</span>? This is the content of the next proposition.</p>
+<p>What happens in <a href="#prp-convsum" class="quarto-xref">Proposition <span>12.6</span></a> if we consider the distributions of <span class="math inline">\(\sigma X +Y\)</span> and let <span class="math inline">\(\sigma\)</span> decrease to <span class="math inline">\(0\)</span>? This is the content of the next proposition.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -859,9 +830,8 @@ P \Big\{ X+Y  \in B\Big\}
 \]</span></p>
 <p>By monotone convergence, the first and third integrals converge respectively to <span class="math inline">\(P_Y(-\infty, a)\)</span> and <span class="math inline">\(0\)</span> while the second term equals <span class="math inline">\(\alpha P_Y\{a\}\)</span>.</p>
 </div>
-</section>
-<section id="charinjectivity" class="level3" data-number="12.3.4">
-<h3 data-number="12.3.4" class="anchored" data-anchor-id="charinjectivity"><span class="header-section-number">12.3.4</span> Injectivity Theorem and inversion formula</h3>
+</section><section id="charinjectivity" class="level3" data-number="12.3.4"><h3 data-number="12.3.4" class="anchored" data-anchor-id="charinjectivity">
+<span class="header-section-number">12.3.4</span> Injectivity Theorem and inversion formula</h3>
 <p>The characteristic function maps probability measures to <span class="math inline">\(\mathbb{C}\)</span>-valued functions. The main result of this section is that characteristic functions/Fourier transforms define is an injective operator on the set of Probability measures on the real line.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -912,7 +882,7 @@ P \Big\{ X+Y  \in B\Big\}
 </div>
 <p>The proposition states that a density of the distribution of <span class="math inline">\(X + \sigma Z\)</span> can be recovered from the characteristic function of the distribution of <span class="math inline">\(X + \sigma Z\)</span> by the Fourier inversion formula for functions with integrable Fourier transforms.</p>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>The fact that for any <span class="math inline">\(\sigma &gt;0\)</span>, the distribution of <span class="math inline">\(Y = X + \sigma Z\)</span> is absolutely continuous with respect to Lebesgue measure comes from <a href="#prp-convsum" class="quarto-xref">Proposition&nbsp;<span>12.6</span></a>.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>The fact that for any <span class="math inline">\(\sigma &gt;0\)</span>, the distribution of <span class="math inline">\(Y = X + \sigma Z\)</span> is absolutely continuous with respect to Lebesgue measure comes from <a href="#prp-convsum" class="quarto-xref">Proposition <span>12.6</span></a>.</p>
 <p>A density of the distribution of <span class="math inline">\(X + \sigma Z\)</span> is given by</p>
 <p><span class="math display">\[
 \int_{\mathbb{R}} \frac{1}{\sigma} \phi\Big(\frac{y -x}{\sigma}\Big) \mathrm{d}F(x)
@@ -962,9 +932,9 @@ F(u_-) = \lim_{v \uparrow u} F(v) = P(-\infty, u)\, .
 </div>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>The proof consists in combining <a href="#prp-approxident" class="quarto-xref">Proposition&nbsp;<span>12.7</span></a> and <a href="#prp-reginversion" class="quarto-xref">Proposition&nbsp;<span>12.8</span></a>.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>The proof consists in combining <a href="#prp-approxident" class="quarto-xref">Proposition <span>12.7</span></a> and <a href="#prp-reginversion" class="quarto-xref">Proposition <span>12.8</span></a>.</p>
 </div>
-<p>Note that <a href="#thm-invfourier1" class="quarto-xref">Theorem&nbsp;<span>12.5</span></a> does not deliver directly the distribution function <span class="math inline">\(F\)</span>. Indeed, if <span class="math inline">\(F\)</span> is not continuous, <span class="math inline">\(u \mapsto \widetilde{F}(u) = F(u_-) + \frac{1}{2} P\{u\}\)</span>, is not a distribution function. But the right-continuous modification of <span class="math inline">\(\widetilde{F}\)</span>: <span class="math inline">\(u \mapsto \lim_{v \downarrow u} \widetilde{F}(v)\)</span> coincides with <span class="math inline">\(F\)</span>. We have established <a href="#thm-injeccharfunc" class="quarto-xref">Theorem&nbsp;<span>12.4</span></a>).</p>
+<p>Note that <a href="#thm-invfourier1" class="quarto-xref">Theorem <span>12.5</span></a> does not deliver directly the distribution function <span class="math inline">\(F\)</span>. Indeed, if <span class="math inline">\(F\)</span> is not continuous, <span class="math inline">\(u \mapsto \widetilde{F}(u) = F(u_-) + \frac{1}{2} P\{u\}\)</span>, is not a distribution function. But the right-continuous modification of <span class="math inline">\(\widetilde{F}\)</span>: <span class="math inline">\(u \mapsto \lim_{v \downarrow u} \widetilde{F}(v)\)</span> coincides with <span class="math inline">\(F\)</span>. We have established <a href="#thm-injeccharfunc" class="quarto-xref">Theorem <span>12.4</span></a>).</p>
 <p>When the distribution function is absolutely continuous, Fourier inversion is simpler.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -975,8 +945,10 @@ F(u_-) = \lim_{v \uparrow u} F(v) = P(-\infty, u)\, .
 <div id="thm-simple-inversion-densities" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 12.6</strong></span> Let <span class="math inline">\(X\)</span> be distributed according to <span class="math inline">\(P\)</span>, with cumulative distribution function <span class="math inline">\(F\)</span> and characteristic function <span class="math inline">\(\widehat{F}\)</span>. Assume that <span class="math inline">\(\widehat{F}\)</span> is integrable (with respect to Lebesgue measure). Then:</p>
 <ul>
-<li><span class="math inline">\(P\)</span> is absolutely continuous with respect to Lebesgue measure;</li>
-<li><span class="math inline">\(y \mapsto \frac{1}{{2 \pi}} \int_{\mathbb{R}} \widehat{F}(t) \mathrm{e}^{-ity} \mathrm{d}t\)</span> is a uniformly continuous version of the density of <span class="math inline">\(P\)</span>.</li>
+<li>
+<span class="math inline">\(P\)</span> is absolutely continuous with respect to Lebesgue measure;</li>
+<li>
+<span class="math inline">\(y \mapsto \frac{1}{{2 \pi}} \int_{\mathbb{R}} \widehat{F}(t) \mathrm{e}^{-ity} \mathrm{d}t\)</span> is a uniformly continuous version of the density of <span class="math inline">\(P\)</span>.</li>
 </ul>
 </div>
 </div>
@@ -1013,7 +985,7 @@ F(u_-) = \lim_{v \uparrow u} F(v) = P(-\infty, u)\, .
 </div>
 </div>
 </div>
-<p>The proof of <a href="#thm-invformula" class="quarto-xref">Theorem&nbsp;<span>12.7</span></a>) can be found in textbooks like <span class="citation" data-cites="Dur10">(<a href="#ref-Dur10" role="doc-biblioref">Durrett, 2010</a>)</span> or <span class="citation" data-cites="MR2893652">(<a href="#ref-MR2893652" role="doc-biblioref">Billingsley, 2012</a>)</span>.</p>
+<p>The proof of <a href="#thm-invformula" class="quarto-xref">Theorem <span>12.7</span></a>) can be found in textbooks like <span class="citation" data-cites="Dur10">(<a href="#ref-Dur10" role="doc-biblioref">Durrett, 2010</a>)</span> or <span class="citation" data-cites="MR2893652">(<a href="#ref-MR2893652" role="doc-biblioref">Billingsley, 2012</a>)</span>.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -1063,12 +1035,10 @@ F(u_-) = \lim_{v \uparrow u} F(v) = P(-\infty, u)\, .
 <p><span class="proof-title"><em>Proof</em>. </span>The direct part follows by integration by parts.</p>
 <p>To check the converse, note that if <span class="math inline">\(X\)</span> satisfies the identity in the Theorem, then for all <span class="math inline">\(t \in \mathbb{R}\)</span>, the functions <span class="math inline">\(t \mapsto \mathbb{E} \cos(tX)\)</span> and <span class="math inline">\(t \mapsto \mathbb{E} \sin(tX)\)</span> satisfy the differential equation <span class="math inline">\(g'(t) = t g(t)\)</span> with conditions <span class="math inline">\(\mathbb{E} \cos(0X)=1\)</span> and <span class="math inline">\(\mathbb{E} \sin(0X) =0\)</span>. This entails <span class="math inline">\(\mathbb{E} \mathrm{e}^{itX} = \exp\Big(-\frac{t^2}{2}\Big)\)</span>, that is <span class="math inline">\(X \sim \mathcal{N}(0,1)\)</span></p>
 </div>
-<br>
-<p>
+<br><p>
 </p>
-</section>
-<section id="sec-diffintfourier" class="level3" data-number="12.3.5">
-<h3 data-number="12.3.5" class="anchored" data-anchor-id="sec-diffintfourier"><span class="header-section-number">12.3.5</span> Differentiability and integrability</h3>
+</section><section id="sec-diffintfourier" class="level3" data-number="12.3.5"><h3 data-number="12.3.5" class="anchored" data-anchor-id="sec-diffintfourier">
+<span class="header-section-number">12.3.5</span> Differentiability and integrability</h3>
 <p>Differentiability of the Fourier transform at <span class="math inline">\(0\)</span> and integrability are intimately related.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -1097,11 +1067,17 @@ F(u_-) = \lim_{v \uparrow u} F(v) = P(-\infty, u)\, .
     &amp; \leq \mathbb{E} \Big[\min\Big( \frac{|tX|^{n+1}}{(n+1)!} ,2 \frac{|tX|^n}{n!}\Big)\Big] \\
     &amp; = \frac{|t|^n}{(n+1)!} \mathbb{E} \Big[\min\Big(|t||X|^{n+1} ,2 (n+1) |X|^n \Big)\Big] \, .
 \end{array}
-\]</span> Note that the right hand side is well defined as soon as <span class="math inline">\(\mathbb{E}|X|^n &lt; \infty\)</span>. Now, by dominated convergence, <span class="math display">\[
+\]</span> Note that the right hand side is well defined as soon as <span class="math inline">\(\mathbb{E}|X|^n &lt; \infty\)</span>. Now, by dominated convergence (<a href="031-moments.html#thm-thmdominatedConv" class="quarto-xref">Theorem <span>3.3</span></a>), <span class="math display">\[
 \lim_{t \to 0} \mathbb{E} \Big[\min\Big(|t||X|^{n+1} ,2 (n+1) |X|^n \Big)\Big] = 0\,
 \]</span> Hence we have established that if <span class="math inline">\(\mathbb{E}|X|^n &lt; \infty\)</span>, <span class="math display">\[
 \widehat{F}(t) = \sum_{k=0}^n i^k \mathbb{E}X^k \frac{t^k}{k!} + o(|t|^n) \, .
 \]</span></p>
+</div>
+<div id="rem-fourier-derivation" class="proof remark">
+<p><span class="proof-title"><em>Remark 12.4</em>. </span><a href="#thm-fouriermoments" class="quarto-xref">Theorem <span>12.9</span></a> asserts that integrability of <span class="math inline">\(X\)</span> is enough to warrant that <span class="math inline">\(\widehat{F}^{(1)}(0)\)</span> is well-defined and that at <span class="math inline">\(t=0\)</span></p>
+<p><span class="math display">\[\widehat{F}^{(1)}(t) = {\frac{\mathrm{d}\mathbb{E} \mathrm{e}^{i t X}}{\mathrm{d}t}}_{\mid t=0} = \mathbb{E} {\frac{\mathrm{d} \mathrm{e}^{i t X}}{\mathrm{d}t}}_{\mid t=0} = \mathbb{E}  [i X]\]</span></p>
+<p>and that a similar formula holds for higher order derivatives.</p>
+<p>Like many other results in this area, <a href="#thm-fouriermoments" class="quarto-xref">Theorem <span>12.9</span></a> is about interchanging derivation and expectation. The fact that the proof relies the dominated convergence theorem (<a href="031-moments.html#thm-thmdominatedConv" class="quarto-xref">Theorem <span>3.3</span></a>) is not surprising.</p>
 </div>
 <p>In the other direction, the connection is not as simple: differentiability of the Fourier transform does not imply integrability. But the following holds.</p>
 <div class="callout callout-style-simple callout-note no-icon">
@@ -1142,18 +1118,18 @@ F(u_-) = \lim_{v \uparrow u} F(v) = P(-\infty, u)\, .
 \sigma^2 = \lim_{h \downarrow 0} 2\mathbb{E}\Big[ X^2 \int_0^1 \cos(shX) (1-s) \mathrm{d}s\Big]
 \geq 2\mathbb{E}\Big[\liminf_{h \downarrow 0} X^2 \int_0^1 \cos(shX) (1-s) \mathrm{d}s \Big]
 \]</span></p>
-<p>but for all <span class="math inline">\(x \in \mathbb{R}\)</span>, by dominated convergence,</p>
+<p>but for all <span class="math inline">\(x \in \mathbb{R}\)</span>, by dominated convergence (<a href="031-moments.html#thm-thmdominatedConv" class="quarto-xref">Theorem <span>3.3</span></a>),</p>
 <p><span class="math display">\[
 \liminf_{h \downarrow 0} x^ 2 \int_0^1 \cos(shx) (1-s) \mathrm{d}s = \frac{x^2}{2} \, .
 \]</span></p>
 <p>Hence <span class="math display">\[
 \sigma^2 \geq \mathbb{E} X^2 \, .
 \]</span></p>
-<p>The proof is completed by invoking <a href="#thm-fouriermoments" class="quarto-xref">Theorem&nbsp;<span>12.9</span></a>).</p>
+<p>The proof is completed by invoking <a href="#thm-fouriermoments" class="quarto-xref">Theorem <span>12.9</span></a>).</p>
 </div>
-</section>
-<section id="sec-cauchy" class="level3" data-number="12.3.6">
-<h3 data-number="12.3.6" class="anchored" data-anchor-id="sec-cauchy"><span class="header-section-number">12.3.6</span> Another application: understanding Cauchy distribution</h3>
+<p><a href="#rem-fourier-derivation" class="quarto-xref">Remark <span>12.4</span></a> is relevant here again.</p>
+</section><section id="sec-cauchy" class="level3" data-number="12.3.6"><h3 data-number="12.3.6" class="anchored" data-anchor-id="sec-cauchy">
+<span class="header-section-number">12.3.6</span> Another application: understanding Cauchy distribution</h3>
 <p>Assume <span class="math inline">\(U\)</span> is uniformly distributed over <span class="math inline">\(]0,1[\)</span>, let the real valued random variable <span class="math inline">\(X\)</span> be defined by</p>
 <p><span class="math display">\[
 X = \tan\left(\frac{\pi}{2} (2 \times U -1)\right)\, .
@@ -1209,7 +1185,7 @@ X = \tan\left(\frac{\pi}{2} (2 \times U -1)\right)\, .
 <li>show that the Cauchy distribution is <span class="math inline">\(1\)</span>-stable.</li>
 </ul>
 <div id="rem-density-laplace" class="proof remark">
-<p><span class="proof-title"><em>Remark 12.4</em>. </span>The density of the Laplace distribution is not differentiable at <span class="math inline">\(0\)</span>, this is reflected in the fact that its Fourier transform (the characteristic function of the Laplace distribution) is not integrable.</p>
+<p><span class="proof-title"><em>Remark 12.5</em>. </span>The density of the Laplace distribution is not differentiable at <span class="math inline">\(0\)</span>, this is reflected in the fact that its Fourier transform (the characteristic function of the Laplace distribution) is not integrable.</p>
 <p>Conversely the lack of integrability of the Cauchy distribution is reflected in the non-differentiability of its characteristic function at <span class="math inline">\(0\)</span>.</p>
 </div>
 <div class="callout callout-style-simple callout-tip no-icon">
@@ -1225,10 +1201,8 @@ X = \tan\left(\frac{\pi}{2} (2 \times U -1)\right)\, .
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="sec-bibcharac" class="level2" data-number="12.4">
-<h2 data-number="12.4" class="anchored" data-anchor-id="sec-bibcharac"><span class="header-section-number">12.4</span> Bibliographic remarks</h2>
+</section></section><section id="sec-bibcharac" class="level2" data-number="12.4"><h2 data-number="12.4" class="anchored" data-anchor-id="sec-bibcharac">
+<span class="header-section-number">12.4</span> Bibliographic remarks</h2>
 <p><span class="citation" data-cites="wilf2005generatingfunctionology">Wilf (<a href="#ref-wilf2005generatingfunctionology" role="doc-biblioref">2005</a>)</span> explores the interplay between combinatorics, algorithm analysis and generating function theory.</p>
 <p><span class="citation" data-cites="widder2015laplace">Widder (<a href="#ref-widder2015laplace" role="doc-biblioref">2015</a>)</span> is a classic reference on Laplace transforms. Laplace transforms play an important role in Point Process Theory, and Extreme Value Theory, to name a few fields of application.</p>
 <p>The first part of Chapter 9 from <span class="citation" data-cites="MR1873379">Pollard (<a href="#ref-MR1873379" role="doc-biblioref">2002</a>)</span> describes characteristic functions as Fourier transforms. Properties and applications of characteristic functions are thoroughly discussed in <span class="citation" data-cites="Dur10">(<a href="#ref-Dur10" role="doc-biblioref">Durrett, 2010</a>)</span>, <span class="citation" data-cites="MR2893652">(<a href="#ref-MR2893652" role="doc-biblioref">Billingsley, 2012</a>)</span>.</p>
@@ -1251,10 +1225,7 @@ Widder, D. V. (2015). <em>Laplace transform (PMS-6)</em>. Princeton university p
 Wilf, H. S. (2005). <em>Generatingfunctionology</em>. AK Peters/CRC Press.
 </div>
 </div>
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -1653,16 +1624,14 @@ Wilf, H. S. (2005). <em>Generatingfunctionology</em>. AK Peters/CRC Press.
       }
     }
   });
-  </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./06-conditioning.html" class="pagination-link" aria-label="Conditioning">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Conditioning</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>  <span class="chapter-title">Conditioning</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./041-characterization.html" class="pagination-link" aria-label="Quantile functions">
-        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Quantile functions</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">13</span>  <span class="chapter-title">Quantile functions</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1671,4 +1640,9 @@ Wilf, H. S. (2005). <em>Generatingfunctionology</em>. AK Peters/CRC Press.
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/04-characterizations.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/04-characterizations.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li>
+</ul></div></div></div></footer>
+</body>
+</html>

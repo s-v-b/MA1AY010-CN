@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<link rel="alternate" hreflang="en" href="/021-independence.html" />
+<link rel="alternate" hreflang="fr" href="/fr/021-independence.fr.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.24">
-
+<meta name="generator" content="quarto-1.9.36">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>8&nbsp; Independence and product spaces – MA1AY010 Class Notes</title>
+<title>8  Independence and product spaces – MA1AY010 Class Notes</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -21,28 +24,13 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 </style>
-
-
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script><script src="site_libs/quarto-nav/headroom.min.js"></script><script src="site_libs/clipboard/clipboard.min.js"></script><script src="site_libs/quarto-search/autocomplete.umd.js"></script><script src="site_libs/quarto-search/fuse.min.js"></script><script src="site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="./">
 <link href="./032-acfamilies.html" rel="next">
 <link href="./022-product-measures.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-3a70adc2469c323d0515427c5f9cb542.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script><script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script><link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-eb98473aa13ec2f8694b0a204f8986fa.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,12 +57,7 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
+}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
     // MathJax Typeset
@@ -100,18 +83,12 @@ window.Quarto = {
   typesetMath
 };
 </script>
-
 </head>
-
 <body class="nav-sidebar floating nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">MA1AY010 Class Notes</span>
     </a>
@@ -122,29 +99,21 @@ window.Quarto = {
 </div>
           <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
-    </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+    </nav><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./021-independence.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Independence and product spaces</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./021-independence.html"><span class="chapter-number">8</span>  <span class="chapter-title">Independence and product spaces</span></a></li></ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
-      </div>
-    <div class="sidebar-menu-container"> 
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="dropdown" id="languages-links-parent">
+<button class="btn btn-primary dropdown-toggle babelquarto-languages-button" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> Version in en</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="/fr/021-independence.fr.html" id="language-link-fr">Version in fr</a></li></ul>
+</div>
+<div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Warm up</span></a>
@@ -153,127 +122,129 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01-intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>  <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-language.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">A modicum of measure theory</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>  <span class="chapter-title">A modicum of measure theory</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./031-moments.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">A modicum of integration</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>  <span class="chapter-title">A modicum of integration</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./033-integration2moments.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">From integrals to expectation and moments</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>  <span class="chapter-title">From integrals to expectation and moments</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-families.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Families of discrete distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>  <span class="chapter-title">Families of discrete distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0225-pgf.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Characterizations of discrete probability distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>  <span class="chapter-title">Characterizations of discrete probability distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./022-product-measures.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Product distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>  <span class="chapter-title">Product distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./021-independence.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Independence and product spaces</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>  <span class="chapter-title">Independence and product spaces</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./032-acfamilies.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Absolutely continuous probability measures</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>  <span class="chapter-title">Absolutely continuous probability measures</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./023-discrete-condition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Discrete Conditioning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>  <span class="chapter-title">Discrete Conditioning</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06-conditioning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Conditioning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>  <span class="chapter-title">Conditioning</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-characterizations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Characterizations of probability distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>  <span class="chapter-title">Characterizations of probability distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./041-characterization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Quantile functions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>  <span class="chapter-title">Quantile functions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-convergences-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Convergences I : almost sure, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, in Probability</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>  <span class="chapter-title">Convergences I : almost sure, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, in Probability</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-convergence-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Convergence in distribution</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>  <span class="chapter-title">Convergence in distribution</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./09-gaussian-vectors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Gaussian vectors</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>  <span class="chapter-title">Gaussian vectors</span></span></a>
   </div>
 </li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#roadmap" id="toc-roadmap" class="nav-link active" data-scroll-target="#roadmap"><span class="header-section-number">8.1</span> Roadmap</a></li>
-  <li><a href="#sec-indepevents" id="toc-sec-indepevents" class="nav-link" data-scroll-target="#sec-indepevents"><span class="header-section-number">8.2</span> Independence of two events</a>
+<li><a href="#roadmap" id="toc-roadmap" class="nav-link active" data-scroll-target="#roadmap"><span class="header-section-number">8.1</span> Roadmap</a></li>
+  <li>
+<a href="#sec-indepevents" id="toc-sec-indepevents" class="nav-link" data-scroll-target="#sec-indepevents"><span class="header-section-number">8.2</span> Independence of two events</a>
   <ul class="collapse">
-  <li><a href="#independence-of-two-events" id="toc-independence-of-two-events" class="nav-link" data-scroll-target="#independence-of-two-events"><span class="header-section-number">8.2.1</span> Independence of two events</a></li>
-  </ul></li>
-  <li><a href="#sec-indepalgebras" id="toc-sec-indepalgebras" class="nav-link" data-scroll-target="#sec-indepalgebras"><span class="header-section-number">8.3</span> Independence of <span class="math inline">\(\sigma\)</span>-algebras and random variables</a>
-  <ul class="collapse">
-  <li><a href="#independence-of-sigma-algebras" id="toc-independence-of-sigma-algebras" class="nav-link" data-scroll-target="#independence-of-sigma-algebras"><span class="header-section-number">8.3.1</span> Independence of <span class="math inline">\(\sigma\)</span>-algebras</a></li>
-  </ul></li>
+<li><a href="#independence-of-two-events" id="toc-independence-of-two-events" class="nav-link" data-scroll-target="#independence-of-two-events"><span class="header-section-number">8.2.1</span> Independence of two events</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/021-independence.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
-    </div>
+</li>
+  <li>
+<a href="#sec-indepalgebras" id="toc-sec-indepalgebras" class="nav-link" data-scroll-target="#sec-indepalgebras"><span class="header-section-number">8.3</span> Independence of <span class="math inline">\(\sigma\)</span>-algebras and random variables</a>
+  <ul class="collapse">
+<li><a href="#independence-of-sigma-algebras" id="toc-independence-of-sigma-algebras" class="nav-link" data-scroll-target="#independence-of-sigma-algebras"><span class="header-section-number">8.3.1</span> Independence of <span class="math inline">\(\sigma\)</span>-algebras</a></li>
+  </ul>
+</li>
+  </ul>
+<div class="toc-actions"><ul>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/021-independence.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li>
+</ul></div></nav>
+</div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title"><span id="sec-independence" class="quarto-section-identifier"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Independence and product spaces</span></span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title"><span id="sec-independence" class="quarto-section-identifier"><span class="chapter-number">8</span>  <span class="chapter-title">Independence and product spaces</span></span></h1>
 </div>
 
 
@@ -287,22 +258,18 @@ window.Quarto = {
   
 
 
-</header>
-
-
-<section id="roadmap" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="roadmap"><span class="header-section-number">8.1</span> Roadmap</h2>
+</header><section id="roadmap" class="level2" data-number="8.1"><h2 data-number="8.1" class="anchored" data-anchor-id="roadmap">
+<span class="header-section-number">8.1</span> Roadmap</h2>
 <p>Independence between events, random variables and more generally <span class="math inline">\(\sigma\)</span>-algebras is at the core of many constructs and results in probability theory. Law of large numbers, central limit theorems and concentration inequalities are first stated and proved when handling possibly infinite collections of independent random variables. Results that can be established for collections of independent random variables constitute a gold standard. A large part of Martingale theory, or Markow chain theory is dedicated to the extension of laws of large numbers, central limit theorems, concentration inequalities.</p>
-<p>First, we recall the definition of independent events. This notion is elementary, helpful. In <a href="#sec-indepalgebras" class="quarto-xref">Section&nbsp;<span>8.3</span></a>), the notion of independence is extended to <span class="math inline">\(\sigma\)</span>-algebras. and to random variables. We observe that checking independence between <span class="math inline">\(\sigma\)</span>-algebras is facilitated by The monotone class theorem (<a href="02-language.html#thm-monotoneclasslemma" class="quarto-xref">Theorem&nbsp;<span>2.4</span></a>)). Finally, we extend the notion of indepedence to countable collections of <span class="math inline">\(\sigma\)</span>-algebras.</p>
+<p>First, we recall the definition of independent events. This notion is elementary, helpful. In <a href="#sec-indepalgebras" class="quarto-xref">Section <span>8.3</span></a>), the notion of independence is extended to <span class="math inline">\(\sigma\)</span>-algebras. and to random variables. We observe that checking independence between <span class="math inline">\(\sigma\)</span>-algebras is facilitated by The monotone class theorem (<a href="02-language.html#thm-monotoneclasslemma" class="quarto-xref">Theorem <span>2.4</span></a>)). Finally, we extend the notion of indepedence to countable collections of <span class="math inline">\(\sigma\)</span>-algebras.</p>
 <p>In many circumstances, we take for granted the availability of a countably infinite collection of independent random variables over some probability space. For example, we consider the possibility of rolling a dice infinitely many times, and we assume that the outcomes are independent. This is legitimate. But checking that this is legitimate, that is proving the existence of such rich probability spaces is non-trivial. Building product measures and product probability distributions is a first step in this direction.</p>
-<p>In <a href="022-product-measures.html#sec-productmeasures" class="quarto-xref">Section&nbsp;<span>7.2</span></a>) we define product <span class="math inline">\(\sigma\)</span>-algebras and product measures. In <a href="022-product-measures.html#sec-tonellifubini" class="quarto-xref">Section&nbsp;<span>7.3</span></a>) we state the Tonelli-Fubini Theorem. This Theorem is a fundamental tool when handling multiple integrals, it plays an important role when computing expectations in product spaces. In <a href="022-product-measures.html#sec-indepproduct" class="quarto-xref">Section&nbsp;<span>7.4</span></a>), we outline the way building product spaces allows to build collections of independent random variables. In <a href="022-product-measures.html#sec-indepcollectionsalgebras" class="quarto-xref">Section&nbsp;<span>7.5</span></a>) we consider product of countable collections of probability spaces. We introduce the notion of cylinder <span class="math inline">\(\sigma\)</span>-algebra and state the Kolmogorov consistency theorem. This defines the framework of the classical limit results of probability theory.</p>
-</section>
-<section id="sec-indepevents" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="sec-indepevents"><span class="header-section-number">8.2</span> Independence of two events</h2>
+<p>In <a href="022-product-measures.html#sec-productmeasures" class="quarto-xref">Section <span>7.2</span></a>) we define product <span class="math inline">\(\sigma\)</span>-algebras and product measures. In <a href="022-product-measures.html#sec-tonellifubini" class="quarto-xref">Section <span>7.3</span></a>) we state the Tonelli-Fubini Theorem. This Theorem is a fundamental tool when handling multiple integrals, it plays an important role when computing expectations in product spaces. In <a href="022-product-measures.html#sec-indepproduct" class="quarto-xref">Section <span>7.4</span></a>), we outline the way building product spaces allows to build collections of independent random variables. In <a href="022-product-measures.html#sec-indepcollectionsalgebras" class="quarto-xref">Section <span>7.5</span></a>) we consider product of countable collections of probability spaces. We introduce the notion of cylinder <span class="math inline">\(\sigma\)</span>-algebra and state the Kolmogorov consistency theorem. This defines the framework of the classical limit results of probability theory.</p>
+</section><section id="sec-indepevents" class="level2" data-number="8.2"><h2 data-number="8.2" class="anchored" data-anchor-id="sec-indepevents">
+<span class="header-section-number">8.2</span> Independence of two events</h2>
 <p>We recall definitions from <a href="">Introductory Lesson</a> <a href="01-intro.html" class="quarto-xref"><span>Chapter 1</span></a>, <span class="quarto-unresolved-ref">?sec-random</span>-variables-and-independence)</p>
 <div id="def">
-<section id="independence-of-two-events" class="level3" data-number="8.2.1">
-<h3 data-number="8.2.1" class="anchored" data-anchor-id="independence-of-two-events"><span class="header-section-number">8.2.1</span> Independence of two events</h3>
+<section id="independence-of-two-events" class="level3" data-number="8.2.1"><h3 data-number="8.2.1" class="anchored" data-anchor-id="independence-of-two-events">
+<span class="header-section-number">8.2.1</span> Independence of two events</h3>
 <p>Let <span class="math inline">\(P\)</span> be a probability distribution on <span class="math inline">\((\Omega, \mathcal{F})\)</span>. Let <span class="math inline">\(A, B \in \mathcal{F}\)</span> be two events.</p>
 <p>Events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are said to be <em>independent under <span class="math inline">\(P\)</span></em> (<span class="math inline">\(A \perp\!\!\!\perp B\)</span> under <span class="math inline">\(P\)</span>) if and only if <span class="math inline">\(P(A \cap B)=  P(A) \times P(B)\)</span>.</p>
 </section>
@@ -318,9 +285,12 @@ window.Quarto = {
 <div id="exr-independence-1" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 8.1</strong></span> Prove the following statements</p>
 <ul>
-<li><span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent if and only if <span class="math inline">\(A^c = \Omega \setminus A\)</span> and <span class="math inline">\(B^c= \Omega \setminus B\)</span> are independent.</li>
-<li><span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent if and only if <span class="math inline">\(A\)</span> and <span class="math inline">\(B^c\)</span> are independent.</li>
-<li><span class="math inline">\(\emptyset\)</span> is independent from any event.</li>
+<li>
+<span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent if and only if <span class="math inline">\(A^c = \Omega \setminus A\)</span> and <span class="math inline">\(B^c= \Omega \setminus B\)</span> are independent.</li>
+<li>
+<span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent if and only if <span class="math inline">\(A\)</span> and <span class="math inline">\(B^c\)</span> are independent.</li>
+<li>
+<span class="math inline">\(\emptyset\)</span> is independent from any event.</li>
 </ul>
 </div>
 </div>
@@ -382,12 +352,11 @@ window.Quarto = {
 </div>
 </div>
 </div>
-</section>
-<section id="sec-indepalgebras" class="level2" data-number="8.3">
-<h2 data-number="8.3" class="anchored" data-anchor-id="sec-indepalgebras"><span class="header-section-number">8.3</span> Independence of <span class="math inline">\(\sigma\)</span>-algebras and random variables</h2>
+</section><section id="sec-indepalgebras" class="level2" data-number="8.3"><h2 data-number="8.3" class="anchored" data-anchor-id="sec-indepalgebras">
+<span class="header-section-number">8.3</span> Independence of <span class="math inline">\(\sigma\)</span>-algebras and random variables</h2>
 <div id="def">
-<section id="independence-of-sigma-algebras" class="level3" data-number="8.3.1">
-<h3 data-number="8.3.1" class="anchored" data-anchor-id="independence-of-sigma-algebras"><span class="header-section-number">8.3.1</span> Independence of <span class="math inline">\(\sigma\)</span>-algebras</h3>
+<section id="independence-of-sigma-algebras" class="level3" data-number="8.3.1"><h3 data-number="8.3.1" class="anchored" data-anchor-id="independence-of-sigma-algebras">
+<span class="header-section-number">8.3.1</span> Independence of <span class="math inline">\(\sigma\)</span>-algebras</h3>
 <p>Let <span class="math inline">\(P\)</span> be a probability distribution on <span class="math inline">\((\Omega, \mathcal{F})\)</span>. Let <span class="math inline">\(\mathcal{G}\)</span> and <span class="math inline">\(\mathcal{H}\)</span> be two sub-<span class="math inline">\(\sigma\)</span>-algebras of <span class="math inline">\(\mathcal{F}\)</span>. The sub-<span class="math inline">\(\sigma\)</span>-algebra <span class="math inline">\(\mathcal{G}\)</span> and <span class="math inline">\(\mathcal{H}\)</span> are independent under <span class="math inline">\(P\)</span> iff for any couple <span class="math inline">\(A \in \mathcal{G},B \in \mathcal{H}\)</span>, <span class="math inline">\(A\)</span> is independent from <span class="math inline">\(B\)</span> under <span class="math inline">\(P\)</span>.</p>
 </section>
 </div>
@@ -429,7 +398,8 @@ window.Quarto = {
 <div id="thm-indepmonotone" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 8.1</strong></span> Let <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span> be a probability space. Let <span class="math inline">\(\mathcal{G}, \mathcal{H}\)</span> be two sub-<span class="math inline">\(\sigma\)</span>-algebras of <span class="math inline">\(\mathcal{F}\)</span>. Let <span class="math inline">\(\mathcal{C}\)</span> and <span class="math inline">\(\mathcal{C}'\)</span> be two <span class="math inline">\(\pi\)</span>-classes such that <span class="math inline">\(\sigma(\mathcal{C})= \mathcal{G}\)</span> and <span class="math inline">\(\sigma(\mathcal{C}')=\mathcal{H}\)</span>. The two statements are equivalent</p>
 <ul>
-<li><span class="math inline">\(\mathcal{G} \perp\!\!\!\perp \mathcal{H}\)</span> under <span class="math inline">\(P\)</span>;</li>
+<li>
+<span class="math inline">\(\mathcal{G} \perp\!\!\!\perp \mathcal{H}\)</span> under <span class="math inline">\(P\)</span>;</li>
 <li>For every <span class="math inline">\(A\in \mathcal{C}\)</span>, every <span class="math inline">\(A' \in \mathcal{C}'\)</span>, <span class="math inline">\(P(A \cap A') = P(A) \times P(A')\)</span>.</li>
 </ul>
 </div>
@@ -438,7 +408,7 @@ window.Quarto = {
 </div>
 <p>
 </p>
-<p>The proof of <a href="#thm-indepmonotone" class="quarto-xref">Theorem&nbsp;<span>8.1</span></a> is another application of the monotone class theorem <a href="02-language.html#thm-monotoneclasslemma" class="quarto-xref">Theorem&nbsp;<span>2.4</span></a>.</p>
+<p>The proof of <a href="#thm-indepmonotone" class="quarto-xref">Theorem <span>8.1</span></a> is another application of the monotone class theorem <a href="02-language.html#thm-monotoneclasslemma" class="quarto-xref">Theorem <span>2.4</span></a>.</p>
 <p>
 </p>
 <div class="proof">
@@ -447,8 +417,7 @@ window.Quarto = {
 \]</span> The definition of event independence allows us to check that <span class="math inline">\(\mathcal{E}\)</span> is a <span class="math inline">\(\lambda\)</span>-class (a monotone class). Hence if <span class="math inline">\(A \in \mathcal{C}\)</span>, <span class="math inline">\(A\)</span> is independent from every event from the the smallest <span class="math inline">\(\lambda\)</span>-class containing <span class="math inline">\(\mathcal{C}'\)</span>. This entails that every event in <span class="math inline">\(\mathcal{C}\)</span> is independent from every event in <span class="math inline">\(\mathcal{H}\)</span>. Similarly every event in <span class="math inline">\(\mathcal{C}'\)</span> is independent from every event in <span class="math inline">\(\mathcal{G}\)</span>.</p>
 <p>Now, the set of events from <span class="math inline">\(\mathcal{G}\)</span> that is independent from every event in <span class="math inline">\(\mathcal{H}\)</span> is a <span class="math inline">\(\lambda\)</span>-class (by the same line of reasoning as above). As this <span class="math inline">\(\lambda\)</span>-class contains <span class="math inline">\(\mathcal{C}\)</span>, by the monotone class Lemma again, it contains <span class="math inline">\(\sigma(\mathcal{C})=\mathcal{G}\)</span>.</p>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 To check the independence of two real valued random variables, it is enough to check that the joint cumulative distribution function is the product of the two marginal distribution functions.
 <p>
@@ -465,14 +434,12 @@ To check the independence of two real valued random variables, it is enough to c
 </div>
 </div>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>Events of the form <span class="math inline">\(\{X \leq t\}, t \in \mathbb{R}\)</span> form a <span class="math inline">\(\pi\)</span> class generating <span class="math inline">\(\sigma(X)\)</span>.</p>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 <p>The notion of independence extends to countable collection of events, <span class="math inline">\(\sigma\)</span>-algebras and random variables.</p>
 <div class="callout callout-style-simple callout-note no-icon">
@@ -491,10 +458,7 @@ P (\cap_{j \in J} A_j) = \prod_{j \in J} P(A_j) \, .
 </div>
 
 
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -893,16 +857,14 @@ P (\cap_{j \in J} A_j) = \prod_{j \in J} P(A_j) \, .
       }
     }
   });
-  </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./022-product-measures.html" class="pagination-link" aria-label="Product distributions">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Product distributions</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>  <span class="chapter-title">Product distributions</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./032-acfamilies.html" class="pagination-link" aria-label="Absolutely continuous probability measures">
-        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Absolutely continuous probability measures</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">9</span>  <span class="chapter-title">Absolutely continuous probability measures</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -911,4 +873,9 @@ P (\cap_{j \in J} A_j) = \prod_{j \in J} P(A_j) \, .
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/021-independence.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/021-independence.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li>
+</ul></div></div></div></footer>
+</body>
+</html>

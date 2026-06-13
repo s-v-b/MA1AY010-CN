@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
+<head>
+<link rel="alternate" hreflang="en" href="/033-integration2moments.html" />
+<link rel="alternate" hreflang="fr" href="/fr/033-integration2moments.fr.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.36">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="description" content="Notes du cours de Probabiltés M1 ISIFAR en français">
+<title>4  Des intégrales à l’espérance et aux moments – MA1AU015 Notes de cours en français</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+<script src="site_libs/quarto-nav/quarto-nav.js"></script><script src="site_libs/quarto-nav/headroom.min.js"></script><script src="site_libs/clipboard/clipboard.min.js"></script><script src="site_libs/quarto-search/autocomplete.umd.js"></script><script src="site_libs/quarto-search/fuse.min.js"></script><script src="site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="./">
+<link href="./03-families.fr.html" rel="next">
+<link href="./031-moments.fr.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script><script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script><link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-eb98473aa13ec2f8694b0a204f8986fa.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+</head>
+<body class="nav-sidebar floating nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">MA1AU015 Notes de cours en français</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+    <a href="https://github.com/s-v-b/MA1AY010-CN/" title="Code source" class="quarto-navigation-tool px-1" aria-label="Code source"><i class="bi bi-github"></i></a>
+    <a href="./MA1AU015-Notes-de-cours-en-fran%C3%A7ais.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+          <div id="quarto-search" class="" title="Recherche"></div>
+      </div> <!-- /container-fluid -->
+    </nav><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./033-integration2moments.fr.html"><span class="chapter-number">4</span>  <span class="chapter-title">Des intégrales à l’espérance et aux moments</span></a></li></ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="dropdown" id="languages-links-parent">
+<button class="btn btn-primary dropdown-toggle babelquarto-languages-button" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> Version in fr</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="/033-integration2moments.html" id="language-link-en">Version in en</a></li></ul>
+</div>
+<div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mise en route</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-intro.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>  <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-language.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>  <span class="chapter-title">Un minimum de théorie de la mesure</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./031-moments.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>  <span class="chapter-title">Un minimum d’intégration</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./033-integration2moments.fr.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>  <span class="chapter-title">Des intégrales à l’espérance et aux moments</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-families.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>  <span class="chapter-title">Familles de lois discrètes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0225-pgf.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>  <span class="chapter-title">Caractérisations des lois de probabilité discrètes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./022-product-measures.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>  <span class="chapter-title">Lois produit</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./021-independence.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>  <span class="chapter-title">Indépendance et espaces produits</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./032-acfamilies.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>  <span class="chapter-title">Lois de probabilité absolument continues</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./023-discrete-condition.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>  <span class="chapter-title">Conditionnement discret</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-conditioning.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>  <span class="chapter-title">Conditionnement</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-characterizations.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>  <span class="chapter-title">Caractérisations des lois de probabilité</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./041-characterization.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>  <span class="chapter-title">Fonctions quantiles</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-convergences-1.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>  <span class="chapter-title">Convergences I : presque sûre, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, en probabilité</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-convergence-3.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>  <span class="chapter-title">Convergence en loi</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-gaussian-vectors.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>  <span class="chapter-title">Vecteurs gaussiens</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Annexes</span></span>
+  </li>
+    </ul>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table des matières</h2>
+   
+  <ul>
+<li><a href="#feuille-de-route" id="toc-feuille-de-route" class="nav-link active" data-scroll-target="#feuille-de-route"><span class="header-section-number">4.1</span> Feuille de route</a></li>
+  <li><a href="#sec-expectation" id="toc-sec-expectation" class="nav-link" data-scroll-target="#sec-expectation"><span class="header-section-number">4.2</span> Espérance</a></li>
+  <li><a href="#sec-jensensec" id="toc-sec-jensensec" class="nav-link" data-scroll-target="#sec-jensensec"><span class="header-section-number">4.3</span> Inégalité de Jensen</a></li>
+  <li><a href="#sec-variance" id="toc-sec-variance" class="nav-link" data-scroll-target="#sec-variance"><span class="header-section-number">4.4</span> Variance</a></li>
+  <li><a href="#sec-highermoments" id="toc-sec-highermoments" class="nav-link" data-scroll-target="#sec-highermoments"><span class="header-section-number">4.5</span> Moments d’ordre supérieur</a></li>
+  <li><a href="#sec-medianiqr" id="toc-sec-medianiqr" class="nav-link" data-scroll-target="#sec-medianiqr"><span class="header-section-number">4.6</span> Médiane et écart interquartile</a></li>
+  <li><a href="#sec-lpspaces" id="toc-sec-lpspaces" class="nav-link" data-scroll-target="#sec-lpspaces"><span class="header-section-number">4.7</span> Espaces <span class="math inline">\(\mathcal{L}_p\)</span> et <span class="math inline">\(L_p\)</span></a></li>
+  <li><a href="#sec-bib-033" id="toc-sec-bib-033" class="nav-link" data-scroll-target="#sec-bib-033"><span class="header-section-number">4.8</span> Remarques bibliographiques</a></li>
+  </ul>
+<div class="toc-actions"><ul>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/033-integration2moments.fr.qmd" class="toc-action"><i class="bi bi-github"></i>Modifier cette page</a></li>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Faire part d'un problème</a></li>
+</ul></div></nav>
+</div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title"><span id="sec-integrals-moments" class="quarto-section-identifier"><span class="chapter-number">4</span>  <span class="chapter-title">Des intégrales à l’espérance et aux moments</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header><section id="feuille-de-route" class="level2" data-number="4.1"><h2 data-number="4.1" class="anchored" data-anchor-id="feuille-de-route">
+<span class="header-section-number">4.1</span> Feuille de route</h2>
+<p>Dans <a href="#sec-expectation" class="quarto-xref">Section <span>4.2</span></a>), nous relions la notion d’<em>espérance</em> d’une variable aléatoire à celle d’intégrale. Le <em>théorème de transfert</em> ( <a href="#thm-transfertheorem" class="quarto-xref">Théorème <span>4.1</span></a>) est un outil essentiel pour caractériser les lois images.</p>
+<p>Dans <a href="#sec-jensensec" class="quarto-xref"><span>Section 4.3</span></a>, nous énonçons, démontrons et illustrons l’inégalité de Jensen. Cette inégalité permet d’obtenir facilement des majorations de l’espérance de fonctions convexes de variables aléatoires réelles. C’est l’occasion de rappeler les bases de la convexité.</p>
+<p>Dans <a href="#sec-variance" class="quarto-xref"><span>Section 4.4</span></a>, nous portons une attention particulière à la <em>variance</em>. Nous énonçons plusieurs caractérisations de la variance.</p>
+<p>Dans <a href="#sec-highermoments" class="quarto-xref"><span>Section 4.5</span></a></p>
+<p>Dans <a href="#sec-lpspaces" class="quarto-xref"><span>Section 4.7</span></a></p>
+</section><section id="sec-expectation" class="level2" data-number="4.2"><h2 data-number="4.2" class="anchored" data-anchor-id="sec-expectation">
+<span class="header-section-number">4.2</span> Espérance</h2>
+<p>L’espérance d’une variable aléatoire réelle est une intégrale (au sens de Lebesgue) par rapport à une mesure de probabilité. Il faut se familiariser avec la notation probabiliste.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-expectation" class="theorem definition">
+<p><span class="theorem-title"><strong>Définition 4.1</strong></span> Soit <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span> un espace probabilisé. La variable aléatoire <span class="math inline">\(X\)</span> définie sur <span class="math inline">\((\Omega, \mathcal{F})\)</span> est <span class="math inline">\(P\)</span>-intégrable si la fonction mesurable <span class="math inline">\(|X| : \omega \mapsto |X(\omega)|\)</span> est <span class="math inline">\(P\)</span>-intégrable : on convient de poser</p>
+<p><span class="math display">\[
+\mathbb{E} X = \mathbb{E}_P X = \int_{\mathcal{X}} X(\omega) \mathrm{d}P(\omega) =\int X \mathrm{d}P \, .
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<br><p>
+</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-def-exp" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 4.1</strong></span> Vérifier la cohérence de cette définition avec celle utilisée dans le cadre discret.</p>
+</div>
+</div>
+</div>
+</div>
+<p>
+</p>
+<p>L’énoncé suivant, appelé <em>formule de transfert</em>, permet de calculer la densité d’une loi image ou de simplifier le calcul d’une espérance.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-transfertheorem" class="theorem">
+<p><span class="theorem-title"><strong>Théorème 4.1 (Formule de transfert)</strong></span> Soit <span class="math inline">\((\mathcal{X}, \mathcal{F}, P)\)</span> un espace probabilisé, <span class="math inline">\((\mathcal{Y}, \mathcal{G})\)</span> un espace mesurable, <span class="math inline">\(f\)</span> une fonction mesurable de <span class="math inline">\((\mathcal{X}, \mathcal{F})\)</span> vers <span class="math inline">\((\mathcal{Y}, \mathcal{G})\)</span>. Notons <span class="math inline">\(Q\)</span> la loi de probabilité image de <span class="math inline">\(P\)</span> par <span class="math inline">\(f\)</span> : <span class="math inline">\(Q = P \circ f^{-1}\)</span>.</p>
+<p>Alors, pour toute fonction mesurable <span class="math inline">\(h\)</span> de <span class="math inline">\((\mathcal{Y}, \mathcal{G})\)</span> vers <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span></p>
+<p><span class="math display">\[
+\mathbb{E}[h(Y)] = \int_{\mathcal{Y}} h(y) \mathrm{d}Q(y)  = \int_{\mathcal{X}} h\circ f(x) \mathrm{d}P(x) = \mathbb{E} h\circ f(X) \,
+\]</span></p>
+<p>si l’une au moins des intégrales est définie.</p>
+</div>
+</div>
+</div>
+</div>
+<p>
+</p>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Supposons d’abord que <span class="math inline">\(h= \mathbb{I}_B\)</span> où <span class="math inline">\(C \in \mathcal{G}\)</span>. Alors</p>
+<p><span class="math display">\[
+\begin{array}{rl}
+\mathbb{E} h(Y)
+&amp; = \int_{\mathcal{Y}} \mathbb{I}_B(y) \, \mathrm{d}Q(y) \\
+&amp; = Q(B) \\
+&amp; = P \circ f^{-1}(B) \\
+&amp; = P \Big\{ x : f(x) \in B \Big\} \\
+&amp; = P \Big\{ x : h \circ f(x) =1 \Big\}  \\
+&amp; = \int_{\mathcal{X}}  h \circ f(x) \mathrm{d}P(x) \\
+&amp; = \mathbb{E} h\circ f(X) \, .
+\end{array}
+\]</span></p>
+<p>Par linéarité, la formule de transfert vaut alors pour toutes les fonctions simples de <span class="math inline">\(\mathcal{Y}\)</span> vers <span class="math inline">\(\mathbb{R}\)</span>. Par la définition de l’intégrale de Lebesgue, elle vaut pour les fonctions mesurables non négatives. L’argument de décomposition habituel achève la preuve.</p>
+</div>
+<p>
+</p>
+<p>Il est clair que l’espérance d’une variable aléatoire ne dépend que de la loi de cette variable.</p>
+</section><section id="sec-jensensec" class="level2" data-number="4.3"><h2 data-number="4.3" class="anchored" data-anchor-id="sec-jensensec">
+<span class="header-section-number">4.3</span> Inégalité de Jensen</h2>
+<p>Les outils de théorie de l’intégration que nous avons revus servent à calculer ou approximer des intégrales et des espérances. Le théorème suivant évite les calculs et permet de comparer des espérances.</p>
+<p>L’inégalité de Jensen est un outil central en théorie de l’information, en statistique et dans une large part de la théorie des probabilités. Elle traduit l’interaction entre convexité et espérance.</p>
+<p>Nous introduisons d’abord un minimum de théorie et de notation sur la convexité.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-semicont" class="theorem definition">
+<p><span class="theorem-title"><strong>Définition 4.2 (Semi-continuité inférieure)</strong></span> Une fonction <span class="math inline">\(f\)</span> d’un espace métrique <span class="math inline">\(\mathcal{X}\)</span> vers <span class="math inline">\(\mathbb{R}\)</span> est semi-continue inférieurement en <span class="math inline">\(x \in \mathcal{X}\)</span> si</p>
+<p><span class="math display">\[\liminf_{x_n \to x} f(x_n) \geq f(x) \, .\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div id="rem">
+<p>Une fonction continue est semi-continue inférieurement. La réciproque est fausse. Si <span class="math inline">\(A \subseteq \mathcal{X}\)</span> est un ouvert, alors <span class="math inline">\(\mathbb{I}_A\)</span> est semi-continue inférieurement mais, sauf si elle est constante, elle n’est pas continue au bord de <span class="math inline">\(A.\)</span></p>
+</div>
+<p><br></p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-convexset" class="theorem definition">
+<p><span class="theorem-title"><strong>Définition 4.3 (Partie convexe)</strong></span> Soit <span class="math inline">\(\mathcal{X}\)</span> un espace vectoriel. Une partie <span class="math inline">\(C \subseteq \mathcal{X}\)</span> est dite convexe si, pour tous <span class="math inline">\(x,y \in C\)</span> et tout <span class="math inline">\(\lambda \in [0,1]\)</span> :</p>
+<p><span class="math display">\[\lambda x + (1-\lambda) y \in C \, .\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<div id="exr">
+<p>Soit <span class="math inline">\(C\)</span> une partie convexe d’un espace vectoriel (topologique réel), et <span class="math inline">\(\overline{C}\)</span> l’adhérence de <span class="math inline">\(C\)</span>. Montrer que <span class="math inline">\(\overline{C}\)</span> et <span class="math inline">\(\overline{C} \setminus C\)</span> sont convexes.</p>
+<p>Une partie convexe peut n’être ni fermée ni ouverte. Donner des exemples.</p>
+</div>
+<p><br></p>
+<p>Dans la définition suivante, nous considérons des fonctions d’un espace vectoriel vers <span class="math inline">\(\mathbb{R} \cup \{+\infty\}\)</span>.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-convexfun" class="theorem definition">
+<p><span class="theorem-title"><strong>Définition 4.4 (Fonctions convexes)</strong></span> Soit <span class="math inline">\(\mathcal{X}\)</span> un espace vectoriel (topologique). Soit <span class="math inline">\(C \subseteq \mathcal{X}\)</span> une partie convexe. Une fonction <span class="math inline">\(f\)</span> de <span class="math inline">\(\mathcal{C}\)</span> vers <span class="math inline">\(\mathbb{R} \cup \{\infty\}\)</span> est convexe si, pour <span class="math inline">\(x,y \in C\)</span> et tout <span class="math inline">\(\lambda \in [0,1]\)</span>,</p>
+<p><span class="math display">\[f(\lambda x + (1-\lambda) y) \leq \lambda f(x) + (1-\lambda) f(y) \, .\]</span></p>
+<p>Le <em>domaine</em> de <span class="math inline">\(f\)</span>, <span class="math inline">\(\operatorname{Dom}(f)\)</span>, est la partie de <span class="math inline">\(C\)</span> où <span class="math inline">\(f\)</span> est finie.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<!-- ::: {#fig-convexfunfig} -->
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-convexfunfig" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-convexfunfig-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="033-integration2moments.fr_files/figure-html/fig-convexfunfig-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-convexfunfig-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 4.1: The function <span class="math inline">\(f : x \mapsto \mathbb{I}_{x&lt;0}|x| + \mathbb{I}_{x\geq 0} x^2\)</span> is convex, continuous. It is differentiable everywhere except at <span class="math inline">\(x=0\)</span>. The dotted lines define affine functions that are below the cruve <span class="math inline">\(y=f(x)\)</span>. The dotted lines define supporting hyperplanes for the epigraph of <span class="math inline">\(f\)</span>.
+</figcaption></figure>
+</div>
+</div>
+</div>
+<!-- ::: -->
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-lsc" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 4.2</strong></span> Vérifier qu’une fonction convexe <span class="math inline">\(f\)</span> est semi-continue inférieurement si et seulement si les ensembles <span class="math inline">\(\{ x : f(x) \leq t\}\)</span> sont des intervalles fermés pour tout <span class="math inline">\(t \in \mathbb{R}\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>Le résultat suivant garantit que toute fonction convexe semi-continue inférieurement admet une représentation duale. Cette représentation duale est un outil précieux pour comparer les espérances de variables aléatoires.</p>
+<p><br></p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-fenchel" class="theorem">
+<p><span class="theorem-title"><strong>Théorème 4.2 (Dualité de Fenchel-Legendre)</strong></span> Soit <span class="math inline">\(f\)</span> une fonction convexe semi-continue inférieurement sur <span class="math inline">\(\mathbb{R}\)</span> à domaine fermé.</p>
+<p>La fonction duale <span class="math inline">\(f^*\)</span> de <span class="math inline">\(f\)</span> est définie sur <span class="math inline">\(\mathbb{R}\)</span> par</p>
+<p><span class="math display">\[f^*(y) = \sup_{x \in \text{Dom}(f)} xy - f(x) \, .\]</span></p>
+<p>Alors</p>
+<ul>
+<li>
+<span class="math inline">\(f^*\)</span> est convexe</li>
+<li>
+<span class="math inline">\(f^*\)</span> est semi-continue inférieurement</li>
+<li>Si <span class="math inline">\(f^*(y)= xy - f(x)\)</span>, alors <span class="math inline">\(y\)</span> est un sous-gradient de <span class="math inline">\(f\)</span> en <span class="math inline">\(x\)</span>.</li>
+<li>Si <span class="math inline">\(y\)</span> est un sous-gradient de <span class="math inline">\(f\)</span> en <span class="math inline">\(x\)</span>, <span class="math inline">\(f^*(y) = xy -f(x)\)</span>.</li>
+<li>
+<span class="math inline">\(f= (f^{*})^*\)</span> : la fonction duale de la fonction duale coïncide avec la fonction d’origine, <span class="math inline">\(f(x) = \sup_{y} xy -f^*(y).\)</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<div id="exm-fenchel" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 4.1</strong></span> Les paires duales suivantes seront utilisées à plusieurs reprises.</p>
+<ul>
+<li>si <span class="math inline">\(f(x) = \frac{|x|^p}{p}\)</span> (<span class="math inline">\(p&gt; 1\)</span>), alors <span class="math inline">\(f^*(y)= \frac{|y|^q}{q}\)</span> où <span class="math inline">\(q=p/(p-1)\)</span>.</li>
+<li>si <span class="math inline">\(f(x) = |x|\)</span>, alors <span class="math inline">\(f^*(y)= 0\)</span> pour <span class="math inline">\(y \in [-1,1]\)</span> et <span class="math inline">\(\infty\)</span> pour <span class="math inline">\(|y|&gt;1\)</span>.</li>
+<li>si <span class="math inline">\(f(x) = \exp(x)\)</span>, alors <span class="math inline">\(f^*(y) = y \log y - y\)</span> pour <span class="math inline">\(y&gt;0\)</span>, <span class="math inline">\(f^*(y)=\infty\)</span> pour <span class="math inline">\(y&lt;0\)</span>
+</li>
+</ul>
+</div>
+<p><br></p>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Le fait que <span class="math inline">\(f^*\)</span> soit à valeurs dans <span class="math inline">\(\mathbb{R} \cup \{\infty\}\)</span> et convexe est immédiat.</p>
+<p>Pour la semi-continuité inférieure, supposons <span class="math inline">\(y_n \to y\)</span>, avec <span class="math inline">\(y_n \in \operatorname{Dom}(f^*)\)</span> et <span class="math inline">\(f^*(y) &gt; \liminf_n f^*(y_n)\)</span>.</p>
+<p>Supposons d’abord <span class="math inline">\(y \in \operatorname{Dom}(f^*)\)</span>. Alors, pour <span class="math inline">\(m\)</span> assez grand et un certain <span class="math inline">\(x \in \operatorname{Dom}(f)\)</span>,</p>
+<p><span class="math display">\[
+f^*(y) \geq xy - f(x) -\frac{1}{m} &gt; \liminf_n f^*(y_n) \geq \liminf_n y_n x -f(x) = yx -f(x)
+\]</span></p>
+<p>ce qui est contradictoire.</p>
+<p>Supposons maintenant <span class="math inline">\(y \not\in \operatorname{Dom}(f^*)\)</span> et <span class="math inline">\(\liminf_n f^*(y_n) &lt; \infty\)</span>. Extrayons une sous-suite <span class="math inline">\((y_{m_n})_n\)</span> telle que <span class="math inline">\(\lim_n f^*(y_{m_n}) = \liminf_n f^*(y_n)\)</span>. Il existe <span class="math inline">\(x \in \operatorname{Dom}(f)\)</span> tel que <span class="math display">\[
+f^*(y) &gt; xy -f(x) &gt; \liminf_n f^*(y_n) = \lim_n f^*(y_{m_n}) \geq \lim_n xy_{m_n} -f (x) = xy - f(x)
+\]</span></p>
+<p>ce qui est encore contradictoire.</p>
+<p>Le fait que <span class="math inline">\(y\)</span> soit un sous-gradient de <span class="math inline">\(f\)</span> en <span class="math inline">\(x\)</span> si <span class="math inline">\(f^*(y)= xy - f(x)\)</span> est une reformulation de la définition des sous-gradients.</p>
+<p>Notons que si <span class="math inline">\(x \in \operatorname{Dom}(f)\)</span> et <span class="math inline">\(y\in \operatorname{Dom}(f^*)\)</span>, alors <span class="math inline">\(f(x)+f^*(y)\geq xy\)</span>.</p>
+<p>Cette observation entraîne <span class="math inline">\((f^*)^*(x)\leq f(x)\)</span> pour tout <span class="math inline">\(x \in \operatorname{Dom}(f)\)</span>. S’il existait <span class="math inline">\(x \in \operatorname{Dom}(f)\)</span> avec <span class="math inline">\((f^*)^*(x)&gt;x\)</span>, il existerait <span class="math inline">\(y \in \operatorname{Dom}(f^*)\)</span> tel que <span class="math inline">\(xy - f^*(y) &gt; f(x)\)</span>, ce qui est impossible.</p>
+<p>Pour prouver <span class="math inline">\((f^*)^*(x)\geq f(x)\)</span> pour tout <span class="math inline">\(x \in \operatorname{Dom}(f)\)</span>, nous utilisons la convexité, la semi-continuité inférieure de <span class="math inline">\(f\)</span> et <span class="math inline">\(f^*\)</span>, et la fermeture de <span class="math inline">\(\operatorname{Dom}(f)\)</span>. Sous ces conditions, tout point <span class="math inline">\(x\)</span> de <span class="math inline">\(\operatorname{Dom}(f)\)</span> admet un sous-gradient <span class="math inline">\(y\)</span> et cela entraîne <span class="math inline">\(f(x) + f^*(y)= xy\)</span>.</p>
+</div>
+<p><br></p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-fenchel-lsc" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 4.3</strong></span> Étendre la notion de dualité de Fenchel-Legendre aux fonctions convexes semi-continues inférieurement sur <span class="math inline">\(\mathbb{R}^k\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-fenchel-lsc-2" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 4.4</strong></span> Toute fonction convexe est-elle semi-continue inférieurement ? mesurable ?</p>
+<p>Toute fonction convexe semi-continue inférieurement est-elle mesurable ?</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<div id="rem-fenchel" class="proof remark">
+<p><span class="proof-title"><em>Remarque 4.1</em>. </span>Il est possible de définir <span class="math inline">\(f^*\)</span> par <span class="math inline">\(f^*(y) =\sup_x xy -f(x)\)</span> même si <span class="math inline">\(f\)</span> n’est pas convexe ni semi-continue inférieurement. La fonction <span class="math inline">\(f^*\)</span> conserve la convexité et la semi-continuité inférieure. Mais <span class="math inline">\(f \neq (f^{*})^*\)</span> : on n’obtient que <span class="math inline">\(f \geq (f^{*})^*\)</span>. En effet, <span class="math inline">\((f^{*})^*\)</span> est la plus grande minorante convexe de <span class="math inline">\(f\)</span>.</p>
+</div>
+<p><br></p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-thmjensen" class="theorem">
+<p><span class="theorem-title"><strong>Théorème 4.3 (Inégalité de Jensen)</strong></span> Soit <span class="math inline">\(X\)</span> une variable aléatoire réelle et <span class="math inline">\(f: \mathbb{R} \to \mathbb{R}\)</span> une fonction <em>convexe, semi-continue inférieurement</em> telle que l’ensemble fermé <span class="math inline">\(\text{Dom}(f) \subseteq \text{supp}(\mathcal{L}(X))\)</span> et <span class="math inline">\(\mathbb{E} |f(X)|&lt; \infty.\)</span>, alors</p>
+<p><span class="math display">\[f(\mathbb{E} X) \leq \mathbb{E} f(X) \, .\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<div id="remjensenineq">
+<p>Au regard de la définition de la convexité et du fait que prendre une espérance prolonge l’idée de combinaison convexe, l’inégalité de Jensen n’est pas surprenante.</p>
+</div>
+<p><br></p>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span><span class="math display">\[
+\begin{array}{rl}
+\mathbb{E} f(X) &amp; = \mathbb{E} (f^*)^*(X) \\
+&amp; = \mathbb{E} \Big[ \sup_y \Big( yX - f^*(y)\Big)\Big] \\
+&amp; \geq   \sup_y  \Big( y \mathbb{E} X - f^*(y)\Big) \\
+&amp; =  (f^*)^*\Big( \mathbb{E} X \Big) \\
+&amp; = f\Big( \mathbb{E} X \Big)  \, .
+\end{array}
+\]</span></p>
+</div>
+<br><p>
+</p>
+<p><br></p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-jensenineq-meqsure" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 4.5</strong></span> Dans l’argument ci-dessus, il n’est pas <em>a priori</em> évident que <span class="math inline">\(\sup_y \Big( yX - f^*(y)\Big)\)</span> soit mesurable, puisque le supremum est pris sur une collection non dénombrable. Vérifier que cela ne pose pas de problème.</p>
+</div>
+</div>
+</div>
+</div>
+<p>Nous verrons de nombreuses applications de l’inégalité de Jensen :</p>
+<ul>
+<li>comparaison de l’échantillonnage avec remise et sans remise (comparaison des queues binomiale et hypergéométrique)</li>
+<li>inégalités de Cauchy-Schwarz et de Hölder</li>
+<li>dérivation d’inégalités maximales</li>
+<li>non-négativité de l’entropie relative</li>
+<li>dérivation des inégalités d’Efron-Stein-Steele</li>
+<li>…</li>
+</ul></section><section id="sec-variance" class="level2" data-number="4.4"><h2 data-number="4.4" class="anchored" data-anchor-id="sec-variance">
+<span class="header-section-number">4.4</span> Variance</h2>
+<p>La variance (lorsqu’elle est définie) est un indice de dispersion de la loi d’une variable aléatoire.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-var" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 4.1 (Caractérisations de la variance)</strong></span> Soit <span class="math inline">\(X\)</span> une variable aléatoire sur un espace probabilisé. La variance de <span class="math inline">\(X\)</span> est finie si et seulement si <span class="math inline">\(\mathbb{E}X^2 &lt;\infty\)</span>, et elle peut être définie par les trois égalités suivantes :</p>
+<p><span class="math display">\[
+\begin{array}{rl}
+\operatorname{var}(X) &amp; =  \mathbb{E}\left[(X - \mathbb{E}X)^2\right] \\
+&amp; = \inf_{a \in \mathbb{R}} \mathbb{E}\left[(X - a)^2\right] \\
+&amp; = \mathbb{E}X^2 - (\mathbb{E}X)^2 \,.
+\end{array}
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<p>Il reste à vérifier que les trois membres de droite sont finis si l’un d’eux l’est, et qu’ils sont tous égaux lorsqu’ils sont finis.</p>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Supposons <span class="math inline">\(\mathbb{E}X^2 &lt; \infty\)</span>. Comme <span class="math inline">\(|X| \leq \frac{X^2}{2} + \frac{1}{2}\)</span>, cela entraîne <span class="math inline">\(\mathbb{E} |X|&lt;\infty\)</span>. Si <span class="math inline">\(\mathbb{E}X^2 &lt; \infty\)</span>, alors <span class="math inline">\(\mathbb{E}|X|\)</span> l’est aussi. Le membre de droite de la troisième ligne est fini si <span class="math inline">\(\mathbb{E}X^2 &lt; \infty\)</span>. Comme <span class="math inline">\((x-b)^2 \leq 2 x^2 + 2 b^2\)</span> pour tous <span class="math inline">\(x,b\)</span>, les membres de droite de la première ligne et l’infimum de la deuxième ligne sont finis lorsque <span class="math inline">\(\mathbb{E} X^2 &lt;\infty.\)</span></p>
+<p>Comme <span class="math inline">\(X^2 \leq 2 (X- \mathbb{E}X)^2 + 2 (\mathbb{E}X)^2\)</span>, <span class="math inline">\(\mathbb{E}X^2&lt;\infty\)</span> si <span class="math inline">\(\mathbb{E}\left[(X - \mathbb{E}X)^2\right] &lt;\infty.\)</span></p>
+<p>Supposons maintenant <span class="math inline">\(\mathbb{E}X^2 &lt; \infty\)</span>. <span class="math display">\[
+\begin{array}{rl}
+  \mathbb{E}\left[(X - a)^2\right]
+  &amp; = \mathbb{E}\left[(X - \mathbb{E}X - (a-\mathbb{E}X))^2\right] \\
+  &amp; = \mathbb{E}\left[(X- \mathbb{E}X)^2 - 2 \mathbb{E}[(X-\mathbb{E}X)](a-\mathbb{E}X) + (a-\mathbb{E}X)^2 \right]\\
+  &amp; = \mathbb{E}\left[(X- \mathbb{E}X)^2\right] + (a-\mathbb{E}X)^2   \, .
+\end{array}
+\]</span></p>
+<p>Comme <span class="math inline">\((a- \mathbb{E}X)^2\geq 0\)</span>, nous avons établi que <span class="math inline">\(\mathbb{E}\left[(X - \mathbb{E}X)^2\right]   = \inf_{a \in \mathbb{R}} \mathbb{E}\left[(X - a)^2\right]\)</span>. De plus, l’infimum est un minimum, atteint en un unique point <span class="math inline">\(\mathbb{E}X\)</span>.</p>
+</div>
+<br><p>
+</p>
+<div id="rem-charac-variance" class="proof remark">
+<p><span class="proof-title"><em>Remarque 4.2</em>. </span>Les première et deuxième caractérisations de la variance affirment que l’espérance minimise l’erreur quadratique moyenne. Un fait d’une grande importance en statistique.</p>
+</div>
+<br><p>
+</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-var-bounded" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 4.6</strong></span> Vérifier que si <span class="math inline">\(P\left\{ X \in [a,b]\right\} =1\)</span>, alors <span class="math inline">\(\operatorname{var}(X)\leq \frac{(b-a)^2}{4}\)</span> , .</p>
+</div>
+</div>
+</div>
+</div>
+</section><section id="sec-highermoments" class="level2" data-number="4.5"><h2 data-number="4.5" class="anchored" data-anchor-id="sec-highermoments">
+<span class="header-section-number">4.5</span> Moments d’ordre supérieur</h2>
+<p>Dans cette section, nous relions <span class="math inline">\(\mathbb{E} |X|^p\)</span> et <span class="math inline">\(\mathbb{E} |X|^q\)</span> pour différentes valeurs de <span class="math inline">\(p, q \in \mathbb{R}_+\)</span>. Notre point de départ est un petit résultat technique d’analyse réelle.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-young" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 4.2 (Inégalité de Young)</strong></span> Soient <span class="math inline">\(p, q&gt;1\)</span> <em>conjugués</em> (<span class="math inline">\(1/p + 1/q =1\)</span>), et <span class="math inline">\(x, y&gt;0\)</span>. Alors <span class="math display">\[xy \leq \frac{x^p}{p} + \frac{y^q}{q} \,.\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Si <span class="math inline">\(p\)</span> et <span class="math inline">\(q\)</span> sont conjugués, alors <span class="math inline">\(q= p/(p-1)\)</span> et <span class="math inline">\((p-1)(q-1)=1\)</span>.</p>
+<p>Il suffit de vérifier que, pour tous <span class="math inline">\(x,y&gt;0\)</span>,</p>
+<p><span class="math display">\[\frac{x^p}{p} \geq xy - \frac{y^q}{q} \, .\]</span></p>
+<p>Fixons <span class="math inline">\(x&gt;0\)</span> et considérons la fonction sur <span class="math inline">\([0,\infty)\)</span> définie par</p>
+<p><span class="math display">\[z \mapsto xz - \frac{z^q}{q} \,.\]</span></p>
+<p>Cette fonction est dérivable, de dérivée <span class="math inline">\(x - z^{q-1} = x - z^{1/(p-1)}\)</span>. Elle atteint son maximum en <span class="math inline">\(z=x^{p-1}\)</span>, et ce maximum vaut</p>
+<p><span class="math display">\[x x^{p-1} - \frac{x^{q(p-1)}}{q} = x^p - \frac{x^p}{q} = \frac{x^p}{p} \, .\]</span></p>
+</div>
+<br><p>
+</p>
+<p><a href="#fig-graphyoung" class="quarto-xref">Figure <span>4.2</span></a> propose une preuve graphique de l’inégalité de Young.</p>
+<!-- ::: {#fig-graphyoung} -->
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-graphyoung" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-graphyoung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="033-integration2moments.fr_files/figure-html/fig-graphyoung-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-graphyoung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 4.2: Graphical illlustration of Young’s inequality. We choose <span class="math inline">\(p=`r p`\)</span> and <span class="math inline">\(q= `r q`\)</span>, <span class="math inline">\(x = `r x`\)</span> and <span class="math inline">\(y= `r y`\)</span>. The black point is located at <span class="math inline">\((x,y)^T\)</span>. The product <span class="math inline">\(xy\)</span> equals the area of the rectangle located between the origin and <span class="math inline">\((x,y)^T\)</span> (delimited by the dashed segments). The dotted line represents function <span class="math inline">\(s \mapsto s^{p-1}\)</span>, and interchanging the axes, the function <span class="math inline">\(t \mapsto t^{q-1} = t^{1/(p-1)}\)</span>. The area of the light grey surface under the dotted line equals <span class="math inline">\(\frac{x^p}{p} = \int_0^x s^{p-1} \mathrm{d}s\)</span>, while the area of the darker grey surface below line <span class="math inline">\(y=1\)</span> and above the dotted line, equals <span class="math inline">\(\frac{y^q}{q} = \int_0^y t^{q-1} \mathrm{d}t\)</span>. The union of the two disjoint surfaces covers the rectangle located between the origin and <span class="math inline">\((x,y)^\top\)</span>. Equality occurs when the dotted line passes though <span class="math inline">\((x,y)^\top\)</span>, that is when <span class="math inline">\(y=x^{p-1}\)</span>.
+</figcaption></figure>
+</div>
+</div>
+</div>
+<!-- ::: -->
+<br><p>
+</p>
+<div id="rem-young-special" class="proof remark">
+<p><span class="proof-title"><em>Remarque 4.3</em>. </span>Un cas particulier de l’inégalité de Young s’obtient en prenant <span class="math inline">\(p=q=2\)</span>.</p>
+</div>
+<p>Nous sommes maintenant en mesure de démontrer trois inégalités fondamentales : Cauchy-Schwarz, Hölder et Minkowski.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-thmcauchyschwartz" class="theorem">
+<p><span class="theorem-title"><strong>Théorème 4.4 (Cauchy-Schwarz)</strong></span> Soient <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> deux variables aléatoires sur le même espace probabilisé. Supposons que <span class="math inline">\(\mathbb{E}X^2\)</span> et <span class="math inline">\(\mathbb{E}Y^2\)</span> sont finies. Alors</p>
+<p><span class="math display">\[\mathbb{E} [XY] \leq  \sqrt{\mathbb{E}X^2} \times  \sqrt{\mathbb{E}Y^2} \,.\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Si <span class="math inline">\(\sqrt{\mathbb{E}X^2}=0\)</span> ou <span class="math inline">\(\sqrt{\mathbb{E}Y^2}=0\)</span>, l’inégalité est trivialement satisfaite.</p>
+<p>Sans perte de généralité, supposons <span class="math inline">\(\sqrt{\mathbb{E}X^2}&gt;0\)</span> et <span class="math inline">\(\sqrt{\mathbb{E}Y^2}&gt;0\)</span>. Alors, puisque <span class="math inline">\(ab \leq a^2/2 + b^2/2\)</span> pour tous réels <span class="math inline">\(a,b\)</span>, partout,</p>
+<p><span class="math display">\[
+\frac{|XY|}{\sqrt{\mathbb{E}X^2}\sqrt{\mathbb{E}Y^2}}
+\leq \frac{|X|^2}{2\mathbb{E}X^2} + \frac{|Y|^2}{2\mathbb{E}Y^2} \,.
+\]</span></p>
+<p>En prenant l’espérance des deux côtés, on obtient le résultat voulu.</p>
+</div>
+<br><p>
+</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-cauchy-trivial" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 4.7</strong></span> Pourquoi l’inégalité est-elle trivialement satisfaite si <span class="math inline">\(\sqrt{\mathbb{E}X^2}=0\)</span> ?</p>
+</div>
+</div>
+</div>
+</div>
+<br><p>
+</p>
+<p><a href="#thm-thmcauchyschwartz" class="quarto-xref">Théorème <span>4.4</span></a> nous dit que si <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> sont de carré intégrables, alors <span class="math inline">\(XY\)</span> est intégrable.</p>
+<br><p>
+</p>
+<p>L’inégalité de Hölder généralise celle de Cauchy-Schwarz. En effet, l’inégalité de Cauchy-Schwarz n’est que l’inégalité de Hölder pour <span class="math inline">\(p=q=2\)</span> (<span class="math inline">\(2\)</span> est son propre conjugué).</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-thmholder" class="theorem">
+<p><span class="theorem-title"><strong>Théorème 4.5 (Inégalité de Hölder)</strong></span> Soient <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> deux variables aléatoires sur le même espace probabilisé. Soient <span class="math inline">\(p, q&gt;1\)</span> <em>conjugués</em> (<span class="math inline">\(1/p + 1/q =1\)</span>). Supposons que <span class="math inline">\(\mathbb{E}|X|^p\)</span> et <span class="math inline">\(\mathbb{E}|Y|^q\)</span> sont finies. Alors</p>
+<p><span class="math display">\[
+\mathbb{E} [XY] \leq  \left(\mathbb{E}|X|^p\right)^{1/p} \times  \left(\mathbb{E}|Y|^q\right)^{1/q} \,.
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Si <span class="math inline">\(\mathbb{E}|X|^p=0\)</span> ou <span class="math inline">\(\mathbb{E}|Y|^q=0\)</span>, l’inégalité est trivialement satisfaite.</p>
+<p>Supposons <span class="math inline">\(\mathbb{E}|X|^p &gt; 0\)</span> et <span class="math inline">\(\mathbb{E}|Y|^q &gt; 0\)</span>.</p>
+<p>Suivons la preuve de l’inégalité de Cauchy-Schwarz, en remplaçant <span class="math inline">\(2 ab \leq a^2 +b^2\)</span> par l’inégalité de Young :</p>
+<p><span class="math display">\[ab \leq \frac{|a|^p}{p} + \frac{|b|^q}{q}\qquad  \forall a,b \in \mathbb{R}\]</span> si <span class="math inline">\(1/p+ 1/q=1\)</span>.</p>
+<p>L’inégalité ci-dessous découle de l’inégalité de Young et de la monotonie de l’espérance :</p>
+<p><span class="math display">\[
+\begin{array}{rl}
+\frac{\mathbb{E}|XY|}{\mathbb{E}[|X|^p]^{1/p}\mathbb{E}[|Y|^q]^{1/q}}
+&amp; =  \mathbb{E}\Big[\frac{|X|}{\mathbb{E}[|X|^p]^{1/p}} \frac{|Y|}{\mathbb{E}[|Y|^q]^{1/q}} \Big] \\
+&amp; \leq \mathbb{E}\Big[\frac{|X|^p}{p \mathbb{E}[|X|^p]} + \frac{|Y|^q}{q \mathbb{E}[|Y|^q]} \\
+&amp; = \frac{1}{p} + \frac{1}{q} \\
+&amp; = 1 \, .
+\end{array}
+\]</span></p>
+</div>
+<br><p>
+</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="cor-holder" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollaire 4.1</strong></span> Pour <span class="math inline">\(1\leq p &lt; q\)</span>, <span class="math display">\[\mathbb{E}\Big[|X|^p\Big]^{1/p} \leq \mathbb{E}\Big[|X|^q\Big]^{1/q} \, .\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<p>Pour <span class="math inline">\(p \in [0, \infty)\)</span>, <span class="math inline">\(X \mapsto (\mathbb{E}|X|^p)^{1/p}\)</span> définit une semi-norme sur l’ensemble des variables aléatoires pour lesquelles <span class="math inline">\((\mathbb{E}|X|^p)^{1/p}\)</span> est fini. L’inégalité de Minkowski affirme que <span class="math inline">\(X \mapsto (\mathbb{E}|X|^p)^{1/p}\)</span> satisfait l’inégalité triangulaire.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-thmminko" class="theorem">
+<p><span class="theorem-title"><strong>Théorème 4.6 (Inégalité de Minkowski)</strong></span> Soient <span class="math inline">\(X, Y\)</span> deux variables aléatoires réelles définies sur le même espace probabilisé. Soit <span class="math inline">\(p \in [1, \infty)\)</span>. Supposons <span class="math inline">\(\mathbb{E}|X|^p &lt;\infty\)</span> et <span class="math inline">\(\mathbb{E}|Y|^p&lt;\infty.\)</span> Alors</p>
+<p><span class="math display">\[
+\left(\mathbb{E} [| X + Y|^p]\right)^{1/p}
+\leq \left(\mathbb{E} [| X|^p]\right)^{1/p} + \left(\mathbb{E} [|Y|^p]\right)^{1/p}
+\]</span></p>
+<p>ce qui entraîne <span class="math inline">\(\mathbb{E}|X+Y|^p &lt;\infty.\)</span></p>
+</div>
+</div>
+</div>
+</div>
+<p>La preuve de <a href="#thm-thmminko" class="quarto-xref">Théorème <span>4.6</span></a> découle de l’inégalité de Hölder (<a href="#thm-thmholder" class="quarto-xref">Théorème <span>4.5</span></a>).</p>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>L’inégalité ci-dessous découle aussi de l’inégalité triangulaire sur <span class="math inline">\(\mathbb{R}\)</span> et de la monotonie. La dernière égalité vient de la linéarité de l’espérance :</p>
+<p><span class="math display">\[
+\begin{array}{rl}
+\mathbb{E} \Big[ |X+Y|^p\Big]
+&amp; \leq \mathbb{E} \Big[ (|X|+|Y|) \times |X+Y|^{p-1}\Big] \\
+&amp; = \mathbb{E} \Big[ |X| \times |X+Y|^{p-1}\Big] + \mathbb{E} \Big[ |Y| \times |X+Y|^{p-1}\Big] \, .
+\end{array}
+\]</span></p>
+<p>Cela suffit pour traiter le cas <span class="math inline">\(p=1\)</span>.</p>
+<p>Désormais, supposons <span class="math inline">\(p&gt;1\)</span>. L’inégalité de Hölder entraîne l’inégalité suivante, et une majoration analogue pour <span class="math inline">\(\mathbb{E} \Big[ |Y| \times |X+Y|^{p-1}\Big]\)</span>.</p>
+<p><span class="math display">\[
+\begin{array}{rl}
+\mathbb{E} \Big[ |X| \times |X+Y|^{p-1}\Big]
+&amp; \leq \mathbb{E} \Big[ |X|^p\Big]^{1/p} \times  \mathbb{E} \Big[ |X+Y|^{p}\Big]^{(p-1)/p} \,
+\end{array}
+\]</span></p>
+<p>En sommant les deux majorations, nous obtenons</p>
+<p><span class="math display">\[
+\begin{array}{rl}
+  \mathbb{E} \Big[ |X+Y|^p\Big]
+  &amp; \leq \left(\mathbb{E} \Big[ |X|^p\Big]^{1/p} + \mathbb{E} \Big[ |Y|^p\Big]^{1/p}\right) \times \mathbb{E} \Big[ |X+Y|^{p}\Big]^{(p-1)/p} \, .
+\end{array}
+\]</span></p>
+<p>Cela prouve l’inégalité de Minkowski pour <span class="math inline">\(p&gt;1\)</span>.</p>
+<p><span class="math inline">\(square\)</span></p>
+</div>
+</section><section id="sec-medianiqr" class="level2" data-number="4.6"><h2 data-number="4.6" class="anchored" data-anchor-id="sec-medianiqr">
+<span class="header-section-number">4.6</span> Médiane et écart interquartile</h2>
+<p>Indices robustes et non robustes de position.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-median" class="theorem definition">
+<p><span class="theorem-title"><strong>Définition 4.5</strong></span> Soit <span class="math inline">\(X\)</span> une variable aléatoire réelle sur un espace probabilisé. Soit <span class="math inline">\(F\)</span> sa fonction de répartition. La médiane de la loi de <span class="math inline">\(X\)</span> est <span class="math inline">\(F^{\leftarrow}(1/2)\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>La médiane minimise l’écart absolu moyen.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-median-variational" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 4.3</strong></span> Si <span class="math inline">\(m\)</span> est tel que <span class="math inline">\(P\{ X &gt; m\} = P\{ X&lt;m\}\)</span>, alors <span class="math inline">\(m\)</span> est une médiane de la loi de <span class="math inline">\(X\)</span>, et si <span class="math inline">\(X\)</span> est intégrable :</p>
+<p><span class="math display">\[\mathbb{E}\Big| X - m \Big| = \min_{a \in \mathbb{R}} \mathbb{E}\Big| X - a \Big|\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<br><p>
+</p>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Supposons <span class="math inline">\(a&lt;m\)</span>,</p>
+<p><span class="math display">\[
+\begin{array}{rl}
+  \mathbb{E} \left[\Big| X - a \Big| - \Big| X - m \Big| \right]
+  &amp; = - (m-a) P(-\infty, a] + \int_{(a, m]} (2 X - (a+m)) \mathrm{d}P(x) + (m-a)P(m,\infty) \\
+  &amp; \geq  - (m-a) P(-\infty, a] - (m-a) P(a,m] + (m-a)P(m,\infty) \\
+  &amp; = (m-a) \Big(P(m,\infty) - P(-\infty, m]\Big) \\
+  &amp; = 0 \, .
+\end{array}
+\]</span></p>
+<p>Le même raisonnement traite le cas <span class="math inline">\(a&gt;m\)</span> et permet de conclure.</p>
+</div>
+<br><p>
+</p>
+<p>En combinant trois des inégalités que nous venons de démontrer, nous pouvons établir un lien intéressant entre espérance, médiane et écart-type.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-levy1" class="theorem">
+<p><span class="theorem-title"><strong>Théorème 4.7 (Inégalité de Lévy)</strong></span> Soit <span class="math inline">\(m\)</span> la médiane de la loi de <span class="math inline">\(X\)</span>, variable aléatoire de carré intégrable sur un espace probabilisé. Alors</p>
+<p><span class="math display">\[\Big| m - \mathbb{E} X\Big| \leq \sqrt{\operatorname{var}(X)} \, .\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<br><p>
+</p>
+<p>Les indices robustes et non robustes de position diffèrent au plus de l’écart-type, qui peut être infini.</p>
+<br><p>
+</p>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Par convexité de <span class="math inline">\(x \mapsto |x|\)</span>, nous avons</p>
+<p><span class="math display">\[
+\begin{array}{rl}
+\Big| m - \mathbb{E} X\Big| &amp; \leq \mathbb{E} \Big| m - X\Big| \\
+&amp; \text{by Jensen's inequality} \\
+&amp; \leq \mathbb{E} \Big| \mathbb{E}X - X\Big| \\
+&amp; \text{the median minimizes the mean absolute error} \\
+&amp; \leq \left(\mathbb{E} \Big| \mathbb{E}X - X\Big|^2\right)^{1/2}  \\
+&amp; \text{by Cauchy-Schwarz inequality.}
+\end{array}
+\]</span></p>
+</div>
+<p><br></p>
+<div id="rem-mean-median" class="proof remark">
+<p><span class="proof-title"><em>Remarque 4.4</em>. </span>L’espérance et la médiane peuvent différer. D’abord, la médiane est toujours définie, tandis que l’espérance peut ne pas l’être. Pensez par exemple à la loi de Cauchy standard, de densité <span class="math inline">\(\frac{1}{\pi}\frac{1}{1+x^2}\)</span> sur <span class="math inline">\(\mathbb{R}\)</span>. Si <span class="math inline">\(X\)</span> suit une loi de Cauchy, alors <span class="math inline">\(\mathbb{E}|X|=\infty\)</span>. L’espérance n’est pas définie. Mais comme la densité est paire, <span class="math inline">\(X\)</span> est symétrique (<span class="math inline">\(X\)</span> et <span class="math inline">\(-X\)</span> ont la même loi), ce qui implique que la médiane de (la loi de) <span class="math inline">\(X\)</span> vaut <span class="math inline">\(0\)</span>.</p>
+<p>Considérons la loi exponentielle de densité <span class="math inline">\(\exp(-x)\)</span> sur <span class="math inline">\([0, \infty)\)</span> : espérance <span class="math inline">\(1\)</span>, médiane <span class="math inline">\(\log(2)\)</span>, variance <span class="math inline">\(1\)</span>. Pour la loi exponentielle de densité <span class="math inline">\(\lambda \exp(-\lambda x)\)</span>, l’espérance vaut <span class="math inline">\(1/\lambda\)</span>, la médiane <span class="math inline">\(\log(2)/\lambda\)</span>, et la variance <span class="math inline">\(1/\lambda^2\)</span>. L’inégalité de Lévy n’apporte pas plus que ce que l’on peut calculer directement.</p>
+<p>Enfin, considérons les lois Gamma de paramètre de forme <span class="math inline">\(p\)</span> et d’intensité <span class="math inline">\(\lambda\)</span>. L’espérance vaut <span class="math inline">\(p/\lambda\)</span>, la variance <span class="math inline">\(p/\lambda^2\)</span>. La médiane n’est pas facile à calculer, mais l’on vérifie aisément qu’elle vaut <span class="math inline">\(g(p)/\lambda\)</span>, où <span class="math inline">\(g(p)\)</span> est la médiane de la loi Gamma de paramètres <span class="math inline">\(p\)</span> et <span class="math inline">\(1\)</span>. L’inégalité de Lévy nous dit que <span class="math inline">\(|g(p) - p|\leq \sqrt{p}\)</span>.</p>
+</div>
+<br><p>
+</p>
+</section><section id="sec-lpspaces" class="level2" data-number="4.7"><h2 data-number="4.7" class="anchored" data-anchor-id="sec-lpspaces">
+<span class="header-section-number">4.7</span> Espaces <span class="math inline">\(\mathcal{L}_p\)</span> et <span class="math inline">\(L_p\)</span>
+</h2>
+<p>Soit <span class="math inline">\(p \in [1, \infty)\)</span>. Soit <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span> un espace probabilisé. Définissons <span class="math inline">\(\mathcal{L}_p(\Omega, \mathcal{F}, P)\)</span> (souvent abrégé en <span class="math inline">\(\mathcal{L}_p(P)\)</span> ou même <span class="math inline">\(\mathcal{L}_p\)</span> s’il n’y a pas d’ambiguïté) par</p>
+<p><span class="math display">\[
+\mathcal{L}_p(\Omega, \mathcal{F}, P) = \Big\{ X : X \text{ is a real random variable over } (\Omega, \mathcal{F}, P), \quad \mathbb{E}|X|^p &lt; \infty \Big\} \, .
+\]</span></p>
+<p>Posons <span class="math inline">\(\| X \|_p = \Big(\mathbb{E} |X|^p\Big)^{1/p}\)</span>.</p>
+<p>Notons <span class="math inline">\(\mathcal{L}_0(\Omega, \mathcal{F}, P)\)</span> l’espace vectoriel des variables aléatoires sur <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span>.</p>
+<p>Nous observons d’abord que les ensembles <span class="math inline">\(\mathcal{L}_p(\Omega, \mathcal{F}, P)\)</span> forment une suite emboîtée.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-nestinglp" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 4.4</strong></span> Soit <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span> un espace probabilisé. Alors, pour <span class="math inline">\(1 \leq p \leq q &lt;\infty\)</span> :</p>
+<ol type="1">
+<li>
+<span class="math inline">\(\|X\|_p &lt; \| X\|_q\)</span>.</li>
+<li>
+<span class="math inline">\(\mathcal{L}_q(\Omega, \mathcal{F}, P) \subset \mathcal{L}_p(\Omega, \mathcal{F}, P)\)</span>.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Supposons <span class="math inline">\(1 \leq p \leq q &lt;\infty\)</span>. Comme <span class="math inline">\(x \mapsto x^{q/p}\)</span> est convexe sur <span class="math inline">\([0, \infty)\)</span>, par l’inégalité de Jensen (<a href="#thm-thmjensen" class="quarto-xref">Théorème <span>4.3</span></a>), nous avons</p>
+<p><span class="math display">\[
+\begin{array}{rl}
+  \mathbb{E} [|X|^p]^{q/p} &amp; \leq \mathbb{E} [|X|^q] \,.
+\end{array}
+\]</span></p>
+<p>Cela établit 1.) Et 2.) est une conséquence immédiate de 1.</p>
+</div>
+<p><br></p>
+<p><a href="#prp-nestinglp" class="quarto-xref">Proposition <span>4.4</span></a> porte sur l’inclusion d’ensembles. Le théorème suivant résume plusieurs points : les ensembles <span class="math inline">\(\mathcal{L}_p\)</span> sont des sous-espaces vectoriels de <span class="math inline">\(\mathcal{L}_0\)</span>, et ils sont complets en tant qu’espaces pseudo-métriques (pseudo-normés).</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-Lp-completeness" class="theorem">
+<p><span class="theorem-title"><strong>Théorème 4.8</strong></span> Pour <span class="math inline">\(p \in [1, \infty)\)</span>, soient <span class="math inline">\(\mathcal{L}_p(\Omega, \mathcal{F}, P)\)</span> et <span class="math inline">\(\|\cdot\|_p\)</span> définis comme ci-dessus. Alors,</p>
+<ol type="1">
+<li>
+<span class="math inline">\(\mathcal{L}_p(\Omega, \mathcal{F}, P)\)</span> est un sous-espace vectoriel de l’espace des variables aléatoires réelles.</li>
+<li>
+<span class="math inline">\(\| \cdot\|_p\)</span> est une pseudo-norme sur <span class="math inline">\(\mathcal{L}_p(\Omega, \mathcal{F}, P)\)</span>.</li>
+<li>Si <span class="math inline">\((X_n)_n\)</span> est une suite dans <span class="math inline">\(\mathcal{L}_p(\Omega, \mathcal{F}, P)\)</span> telle que <span class="math display">\[\lim_n \sup_{m\geq n} \Big| X_n - X_m \Big|_p = 0\]</span> alors il existe <span class="math inline">\(X \in \mathcal{L}_p(\Omega, \mathcal{F}, P)\)</span> tel que <span class="math inline">\(\lim_n \| X_n - X\|_p=0\)</span>.</li>
+<li>Il existe une sous-suite <span class="math inline">\((X_{m_n})_{n}\)</span> telle que <span class="math inline">\(X_{m_n} \to X\)</span> <span class="math inline">\(P\)</span>-presque sûrement.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<div id="rem-cauchy-sequences" class="proof remark">
+<p><span class="proof-title"><em>Remarque 4.5</em>. </span>Dans un espace pseudo-métrique, pour prouver qu’une suite de Cauchy converge, il suffit de vérifier la convergence d’une sous-suite.</p>
+<p>En choisissant une sous-suite convenable, et en renumérotant éventuellement, on peut supposer <span class="math inline">\(\Big\| X_n - X_m \Big\|_p \leq 2^{- n \wedge m}\)</span> pour tous <span class="math inline">\(n,m\)</span>.</p>
+</div>
+<p><br></p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="lem-borelCant1" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemme 4.1 (Premier lemme de Borel-Cantelli)</strong></span> Soit <span class="math inline">\((A_n)_n\)</span> une suite d’événements d’un espace probabilisé <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span>. Supposons <span class="math inline">\(\sum_{n} P(A_n) &lt; \infty\)</span>. Alors, avec probabilité <span class="math inline">\(1\)</span>, seulement un nombre fini d’événements <span class="math inline">\(A_n\)</span> se réalisent :</p>
+<p><span class="math display">\[P \left\{ \omega : \sum_n \mathbb{I}_{A_n}(\omega) &lt; \infty \right\} = 1 \,.\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>L’événement <span class="math inline">\(\left\{ \omega : \sum_n \mathbb{I}_{A_n}(\omega) = \infty \right\}\)</span> coïncide avec <span class="math inline">\(\cap_n \cup_{m\geq n} A_n\)</span> :</p>
+<p><span class="math display">\[
+P \left\{ \sum_n \mathbb{I}_{A_n}(\omega) = \infty\right\} = P(\cap_n \cup_{m\geq n} A_n) \, .
+\]</span></p>
+<p>La suite <span class="math inline">\((\cup_{m\geq n} A_n)_n\)</span> est décroissante : <span class="math inline">\(\lim_n \downarrow \cup_{m\geq n} A_n = \cap_n \cup_{m\geq n} A_n \,.\)</span></p>
+<p>Par le lemme de Fatou,</p>
+<p><span class="math display">\[
+\begin{array}{rl}
+\mathbb{E} \lim_m \mathbb{I}_{\cup_{m\geq n} A_m}
+  &amp; = \mathbb{E} \liminf_n\mathbb{I}_{\cup_{m\geq n} A_m}  \\
+  &amp; \leq  \liminf_n  \mathbb{E} \mathbb{I}_{\cup_{m\geq n} A_m} \\
+  &amp; \leq  \liminf_n  \sum_{m\geq n} P(A_m) \\
+  &amp; =   0 \, .
+\end{array}
+\]</span></p>
+<p>La dernière égalité vient du fait que les restes d’une série convergente tendent vers <span class="math inline">\(0\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Les points 1) et 2) découlent de l’inégalité de Minkowski. Cela entraîne que <span class="math inline">\(\|\cdot\|_p\)</span> définit une pseudo-norme sur <span class="math inline">\(\mathcal{L}_p\)</span>. Si deux variables aléatoires <span class="math inline">\(X,Y\)</span> de <span class="math inline">\(\mathcal{L}_p\)</span> satisfont <span class="math inline">\(\| X- Y\|_p=0\)</span>, alors <span class="math inline">\(X=Y\)</span> <span class="math inline">\(P\)</span>-p.s.</p>
+<p>Pour établir 3), il faut vérifier que la suite converge presque sûrement, et qu’une limite presque sûre appartient à <span class="math inline">\(\mathcal{L}_p\)</span>.</p>
+<p>Définissons l’événement <span class="math inline">\(A_n\)</span> par <span class="math display">\[A_n = \Big\{ \omega : \Big| X_n(\omega) - X_{n+1}(\omega) \Big| &gt; \frac{1}{n^2}\Big\} \, .\]</span> Par l’inégalité de Markov, <span class="math display">\[P(A_n) \leq \mathbb{E}\Big[n^{2p} \Big| X_n - X_m \Big|^p \Big] \leq n^{2p} 2^{-np} \, .\]</span> Donc <span class="math inline">\(\sum_{n\geq 1} P(A_n) &lt; \infty.\)</span> Par le premier lemme de Borel-Cantelli, sur un événement <span class="math inline">\(E\)</span> de probabilité <span class="math inline">\(1\)</span>, seulement un nombre fini de <span class="math inline">\(A_n\)</span> se réalisent.</p>
+<p>Si <span class="math inline">\(\omega \in E\)</span>, la condition <span class="math inline">\(\Big| X_n(\omega) - X_{n+1}(\omega) \Big| &gt; \frac{1}{n^2}\)</span> n’est réalisée que pour un nombre fini d’indices <span class="math inline">\(n\)</span>. Ainsi la suite réelle <span class="math inline">\((X_n(\omega))_n\)</span> est de Cauchy. Elle admet une limite que nous notons <span class="math inline">\(X(\omega)\)</span>. Si <span class="math inline">\(\omega \not\in E\)</span>, convenons que <span class="math inline">\(X(\omega)=0.\)</span> Sur <span class="math inline">\(\Omega\)</span>, nous avons <span class="math display">\[X(\omega) = \lim_n \mathbb{I}_E(\omega) X(\omega) \, .\]</span> Une limite de variables aléatoires est une variable aléatoire. Donc <span class="math inline">\(X\)</span> est une variable aléatoire.</p>
+<p>Il reste à vérifier que <span class="math inline">\(X \in \mathcal{L}_p\)</span>. Notons d’abord que</p>
+<p><span class="math display">\[
+\Big| \big\| X_m \big\|_p - \big\|X_n \big\|_p \Big| \leq \big\| X_m - X_n \big\|_p \,.
+\]</span></p>
+<p>Ainsi <span class="math inline">\(\big(\big\|X_n \big\|_p \big)_n\)</span> est une suite de Cauchy et converge vers une limite finie. Comme <span class="math display">\[
+|X(\omega)|  \leq  \liminf |X_n(\omega)|
+\]</span></p>
+<p>par le lemme de Fatou <span class="math display">\[
+\mathbb{E} |X|^p  \leq \liminf \mathbb{E} |X_n|^p &lt; \infty\, .
+\]</span></p>
+<p>Donc <span class="math inline">\(X \in \mathcal{L}_p\)</span>.</p>
+<p>Enfin, vérifions que <span class="math inline">\(\lim_m \|X_n - X\|_p =0\)</span>. Par le lemme de Fatou encore,</p>
+<p><span class="math display">\[
+\mathbb{E} \Big| X - X_m \Big|^p \leq \liminf_n \mathbb{E} \Big| X_n - X_m \Big|^p
+\]</span></p>
+<p>d’où</p>
+<p><span class="math display">\[
+\lim_m \mathbb{E} \Big| X - X_m \Big|^p \leq \lim_m \liminf_n \mathbb{E} \Big| X_n - X_m \Big|^p = 0 \, .
+\]</span></p>
+</div>
+<br><p>
+</p>
+<div id="rem-asconv-subsequence" class="proof remark">
+<p><span class="proof-title"><em>Remarque 4.6</em>. </span>Peut-on étendre la convergence presque sûre à toute la suite ? Ce n’est pas le cas. Considérons <span class="math inline">\(([0,1], \mathcal{B}([0,1]), P)\)</span> où <span class="math inline">\(P\)</span> est la loi uniforme. Pour <span class="math inline">\(k= j+ n(n-1)/2\)</span>, <span class="math inline">\(1\leq j\leq n\)</span>, posons <span class="math inline">\(X_n = \mathbb{I}_{[(j-1)/n, j/n]}\)</span>. La suite <span class="math inline">\(X_n\)</span> converge vers <span class="math inline">\(0\)</span> dans <span class="math inline">\(\mathcal{L}_p\)</span> pour tout <span class="math inline">\(p \in [1, \infty)\)</span>. En effet <span class="math inline">\(\|X_k\|_p = n^{-p}\)</span> pour <span class="math inline">\(k= j+ n(n-1)/2\)</span>, <span class="math inline">\(1\leq j\leq n\)</span>. Pour tout <span class="math inline">\(\omega \in [0,1]\)</span>, la suite <span class="math inline">\(X_n(\omega)\)</span> oscille entre <span class="math inline">\(0\)</span> et <span class="math inline">\(1\)</span> une infinité de fois.</p>
+</div>
+<p><br></p>
+<p>Les espaces <span class="math inline">\(\mathcal{L}_p\)</span> nous offrent un pont entre probabilités et analyse. En analyse, le fait que <span class="math inline">\(\|\cdot \|_p\)</span> ne soit qu’une pseudo-norme conduit à considérer les espaces <span class="math inline">\(L_p\)</span>. Les espaces <span class="math inline">\(L_p\)</span> sont définis à partir des espaces <span class="math inline">\(\mathcal{L}_p\)</span> en prenant des classes d’équivalence de variables aléatoires. Définissons la relation <span class="math inline">\(\equiv\)</span> sur <span class="math inline">\(\mathcal{L}_p(\Omega, \mathcal{F}, P)\)</span> par <span class="math inline">\(X \equiv X'\)</span> ssi <span class="math inline">\(P\{X=X'\}=1\)</span>. Cette relation est une relation d’équivalence (réflexive, symétrique et transitive). Si <span class="math inline">\(X \equiv X'\)</span> et <span class="math inline">\(Y \equiv Y'\)</span>, alors <span class="math inline">\(\|X -Y\|_p = \|X' -Y\|_p = \|X' - Y'\|_p\)</span>. <span class="math inline">\(L_p(\Omega, \mathcal{F}, P)\)</span> est l’espace quotient de <span class="math inline">\(\mathcal{L}_p\)</span> par la relation <span class="math inline">\(\equiv\)</span>. Nous avons le résultat fondamental suivant.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-Lp" class="theorem">
+<p><span class="theorem-title"><strong>Théorème 4.9</strong></span> Pour <span class="math inline">\(p \in [1, \infty)\)</span>, <span class="math inline">\(L_p(\Omega, \mathcal{F}, P)\)</span> muni de <span class="math inline">\(\| \cdot\|_p\)</span> est un espace vectoriel normé complet (espace de Banach).</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<p>Cela permet finalement d’invoquer des théorèmes d’analyse fonctionnelle.</p>
+</section><section id="sec-bib-033" class="level2" data-number="4.8"><h2 data-number="4.8" class="anchored" data-anchor-id="sec-bib-033">
+<span class="header-section-number">4.8</span> Remarques bibliographiques</h2>
+
+
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copié");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copié");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("\/fr");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="./031-moments.fr.html" class="pagination-link" aria-label="Un minimum d'intégration">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>  <span class="chapter-title">Un minimum d’intégration</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./03-families.fr.html" class="pagination-link" aria-label="Familles de lois discrètes">
+        <span class="nav-page-text"><span class="chapter-number">5</span>  <span class="chapter-title">Familles de lois discrètes</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/033-integration2moments.fr.qmd" class="toc-action"><i class="bi bi-github"></i>Modifier cette page</a></li>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Faire part d'un problème</a></li>
+</ul></div></div></div></footer>
+</body>
+</html>

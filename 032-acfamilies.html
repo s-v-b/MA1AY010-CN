@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<link rel="alternate" hreflang="en" href="/032-acfamilies.html" />
+<link rel="alternate" hreflang="fr" href="/fr/032-acfamilies.fr.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.24">
-
+<meta name="generator" content="quarto-1.9.36">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>9&nbsp; Absolutely continuous probability measures – MA1AY010 Class Notes</title>
+<title>9  Absolutely continuous probability measures – MA1AY010 Class Notes</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -41,28 +44,13 @@ div.csl-right-inline {
 div.csl-indent {
   margin-left: 2em;
 }</style>
-
-
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script><script src="site_libs/quarto-nav/headroom.min.js"></script><script src="site_libs/clipboard/clipboard.min.js"></script><script src="site_libs/quarto-search/autocomplete.umd.js"></script><script src="site_libs/quarto-search/fuse.min.js"></script><script src="site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="./">
 <link href="./023-discrete-condition.html" rel="next">
 <link href="./021-independence.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-3a70adc2469c323d0515427c5f9cb542.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script><script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script><link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-eb98473aa13ec2f8694b0a204f8986fa.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -89,12 +77,7 @@ div.csl-indent {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
+}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
     // MathJax Typeset
@@ -120,18 +103,12 @@ window.Quarto = {
   typesetMath
 };
 </script>
-
 </head>
-
 <body class="nav-sidebar floating nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">MA1AY010 Class Notes</span>
     </a>
@@ -142,29 +119,21 @@ window.Quarto = {
 </div>
           <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
-    </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+    </nav><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./032-acfamilies.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Absolutely continuous probability measures</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./032-acfamilies.html"><span class="chapter-number">9</span>  <span class="chapter-title">Absolutely continuous probability measures</span></a></li></ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
-      </div>
-    <div class="sidebar-menu-container"> 
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="dropdown" id="languages-links-parent">
+<button class="btn btn-primary dropdown-toggle babelquarto-languages-button" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> Version in en</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="/fr/032-acfamilies.fr.html" id="language-link-fr">Version in fr</a></li></ul>
+</div>
+<div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Warm up</span></a>
@@ -173,110 +142,108 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01-intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>  <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-language.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">A modicum of measure theory</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>  <span class="chapter-title">A modicum of measure theory</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./031-moments.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">A modicum of integration</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>  <span class="chapter-title">A modicum of integration</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./033-integration2moments.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">From integrals to expectation and moments</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>  <span class="chapter-title">From integrals to expectation and moments</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-families.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Families of discrete distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>  <span class="chapter-title">Families of discrete distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0225-pgf.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Characterizations of discrete probability distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>  <span class="chapter-title">Characterizations of discrete probability distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./022-product-measures.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Product distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>  <span class="chapter-title">Product distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./021-independence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Independence and product spaces</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>  <span class="chapter-title">Independence and product spaces</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./032-acfamilies.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Absolutely continuous probability measures</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>  <span class="chapter-title">Absolutely continuous probability measures</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./023-discrete-condition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Discrete Conditioning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>  <span class="chapter-title">Discrete Conditioning</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06-conditioning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Conditioning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>  <span class="chapter-title">Conditioning</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-characterizations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Characterizations of probability distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>  <span class="chapter-title">Characterizations of probability distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./041-characterization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Quantile functions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>  <span class="chapter-title">Quantile functions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-convergences-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Convergences I : almost sure, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, in Probability</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>  <span class="chapter-title">Convergences I : almost sure, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, in Probability</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-convergence-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Convergence in distribution</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>  <span class="chapter-title">Convergence in distribution</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./09-gaussian-vectors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Gaussian vectors</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>  <span class="chapter-title">Gaussian vectors</span></span></a>
   </div>
 </li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#sec-acontinuity" id="toc-sec-acontinuity" class="nav-link active" data-scroll-target="#sec-acontinuity"><span class="header-section-number">9.1</span> Densities and absolute continuity</a></li>
+<li><a href="#sec-acontinuity" id="toc-sec-acontinuity" class="nav-link active" data-scroll-target="#sec-acontinuity"><span class="header-section-number">9.1</span> Densities and absolute continuity</a></li>
   <li><a href="#expos" id="toc-expos" class="nav-link" data-scroll-target="#expos"><span class="header-section-number">9.2</span> Exponential distribution</a></li>
   <li><a href="#sec-gammas" id="toc-sec-gammas" class="nav-link" data-scroll-target="#sec-gammas"><span class="header-section-number">9.3</span> Gamma distribution</a></li>
   <li><a href="#sec-gauss" id="toc-sec-gauss" class="nav-link" data-scroll-target="#sec-gauss"><span class="header-section-number">9.4</span> Univariate Gaussian distributions</a></li>
@@ -285,14 +252,14 @@ window.Quarto = {
   <li><a href="#sec-gammabeta" id="toc-sec-gammabeta" class="nav-link" data-scroll-target="#sec-gammabeta"><span class="header-section-number">9.7</span> Application: Gamma-Beta calculus</a></li>
   <li><a href="#sec-bibac" id="toc-sec-bibac" class="nav-link" data-scroll-target="#sec-bibac"><span class="header-section-number">9.8</span> Bibliographic remarks</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/032-acfamilies.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
-    </div>
+<div class="toc-actions"><ul>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/032-acfamilies.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li>
+</ul></div></nav>
+</div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title"><span id="sec-acmeasures" class="quarto-section-identifier"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Absolutely continuous probability measures</span></span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title"><span id="sec-acmeasures" class="quarto-section-identifier"><span class="chapter-number">9</span>  <span class="chapter-title">Absolutely continuous probability measures</span></span></h1>
 </div>
 
 
@@ -306,13 +273,11 @@ window.Quarto = {
   
 
 
-</header>
-
-
-<section id="sec-acontinuity" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="sec-acontinuity"><span class="header-section-number">9.1</span> Densities and absolute continuity</h2>
+</header><section id="sec-acontinuity" class="level2" data-number="9.1"><h2 data-number="9.1" class="anchored" data-anchor-id="sec-acontinuity">
+<span class="header-section-number">9.1</span> Densities and absolute continuity</h2>
 <p>
-</p><p>Beyond discrete distributions, the simplest probability distributions are defined by a density function with respect to a (<span class="math inline">\(\sigma\)</span>-finite) measure. This encompasses the distributions of the so-called <em>continuous random variables</em>.</p>
+</p>
+<p>Beyond discrete distributions, the simplest probability distributions are defined by a density function with respect to a (<span class="math inline">\(\sigma\)</span>-finite) measure. This encompasses the distributions of the so-called <em>continuous random variables</em>.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -326,9 +291,11 @@ window.Quarto = {
 </div>
 </div>
 <p>
-</p><p>If <span class="math inline">\(\mu, \nu\)</span> are two probability distributions, and <span class="math inline">\(\mu \trianglelefteq \nu\)</span>, then any event which is impossible under <span class="math inline">\(\nu\)</span> is also impossible under <span class="math inline">\(\mu\)</span>.</p>
+</p>
+<p>If <span class="math inline">\(\mu, \nu\)</span> are two probability distributions, and <span class="math inline">\(\mu \trianglelefteq \nu\)</span>, then any event which is impossible under <span class="math inline">\(\nu\)</span> is also impossible under <span class="math inline">\(\mu\)</span>.</p>
 <p>
-</p><div class="callout callout-style-simple callout-tip no-icon">
+</p>
+<div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -345,7 +312,8 @@ window.Quarto = {
 </div>
 </div>
 <p>
-</p><div class="callout callout-style-simple callout-tip no-icon">
+</p>
+<div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -358,9 +326,11 @@ window.Quarto = {
 </div>
 </div>
 <p>
-</p><p>The next theorem has far-reaching practical consequences.</p>
+</p>
+<p>The next theorem has far-reaching practical consequences.</p>
 <p>
-</p><div class="callout callout-style-simple callout-note no-icon">
+</p>
+<div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -375,13 +345,16 @@ window.Quarto = {
 </div>
 </div>
 <p>
-</p><p>The density is also called the Radon-Nikodym derivative of <span class="math inline">\(\mu\)</span> with respect to <span class="math inline">\(\nu\)</span>. It is sometimes denoted by <span class="math inline">\(\frac{\mathrm{d}\mu}{\mathrm{d}\nu}\)</span>.</p>
+</p>
+<p>The density is also called the Radon-Nikodym derivative of <span class="math inline">\(\mu\)</span> with respect to <span class="math inline">\(\nu\)</span>. It is sometimes denoted by <span class="math inline">\(\frac{\mathrm{d}\mu}{\mathrm{d}\nu}\)</span>.</p>
 <p>
-</p><div id="rem-sigfi" class="proof remark">
+</p>
+<div id="rem-sigfi" class="proof remark">
 <p><span class="proof-title"><em>Remark 9.1</em>. </span>The <span class="math inline">\(\sigma\)</span>-finiteness assumption is crucial. If we choose <span class="math inline">\(\mu\)</span> as Lebesgue measure and <span class="math inline">\(\nu\)</span> as the counting measure, <span class="math inline">\(\nu\)</span> is not <span class="math inline">\(\sigma\)</span>-finite, <span class="math inline">\(\mu(A)&gt;0\)</span> implies <span class="math inline">\(\nu(A)=\infty\)</span> which we may consider as larger than <span class="math inline">\(0\)</span>. Nevertheless, Lebesgue measure has no density with respect to the counting measure.</p>
 </div>
 <p>
-</p><p>In the next sections, we investigate probability distributions over <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span> that are absolutely continuous with respect to Lebesgue measure.</p>
+</p>
+<p>In the next sections, we investigate probability distributions over <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span> that are absolutely continuous with respect to Lebesgue measure.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -401,14 +374,13 @@ window.Quarto = {
 </div>
 <div class="callout-body-container">
 <div id="exr-chainrule" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 9.3</strong></span> Prove <a href="#prp-chainrule" class="quarto-xref">proposition&nbsp;<span>9.1</span></a>.</p>
+<p><span class="theorem-title"><strong>Exercise 9.3</strong></span> Prove <a href="#prp-chainrule" class="quarto-xref">proposition <span>9.1</span></a>.</p>
 </div>
 </div>
 </div>
 </div>
-</section>
-<section id="expos" class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="expos"><span class="header-section-number">9.2</span> Exponential distribution</h2>
+</section><section id="expos" class="level2" data-number="9.2"><h2 data-number="9.2" class="anchored" data-anchor-id="expos">
+<span class="header-section-number">9.2</span> Exponential distribution</h2>
 <p>The exponential distribution shows up in several areas of probability and statistics. In reliability theory, its memoryless property make it a borderline case. In the theory of point processes, the exponential distribution is connected with Poisson Point Processes. It is also important in extreme value theory.</p>
 <div id="def">
 <p>The exponential distribution with intensity parameter <span class="math inline">\(\lambda&gt;0\)</span> is defined by its desnsity with respect to Lebesgue measure on <span class="math inline">\([0,\infty)\)</span>: <span class="math display">\[
@@ -462,22 +434,19 @@ P \Big\{ \lceil X \rceil \geq k \Big\} = P \Big\{  X  &gt; k - 1 \Big\}
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-witgetexponential" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-witgetexponential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-witgetexponential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="032-acfamilies_files/figure-html/fig-witgetexponential-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-witgetexponential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;9.1: Exponential densities with different parameters: scales <span class="math inline">\(1, 2, 1/2\)</span> or equivalently intensities <span class="math inline">\(1, 1/2, 2\)</span>. Expectation equals scale,<br>
+Figure 9.1: Exponential densities with different parameters: scales <span class="math inline">\(1, 2, 1/2\)</span> or equivalently intensities <span class="math inline">\(1, 1/2, 2\)</span>. Expectation equals scale,<br>
 variance equals squared scale.
-</figcaption>
-</figure>
+</figcaption></figure>
 </div>
 </div>
 </div>
 <!-- ::: -->
-</section>
-<section id="sec-gammas" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="sec-gammas"><span class="header-section-number">9.3</span> Gamma distribution</h2>
+</section><section id="sec-gammas" class="level2" data-number="9.3"><h2 data-number="9.3" class="anchored" data-anchor-id="sec-gammas">
+<span class="header-section-number">9.3</span> Gamma distribution</h2>
 <p>Sums of independent exponentially distributed random variables are not exponentially distributed. The family of Gamma distributions encompasses the family of exponential distributions. It is stable under addition and satisfies</p>
 <p>Recall Euler’s Gamma function: <span class="math display">\[
 \Gamma(t) = \int_0^\infty x^{t-1}\mathrm{e}^{-x} \mathrm{d}x \qquad \text{for } t&gt;0\, .
@@ -515,22 +484,19 @@ x \mapsto \lambda^p \frac{x^{p-1}}{\Gamma(p)} \mathrm{e}^{-\lambda x} \, .
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-witgetgamma" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-witgetgamma-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-witgetgamma-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="032-acfamilies_files/figure-html/fig-witgetgamma-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-witgetgamma-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;9.2: Gamma densities with different parameters: scales <span class="math inline">\(1, 1, 1/3, 1, 2\)</span> and shapes <span class="math inline">\(1, 2, 3, 5, 5/2\)</span>. Expectation equals shape times scale,<br>
+Figure 9.2: Gamma densities with different parameters: scales <span class="math inline">\(1, 1, 1/3, 1, 2\)</span> and shapes <span class="math inline">\(1, 2, 3, 5, 5/2\)</span>. Expectation equals shape times scale,<br>
 variance equals shape times squared scale.
-</figcaption>
-</figure>
+</figcaption></figure>
 </div>
 </div>
 </div>
 <!-- ::: -->
-</section>
-<section id="sec-gauss" class="level2" data-number="9.4">
-<h2 data-number="9.4" class="anchored" data-anchor-id="sec-gauss"><span class="header-section-number">9.4</span> Univariate Gaussian distributions</h2>
+</section><section id="sec-gauss" class="level2" data-number="9.4"><h2 data-number="9.4" class="anchored" data-anchor-id="sec-gauss">
+<span class="header-section-number">9.4</span> Univariate Gaussian distributions</h2>
 <p>Gaussian distributions play a central role in Probability theory, Statistics, Information theory, and Analysis.</p>
 <div id="def">
 <p>The Gaussian or normal distribution with mean <span class="math inline">\(\mu \in \mathbb{R}\)</span> and variance <span class="math inline">\(\sigma^2, \sigma&gt;0\)</span> has density <span class="math display">\[
@@ -579,21 +545,18 @@ x \mapsto \frac{1}{\sqrt{2 \pi} \sigma} \mathrm{e}^{- \frac{(x-\mu)^2}{2 \sigma^
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-witgetgauss" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-witgetgauss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-witgetgauss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="032-acfamilies_files/figure-html/fig-witgetgauss-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-witgetgauss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;9.3: Gaussian densities. The location parameter <span class="math inline">\(\mu\)</span> coincides with the mean and the median. The scale parameter is the standard deviation. The Inter-Quartile-Range (IQR) is proportional to the standard deviation. If <span class="math inline">\(\Phi^{\leftarrow}\)</span> denotes the quantile function of <span class="math inline">\(\mathcal{N}(0,1)\)</span> then the interquartile range of <span class="math inline">\(\mathcal{N}(\mu, \sigma^2)\)</span> is <span class="math inline">\(\sigma \Big(\Phi^{\leftarrow}(3/4) - \Phi^{\leftarrow}(1/4)\Big)=2 \sigma \Phi^{\leftarrow}(3/4)\)</span>.
-</figcaption>
-</figure>
+Figure 9.3: Gaussian densities. The location parameter <span class="math inline">\(\mu\)</span> coincides with the mean and the median. The scale parameter is the standard deviation. The Inter-Quartile-Range (IQR) is proportional to the standard deviation. If <span class="math inline">\(\Phi^{\leftarrow}\)</span> denotes the quantile function of <span class="math inline">\(\mathcal{N}(0,1)\)</span> then the interquartile range of <span class="math inline">\(\mathcal{N}(\mu, \sigma^2)\)</span> is <span class="math inline">\(\sigma \Big(\Phi^{\leftarrow}(3/4) - \Phi^{\leftarrow}(1/4)\Big)=2 \sigma \Phi^{\leftarrow}(3/4)\)</span>.
+</figcaption></figure>
 </div>
 </div>
 </div>
 <!-- ::: -->
-</section>
-<section id="sec-cdf_ac" class="level2" data-number="9.5">
-<h2 data-number="9.5" class="anchored" data-anchor-id="sec-cdf_ac"><span class="header-section-number">9.5</span> Cumulative distribution functions and absolute continuity</h2>
+</section><section id="sec-cdf_ac" class="level2" data-number="9.5"><h2 data-number="9.5" class="anchored" data-anchor-id="sec-cdf_ac">
+<span class="header-section-number">9.5</span> Cumulative distribution functions and absolute continuity</h2>
 <p>If a cumulative distribution function is defined as the integral of some non-negative Lebesgue integrable function, we know that the corresponding probability distribution is absolutely continuous with respect to Lebesgue measure.</p>
 <p>We may ask for a criterion that characterises the cumulative distribution function of absolutely continuous probability distribution. Such a criterion is embodied by the next definition. We overload the expression <em>absolutely continuous</em>.</p>
 <div class="callout callout-style-simple callout-note no-icon">
@@ -608,7 +571,7 @@ Figure&nbsp;9.3: Gaussian densities. The location parameter <span class="math in
 </div>
 </div>
 </div>
-<p>Absolute continuity, differentiability and integration of derivatives are connected by the next Theorem. This Theorem tells us that a cumulative distribution function is absolutely continuous in the sense of Definition <a href="#def-accdf" class="quarto-xref">Definition&nbsp;<span>9.2</span></a> iff the corresponding probability distribution is absolutely continuous with respect to Lebesgue measure.</p>
+<p>Absolute continuity, differentiability and integration of derivatives are connected by the next Theorem. This Theorem tells us that a cumulative distribution function is absolutely continuous in the sense of Definition <a href="#def-accdf" class="quarto-xref">Definition <span>9.2</span></a> iff the corresponding probability distribution is absolutely continuous with respect to Lebesgue measure.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -618,17 +581,18 @@ Figure&nbsp;9.3: Gaussian densities. The location parameter <span class="math in
 <div id="thm-fundTheCalc" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 9.2 (Fundamental Theorem of Calculus)</strong></span> A real valued function <span class="math inline">\(F\)</span> on <span class="math inline">\([a,b]\)</span> is <em>absolutely continuous</em> iff the next three conditions hold</p>
 <ol type="1">
-<li>The derivative <span class="math inline">\(F'\)</span> exists Lebesgue almost everywhere on <span class="math inline">\([a,b]\)</span></li>
+<li>The derivative <span class="math inline">\(F'\)</span> exists Lebesgue almost everywhere on <span class="math inline">\([a,b]\)</span>
+</li>
 <li>The derivative <span class="math inline">\(F'\)</span> is Lebesgue integrable</li>
-<li>For every <span class="math inline">\(x \in [a,b]\)</span>, <span class="math inline">\(F(x) - F(a) = \int_{[a,b]} \mathbb{I}_{[a,x]}(t) F'(t) \mathrm{d}t\)</span></li>
+<li>For every <span class="math inline">\(x \in [a,b]\)</span>, <span class="math inline">\(F(x) - F(a) = \int_{[a,b]} \mathbb{I}_{[a,x]}(t) F'(t) \mathrm{d}t\)</span>
+</li>
 </ol>
 </div>
 </div>
 </div>
 </div>
-</section>
-<section id="sec-imgdens" class="level2" data-number="9.6">
-<h2 data-number="9.6" class="anchored" data-anchor-id="sec-imgdens"><span class="header-section-number">9.6</span> Computing the density of an image probability distribution</h2>
+</section><section id="sec-imgdens" class="level2" data-number="9.6"><h2 data-number="9.6" class="anchored" data-anchor-id="sec-imgdens">
+<span class="header-section-number">9.6</span> Computing the density of an image probability distribution</h2>
 <p>Recall the change of variable formula in elementary calculus. If <span class="math inline">\(\phi\)</span> is monotone increasing and différentiable from open <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span> and <span class="math inline">\(f\)</span> is Riemann integrable over <span class="math inline">\(B\)</span>, then <span class="math display">\[
 \int_B f(y) \, \mathrm{d}y = \int_A f(\phi(x)) \, \phi^{\prime}(x) \, \mathrm{d}x \,
 \]</span></p>
@@ -644,7 +608,7 @@ Figure&nbsp;9.3: Gaussian densities. The location parameter <span class="math in
 </div>
 </div>
 </div>
-<p>The goal of this section is state a multi-dimensional generalization of this elementary formula. This is the content of <a href="#thm-geomchange" class="quarto-xref">Theorem&nbsp;<span>9.4</span></a>). This extension is then used to establish an off-the-shelf formula for computing the density of an image distribution in <a href="#thm-imagedensityformula" class="quarto-xref">Theorem&nbsp;<span>9.5</span></a>).</p>
+<p>The goal of this section is state a multi-dimensional generalization of this elementary formula. This is the content of <a href="#thm-geomchange" class="quarto-xref">Theorem <span>9.4</span></a>). This extension is then used to establish an off-the-shelf formula for computing the density of an image distribution in <a href="#thm-imagedensityformula" class="quarto-xref">Theorem <span>9.5</span></a>).</p>
 <p>Let us start with a uni-dimensional warm-up. When starting from the uniform distribution on <span class="math inline">\([0,1]\)</span> and applying a monotone differentiable transformation, the density of the image measure is easily computed.</p>
 <div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
@@ -690,8 +654,7 @@ P \Big\{ Y \leq y \Big\} = \int_{(-\infty, y] \cap \phi(\text{supp}(P))} \frac{f
 </div>
 </div>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 <p>In univariate calculus, it is easy to establish that if a function is continuous and increasing over an open set, it is invertible and its inverse is continuous and increasing. If the function is differentiable with positive derivative, its inverse is also differentiable. Moreover, the differential and the differential of the inverse are related in transparent way.</p>
 <p>The Global Inversion Theorem extends the preceding observation to the multivariate setting.</p>
@@ -729,7 +692,7 @@ J_{\phi^{\leftarrow}}(y) = \Big(J_{\phi}(\phi^{\leftarrow}(y)) \Big)^{-1} \, .
 </div>
 </div>
 </div>
-<p>Moving from cartesian coordinates to polar/spherical coordinates is easy thanks to an non-trivial application of <a href="#thm-geomchange" class="quarto-xref">Theorem&nbsp;<span>9.4</span></a>).</p>
+<p>Moving from cartesian coordinates to polar/spherical coordinates is easy thanks to an non-trivial application of <a href="#thm-geomchange" class="quarto-xref">Theorem <span>9.4</span></a>).</p>
 <p>The Image density formula is a corollary of the geometric change of variable formula.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -747,21 +710,20 @@ g(y) = f\big(\phi^\leftarrow(y)\big) \times \big|J_{\phi^\leftarrow}(y)\big|  = 
 </div>
 </div>
 </div>
-<p>The proof of <a href="#thm-imagedensityformula" class="quarto-xref">Theorem&nbsp;<span>9.5</span></a>) from <a href="#thm-geomchange" class="quarto-xref">Theorem&nbsp;<span>9.4</span></a>) is a routine application of the transfer formula.</p>
+<p>The proof of <a href="#thm-imagedensityformula" class="quarto-xref">Theorem <span>9.5</span></a>) from <a href="#thm-geomchange" class="quarto-xref">Theorem <span>9.4</span></a>) is a routine application of the transfer formula.</p>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(B\)</span> be a Borelian subset of <span class="math inline">\(\phi(U)\)</span>. By the transfer formula: <span class="math display">\[\begin{align*}
 P\Big\{ Y \in B \Big\}
   &amp; =  P\Big\{ \phi(X) \in B \Big\} \\
   &amp; = \int_U \mathbb{I}_B(\phi(x)) f(x) \mathrm{d}\ell(x) \,.
-\end{align*}\]</span> Now, we invoke <a href="#thm-geomchange" class="quarto-xref">Theorem&nbsp;<span>9.4</span></a>): <span class="math display">\[\begin{align*}
+\end{align*}\]</span> Now, we invoke <a href="#thm-geomchange" class="quarto-xref">Theorem <span>9.4</span></a>): <span class="math display">\[\begin{align*}
 \int_U \mathbb{I}_B(\phi(x)) f(x) \mathrm{d}\ell(x)
 &amp; = \int_{\phi(U)} \mathbb{I}_B(\phi(\phi^\leftarrow(y))) f(\phi^\leftarrow(y)) \Big|J_{\phi^\leftarrow}(y)\Big| \mathrm{d}\ell(y) \\
 &amp; = \int_{\phi(U)} \mathbb{I}_B(y) f(\phi^\leftarrow(y)) \Big|J_{\phi^\leftarrow}(y)\Big| \mathrm{d}\ell(y) \, .
 \end{align*}\]</span> This suffices to conclude that <span class="math inline">\(f\circ \phi^\leftarrow \Big|J_{\phi^\leftarrow}\Big|\)</span> is a version of the density of <span class="math inline">\(P \circ \phi^{-1}\)</span> with respect to Lebesgue measure over <span class="math inline">\(\phi(U)\)</span>.</p>
 </div>
-</section>
-<section id="sec-gammabeta" class="level2" data-number="9.7">
-<h2 data-number="9.7" class="anchored" data-anchor-id="sec-gammabeta"><span class="header-section-number">9.7</span> Application: Gamma-Beta calculus</h2>
+</section><section id="sec-gammabeta" class="level2" data-number="9.7"><h2 data-number="9.7" class="anchored" data-anchor-id="sec-gammabeta">
+<span class="header-section-number">9.7</span> Application: Gamma-Beta calculus</h2>
 <p>The image density formula is applied to show a remarkable connexion between Gamma and Beta distributions.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -775,7 +737,8 @@ P\Big\{ Y \in B \Big\}
 <ol type="a">
 <li>The random variables <span class="math inline">\(U\)</span> and <span class="math inline">\(V\)</span> are independent.</li>
 <li>Random variable <span class="math inline">\(U\)</span> is distributed according to <span class="math inline">\(\Gamma(p+q, \lambda)\)</span> while</li>
-<li><span class="math inline">\(V\)</span> is distributed according to <span class="math inline">\(\operatorname{Beta}(p, q)\)</span>.</li>
+<li>
+<span class="math inline">\(V\)</span> is distributed according to <span class="math inline">\(\operatorname{Beta}(p, q)\)</span>.</li>
 </ol>
 </div>
 </div>
@@ -811,9 +774,8 @@ f(x,y) =  \Big(x+y, \frac{x}{x+y} \Big)
 </div>
 </div>
 </div>
-</section>
-<section id="sec-bibac" class="level2" data-number="9.8">
-<h2 data-number="9.8" class="anchored" data-anchor-id="sec-bibac"><span class="header-section-number">9.8</span> Bibliographic remarks</h2>
+</section><section id="sec-bibac" class="level2" data-number="9.8"><h2 data-number="9.8" class="anchored" data-anchor-id="sec-bibac">
+<span class="header-section-number">9.8</span> Bibliographic remarks</h2>
 <p><span class="citation" data-cites="MR1932358">Dudley (<a href="#ref-MR1932358" role="doc-biblioref">2002</a>)</span> and <span class="citation" data-cites="MR1873379">Pollard (<a href="#ref-MR1873379" role="doc-biblioref">2002</a>)</span> provide a full development of absolute continuity and self-contained proofs the Radon-Nikodym’s Theorem.</p>
 
 
@@ -825,10 +787,7 @@ Dudley, R. M. (2002). <em>Real analysis and probability</em> (Vol. 74, p. x+555)
 Pollard, D. (2002). <em>A user’s guide to measure theoretic probability</em> (Vol. 8, p. xiv+351). Cambridge University Press, Cambridge.
 </div>
 </div>
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -1227,16 +1186,14 @@ Pollard, D. (2002). <em>A user’s guide to measure theoretic probability</em> (
       }
     }
   });
-  </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./021-independence.html" class="pagination-link" aria-label="Independence and product spaces">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Independence and product spaces</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>  <span class="chapter-title">Independence and product spaces</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./023-discrete-condition.html" class="pagination-link" aria-label="Discrete Conditioning">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Discrete Conditioning</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">10</span>  <span class="chapter-title">Discrete Conditioning</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1245,4 +1202,9 @@ Pollard, D. (2002). <em>A user’s guide to measure theoretic probability</em> (
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/032-acfamilies.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/032-acfamilies.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li>
+</ul></div></div></div></footer>
+</body>
+</html>

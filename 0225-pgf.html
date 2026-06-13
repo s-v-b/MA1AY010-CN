@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<link rel="alternate" hreflang="en" href="/0225-pgf.html" />
+<link rel="alternate" hreflang="fr" href="/fr/0225-pgf.fr.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.24">
-
+<meta name="generator" content="quarto-1.9.36">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>6&nbsp; Characterizations of discrete probability distributions – MA1AY010 Class Notes</title>
+<title>6  Characterizations of discrete probability distributions – MA1AY010 Class Notes</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -21,28 +24,13 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 </style>
-
-
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script><script src="site_libs/quarto-nav/headroom.min.js"></script><script src="site_libs/clipboard/clipboard.min.js"></script><script src="site_libs/quarto-search/autocomplete.umd.js"></script><script src="site_libs/quarto-search/fuse.min.js"></script><script src="site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="./">
 <link href="./022-product-measures.html" rel="next">
 <link href="./03-families.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-3a70adc2469c323d0515427c5f9cb542.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script><script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script><link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-eb98473aa13ec2f8694b0a204f8986fa.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,12 +57,7 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
+}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
     // MathJax Typeset
@@ -100,18 +83,12 @@ window.Quarto = {
   typesetMath
 };
 </script>
-
 </head>
-
 <body class="nav-sidebar floating nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">MA1AY010 Class Notes</span>
     </a>
@@ -122,29 +99,21 @@ window.Quarto = {
 </div>
           <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
-    </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+    </nav><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./0225-pgf.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Characterizations of discrete probability distributions</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./0225-pgf.html"><span class="chapter-number">6</span>  <span class="chapter-title">Characterizations of discrete probability distributions</span></a></li></ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
-      </div>
-    <div class="sidebar-menu-container"> 
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="dropdown" id="languages-links-parent">
+<button class="btn btn-primary dropdown-toggle babelquarto-languages-button" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> Version in en</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="/fr/0225-pgf.fr.html" id="language-link-fr">Version in fr</a></li></ul>
+</div>
+<div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Warm up</span></a>
@@ -153,123 +122,123 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01-intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>  <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-language.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">A modicum of measure theory</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>  <span class="chapter-title">A modicum of measure theory</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./031-moments.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">A modicum of integration</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>  <span class="chapter-title">A modicum of integration</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./033-integration2moments.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">From integrals to expectation and moments</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>  <span class="chapter-title">From integrals to expectation and moments</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-families.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Families of discrete distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>  <span class="chapter-title">Families of discrete distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0225-pgf.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Characterizations of discrete probability distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>  <span class="chapter-title">Characterizations of discrete probability distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./022-product-measures.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Product distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>  <span class="chapter-title">Product distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./021-independence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Independence and product spaces</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>  <span class="chapter-title">Independence and product spaces</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./032-acfamilies.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Absolutely continuous probability measures</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>  <span class="chapter-title">Absolutely continuous probability measures</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./023-discrete-condition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Discrete Conditioning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>  <span class="chapter-title">Discrete Conditioning</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06-conditioning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Conditioning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>  <span class="chapter-title">Conditioning</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-characterizations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Characterizations of probability distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>  <span class="chapter-title">Characterizations of probability distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./041-characterization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Quantile functions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>  <span class="chapter-title">Quantile functions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-convergences-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Convergences I : almost sure, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, in Probability</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>  <span class="chapter-title">Convergences I : almost sure, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, in Probability</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-convergence-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Convergence in distribution</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>  <span class="chapter-title">Convergence in distribution</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./09-gaussian-vectors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Gaussian vectors</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>  <span class="chapter-title">Gaussian vectors</span></span></a>
   </div>
 </li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#sec-roadmapcharacpgf" id="toc-sec-roadmapcharacpgf" class="nav-link active" data-scroll-target="#sec-roadmapcharacpgf"><span class="header-section-number">6.1</span> Motivation</a></li>
+<li><a href="#sec-roadmapcharacpgf" id="toc-sec-roadmapcharacpgf" class="nav-link active" data-scroll-target="#sec-roadmapcharacpgf"><span class="header-section-number">6.1</span> Motivation</a></li>
   <li><a href="#sec-PGF" id="toc-sec-PGF" class="nav-link" data-scroll-target="#sec-PGF"><span class="header-section-number">6.2</span> Probability generating function</a></li>
   <li><a href="#sec-invformula-pgf" id="toc-sec-invformula-pgf" class="nav-link" data-scroll-target="#sec-invformula-pgf"><span class="header-section-number">6.3</span> Inversion formula</a></li>
   <li><a href="#sec-pgf-sums" id="toc-sec-pgf-sums" class="nav-link" data-scroll-target="#sec-pgf-sums"><span class="header-section-number">6.4</span> Sums of independent random variables and probability generating fuunctions</a></li>
   <li><a href="#sec-smooth-integrable-pgf" id="toc-sec-smooth-integrable-pgf" class="nav-link" data-scroll-target="#sec-smooth-integrable-pgf"><span class="header-section-number">6.5</span> Smoothness and integrability</a></li>
+  <li><a href="#pgf-for-joint-distributions-sec-multivariatepgfs" id="toc-pgf-for-joint-distributions-sec-multivariatepgfs" class="nav-link" data-scroll-target="#pgf-for-joint-distributions-sec-multivariatepgfs"><span class="header-section-number">6.6</span> PGF for joint distributions {#sec-multivariate=pgfs}</a></li>
+  <li><a href="#sec-compound-distributions" id="toc-sec-compound-distributions" class="nav-link" data-scroll-target="#sec-compound-distributions"><span class="header-section-number">6.7</span> Conmpound distributions</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/0225-pgf.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
-    </div>
+<div class="toc-actions"><ul>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/0225-pgf.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li>
+</ul></div></nav>
+</div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title"><span id="sec-chappgf" class="quarto-section-identifier"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Characterizations of discrete probability distributions</span></span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title"><span id="sec-chappgf" class="quarto-section-identifier"><span class="chapter-number">6</span>  <span class="chapter-title">Characterizations of discrete probability distributions</span></span></h1>
 </div>
 
 
@@ -283,20 +252,16 @@ window.Quarto = {
   
 
 
-</header>
-
-
-<section id="sec-roadmapcharacpgf" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="sec-roadmapcharacpgf"><span class="header-section-number">6.1</span> Motivation</h2>
+</header><section id="sec-roadmapcharacpgf" class="level2" data-number="6.1"><h2 data-number="6.1" class="anchored" data-anchor-id="sec-roadmapcharacpgf">
+<span class="header-section-number">6.1</span> Motivation</h2>
 <p>In full generality, a probability distribution is a complex object. It is a <span class="math inline">\([0,1]\)</span>-valued function defined over a <span class="math inline">\(\sigma\)</span>-algebra of subsets. A concrete <span class="math inline">\(\sigma\)</span>-algebra, let alone the abstract notion of <span class="math inline">\(\sigma\)</span>-algebra, is not easily grasped. Looking for simpler characterizations of probability distributions is a sensible goal. When facing questions like: ``are two probability distributions equal?“, we know it suffices to check that the two distributions coincide on generating families of events. This makes cumulative distribution functions precious tools. Cumulative distribution functions and their generalized inverse functions (quantile functions) are very convenient when handling maxima, minima, or more generally order statistics of collections of independent random variables, but when it comes to handling sums of independent random variables or branching processes, cumulative distribution functions are of moderate help.</p>
-<p>In this lesson, we review a way of characterizing probability distributions over <span class="math inline">\((\mathbb{N}, \mathcal{F}=2^{\mathbb{N}})\)</span> through functions defined on the real line: probability generating functions (<a href="#sec-PGF" class="quarto-xref">Section&nbsp;<span>6.2</span></a>)). Later (Chapter <a href="04-characterizations.html" class="quarto-xref"><span>Chapter 12</span></a>), we will survey more general tools: Laplace transforms (<a href="04-characterizations.html#sec-laplace" class="quarto-xref">Section&nbsp;<span>12.2</span></a>)) and characteristic functions which extend Fourier transforms to probability distributions (<a href="04-characterizations.html#sec-charfun" class="quarto-xref">Section&nbsp;<span>12.3</span></a>)).</p>
+<p>In this lesson, we review a way of characterizing probability distributions over <span class="math inline">\((\mathbb{N}, \mathcal{F}=2^{\mathbb{N}})\)</span> through functions defined on the real line: probability generating functions (<a href="#sec-PGF" class="quarto-xref">Section <span>6.2</span></a>)). Later (Chapter <a href="04-characterizations.html" class="quarto-xref"><span>Chapter 12</span></a>), we will survey more general tools: Laplace transforms (<a href="04-characterizations.html#sec-laplace" class="quarto-xref">Section <span>12.2</span></a>)) and characteristic functions which extend Fourier transforms to probability distributions (<a href="04-characterizations.html#sec-charfun" class="quarto-xref">Section <span>12.3</span></a>)).</p>
 <p>All three methods are distinct in scope but they rely on the same idea and share common features. Indeed, probability generating functions can be seen as special case of Laplace transforms. The latter can be seen as special cases of Fourier transforms.</p>
 <p>All three methods do <em>characterize</em> probability distributions. They are equipped with <em>inversion formulae</em>. The three methods provide us with a seamless treatment of sums of independent random variables.</p>
 <p>All three methods relate the integrability of probability distributions and the smoothness of transforms.</p>
 <p>Probability generating functions, Laplace transforms and characteristic functions deliver an important analytical machinery to Probability Theory. From Analysis, we get off-the-shelf arguments to establish smoothness properties of transforms, and with little more work, we can construct the inversion formulae.</p>
-</section>
-<section id="sec-PGF" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="sec-PGF"><span class="header-section-number">6.2</span> Probability generating function</h2>
+</section><section id="sec-PGF" class="level2" data-number="6.2"><h2 data-number="6.2" class="anchored" data-anchor-id="sec-PGF">
+<span class="header-section-number">6.2</span> Probability generating function</h2>
 <p>In this section, <span class="math inline">\(X\)</span> is an integer-valued random variable, with distribution <span class="math inline">\(P\)</span>, cumulative distribution function <span class="math inline">\(F\)</span> and probability mass function <span class="math inline">\(p\)</span>. Recall that <span class="math inline">\(P\)</span> is completely characterized by the much simpler objects <span class="math inline">\(F\)</span> and <span class="math inline">\(p\)</span>. Now, let <span class="math inline">\(Y\)</span> be another integer-valued random variable living on the same probability space as <span class="math inline">\(X\)</span>, independent from <span class="math inline">\(X\)</span>, with distribution <span class="math inline">\(Q\)</span>, distribution function <span class="math inline">\(G\)</span> and probability mass function <span class="math inline">\(q\)</span>. What can we tell about the distribution of <span class="math inline">\(X+Y\)</span>? Is it easy to figure out its cumulative distribution function, its probability mass function?</p>
 <p>The probability mass function of (the distribution of) <span class="math inline">\(X+Y\)</span> is the <em>convolution</em> of <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> <span class="math display">\[\begin{align*}
 \mathbb{P}\{ X + Y = n\}
@@ -325,10 +290,12 @@ G(s) =  \sum_{n=0}^\infty f(n) s^n \, .
 <ul>
 <li>Bernoulli distribution with parameter <span class="math inline">\(p\)</span>: <span class="math display">\[
 G(s) = (1 - p) s^0 + p s^1 = 1 + p (s-1)
-\]</span></li>
+\]</span>
+</li>
 <li>Binomial distribution with parameters <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span>: <span class="math display">\[
 G(s) = \sum_{k=0}^n \binom{n}{k} p^k (1-p)^{n-k} s^k =  \left(ps + 1- p\right)^n = \left( 1 + p(s-1)\right)^n
-\]</span></li>
+\]</span>
+</li>
 <li>Poisson distribution with parameter <span class="math inline">\(\mu\)</span>: <span class="math display">\[
 G(s) = \sum_{n=0}^\infty \mathrm{e}^{-\mu} \frac{\mu^n}{n!} s^n = \mathrm{e}^{\mu (s-1)} \,.
 \]</span> Note that if <span class="math inline">\(p=\mu/n\)</span> and <span class="math inline">\(n ↑ ∞\)</span>: <span class="math display">\[
@@ -346,24 +313,26 @@ G(s) = \sum_{n=0}^\infty \mathrm{e}^{-\mu} \frac{\mu^n}{n!} s^n = \mathrm{e}^{\m
 <div id="prp-pgf-trivial" class="theorem proposition">
 <p><span class="theorem-title"><strong>Proposition 6.1</strong></span> A probability generating function <span class="math inline">\(G\)</span> satisfies the following conditions:</p>
 <ul>
-<li><span class="math inline">\(G\)</span> is non-negative over <span class="math inline">\([0,1]\)</span>;</li>
-<li><span class="math inline">\(G(0) = P\{0\}, \quad G(1)=1\)</span>;</li>
-<li><span class="math inline">\(G\)</span> is non-decreasing over <span class="math inline">\([0,1]\)</span>;</li>
-<li><span class="math inline">\(G\)</span> is continuous and convex.</li>
+<li>
+<span class="math inline">\(G\)</span> is non-negative over <span class="math inline">\([0,1]\)</span>;</li>
+<li>
+<span class="math inline">\(G(0) = P\{0\}, \quad G(1)=1\)</span>;</li>
+<li>
+<span class="math inline">\(G\)</span> is non-decreasing over <span class="math inline">\([0,1]\)</span>;</li>
+<li>
+<span class="math inline">\(G\)</span> is continuous and convex.</li>
 </ul>
 </div>
 </div>
 </div>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>Properties 1), 2) and 3) are obvious: <span class="math inline">\(G\)</span> is a convex combination of non-negative, non-decreasing, continuous and convex functions.</p>
 </div>
-</section>
-<section id="sec-invformula-pgf" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="sec-invformula-pgf"><span class="header-section-number">6.3</span> Inversion formula</h2>
+</section><section id="sec-invformula-pgf" class="level2" data-number="6.3"><h2 data-number="6.3" class="anchored" data-anchor-id="sec-invformula-pgf">
+<span class="header-section-number">6.3</span> Inversion formula</h2>
 <p><em>Generatingfunctionology</em> lies at the crossing between combinatorics, real analysis, complex analysis, and probability theory. Defining PGF as a <em>power series</em> brings within probability theory a collection of theorems that facilitate the identification of probability distributions or that connect integrability properties of the probability distribution with smoothness properties of the PGF.</p>
 <p>Keep in mind that a generating function defines a function from the set of complex numbers <span class="math inline">\(\mathbb{C}\)</span> to <span class="math inline">\(\mathbb{C}\)</span>: <span class="math display">\[
 G(z) = \sum_{n=0}^\infty p(n) z^n \qquad\text{for all } z \in \mathbb{C} \text{ such that the series converges}\, .
@@ -445,8 +414,7 @@ G(z) = \sum_{n\in \mathbb{N}} p(n) z^n, \qquad z \in \mathbb{C}
 </div>
 </div>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>The property is true for <span class="math inline">\(n=0\)</span>.</p>
@@ -462,8 +430,7 @@ G(z) = \sum_{n\in \mathbb{N}} p(n) z^n, \qquad z \in \mathbb{C}
    \sum_{k=n+1}^\infty \frac{k!}{(k-n-1)!} \times f(k) \times s^{k-n-1} \,.
 \end{align*}\]</span></p>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 <div id="exm-invformula" class="theorem example">
 <p><span class="theorem-title"><strong>Example 6.2</strong></span> The Probability Generating Function of a Poisson distribution with parameter <span class="math inline">\(\mu\)</span> equals <span class="math inline">\(\exp(\mu(s-1))\)</span>. <span class="math display">\[\begin{align*}
@@ -472,9 +439,8 @@ g(s)
   &amp; = \mathrm{e}^{-\mu} \times \mathrm{e}^{\mu s} \, .
 \end{align*}\]</span> If we meet a probability distribution with such a PGF, we know it is a Poisson distribution (with parameter <span class="math inline">\(\mu\)</span>).</p>
 </div>
-</section>
-<section id="sec-pgf-sums" class="level2" data-number="6.4">
-<h2 data-number="6.4" class="anchored" data-anchor-id="sec-pgf-sums"><span class="header-section-number">6.4</span> Sums of independent random variables and probability generating fuunctions</h2>
+</section><section id="sec-pgf-sums" class="level2" data-number="6.4"><h2 data-number="6.4" class="anchored" data-anchor-id="sec-pgf-sums">
+<span class="header-section-number">6.4</span> Sums of independent random variables and probability generating fuunctions</h2>
 <p>Probability Generating Functions provide us with a handy tool to investigate sums of independent random variables.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -490,8 +456,7 @@ G_{X+Y} = G_X \times G_Y \, .
 </div>
 </div>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>The proof relies on the fact that non-negative convergent series are commutatively convergent.</p>
@@ -516,15 +481,13 @@ G_{X+Y} = G_X \times G_Y \, .
   &amp; = \int_{\mathbb{R}} s^y G_X(s) \mathrm{d}P_Y(y) \\
   &amp; = G_X(s) \times G_Y(s) \, .
 \end{align*}\]</span></p>
-<br>
-<p>
+<br><p>
 </p>
 <div id="exm-sum-pgf" class="theorem example">
 <p><span class="theorem-title"><strong>Example 6.3</strong></span> If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent Poisson random variables with parameters <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\nu\)</span>, then <span class="math inline">\(G_{X+Y}(s) = \exp(\mu(s-1))\times \exp(\nu(s-1))=  \exp((\mu+\nu)(s-1))\)</span>. This is another proof that <span class="math inline">\(X+Y\)</span> is Poisson distributed with parameter <span class="math inline">\(\mu+\nu\)</span>.</p>
 </div>
-</section>
-<section id="sec-smooth-integrable-pgf" class="level2" data-number="6.5">
-<h2 data-number="6.5" class="anchored" data-anchor-id="sec-smooth-integrable-pgf"><span class="header-section-number">6.5</span> Smoothness and integrability</h2>
+</section><section id="sec-smooth-integrable-pgf" class="level2" data-number="6.5"><h2 data-number="6.5" class="anchored" data-anchor-id="sec-smooth-integrable-pgf">
+<span class="header-section-number">6.5</span> Smoothness and integrability</h2>
 <p>A PGF is infinitely many times differentiable inside the (open) disk of convergence. If the radius of convergence is larger than <span class="math inline">\(1\)</span> (as for Poisson or geometric distributions), this entails that the PGF is infinitely many times differentiable at <span class="math inline">\(1\)</span>, If the radius of convergence is exactly <span class="math inline">\(1\)</span>, the differentiability on the circle of convergence is not prescribed by general theory.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -540,8 +503,7 @@ f^{(p)}(1) = \mathbb{E}\left[X (X-1) \ldots (X-p+1)\right] \, .
 </div>
 </div>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>Assume that <span class="math inline">\(G\)</span> is <span class="math inline">\(p\)</span>-times differentiable on the left at <span class="math inline">\(1\)</span>.</p>
@@ -549,16 +511,44 @@ f^{(p)}(1) = \mathbb{E}\left[X (X-1) \ldots (X-p+1)\right] \, .
 <p>Assume that <span class="math inline">\(|X|\)</span> is <span class="math inline">\(p\)</span>-integrable.</p>
 <!-- TODO: -->
 </div>
-<br>
-<p>
+<br><p>
 </p>
 <p>The next question arises quickly: when is a function from <span class="math inline">\([0,1]\)</span> to <span class="math inline">\([0,\infty)\)</span> a probability generating function? This question is addressed later in a broader perspective.</p>
+<p>:::::: {.content-hidden unless-profile”WIP”}</p>
+</section><section id="pgf-for-joint-distributions-sec-multivariatepgfs" class="level2" data-number="6.6"><h2 data-number="6.6" class="anchored" data-anchor-id="pgf-for-joint-distributions-sec-multivariatepgfs">
+<span class="header-section-number">6.6</span> PGF for joint distributions {#sec-multivariate=pgfs}</h2>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-multi-pgf" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 6.2 (Multivariate Probability Generating Function)</strong></span> <span class="math display">\[G_{X,Y}(s,t) = \mathbb{E} \left[s^Xt^Y\right] \qquad \text{for } s,t \in [0,1]\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</section><section id="sec-compound-distributions" class="level2" data-number="6.7"><h2 data-number="6.7" class="anchored" data-anchor-id="sec-compound-distributions">
+<span class="header-section-number">6.7</span> Conmpound distributions</h2>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-compound-distrib" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 6.3 (Compount distribution)</strong></span> <span class="math display">\[Y = \sum_{i=1}^X Z_i\]</span></p>
+<p><span class="math display">\[G_Y(s) = G_X \circ G_Z(s)\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<p>Application Poisson thinning</p>
+<p>:::::</p>
 
 
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -957,16 +947,14 @@ f^{(p)}(1) = \mathbb{E}\left[X (X-1) \ldots (X-p+1)\right] \, .
       }
     }
   });
-  </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./03-families.html" class="pagination-link" aria-label="Families of discrete distributions">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Families of discrete distributions</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>  <span class="chapter-title">Families of discrete distributions</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./022-product-measures.html" class="pagination-link" aria-label="Product distributions">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Product distributions</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">7</span>  <span class="chapter-title">Product distributions</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -975,4 +963,9 @@ f^{(p)}(1) = \mathbb{E}\left[X (X-1) \ldots (X-p+1)\right] \, .
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/0225-pgf.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/0225-pgf.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li>
+</ul></div></div></div></footer>
+</body>
+</html>

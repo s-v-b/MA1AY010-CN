@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<link rel="alternate" hreflang="en" href="/09-gaussian-vectors.html" />
+<link rel="alternate" hreflang="fr" href="/fr/09-gaussian-vectors.fr.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.24">
-
+<meta name="generator" content="quarto-1.9.36">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>16&nbsp; Gaussian vectors – MA1AY010 Class Notes</title>
+<title>16  Gaussian vectors – MA1AY010 Class Notes</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -41,27 +44,12 @@ div.csl-right-inline {
 div.csl-indent {
   margin-left: 2em;
 }</style>
-
-
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script><script src="site_libs/quarto-nav/headroom.min.js"></script><script src="site_libs/clipboard/clipboard.min.js"></script><script src="site_libs/quarto-search/autocomplete.umd.js"></script><script src="site_libs/quarto-search/fuse.min.js"></script><script src="site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="./">
 <link href="./08-convergence-3.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-3a70adc2469c323d0515427c5f9cb542.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script><script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script><link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-eb98473aa13ec2f8694b0a204f8986fa.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -88,12 +76,7 @@ div.csl-indent {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
+}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
     // MathJax Typeset
@@ -119,18 +102,12 @@ window.Quarto = {
   typesetMath
 };
 </script>
-
 </head>
-
 <body class="nav-sidebar floating nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">MA1AY010 Class Notes</span>
     </a>
@@ -141,29 +118,21 @@ window.Quarto = {
 </div>
           <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
-    </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+    </nav><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./09-gaussian-vectors.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Gaussian vectors</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./09-gaussian-vectors.html"><span class="chapter-number">16</span>  <span class="chapter-title">Gaussian vectors</span></a></li></ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
-      </div>
-    <div class="sidebar-menu-container"> 
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="dropdown" id="languages-links-parent">
+<button class="btn btn-primary dropdown-toggle babelquarto-languages-button" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> Version in en</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="/fr/09-gaussian-vectors.fr.html" id="language-link-fr">Version in fr</a></li></ul>
+</div>
+<div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Warm up</span></a>
@@ -172,110 +141,108 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01-intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>  <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-language.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">A modicum of measure theory</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>  <span class="chapter-title">A modicum of measure theory</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./031-moments.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">A modicum of integration</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>  <span class="chapter-title">A modicum of integration</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./033-integration2moments.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">From integrals to expectation and moments</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>  <span class="chapter-title">From integrals to expectation and moments</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-families.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Families of discrete distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>  <span class="chapter-title">Families of discrete distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0225-pgf.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Characterizations of discrete probability distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>  <span class="chapter-title">Characterizations of discrete probability distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./022-product-measures.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Product distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>  <span class="chapter-title">Product distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./021-independence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Independence and product spaces</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>  <span class="chapter-title">Independence and product spaces</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./032-acfamilies.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Absolutely continuous probability measures</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>  <span class="chapter-title">Absolutely continuous probability measures</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./023-discrete-condition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Discrete Conditioning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>  <span class="chapter-title">Discrete Conditioning</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06-conditioning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Conditioning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>  <span class="chapter-title">Conditioning</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-characterizations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Characterizations of probability distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>  <span class="chapter-title">Characterizations of probability distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./041-characterization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Quantile functions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>  <span class="chapter-title">Quantile functions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-convergences-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Convergences I : almost sure, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, in Probability</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>  <span class="chapter-title">Convergences I : almost sure, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, in Probability</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-convergence-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Convergence in distribution</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>  <span class="chapter-title">Convergence in distribution</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./09-gaussian-vectors.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Gaussian vectors</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>  <span class="chapter-title">Gaussian vectors</span></span></a>
   </div>
 </li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#sec-secGaussUnivar" id="toc-sec-secGaussUnivar" class="nav-link active" data-scroll-target="#sec-secGaussUnivar"><span class="header-section-number">16.1</span> Univariate Gaussian distribution</a></li>
+<li><a href="#sec-secGaussUnivar" id="toc-sec-secGaussUnivar" class="nav-link active" data-scroll-target="#sec-secGaussUnivar"><span class="header-section-number">16.1</span> Univariate Gaussian distribution</a></li>
   <li><a href="#sec-GaussVec" id="toc-sec-GaussVec" class="nav-link" data-scroll-target="#sec-GaussVec"><span class="header-section-number">16.2</span> Gaussian vectors</a></li>
   <li><a href="#sec-convergenceGaussVectors" id="toc-sec-convergenceGaussVectors" class="nav-link" data-scroll-target="#sec-convergenceGaussVectors"><span class="header-section-number">16.3</span> Convergence of Gaussian vectors</a></li>
   <li><a href="#sec-gauss-conditioning" id="toc-sec-gauss-conditioning" class="nav-link" data-scroll-target="#sec-gauss-conditioning"><span class="header-section-number">16.4</span> Gaussian conditioning</a></li>
@@ -286,14 +253,14 @@ window.Quarto = {
   <li><a href="#gaussian-concentration" id="toc-gaussian-concentration" class="nav-link" data-scroll-target="#gaussian-concentration"><span class="header-section-number">16.9</span> Gaussian concentration</a></li>
   <li><a href="#bibliographic-remarks" id="toc-bibliographic-remarks" class="nav-link" data-scroll-target="#bibliographic-remarks"><span class="header-section-number">16.10</span> Bibliographic remarks</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/09-gaussian-vectors.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
-    </div>
+<div class="toc-actions"><ul>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/09-gaussian-vectors.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li>
+</ul></div></nav>
+</div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title"><span id="sec-chapGaussianVectors" class="quarto-section-identifier"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Gaussian vectors</span></span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title"><span id="sec-chapGaussianVectors" class="quarto-section-identifier"><span class="chapter-number">16</span>  <span class="chapter-title">Gaussian vectors</span></span></h1>
 </div>
 
 
@@ -307,11 +274,8 @@ window.Quarto = {
   
 
 
-</header>
-
-
-<section id="sec-secGaussUnivar" class="level2" data-number="16.1">
-<h2 data-number="16.1" class="anchored" data-anchor-id="sec-secGaussUnivar"><span class="header-section-number">16.1</span> Univariate Gaussian distribution</h2>
+</header><section id="sec-secGaussUnivar" class="level2" data-number="16.1"><h2 data-number="16.1" class="anchored" data-anchor-id="sec-secGaussUnivar">
+<span class="header-section-number">16.1</span> Univariate Gaussian distribution</h2>
 <p>The standard Gaussian density is denoted by <span class="math inline">\(\phi\)</span>: <span class="math display">\[
 \phi(x) = \frac{\mathrm{e}^{- \frac{x^2}{2} }}{\sqrt{2 \pi}} \, .
 \]</span> The corresponding cumulative distribution function is denoted by <span class="math inline">\(\Phi\)</span>. The survival function <span class="math inline">\(1- \Phi\)</span> is denoted by <span class="math inline">\(\overline{\Phi}\)</span>. <span class="math display">\[
@@ -388,7 +352,7 @@ window.Quarto = {
 \log \widehat{\Phi}(t) =  - \frac{t^2}{2} \, .
 \]</span></p>
 </div>
-<p>The fact that the characteristic function completely defines the probability distribution provides us with a converse of <a href="#lem-steinslemma" class="quarto-xref">Lemma&nbsp;<span>16.1</span></a>.</p>
+<p>The fact that the characteristic function completely defines the probability distribution provides us with a converse of <a href="#lem-steinslemma" class="quarto-xref">Lemma <span>16.1</span></a>.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -497,9 +461,8 @@ x}  .
 <p><span class="math display">\[
 \mathbb{E}[X^4] =  3 \times  \mathbb{E}[X^2]^2 \, .
 \]</span></p>
-</section>
-<section id="sec-GaussVec" class="level2" data-number="16.2">
-<h2 data-number="16.2" class="anchored" data-anchor-id="sec-GaussVec"><span class="header-section-number">16.2</span> Gaussian vectors</h2>
+</section><section id="sec-GaussVec" class="level2" data-number="16.2"><h2 data-number="16.2" class="anchored" data-anchor-id="sec-GaussVec">
+<span class="header-section-number">16.2</span> Gaussian vectors</h2>
 <p>A Gaussian vector is a collection of univariate Gaussian random variables that satisfies a very stringent property:</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -760,10 +723,9 @@ v^\top M v &gt; 0 \qquad (\text{resp.} \qquad v^\top M v \geq 0) \, .
 </div>
 </div>
 </div>
-</section>
-<section id="sec-convergenceGaussVectors" class="level2" data-number="16.3">
-<h2 data-number="16.3" class="anchored" data-anchor-id="sec-convergenceGaussVectors"><span class="header-section-number">16.3</span> Convergence of Gaussian vectors</h2>
-<p>Recall the Lévy continuity theorem (<a href="08-convergence-3.html#thm-thmlevycont" class="quarto-xref">Theorem&nbsp;<span>15.2</span></a>)), it relates weak convergence for probability measures and simple convergence for characteristic functions.</p>
+</section><section id="sec-convergenceGaussVectors" class="level2" data-number="16.3"><h2 data-number="16.3" class="anchored" data-anchor-id="sec-convergenceGaussVectors">
+<span class="header-section-number">16.3</span> Convergence of Gaussian vectors</h2>
+<p>Recall the Lévy continuity theorem (<a href="08-convergence-3.html#thm-thmlevycont" class="quarto-xref">Theorem <span>15.2</span></a>)), it relates weak convergence for probability measures and simple convergence for characteristic functions.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -816,9 +778,8 @@ v^\top M v &gt; 0 \qquad (\text{resp.} \qquad v^\top M v \geq 0) \, .
 </div>
 </div>
 </div>
-</section>
-<section id="sec-gauss-conditioning" class="level2" data-number="16.4">
-<h2 data-number="16.4" class="anchored" data-anchor-id="sec-gauss-conditioning"><span class="header-section-number">16.4</span> Gaussian conditioning</h2>
+</section><section id="sec-gauss-conditioning" class="level2" data-number="16.4"><h2 data-number="16.4" class="anchored" data-anchor-id="sec-gauss-conditioning">
+<span class="header-section-number">16.4</span> Gaussian conditioning</h2>
 <p>Let <span class="math inline">\((X_1,\ldots,X_n)^\top\)</span> be a Gaussian vector with distribution <span class="math inline">\(\mathcal{N}(\mu, K)\)</span> where <span class="math inline">\(K \in \textsf{DP}(n)\)</span>. The covariance matrix <span class="math inline">\(K\)</span> is partitioned into blocks <span class="math display">\[
 K = \left[
 \begin{array}{cc}
@@ -1041,9 +1002,8 @@ K H^\top (HKH^\top)^{-1}
 K - K H^\top (HKH^\top)^{-1} H K \, .
 \]</span></p>
 <p>The linearity of conditional expectation is a property of Gaussian vectors and linear conditioning. If you condition with respect to the norm <span class="math inline">\(\| X\|_2\)</span>, the conditional distribution is not Gaussian anymore.</p>
-</section>
-<section id="sec-about-gamma" class="level2" data-number="16.5">
-<h2 data-number="16.5" class="anchored" data-anchor-id="sec-about-gamma"><span class="header-section-number">16.5</span> About Gamma distributions</h2>
+</section><section id="sec-about-gamma" class="level2" data-number="16.5"><h2 data-number="16.5" class="anchored" data-anchor-id="sec-about-gamma">
+<span class="header-section-number">16.5</span> About Gamma distributions</h2>
 <p>Investigating the norm of Gaussian vectors will prompt us to introduce <span class="math inline">\(\chi^2\)</span> distributions, a sub-family of Gamma distributions.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -1120,8 +1080,7 @@ x^{p + q - 1} \int_0^{1} u^{p-1} (1 - u)^{q - 1}
 \mathrm{d} u\\
 &amp; = &amp; g_{p + q, \lambda} (x) \frac{\Gamma(p+q)}{\Gamma(p)\Gamma(q)} \int_0^{1} u^{p-1} (1 - u)^{q - 1}
 \mathrm{d} u \, .
-\end{eqnarray*}\]</span> We may pocket the next observation:<br>
-<span class="math display">\[
+\end{eqnarray*}\]</span> We may pocket the next observation:<br><span class="math display">\[
 B(p,q):=   \int_0^{1} u^{p-1} (1 - u)^{q - 1}
 \mathrm{d} u
 \]</span></p>
@@ -1157,7 +1116,7 @@ B(p,q):=   \int_0^{1} u^{p-1} (1 - u)^{q - 1}
 </div>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>According to proposition <a href="032-acfamilies.html#prp-gammabeta" class="quarto-xref">Proposition&nbsp;<span>9.2</span></a>), it suffices to establish the proposition <span class="math inline">\(k = 1.\)</span></p>
+<p><span class="proof-title"><em>Proof</em>. </span>According to proposition <a href="032-acfamilies.html#prp-gammabeta" class="quarto-xref">Proposition <span>9.2</span></a>), it suffices to establish the proposition <span class="math inline">\(k = 1.\)</span></p>
 <p>Let <span class="math inline">\(X \sim \mathcal{N}(0,1)\)</span>, for <span class="math inline">\(t\geq 0\)</span>, <span class="math display">\[\begin{align*}
 \mathbb{P} \left\{ X^2 \leq t\right\}
 &amp; = &amp; \Phi(\sqrt{t}) - \Phi(-\sqrt{t}) \\
@@ -1166,9 +1125,8 @@ B(p,q):=   \int_0^{1} u^{p-1} (1 - u)^{q - 1}
 2 \frac{1}{2\sqrt{t}} \phi(\sqrt{t}) = \frac{1}{\sqrt{2\pi t}} \mathrm{e}^{-\frac{t}{2}} = \left(\frac{1}{2}\right)^{1/2} \frac{t^{-1/2}}{\Gamma(1/2)} \mathrm{e}^{-\frac{t}{2}} \,.
 \]</span></p>
 </div>
-</section>
-<section id="norms-of-centred-gaussian-vectors" class="level2" data-number="16.6">
-<h2 data-number="16.6" class="anchored" data-anchor-id="norms-of-centred-gaussian-vectors"><span class="header-section-number">16.6</span> Norms of centred Gaussian vectors</h2>
+</section><section id="norms-of-centred-gaussian-vectors" class="level2" data-number="16.6"><h2 data-number="16.6" class="anchored" data-anchor-id="norms-of-centred-gaussian-vectors">
+<span class="header-section-number">16.6</span> Norms of centred Gaussian vectors</h2>
 <p>The distribution of the squared Euclidean norm of a centered Gaussian vector only depends on the spectrum of its covariance matrix.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -1190,9 +1148,8 @@ B(p,q):=   \int_0^{1} u^{p-1} (1 - u)^{q - 1}
 {L}  {Y}\)</span>. There exist an orthogonal transform <span class="math inline">\(O\)</span> such that <span class="math inline">\(L^\top M L = O^\top \operatorname{diag}
 (\lambda_i) O.\)</span> Random vector <span class="math inline">\(O {Y}\)</span> is distributed like <span class="math inline">\(\mathcal{N} (0, I_n)\)</span>.</p>
 </div>
-</section>
-<section id="sec-norm-non-centered" class="level2" data-number="16.7">
-<h2 data-number="16.7" class="anchored" data-anchor-id="sec-norm-non-centered"><span class="header-section-number">16.7</span> Norm of non-centred Gaussian vectors</h2>
+</section><section id="sec-norm-non-centered" class="level2" data-number="16.7"><h2 data-number="16.7" class="anchored" data-anchor-id="sec-norm-non-centered">
+<span class="header-section-number">16.7</span> Norm of non-centred Gaussian vectors</h2>
 <p>The distribution of the squared norm of a Gaussian vector with covariance matrix <span class="math inline">\(\sigma^2 \operatorname{Id}\)</span> depends on the norm of the expectation but does not depend on its direction. In addition, this distribution stochastically can be compared with the distribution of the squared norm of a centred Gaussian vector with the same covariance.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -1240,8 +1197,7 @@ B(p,q):=   \int_0^{1} u^{p-1} (1 - u)^{q - 1}
 </div>
 <div class="callout-body-container">
 <div id="thm-non-central-chi" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 16.6</strong></span> If <span class="math inline">\(X \sim \mathcal{N}\left( 0, \sigma^2 \operatorname{Id}\right)\)</span> and <span class="math inline">\(Y \sim \mathcal{N}\left( \theta, \sigma^2 \operatorname{Id}\right)\)</span> with <span class="math inline">\(\theta \in \mathbb{R}^d\)</span> then<br>
-<span class="math display">\[
+<p><span class="theorem-title"><strong>Theorem 16.6</strong></span> If <span class="math inline">\(X \sim \mathcal{N}\left( 0, \sigma^2 \operatorname{Id}\right)\)</span> and <span class="math inline">\(Y \sim \mathcal{N}\left( \theta, \sigma^2 \operatorname{Id}\right)\)</span> with <span class="math inline">\(\theta \in \mathbb{R}^d\)</span> then<br><span class="math display">\[
 \left\Vert Y \right\Vert^2 \sim  \left( (Z_1 + \|\theta\|_2)^2 + \sum_{i=1}^d Z_i^2 \right)
 \]</span></p>
 <p>where <span class="math inline">\(Z_i\)</span> are i.i.d. according to <span class="math inline">\(\mathcal{N}(0,\sigma^2)\)</span>.</p>
@@ -1269,8 +1225,7 @@ O \theta = \begin{pmatrix}
 \mathbb{P} \left\{ (Z_1+ \|\theta\|_2)^2  \leq x \right\} \leq
 \mathbb{P} \left\{ X_1^2 \leq x \right\} \, ,
 \]</span></p>
-<p>that is<br>
-<span class="math display">\[
+<p>that is<br><span class="math display">\[
 \mathbb{P} \left\{ |Z_1+ \|\theta\|_2|  \leq \sqrt{x} \right\} \leq
 \mathbb{P} \left\{ |X_1| \leq \sqrt{x} \right\} \, ,
 \]</span></p>
@@ -1283,9 +1238,8 @@ O \theta = \begin{pmatrix}
 \mathbb{P} \left\{ X \in \theta + C \right\} \leq \mathbb{P} \left\{ X \in C\right\}
 \]</span></p>
 <p>where <span class="math inline">\(X \sim \mathcal{N}(0,\operatorname{Id}_1)\)</span>, <span class="math inline">\(\theta \in \mathbb{R}\)</span> and <span class="math inline">\(C = [-\sqrt{x},\sqrt{x}]\)</span>. This inequality holds in dimension <span class="math inline">\(d\geq 1\)</span> if <span class="math inline">\(C\)</span> is compact, convex, symmetric. This (subtle) result is called Anderson’s Lemma.</p>
-</section>
-<section id="sec-cochran" class="level2" data-number="16.8">
-<h2 data-number="16.8" class="anchored" data-anchor-id="sec-cochran"><span class="header-section-number">16.8</span> Cochran Theorem and consequences</h2>
+</section><section id="sec-cochran" class="level2" data-number="16.8"><h2 data-number="16.8" class="anchored" data-anchor-id="sec-cochran">
+<span class="header-section-number">16.8</span> Cochran Theorem and consequences</h2>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -1322,7 +1276,7 @@ O \theta = \begin{pmatrix}
 </div>
 <div class="callout-body-container">
 <div id="thm-student" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 16.8 (Student)</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Theorem 16.8 (Student)</strong></span>  </p>
 Of <span class="math inline">\((X_1, \ldots, X_n)\)</span> are i.i.d. according to <span class="math inline">\(\mathcal{N} (\mu, \sigma^2)\)</span>, if <span class="math inline">\(\overline{X}_n:=
 \sum^n_{i = 1}  X_i / n\)</span> et <span class="math inline">\(V:= \sum^{n}_{i = 1} (X_i - \overline{X}_n)^2\)</span>, then
 </div>
@@ -1362,9 +1316,8 @@ Of <span class="math inline">\((X_1, \ldots, X_n)\)</span> are i.i.d. according 
 </div>
 </div>
 </div>
-</section>
-<section id="gaussian-concentration" class="level2" data-number="16.9">
-<h2 data-number="16.9" class="anchored" data-anchor-id="gaussian-concentration"><span class="header-section-number">16.9</span> Gaussian concentration</h2>
+</section><section id="gaussian-concentration" class="level2" data-number="16.9"><h2 data-number="16.9" class="anchored" data-anchor-id="gaussian-concentration">
+<span class="header-section-number">16.9</span> Gaussian concentration</h2>
 <p>The very definition of Gaussian vectors characterizes he distribution of any affine function of a standard Gaussian vector. If the linear part of the affine function is defined by a vector <span class="math inline">\(\lambda\)</span>, we know that the variance will be <span class="math inline">\(\|\lambda\|^2_2\)</span>. What happens if we are interested in fairly regular functions of a standard Gaussian vector? for example if we consider <span class="math inline">\(L\)</span>-lipschitzian functions? These are generalizations of affine functions. We cannot therefore expect a general increase in the variance of the <span class="math inline">\(L\)</span>-Lipschitzian functions of a standard Gaussian vector better than <span class="math inline">\(L^2\)</span> (in the linear case the Lipschitz constant is the Euclidean norm of <span class="math inline">\(\lambda\)</span>). It is remarkable that the bound provided for linear functions extends to Lipschitzian functions. It is even more remarkable that this bound does not involve the dimension of the ambient space.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -1378,7 +1331,8 @@ Of <span class="math inline">\((X_1, \ldots, X_n)\)</span> are i.i.d. according 
 <li><p>if <span class="math inline">\(f\)</span> is differentiable on <span class="math inline">\(\mathbb{R}^d\)</span>, <span class="math display">\[
   \operatorname{var}(f(X)) \leq \mathbb{E} \| \nabla f \|^2   \qquad \text{(Poincaré's inequality)}
   \]</span></p></li>
-<li><p>if <span class="math inline">\(f\)</span> is <span class="math inline">\(L\)</span>-Lipschitz on <span class="math inline">\(\mathbb{R}^d\)</span>,</p>
+<li>
+<p>if <span class="math inline">\(f\)</span> is <span class="math inline">\(L\)</span>-Lipschitz on <span class="math inline">\(\mathbb{R}^d\)</span>,</p>
 <p><span class="math display">\[
   \operatorname{var}(f(X)) \leq L^2
   \]</span></p>
@@ -1387,7 +1341,8 @@ Of <span class="math inline">\((X_1, \ldots, X_n)\)</span> are i.i.d. according 
   \]</span></p>
 <p>For every <span class="math inline">\(t\geq 0\)</span>, <span class="math display">\[
   \mathbb{P} \left\{ f(X) - \mathbb{E} f(X) \geq t \right\} \leq \mathrm{e}^{-\frac{t^2}{2 L^2}} \, .
-  \]</span></p></li>
+  \]</span></p>
+</li>
 </ul>
 </div>
 </div>
@@ -1481,20 +1436,17 @@ F( \lambda) \leq \mathrm{e}^{\frac{\lambda^2L^2}{2}} \, .
 <div class="callout-body-container">
 <div id="exr-diff-gaussvec" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 16.5</strong></span> Let <span class="math inline">\(X, Y\sim \mathcal{N} (0,\text{Id}_n)\)</span> with <span class="math inline">\(X,Y\)</span> indépendent.</p>
-<p>Show<br>
-<span class="math display">\[
+<p>Show<br><span class="math display">\[
 \sqrt{2n-1} \leq   \mathbb{E}[\|X-Y\|] \leq \sqrt{2 n}
-\]</span> and<br>
-<span class="math display">\[
+\]</span> and<br><span class="math display">\[
 \mathbb{P}   \left\{ \|X-Y\| - \mathbb{E}[\|X-Y\|] \geq t \right\} \leq \mathrm{e}^{-t^2} \, .
 \]</span></p>
 </div>
 </div>
 </div>
 </div>
-</section>
-<section id="bibliographic-remarks" class="level2" data-number="16.10">
-<h2 data-number="16.10" class="anchored" data-anchor-id="bibliographic-remarks"><span class="header-section-number">16.10</span> Bibliographic remarks</h2>
+</section><section id="bibliographic-remarks" class="level2" data-number="16.10"><h2 data-number="16.10" class="anchored" data-anchor-id="bibliographic-remarks">
+<span class="header-section-number">16.10</span> Bibliographic remarks</h2>
 <p>Gaussian literature is very abundant, see for example <span class="citation" data-cites="janson1997gaussian">(<a href="#ref-janson1997gaussian" role="doc-biblioref"><strong>janson1997gaussian?</strong></a>)</span>. Much of this literature is relevant to statistics.</p>
 <p>The lemmas <span class="quarto-unresolved-ref">?lem-stein</span> and <span class="quarto-unresolved-ref">?lem-steinbis</span> that characterize the Gaussian standard are the starting point of Stein’s (Charles) method to demonstrate the central limit theorem (and many other results). This relatively recent development is described in <span class="citation" data-cites="2011arXiv1109.1880R">(<a href="#ref-2011arXiv1109.1880R" role="doc-biblioref">Ross, 2011</a>)</span>.</p>
 <p>Matrix analysis and algorithmics play an important role in Gaussian analysis and statistics. The books <span class="citation" data-cites="HorJoh90">(<a href="#ref-HorJoh90" role="doc-biblioref">Horn &amp; Johnson, 1990</a>)</span>, and if we wish to go further <span class="citation" data-cites="Bha97">(<a href="#ref-Bha97" role="doc-biblioref">Bhatia, 1997</a>)</span>, provide an introduction to the concepts and techniques of matrix factorization and elements of perturbation theory.</p>
@@ -1519,10 +1471,7 @@ Ledoux, M. (2001). <em>The concentration of measure phenomenon</em>. AMS.
 Ross, N. (2011). <span class="nocase">Fundamentals of Stein’s method</span>. <em>ArXiv e-Prints</em>. Retrieved from <a href="https://arxiv.org/abs/1109.1880">https://arxiv.org/abs/1109.1880</a>
 </div>
 </div>
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -1921,11 +1870,9 @@ Ross, N. (2011). <span class="nocase">Fundamentals of Stein’s method</span>. <
       }
     }
   });
-  </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./08-convergence-3.html" class="pagination-link" aria-label="Convergence in distribution">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Convergence in distribution</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>  <span class="chapter-title">Convergence in distribution</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
@@ -1936,4 +1883,9 @@ Ross, N. (2011). <span class="nocase">Fundamentals of Stein’s method</span>. <
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/09-gaussian-vectors.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/09-gaussian-vectors.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li>
+</ul></div></div></div></footer>
+</body>
+</html>

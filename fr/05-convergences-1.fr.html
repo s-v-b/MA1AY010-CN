@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
+<head>
+<link rel="alternate" hreflang="en" href="/05-convergences-1.html" />
+<link rel="alternate" hreflang="fr" href="/fr/05-convergences-1.fr.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.36">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="description" content="Notes du cours de Probabiltés M1 ISIFAR en français">
+<title>14  Convergences I : presque sûre, L_2, L_1, en probabilité – MA1AU015 Notes de cours en français</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+<script src="site_libs/quarto-nav/quarto-nav.js"></script><script src="site_libs/quarto-nav/headroom.min.js"></script><script src="site_libs/clipboard/clipboard.min.js"></script><script src="site_libs/quarto-search/autocomplete.umd.js"></script><script src="site_libs/quarto-search/fuse.min.js"></script><script src="site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="./">
+<link href="./08-convergence-3.fr.html" rel="next">
+<link href="./041-characterization.fr.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script><script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script><link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-eb98473aa13ec2f8694b0a204f8986fa.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+</head>
+<body class="nav-sidebar floating nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">MA1AU015 Notes de cours en français</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+    <a href="https://github.com/s-v-b/MA1AY010-CN/" title="Code source" class="quarto-navigation-tool px-1" aria-label="Code source"><i class="bi bi-github"></i></a>
+    <a href="./MA1AU015-Notes-de-cours-en-fran%C3%A7ais.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+          <div id="quarto-search" class="" title="Recherche"></div>
+      </div> <!-- /container-fluid -->
+    </nav><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05-convergences-1.fr.html"><span class="chapter-number">14</span>  <span class="chapter-title">Convergences I : presque sûre, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, en probabilité</span></a></li></ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="dropdown" id="languages-links-parent">
+<button class="btn btn-primary dropdown-toggle babelquarto-languages-button" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> Version in fr</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="/05-convergences-1.html" id="language-link-en">Version in en</a></li></ul>
+</div>
+<div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mise en route</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-intro.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>  <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-language.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>  <span class="chapter-title">Un minimum de théorie de la mesure</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./031-moments.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>  <span class="chapter-title">Un minimum d’intégration</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./033-integration2moments.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>  <span class="chapter-title">Des intégrales à l’espérance et aux moments</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-families.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>  <span class="chapter-title">Familles de lois discrètes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0225-pgf.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>  <span class="chapter-title">Caractérisations des lois de probabilité discrètes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./022-product-measures.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>  <span class="chapter-title">Lois produit</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./021-independence.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>  <span class="chapter-title">Indépendance et espaces produits</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./032-acfamilies.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>  <span class="chapter-title">Lois de probabilité absolument continues</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./023-discrete-condition.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>  <span class="chapter-title">Conditionnement discret</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-conditioning.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>  <span class="chapter-title">Conditionnement</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-characterizations.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>  <span class="chapter-title">Caractérisations des lois de probabilité</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./041-characterization.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>  <span class="chapter-title">Fonctions quantiles</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-convergences-1.fr.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">14</span>  <span class="chapter-title">Convergences I : presque sûre, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, en probabilité</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-convergence-3.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>  <span class="chapter-title">Convergence en loi</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-gaussian-vectors.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>  <span class="chapter-title">Vecteurs gaussiens</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Annexes</span></span>
+  </li>
+    </ul>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table des matières</h2>
+   
+  <ul>
+<li><a href="#sec-motivconvergences" id="toc-sec-motivconvergences" class="nav-link active" data-scroll-target="#sec-motivconvergences"><span class="header-section-number">14.1</span> Motivations</a></li>
+  <li><a href="#sec-asconvergence" id="toc-sec-asconvergence" class="nav-link" data-scroll-target="#sec-asconvergence"><span class="header-section-number">14.2</span> Convergence presque sûre</a></li>
+  <li><a href="#sec-Lpconvergence" id="toc-sec-Lpconvergence" class="nav-link" data-scroll-target="#sec-Lpconvergence"><span class="header-section-number">14.3</span> Convergence en <span class="math inline">\(L_p\)</span></a></li>
+  <li><a href="#sec-probaconvergence" id="toc-sec-probaconvergence" class="nav-link" data-scroll-target="#sec-probaconvergence"><span class="header-section-number">14.4</span> Convergence en probabilité</a></li>
+  <li><a href="#sec-wlln" id="toc-sec-wlln" class="nav-link" data-scroll-target="#sec-wlln"><span class="header-section-number">14.5</span> Loi faible des grands nombres</a></li>
+  <li><a href="#sec-slln" id="toc-sec-slln" class="nav-link" data-scroll-target="#sec-slln"><span class="header-section-number">14.6</span> Loi forte des grands nombres</a></li>
+  <li>
+<a href="#sec-expineq" id="toc-sec-expineq" class="nav-link" data-scroll-target="#sec-expineq"><span class="header-section-number">14.7</span> Inégalités exponentielles</a>
+  <ul class="collapse">
+<li><a href="#lemme-de-hoeffding" id="toc-lemme-de-hoeffding" class="nav-link" data-scroll-target="#lemme-de-hoeffding"><span class="header-section-number">14.7.1</span> Lemme de Hoeffding</a></li>
+  </ul>
+</li>
+  <li><a href="#sec-bibconvrv" id="toc-sec-bibconvrv" class="nav-link" data-scroll-target="#sec-bibconvrv"><span class="header-section-number">14.8</span> Remarques bibliographiques</a></li>
+  </ul>
+<div class="toc-actions"><ul>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/05-convergences-1.fr.qmd" class="toc-action"><i class="bi bi-github"></i>Modifier cette page</a></li>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Faire part d'un problème</a></li>
+</ul></div></nav>
+</div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title"><span id="sec-convergences1" class="quarto-section-identifier"><span class="chapter-number">14</span>  <span class="chapter-title">Convergences I : presque sûre, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, en probabilité</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header><section id="sec-motivconvergences" class="level2" data-number="14.1"><h2 data-number="14.1" class="anchored" data-anchor-id="sec-motivconvergences">
+<span class="header-section-number">14.1</span> Motivations</h2>
+<p>Il nous faut munir le monde des variables aléatoires vivant sur un espace de probabilité d’une structure topologique. Comme les variables aléatoires sont des fonctions (mesurables), nous emprunterons et adapterons les notions utilisées en analyse : convergence ponctuelle (<a href="#sec-asconvergence" class="quarto-xref">Section <span>14.2</span></a>)), convergence en <span class="math inline">\(L_p\)</span>, <span class="math inline">\(1 \leq p &lt;\infty\)</span> (<a href="#sec-Lpconvergence" class="quarto-xref">Section <span>14.3</span></a>)).</p>
+<p>Enfin, nous définissons et étudions la <em>convergence en probabilité</em>. Cette notion affaiblit à la fois la convergence en <span class="math inline">\(L_p\)</span> et la convergence presque sûre (ponctuelle). Comme les convergences en <span class="math inline">\(L_p\)</span>, elle peut se métriser.</p>
+<p>La convergence en probabilité et la convergence presque sûre sont illustrées par la loi faible et la loi forte des grands nombres (Sections <a href="#sec-wlln" class="quarto-xref"><span>Section 14.5</span></a> et <a href="#sec-slln" class="quarto-xref"><span>Section 14.6</span></a>). Les lois des grands nombres affirment que les moyennes empiriques convergent vers les espérances (sous des conditions légères) ; ce sont les chevaux de trait de la théorie de l’apprentissage statistique.</p>
+<p>Dans <a href="#sec-expineq" class="quarto-xref">Section <span>14.7</span></a>), nous examinons des contreparties non asymptotiques de la loi faible des grands nombres. Nous établissons des bornes exponentielles sur les queues de distribution pour des sommes de variables aléatoires indépendantes (sous des hypothèses d’intégrabilité fortes).</p>
+</section><section id="sec-asconvergence" class="level2" data-number="14.2"><h2 data-number="14.2" class="anchored" data-anchor-id="sec-asconvergence">
+<span class="header-section-number">14.2</span> Convergence presque sûre</h2>
+<p>La notion de convergence presque sûre reflète celle de convergence ponctuelle en contexte probabiliste.</p>
+<p>Rappelons qu’une suite de fonctions à valeurs réelles <span class="math inline">\((f_n)_n\)</span> définies sur un espace <span class="math inline">\(\Omega\)</span> à valeurs dans <span class="math inline">\(\mathbb{R}\)</span> <em>converge ponctuellement</em> vers <span class="math inline">\(f: \Omega \to \mathbb{R}\)</span> si, pour tout <span class="math inline">\(\omega \in \Omega\)</span>, <span class="math inline">\(f_n(\omega) \to f(\omega)\)</span>. Il n’y a aucune condition d’uniformité.</p>
+<p>Dans la définition suivante, nous supposons que les variables aléatoires sont à valeurs réelles. La définition s’étend facilement au cas multivarié.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-asc" class="theorem definition">
+<p><span class="theorem-title"><strong>Définition 14.1 (Convergence presque sûre)</strong></span> Soit <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span> un espace de probabilité. Une suite <span class="math inline">\((X_n)_n\)</span> de variables aléatoires converge <em>presque sûrement</em> (p.s.) vers une variable aléatoire <span class="math inline">\(X\)</span> si l’événement <span class="math display">\[E = \left\{ \omega : \lim_n X_n(\omega) = X(\omega)\right\}\]</span> est de probabilité <span class="math inline">\(P\)</span> égale à <span class="math inline">\(1\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>La convergence presque sûre n’est (que) la convergence ponctuelle avec probabilité <span class="math inline">\(1\)</span>. Elle n’est pas liée à l’intégrabilité. Notons que toutes les variables aléatoires intervenant ci-dessus vivent sur le même espace de probabilité. On peut se demander s’il est possible de concevoir une métrique pour la convergence presque sûre. La réponse est non, comme pour la convergence ponctuelle, en général.</p>
+</section><section id="sec-Lpconvergence" class="level2" data-number="14.3"><h2 data-number="14.3" class="anchored" data-anchor-id="sec-Lpconvergence">
+<span class="header-section-number">14.3</span> Convergence en <span class="math inline">\(L_p\)</span>
+</h2>
+<p>Dans cette section, nous considérons des variables aléatoires satisfaisant des hypothèses d’intégrabilité. La portée des convergences en <span class="math inline">\(L_p\)</span> est plus étroite que celle des convergences presque sûres.</p>
+<p>Nous avons déjà introduit les convergences en <span class="math inline">\(L_p\)</span> dans la Leçon <a href="031-moments.fr.html" class="quarto-xref"><span>Chapitre 3</span></a>. Nous les rappelons pour la lisibilité.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-convLp" class="theorem definition">
+<p><span class="theorem-title"><strong>Définition 14.2</strong></span> Pour <span class="math inline">\(p \in [1, \infty)\)</span>, <span class="math inline">\(L_p\)</span> est l’ensemble des variables aléatoires sur <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span> qui satisfont <span class="math inline">\(\mathbb{E} |X|^p &lt;\infty\)</span>. La <span class="math inline">\(p\)</span>-pseudo-norme est définie par <span class="math inline">\(\|X\|_p = \big(\mathbb{E} |X|^p \big)^{1/p}\)</span>.</p>
+<p>La convergence en <span class="math inline">\(L_p\)</span> signifie la convergence pour cette pseudo-norme.</p>
+</div>
+</div>
+</div>
+</div>
+<p>Rappelons que les espaces <span class="math inline">\(L_p\)</span> sont emboîtés (par l’inégalité de Hölder) et complets.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-convLp-comparison" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 14.1</strong></span> La convergence en <span class="math inline">\(L_q\)</span>, <span class="math inline">\(q\geq 1\)</span>, implique la convergence en <span class="math inline">\(L_p\)</span>, <span class="math inline">\(1\leq p \leq q\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>La convergence presque sûre n’est pas liée à l’intégrabilité. On ne peut pas se demander si la convergence presque sûre implique la convergence en <span class="math inline">\(L_p\)</span>. En revanche, on peut se demander si la convergence en <span class="math inline">\(L_p\)</span> implique la convergence presque sûre. L’énoncé suivant est un sous-produit de la preuve de la complétude des espaces <span class="math inline">\(L_p\)</span>, voir <a href="033-integration2moments.fr.html#sec-lpspaces" class="quarto-xref">Section <span>4.7</span></a>).</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-convLp-convAs" class="theorem">
+<p><span class="theorem-title"><strong>Théorème 14.1</strong></span> La convergence en <span class="math inline">\(L_p\)</span> implique la convergence presque sûre <em>le long d’une sous-suite</em>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>Un contre-exemple donné en <a href="033-integration2moments.fr.html#sec-lpspaces" class="quarto-xref">Section <span>4.7</span></a>) montre que la convergence en <span class="math inline">\(L_p\)</span> n’implique pas la convergence presque sûre.</p>
+</section><section id="sec-probaconvergence" class="level2" data-number="14.4"><h2 data-number="14.4" class="anchored" data-anchor-id="sec-probaconvergence">
+<span class="header-section-number">14.4</span> Convergence en probabilité</h2>
+<p>Si l’on note <span class="math inline">\(L_0=L_0(\Omega, \mathcal{F}, P)\)</span> l’ensemble des variables aléatoires à valeurs réelles, la notion de convergence en probabilité concerne toutes les suites de <span class="math inline">\(L_0\)</span>, comme la convergence presque sûre. Et comme la convergence en <span class="math inline">\(L_p\)</span>, <span class="math inline">\(p\geq 1\)</span>, la convergence en probabilité peut se métriser.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-convproba" class="theorem definition">
+<p><span class="theorem-title"><strong>Définition 14.3</strong></span> Soit <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span> un espace de probabilité.</p>
+<p>Une suite <span class="math inline">\((X_n)_n\)</span> de variables aléatoires converge en probabilité vers une variable aléatoire <span class="math inline">\(X\)</span> si, pour tout <span class="math inline">\(\epsilon&gt;0\)</span>, <span class="math display">\[\lim_n P \{ |X_n -X| \geq \epsilon \}  = 0\, .\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-convproba" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 14.2</strong></span> La convergence en <span class="math inline">\(L_p\)</span>, <span class="math inline">\(p\geq 1\)</span>, implique la convergence en probabilité.</p>
+</div>
+</div>
+</div>
+</div>
+<p>C’est une conséquence immédiate de l’inégalité de Markov.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-critConvProba" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 14.3 (Un critère de convergence en probabilité)</strong></span> La suite <span class="math inline">\((X_n)_n\)</span> converge en probabilité vers <span class="math inline">\(X\)</span> si et seulement si <span class="math display">\[\lim_n \mathbb{E} \Big[ 1 \wedge |X_n -X|\Big] = 0\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>En supposant la convergence en probabilité, <span class="math display">\[\begin{array}{rl}
+\mathbb{E} \Big[ 1 \wedge |X_n -X|\Big]  &amp; \leq \mathbb{E} \Big[ (1 \wedge |X_n -X|)\mathbb{I}_{|X-X_n| \geq \epsilon}\Big]  + \mathbb{E} \Big[ (1 \wedge |X_n -X|)\mathbb{I}_{|X-X_n| &lt; \epsilon}\Big] \\  &amp; \leq P \Big\{|X-X_n| \geq \epsilon \Big\} + \epsilon\end{array}\]</span> la limite du membre de droite n’est pas supérieure à <span class="math inline">\(\epsilon\)</span>. Comme on peut prendre <span class="math inline">\(\epsilon\)</span> arbitrairement petit, cela entraîne que la limite du membre de gauche est nulle.</p>
+<p>Réciproquement, pour tout <span class="math inline">\(0&lt; \epsilon&lt; 1\)</span>, <span class="math display">\[\begin{array}{rl}
+P \Big\{|X-X_n| \geq \epsilon \Big\}
+  &amp; \leq \frac{1}{\epsilon} \mathbb{E}\Big[ 1 \wedge |X-X_n|\Big] \,.
+\end{array}\]</span> Ainsi <span class="math inline">\(\lim_n \mathbb{E} \Big[ 1 \wedge |X_n -X|\Big] = 0\)</span> entraîne <span class="math inline">\(\lim_n P \big\{|X-X_n| \geq \epsilon \big\} =0\)</span>. Comme cela vaut pour tout <span class="math inline">\(\epsilon&gt;0\)</span>, <span class="math inline">\(\lim_n \mathbb{E} \Big[ 1 \wedge |X_n -X|\Big] = 0\)</span> entraîne la convergence en probabilité.</p>
+</div>
+<br><p>
+</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-asconv-convproba" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 14.4</strong></span> La convergence presque sûre implique la convergence en probabilité.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Supposons <span class="math inline">\(X_n \to X\)</span> p.s., c’est-à-dire <span class="math inline">\(|X_n -X| \to 0\)</span>. Alors, par convergence dominée, <span class="math display">\[\lim_n \mathbb{E}\Big[ |X_n -X| \wedge 1\Big] = 0\]</span> ce qui entraîne la convergence en probabilité de <span class="math inline">\((X_n)_n\)</span> vers <span class="math inline">\(X\)</span>.</p>
+</div>
+<br><p>
+</p>
+<p>Nous arrivons maintenant à une métrique qui s’accorde parfaitement avec la convergence en probabilité.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-kyfan" class="theorem definition">
+<p><span class="theorem-title"><strong>Définition 14.4 (Distance de Ky-Fan)</strong></span> La distance de Ky-Fan est définie par <span class="math display">\[\mathrm{d}_{\mathrm{KF}}(X, Y) = \inf_{\epsilon\geq 0} P\Big\{ |X-Y| &gt;\epsilon\Big\}  \leq \epsilon \,.\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<p>Il faut vérifier que <span class="math inline">\(\mathrm{d}_{\mathrm{KF}}\)</span> est bien une distance. C’est le contenu de la Proposition @ref(prp:kyfanprop) ci-dessous.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-kyfan-min-inf" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 14.5</strong></span> Dans la définition de la distance de Ky-Fan, l’infimum est atteint.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Soit <span class="math inline">\(a &gt; \mathrm{d}_{\mathrm{KF}}(X, Y)\)</span>. L’événement <span class="math inline">\(A_a = \Big\{ |X-Y| &gt; a \Big\}\)</span> a une probabilité inférieure à <span class="math inline">\(\epsilon\)</span>. Et si <span class="math inline">\(\epsilon &lt; a &lt; b\)</span>, <span class="math inline">\(A_b \subseteq  A_a\)</span>. Par convergence monotone, <span class="math inline">\(P\Big(\cap_n A_{\epsilon + 1/n}\Big)=  \lim_{n} \uparrow P\Big(A_{\epsilon + 1/n}\Big) = \epsilon\)</span>.</p>
+</div>
+<br><p>
+</p>
+<p>
+</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-kyfanprop" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 14.6</strong></span> La distance de Ky-Fan satisfait :</p>
+<ol type="1">
+<li><span class="math inline">\(\mathrm{d}_{\mathrm{KF}}(X, Y)=0 \Rightarrow X=Y \qquad \text{a.s.}\)</span></li>
+<li><span class="math inline">\(\mathrm{d}_{\mathrm{KF}}(X, Y) = \mathrm{d}_{\mathrm{KF}}(Y, X)\)</span></li>
+<li><span class="math inline">\(\mathrm{d}_{\mathrm{KF}}(X, Z) \leq  \mathrm{d}_{\mathrm{KF}}(X, Y) + \mathrm{d}_{\mathrm{KF}}(Y, Z)\)</span></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Nous vérifions que <span class="math inline">\(\mathrm{d}_{\mathrm{KF}}\)</span> satisfait l’inégalité triangulaire. Il existe deux événements <span class="math inline">\(B\)</span> et <span class="math inline">\(C\)</span> de probabilités respectives <span class="math inline">\(\mathrm{d}_{\mathrm{KF}}(X, Y)\)</span> et <span class="math inline">\(\mathrm{d}_{\mathrm{KF}}(Y, Z)\)</span> tels que <span class="math display">\[|X(\omega) -Y(\omega)| \leq \mathrm{d}_{\mathrm{KF}}(X, Y) \qquad \text{on } B^c\]</span> et <span class="math display">\[|Z(\omega) -Y(\omega)| \leq \mathrm{d}_{\mathrm{KF}}(Z, Y) \qquad \text{on } C^c\,.\]</span></p>
+<p>Sur <span class="math inline">\(B^c \cap C^c\)</span>, par l’inégalité triangulaire sur <span class="math inline">\(\mathbb{R}\)</span> : <span class="math display">\[|X(\omega) - Z(\omega)|  \leq \mathrm{d}_{\mathrm{KF}}(X, Y) + \mathrm{d}_{\mathrm{KF}}(Y, Z)\, .\]</span></p>
+<p>Nous concluons en observant <span class="math display">\[\begin{array}{rl}
+P \Big( |X(\omega) - Z(\omega)| &gt; \mathrm{d}_{\mathrm{KF}}(X, Y) + \mathrm{d}_{\mathrm{KF}}(Y, Z)
+\Big)
+&amp; \leq P\Big( (B^c \cap C^c)^c\Big)\\
+&amp; =  P(B \cup C) \\
+&amp; \leq P(B) + P(C) \\
+&amp; = \mathrm{d}_{\mathrm{KF}}(X, Y) + \mathrm{d}_{\mathrm{KF}}(Y, Z) \, .
+\end{array}\]</span></p>
+</div>
+<br><p>
+</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-kyfan-metrizes" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 14.7</strong></span> Les deux affirmations suivantes sont équivalentes :</p>
+<ol type="1">
+<li>
+<span class="math inline">\((X_n)_n\)</span> converge en probabilité vers <span class="math inline">\(X\)</span>
+</li>
+<li>
+<span class="math inline">\(\mathrm{d}_{\mathrm{KF}}(X_n, X)\)</span> tend vers <span class="math inline">\(0\)</span> lorsque <span class="math inline">\(n\)</span> tend vers l’infini.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-check-prp-kyfan" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 14.1</strong></span> Vérifier la proposition.</p>
+</div>
+</div>
+</div>
+</div>
+<br><p>
+</p>
+<p>Nous laissons les questions suivantes comme exercices :</p>
+<ul>
+<li>
+<span class="math inline">\(\mathcal{L}_0(\Omega, \mathcal{F}, P)\)</span> est-il complet pour la métrique de Ky-Fan ?</li>
+<li>La convergence en probabilité implique-t-elle la convergence presque sûre ?</li>
+<li>La convergence en probabilité implique-t-elle la convergence en <span class="math inline">\(L_p\)</span>, <span class="math inline">\(p\geq 1\)</span> ?</li>
+</ul>
+<p>Enfin, nous énonçons une définition plus générale de la convergence en probabilité. La notion peut s’adapter aux variables aléatoires à valeurs dans un espace métrique quelconque. Les liens avec la convergence presque sûre et les convergences en <span class="math inline">\(L_p\)</span> restent inchangés.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-convproba" class="theorem definition">
+<p><span class="theorem-title"><strong>Définition 14.5 (Convergence en probabilité, cadre multivarié)</strong></span> Une suite <span class="math inline">\((X_n)_{n \in \mathbb{N}}\)</span> de variables aléatoires à valeurs dans <span class="math inline">\(\mathbb{R}^k\)</span>, définies sur le même espace de probabilité <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span>, converge en probabilité (en probabilité <span class="math inline">\(\mathbb{P}\)</span>) vers une variable aléatoire <span class="math inline">\(X\)</span> à valeurs dans <span class="math inline">\(\mathbb{R}^k\)</span> si et seulement si, pour tout <span class="math inline">\(\epsilon &gt;0\)</span>,</p>
+<p><span class="math display">\[\lim_{n \to \infty} \mathbb{P} \{ \Vert X_n -X\Vert &gt; \epsilon \} = 0 \,.\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</section><section id="sec-wlln" class="level2" data-number="14.5"><h2 data-number="14.5" class="anchored" data-anchor-id="sec-wlln">
+<span class="header-section-number">14.5</span> Loi faible des grands nombres</h2>
+<p>La loi faible et la loi forte des grands nombres concernent la convergence des moyennes empiriques de variables aléatoires indépendantes, identiquement distribuées et intégrables vers leur espérance commune.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-wlln" class="theorem">
+<p><span class="theorem-title"><strong>Théorème 14.2 (Loi faible des grands nombres)</strong></span> Si <span class="math inline">\(X_1, \ldots, X_n, \ldots\)</span> sont des variables aléatoires indépendantes, identiquement distribuées, intégrables, à valeurs dans <span class="math inline">\(\mathbb{R}^k\)</span>, sur <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span>, d’espérance <span class="math inline">\(\mu\)</span>, alors la suite <span class="math inline">\((\overline{X}_n)\)</span> définie par <span class="math inline">\(\overline{X}_n := \frac{1}{n} \sum_{i=1}^n X_i\)</span> converge en probabilité <span class="math inline">\(P\)</span> vers <span class="math inline">\(\mu\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Supposons d’abord que <span class="math inline">\(\mathbb{E}\Big[\Big(X_i-\mu\Big)^2\Big] = \sigma^2 &lt; \infty.\)</span> Alors, pour tout <span class="math inline">\(\epsilon&gt;0\)</span>, par l’inégalité de Markov-Tchebychev : <span class="math display">\[\begin{array}{rl}
+P\Big\{ \Big|\frac{1}{n}\sum_{i=1}^n X_i - \mu\Big| &gt; \epsilon\Big\}
+&amp; \leq \frac{\mathbb{E} \Big|\frac{1}{n}\sum_{i=1}^n X_i - \mu\Big|^2 }{\epsilon^2} \\
+&amp; =  \frac{\mathbb{E}\Big[\Big(X_i-\mu\Big)^2\Big] }{n \epsilon^2} \\
+&amp; = \frac{\sigma^2}{n \epsilon^2}
+\end{array}\]</span> car la variance d’une somme de variables aléatoires indépendantes est la somme des variances des termes.</p>
+<p>Le membre de droite converge vers <span class="math inline">\(0\)</span> pour tout <span class="math inline">\(\epsilon &gt;0\)</span>. La LFGN vaut pour les variables aléatoires de carré intégrable.</p>
+<p>Passons au cas général. Sans perte de généralité, supposons que toutes les <span class="math inline">\(X_n\)</span> sont centrées. Soit <span class="math inline">\(\tau &gt;0\)</span> un seuil de troncature (dont la valeur sera ajustée plus tard). Pour chaque <span class="math inline">\(i \in \mathbb{N}\)</span>, <span class="math inline">\(X_i\)</span> se décompose en une somme : <span class="math display">\[X_i = X^\tau_i + Y^\tau_i\]</span></p>
+<p>avec <span class="math inline">\(X^\tau_i =  \mathbb{I}_{|X_i|\leq \tau} X_i\)</span> et <span class="math inline">\(Y^\tau_i =  \mathbb{I}_{|X_i|&gt;\tau} X_i\)</span>. Pour tout <span class="math inline">\(\epsilon &gt;0\)</span>,</p>
+<p><span class="math display">\[\Big\{ \Big|\frac{1}{n}\sum_{i=1}^n X_i \Big| &gt;\epsilon\Big\}
+\subseteq \Big\{ \Big|\frac{1}{n}\sum_{i=1}^n X^\tau_i \Big| &gt; \frac{\epsilon}{2}\Big\} \cup
+\Big\{ \Big|\frac{1}{n}\sum_{i=1}^n Y^\tau_i \Big| &gt;\frac{\epsilon}{2}\Big\} \, .\]</span></p>
+<p>En invoquant la borne de l’union, l’inégalité de Markov (deux fois), et la bornitude des variances des <span class="math inline">\(X^\tau_i\)</span>, on obtient :</p>
+<p><span class="math display">\[\begin{array}{rl}   P\Big\{ \Big|\frac{1}{n}\sum_{i=1}^n X_i - \mu\Big| &gt; \epsilon\Big\} &amp; \leq P \Big\{ \Big|\frac{1}{n}\sum_{i=1}^n X^\tau_i \Big| &gt; \frac{\epsilon}{2}\Big\} + P \Big\{ \Big|\frac{1}{n}\sum_{i=1}^n Y^\tau_i \Big| &gt;\frac{\epsilon}{2}\Big\} \\ &amp; \leq 4 \frac{\mathbb{E}\Big|\frac{1}{n}\sum_{i=1}^n X^\tau_i \Big|^2}{\epsilon^2}  + 2 \frac{\mathbb{E}\Big|\frac{1}{n}\sum_{i=1}^n Y^\tau_i \Big|}{\epsilon} \\ &amp; \leq  \frac{4 \tau^2}{n\epsilon^2} + 2 \frac{\mathbb{E}\Big|\frac{1}{n}\sum_{i=1}^n Y^\tau_i \Big|}{\epsilon} \\
+&amp; \leq  \frac{4 \tau^2}{n\epsilon^2} + 2 \frac{1}{n}\sum_{i=1}^n  \frac{\mathbb{E}\Big|Y^\tau_i \Big|}{\epsilon} \\
+&amp; \leq  \frac{4 \tau^2}{n\epsilon^2} + 2 \frac{\mathbb{E} \Big|Y^\tau_1 \Big|}{\epsilon}
+\, .
+\end{array}\]</span></p>
+<p>En faisant tendre <span class="math inline">\(n\)</span> vers l’infini, on obtient <span class="math display">\[\limsup_n P\Big\{ \Big|\frac{1}{n}\sum_{i=1}^n X_i - \mu\Big| &gt; \epsilon\Big\} \leq
+2  \frac{\mathbb{E}\Big|Y^\tau_1 \Big|}{\epsilon} \, .\]</span></p>
+<p>Or, lorsque <span class="math inline">\({\tau \uparrow \infty}\)</span>, <span class="math inline">\(|Y^\tau_1|  \downarrow 0\)</span> tandis que <span class="math inline">\(|Y^\tau_1| \leq |X_1|\)</span> ; la convergence dominée (ici un cas particulier de convergence monotone) garantit que <span class="math inline">\(\lim_{\tau \uparrow \infty}  \frac{\mathbb{E}\Big|Y^\tau_1 \Big|}{\epsilon}=0\)</span>.</p>
+<p>Ceci achève la preuve de la LFGN.</p>
+</div>
+</section><section id="sec-slln" class="level2" data-number="14.6"><h2 data-number="14.6" class="anchored" data-anchor-id="sec-slln">
+<span class="header-section-number">14.6</span> Loi forte des grands nombres</h2>
+<p>Espace produit infini muni de la tribu cylindrique et de la mesure produit infinie.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-slln" class="theorem">
+<p><span class="theorem-title"><strong>Théorème 14.3 (Loi forte des grands nombres, partie directe)</strong></span> Si <span class="math inline">\(X_1, \ldots, X_n, \ldots\)</span> sont des variables aléatoires indépendantes, identiquement distribuées, intégrables, à valeurs dans <span class="math inline">\(\mathbb{R}\)</span>, sur <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span>, d’espérance <span class="math inline">\(\mu\)</span>, alors <span class="math inline">\(P\)</span>-p.s. <span class="math display">\[\lim_{n \to \infty}    \overline{X}_n =   \mu \qquad\text{with} \quad \overline{X}_n := \frac{1}{n} \sum_{i=1}^n X_i  .\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<p>Avant d’aborder la preuve de <span class="quarto-unresolved-ref">?thm-sllm</span>, nous signalons un résultat général sur les événements qui dépendent du comportement limite de suites de variables aléatoires indépendantes : la loi 0-1. Pour énoncer <a href="#thm-01law" class="quarto-xref">Théorème <span>14.4</span></a>, nous avons besoin d’une nouvelle notion : la tribu terminale.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-tailalgebra" class="theorem definition">
+<p><span class="theorem-title"><strong>Définition 14.6 (Tribu terminale)</strong></span> Supposons que <span class="math inline">\(X_1, \ldots, X_n, \ldots\)</span> sont des variables aléatoires sur un espace mesuré. La tribu terminale (ou tribu des événements terminaux) est définie par : <span class="math display">\[\mathcal{T} = \cap_{n=}^\infty \sigma\Big(X_n, X_{n+1}, \ldots \Big) \, .\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<p>Observons que l’événement</p>
+<p><span class="math display">\[\left\{ \omega : \sum_{i=1}^n X_i(\omega)/n \text{ converges towards a finite limit} \right\}\]</span></p>
+<p>appartient à la tribu terminale.</p>
+<p>La loi forte des grands nombres ci-dessous nous dit que, sous des hypothèses d’intégrabilité et d’indépendance, cet événement terminal a pour probabilité <span class="math inline">\(1\)</span>.</p>
+<p>Ce n’est pas un hasard. La loi 0-1 affirme que, sous indépendance, les événements terminaux ont des probabilités triviales.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-01law" class="theorem">
+<p><span class="theorem-title"><strong>Théorème 14.4 (Loi 0-1)</strong></span> Supposons que <span class="math inline">\(X_1, \ldots, X_n, \ldots\)</span> sont des variables aléatoires <em>indépendantes</em>. Alors tout événement de la tribu terminale <span class="math inline">\(\mathcal{T}\)</span> a pour probabilité <span class="math inline">\(0\)</span> ou <span class="math inline">\(1\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Il suffit de vérifier que tout événement <span class="math inline">\(A \in \mathcal{T}\)</span> satisfait <span class="math inline">\(P(A)^2 = P(A)\)</span>, ou, de façon équivalente, que <span class="math inline">\(P(A) = P(A \cap A) = P(A) \times P(A)\)</span>, c’est-à-dire que <span class="math inline">\(A\)</span> est indépendant de lui-même.</p>
+<p>Pour tout <span class="math inline">\(n\)</span>, en tant qu’événement de <span class="math inline">\(\sigma\big(X_n, X_{n+1}, \ldots \big)\)</span>, <span class="math inline">\(A\)</span> est indépendant de tout événement de <span class="math inline">\(\sigma\big(X_1, \ldots, X_n\big)\)</span>. Cela entraîne que <span class="math inline">\(A\)</span> est indépendant de tout événement de <span class="math inline">\(\cup_n \sigma\big(X_1, \ldots, X_n\big)\)</span>.</p>
+<p>Observons que <span class="math inline">\(\cup_n \sigma\big(X_1, \ldots, X_n\big)\)</span> est un <span class="math inline">\(\pi\)</span>-système qui engendre la tribu cylindrique (rappel des définitions en <a href="02-language.fr.html#sec-dynkin" class="quarto-xref"><span>Section 2.6</span></a> autour de <a href="02-language.fr.html#thm-monotoneclasslemma" class="quarto-xref">Théorème <span>2.4</span></a>).</p>
+<p>Ainsi, <span class="math inline">\(A\)</span> est indépendant de tout événement de la tribu engendrée par <span class="math inline">\(\cup_n \sigma\big(X_1, \ldots, X_n\big)\)</span>, qui n’est autre que <span class="math inline">\(\mathcal{F}\)</span>.</p>
+<p>Comme <span class="math inline">\(A \in \mathcal{T}  \subset \mathcal{F}\)</span>, <span class="math inline">\(A\)</span> est indépendant de lui-même.</p>
+</div>
+<br><p>
+</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-bc2-01law" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 14.2</strong></span> Déduire le second lemme de Borel-Cantelli comme cas particulier de la loi 0-1.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="lem-borel-cantelli" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemme 14.1 (Borel-Cantelli I)</strong></span> Soient <span class="math inline">\(A_1, A_2, \ldots, A_n\)</span> des événements d’un espace de probabilité <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span>.</p>
+<p>Si <span class="math display">\[\sum_{n} P(A_n) &lt; \infty\]</span> alors :</p>
+<p>avec probabilité <span class="math inline">\(1\)</span>, seulement un nombre fini d’événements parmi <span class="math inline">\(A_1, A_2, \ldots, A_n\)</span> se réalisent : <span class="math display">\[P \Big\{ \omega : \sum_{n} \mathbb{I}_{A_n}(\omega) &lt; \infty\Big\} = 1 \,.\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Un résultat <span class="math inline">\(\omega\)</span> appartient à une infinité d’événements <span class="math inline">\(A_k\)</span> si et seulement si <span class="math inline">\(\omega \in \cap_{n} \cup_{k\geq n} A_k\)</span>. Par convergence monotone, <span class="math display">\[\begin{array}{rl}
+  P \Big\{ \omega : \omega \text{ belongs to infinitely many events } A_k\Big\}
+  &amp; = P \Big\{ \cap_{n} \cup_{k\geq n} A_k \Big\} \\
+  &amp; = \lim_n \downarrow P \Big\{ \cup_{k\geq n} A_k \Big\} \\
+  &amp; \leq \lim_n \downarrow \sum_{k \geq n} P \Big\{ A_k \Big\} \\
+  &amp; =  0 \, .
+\end{array}\]</span></p>
+</div>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-tail-sigma-algebra" class="theorem definition">
+<p><span class="theorem-title"><strong>Définition 14.7</strong></span>  </p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-zero-one-law" class="theorem">
+<p><span class="theorem-title"><strong>Théorème 14.5</strong></span>  </p>
+</div>
+</div>
+</div>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span></p>
+</div>
+<p>Nous pouvons maintenant aborder la preuve de la LFGN forte.</p>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em> (Preuve de la LFGN forte (partie directe)). </span>L’événement <span class="math inline">\(\Big\{ \omega : \lim_n \sum_{i=1}^n \frac{X_i}{n} = \mu \Big\}\)</span> appartient à la tribu terminale. Par <a href="#thm-zero-one-law" class="quarto-xref">Théorème <span>14.5</span></a>, pour vérifier la loi forte des grands nombres, il suffit de vérifier que cet événement a une probabilité non nulle.</p>
+<p>De plus, en utilisant la décomposition usuelle <span class="math inline">\(X = (X)_+ - (X)_-\)</span> où <span class="math inline">\((X)_+\)</span> et <span class="math inline">\((X)_-\)</span> sont les parties positive et négative de <span class="math inline">\(X\)</span>, nous observons que l’on peut supposer sans perte de généralité que les <span class="math inline">\(X_i\)</span> sont non négatives.</p>
+<p>Rappelons la définition des variables tronquées <span class="math inline">\(X_i^i = \mathbb{I}_{X_i \leq i}X_i\)</span> pour <span class="math inline">\(i \in \mathbb{N}\)</span>. Posons <span class="math inline">\(S_n = \sum_{i=1}^n X_i\)</span> et <span class="math inline">\(T_n = \sum_{i=1}^n X_i^i\)</span>.</p>
+<p>La différence <span class="math inline">\(S_n - T_n = \sum_{i=1}^n (X_i - X^i_i)\)</span> est une somme de variables aléatoires non négatives. Comme <span class="math display">\[P \{ X_i - X^i_i &gt;0 \} = P\{ X_i &gt;i \} = P\{ X_1 &gt; i\} \, ,\]</span></p>
+<p>grâce à <span class="math inline">\(\mathbb{E} X_1 &lt; \infty\)</span>, <span class="math display">\[\sum_{i \in \mathbb{N}} P \{ X_i - X^i_i &gt;0 \} &lt; \infty \, .\]</span></p>
+<p>Par le premier lemme de Borel-Cantelli, cela implique que, presque sûrement, seulement un nombre fini d’événements <span class="math inline">\(\{ X_i - X^i_i &gt;0 \}\)</span> se réalisent. Ainsi, presque sûrement, <span class="math inline">\(T_n\)</span> et <span class="math inline">\(S_n\)</span> diffèrent d’au plus un nombre borné de termes, et <span class="math inline">\(\lim_n \uparrow (S_n - T_n)\)</span> est fini.</p>
+<p>Or <span class="math display">\[\lim_n \uparrow \mathbb{E} \frac{T_n}{n} = \mathbb{E} X_1 \, .\]</span></p>
+<p>Nous vérifierons d’abord que <span class="math inline">\(T_{n(k)}/n(k)\)</span> converge presque sûrement vers <span class="math inline">\(\mathbb{E} X_1\)</span> pour une sous-suite <span class="math inline">\((n(k))_{k \in \mathbb{N}}\)</span> (presque) géométriquement croissante.</p>
+<p>Fixons <span class="math inline">\(\alpha&gt;1\)</span> et posons <span class="math inline">\(n(k) = \lfloor \alpha^k \rfloor\)</span>. Si, pour tout <span class="math inline">\(\epsilon&gt;0\)</span>, presque sûrement, seulement un nombre fini d’événements <span class="math display">\[\Big\{ \Big|T_{n(k)} - \mathbb{E}T_{n(k)} \Big| \geq n(k) &gt; \epsilon \Big\}\]</span> se réalisent, alors <span class="math inline">\(\Big|T_{n(k)} - \mathbb{E}T_{n(k)} \Big|/n(k)\)</span> converge presque sûrement vers <span class="math inline">\(0\)</span> et donc <span class="math inline">\(T_{n(k)}/n(k)\)</span> converge presque sûrement vers <span class="math inline">\(\mathbb{E}X_1\)</span>.</p>
+<p>Posons <span class="math display">\[\Theta = \sum_{k\in \mathbb{N}}  P\Big\{ \Big|T_{n(k)} - \mathbb{E}T_{n(k)} \Big| \geq n(k) &gt; \epsilon \Big\} \, .\]</span></p>
+<p>Grâce à la troncature, chaque <span class="math inline">\(T_{n(k)}\)</span> est de carré intégrable. Par l’inégalité de Tchebychev : <span class="math display">\[P\Big\{ \Big|T_{n(k)} - \mathbb{E}T_{n(k)} \Big| \geq n(k) &gt; \epsilon \Big\}
+\leq \frac{\operatorname{var}(T_{n(k)})}{\epsilon^2 n(k)^2} \, .\]</span></p>
+<p>Comme les <span class="math inline">\(X_i^i\)</span> sont indépendantes, <span class="math display">\[\begin{array}{rl}
+\operatorname{var}(T_{n(k)})
+&amp; = \sum_{i \leq n(k)} \operatorname{var}(X_i^i)  \\
+&amp; \leq \sum_{i \leq n(k)} \mathbb{E}\Big[(X_i^i)^2\Big] \\
+&amp; =  \sum_{i \leq n(k)} \int_0^\infty 2 t P \{ X^i_i &gt;t \} \mathrm{d}t \\
+&amp; \leq \sum_{i \leq n(k)} \int_0^i 2 t P \{ X_1 &gt;t \} \mathrm{d}t
+\, .
+\end{array}\]</span></p>
+<p><span class="math display">\[\begin{array}{rl}
+\Theta
+  &amp; \leq \sum_{k\in \mathbb{N}} \frac{1}{\epsilon^2 n(k)^2}\sum_{i \leq n(k)} \int_0^i 2 t P \{ X_1 &gt;t \} \mathrm{d}t \\
+  &amp; = \frac{1}{\epsilon^2} \sum_{i \in \mathbb{N}} \int_0^i 2 t P \{ X_1 &gt;t \} \mathrm{d}t \sum_{k: n(k)\geq i} \frac{1}{n(k)^2} \, .
+\end{array}\]</span> Grâce au fait que <span class="math inline">\(\alpha^k &gt;1\)</span> pour <span class="math inline">\(k\geq 1\)</span>, la relation suivante vaut : <span class="math display">\[ \sum_{k: n(k)\geq i} \frac{1}{n(k)^2} =  \sum_{k: \lfloor \alpha^k \rfloor \geq i} \frac{1}{\lfloor \alpha^k \rfloor^2}
+\leq \frac{4}{i^2} \frac{\alpha^2}{\alpha^2- 1} \, .\]</span></p>
+<p><span class="math display">\[\begin{array}{rl}
+\Theta
+  &amp; \leq \frac{4\alpha^2}{\epsilon^2(\alpha^2-1)} \sum_{i \in \mathbb{N}} \frac{1}{i^2}  \int_0^i 2 t P \{ X_1 &gt;t \} \mathrm{d}t \\
+  &amp; \leq \frac{4\alpha^2}{\epsilon^2(\alpha^2-1)} \sum_{i \in \mathbb{N}} \frac{1}{i^2} \sum_{j&lt;i} \int_{j}^{j+1} 2P \{ X_1 &gt;t \} \mathrm{d}t \\
+  &amp; \leq \frac{4\alpha^2}{\epsilon^2(\alpha^2-1)} \sum_{j=0}^\infty  \int_{j}^{j+1} 2t P \{ X_1 &gt;t \} \mathrm{d}t \sum_{i &gt;j} \frac{1}{i^2} \\
+  &amp; \leq \frac{4\alpha^2}{\epsilon^2(\alpha^2-1)} \sum_{j=0}^\infty  \int_{j}^{j+1} 2t P \{ X_1 &gt;t \} \mathrm{d}t
+   \frac{2}{j\vee 1} \\
+   &amp; \leq 8\frac{4\alpha^2}{\epsilon^2(\alpha^2-1)} \sum_{j=0}^\infty  \int_{j}^{j+1}  P \{ X_1 &gt;t \} \mathrm{d}t \\
+   &amp; \leq 8\frac{4\alpha^2}{\epsilon^2(\alpha^2-1)} \mathbb{E} X_1 \\
+   &amp; &lt; \infty \, .
+\end{array}\]</span> Par le premier lemme de Borel-Cantelli, avec probabilité <span class="math inline">\(1\)</span>, seulement un nombre fini d’événements <span class="math display">\[\Big\{ \Big|T_{n(k)} - \mathbb{E}T_{n(k)} \Big| \geq n(k) &gt; \epsilon \Big\}\]</span> se réalisent. Comme cela vaut pour chaque <span class="math inline">\(\epsilon&gt;0\)</span>, cela vaut simultanément pour tous les <span class="math inline">\(\epsilon= 1/n\)</span>, ce qui implique que <span class="math inline">\(\Big|T_{n(k)} - \mathbb{E}T_{n(k)} \Big|/n(k)\)</span> converge presque sûrement vers <span class="math inline">\(0\)</span>. Cela implique aussi que <span class="math inline">\(S_{n(k)}/n(k)\)</span> converge presque sûrement vers <span class="math inline">\(\mathbb{E}X_1\)</span>.</p>
+<p>Pour achever la preuve, il reste à vérifier que cela vaut pour <span class="math inline">\(S_n/n\)</span>.</p>
+<p>Si <span class="math inline">\(n(k) \leq n &lt; n(k+1)\)</span>, comme <span class="math inline">\((S_n)_n\)</span> est non décroissante, <span class="math display">\[\frac{n(k)}{n(k+1)}\frac{S_{n(k)}}{n(k)}\leq \frac{S_n}{n}\leq \frac{n(k+1)}{n(k)}\frac{S_{n(k+1)}}{n(k+1)}\]</span> avec <span class="math display">\[\frac{1}{\alpha} \Big(1 - \frac{1}{\alpha^k} \Big)\leq \frac{n(k+1)}{n(k)}  \leq \alpha \left(1 + \frac{1}{\lfloor \alpha^k\rfloor}\right) \, .\]</span></p>
+<p>En faisant tendre <span class="math inline">\(k\)</span> vers l’infini, presque sûrement <span class="math display">\[\frac{1}{\alpha} \mathbb{E} X_1 \leq \liminf_n \frac{S_n}{n} \leq \limsup_n \frac{S_n}{n} \leq \alpha \mathbb{E}X_1 \, .\]</span></p>
+<p>Enfin, on peut choisir <span class="math inline">\(\alpha\)</span> arbitrairement proche de <span class="math inline">\(1\)</span> pour établir le résultat souhaité.</p>
+</div>
+<div id="rem-slln" class="proof remark">
+<p><span class="proof-title"><em>Remarque 14.1</em>. </span>Dans l’énoncé du théorème, on peut remplacer l’hypothèse d’indépendance par une indépendance deux à deux.</p>
+</div>
+<p><a href="#thm-convslln" class="quarto-xref">Théorème <span>14.6</span></a>) montre que, sous l’hypothèse d’indépendance, les conditions du <a href="#thm-slln" class="quarto-xref">Théorème <span>14.3</span></a>) sont optimales. Avant d’aborder la preuve du <a href="#thm-convslln" class="quarto-xref">Théorème <span>14.6</span></a>), nous énonçons et démontrons le second lemme de Borel-Cantelli.</p>
+<br><p>
+</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="lem-borel-cantelli-2" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemme 14.2 (Borel-Cantelli II)</strong></span> Soient <span class="math inline">\(A_1, A_2, \ldots, A_n\)</span> des événements indépendants d’un espace de probabilité <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span>.</p>
+<p>Si <span class="math display">\[\sum_{n} P(A_n) = \infty\]</span></p>
+<p>alors</p>
+<p>avec probabilité <span class="math inline">\(1\)</span>, une infinité d’événements parmi <span class="math inline">\(A_1, A_2, \ldots, A_n\)</span> se réalisent : <span class="math display">\[P \Big\{ \omega : \sum_{n} \mathbb{I}_{A_n}(\omega) = \infty \Big\} = 1 \,.\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Un résultat <span class="math inline">\(\omega\)</span> n’appartient pas à une infinité d’événements <span class="math inline">\(A_k\)</span> si et seulement si <span class="math inline">\(\omega \in \cup_{n} \cap_{k\geq n} A^c_k\)</span>. Par convergence monotone, <span class="math display">\[\begin{array}{rl}
+  P \Big\{ \omega : \omega \text{ does not belong to infinitely many events } A_k\Big\}
+  &amp; = P \Big\{ \omega \in \cup_{n} \cap_{k\geq n} A^c_k  \Big\} \\
+  &amp; = \lim_n \uparrow P \Big\{ \cap_{k\geq n} A^c_k  \Big\} \\
+  &amp; = \lim_n \uparrow \lim_{m \uparrow \infty } \downarrow P \Big\{ \cap_{k=n}^m A^c_k  \Big\} \\
+  &amp; = \lim_n \uparrow \lim_{m \uparrow \infty } \downarrow \prod_{k=n}^m \Big( 1 - P (A_k)   \Big\} \Big) \\
+  &amp; = \lim_n \uparrow  \prod_{k=n}^\infty \Big( 1 - P ( A_k ) \Big) \\
+  &amp; = \lim_n \uparrow \exp\Big( - \sum_{k=n}^\infty P ( A_k)\Big) \\
+  &amp; = \lim_n \uparrow 0 \\
+  &amp; = 0 \, .
+\end{array}\]</span></p>
+</div>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-convslln" class="theorem">
+<p><span class="theorem-title"><strong>Théorème 14.6 (Loi forte des grands nombres, partie réciproque)</strong></span> Soient <span class="math inline">\(X_1, \ldots, X_n, \ldots\)</span> des variables aléatoires indépendantes, identiquement distribuées, à valeurs dans <span class="math inline">\(\mathbb{R}\)</span>, sur un espace <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span>. Si, pour une constante finie <span class="math inline">\(\mu\)</span>, <span class="math display">\[\lim_{n \to \infty}    \sum_{i\leq n} X_i/n =   \mu \qquad \text{almost surely,}\]</span> alors toutes les <span class="math inline">\(X_i\)</span> sont intégrables et <span class="math inline">\(\mathbb{E}X_i = \mu.\)</span></p>
+</div>
+</div>
+</div>
+</div>
+<p>On peut supposer que les <span class="math inline">\(X_i\)</span> sont des variables aléatoires non négatives.</p>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Pour vérifier que les <span class="math inline">\(X_i\)</span> sont intégrables, il suffit de montrer que <span class="math display">\[\sum_{n=0}^\infty P \big\{ X_1 &gt; n \big\} = \sum_{n=0}^\infty P \big\{ X_n &gt; n \big\} &lt; \infty.\]</span></p>
+<p>Posons <span class="math inline">\(S_n = \sum_{i=1}^n X_i\)</span>. Observons que <span class="math display">\[\begin{array}{rl}
+\Big\{ \omega : X_{n+1}(\omega) &gt; n+1 \Big\}
+  &amp; =  \Big\{ \omega : S_{n+1}(\omega) - S_{n}(\omega) &gt; n+1 \Big\} \\
+  &amp; =  \Big\{ \omega : \frac{S_{n+1}(\omega)}{n+1} - \frac{S_{n}(\omega)}{n} &gt; 1 + \frac{S_{n}(\omega)}{n(n+1)} \Big\} \, .
+\end{array}\]</span> Supposons par l’absurde que les <span class="math inline">\(X_i\)</span> ne sont pas intégrables. Alors, par le second lemme de Borel-Cantelli, avec probabilité <span class="math inline">\(1\)</span>, une infinité d’événements <span class="math display">\[\Big\{ \omega : \frac{S_{n+1}}{n+1} - \frac{S_{n}}{n} &gt; 1 + \frac{S_{n}}{n(n+1)} \Big\}\]</span></p>
+<p>se réalisent. Or cela ne peut pas arriver si <span class="math inline">\(S_n/n\)</span> converge vers une limite finie.</p>
+</div>
+<br><p>
+</p>
+<p>La loi des grands nombres est la pierre angulaire des preuves de consistance.</p>
+</section><section id="sec-expineq" class="level2" data-number="14.7"><h2 data-number="14.7" class="anchored" data-anchor-id="sec-expineq">
+<span class="header-section-number">14.7</span> Inégalités exponentielles</h2>
+<p>Les lois des grands nombres sont des énoncés asymptotiques. En application, en statistique, en théorie de l’apprentissage statistique, il est souvent souhaitable d’obtenir des garanties pour <span class="math inline">\(n\)</span> fixé. Les inégalités exponentielles sont des raffinements de l’inégalité de Tchebychev. Sous des hypothèses d’intégrabilité fortes sur les termes de la somme, il est possible et relativement facile d’obtenir des bornes fines sur les queues pour des sommes de variables aléatoires indépendantes.</p>
+<section id="lemme-de-hoeffding" class="level3 {lem-hoeffding}" data-number="14.7.1"><h3 data-number="14.7.1" class="anchored" data-anchor-id="lemme-de-hoeffding">
+<span class="header-section-number">14.7.1</span> Lemme de Hoeffding</h3>
+<p>Soit <span class="math inline">\(Y\)</span> une variable aléatoire prenant ses valeurs dans un intervalle borné <span class="math inline">\([a,b]\)</span> et posons <span class="math inline">\(\psi_Y(\lambda)=\log \mathbb{E} e^{\lambda (Y- \mathbb{E}Y)}\)</span>. Alors <span class="math display">\[\operatorname{var}(Y) \leq \frac{(b-a)^2}{4}\qquad \text{and} \qquad \psi_Y(\lambda) \leq \frac{1}{2} \frac{(b-a)^2}{4} \, .\]</span></p>
+</section><div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>La borne supérieure sur la variance de <span class="math inline">\(Y\)</span> a été établie en <a href="033-integration2moments.fr.html#sec-variance" class="quarto-xref">Section <span>4.4</span></a>).</p>
+<p>Posons <span class="math inline">\(P\)</span> la loi de <span class="math inline">\(Y\)</span> et <span class="math inline">\(P_{\lambda}\)</span> la loi de probabilité de densité <span class="math display">\[x \rightarrow e^{-\psi_{Y}\left(  \lambda\right)  }e^{\lambda (x - \mathbb{E}Y)}\]</span></p>
+<p>par rapport à <span class="math inline">\(P\)</span>.</p>
+<p>Comme <span class="math inline">\(P_{\lambda}\)</span> est concentrée sur <span class="math inline">\([a,b]\)</span> (<span class="math inline">\(P_\lambda([a, b]) = P([a, b]) =1\)</span>), la variance d’une variable aléatoire <span class="math inline">\(Z\)</span> de loi <span class="math inline">\(P_{\lambda}\)</span> est majorée par <span class="math inline">\((b-a)^2/4\)</span>. Notons que <span class="math inline">\(P_0 = P\)</span>.</p>
+<p>Des arguments de convergence dominée permettent de calculer les dérivées de <span class="math inline">\(\psi_Y(\lambda)\)</span>. À savoir <span class="math display">\[\psi'_Y(\lambda) = \frac{\mathbb{E}\Big[ (Y- \mathbb{E}Y) e^{\lambda (Y- \mathbb{E}Y)} \Big]}{\mathbb{E} e^{\lambda (Y- \mathbb{E}Y)}}
+= \mathbb{E}_{P_\lambda} Z \, .\]</span> et <span class="math display">\[\psi^{\prime\prime}_Y(\lambda) = \frac{\mathbb{E}\Big[ (Y- \mathbb{E}{Y})^2 e^{\lambda (Y- \mathbb{E}Y)} \Big]}{\mathbb{E} e^{\lambda (Y- \mathbb{E}Y)}} - \Bigg(\frac{\mathbb{E}\Big[ (Y- \mathbb{E}{Y}) e^{\lambda (Y- \mathbb{E}Y)} \Big]}{\mathbb{E} e^{\lambda (Y- \mathbb{E}Y)}}\Bigg)^2 = \operatorname{var}_{P_\lambda}(Z) \, .\]</span></p>
+<p>Ainsi, grâce à la borne sur la variance : <span class="math display">\[\begin{array}{rl}
+\psi_Y^{\prime\prime}(\lambda) &amp; \leq \frac{(b-a)^2}{4}~.
+\end{array}\]</span> Notons que <span class="math inline">\(\psi_{Y}(0)  = \psi_{Y}'(0) =0\)</span>, et par le théorème de Taylor, pour un certain <span class="math inline">\(\theta \in [0,\lambda]\)</span>, <span class="math display">\[  \psi_Y(\lambda) = \psi_Y(0) + \lambda\psi_Y'(0)
+  + \frac{\lambda^2}{2}\psi_Y''(\theta)
+   \leq  \frac{\lambda^2(b-a)^2}{8}~.\]</span></p>
+</div>
+<br><p>
+</p>
+<p>La borne supérieure sur la variance est optimale dans le cas particulier d’une variable aléatoire de <em>Rademacher</em> <span class="math inline">\(X\)</span> dont la loi est définie par <span class="math inline">\(P\{X =-1\} = P\{X =1\} = 1/2\)</span>. On peut alors prendre <span class="math inline">\(a=-b=1\)</span> et <span class="math inline">\(\operatorname{var}(X)  =1=\left(  b-a\right)^2/4\)</span>.</p>
+<p>Nous pouvons maintenant nous appuyer sur le lemme de Hoeffding pour obtenir des bornes sur les queues très pratiques pour des sommes de variables aléatoires indépendantes bornées.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-hoeffding" class="theorem">
+<p><span class="theorem-title"><strong>Théorème 14.7 (Inégalité de Hoeffding)</strong></span> Soient <span class="math inline">\(X_1,\ldots,X_n\)</span> des variables aléatoires indépendantes telles que <span class="math inline">\(X_i\)</span> prend ses valeurs dans <span class="math inline">\([a_i,b_i]\)</span> presque sûrement pour tout <span class="math inline">\(i\leq n\)</span>. Posons <span class="math display">\[S=\sum_{i=1}^n\left(X_i- \mathbb{E} X_i \right)~.\]</span></p>
+<p>Alors <span class="math display">\[\operatorname{var}(S) \leq \sum_{i=1}^n  \frac{(b_i-a_i)^2}{4} \, .\]</span></p>
+<p>Notons <span class="math inline">\(v\)</span> la borne supérieure sur la variance. Pour tout <span class="math inline">\(\lambda \in \mathbb{R}\)</span>, <span class="math display">\[\log \mathbb{E} \mathrm{e}^{\lambda S} \leq \frac{\lambda^2 v}{2} \, .\]</span></p>
+<p>Alors, pour tout <span class="math inline">\(t&gt;0\)</span>, <span class="math display">\[P\left\{  S \geq t \right\}  \le
+\exp\left( -\frac{t^2}{2 v}\right)~.\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<p>La preuve repose sur la technique de majoration de Cramér-Chernoff et sur le lemme de Hoeffding.</p>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>La borne supérieure sur la variance découle de <span class="math inline">\(\operatorname{var}(S) = \sum_{i=1}^n \operatorname{var}(X_i)\)</span> et de la première partie du lemme de Hoeffding.</p>
+<p>Pour la borne supérieure sur <span class="math inline">\(\log \mathbb{E} \mathrm{e}^{\lambda S}\)</span>, <span class="math display">\[\begin{array}{rl}
+\log \mathbb{E} \mathrm{e}^{\lambda S}
+&amp; = \log \mathbb{E} \mathrm{e}^{\sum_{i=1}^n \lambda (X_i - \mathbb{E} X_i)} \\
+&amp; = \log \mathbb{E} \Big[\prod_{i=1}^n  \mathrm{e}^{\lambda (X_i - \mathbb{E} X_i)}\Big]  \\
+&amp; = \log \Big(\prod_{i=1}^n  \mathbb{E} \Big[\mathrm{e}^{\lambda (X_i - \mathbb{E} X_i)}\Big]\Big)  \\
+&amp; = \sum_{i=1}^n \log \mathbb{E} \Big[\mathrm{e}^{\lambda (X_i - \mathbb{E} X_i)}\Big] \\
+&amp; \leq  \sum_{i=1}^n \frac{\lambda^2 (b_i-a_i)^2}{8} \\
+&amp; = \frac{\lambda^2 v}{2}
+\end{array}\]</span> où la troisième égalité vient de l’indépendance des <span class="math inline">\(X_i\)</span> et l’inégalité découle de l’application du lemme de Hoeffding à chaque terme.</p>
+<p>La technique de Cramér-Chernoff consiste à utiliser l’inégalité de Markov avec des moments exponentiels. <span class="math display">\[\begin{array}{rl}
+  P \big\{ S \geq t \big\}
+  &amp; \leq \inf_{\lambda
+  \geq 0}\frac{\mathbb{E} \mathrm{e}^{\lambda S}}{\mathrm{e}^{\lambda t}} \\
+  &amp; \leq \exp\Big(- \sup_{\lambda \geq 0} \big( \lambda t - \log \mathbb{E} \mathrm{e}^{\lambda S}\big) \Big)\\
+  &amp; \leq \exp\Big(- \sup_{\lambda \geq 0}\big(  \lambda t - \frac{\lambda^2 v}{2}\big) \Big) \\
+  &amp; = \mathrm{e}^{- \frac{t^2}{2v}  } \, .
+\end{array}\]</span></p>
+</div>
+<br><p>
+</p>
+<p>L’inégalité de Hoeffding fournit des bornes intéressantes sur les queues pour des variables aléatoires binomiales, qui sont des sommes de variables aléatoires indépendantes à valeurs dans <span class="math inline">\([0,1]\)</span>. Cependant, dans certains cas, la borne supérieure sur la variance utilisée dans l’inégalité de Hoeffding est excessivement conservative. Pensez par exemple à une variable aléatoire binomiale de paramètres <span class="math inline">\(n\)</span> et <span class="math inline">\(\mu/n\)</span> : la borne sur la variance obtenue à partir de la bornitude vaut <span class="math inline">\(n\)</span> alors que la vraie variance est <span class="math inline">\(\mu\)</span>. Cela motive les deux inégalités exponentielles suivantes énoncées dans <a href="#thm-zbennett" class="quarto-xref">Théorème <span>14.8</span></a>) et <a href="#thm-zbernstein" class="quarto-xref">Théorème <span>14.9</span></a>).</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-zbennett" class="theorem">
+<p><span class="theorem-title"><strong>Théorème 14.8 (Inégalité de Bennett)</strong></span> Soient <span class="math inline">\(X_1,\ldots,X_n\)</span> des variables aléatoires indépendantes de variance finie telles que <span class="math inline">\(X_i\le b\)</span> pour un certain <span class="math inline">\(b&gt;0\)</span> presque sûrement pour tout <span class="math inline">\(i\leq n\)</span>. Posons <span class="math display">\[S=\sum_{i=1}^n \left(  X_i-\mathbb{E} X_i\right)\]</span></p>
+<p>et <span class="math inline">\(v=\sum_{i=1}^n \mathbb{E}\left[X_i^2\right]\)</span>. Posons <span class="math inline">\(\phi(u)=e^u-u-1\)</span> pour <span class="math inline">\(u\in \mathbb{R}\)</span>.</p>
+<p>Alors, pour tout <span class="math inline">\(\lambda &gt; 0\)</span>, <span class="math display">\[\log \mathbb{E} e^{\lambda S}  \leq \frac{v}{b^2} \phi(b\lambda) \, ,\]</span> et, pour tout <span class="math inline">\(t&gt;0\)</span>, <span class="math display">\[P\{  S\geq t\}  \leq
+\exp\left(  -\frac{v}{b^2}h\left(\frac{bt}{v}\right) \right)\]</span></p>
+<p>où <span class="math inline">\(h(u)=\phi^*(u) = (1+u)\log(1+u) -u\)</span> pour <span class="math inline">\(u&gt;0\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="rem-bennett" class="proof remark">
+<p><span class="proof-title"><em>Remarque 14.2</em>. </span>L’inégalité de Bennett nous fournit des bornes améliorées sur les queues pour la variable aléatoire binomiale de paramètres <span class="math inline">\(n\)</span> et <span class="math inline">\(\mu/n\)</span>. Cette variable binomiale a la même loi que la somme de <span class="math inline">\(n\)</span> variables de Bernoulli indépendantes de paramètre <span class="math inline">\(\mu/n\)</span>. Cela entre dans le cadre de l’inégalité de Bennett : on peut choisir <span class="math inline">\(b=1\)</span> et <span class="math inline">\(v=\mu.\)</span> La borne obtenue sur la fonction génératrice des moments logarithmique coïncide avec celle d’une variable de Poisson centrée de paramètre <span class="math inline">\(\mu\)</span>, voir <a href="04-characterizations.fr.html#thm-bennettpoisson" class="quarto-xref">Théorème <span>12.3</span></a>).</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>La preuve combine la technique de Cramér-Chernoff avec une borne <em>ad hoc</em> sur <span class="math inline">\(\log \mathbb{E} \mathrm{e}^{\lambda (X_i - \mathbb{E}X_i)}\)</span>.</p>
+<p>Par homogénéité, on peut supposer <span class="math inline">\(b=1\)</span>.</p>
+<p>Notons que <span class="math inline">\(\phi(\lambda)/\lambda^2\)</span> est non décroissante sur <span class="math inline">\(\mathbb{R}\)</span>. Pour <span class="math inline">\(x\leq 1, \lambda \geq 0\)</span>, <span class="math inline">\(\phi(\lambda x)\leq x^2 \phi(\lambda)\)</span>.</p>
+<p><span class="math display">\[\begin{array}{rl}
+\log \mathbb{E} \mathrm{e}^{\lambda (X_i - \mathbb{E}X_i)}
+&amp; = \log \mathbb{E} \mathrm{e}^{\lambda X_i}  - \lambda \mathbb{E}X_i \\
+&amp; \leq \mathbb{E} \mathrm{e}^{\lambda X_i} - 1 - \lambda \mathbb{E}X_i \\
+&amp; =  \mathbb{E} \phi(\lambda X_i) \\
+&amp; = \mathbb{E}X_i^2 \phi(\lambda) \, .
+\end{array}\]</span></p>
+</div>
+<br><p>
+</p>
+<p>Alors que la borne de Bennett convient bien aux variables de type Poisson, notre dernière borne est adaptée aux variables de type Gamma. C’est l’un des piliers de la théorie de l’apprentissage statistique.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-zbernstein" class="theorem">
+<p><span class="theorem-title"><strong>Théorème 14.9 (Inégalité de Bernstein)</strong></span> Soient <span class="math inline">\(X_1,\ldots,X_n\)</span> des variables aléatoires indépendantes à valeurs réelles. Supposons qu’il existe des nombres positifs <span class="math inline">\(v\)</span> et <span class="math inline">\(c\)</span> tels que <span class="math inline">\(\sum_{i=1}^n \mathbb{E}\left[X_i^2\right]  \leq v\)</span> et <span class="math display">\[\sum_{i=1}^n
+\mathbb{E}\left[  \left(X_i\right)_+^q \right]
+\leq\frac{q!}{2}vc^{q-2}\quad \text{for all integers $q\geq3$}~.\]</span></p>
+<p>Posons <span class="math inline">\(S=\sum_{i=1}^n \left(X_i-\mathbb{E} X_i \right).\)</span></p>
+<p>Alors, pour tout <span class="math inline">\(\lambda\in (0,1/c)\)</span>, <span class="math display">\[\log \mathbb{E} \mathrm{e}^{\lambda (S- \mathbb{E}S)} \leq
+\frac{v\lambda^2}{2(1-c\lambda)} \, .\]</span></p>
+<p>Pour <span class="math inline">\(t&gt;0\)</span>, <span class="math display">\[P \big\{ S &gt; t \big\} \leq
+\exp\Big( - \frac{v}{c^2} h_1\big(\frac{ct}{v}\big)\Big)\]</span></p>
+<p>avec <span class="math inline">\(h_1(x)= 1+x - \sqrt{1+2x}\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>La preuve combine encore la technique de Cramér-Chernoff avec une borne <em>ad hoc</em> sur <span class="math inline">\(\log \mathbb{E} \mathrm{e}^{\lambda (S - \mathbb{E}S)}\)</span>.</p>
+<p>Posons à nouveau <span class="math inline">\(\phi(u)=e^u-u-1\)</span> pour <span class="math inline">\(u\in \mathbb{R}\)</span>.</p>
+<p>Pour <span class="math inline">\(\lambda&gt;0\)</span>, <span class="math display">\[\begin{array}{rl}
+  \phi(\lambda X_i)
+  &amp; = \sum_{k=2}^\infty \frac{\lambda^k X_i^k}{\lambda^k} \\
+  &amp; \leq \frac{\lambda^2 X_i^2}{2!} + \sum_{k=3}^\infty \frac{\lambda^k (X_i)_+^k}{\lambda^k} \, .
+\end{array}\]</span> Pour <span class="math inline">\(c&gt; \lambda&gt;0\)</span>, <span class="math display">\[\begin{array}{rl}
+\log \mathbb{E} \mathrm{e}^{\lambda S}
+  &amp; = \sum_{i=1}^n \log \mathbb{E} \mathrm{e}^{\lambda (X_i - \mathbb{E}X_i)} \\
+  &amp; \leq \sum_{i=1}^n \mathbb{E} \phi(\lambda X_i) \\
+  &amp; \leq \frac{\lambda^2 \sum_{i=1}^n  \mathbb{E} X_i^2}{2!} + \sum_{k=3}^\infty \frac{\lambda^k \sum_{i=1}^n \mathbb{E}(X_i)_+^k}{k!} \\
+  &amp; \leq \frac{\lambda^2 v}{2} + \sum_{k=3}^\infty \frac{\lambda^k v c^{k-2}}{2} \\
+  &amp; =  \frac{\lambda^2 v}{2 (1 - c \lambda)} \, .
+\end{array}\]</span> La borne sur la queue découle en maximisant <span class="math display">\[\sup_{\lambda \in [0,1/c)}  \lambda t - \frac{\lambda^2 v}{2 (1 - c \lambda)} = \frac{v}{c^2} \sup_{\eta \in [0,1)} \eta \frac{ct}{v} - \frac{\eta^2}{2(1-\eta)} \, .\]</span></p>
+</div>
+</section><section id="sec-bibconvrv" class="level2" data-number="14.8"><h2 data-number="14.8" class="anchored" data-anchor-id="sec-bibconvrv">
+<span class="header-section-number">14.8</span> Remarques bibliographiques</h2>
+<p><span class="citation" data-cites="MR1932358">(<a href="#ref-MR1932358" role="doc-biblioref">Dudley, 2002</a>)</span> contient une discussion approfondie des différents types de convergences que l’on peut définir pour les variables aléatoires. En particulier, <span class="citation" data-cites="MR1932358">(<a href="#ref-MR1932358" role="doc-biblioref">Dudley, 2002</a>)</span> offre une perspective générale sur les questions topologiques dans les espaces de probabilité. <span class="citation" data-cites="MR1932358">(<a href="#ref-MR1932358" role="doc-biblioref">Dudley, 2002</a>)</span> aborde aussi le problème posé par les variables aléatoires à valeurs dans des espaces métriques (éventuellement de dimension infinie).</p>
+<p>Les lois des grands nombres et les lois 0-1 s’inscrivent dans le cadre plus général des théorèmes ergodiques, voir <span class="citation" data-cites="MR1932358">(<a href="#ref-MR1932358" role="doc-biblioref">Dudley, 2002</a>)</span> ou <span class="citation" data-cites="Dur10">(<a href="#ref-Dur10" role="doc-biblioref">Durrett, 2010</a>)</span>. Un exemple important de loi des grands nombres est la propriété d’équipartition asymptotique (PEA) en théorie de l’information. Notons qu’elle vaut pour une classe de sources bien plus large que l’ensemble des sources sans mémoire (espaces produits de probabilité infinis). Voir <span class="citation" data-cites="cover:thomas:1991">(<a href="#ref-cover:thomas:1991" role="doc-biblioref">Cover &amp; Thomas, 1991</a>)</span> ou [csiszar:korner:1981].</p>
+<p>Une introduction aux inégalités exponentielles et à leurs applications se trouve dans <span class="citation" data-cites="massart:2003">(<a href="#ref-massart:2003" role="doc-biblioref">Massart, 2007</a>)</span>, <span class="citation" data-cites="BoLuMa13">(<a href="#ref-BoLuMa13" role="doc-biblioref">Boucheron, Lugosi, &amp; Massart, 2013</a>)</span>.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-BoLuMa13" class="csl-entry" role="listitem">
+Boucheron, S., Lugosi, G., &amp; Massart, P. (2013). <em>Concentration inequalities</em>. Oxford University Press.
+</div>
+<div id="ref-cover:thomas:1991" class="csl-entry" role="listitem">
+Cover, T., &amp; Thomas, J. (1991). <em>Elements of information theory</em>. John Wiley &amp; sons.
+</div>
+<div id="ref-MR1932358" class="csl-entry" role="listitem">
+Dudley, R. M. (2002). <em>Real analysis and probability</em> (Vol. 74, p. x+555). Cambridge: Cambridge University Press.
+</div>
+<div id="ref-Dur10" class="csl-entry" role="listitem">
+Durrett, R. (2010). <em>Probability: theory and examples</em>. Cambridge University Press.
+</div>
+<div id="ref-massart:2003" class="csl-entry" role="listitem">
+Massart, P. (2007). <em>Concentration inequalities and model selection. Ecole d’Et<span>é</span> de Probabilit<span>é</span> de Saint-Flour <span class="smallcaps">xxxiv</span></em> (Vol. 1896). Springer-Verlag.
+</div>
+</div>
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copié");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copié");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("\/fr");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="./041-characterization.fr.html" class="pagination-link" aria-label="Fonctions quantiles">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>  <span class="chapter-title">Fonctions quantiles</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./08-convergence-3.fr.html" class="pagination-link" aria-label="Convergence en loi">
+        <span class="nav-page-text"><span class="chapter-number">15</span>  <span class="chapter-title">Convergence en loi</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/05-convergences-1.fr.qmd" class="toc-action"><i class="bi bi-github"></i>Modifier cette page</a></li>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Faire part d'un problème</a></li>
+</ul></div></div></div></footer>
+</body>
+</html>

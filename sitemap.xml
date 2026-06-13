@@ -1,75 +1,147 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>/fr/index.fr.html</loc>
+    <lastmod>2026-06-13T06:13:48.242Z</lastmod>
+  </url>
+  <url>
+    <loc>/fr/01-intro.fr.html</loc>
+    <lastmod>2026-06-13T06:13:48.213Z</lastmod>
+  </url>
+  <url>
+    <loc>/fr/02-language.fr.html</loc>
+    <lastmod>2026-06-13T06:13:48.213Z</lastmod>
+  </url>
+  <url>
+    <loc>/fr/031-moments.fr.html</loc>
+    <lastmod>2026-06-13T06:13:48.214Z</lastmod>
+  </url>
+  <url>
+    <loc>/fr/033-integration2moments.fr.html</loc>
+    <lastmod>2026-06-13T06:13:48.214Z</lastmod>
+  </url>
+  <url>
+    <loc>/fr/03-families.fr.html</loc>
+    <lastmod>2026-06-13T06:13:48.214Z</lastmod>
+  </url>
+  <url>
+    <loc>/fr/0225-pgf.fr.html</loc>
+    <lastmod>2026-06-13T06:13:48.214Z</lastmod>
+  </url>
+  <url>
+    <loc>/fr/022-product-measures.fr.html</loc>
+    <lastmod>2026-06-13T06:13:48.214Z</lastmod>
+  </url>
+  <url>
+    <loc>/fr/021-independence.fr.html</loc>
+    <lastmod>2026-06-13T06:13:48.214Z</lastmod>
+  </url>
+  <url>
+    <loc>/fr/032-acfamilies.fr.html</loc>
+    <lastmod>2026-06-13T06:13:48.214Z</lastmod>
+  </url>
+  <url>
+    <loc>/fr/023-discrete-condition.fr.html</loc>
+    <lastmod>2026-06-13T06:13:48.214Z</lastmod>
+  </url>
+  <url>
+    <loc>/fr/06-conditioning.fr.html</loc>
+    <lastmod>2026-06-13T06:13:48.215Z</lastmod>
+  </url>
+  <url>
+    <loc>/fr/04-characterizations.fr.html</loc>
+    <lastmod>2026-06-13T06:13:48.214Z</lastmod>
+  </url>
+  <url>
+    <loc>/fr/041-characterization.fr.html</loc>
+    <lastmod>2026-06-13T06:13:48.214Z</lastmod>
+  </url>
+  <url>
+    <loc>/fr/05-convergences-1.fr.html</loc>
+    <lastmod>2026-06-13T06:13:48.215Z</lastmod>
+  </url>
+  <url>
+    <loc>/fr/08-convergence-3.fr.html</loc>
+    <lastmod>2026-06-13T06:13:48.215Z</lastmod>
+  </url>
+  <url>
+    <loc>/fr/09-gaussian-vectors.fr.html</loc>
+    <lastmod>2026-06-13T06:13:48.216Z</lastmod>
+  </url>
+  <url>
+    <loc>/fr/MA1AU015-Notes-de-cours-en-français.pdf</loc>
+    <lastmod>2026-06-13T06:16:44.102Z</lastmod>
+  </url>
+  <url>
     <loc>https://s-v-b.github.io/MA1AY010-CN/index.html</loc>
-    <lastmod>2025-09-26T15:43:08.832Z</lastmod>
+    <lastmod>2026-06-13T06:10:53.400Z</lastmod>
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA1AY010-CN/01-intro.html</loc>
-    <lastmod>2025-09-19T11:41:48.241Z</lastmod>
+    <lastmod>2026-06-13T06:10:53.363Z</lastmod>
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA1AY010-CN/02-language.html</loc>
-    <lastmod>2025-10-02T10:33:40.360Z</lastmod>
+    <lastmod>2026-06-13T06:10:53.363Z</lastmod>
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA1AY010-CN/031-moments.html</loc>
-    <lastmod>2025-10-02T10:33:40.357Z</lastmod>
+    <lastmod>2026-06-13T06:10:53.364Z</lastmod>
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA1AY010-CN/033-integration2moments.html</loc>
-    <lastmod>2025-10-02T10:33:40.357Z</lastmod>
+    <lastmod>2026-06-13T06:10:53.364Z</lastmod>
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA1AY010-CN/03-families.html</loc>
-    <lastmod>2025-10-02T10:33:40.359Z</lastmod>
+    <lastmod>2026-06-13T06:10:53.364Z</lastmod>
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA1AY010-CN/0225-pgf.html</loc>
-    <lastmod>2025-10-02T10:33:40.356Z</lastmod>
+    <lastmod>2026-06-13T06:10:53.363Z</lastmod>
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA1AY010-CN/022-product-measures.html</loc>
-    <lastmod>2025-10-02T10:33:40.357Z</lastmod>
+    <lastmod>2026-06-13T06:10:53.363Z</lastmod>
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA1AY010-CN/021-independence.html</loc>
-    <lastmod>2025-10-02T10:33:40.359Z</lastmod>
+    <lastmod>2026-06-13T06:10:53.363Z</lastmod>
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA1AY010-CN/032-acfamilies.html</loc>
-    <lastmod>2025-10-02T10:33:40.357Z</lastmod>
+    <lastmod>2026-06-13T06:10:53.364Z</lastmod>
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA1AY010-CN/023-discrete-condition.html</loc>
-    <lastmod>2025-10-02T10:33:40.356Z</lastmod>
+    <lastmod>2026-06-13T06:10:53.363Z</lastmod>
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA1AY010-CN/06-conditioning.html</loc>
-    <lastmod>2025-10-02T10:33:40.359Z</lastmod>
+    <lastmod>2026-06-13T06:10:53.366Z</lastmod>
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA1AY010-CN/04-characterizations.html</loc>
-    <lastmod>2025-10-02T14:43:52.726Z</lastmod>
+    <lastmod>2026-06-13T06:10:53.365Z</lastmod>
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA1AY010-CN/041-characterization.html</loc>
-    <lastmod>2025-10-02T10:33:40.357Z</lastmod>
+    <lastmod>2026-06-13T06:10:53.365Z</lastmod>
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA1AY010-CN/05-convergences-1.html</loc>
-    <lastmod>2025-10-02T09:52:25.954Z</lastmod>
+    <lastmod>2026-06-13T06:10:53.365Z</lastmod>
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA1AY010-CN/08-convergence-3.html</loc>
-    <lastmod>2025-10-02T10:33:40.352Z</lastmod>
+    <lastmod>2026-06-13T06:10:53.366Z</lastmod>
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA1AY010-CN/09-gaussian-vectors.html</loc>
-    <lastmod>2025-10-02T10:33:41.949Z</lastmod>
+    <lastmod>2026-06-13T06:10:53.366Z</lastmod>
   </url>
   <url>
     <loc>https://s-v-b.github.io/MA1AY010-CN/MA1AY010-Class-Notes.pdf</loc>
-    <lastmod>2025-10-02T14:46:11.250Z</lastmod>
+    <lastmod>2026-06-13T06:13:46.661Z</lastmod>
   </url>
 </urlset>

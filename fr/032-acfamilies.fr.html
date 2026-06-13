@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
+<head>
+<link rel="alternate" hreflang="en" href="/032-acfamilies.html" />
+<link rel="alternate" hreflang="fr" href="/fr/032-acfamilies.fr.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.36">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="description" content="Notes du cours de Probabiltés M1 ISIFAR en français">
+<title>9  Lois de probabilité absolument continues – MA1AU015 Notes de cours en français</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+<script src="site_libs/quarto-nav/quarto-nav.js"></script><script src="site_libs/quarto-nav/headroom.min.js"></script><script src="site_libs/clipboard/clipboard.min.js"></script><script src="site_libs/quarto-search/autocomplete.umd.js"></script><script src="site_libs/quarto-search/fuse.min.js"></script><script src="site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="./">
+<link href="./023-discrete-condition.fr.html" rel="next">
+<link href="./021-independence.fr.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script><script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script><link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-eb98473aa13ec2f8694b0a204f8986fa.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+</head>
+<body class="nav-sidebar floating nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">MA1AU015 Notes de cours en français</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+    <a href="https://github.com/s-v-b/MA1AY010-CN/" title="Code source" class="quarto-navigation-tool px-1" aria-label="Code source"><i class="bi bi-github"></i></a>
+    <a href="./MA1AU015-Notes-de-cours-en-fran%C3%A7ais.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+          <div id="quarto-search" class="" title="Recherche"></div>
+      </div> <!-- /container-fluid -->
+    </nav><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./032-acfamilies.fr.html"><span class="chapter-number">9</span>  <span class="chapter-title">Lois de probabilité absolument continues</span></a></li></ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="dropdown" id="languages-links-parent">
+<button class="btn btn-primary dropdown-toggle babelquarto-languages-button" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> Version in fr</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="/032-acfamilies.html" id="language-link-en">Version in en</a></li></ul>
+</div>
+<div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mise en route</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-intro.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>  <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-language.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>  <span class="chapter-title">Un minimum de théorie de la mesure</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./031-moments.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>  <span class="chapter-title">Un minimum d’intégration</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./033-integration2moments.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>  <span class="chapter-title">Des intégrales à l’espérance et aux moments</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-families.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>  <span class="chapter-title">Familles de lois discrètes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0225-pgf.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>  <span class="chapter-title">Caractérisations des lois de probabilité discrètes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./022-product-measures.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>  <span class="chapter-title">Lois produit</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./021-independence.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>  <span class="chapter-title">Indépendance et espaces produits</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./032-acfamilies.fr.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">9</span>  <span class="chapter-title">Lois de probabilité absolument continues</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./023-discrete-condition.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>  <span class="chapter-title">Conditionnement discret</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-conditioning.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>  <span class="chapter-title">Conditionnement</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-characterizations.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>  <span class="chapter-title">Caractérisations des lois de probabilité</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./041-characterization.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>  <span class="chapter-title">Fonctions quantiles</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-convergences-1.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>  <span class="chapter-title">Convergences I : presque sûre, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, en probabilité</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-convergence-3.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>  <span class="chapter-title">Convergence en loi</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-gaussian-vectors.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>  <span class="chapter-title">Vecteurs gaussiens</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Annexes</span></span>
+  </li>
+    </ul>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table des matières</h2>
+   
+  <ul>
+<li><a href="#sec-acontinuity" id="toc-sec-acontinuity" class="nav-link active" data-scroll-target="#sec-acontinuity"><span class="header-section-number">9.1</span> Densités et continuité absolue</a></li>
+  <li><a href="#expos" id="toc-expos" class="nav-link" data-scroll-target="#expos"><span class="header-section-number">9.2</span> Loi exponentielle</a></li>
+  <li><a href="#sec-gammas" id="toc-sec-gammas" class="nav-link" data-scroll-target="#sec-gammas"><span class="header-section-number">9.3</span> Loi gamma</a></li>
+  <li><a href="#sec-gauss" id="toc-sec-gauss" class="nav-link" data-scroll-target="#sec-gauss"><span class="header-section-number">9.4</span> Lois gaussiennes univariées</a></li>
+  <li><a href="#sec-cdf_ac" id="toc-sec-cdf_ac" class="nav-link" data-scroll-target="#sec-cdf_ac"><span class="header-section-number">9.5</span> Fonctions de répartition et continuité absolue</a></li>
+  <li><a href="#sec-imgdens" id="toc-sec-imgdens" class="nav-link" data-scroll-target="#sec-imgdens"><span class="header-section-number">9.6</span> Calcul de la densité d’une loi image</a></li>
+  <li><a href="#sec-gammabeta" id="toc-sec-gammabeta" class="nav-link" data-scroll-target="#sec-gammabeta"><span class="header-section-number">9.7</span> Application : calcul gamma-bêta</a></li>
+  <li><a href="#sec-bibac" id="toc-sec-bibac" class="nav-link" data-scroll-target="#sec-bibac"><span class="header-section-number">9.8</span> Remarques bibliographiques</a></li>
+  </ul>
+<div class="toc-actions"><ul>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/032-acfamilies.fr.qmd" class="toc-action"><i class="bi bi-github"></i>Modifier cette page</a></li>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Faire part d'un problème</a></li>
+</ul></div></nav>
+</div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title"><span id="sec-acmeasures" class="quarto-section-identifier"><span class="chapter-number">9</span>  <span class="chapter-title">Lois de probabilité absolument continues</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header><section id="sec-acontinuity" class="level2" data-number="9.1"><h2 data-number="9.1" class="anchored" data-anchor-id="sec-acontinuity">
+<span class="header-section-number">9.1</span> Densités et continuité absolue</h2>
+<p>
+</p>
+<p>Au-delà des lois discrètes, les lois de probabilité les plus simples sont définies par une fonction de densité par rapport à une mesure (<span class="math inline">\(\sigma\)</span>-finie). Cela englobe les lois des soi-disant <em>variables aléatoires continues</em>.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-defac" class="theorem definition">
+<p><span class="theorem-title"><strong>Définition 9.1 (Continuité absolue)</strong></span> Soient <span class="math inline">\(\mu, \nu\)</span> deux mesures positives sur l’espace mesurable <span class="math inline">\((\Omega, \mathcal{F})\)</span>. On dit que <span class="math inline">\(\mu\)</span> est absolument continue par rapport à <span class="math inline">\(\nu\)</span> (noté <span class="math inline">\(\mu \trianglelefteq \nu\)</span>) si et seulement si, pour tout <span class="math inline">\(A \in \mathcal{F}\)</span> avec <span class="math inline">\(\nu(A)=0\)</span>, on a aussi <span class="math inline">\(\mu(A)=0\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>
+</p>
+<p>Si <span class="math inline">\(\mu, \nu\)</span> sont deux lois de probabilité et si <span class="math inline">\(\mu \trianglelefteq \nu\)</span>, alors tout événement impossible sous <span class="math inline">\(\nu\)</span> est aussi impossible sous <span class="math inline">\(\mu\)</span>.</p>
+<p>
+</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-ac-1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 9.1</strong></span> Répondre aux deux questions :</p>
+<ul>
+<li>La mesure de comptage sur <span class="math inline">\(\mathbb{R}\)</span> est-elle absolument continue par rapport à la mesure de Lebesgue ?</li>
+<li>La réciproque est-elle vraie ?</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<p>
+</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-ac-transitive" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 9.2</strong></span> Vérifier que la continuité absolue est une relation transitive.</p>
+</div>
+</div>
+</div>
+</div>
+<p>
+</p>
+<p>Le théorème suivant a des conséquences pratiques de grande portée.</p>
+<p>
+</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-radonnyk" class="theorem">
+<p><span class="theorem-title"><strong>Théorème 9.1 (Radon-Nikodym)</strong></span> Soient <span class="math inline">\(\mu, \nu\)</span> deux mesures positives sur l’espace mesurable <span class="math inline">\((\Omega, \mathcal{F})\)</span>. Supposons que <span class="math inline">\(\nu\)</span> soit <span class="math inline">\(\sigma\)</span>-finie. Si <span class="math inline">\(\mu \trianglelefteq \nu\)</span>, alors il existe une fonction mesurable <span class="math inline">\(f\)</span> de <span class="math inline">\(\Omega\)</span> vers <span class="math inline">\([0, \infty)\)</span> telle que, pour tout <span class="math inline">\(A \in \mathcal{F}\)</span>, <span class="math display">\[
+\mu(A) =  \int_A f(\omega) \mathrm{d}\nu(\omega) =  \int \mathbb{I}_A f \mathrm{d}\nu \, .
+\]</span> La fonction <span class="math inline">\(f\)</span> est appelée une version de la densité de <span class="math inline">\(\mu\)</span> par rapport à <span class="math inline">\(\nu\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>
+</p>
+<p>La densité est aussi appelée la dérivée de Radon-Nikodym de <span class="math inline">\(\mu\)</span> par rapport à <span class="math inline">\(\nu\)</span>. Elle est parfois notée <span class="math inline">\(\frac{\mathrm{d}\mu}{\mathrm{d}\nu}\)</span>.</p>
+<p>
+</p>
+<div id="rem-sigfi" class="proof remark">
+<p><span class="proof-title"><em>Remarque 9.1</em>. </span>L’hypothèse de <span class="math inline">\(\sigma\)</span>-finité est cruciale. Si nous choisissons <span class="math inline">\(\mu\)</span> comme mesure de Lebesgue et <span class="math inline">\(\nu\)</span> comme mesure de comptage, <span class="math inline">\(\nu\)</span> n’est pas <span class="math inline">\(\sigma\)</span>-finie ; <span class="math inline">\(\mu(A)&gt;0\)</span> implique <span class="math inline">\(\nu(A)=\infty\)</span>, que l’on peut considérer comme strictement supérieur à <span class="math inline">\(0\)</span>. Néanmoins, la mesure de Lebesgue n’a pas de densité par rapport à la mesure de comptage.</p>
+</div>
+<p>
+</p>
+<p>Dans les sections suivantes, nous étudions les lois de probabilité sur <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span> qui sont absolument continues par rapport à la mesure de Lebesgue.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-chainrule" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 9.1</strong></span> Si <span class="math inline">\(\rho \trianglelefteq \mu \trianglelefteq  \nu\)</span>, si <span class="math inline">\(f\)</span> est une densité de <span class="math inline">\(\rho\)</span> par rapport à <span class="math inline">\(\mu\)</span> tandis que <span class="math inline">\(g\)</span> est une densité de <span class="math inline">\(\mu\)</span> par rapport à <span class="math inline">\(\nu\)</span>, alors <span class="math inline">\(fg\)</span> est une densité de <span class="math inline">\(\rho\)</span> par rapport à <span class="math inline">\(\nu\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-chainrule" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 9.3</strong></span> Démontrer la <a href="#prp-chainrule" class="quarto-xref">proposition <span>9.1</span></a>.</p>
+</div>
+</div>
+</div>
+</div>
+</section><section id="expos" class="level2" data-number="9.2"><h2 data-number="9.2" class="anchored" data-anchor-id="expos">
+<span class="header-section-number">9.2</span> Loi exponentielle</h2>
+<p>La loi exponentielle apparaît dans plusieurs domaines des probabilités et de la statistique. En théorie de la fiabilité, sa propriété d’absence de mémoire en fait un cas limite. En théorie des processus ponctuels, la loi exponentielle est liée aux processus de Poisson. Elle est aussi importante en théorie des valeurs extrêmes.</p>
+<div id="def">
+<p>La loi exponentielle de paramètre d’intensité <span class="math inline">\(\lambda&gt;0\)</span> est définie par sa densité par rapport à la mesure de Lebesgue sur <span class="math inline">\([0,\infty)\)</span> : <span class="math display">\[
+x \mapsto \lambda \mathrm{e}^{-\lambda x} \, .
+\]</span> L’inverse du paramètre d’intensité est appelé le paramètre d’échelle.</p>
+</div>
+<p>Notez que les lois géométrique et exponentielle sont liées : si <span class="math inline">\(X\)</span> suit une loi exponentielle, alors <span class="math inline">\(\lceil X\rceil\)</span> suit une loi géométrique. Pour <span class="math inline">\(k\geq 1\)</span> : <span class="math display">\[
+P \Big\{ \lceil X \rceil \geq k \Big\} = P \Big\{  X  &gt; k - 1 \Big\}
+= \mathrm{e}^{- \lambda (k-1)} \, .
+\]</span></p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-density1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 9.4</strong></span> Vérifier que <span class="math inline">\(x \mapsto \lambda \mathrm{e}^{-\lambda x}\)</span> est une densité de probabilité sur <span class="math inline">\([0, \infty)\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-density2" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 9.5</strong></span> Calculer la fonction de queue et la fonction de répartition de la loi exponentielle de paramètre <span class="math inline">\(\lambda\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-density3" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 9.6</strong></span> Soient <span class="math inline">\(X_1, \ldots, X_n\)</span> des variables i.i.d. de loi exponentielle. Caractériser la loi de <span class="math inline">\(\min(X_1, \ldots, X_n)\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="{#exr-=density4}">
+<p>Si <span class="math inline">\(X\)</span> suit une loi exponentielle de paramètre d’échelle <span class="math inline">\(\sigma\)</span>, quelle est la loi de <span class="math inline">\(a X\)</span> ?</p>
+</div>
+<!-- ::: {#fig-witgetexponential} -->
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-witgetexponential" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-witgetexponential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="032-acfamilies.fr_files/figure-html/fig-witgetexponential-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-witgetexponential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 9.1: Exponential densities with different parameters: scales <span class="math inline">\(1, 2, 1/2\)</span> or equivalently intensities <span class="math inline">\(1, 1/2, 2\)</span>. Expectation equals scale,<br>
+variance equals squared scale.
+</figcaption></figure>
+</div>
+</div>
+</div>
+<!-- ::: -->
+</section><section id="sec-gammas" class="level2" data-number="9.3"><h2 data-number="9.3" class="anchored" data-anchor-id="sec-gammas">
+<span class="header-section-number">9.3</span> Loi gamma</h2>
+<p>Les sommes de variables aléatoires exponentielles indépendantes ne suivent pas une loi exponentielle. La famille des lois gamma englobe la famille des lois exponentielles. Elle est stable par addition et satisfait</p>
+<p>Rappelons la fonction gamma d’Euler : <span class="math display">\[
+\Gamma(t) = \int_0^\infty x^{t-1}\mathrm{e}^{-x} \mathrm{d}x \qquad \text{for } t&gt;0\, .
+\]</span></p>
+<div id="def">
+<p>La loi gamma de paramètre de forme <span class="math inline">\(p&gt;0\)</span> et de paramètre d’intensité <span class="math inline">\(\lambda&gt;0\)</span> est définie par sa densité par rapport à la mesure de Lebesgue sur <span class="math inline">\([0,\infty)\)</span> : <span class="math display">\[
+x \mapsto \lambda^p \frac{x^{p-1}}{\Gamma(p)} \mathrm{e}^{-\lambda x} \, .
+\]</span> L’inverse du paramètre d’intensité est appelé le paramètre d’échelle.</p>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-gamma1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 9.7</strong></span> Vérifier que <span class="math inline">\(x \mapsto \lambda^p \frac{x^{p-1}}{\Gamma(p)} \mathrm{e}^{-\lambda x}\)</span> est une densité de probabilité sur <span class="math inline">\([0, \infty)\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-gamm2" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 9.8</strong></span> Si <span class="math inline">\(X\)</span> suit une loi gamma de paramètre de forme <span class="math inline">\(p\)</span> et de paramètre d’échelle <span class="math inline">\(\sigma\)</span>, quelle est la loi de <span class="math inline">\(a X\)</span> ?</p>
+</div>
+</div>
+</div>
+</div>
+<!-- ::: {#fig-witgetgamma} -->
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-witgetgamma" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-witgetgamma-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="032-acfamilies.fr_files/figure-html/fig-witgetgamma-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-witgetgamma-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 9.2: Gamma densities with different parameters: scales <span class="math inline">\(1, 1, 1/3, 1, 2\)</span> and shapes <span class="math inline">\(1, 2, 3, 5, 5/2\)</span>. Expectation equals shape times scale,<br>
+variance equals shape times squared scale.
+</figcaption></figure>
+</div>
+</div>
+</div>
+<!-- ::: -->
+</section><section id="sec-gauss" class="level2" data-number="9.4"><h2 data-number="9.4" class="anchored" data-anchor-id="sec-gauss">
+<span class="header-section-number">9.4</span> Lois gaussiennes univariées</h2>
+<p>Les lois gaussiennes jouent un rôle central en théorie des probabilités, en statistique, en théorie de l’information et en analyse.</p>
+<div id="def">
+<p>La loi gaussienne ou normale de moyenne <span class="math inline">\(\mu \in \mathbb{R}\)</span> et de variance <span class="math inline">\(\sigma^2\)</span>, <span class="math inline">\(\sigma&gt;0\)</span>, a pour densité <span class="math display">\[
+x \mapsto \frac{1}{\sqrt{2 \pi} \sigma} \mathrm{e}^{- \frac{(x-\mu)^2}{2 \sigma^2}} \qquad\text{for } x \in \mathbb{R} \, .
+\]</span> La densité gaussienne standard est définie par <span class="math inline">\(\mu=0, \sigma=1\)</span>.</p>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-gauss1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 9.9</strong></span> Vérifier que <span class="math inline">\(x \mapsto \frac{\mathrm{e}^{-x^2/2}}{\sqrt{2\pi}}\)</span> est une densité de probabilité sur <span class="math inline">\(\mathbb{R}\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-gauss2" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 9.10</strong></span> Si <span class="math inline">\(X\)</span> suit une densité gaussienne standard, quelle est la loi de <span class="math inline">\(\mu + \sigma X\)</span> ?</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-gauss3" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 9.11</strong></span> Si <span class="math inline">\(X\)</span> suit une densité gaussienne standard, montrer que <span class="math display">\[
+\Pr \{ X &gt; t \} \leq \frac{1}{t} \frac{\mathrm{e}^{-t^2/2}}{\sqrt{2\pi}} \qquad\text{for } t&gt;0\,.
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<!-- ::: {#fig-witgetgauss} -->
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-witgetgauss" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-witgetgauss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="032-acfamilies.fr_files/figure-html/fig-witgetgauss-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-witgetgauss-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 9.3: Gaussian densities. The location parameter <span class="math inline">\(\mu\)</span> coincides with the mean and the median. The scale parameter is the standard deviation. The Inter-Quartile-Range (IQR) is proportional to the standard deviation. If <span class="math inline">\(\Phi^{\leftarrow}\)</span> denotes the quantile function of <span class="math inline">\(\mathcal{N}(0,1)\)</span> then the interquartile range of <span class="math inline">\(\mathcal{N}(\mu, \sigma^2)\)</span> is <span class="math inline">\(\sigma \Big(\Phi^{\leftarrow}(3/4) - \Phi^{\leftarrow}(1/4)\Big)=2 \sigma \Phi^{\leftarrow}(3/4)\)</span>.
+</figcaption></figure>
+</div>
+</div>
+</div>
+<!-- ::: -->
+</section><section id="sec-cdf_ac" class="level2" data-number="9.5"><h2 data-number="9.5" class="anchored" data-anchor-id="sec-cdf_ac">
+<span class="header-section-number">9.5</span> Fonctions de répartition et continuité absolue</h2>
+<p>Si une fonction de répartition est définie comme l’intégrale d’une fonction Lebesgue-intégrable non négative, nous savons que la loi de probabilité correspondante est absolument continue par rapport à la mesure de Lebesgue.</p>
+<p>Nous pouvons demander un critère qui caractérise la fonction de répartition d’une loi de probabilité absolument continue. Un tel critère est donné par la définition suivante. Nous surchargeons l’expression <em>absolument continue</em>.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-accdf" class="theorem definition">
+<p><span class="theorem-title"><strong>Définition 9.2 (Fonctions absolument continues)</strong></span> Une fonction réelle <span class="math inline">\(F\)</span> sur <span class="math inline">\([a,b]\)</span> est dite <em>absolument continue</em> si et seulement si, pour tout <span class="math inline">\(\delta&gt;0\)</span>, il existe <span class="math inline">\(\epsilon&gt;0\)</span> tel que, pour toute collection <span class="math inline">\(([a_i, b_i])_{i\leq n}\)</span> de sous-intervalles non chevauchants (<span class="math inline">\([a_i,b_i] ⊆ [a,b]\)</span> pour tout <span class="math inline">\(i\leq n\)</span> et <span class="math inline">\(\ell([a_i,b_i] \cap [a_j,b_j])=0\)</span> pour <span class="math inline">\(i\neq j\)</span>) avec <span class="math inline">\(∑_{i\leq n} |b_i-a_i|\leq ϵ\)</span>, <span class="math display">\[∑_{i\leq n} |F(b_i)-F(a_i)|\leq δ\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<p>La continuité absolue, la différentiabilité et l’intégration des dérivées sont reliées par le théorème suivant. Ce théorème nous dit qu’une fonction de répartition est absolument continue au sens de la Définition <a href="#def-accdf" class="quarto-xref">Définition <span>9.2</span></a> si et seulement si la loi de probabilité correspondante est absolument continue par rapport à la mesure de Lebesgue.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-fundTheCalc" class="theorem">
+<p><span class="theorem-title"><strong>Théorème 9.2 (Théorème fondamental du calcul)</strong></span> Une fonction réelle <span class="math inline">\(F\)</span> sur <span class="math inline">\([a,b]\)</span> est <em>absolument continue</em> si et seulement si les trois conditions suivantes sont satisfaites :</p>
+<ol type="1">
+<li>La dérivée <span class="math inline">\(F'\)</span> existe Lebesgue-presque partout sur <span class="math inline">\([a,b]\)</span>
+</li>
+<li>La dérivée <span class="math inline">\(F'\)</span> est Lebesgue-intégrable</li>
+<li>Pour tout <span class="math inline">\(x \in [a,b]\)</span>, <span class="math inline">\(F(x) - F(a) = \int_{[a,b]} \mathbb{I}_{[a,x]}(t) F'(t) \mathrm{d}t\)</span>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</section><section id="sec-imgdens" class="level2" data-number="9.6"><h2 data-number="9.6" class="anchored" data-anchor-id="sec-imgdens">
+<span class="header-section-number">9.6</span> Calcul de la densité d’une loi image</h2>
+<p>Rappelons la formule de changement de variable du calcul élémentaire. Si <span class="math inline">\(\phi\)</span> est croissante strictement et différentiable de l’ouvert <span class="math inline">\(A\)</span> vers <span class="math inline">\(B\)</span> et si <span class="math inline">\(f\)</span> est Riemann-intégrable sur <span class="math inline">\(B\)</span>, alors <span class="math display">\[
+\int_B f(y) \, \mathrm{d}y = \int_A f(\phi(x)) \, \phi^{\prime}(x) \, \mathrm{d}x \,
+\]</span></p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-elmt-chg-var" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 9.12</strong></span> Vérifier la formule élémentaire de changement de variable.</p>
+</div>
+</div>
+</div>
+</div>
+<p>L’objectif de cette section est d’énoncer une généralisation multidimensionnelle de cette formule élémentaire. C’est le contenu du <a href="#thm-geomchange" class="quarto-xref">Théorème <span>9.4</span></a>). Cette extension est ensuite utilisée pour établir une formule toute faite pour calculer la densité d’une loi image dans le <a href="#thm-imagedensityformula" class="quarto-xref">Théorème <span>9.5</span></a>).</p>
+<p>Commençons par un échauffement unidimensionnel. En partant de la loi uniforme sur <span class="math inline">\([0,1]\)</span> et en appliquant une transformation monotone différentiable, la densité de la loi image se calcule aisément.</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 9.13</strong></span> Soit <span class="math inline">\(\phi\)</span> différentiable et croissante sur <span class="math inline">\([0,1]\)</span>, et soit <span class="math inline">\(P\)</span> la loi uniforme sur <span class="math inline">\([0,1]\)</span>.</p>
+<p>Vérifier que <span class="math inline">\(P \circ \phi^{-1}\)</span> a pour densité <span class="math inline">\(\frac{1}{\phi'\circ \phi^\leftarrow}\)</span> sur <span class="math inline">\(\phi([0,1])\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>La proposition suivante étend cette observation.</p>
+<div id="prp">
+<p>Si la variable aléatoire réelle <span class="math inline">\(X\)</span> suit la loi <span class="math inline">\(P\)</span> de densité <span class="math inline">\(f\)</span>, et si <span class="math inline">\(\phi\)</span> est monotone croissante et différentiable sur <span class="math inline">\(\operatorname{supp}(P)\)</span>, alors la loi de probabilité de <span class="math inline">\(Y = \phi(X)\)</span> a pour densité <span class="math display">\[
+g = \frac{f \circ \phi^{\leftarrow}}{\phi^{\prime}\circ \phi^{\leftarrow}}  \,
+\]</span> sur <span class="math inline">\(\phi\big(\operatorname{supp}(P)\big)\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Par le théorème fondamental du calcul, la densité <span class="math inline">\(f\)</span> est presque partout la dérivée de la fonction de répartition <span class="math inline">\(F\)</span> de <span class="math inline">\(P\)</span>.</p>
+<p>La fonction de répartition de <span class="math inline">\(Y=\phi(X)\)</span> satisfait : <span class="math display">\[\begin{align*}
+P \Big\{ Y \leq y \Big\}
+  &amp; = P \Big\{ \phi(X) \leq y \Big\} \\
+  &amp; = P \Big\{ X \leq \phi^{\leftarrow} (y) \Big\} \\
+  &amp; = F \circ \phi^{\leftarrow}(y)
+\end{align*}\]</span> Presque partout, <span class="math inline">\(F \circ \phi^{\leftarrow}\)</span> est différentiable et a pour dérivée <span class="math inline">\(\frac{f \circ \phi^{\leftarrow}}{\phi' \circ  \phi^{\leftarrow}}\)</span> dans <span class="math inline">\(\phi(\text{supp}(P))\)</span>, et <span class="math inline">\(0\)</span> ailleurs. Ainsi <span class="math display">\[
+P \Big\{ Y \leq y \Big\} = \int_{(-\infty, y] \cap \phi(\text{supp}(P))} \frac{f \circ \phi^{\leftarrow}(u)}{\phi' \circ  \phi^{\leftarrow}(u)} \mathrm{d}u
+\]</span></p>
+</div>
+<p><br></p>
+<p>Le corollaire suivant est aussi utile que simple.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="cor-density-translation-scale" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollaire 9.1</strong></span> Si la loi de la variable aléatoire réelle <span class="math inline">\(X\)</span> a pour densité <span class="math inline">\(f\)</span>, alors la loi de <span class="math inline">\(\sigma X + \mu\)</span> a pour densité <span class="math inline">\(\frac{1}{\sigma}f\Big(\frac{\cdot -\mu}{\sigma}\Big)\)</span>, .</p>
+</div>
+</div>
+</div>
+</div>
+<br><p>
+</p>
+<p>En calcul univarié, il est facile d’établir que si une fonction est continue et croissante sur un ouvert, elle est inversible et son inverse est continu et croissant. Si la fonction est différentiable avec dérivée strictement positive, son inverse est aussi différentiable. De plus, la différentielle et la différentielle de l’inverse sont reliées de manière transparente.</p>
+<p>Le théorème d’inversion globale étend l’observation précédente au cadre multivarié.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-globalinversion" class="theorem">
+<p><span class="theorem-title"><strong>Théorème 9.3 (Théorème d’inversion globale)</strong></span> Soient <span class="math inline">\(U\)</span> et <span class="math inline">\(V\)</span> deux ouverts non vides de <span class="math inline">\(\mathbb{R}^d\)</span>. Soit <span class="math inline">\(\phi\)</span> une bijection continue de <span class="math inline">\(U\)</span> vers <span class="math inline">\(V\)</span>. Supposons de plus que <span class="math inline">\(\phi\)</span> soit continûment différentiable et que <span class="math inline">\(D\phi_x\)</span> soit non singulière en tout <span class="math inline">\(x \in U\)</span>.</p>
+<p>Alors, la fonction inverse <span class="math inline">\(\phi^{\leftarrow}\)</span> est aussi continûment différentiable sur <span class="math inline">\(V\)</span> et, pour tout <span class="math inline">\(y \in V\)</span> : <span class="math display">\[
+D\phi^{\leftarrow}_y = \Big(D\phi_{\phi^{\leftarrow}(y)} \Big)^{-1} \, .
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<p>Le déterminant jacobien de <span class="math inline">\(\phi\)</span> est le déterminant de la matrice qui représente la différentielle. Il est noté <span class="math inline">\(J_\phi\)</span>. Rappelons que : <span class="math display">\[
+J_{\phi^{\leftarrow}}(y) = \Big(J_{\phi}(\phi^{\leftarrow}(y)) \Big)^{-1} \, .
+\]</span> La version multidimensionnelle de la formule de changement de variable est énoncée sous les mêmes hypothèses que le théorème d’inversion globale. Nous admettons le théorème suivant.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-geomchange" class="theorem">
+<p><span class="theorem-title"><strong>Théorème 9.4 (Formule géométrique de changement de variable)</strong></span> Soient <span class="math inline">\(U\)</span> et <span class="math inline">\(V\)</span> deux ouverts non vides de <span class="math inline">\(\mathbb{R}^d\)</span>. Soit <span class="math inline">\(\phi\)</span> une bijection continue de <span class="math inline">\(U\)</span> vers <span class="math inline">\(V\)</span>. Supposons de plus que <span class="math inline">\(\phi\)</span> soit continûment différentiable et que <span class="math inline">\(D\phi_x\)</span> soit non singulière en tout <span class="math inline">\(x \in U\)</span>.</p>
+<p>Soit <span class="math inline">\(\ell\)</span> la mesure de Lebesgue sur <span class="math inline">\(\mathbb{R}^d\)</span>.</p>
+<p>Pour toute fonction borélienne mesurable <span class="math inline">\(f\)</span> non négative : <span class="math display">\[
+\int_U f(x) \mathrm{d}\ell(x)   = \int  f(\phi^\leftarrow(y)) \Big|J_{\phi^\leftarrow}(y) \Big| \mathrm{d}\ell(y) \, .
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<p>Le passage des coordonnées cartésiennes aux coordonnées polaires/sphériques est facilité par une application non triviale du <a href="#thm-geomchange" class="quarto-xref">Théorème <span>9.4</span></a>).</p>
+<p>La formule de densité image est un corollaire de la formule géométrique de changement de variable.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-imagedensityformula" class="theorem">
+<p><span class="theorem-title"><strong>Théorème 9.5 (Formule de densité image)</strong></span> Soit <span class="math inline">\(P\)</span> de densité <span class="math inline">\(f\)</span> sur l’ouvert <span class="math inline">\(U \subseteq  \mathbb{R}^d\)</span>.</p>
+<p>Soit <span class="math inline">\(\phi\)</span> bijective de <span class="math inline">\(U\)</span> vers <span class="math inline">\(\phi(U)\)</span> et continûment différentiable sur <span class="math inline">\(U\)</span> avec différentielle non singulière.</p>
+<p>La densité <span class="math inline">\(g\)</span> de la loi image <span class="math inline">\(P \circ \phi^{-1}\)</span> sur <span class="math inline">\(\phi(U)\)</span> est donnée par <span class="math display">\[
+g(y) = f\big(\phi^\leftarrow(y)\big) \times \big|J_{\phi^\leftarrow}(y)\big|  =  f\big(\phi^\leftarrow(y)\big) \times \Big|J_{\phi}(\phi^\leftarrow(y))\Big|^{-1}\, .
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<p>La preuve du <a href="#thm-imagedensityformula" class="quarto-xref">Théorème <span>9.5</span></a>) à partir du <a href="#thm-geomchange" class="quarto-xref">Théorème <span>9.4</span></a>) est une application routine de la formule de transfert.</p>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Soit <span class="math inline">\(B\)</span> un sous-ensemble borélien de <span class="math inline">\(\phi(U)\)</span>. Par la formule de transfert : <span class="math display">\[\begin{align*}
+P\Big\{ Y \in B \Big\}
+  &amp; =  P\Big\{ \phi(X) \in B \Big\} \\
+  &amp; = \int_U \mathbb{I}_B(\phi(x)) f(x) \mathrm{d}\ell(x) \,.
+\end{align*}\]</span> Invoquons maintenant le <a href="#thm-geomchange" class="quarto-xref">Théorème <span>9.4</span></a>) : <span class="math display">\[\begin{align*}
+\int_U \mathbb{I}_B(\phi(x)) f(x) \mathrm{d}\ell(x)
+&amp; = \int_{\phi(U)} \mathbb{I}_B(\phi(\phi^\leftarrow(y))) f(\phi^\leftarrow(y)) \Big|J_{\phi^\leftarrow}(y)\Big| \mathrm{d}\ell(y) \\
+&amp; = \int_{\phi(U)} \mathbb{I}_B(y) f(\phi^\leftarrow(y)) \Big|J_{\phi^\leftarrow}(y)\Big| \mathrm{d}\ell(y) \, .
+\end{align*}\]</span> Cela suffit pour conclure que <span class="math inline">\(f\circ \phi^\leftarrow \Big|J_{\phi^\leftarrow}\Big|\)</span> est une version de la densité de <span class="math inline">\(P \circ \phi^{-1}\)</span> par rapport à la mesure de Lebesgue sur <span class="math inline">\(\phi(U)\)</span>.</p>
+</div>
+</section><section id="sec-gammabeta" class="level2" data-number="9.7"><h2 data-number="9.7" class="anchored" data-anchor-id="sec-gammabeta">
+<span class="header-section-number">9.7</span> Application : calcul gamma-bêta</h2>
+<p>La formule de densité image est appliquée pour montrer un lien remarquable entre les lois gamma et bêta.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-gammabeta" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 9.2</strong></span> Soient <span class="math inline">\(X, Y\)</span> des variables aléatoires indépendantes de lois <span class="math inline">\(\Gamma(p, \lambda)\)</span> et <span class="math inline">\(\Gamma(q, \lambda)\)</span> (les paramètres d’intensité sont identiques). Posons <span class="math inline">\(U = X+Y\)</span> et <span class="math inline">\(V= X/(X+Y)\)</span>.</p>
+<p>Alors</p>
+<ol type="a">
+<li>Les variables aléatoires <span class="math inline">\(U\)</span> et <span class="math inline">\(V\)</span> sont indépendantes.</li>
+<li>La variable aléatoire <span class="math inline">\(U\)</span> suit la loi <span class="math inline">\(\Gamma(p+q, \lambda)\)</span> tandis que</li>
+<li>
+<span class="math inline">\(V\)</span> suit la loi <span class="math inline">\(\operatorname{Beta}(p, q)\)</span>.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>L’application <span class="math inline">\(f: ]0, \infty)^2 \to ]0, \infty) \times ]0,1[\)</span> définie par <span class="math display">\[
+f(x,y) =  \Big(x+y, \frac{x}{x+y} \Big)
+\]</span> est bijective, d’inverse <span class="math inline">\(f^{\leftarrow}(u,v) = \Big(uv,u(1-v)\Big)\)</span>. La matrice jacobienne de <span class="math inline">\(f^{\leftarrow}\)</span> en <span class="math inline">\((u,v)\)</span> est <span class="math display">\[
+\begin{pmatrix}
+  v &amp; u \\
+  (1-v) &amp; -u
+\end{pmatrix}
+\]</span> de déterminant <span class="math inline">\(-uv -u +uv=-u\)</span>. La densité jointe image en <span class="math inline">\((u,v) \in ]0,\infty) \times ]0,1[\)</span> vaut <span class="math display">\[\begin{align*}
+&amp; = \lambda^{p+q}\frac{(uv)^{p-1}}{\Gamma(p)} \frac{(u(1-v))^{q-1}}{\Gamma(q)}
+\mathrm{e}^{-\lambda (uv + u(1-v))} u \\
+&amp; = \Big(\lambda^{p+q} \frac{u^{p+q-1}}{\Gamma(p+q)} \mathrm{e}^{\lambda u}\Big)
+\times \Big(\frac{\Gamma(p+q)}{\Gamma(q)\Gamma(p)} v^{p-1} (1-v)^{q-1}\Big) \,.
+\end{align*}\]</span> La factorisation de la densité jointe prouve que <span class="math inline">\(U\)</span> et <span class="math inline">\(V\)</span> sont indépendants. Nous reconnaissons que la densité de (la loi de) <span class="math inline">\(U\)</span> est la densité gamma de paramètre de forme <span class="math inline">\(p+q\)</span> et de paramètre d’intensité <span class="math inline">\(\lambda\)</span>. La densité de la loi de <span class="math inline">\(V\)</span> est la densité bêta de paramètres <span class="math inline">\(p\)</span> et <span class="math inline">\(q\)</span>.</p>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-gamma-calculus" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 9.14</strong></span> Supposons que <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> forment une famille indépendante, chaque <span class="math inline">\(X_i\)</span> suivant la loi <span class="math inline">\(\Gamma(p_i, \lambda)\)</span>.</p>
+<p>Déterminer la loi jointe de <span class="math display">\[
+\sum_{i=1}^n X_i, \frac{X_1}{\sum_{i=1}^n X_i}, \frac{X_2}{\sum_{i=1}^n X_i}, \ldots, \frac{X_{n-1}}{\sum_{i=1}^n X_i}
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</section><section id="sec-bibac" class="level2" data-number="9.8"><h2 data-number="9.8" class="anchored" data-anchor-id="sec-bibac">
+<span class="header-section-number">9.8</span> Remarques bibliographiques</h2>
+<p><span class="citation" data-cites="MR1932358">Dudley (<a href="#ref-MR1932358" role="doc-biblioref">2002</a>)</span> et <span class="citation" data-cites="MR1873379">Pollard (<a href="#ref-MR1873379" role="doc-biblioref">2002</a>)</span> fournissent un développement complet de la continuité absolue et des preuves autonomes du théorème de Radon-Nikodym.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-MR1932358" class="csl-entry" role="listitem">
+Dudley, R. M. (2002). <em>Real analysis and probability</em> (Vol. 74, p. x+555). Cambridge: Cambridge University Press.
+</div>
+<div id="ref-MR1873379" class="csl-entry" role="listitem">
+Pollard, D. (2002). <em>A user’s guide to measure theoretic probability</em> (Vol. 8, p. xiv+351). Cambridge University Press, Cambridge.
+</div>
+</div>
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copié");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copié");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("\/fr");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="./021-independence.fr.html" class="pagination-link" aria-label="Indépendance et espaces produits">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>  <span class="chapter-title">Indépendance et espaces produits</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./023-discrete-condition.fr.html" class="pagination-link" aria-label="Conditionnement discret">
+        <span class="nav-page-text"><span class="chapter-number">10</span>  <span class="chapter-title">Conditionnement discret</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/032-acfamilies.fr.qmd" class="toc-action"><i class="bi bi-github"></i>Modifier cette page</a></li>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Faire part d'un problème</a></li>
+</ul></div></div></div></footer>
+</body>
+</html>

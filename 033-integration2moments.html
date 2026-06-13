@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<link rel="alternate" hreflang="en" href="/033-integration2moments.html" />
+<link rel="alternate" hreflang="fr" href="/fr/033-integration2moments.fr.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.24">
-
+<meta name="generator" content="quarto-1.9.36">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>4&nbsp; From integrals to expectation and moments – MA1AY010 Class Notes</title>
+<title>4  From integrals to expectation and moments – MA1AY010 Class Notes</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -21,28 +24,13 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 </style>
-
-
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script><script src="site_libs/quarto-nav/headroom.min.js"></script><script src="site_libs/clipboard/clipboard.min.js"></script><script src="site_libs/quarto-search/autocomplete.umd.js"></script><script src="site_libs/quarto-search/fuse.min.js"></script><script src="site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="./">
 <link href="./03-families.html" rel="next">
 <link href="./031-moments.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-3a70adc2469c323d0515427c5f9cb542.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script><script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script><link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-eb98473aa13ec2f8694b0a204f8986fa.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,12 +57,7 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
+}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
     // MathJax Typeset
@@ -100,18 +83,12 @@ window.Quarto = {
   typesetMath
 };
 </script>
-
 </head>
-
 <body class="nav-sidebar floating nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">MA1AY010 Class Notes</span>
     </a>
@@ -122,29 +99,21 @@ window.Quarto = {
 </div>
           <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
-    </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+    </nav><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./033-integration2moments.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">From integrals to expectation and moments</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./033-integration2moments.html"><span class="chapter-number">4</span>  <span class="chapter-title">From integrals to expectation and moments</span></a></li></ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
-      </div>
-    <div class="sidebar-menu-container"> 
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="dropdown" id="languages-links-parent">
+<button class="btn btn-primary dropdown-toggle babelquarto-languages-button" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> Version in en</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="/fr/033-integration2moments.fr.html" id="language-link-fr">Version in fr</a></li></ul>
+</div>
+<div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Warm up</span></a>
@@ -153,110 +122,108 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01-intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>  <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-language.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">A modicum of measure theory</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>  <span class="chapter-title">A modicum of measure theory</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./031-moments.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">A modicum of integration</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>  <span class="chapter-title">A modicum of integration</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./033-integration2moments.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">From integrals to expectation and moments</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>  <span class="chapter-title">From integrals to expectation and moments</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-families.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Families of discrete distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>  <span class="chapter-title">Families of discrete distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0225-pgf.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Characterizations of discrete probability distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>  <span class="chapter-title">Characterizations of discrete probability distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./022-product-measures.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Product distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>  <span class="chapter-title">Product distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./021-independence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Independence and product spaces</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>  <span class="chapter-title">Independence and product spaces</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./032-acfamilies.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Absolutely continuous probability measures</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>  <span class="chapter-title">Absolutely continuous probability measures</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./023-discrete-condition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Discrete Conditioning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>  <span class="chapter-title">Discrete Conditioning</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06-conditioning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Conditioning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>  <span class="chapter-title">Conditioning</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-characterizations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Characterizations of probability distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>  <span class="chapter-title">Characterizations of probability distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./041-characterization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Quantile functions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>  <span class="chapter-title">Quantile functions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-convergences-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Convergences I : almost sure, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, in Probability</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>  <span class="chapter-title">Convergences I : almost sure, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, in Probability</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-convergence-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Convergence in distribution</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>  <span class="chapter-title">Convergence in distribution</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./09-gaussian-vectors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Gaussian vectors</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>  <span class="chapter-title">Gaussian vectors</span></span></a>
   </div>
 </li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#roadmap" id="toc-roadmap" class="nav-link active" data-scroll-target="#roadmap"><span class="header-section-number">4.1</span> Roadmap</a></li>
+<li><a href="#roadmap" id="toc-roadmap" class="nav-link active" data-scroll-target="#roadmap"><span class="header-section-number">4.1</span> Roadmap</a></li>
   <li><a href="#sec-expectation" id="toc-sec-expectation" class="nav-link" data-scroll-target="#sec-expectation"><span class="header-section-number">4.2</span> Expectation</a></li>
   <li><a href="#sec-jensensec" id="toc-sec-jensensec" class="nav-link" data-scroll-target="#sec-jensensec"><span class="header-section-number">4.3</span> Jensen’s inequality</a></li>
   <li><a href="#sec-variance" id="toc-sec-variance" class="nav-link" data-scroll-target="#sec-variance"><span class="header-section-number">4.4</span> Variance</a></li>
@@ -265,14 +232,14 @@ window.Quarto = {
   <li><a href="#sec-lpspaces" id="toc-sec-lpspaces" class="nav-link" data-scroll-target="#sec-lpspaces"><span class="header-section-number">4.7</span> <span class="math inline">\(\mathcal{L}_p\)</span> and <span class="math inline">\(L_p\)</span> spaces</a></li>
   <li><a href="#sec-bib-033" id="toc-sec-bib-033" class="nav-link" data-scroll-target="#sec-bib-033"><span class="header-section-number">4.8</span> Bibliographical remarks</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/033-integration2moments.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
-    </div>
+<div class="toc-actions"><ul>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/033-integration2moments.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li>
+</ul></div></nav>
+</div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title"><span id="sec-integrals-moments" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">From integrals to expectation and moments</span></span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title"><span id="sec-integrals-moments" class="quarto-section-identifier"><span class="chapter-number">4</span>  <span class="chapter-title">From integrals to expectation and moments</span></span></h1>
 </div>
 
 
@@ -286,19 +253,15 @@ window.Quarto = {
   
 
 
-</header>
-
-
-<section id="roadmap" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="roadmap"><span class="header-section-number">4.1</span> Roadmap</h2>
-<p>In <a href="#sec-expectation" class="quarto-xref">Section&nbsp;<span>4.2</span></a>), we relate the notion of <em>expectation</em> of a random variable and the notion of integral. The <em>Transfer Theorem</em> ( <a href="#thm-transfertheorem" class="quarto-xref">Theorem&nbsp;<span>4.1</span></a>) is a key instrument in the characterization of image distributions.</p>
+</header><section id="roadmap" class="level2" data-number="4.1"><h2 data-number="4.1" class="anchored" data-anchor-id="roadmap">
+<span class="header-section-number">4.1</span> Roadmap</h2>
+<p>In <a href="#sec-expectation" class="quarto-xref">Section <span>4.2</span></a>), we relate the notion of <em>expectation</em> of a random variable and the notion of integral. The <em>Transfer Theorem</em> ( <a href="#thm-transfertheorem" class="quarto-xref">Theorem <span>4.1</span></a>) is a key instrument in the characterization of image distributions.</p>
 <p>In <a href="#sec-jensensec" class="quarto-xref"><span>Section 4.3</span></a>, we state, prove and showcase Jensen’s inequality. This inequality allows us to derive easy bounds on the expectation of convex functions of real random variables. This is an opportunity to recall basics of convexity.</p>
 <p>In <a href="#sec-variance" class="quarto-xref"><span>Section 4.4</span></a>, we pay special attention to the <em>variance</em>. We state several characterizations of the variance.</p>
 <p>In <a href="#sec-highermoments" class="quarto-xref"><span>Section 4.5</span></a></p>
 <p>In <a href="#sec-lpspaces" class="quarto-xref"><span>Section 4.7</span></a></p>
-</section>
-<section id="sec-expectation" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="sec-expectation"><span class="header-section-number">4.2</span> Expectation</h2>
+</section><section id="sec-expectation" class="level2" data-number="4.2"><h2 data-number="4.2" class="anchored" data-anchor-id="sec-expectation">
+<span class="header-section-number">4.2</span> Expectation</h2>
 <p>The expectation of a real random variable is a (Lebesgue) integral with respect to a probability measure. We have to get familiar with probabilistic notation.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -315,8 +278,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 <div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
@@ -371,9 +333,8 @@ window.Quarto = {
 <p>
 </p>
 <p>It is clear that the expectation of a random variable only depends on the probability distribution of the random variable.</p>
-</section>
-<section id="sec-jensensec" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="sec-jensensec"><span class="header-section-number">4.3</span> Jensen’s inequality</h2>
+</section><section id="sec-jensensec" class="level2" data-number="4.3"><h2 data-number="4.3" class="anchored" data-anchor-id="sec-jensensec">
+<span class="header-section-number">4.3</span> Jensen’s inequality</h2>
 <p>The tools from integration theory we have reviewed so far serve to compute or approximate integrals and expectations. The next theorem circumvents computations and allows us to compare expectations.</p>
 <p>Jensen’s inequality is a workhorse of Information Theory, Statistics and large parts of Probability Theory. It embodies the interaction between convexity and expectation.</p>
 <p>We first introduce a modicum of convexity theory and notation.</p>
@@ -433,14 +394,12 @@ window.Quarto = {
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-convexfunfig" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-convexfunfig-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-convexfunfig-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="033-integration2moments_files/figure-html/fig-convexfunfig-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-convexfunfig-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.1: The function <span class="math inline">\(f : x \mapsto \mathbb{I}_{x&lt;0}|x| + \mathbb{I}_{x\geq 0} x^2\)</span> is convex, continuous. It is differentiable everywhere except at <span class="math inline">\(x=0\)</span>. The dotted lines define affine functions that are below the cruve <span class="math inline">\(y=f(x)\)</span>. The dotted lines define supporting hyperplanes for the epigraph of <span class="math inline">\(f\)</span>.
-</figcaption>
-</figure>
+Figure 4.1: The function <span class="math inline">\(f : x \mapsto \mathbb{I}_{x&lt;0}|x| + \mathbb{I}_{x\geq 0} x^2\)</span> is convex, continuous. It is differentiable everywhere except at <span class="math inline">\(x=0\)</span>. The dotted lines define affine functions that are below the cruve <span class="math inline">\(y=f(x)\)</span>. The dotted lines define supporting hyperplanes for the epigraph of <span class="math inline">\(f\)</span>.
+</figcaption></figure>
 </div>
 </div>
 </div>
@@ -471,11 +430,15 @@ Figure&nbsp;4.1: The function <span class="math inline">\(f : x \mapsto \mathbb{
 <p><span class="math display">\[f^*(y) = \sup_{x \in \text{Dom}(f)} xy - f(x) \, .\]</span></p>
 <p>Then</p>
 <ul>
-<li><span class="math inline">\(f^*\)</span> is convex</li>
-<li><span class="math inline">\(f^*\)</span> is lower-semi-continuous</li>
+<li>
+<span class="math inline">\(f^*\)</span> is convex</li>
+<li>
+<span class="math inline">\(f^*\)</span> is lower-semi-continuous</li>
 <li>If <span class="math inline">\(f^*(y)= xy - f(x)\)</span> then <span class="math inline">\(y\)</span> is a sub-gradient of <span class="math inline">\(f\)</span> at <span class="math inline">\(x\)</span>.</li>
 <li>If <span class="math inline">\(y\)</span> is a sub-gradient of <span class="math inline">\(f\)</span> at <span class="math inline">\(x\)</span>, <span class="math inline">\(f^*(y) = xy -f(x)\)</span>.</li>
-<li><span class="math inline">\(f= (f^{*})^*\)</span>, the dual function of the dual function equals the original function: <span class="math inline">\(f(x) = \sup_{y} xy -f^*(y).\)</span></li>
+<li>
+<span class="math inline">\(f= (f^{*})^*\)</span>, the dual function of the dual function equals the original function: <span class="math inline">\(f(x) = \sup_{y} xy -f^*(y).\)</span>
+</li>
 </ul>
 </div>
 </div>
@@ -487,7 +450,8 @@ Figure&nbsp;4.1: The function <span class="math inline">\(f : x \mapsto \mathbb{
 <ul>
 <li>if <span class="math inline">\(f(x) = \frac{|x|^p}{p}\)</span> (<span class="math inline">\(p&gt; 1\)</span>), then <span class="math inline">\(f^*(y)= \frac{|y|^q}{q}\)</span> where <span class="math inline">\(q=p/(p-1)\)</span>.</li>
 <li>if <span class="math inline">\(f(x) = |x|\)</span>, then <span class="math inline">\(f^*(y)= 0\)</span> for <span class="math inline">\(y \in [-1,1]\)</span> and <span class="math inline">\(\infty\)</span> for <span class="math inline">\(|y|&gt;1\)</span>.</li>
-<li>if <span class="math inline">\(f(x) = \exp(x)\)</span> then <span class="math inline">\(f^*(y) = y \log y - y\)</span> for <span class="math inline">\(y&gt;0\)</span>, <span class="math inline">\(f^*(y)=\infty\)</span> for <span class="math inline">\(y&lt;0\)</span></li>
+<li>if <span class="math inline">\(f(x) = \exp(x)\)</span> then <span class="math inline">\(f^*(y) = y \log y - y\)</span> for <span class="math inline">\(y&gt;0\)</span>, <span class="math inline">\(f^*(y)=\infty\)</span> for <span class="math inline">\(y&lt;0\)</span>
+</li>
 </ul>
 </div>
 <p><br></p>
@@ -569,8 +533,7 @@ f^*(y) &gt; xy -f(x) &gt; \liminf_n f^*(y_n) = \lim_n f^*(y_{m_n}) \geq \lim_n x
 \end{array}
 \]</span></p>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 <p><br></p>
 <div class="callout callout-style-simple callout-tip no-icon">
@@ -593,10 +556,8 @@ f^*(y) &gt; xy -f(x) &gt; \liminf_n f^*(y_n) = \lim_n f^*(y_{m_n}) \geq \lim_n x
 <li>Non-negativity of relative entropy</li>
 <li>Derivation of Efron-Stein-Steele’s inequalities</li>
 <li>…</li>
-</ul>
-</section>
-<section id="sec-variance" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="sec-variance"><span class="header-section-number">4.4</span> Variance</h2>
+</ul></section><section id="sec-variance" class="level2" data-number="4.4"><h2 data-number="4.4" class="anchored" data-anchor-id="sec-variance">
+<span class="header-section-number">4.4</span> Variance</h2>
 <p>The variance (when it is defined) is an index of dispersion of the distribution of a random variable.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -631,14 +592,12 @@ f^*(y) &gt; xy -f(x) &gt; \liminf_n f^*(y_n) = \lim_n f^*(y_{m_n}) \geq \lim_n x
 \]</span></p>
 <p>As <span class="math inline">\((a- \mathbb{E}X)^2\geq 0\)</span>, we have established that <span class="math inline">\(\mathbb{E}\left[(X - \mathbb{E}X)^2\right]   = \inf_{a \in \mathbb{R}} \mathbb{E}\left[(X - a)^2\right]\)</span>. Moreover, the infimum is a minimum, it is achieved at a single point <span class="math inline">\(\mathbb{E}X\)</span>.</p>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 <div id="rem-charac-variance" class="proof remark">
 <p><span class="proof-title"><em>Remark 4.2</em>. </span>The first and second characterizations of variance assert that the expectation minimizes the average quadratic error. A fact of great importance in Statistics.</p>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 <div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
@@ -652,9 +611,8 @@ f^*(y) &gt; xy -f(x) &gt; \liminf_n f^*(y_n) = \lim_n f^*(y_{m_n}) \geq \lim_n x
 </div>
 </div>
 </div>
-</section>
-<section id="sec-highermoments" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="sec-highermoments"><span class="header-section-number">4.5</span> Higher moments</h2>
+</section><section id="sec-highermoments" class="level2" data-number="4.5"><h2 data-number="4.5" class="anchored" data-anchor-id="sec-highermoments">
+<span class="header-section-number">4.5</span> Higher moments</h2>
 <p>In this Section we relate <span class="math inline">\(\mathbb{E} |X|^p\)</span> with <span class="math inline">\(\mathbb{E} |X|^q\)</span> for different values of <span class="math inline">\(p, q \in \mathbb{R}_+\)</span>. Our starting point is small technical result in real analysis.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -677,28 +635,24 @@ f^*(y) &gt; xy -f(x) &gt; \liminf_n f^*(y_n) = \lim_n f^*(y_{m_n}) \geq \lim_n x
 <p>This function is differentiable with derivative <span class="math inline">\(x - z^{q-1} = x - z^{1/(p-1)}\)</span>. It achieves its maximum at <span class="math inline">\(z=x^{p-1}\)</span> and the maximum is equal to</p>
 <p><span class="math display">\[x x^{p-1} - \frac{x^{q(p-1)}}{q} = x^p - \frac{x^p}{q} = \frac{x^p}{p} \, .\]</span></p>
 </div>
-<br>
-<p>
+<br><p>
 </p>
-<p><a href="#fig-graphyoung" class="quarto-xref">Figure&nbsp;<span>4.2</span></a> displays a graphic proof of Young’s inequality.</p>
+<p><a href="#fig-graphyoung" class="quarto-xref">Figure <span>4.2</span></a> displays a graphic proof of Young’s inequality.</p>
 <!-- ::: {#fig-graphyoung} -->
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-graphyoung" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-graphyoung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-graphyoung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="033-integration2moments_files/figure-html/fig-graphyoung-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-graphyoung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.2: Graphical illlustration of Young’s inequality. We choose <span class="math inline">\(p=`r p`\)</span> and <span class="math inline">\(q= `r q`\)</span>, <span class="math inline">\(x = `r x`\)</span> and <span class="math inline">\(y= `r y`\)</span>. The black point is located at <span class="math inline">\((x,y)^T\)</span>. The product <span class="math inline">\(xy\)</span> equals the area of the rectangle located between the origin and <span class="math inline">\((x,y)^T\)</span> (delimited by the dashed segments). The dotted line represents function <span class="math inline">\(s \mapsto s^{p-1}\)</span>, and interchanging the axes, the function <span class="math inline">\(t \mapsto t^{q-1} = t^{1/(p-1)}\)</span>. The area of the light grey surface under the dotted line equals <span class="math inline">\(\frac{x^p}{p} = \int_0^x s^{p-1} \mathrm{d}s\)</span>, while the area of the darker grey surface below line <span class="math inline">\(y=1\)</span> and above the dotted line, equals <span class="math inline">\(\frac{y^q}{q} = \int_0^y t^{q-1} \mathrm{d}t\)</span>. The union of the two disjoint surfaces covers the rectangle located between the origin and <span class="math inline">\((x,y)^\top\)</span>. Equality occurs when the dotted line passes though <span class="math inline">\((x,y)^\top\)</span>, that is when <span class="math inline">\(y=x^{p-1}\)</span>.
-</figcaption>
-</figure>
+Figure 4.2: Graphical illlustration of Young’s inequality. We choose <span class="math inline">\(p=`r p`\)</span> and <span class="math inline">\(q= `r q`\)</span>, <span class="math inline">\(x = `r x`\)</span> and <span class="math inline">\(y= `r y`\)</span>. The black point is located at <span class="math inline">\((x,y)^T\)</span>. The product <span class="math inline">\(xy\)</span> equals the area of the rectangle located between the origin and <span class="math inline">\((x,y)^T\)</span> (delimited by the dashed segments). The dotted line represents function <span class="math inline">\(s \mapsto s^{p-1}\)</span>, and interchanging the axes, the function <span class="math inline">\(t \mapsto t^{q-1} = t^{1/(p-1)}\)</span>. The area of the light grey surface under the dotted line equals <span class="math inline">\(\frac{x^p}{p} = \int_0^x s^{p-1} \mathrm{d}s\)</span>, while the area of the darker grey surface below line <span class="math inline">\(y=1\)</span> and above the dotted line, equals <span class="math inline">\(\frac{y^q}{q} = \int_0^y t^{q-1} \mathrm{d}t\)</span>. The union of the two disjoint surfaces covers the rectangle located between the origin and <span class="math inline">\((x,y)^\top\)</span>. Equality occurs when the dotted line passes though <span class="math inline">\((x,y)^\top\)</span>, that is when <span class="math inline">\(y=x^{p-1}\)</span>.
+</figcaption></figure>
 </div>
 </div>
 </div>
 <!-- ::: -->
-<br>
-<p>
+<br><p>
 </p>
 <div id="rem-young-special" class="proof remark">
 <p><span class="proof-title"><em>Remark 4.3</em>. </span>A special case of Young inequality is obtained by taking <span class="math inline">\(p=q=2\)</span>.</p>
@@ -726,8 +680,7 @@ Figure&nbsp;4.2: Graphical illlustration of Young’s inequality. We choose <spa
 \]</span></p>
 <p>Taking expectation on both sides leads to the desired result.</p>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 <div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
@@ -741,12 +694,10 @@ Figure&nbsp;4.2: Graphical illlustration of Young’s inequality. We choose <spa
 </div>
 </div>
 </div>
-<br>
-<p>
+<br><p>
 </p>
-<p><a href="#thm-thmcauchyschwartz" class="quarto-xref">Theorem&nbsp;<span>4.4</span></a> tells us that if <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are square-integrable, then <span class="math inline">\(XY\)</span> is integrable.</p>
-<br>
-<p>
+<p><a href="#thm-thmcauchyschwartz" class="quarto-xref">Theorem <span>4.4</span></a> tells us that if <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are square-integrable, then <span class="math inline">\(XY\)</span> is integrable.</p>
+<br><p>
 </p>
 <p>Hölder’s inequality generalizes Cauchy-Schwarz inequality. Indeed, Cauchy-Schwarz inequality is just Hölder’s inequality for <span class="math inline">\(p=q=2\)</span> (<span class="math inline">\(2\)</span> is its own conjugate).</p>
 <div class="callout callout-style-simple callout-note no-icon">
@@ -780,8 +731,7 @@ Figure&nbsp;4.2: Graphical illlustration of Young’s inequality. We choose <spa
 \end{array}
 \]</span></p>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -813,7 +763,7 @@ Figure&nbsp;4.2: Graphical illlustration of Young’s inequality. We choose <spa
 </div>
 </div>
 </div>
-<p>The proof of <a href="#thm-thmminko" class="quarto-xref">Theorem&nbsp;<span>4.6</span></a> follows from Hölder’s inequality (<a href="#thm-thmholder" class="quarto-xref">Theorem&nbsp;<span>4.5</span></a>).</p>
+<p>The proof of <a href="#thm-thmminko" class="quarto-xref">Theorem <span>4.6</span></a> follows from Hölder’s inequality (<a href="#thm-thmholder" class="quarto-xref">Theorem <span>4.5</span></a>).</p>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>The inequality below also follows from triangle inequality on <span class="math inline">\(\mathbb{R}\)</span>, monotonicity. The last equality follows from linearity of expectation:</p>
 <p><span class="math display">\[
@@ -841,9 +791,8 @@ Figure&nbsp;4.2: Graphical illlustration of Young’s inequality. We choose <spa
 <p>This prove’s Minkowski’s inequality for <span class="math inline">\(p&gt;1\)</span>.</p>
 <p><span class="math inline">\(square\)</span></p>
 </div>
-</section>
-<section id="sec-medianiqr" class="level2" data-number="4.6">
-<h2 data-number="4.6" class="anchored" data-anchor-id="sec-medianiqr"><span class="header-section-number">4.6</span> Median and interquartile range</h2>
+</section><section id="sec-medianiqr" class="level2" data-number="4.6"><h2 data-number="4.6" class="anchored" data-anchor-id="sec-medianiqr">
+<span class="header-section-number">4.6</span> Median and interquartile range</h2>
 <p>Robust and non-robust indices of location.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -871,8 +820,7 @@ Figure&nbsp;4.2: Graphical illlustration of Young’s inequality. We choose <spa
 </div>
 </div>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>Assume <span class="math inline">\(a&lt;m\)</span>,</p>
@@ -887,8 +835,7 @@ Figure&nbsp;4.2: Graphical illlustration of Young’s inequality. We choose <spa
 \]</span></p>
 <p>The same line of reasoning allows to handle the case <span class="math inline">\(a&gt;m\)</span> and to conclude.</p>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 <p>Combining three of the inequalities we have just proved, allows us to establish an interesting connection between expectation, median and standard deviation.</p>
 <div class="callout callout-style-simple callout-note no-icon">
@@ -904,12 +851,10 @@ Figure&nbsp;4.2: Graphical illlustration of Young’s inequality. We choose <spa
 </div>
 </div>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 <p>The robust and non-robust indices of location differ by at most the standard deviation, which may be infinite.</p>
-<br>
-<p>
+<br><p>
 </p>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>By convexity of <span class="math inline">\(x \mapsto |x|\)</span>, we have</p>
@@ -930,12 +875,10 @@ Figure&nbsp;4.2: Graphical illlustration of Young’s inequality. We choose <spa
 <p>Consider the exponential distribution with density <span class="math inline">\(\exp(-x)\)</span> over <span class="math inline">\([0, \infty)\)</span>, it has mean <span class="math inline">\(1\)</span>, median <span class="math inline">\(\log(2)\)</span>, and variance <span class="math inline">\(1\)</span>. If we turn to exponential distribution with density <span class="math inline">\(\lambda \exp(-\lambda x)\)</span>, it has mean <span class="math inline">\(1/\lambda\)</span>, median <span class="math inline">\(\log(2)/\lambda\)</span>, and variance <span class="math inline">\(1/\lambda^2\)</span>. Lévy’s inequality does not tell more that what we can compute with bare hands.</p>
 <p>Finally consider Gamma distributions with shape parameter <span class="math inline">\(p\)</span> and intensity parameter <span class="math inline">\(\lambda\)</span>. It has mean <span class="math inline">\(p/\lambda\)</span>, variance <span class="math inline">\(p/\lambda^2\)</span>. The median is not easily computed though we can easily check that it is equal to <span class="math inline">\(g(p)/\lambda\)</span> where <span class="math inline">\(g(p)\)</span> is the median of the Gamma distribution with parameters <span class="math inline">\(p\)</span> and <span class="math inline">\(1\)</span>. Lévy’s inequality tells us that <span class="math inline">\(|g(p) - p|\leq \sqrt{p}\)</span>.</p>
 </div>
-<br>
-<p>
+<br><p>
 </p>
-</section>
-<section id="sec-lpspaces" class="level2" data-number="4.7">
-<h2 data-number="4.7" class="anchored" data-anchor-id="sec-lpspaces"><span class="header-section-number">4.7</span> <span class="math inline">\(\mathcal{L}_p\)</span> and <span class="math inline">\(L_p\)</span> spaces</h2>
+</section><section id="sec-lpspaces" class="level2" data-number="4.7"><h2 data-number="4.7" class="anchored" data-anchor-id="sec-lpspaces">
+<span class="header-section-number">4.7</span> <span class="math inline">\(\mathcal{L}_p\)</span> and <span class="math inline">\(L_p\)</span> spaces</h2>
 <p>Let <span class="math inline">\(p \in [1, \infty)\)</span>. Let <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span> be a probability space. Define <span class="math inline">\(\mathcal{L}_p(\Omega, \mathcal{F}, P)\)</span> (often abbreviated to <span class="math inline">\(\mathcal{L}_p(P)\)</span> or even <span class="math inline">\(\mathcal{L}_p\)</span> when there is no ambiguity) as</p>
 <p><span class="math display">\[
 \mathcal{L}_p(\Omega, \mathcal{F}, P) = \Big\{ X : X \text{ is a real random variable over } (\Omega, \mathcal{F}, P), \quad \mathbb{E}|X|^p &lt; \infty \Big\} \, .
@@ -952,15 +895,17 @@ Figure&nbsp;4.2: Graphical illlustration of Young’s inequality. We choose <spa
 <div id="prp-nestinglp" class="theorem proposition">
 <p><span class="theorem-title"><strong>Proposition 4.4</strong></span> Let <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span> be a probability space, then for <span class="math inline">\(1 \leq p \leq q &lt;\infty\)</span>:</p>
 <ol type="1">
-<li><span class="math inline">\(\|X\|_p &lt; \| X\|_q\)</span>.</li>
-<li><span class="math inline">\(\mathcal{L}_q(\Omega, \mathcal{F}, P) \subset \mathcal{L}_p(\Omega, \mathcal{F}, P)\)</span>.</li>
+<li>
+<span class="math inline">\(\|X\|_p &lt; \| X\|_q\)</span>.</li>
+<li>
+<span class="math inline">\(\mathcal{L}_q(\Omega, \mathcal{F}, P) \subset \mathcal{L}_p(\Omega, \mathcal{F}, P)\)</span>.</li>
 </ol>
 </div>
 </div>
 </div>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>Assume <span class="math inline">\(1 \leq p \leq q &lt;\infty\)</span>, as <span class="math inline">\(x \mapsto x^{q/p}\)</span> is convex on <span class="math inline">\([0, \infty)\)</span> by Jensen’s inequality (<a href="#thm-thmjensen" class="quarto-xref">Theorem&nbsp;<span>4.3</span></a>), we have</p>
+<p><span class="proof-title"><em>Proof</em>. </span>Assume <span class="math inline">\(1 \leq p \leq q &lt;\infty\)</span>, as <span class="math inline">\(x \mapsto x^{q/p}\)</span> is convex on <span class="math inline">\([0, \infty)\)</span> by Jensen’s inequality (<a href="#thm-thmjensen" class="quarto-xref">Theorem <span>4.3</span></a>), we have</p>
 <p><span class="math display">\[
 \begin{array}{rl}
   \mathbb{E} [|X|^p]^{q/p} &amp; \leq \mathbb{E} [|X|^q] \,.
@@ -969,7 +914,7 @@ Figure&nbsp;4.2: Graphical illlustration of Young’s inequality. We choose <spa
 <p>This establishes 1.) And 2.) is an immediate consequence of <span class="math inline">\(1\)</span>.</p>
 </div>
 <p><br></p>
-<p><a href="#prp-nestinglp" class="quarto-xref">Proposition&nbsp;<span>4.4</span></a> is a about inclusion of sets. The next theorem summarizes several points: that sets <span class="math inline">\(\mathcal{L}_p\)</span> are linear subspaces of <span class="math inline">\(\mathcal{L}_0\)</span>, and that they are complete as pseudo-metric (pseudo-normed) spaces.</p>
+<p><a href="#prp-nestinglp" class="quarto-xref">Proposition <span>4.4</span></a> is a about inclusion of sets. The next theorem summarizes several points: that sets <span class="math inline">\(\mathcal{L}_p\)</span> are linear subspaces of <span class="math inline">\(\mathcal{L}_0\)</span>, and that they are complete as pseudo-metric (pseudo-normed) spaces.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -979,8 +924,10 @@ Figure&nbsp;4.2: Graphical illlustration of Young’s inequality. We choose <spa
 <div id="thm-Lp-completeness" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 4.8</strong></span> For <span class="math inline">\(p \in [1, \infty)\)</span>, let <span class="math inline">\(\mathcal{L}_p(\Omega, \mathcal{F}, P)\)</span> and <span class="math inline">\(\|\cdot\|_p\)</span> be defined as above. Then,</p>
 <ol type="1">
-<li><span class="math inline">\(\mathcal{L}_p(\Omega, \mathcal{F}, P)\)</span> is a linear subspace of the space of real random variables.</li>
-<li><span class="math inline">\(\| \cdot\|_p\)</span> is a pseudo-norm on <span class="math inline">\(\mathcal{L}_p(\Omega, \mathcal{F}, P)\)</span>.</li>
+<li>
+<span class="math inline">\(\mathcal{L}_p(\Omega, \mathcal{F}, P)\)</span> is a linear subspace of the space of real random variables.</li>
+<li>
+<span class="math inline">\(\| \cdot\|_p\)</span> is a pseudo-norm on <span class="math inline">\(\mathcal{L}_p(\Omega, \mathcal{F}, P)\)</span>.</li>
 <li>If <span class="math inline">\((X_n)_n\)</span> is a sequence in <span class="math inline">\(\mathcal{L}_p(\Omega, \mathcal{F}, P)\)</span> that satisfies <span class="math display">\[\lim_n \sup_{m\geq n} \Big| X_n - X_m \Big|_p = 0\]</span> then there exists <span class="math inline">\(X \in \mathcal{L}_p(\Omega, \mathcal{F}, P)\)</span> such that <span class="math inline">\(\lim_n \| X_n - X\|_p=0\)</span>.</li>
 <li>There exists a subsequence <span class="math inline">\((X_{m_n})_{n}\)</span> such that <span class="math inline">\(X_{m_n} \to X\)</span> <span class="math inline">\(P\)</span>-almost surely.</li>
 </ol>
@@ -1050,8 +997,7 @@ P \left\{ \sum_n \mathbb{I}_{A_n}(\omega) = \infty\right\} = P(\cap_n \cup_{m\ge
 \lim_m \mathbb{E} \Big| X - X_m \Big|^p \leq \lim_m \liminf_n \mathbb{E} \Big| X_n - X_m \Big|^p = 0 \, .
 \]</span></p>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 <div id="rem-asconv-subsequence" class="proof remark">
 <p><span class="proof-title"><em>Remark 4.6</em>. </span>Can we extend the almost sure convergence to the whole sequence? This is not the case. Consider <span class="math inline">\(([0,1], \mathcal{B}([0,1]), P)\)</span> where <span class="math inline">\(P\)</span> is the uniform distribution. For <span class="math inline">\(k= j+ n(n-1)/2\)</span>, <span class="math inline">\(1\leq j\leq n\)</span>, let <span class="math inline">\(X_n = \mathbb{I}_{[(j-1)/n, j/n]}\)</span>. The sequence <span class="math inline">\(X_n\)</span> converges to <span class="math inline">\(0\)</span> in <span class="math inline">\(\mathcal{L}_p\)</span> for all <span class="math inline">\(p \in [1, \infty)\)</span>. Indeed <span class="math inline">\(\|X_k\|_p = n^{-p}\)</span> for <span class="math inline">\(k= j+ n(n-1)/2\)</span>, <span class="math inline">\(1\leq j\leq n\)</span>. For any <span class="math inline">\(\omega \in [0,1]\)</span>, the sequence <span class="math inline">\(X_n(\omega)\)</span> oscillates between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span> infinitely many times.</p>
@@ -1072,15 +1018,11 @@ P \left\{ \sum_n \mathbb{I}_{A_n}(\omega) = \infty\right\} = P(\cap_n \cup_{m\ge
 </div>
 <p><br></p>
 <p>This eventually allows us to invoke theorems from functional analysis.</p>
-</section>
-<section id="sec-bib-033" class="level2" data-number="4.8">
-<h2 data-number="4.8" class="anchored" data-anchor-id="sec-bib-033"><span class="header-section-number">4.8</span> Bibliographical remarks</h2>
+</section><section id="sec-bib-033" class="level2" data-number="4.8"><h2 data-number="4.8" class="anchored" data-anchor-id="sec-bib-033">
+<span class="header-section-number">4.8</span> Bibliographical remarks</h2>
 
 
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -1479,16 +1421,14 @@ P \left\{ \sum_n \mathbb{I}_{A_n}(\omega) = \infty\right\} = P(\cap_n \cup_{m\ge
       }
     }
   });
-  </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./031-moments.html" class="pagination-link" aria-label="A modicum of integration">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">A modicum of integration</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>  <span class="chapter-title">A modicum of integration</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./03-families.html" class="pagination-link" aria-label="Families of discrete distributions">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Families of discrete distributions</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">5</span>  <span class="chapter-title">Families of discrete distributions</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1497,4 +1437,9 @@ P \left\{ \sum_n \mathbb{I}_{A_n}(\omega) = \infty\right\} = P(\cap_n \cup_{m\ge
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/033-integration2moments.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/033-integration2moments.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li>
+</ul></div></div></div></footer>
+</body>
+</html>

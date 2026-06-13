@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<link rel="alternate" hreflang="en" href="/023-discrete-condition.html" />
+<link rel="alternate" hreflang="fr" href="/fr/023-discrete-condition.fr.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.24">
-
+<meta name="generator" content="quarto-1.9.36">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>10&nbsp; Discrete Conditioning – MA1AY010 Class Notes</title>
+<title>10  Discrete Conditioning – MA1AY010 Class Notes</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -21,28 +24,13 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 </style>
-
-
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script><script src="site_libs/quarto-nav/headroom.min.js"></script><script src="site_libs/clipboard/clipboard.min.js"></script><script src="site_libs/quarto-search/autocomplete.umd.js"></script><script src="site_libs/quarto-search/fuse.min.js"></script><script src="site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="./">
 <link href="./06-conditioning.html" rel="next">
 <link href="./032-acfamilies.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-3a70adc2469c323d0515427c5f9cb542.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script><script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script><link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-eb98473aa13ec2f8694b0a204f8986fa.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,12 +57,7 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
+}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
     // MathJax Typeset
@@ -100,18 +83,12 @@ window.Quarto = {
   typesetMath
 };
 </script>
-
 </head>
-
 <body class="nav-sidebar floating nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">MA1AY010 Class Notes</span>
     </a>
@@ -122,29 +99,21 @@ window.Quarto = {
 </div>
           <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
-    </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+    </nav><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./023-discrete-condition.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Discrete Conditioning</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./023-discrete-condition.html"><span class="chapter-number">10</span>  <span class="chapter-title">Discrete Conditioning</span></a></li></ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
-      </div>
-    <div class="sidebar-menu-container"> 
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="dropdown" id="languages-links-parent">
+<button class="btn btn-primary dropdown-toggle babelquarto-languages-button" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> Version in en</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="/fr/023-discrete-condition.fr.html" id="language-link-fr">Version in fr</a></li></ul>
+</div>
+<div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Warm up</span></a>
@@ -153,110 +122,108 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01-intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>  <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-language.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">A modicum of measure theory</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>  <span class="chapter-title">A modicum of measure theory</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./031-moments.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">A modicum of integration</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>  <span class="chapter-title">A modicum of integration</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./033-integration2moments.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">From integrals to expectation and moments</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>  <span class="chapter-title">From integrals to expectation and moments</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-families.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Families of discrete distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>  <span class="chapter-title">Families of discrete distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0225-pgf.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Characterizations of discrete probability distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>  <span class="chapter-title">Characterizations of discrete probability distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./022-product-measures.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Product distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>  <span class="chapter-title">Product distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./021-independence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Independence and product spaces</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>  <span class="chapter-title">Independence and product spaces</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./032-acfamilies.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Absolutely continuous probability measures</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>  <span class="chapter-title">Absolutely continuous probability measures</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./023-discrete-condition.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Discrete Conditioning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>  <span class="chapter-title">Discrete Conditioning</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06-conditioning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Conditioning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>  <span class="chapter-title">Conditioning</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-characterizations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Characterizations of probability distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>  <span class="chapter-title">Characterizations of probability distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./041-characterization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Quantile functions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>  <span class="chapter-title">Quantile functions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-convergences-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Convergences I : almost sure, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, in Probability</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>  <span class="chapter-title">Convergences I : almost sure, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, in Probability</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-convergence-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Convergence in distribution</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>  <span class="chapter-title">Convergence in distribution</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./09-gaussian-vectors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Gaussian vectors</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>  <span class="chapter-title">Gaussian vectors</span></span></a>
   </div>
 </li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#roadmap" id="toc-roadmap" class="nav-link active" data-scroll-target="#roadmap"><span class="header-section-number">10.1</span> Roadmap</a></li>
+<li><a href="#roadmap" id="toc-roadmap" class="nav-link active" data-scroll-target="#roadmap"><span class="header-section-number">10.1</span> Roadmap</a></li>
   <li><a href="#sec-condevent" id="toc-sec-condevent" class="nav-link" data-scroll-target="#sec-condevent"><span class="header-section-number">10.2</span> Conditioning with respect to an event</a></li>
   <li><a href="#sec-bayesformula" id="toc-sec-bayesformula" class="nav-link" data-scroll-target="#sec-bayesformula"><span class="header-section-number">10.3</span> Bayes formula</a></li>
   <li><a href="#sec-conddiscretealgebra" id="toc-sec-conddiscretealgebra" class="nav-link" data-scroll-target="#sec-conddiscretealgebra"><span class="header-section-number">10.4</span> Conditional expectation with respect to a discrete <span class="math inline">\(\sigma\)</span>-algebra</a></li>
@@ -264,14 +231,14 @@ window.Quarto = {
   <li><a href="#sec-easypropcondexp" id="toc-sec-easypropcondexp" class="nav-link" data-scroll-target="#sec-easypropcondexp"><span class="header-section-number">10.6</span> Properties of conditional expectation</a></li>
   <li><a href="#sec-gw1" id="toc-sec-gw1" class="nav-link" data-scroll-target="#sec-gw1"><span class="header-section-number">10.7</span> Application: Galton-Watson processes I</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/023-discrete-condition.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
-    </div>
+<div class="toc-actions"><ul>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/023-discrete-condition.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li>
+</ul></div></nav>
+</div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title"><span id="sec-conditioning4dummies" class="quarto-section-identifier"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Discrete Conditioning</span></span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title"><span id="sec-conditioning4dummies" class="quarto-section-identifier"><span class="chapter-number">10</span>  <span class="chapter-title">Discrete Conditioning</span></span></h1>
 </div>
 
 
@@ -285,19 +252,15 @@ window.Quarto = {
   
 
 
-</header>
-
-
-<section id="roadmap" class="level2" data-number="10.1">
-<h2 data-number="10.1" class="anchored" data-anchor-id="roadmap"><span class="header-section-number">10.1</span> Roadmap</h2>
+</header><section id="roadmap" class="level2" data-number="10.1"><h2 data-number="10.1" class="anchored" data-anchor-id="roadmap">
+<span class="header-section-number">10.1</span> Roadmap</h2>
 <p>Conditioning is central to probabilistic reasoning. In this lesson, we investigate discrete conditioning. In this setting, the definition of conditional probability is not an issue. The definition of conditional expectation can be deceptively simple. Nevertheless the discrete setting lends itself to intuitive definitions and manipulations.</p>
 <p>The simplest notion we meet is conditional probability with respect to a specific event with positive probability (<a href="#sec-condevent" class="quarto-xref"><span>Section 10.2</span></a>). Conditional probability offers an intuitive interpretation of independence.</p>
 <p>In <a href="#sec-bayesformula" class="quarto-xref"><span>Section 10.3</span></a> we state, check and discuss Bayes formula.</p>
 <p>In <a href="#sec-conddiscretealgebra" class="quarto-xref"><span>Section 10.4</span></a>, we define conditional expectation with respect to an atomic <span class="math inline">\(\sigma\)</span>-algebra. This defines conditional expectation with respect to a discrete random variables.</p>
 <p>In <a href="#sec-condpred" class="quarto-xref"><span>Section 10.5</span></a>, we characterize conditional expectation as an optimal predictor. This characterization is very helpful when defining conditional expectation in the general setting.</p>
-</section>
-<section id="sec-condevent" class="level2" data-number="10.2">
-<h2 data-number="10.2" class="anchored" data-anchor-id="sec-condevent"><span class="header-section-number">10.2</span> Conditioning with respect to an event</h2>
+</section><section id="sec-condevent" class="level2" data-number="10.2"><h2 data-number="10.2" class="anchored" data-anchor-id="sec-condevent">
+<span class="header-section-number">10.2</span> Conditioning with respect to an event</h2>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -311,8 +274,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 <div id="exm">
 <p>If <span class="math inline">\(X\)</span> is a standard Gaussian random variable on <span class="math inline">\((\Omega, \mathcal{F})\)</span>, and event <span class="math inline">\(A\)</span> is defined by <span class="math inline">\(\{ \omega : X(\omega) \geq t\}\)</span> for some <span class="math inline">\(t\geq 0\)</span>, we may condition on event <span class="math inline">\(A\)</span> and define <span class="math inline">\(P\{B \mid A\}\)</span> for <span class="math inline">\(B = \{ \omega : |X(\omega)|\geq 2t\}\)</span>.</p>
@@ -335,8 +297,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span><span class="math inline">\(P(\cdot \mid A)\)</span> maps <span class="math inline">\(\mathcal{F}\)</span> to <span class="math inline">\([0,1]\)</span>.</p>
@@ -350,14 +311,12 @@ window.Quarto = {
 \end{array}
 \]</span></p>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 <p>We may consider the distribution of random variables on <span class="math inline">\((\Omega, \mathcal{F})\)</span> under <span class="math inline">\(P\{\cdot \mid A\}\)</span>. We compute the expectation of <span class="math inline">\(X\)</span> under <span class="math inline">\(P\{ \cdot \mid A\}\)</span>:</p>
 <p><span class="math display">\[\mathbb{E}_{P\{\cdot \mid A\}} X =  \frac{\mathbb{E} [\mathbb{I}_A\, X]}{P\{A\}} \,.\]</span></p>
 <p>This is often denoted by <span class="math inline">\(\mathbb{E}[X \mid A]\)</span>, we will try to avoid this possibly misleading notation.</p>
-<br>
-<p>
+<br><p>
 </p>
 <div id="exm-condevent1" class="theorem example">
 <p><span class="theorem-title"><strong>Example 10.1</strong></span> Assume <span class="math inline">\(X\)</span> is standard normally distributed. One may investigate the distribution of <span class="math inline">\(X^2\)</span> conditionnally on event <span class="math inline">\(A = \{ \omega : X(\omega)\geq t\}\)</span>. For <span class="math inline">\(t&gt;1\)</span>, we have</p>
@@ -371,8 +330,7 @@ window.Quarto = {
 <p>where the upper bound is obtained by repeated integration by parts.</p>
 <p>The distribution of <span class="math inline">\(X\)</span> given <span class="math inline">\(A\)</span> is not Gaussian. Under <span class="math inline">\(A\)</span>, <span class="math inline">\(X\)</span> is very concentrated in the neighborhood of <span class="math inline">\(t,\)</span> and tends to be more concentrated as <span class="math inline">\(t\)</span> goes to infinity.</p>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 Knowing the probability distribution given event <span class="math inline">\(A\)</span> enables to investigate independence of events with respect to <span class="math inline">\(A\)</span> The next trivial proposition is worth reminding.
 <p>
@@ -390,14 +348,11 @@ Knowing the probability distribution given event <span class="math inline">\(A\)
 </div>
 </div>
 </div>
-<br>
-<p>
+<br><p>
 </p>
-</section>
-<section id="sec-bayesformula" class="level2" data-number="10.3">
-<h2 data-number="10.3" class="anchored" data-anchor-id="sec-bayesformula"><span class="header-section-number">10.3</span> Bayes formula</h2>
-<br>
-<p>
+</section><section id="sec-bayesformula" class="level2" data-number="10.3"><h2 data-number="10.3" class="anchored" data-anchor-id="sec-bayesformula">
+<span class="header-section-number">10.3</span> Bayes formula</h2>
+<br><p>
 </p>
 <p>Bayes formula is sometimes used in probabilistic causation theory. This is a difficult matter. Causality is a subtle notion and we will refrain from making causal interpretations.</p>
 <div class="callout callout-style-simple callout-note no-icon">
@@ -413,8 +368,7 @@ Knowing the probability distribution given event <span class="math inline">\(A\)
 </div>
 </div>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>By definition, <span class="math inline">\(P\{A_i \mid B\}= P\{A_i \cap B\}/ P\{B\}= P\{A_i \}
@@ -428,16 +382,13 @@ P \{ B\} &amp; = P\{B \cap (\cup_{j \in \mathcal{I}} A_j)\}\\
 \end{array}
 \]</span></p>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 <p>In the preceding proposition, <span class="math inline">\(P\{A_i \}\)</span> is called the prior probability of <span class="math inline">\(A_i\)</span> and <span class="math inline">\(P\{A_i \mid B\}\)</span> the posterior probability.</p>
-</section>
-<section id="sec-conddiscretealgebra" class="level2" data-number="10.4">
-<h2 data-number="10.4" class="anchored" data-anchor-id="sec-conddiscretealgebra"><span class="header-section-number">10.4</span> Conditional expectation with respect to a discrete <span class="math inline">\(\sigma\)</span>-algebra</h2>
+</section><section id="sec-conddiscretealgebra" class="level2" data-number="10.4"><h2 data-number="10.4" class="anchored" data-anchor-id="sec-conddiscretealgebra">
+<span class="header-section-number">10.4</span> Conditional expectation with respect to a discrete <span class="math inline">\(\sigma\)</span>-algebra</h2>
 <p>While the general notion of conditional expectation requires some abstraction, we can introduce conditioning with respect to a discrete <span class="math inline">\(\sigma\)</span>-algebra starting from the elementary notion of conditional probability with respect to an event with positive probability.</p>
-<br>
-<p>
+<br><p>
 </p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -456,8 +407,7 @@ P \{ B\} &amp; = P\{B \cap (\cup_{j \in \mathcal{I}} A_j)\}\\
 </div>
 </div>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 <p>While <span class="math inline">\(\mathbb{E}_{P_{\{\cdot |A_i \}}} [X]\)</span> is a real number, <span class="math inline">\(\mathbb{E} [X \mid \mathcal{G}]\)</span> is a <span class="math inline">\(\mathcal{G}\)</span>-measurable function from <span class="math inline">\(\Omega\)</span> to <span class="math inline">\(\mathcal{X}\)</span>:</p>
 <p><span class="math display">\[
@@ -465,8 +415,7 @@ P \{ B\} &amp; = P\{B \cap (\cup_{j \in \mathcal{I}} A_j)\}\\
 \}}} [X] \times \mathbf{1}_{A_i}(\omega) \qquad \forall \omega \in \Omega\, .
 \]</span></p>
 <p>These two kinds of objects should not be confused. We will refrain from using notation <span class="math inline">\(\mathbb{E}[X \mid A_i]\)</span> since it may be confusing: <span class="math inline">\(\mathbb{E}[X \mid A_i]\)</span> might denote either <span class="math inline">\(\mathbb{E}_{P_{\{\cdot |A_i     \}}} [X]\)</span> or <span class="math inline">\(\mathbb{E} [X \mid \sigma(A_i)]\)</span> where <span class="math inline">\(\sigma(A_i)\)</span> is the sigma-algebra generated by <span class="math inline">\(A_i\)</span>: <span class="math inline">\(\{ A_i, A_i^c, \Omega, \emptyset\}\)</span>.</p>
-<br>
-<p>
+<br><p>
 </p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -490,14 +439,14 @@ P \{ B\} &amp; = P\{B \cap (\cup_{j \in \mathcal{I}} A_j)\}\\
 </div>
 </div>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>We need to ckeck points 1.) and 2.):</p>
 <ol type="1">
-<li><span class="math inline">\(\mathbb{E} \left[ X \mid \mathcal{G} \right]\)</span> satisfies first property in Proposition <a href="#prp-espercond" class="quarto-xref">Proposition&nbsp;<span>10.4</span></a>.</li>
-<li>If <span class="math inline">\(Z\)</span> satisfies <a href="#prp-espercond" class="quarto-xref">Proposition&nbsp;<span>10.4</span></a>, then <span class="math inline">\(Z = \mathbb{E}\left[ X \mid \mathcal{G} \right]\)</span> <span class="math inline">\(P\)</span>-almost-surely.</li>
+<li>
+<span class="math inline">\(\mathbb{E} \left[ X \mid \mathcal{G} \right]\)</span> satisfies first property in Proposition <a href="#prp-espercond" class="quarto-xref">Proposition <span>10.4</span></a>.</li>
+<li>If <span class="math inline">\(Z\)</span> satisfies <a href="#prp-espercond" class="quarto-xref">Proposition <span>10.4</span></a>, then <span class="math inline">\(Z = \mathbb{E}\left[ X \mid \mathcal{G} \right]\)</span> <span class="math inline">\(P\)</span>-almost-surely.</li>
 </ol>
 <p>Checking i.)</p>
 <p>If <span class="math inline">\(Y\)</span> is <span class="math inline">\(\mathcal{G}\)</span>-measurable, then <span class="math inline">\(Y = \sum_{i \in \mathcal{I}} \lambda_i \mathbf{1}_{A_i}\)</span> for some real-valued sequence <span class="math inline">\((\lambda_i)_{i \in
@@ -527,7 +476,7 @@ P \{ B\} &amp; = P\{B \cap (\cup_{j \in \mathcal{I}} A_j)\}\\
 <p>Checking ii.)</p>
 <p>
 </p>
-<p>Assume <span class="math inline">\(Z\)</span> satisfies <a href="#prp-espercond" class="quarto-xref">Proposition&nbsp;<span>10.4</span></a>.</p>
+<p>Assume <span class="math inline">\(Z\)</span> satisfies <a href="#prp-espercond" class="quarto-xref">Proposition <span>10.4</span></a>.</p>
 <p>Let us define <span class="math inline">\(Y\)</span> using <span class="math inline">\(Y = \mathbf{1}_{A_i}\)</span>, for some index <span class="math inline">\(i \in \mathcal{I}\)</span>.</p>
 <p>As <span class="math inline">\(Z\)</span> is <span class="math inline">\(\mathcal{G}\)</span>-measurable, there exists a real-valued sequence <span class="math inline">\(\left( \mu_j
 \right)_{j \in \mathcal{I}}\)</span>, such that <span class="math inline">\(Z = \sum_{j \in \mathcal{I}} \mu_j
@@ -544,12 +493,10 @@ P \{ B\} &amp; = P\{B \cap (\cup_{j \in \mathcal{I}} A_j)\}\\
 <p>Finally, for all <span class="math inline">\(i \in \mathcal{I}\)</span>, <span class="math inline">\(\mu_i= \mathbb{E}[X\mathbf{1}_{A_i}]/ P\{A_i \}.\)</span></p>
 <p>We can now conclude <span class="math inline">\(Z = \mathbb{E}[X \mid \mathcal{G}]\)</span>.</p>
 </div>
-<br>
-<p>
+<br><p>
 </p>
-</section>
-<section id="sec-condpred" class="level2" data-number="10.5">
-<h2 data-number="10.5" class="anchored" data-anchor-id="sec-condpred"><span class="header-section-number">10.5</span> Conditional expectation as prediction</h2>
+</section><section id="sec-condpred" class="level2" data-number="10.5"><h2 data-number="10.5" class="anchored" data-anchor-id="sec-condpred">
+<span class="header-section-number">10.5</span> Conditional expectation as prediction</h2>
 <p>The next proposition reveals the role of conditional expectation in prediction/approximation problems.</p>
 <p>
 </p>
@@ -586,10 +533,9 @@ P \{ B\} &amp; = P\{B \cap (\cup_{j \in \mathcal{I}} A_j)\}\\
 \]</span></p>
 <p>Thus for each <span class="math inline">\(i\)</span>, <span class="math inline">\(b_i\)</span> must coincide with the expectation of <span class="math inline">\(Y\)</span> under <span class="math inline">\(P\{\cdot \mid A_i\}.\)</span> The best prediction of <span class="math inline">\(Y\)</span>, in the sense of the quadratic error, among the <span class="math inline">\(\mathcal{G}\)</span>-measurable functions is the conditional expectation of <span class="math inline">\(Y\)</span> with respect to <span class="math inline">\(\mathcal{G}\)</span>.</p>
 </div>
-<p>The properties identified by propositions <a href="#prp-espercond" class="quarto-xref">Proposition&nbsp;<span>10.4</span></a> and @ref(prp:espercondpred) serve as a definition for the conditional expectation with respect to a general <span class="math inline">\(\sigma\)</span>-algebra.</p>
-</section>
-<section id="sec-easypropcondexp" class="level2" data-number="10.6">
-<h2 data-number="10.6" class="anchored" data-anchor-id="sec-easypropcondexp"><span class="header-section-number">10.6</span> Properties of conditional expectation</h2>
+<p>The properties identified by propositions <a href="#prp-espercond" class="quarto-xref">Proposition <span>10.4</span></a> and @ref(prp:espercondpred) serve as a definition for the conditional expectation with respect to a general <span class="math inline">\(\sigma\)</span>-algebra.</p>
+</section><section id="sec-easypropcondexp" class="level2" data-number="10.6"><h2 data-number="10.6" class="anchored" data-anchor-id="sec-easypropcondexp">
+<span class="header-section-number">10.6</span> Properties of conditional expectation</h2>
 <p>We state without proof a number of useful properties of conditional expectation with respect to discrete <span class="math inline">\(\sigma\)</span>-algebras. We shall prove them in full generality later.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -643,9 +589,8 @@ P \{ B\} &amp; = P\{B \cap (\cup_{j \in \mathcal{I}} A_j)\}\\
 <div id="cor">
 <p><span class="math display">\[\mathbb{E} X = \mathbb{E}[\mathbb{E}[X \mid \mathcal{G}]] \, .\]</span></p>
 </div>
-</section>
-<section id="sec-gw1" class="level2" data-number="10.7">
-<h2 data-number="10.7" class="anchored" data-anchor-id="sec-gw1"><span class="header-section-number">10.7</span> Application: Galton-Watson processes I</h2>
+</section><section id="sec-gw1" class="level2" data-number="10.7"><h2 data-number="10.7" class="anchored" data-anchor-id="sec-gw1">
+<span class="header-section-number">10.7</span> Application: Galton-Watson processes I</h2>
 <p>The size of generation <span class="math inline">\(k\geq 0\)</span> is defined recursively by</p>
 <p><span class="math display">\[Z_0 = 1, \qquad Z_{k+1} = \sum_{i=1}^{Z_k} X^k_{i} \, .\]</span></p>
 <p>The <span class="math inline">\(\sigma\)</span>-algebra <span class="math inline">\(\sigma(Z_k)\)</span> is discrete/atomic, it is generated by the pairwise disjoint events <span class="math inline">\(\Big\{ Z_k = a\Big\}\)</span> for <span class="math inline">\(a \in \mathbb{N}\)</span>. <br></p>
@@ -725,10 +670,7 @@ P \Big\{ Z_{k+1} = b \mid Z_k = a\Big\} = P \Big\{ \sum_{i=1}^a X^k_i  = b \mid 
 </div>
 
 
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -1127,16 +1069,14 @@ P \Big\{ Z_{k+1} = b \mid Z_k = a\Big\} = P \Big\{ \sum_{i=1}^a X^k_i  = b \mid 
       }
     }
   });
-  </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./032-acfamilies.html" class="pagination-link" aria-label="Absolutely continuous probability measures">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Absolutely continuous probability measures</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>  <span class="chapter-title">Absolutely continuous probability measures</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./06-conditioning.html" class="pagination-link" aria-label="Conditioning">
-        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Conditioning</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">11</span>  <span class="chapter-title">Conditioning</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1145,4 +1085,9 @@ P \Big\{ Z_{k+1} = b \mid Z_k = a\Big\} = P \Big\{ \sum_{i=1}^a X^k_i  = b \mid 
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/023-discrete-condition.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/023-discrete-condition.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li>
+</ul></div></div></div></footer>
+</body>
+</html>

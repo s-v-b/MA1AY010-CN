@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<link rel="alternate" hreflang="en" href="/02-language.html" />
+<link rel="alternate" hreflang="fr" href="/fr/02-language.fr.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.24">
-
+<meta name="generator" content="quarto-1.9.36">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>2&nbsp; A modicum of measure theory – MA1AY010 Class Notes</title>
+<title>2  A modicum of measure theory – MA1AY010 Class Notes</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -41,28 +44,13 @@ div.csl-right-inline {
 div.csl-indent {
   margin-left: 2em;
 }</style>
-
-
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script><script src="site_libs/quarto-nav/headroom.min.js"></script><script src="site_libs/clipboard/clipboard.min.js"></script><script src="site_libs/quarto-search/autocomplete.umd.js"></script><script src="site_libs/quarto-search/fuse.min.js"></script><script src="site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="./">
 <link href="./031-moments.html" rel="next">
 <link href="./01-intro.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-3a70adc2469c323d0515427c5f9cb542.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script><script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script><link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-eb98473aa13ec2f8694b0a204f8986fa.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -89,12 +77,7 @@ div.csl-indent {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
+}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
     // MathJax Typeset
@@ -120,18 +103,12 @@ window.Quarto = {
   typesetMath
 };
 </script>
-
 </head>
-
 <body class="nav-sidebar floating nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">MA1AY010 Class Notes</span>
     </a>
@@ -142,29 +119,21 @@ window.Quarto = {
 </div>
           <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
-    </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+    </nav><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02-language.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">A modicum of measure theory</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02-language.html"><span class="chapter-number">2</span>  <span class="chapter-title">A modicum of measure theory</span></a></li></ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
-      </div>
-    <div class="sidebar-menu-container"> 
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="dropdown" id="languages-links-parent">
+<button class="btn btn-primary dropdown-toggle babelquarto-languages-button" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> Version in en</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="/fr/02-language.fr.html" id="language-link-fr">Version in fr</a></li></ul>
+</div>
+<div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Warm up</span></a>
@@ -173,114 +142,114 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01-intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>  <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-language.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">A modicum of measure theory</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>  <span class="chapter-title">A modicum of measure theory</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./031-moments.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">A modicum of integration</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>  <span class="chapter-title">A modicum of integration</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./033-integration2moments.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">From integrals to expectation and moments</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>  <span class="chapter-title">From integrals to expectation and moments</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-families.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Families of discrete distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>  <span class="chapter-title">Families of discrete distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0225-pgf.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Characterizations of discrete probability distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>  <span class="chapter-title">Characterizations of discrete probability distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./022-product-measures.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Product distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>  <span class="chapter-title">Product distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./021-independence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Independence and product spaces</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>  <span class="chapter-title">Independence and product spaces</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./032-acfamilies.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Absolutely continuous probability measures</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>  <span class="chapter-title">Absolutely continuous probability measures</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./023-discrete-condition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Discrete Conditioning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>  <span class="chapter-title">Discrete Conditioning</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06-conditioning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Conditioning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>  <span class="chapter-title">Conditioning</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-characterizations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Characterizations of probability distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>  <span class="chapter-title">Characterizations of probability distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./041-characterization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Quantile functions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>  <span class="chapter-title">Quantile functions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-convergences-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Convergences I : almost sure, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, in Probability</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>  <span class="chapter-title">Convergences I : almost sure, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, in Probability</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-convergence-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Convergence in distribution</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>  <span class="chapter-title">Convergence in distribution</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./09-gaussian-vectors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Gaussian vectors</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>  <span class="chapter-title">Gaussian vectors</span></span></a>
   </div>
 </li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#roadmap" id="toc-roadmap" class="nav-link active" data-scroll-target="#roadmap"><span class="header-section-number">2.1</span> Roadmap</a></li>
-  <li><a href="#sec-tribe" id="toc-sec-tribe" class="nav-link" data-scroll-target="#sec-tribe"><span class="header-section-number">2.2</span> Universe, powerset and <span class="math inline">\(\sigma\)</span>-algebras</a>
+<li><a href="#roadmap" id="toc-roadmap" class="nav-link active" data-scroll-target="#roadmap"><span class="header-section-number">2.1</span> Roadmap</a></li>
+  <li>
+<a href="#sec-tribe" id="toc-sec-tribe" class="nav-link" data-scroll-target="#sec-tribe"><span class="header-section-number">2.2</span> Universe, powerset and <span class="math inline">\(\sigma\)</span>-algebras</a>
   <ul class="collapse">
-  <li><a href="#generated-sigma-algebra" id="toc-generated-sigma-algebra" class="nav-link" data-scroll-target="#generated-sigma-algebra"><span class="header-section-number">2.2.1</span> Generated <span class="math inline">\(\sigma\)</span>-algebra</a></li>
-  </ul></li>
+<li><a href="#generated-sigma-algebra" id="toc-generated-sigma-algebra" class="nav-link" data-scroll-target="#generated-sigma-algebra"><span class="header-section-number">2.2.1</span> Generated <span class="math inline">\(\sigma\)</span>-algebra</a></li>
+  </ul>
+</li>
   <li><a href="#sec-distribution" id="toc-sec-distribution" class="nav-link" data-scroll-target="#sec-distribution"><span class="header-section-number">2.3</span> Probability distributions</a></li>
   <li><a href="#sec-lebesgue" id="toc-sec-lebesgue" class="nav-link" data-scroll-target="#sec-lebesgue"><span class="header-section-number">2.4</span> Lebesgue measure</a></li>
   <li><a href="#sec-measurablefunctionsrv" id="toc-sec-measurablefunctionsrv" class="nav-link" data-scroll-target="#sec-measurablefunctionsrv"><span class="header-section-number">2.5</span> Measurable functions and random variables</a></li>
@@ -289,14 +258,16 @@ window.Quarto = {
   <li><a href="#sec-randomvariablesperse" id="toc-sec-randomvariablesperse" class="nav-link" data-scroll-target="#sec-randomvariablesperse"><span class="header-section-number">2.8</span> General random variables</a></li>
   <li><a href="#bibliolanguage" id="toc-bibliolanguage" class="nav-link" data-scroll-target="#bibliolanguage"><span class="header-section-number">2.9</span> Bibliographic remarks</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/02-language.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
-    </div>
+<div class="toc-actions"><ul>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/02-language.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li>
+</ul></div></nav>
+</div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">A modicum of measure theory</span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title">
+<span class="chapter-number">2</span>  <span class="chapter-title">A modicum of measure theory</span>
+</h1>
 </div>
 
 
@@ -310,36 +281,28 @@ window.Quarto = {
   
 
 
-</header>
-
-
-<section id="roadmap" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="roadmap"><span class="header-section-number">2.1</span> Roadmap</h2>
+</header><section id="roadmap" class="level2" data-number="2.1"><h2 data-number="2.1" class="anchored" data-anchor-id="roadmap">
+<span class="header-section-number">2.1</span> Roadmap</h2>
 <p>Performing stochastic modeling in a comfortable way requires consistent foundations and notation. In this chapter, we set the stage for further development. Probability theory started as the interaction between combinatorics and games of chance (XVIIth century). At that time, the set of outcomes was finite, and it was legitimate to think that any set of outcomes had a well-defined probability. When mathematicians started to perform stochastic modeling in different branches of sciences (astronomy, thermodynamics, genetics, …), they had to handle uncountable sets of outcomes. Designing a sound definition of what a probability distribution is, took time. Progress in integration and measure theory during the XIXth century and the early decades of the XXth century led to the modern, measure-theoretical foundation of probability theory.</p>
-</section>
-<section id="sec-tribe" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="sec-tribe"><span class="header-section-number">2.2</span> Universe, powerset and <span class="math inline">\(\sigma\)</span>-algebras</h2>
+</section><section id="sec-tribe" class="level2" data-number="2.2"><h2 data-number="2.2" class="anchored" data-anchor-id="sec-tribe">
+<span class="header-section-number">2.2</span> Universe, powerset and <span class="math inline">\(\sigma\)</span>-algebras</h2>
 <p>A <em>universe</em> is a set (of possible <em>outcomes</em>) we decide to call a universe. The universe is often denoted by <span class="math inline">\(\Omega\)</span>. Generic elements of <span class="math inline">\(\Omega\)</span> (outcomes) are denoted by <span class="math inline">\(\omega\)</span>.</p>
-<br>
-<p>
+<br><p>
 </p>
 <div id="exm-universe" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2.1</strong></span> If we think of throwing a dice as a random phenomenon, the set of outcomes is the set of labels on the faces <span class="math inline">\(\Omega = \{1, 2, 3, 4, 5, 6\}\)</span>. If we are throwing two dices, the set of outcomes is made of couples of labels <span class="math inline">\(\Omega' = \{(1,1), (1, 2), (1, 3), \ldots, (6,6)\} =\Omega^2\)</span>.</p>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 <div id="exm-unverse-hashing" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2.2</strong></span> In the idealized hashing problem (<a href="01-intro.html#sec-hashing" class="quarto-xref"><span>Section 1.1</span></a>), the universe is the set of functions from <span class="math inline">\(1, \ldots, n\)</span> to <span class="math inline">\(1, \ldots, m\)</span>. The size of the universe is <span class="math inline">\(m^n\)</span>.</p>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 <p>A universe may or may not be finite or countable. If the universe is countable, all its subsets may be called <em>events</em>. Events are assigned probabilities. If the universe is countable, it is possible to assign a probability to each of its subsets. When the universe is not countable (for example <span class="math inline">\(\mathbb{R}\)</span>), Assigning a probability to all subsets is not possible. We have to restrict the collection of subsets in order to assign probabilities to the collection members in a consistent way.</p>
 <p>In the sequel <span class="math inline">\(2^{\Omega}\)</span> denotes the collection of all subsets of <span class="math inline">\(\Omega\)</span> (the powerset of <span class="math inline">\(\Omega\)</span>).</p>
 <p>A sensible collection of events has to be a <span class="math inline">\(\sigma\)</span>-algebra.</p>
-<br>
-<p>
+<br><p>
 </p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -350,22 +313,22 @@ window.Quarto = {
 <div id="def-sigalgebra" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2.1 (<span class="math inline">\(\sigma\)</span>-algebra”)</strong></span> Given a set <span class="math inline">\(\Omega\)</span>, a collection <span class="math inline">\(\mathcal{G}\)</span> of subsets of <span class="math inline">\(\Omega\)</span> (<span class="math inline">\(\mathcal{G} \subseteq 2^{\Omega}\)</span>) is called a <span class="math inline">\(\sigma\)</span>-algebra (a sigma algebra) iff</p>
 <ul>
-<li><span class="math inline">\(\mathcal{G}\)</span> is closed under <span class="math inline">\(countable\)</span> union</li>
+<li>
+<span class="math inline">\(\mathcal{G}\)</span> is closed under <span class="math inline">\(countable\)</span> union</li>
 <li><span class="math inline">\(\emptyset \in \mathcal{G}\)</span></li>
-<li><span class="math inline">\(\mathcal{G}\)</span> is closed under complementation (<span class="math inline">\(A \in \mathcal{G} \Rightarrow A^c = \Omega \setminus A \in \mathcal{G}\)</span>)</li>
+<li>
+<span class="math inline">\(\mathcal{G}\)</span> is closed under complementation (<span class="math inline">\(A \in \mathcal{G} \Rightarrow A^c = \Omega \setminus A \in \mathcal{G}\)</span>)</li>
 </ul>
 </div>
 </div>
 </div>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 <div id="exr">
 <p>What the smallest <span class="math inline">\(\sigma\)</span>-algebra (with respect to set inclusion) that contains subset <span class="math inline">\(A\)</span> of <span class="math inline">\(\Omega\)</span>?</p>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 <p>The next proposition shows that <span class="math inline">\(\sigma\)</span>-algebras are stable under countable set-theoretical operations. We could have replaced countable union by countable intersection in the definition of <span class="math inline">\(\sigma\)</span>-algebras. This is consequence of De Morgan’s laws:</p>
 <p><span class="math display">\[
@@ -374,8 +337,7 @@ window.Quarto = {
 <div id="prp">
 <p>A <span class="math inline">\(\sigma\)</span>-algebra of subsets is closed under countable intersections.</p>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>For <span class="math inline">\(A \subseteq \Omega\)</span>, let <span class="math inline">\(A^c = \Omega \setminus A\)</span>. Let <span class="math inline">\(A_1, \ldots, A_n, \ldots\)</span> belong to <span class="math inline">\(\sigma\)</span>-algebra <span class="math inline">\(\mathcal{G}\)</span> of subsets of <span class="math inline">\(\Omega\)</span>. For each <span class="math inline">\(n\)</span>, <span class="math inline">\(A_n^c \in \mathcal{G}\)</span>, by definition of <span class="math inline">\(\sigma\)</span>-algebra, <span class="math display">\[\begin{align*}
@@ -384,18 +346,15 @@ window.Quarto = {
 &amp; = \Big(\cup_n A_n^c\Big)^c  \qquad \text{De Morgan} \, .
 \end{align*}\]</span> By definition of a <span class="math inline">\(\sigma\)</span>-algebra, <span class="math inline">\(\cup_n A_n^c \in \mathcal{G}\)</span>, and for the same reason, <span class="math inline">\(\Big(\cup_n A_n^c \Big)^c \in \mathcal{G}\)</span>.</p>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 <p>The next proposition allows us to talk about the smallest <span class="math inline">\(\sigma\)</span>-algebra containing a collection of subsets, this leads to the notion of generated <span class="math inline">\(\sigma\)</span>-algebra.</p>
-<br>
-<p>
+<br><p>
 </p>
 <div id="prp">
 <p>The intersection of two <span class="math inline">\(\sigma\)</span>-algebras of subsets of <span class="math inline">\(\Omega\)</span> is a <span class="math inline">\(\sigma\)</span>-algebra of subsets of <span class="math inline">\(\Omega\)</span>.</p>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(\mathcal{G}\)</span> and <span class="math inline">\(\mathcal{G}'\)</span> be two <span class="math inline">\(\sigma\)</span>-algebras of subsets of <span class="math inline">\(\Omega\)</span>. The intersection of the two <span class="math inline">\(\sigma\)</span>-algebras is</p>
@@ -403,18 +362,16 @@ window.Quarto = {
 \Big\{ A : A\subseteq \Omega, A \in \mathcal{G}, A \in \mathcal{G}' \Big\}\, .
 \]</span></p>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 <p>Indeed, the intersection of a possibly uncountable collection of <span class="math inline">\(\sigma\)</span>-algebras is a <span class="math inline">\(\sigma\)</span>-algebra (check this). Because of this property, the notion of a <span class="math inline">\(\sigma\)</span>-algebra generated by a collection of subsets is well-founded.</p>
 <div id="lem">
-<section id="generated-sigma-algebra" class="level3" data-number="2.2.1">
-<h3 data-number="2.2.1" class="anchored" data-anchor-id="generated-sigma-algebra"><span class="header-section-number">2.2.1</span> Generated <span class="math inline">\(\sigma\)</span>-algebra</h3>
+<section id="generated-sigma-algebra" class="level3" data-number="2.2.1"><h3 data-number="2.2.1" class="anchored" data-anchor-id="generated-sigma-algebra">
+<span class="header-section-number">2.2.1</span> Generated <span class="math inline">\(\sigma\)</span>-algebra</h3>
 <p>Given a collection <span class="math inline">\(\mathcal{C}\)</span> of subsets of <span class="math inline">\(\Omega\)</span>, there exists a <em>unique smallest <span class="math inline">\(\sigma\)</span>-algebra</em> containing all subsets in <span class="math inline">\(\mathcal{C}\)</span>, it is called the <span class="math inline">\(\sigma\)</span>-algebra generated by <span class="math inline">\(\mathcal{H}\)</span> and denoted by <span class="math inline">\(\sigma(\mathcal{C})\)</span>.</p>
 </section>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 <div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
@@ -428,20 +385,21 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 <div id="exm-sigma-dice" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2.3</strong></span> Consider we are throwing a dice, <span class="math inline">\(\Omega = \{1, \ldots, 6\}\)</span>, let <span class="math display">\[\mathcal{H} = \Big\{\{1, 3, 5\}\Big\}\, .\]</span> This is a collection made of one event (the outcome is odd). The algebra generated by <span class="math inline">\(\mathcal{H}\)</span> is <span class="math display">\[\sigma(\mathcal{H}) = \Big\{ \{1, 3, 5\}, \{2, 4, 6\}, \emptyset, \Omega \Big\} \, .\]</span></p>
 </div>
 <p>
-</p><p>Two kinds of <span class="math inline">\(\sigma\)</span>-algebras play a prominent role in a basic probability course:</p>
+</p>
+<p>Two kinds of <span class="math inline">\(\sigma\)</span>-algebras play a prominent role in a basic probability course:</p>
 <ol type="1">
 <li>the powerset of countable or finite sets.</li>
 <li>the Borel <span class="math inline">\(\sigma\)</span>-algebras of topological spaces.</li>
 </ol>
 <p>
-</p><div class="callout callout-style-simple callout-note no-icon">
+</p>
+<div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -454,7 +412,8 @@ window.Quarto = {
 </div>
 </div>
 <p>
-</p><p>This definition works for every topological space. Recall that a topology on a set <span class="math inline">\(E\)</span> is defined by a collection <span class="math inline">\(\mathcal{E}\)</span> of <em>open sets</em>. This collection is defined by the following list of properties:</p>
+</p>
+<p>This definition works for every topological space. Recall that a topology on a set <span class="math inline">\(E\)</span> is defined by a collection <span class="math inline">\(\mathcal{E}\)</span> of <em>open sets</em>. This collection is defined by the following list of properties:</p>
 <ul>
 <li><span class="math inline">\(\emptyset, E \in \mathcal{E}\)</span></li>
 <li>A (<em>possibly uncountable</em>) union of elements of <span class="math inline">\(\mathcal{E}\)</span> (open sets) belongs to <span class="math inline">\(\mathcal{E}\)</span> (is an open set)</li>
@@ -463,7 +422,8 @@ window.Quarto = {
 <p>In the usual topology on <span class="math inline">\(\mathbb{R}\)</span>, a set <span class="math inline">\(A\)</span> is open if for any <span class="math inline">\(x \in A\)</span>, there exists some <span class="math inline">\(r&gt;0\)</span> such that <span class="math inline">\(]x-r, x+r[ \subseteq A\)</span>. Any interval of the form <span class="math inline">\(]a,b[\)</span> is open (these are the so-called open intervals).</p>
 This topology can be generalized to any finite dimension <span class="math inline">\(\mathbb{R}^d\)</span>.
 <p>
-</p><div class="callout callout-style-simple callout-tip no-icon">
+</p>
+<div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -513,17 +473,17 @@ This topology can be generalized to any finite dimension <span class="math inlin
 </div>
 </div>
 <p>
-</p><div id="exm-measurable-spaces" class="theorem example">
-<p><span class="theorem-title"><strong>Example 2.4</strong></span> &nbsp;</p>
+</p>
+<div id="exm-measurable-spaces" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2.4</strong></span>  </p>
 <ul>
 <li>If <span class="math inline">\(\Omega\)</span> is a countable or finite set, then <span class="math inline">\((\Omega, 2^\Omega)\)</span> is a measurable space.</li>
 <li>If <span class="math inline">\(\Omega=\mathbb{R}\)</span>, then <span class="math inline">\((\mathbb{R}, \mathcal{B}({\mathbb{R}}))\)</span> is a measurable space.</li>
 </ul>
 </div>
 <p>So far, we have not talked about probability theory, but, we are now equipped to define probability distributions and to manipulate them.</p>
-</section>
-<section id="sec-distribution" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="sec-distribution"><span class="header-section-number">2.3</span> Probability distributions</h2>
+</section><section id="sec-distribution" class="level2" data-number="2.3"><h2 data-number="2.3" class="anchored" data-anchor-id="sec-distribution">
+<span class="header-section-number">2.3</span> Probability distributions</h2>
 <p>A <em>probability distribution</em> maps a <span class="math inline">\(\sigma\)</span>-algebra to <span class="math inline">\([0,1]\)</span>. It is an instance of a more general concept called a <em>measure</em>. We state or recall important concept of measure theory. The key idea underneath the elaboration of measure theory is that we should refrain from trying to measure <em>all</em> subsets of a universe (unless this universe is countable). Attempts to measure all subsets of <span class="math inline">\(\mathbb{R}\)</span> lead to paradoxes and of little practical use. Measure theory starts by recognizing the desirable properties any useful measure should possess, then measure theory builds objects satisfying these properties on as large as possible <span class="math inline">\(\sigma\)</span>-algebras of events, for example on Borel <span class="math inline">\(\sigma\)</span>-algebras.</p>
 <p>This motivates the definition of <span class="math inline">\(\sigma\)</span>-additivity.</p>
 <div class="callout callout-style-simple callout-note no-icon">
@@ -539,8 +499,7 @@ This topology can be generalized to any finite dimension <span class="math inlin
 </div>
 </div>
 <p>Note that if <span class="math inline">\(\mathcal{F}\)</span> is a <span class="math inline">\(\sigma\)</span>-algebra, <span class="math inline">\(\Big(\cup_{n \in \mathbb{N}} A_n\Big) \in \mathcal{F}\)</span>. <span class="math inline">\(\sigma\)</span>-additivity fits well with <span class="math inline">\(\sigma\)</span>-algebras, but it makes sense to define <span class="math inline">\(\sigma\)</span>-additivity with respect to more general collections of subsets.</p>
-<br>
-<p>
+<br><p>
 </p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -551,10 +510,14 @@ This topology can be generalized to any finite dimension <span class="math inlin
 <div id="prp-sigma-add-continuity" class="theorem proposition">
 <p><span class="theorem-title"><strong>Proposition 2.1</strong></span> Given <span class="math inline">\(\Omega\)</span>, a <span class="math inline">\(\sigma\)</span>-algebra <span class="math inline">\(\mathcal{A} \subseteq 2^\Omega\)</span>, a <span class="math inline">\(\sigma\)</span>-_additive_function <span class="math inline">\(\mu\)</span> mapping <span class="math inline">\(\mathcal{A}\)</span> to <span class="math inline">\([0,\infty)\)</span> satisfies</p>
 <ol type="a">
-<li><p>for any increasing sequence <span class="math inline">\((A_n)_{n \in \mathbb{N}}\)</span> of elements of <span class="math inline">\(\mathcal{A}\)</span></p>
-<p><span class="math display">\[\lim_n \mu(A_n) = \mu\left(\cup_{n} A_n\right)\]</span></p></li>
-<li><p>for any decreasing sequence <span class="math inline">\((A_n)_{n \in \mathbb{N}}\)</span> of elements of <span class="math inline">\(\mathcal{A}\)</span></p>
-<p><span class="math display">\[\lim_n \mu(A_n) = \mu\left(\cap_{n} A_n\right)\]</span></p></li>
+<li>
+<p>for any increasing sequence <span class="math inline">\((A_n)_{n \in \mathbb{N}}\)</span> of elements of <span class="math inline">\(\mathcal{A}\)</span></p>
+<p><span class="math display">\[\lim_n \mu(A_n) = \mu\left(\cup_{n} A_n\right)\]</span></p>
+</li>
+<li>
+<p>for any decreasing sequence <span class="math inline">\((A_n)_{n \in \mathbb{N}}\)</span> of elements of <span class="math inline">\(\mathcal{A}\)</span></p>
+<p><span class="math display">\[\lim_n \mu(A_n) = \mu\left(\cap_{n} A_n\right)\]</span></p>
+</li>
 <li><p><span class="math display">\[\mu(\emptyset) = 0\]</span></p></li>
 </ol>
 </div>
@@ -583,7 +546,7 @@ This topology can be generalized to any finite dimension <span class="math inlin
 </div>
 </div>
 </div>
-<p>By <a href="#prp-sigma-add-continuity" class="quarto-xref">Proposition&nbsp;<span>2.1</span></a>, for any positive measure <span class="math inline">\(\mu\)</span>, we have <span class="math inline">\(\mu(\emptyset)=0\)</span>. When <span class="math inline">\(\mu(\Omega)\)</span> is finite, <span class="math inline">\(\mu\)</span> is said to be <em>finite</em> positive measure.</p>
+<p>By <a href="#prp-sigma-add-continuity" class="quarto-xref">Proposition <span>2.1</span></a>, for any positive measure <span class="math inline">\(\mu\)</span>, we have <span class="math inline">\(\mu(\emptyset)=0\)</span>. When <span class="math inline">\(\mu(\Omega)\)</span> is finite, <span class="math inline">\(\mu\)</span> is said to be <em>finite</em> positive measure.</p>
 <div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -602,9 +565,11 @@ This topology can be generalized to any finite dimension <span class="math inlin
 </div>
 </div>
 <p>
-</p><p>A positive measure <span class="math inline">\(\mu\)</span> is not necessarily a probability distribution. For example, the <em>counting measure</em> <span class="math inline">\(\mu\)</span> on <span class="math inline">\(\mathbb{N}\)</span> satisfies <span class="math inline">\(\mu(A) = |A|\)</span> for all <span class="math inline">\(A \subseteq \mathbb{N}\)</span>, so we have <span class="math inline">\(\mu(\mathbb{N})=\infty.\)</span></p>
+</p>
+<p>A positive measure <span class="math inline">\(\mu\)</span> is not necessarily a probability distribution. For example, the <em>counting measure</em> <span class="math inline">\(\mu\)</span> on <span class="math inline">\(\mathbb{N}\)</span> satisfies <span class="math inline">\(\mu(A) = |A|\)</span> for all <span class="math inline">\(A \subseteq \mathbb{N}\)</span>, so we have <span class="math inline">\(\mu(\mathbb{N})=\infty.\)</span></p>
 <p>
-</p><div class="callout callout-style-simple callout-note no-icon">
+</p>
+<div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -613,8 +578,10 @@ This topology can be generalized to any finite dimension <span class="math inlin
 <div id="def-probmeasure" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2.6 (Probability distribution)</strong></span> Given a measurable space <span class="math inline">\((\Omega, \mathcal{F})\)</span>, a function <span class="math inline">\(\mu\)</span> mapping <span class="math inline">\(\mathcal{F}\)</span> to <span class="math inline">\([0,\infty)\)</span> is a probability distribution over <span class="math inline">\((\Omega, \mathcal{F})\)</span> if</p>
 <ol type="1">
-<li><span class="math inline">\(\mu\)</span> is a positive measure on <span class="math inline">\((\Omega, \mathcal{F})\)</span> and</li>
-<li><span class="math inline">\(\mu(\Omega)=1\)</span>.</li>
+<li>
+<span class="math inline">\(\mu\)</span> is a positive measure on <span class="math inline">\((\Omega, \mathcal{F})\)</span> and</li>
+<li>
+<span class="math inline">\(\mu(\Omega)=1\)</span>.</li>
 </ol>
 </div>
 </div>
@@ -635,13 +602,14 @@ This topology can be generalized to any finite dimension <span class="math inlin
 <div id="rem-sigma-add" class="proof remark">
 <p><span class="proof-title"><em>Remark 2.1</em>. </span>The notion of <span class="math inline">\(\sigma\)</span>-additivity is strictly stronger than finite additivity. Assuming the (as usual when working in Analysis or Probability), there exists a function <span class="math inline">\(\mu\)</span> that map <span class="math inline">\(2^{\mathbb{N}}\)</span> to <span class="math inline">\([0,1]\)</span>, that is additive (<span class="math inline">\(\mu(A \cup B)= \mu(A) + \mu(B)\)</span> for all <span class="math inline">\(A, B, A\cap B=\emptyset\)</span>), zero on all finite subsets of <span class="math inline">\(\mathbb{N}\)</span> and such that <span class="math inline">\(\mu(\mathbb{N})=1\)</span>. Such a function is not <span class="math inline">\(\sigma\)</span>-additive.</p>
 </div>
-</section>
-<section id="sec-lebesgue" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="sec-lebesgue"><span class="header-section-number">2.4</span> Lebesgue measure</h2>
+</section><section id="sec-lebesgue" class="level2" data-number="2.4"><h2 data-number="2.4" class="anchored" data-anchor-id="sec-lebesgue">
+<span class="header-section-number">2.4</span> Lebesgue measure</h2>
 <p>
-</p><p>We take the existence of Lebesgue’s measure for granted. This is the content of the next theorem.</p>
+</p>
+<p>We take the existence of Lebesgue’s measure for granted. This is the content of the next theorem.</p>
 <p>
-</p><div class="callout callout-style-simple callout-note no-icon">
+</p>
+<div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -654,10 +622,11 @@ This topology can be generalized to any finite dimension <span class="math inlin
 </div>
 </div>
 <p>
-</p><p><a href="#thm-lebesgue" class="quarto-xref">Theorem&nbsp;<span>2.1</span></a> is typical of statements of measure theory. It defines a complex object (a measure) by its trace on a simple collection of sets (intervals).</p>
-<p>The proof of <a href="#thm-lebesgue" class="quarto-xref">Theorem&nbsp;<span>2.1</span></a> can be cut in several meaningful pieces. First define a length function on intervals. Show that this function can be extended to an additive function on finite union, finite intersection and complements of intervals. Then check that the extension is in fact <span class="math inline">\(\sigma\)</span>-additive on the closure of intervals under finite set-theoretical operations (which is not a <span class="math inline">\(\sigma\)</span>-algebra).</p>
+</p>
+<p><a href="#thm-lebesgue" class="quarto-xref">Theorem <span>2.1</span></a> is typical of statements of measure theory. It defines a complex object (a measure) by its trace on a simple collection of sets (intervals).</p>
+<p>The proof of <a href="#thm-lebesgue" class="quarto-xref">Theorem <span>2.1</span></a> can be cut in several meaningful pieces. First define a length function on intervals. Show that this function can be extended to an additive function on finite union, finite intersection and complements of intervals. Then check that the extension is in fact <span class="math inline">\(\sigma\)</span>-additive on the closure of intervals under finite set-theoretical operations (which is not a <span class="math inline">\(\sigma\)</span>-algebra).</p>
 <p>Once this additive extension is constructed, use Carathéodory’s extension theorem below to prove that the length function can be extended to a <span class="math inline">\(\sigma\)</span>-additive function on the <span class="math inline">\(\sigma\)</span>-algebra generated by intervals (the Borel <span class="math inline">\(\sigma\)</span>-algebra).</p>
-<p>Then it remains to check that the extension is unique. This can be done by a generating set argument, for example the <em>monotone class Lemma</em> <a href="#thm-monotoneclasslemma" class="quarto-xref">Lemma&nbsp;<span>2.4</span></a>.</p>
+<p>Then it remains to check that the extension is unique. This can be done by a generating set argument, for example the <em>monotone class Lemma</em> <a href="#thm-monotoneclasslemma" class="quarto-xref">Lemma <span>2.4</span></a>.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -676,13 +645,11 @@ This topology can be generalized to any finite dimension <span class="math inlin
 P(A) = \frac{\ell(A)}{b-a} = \frac{\ell(A)}{\ell([a,b])}
 \]</span></p>
 <p>to any <span class="math inline">\(A \in \mathcal{B}(\mathbb{R}) \cap [a,b]\)</span>.</p>
-<br>
-<p>
+<br><p>
 </p>
 <p>The uniform distribution over <span class="math inline">\(([0,1], \mathcal{B}([0,1]))\)</span> looks like an academic curiosity with no practical utility. This superficial opinion should be dispelled. Using a generator for the uniform distribution, it is possible to build a generator for any probability distribution over <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span>. This can be done using a device called the <em>quantile transform</em>. In this sense, the uniform distribution is the mother of all distribution.</p>
 <p>An outcome <span class="math inline">\(\omega\)</span> of the uniform distribution is a real number. How does a typical outcome look? A real number <span class="math inline">\(\omega \in [0,1]\)</span> has binary expansions: <span class="math inline">\(\omega = \sum_{i=1}^\infty b_i 2^{-1}\)</span> with <span class="math inline">\(b_i \in \{0,1\}\)</span>. What is the probability there is a unique binary expansion? First, check whether this probability is well-defined. Assuming the binary expansion is unique, <span class="math inline">\(\omega\)</span> is said to be <em>normal</em> if <span class="math inline">\(\lim_n \frac{1}{n}\sum_{i=1}^n b_i(\omega) = 1/2\)</span>. Is the probability of obtaining a normal number well-defined? If yes, compute it.</p>
-<br>
-<p>
+<br><p>
 </p>
 <div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
@@ -699,8 +666,7 @@ P(A) = \frac{\ell(A)}{b-a} = \frac{\ell(A)}{\ell([a,b])}
 <p>The Lebesgue existence theorem can be extended. Indeed, any sensible definition of the length of an interval can serve as a starting point.</p>
 <p>Recall that a real function is CADLAG if it is right-continuous everywhere, and has left-limits everywhere.</p>
 <p>The next Theorem can be established in a way that parallels the construction of Lebesgue’s measure.</p>
-<br>
-<p>
+<br><p>
 </p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -717,13 +683,11 @@ P(A) = \frac{\ell(A)}{b-a} = \frac{\ell(A)}{\ell([a,b])}
 </div>
 </div>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 <p>We recover Lebesgue’s existence Theorem by taking <span class="math inline">\(F(x)=x\)</span>.</p>
-<p>If we focus on functions <span class="math inline">\(F\)</span> that satisfy <span class="math inline">\(\lim_{x \to -\infty} F(x)=0\)</span> and <span class="math inline">\(\lim_{x \to \infty} F(x)=1\)</span>, Theorem <a href="#thm-dudley3-1-3" class="quarto-xref">Theorem&nbsp;<span>2.3</span></a> defines probability distributions through their <em>cumulative distribution functions</em> (more on this topic in <a href="#sec-distribfun" class="quarto-xref"><span>Section 2.7</span></a>).</p>
-<br>
-<p>
+<p>If we focus on functions <span class="math inline">\(F\)</span> that satisfy <span class="math inline">\(\lim_{x \to -\infty} F(x)=0\)</span> and <span class="math inline">\(\lim_{x \to \infty} F(x)=1\)</span>, Theorem <a href="#thm-dudley3-1-3" class="quarto-xref">Theorem <span>2.3</span></a> defines probability distributions through their <em>cumulative distribution functions</em> (more on this topic in <a href="#sec-distribfun" class="quarto-xref"><span>Section 2.7</span></a>).</p>
+<br><p>
 </p>
 <div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
@@ -732,17 +696,15 @@ P(A) = \frac{\ell(A)}{b-a} = \frac{\ell(A)}{\ell([a,b])}
 </div>
 <div class="callout-body-container">
 <div id="exr-dudley3-1-3" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 2.8</strong></span> Do we really to assume that the function <span class="math inline">\(F\)</span> has left-limits in Theorem <a href="#thm-dudley3-1-3" class="quarto-xref">Theorem&nbsp;<span>2.3</span></a>?</p>
+<p><span class="theorem-title"><strong>Exercise 2.8</strong></span> Do we really to assume that the function <span class="math inline">\(F\)</span> has left-limits in Theorem <a href="#thm-dudley3-1-3" class="quarto-xref">Theorem <span>2.3</span></a>?</p>
 </div>
 </div>
 </div>
 </div>
-<br>
-<p>
+<br><p>
 </p>
-</section>
-<section id="sec-measurablefunctionsrv" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="sec-measurablefunctionsrv"><span class="header-section-number">2.5</span> Measurable functions and random variables</h2>
+</section><section id="sec-measurablefunctionsrv" class="level2" data-number="2.5"><h2 data-number="2.5" class="anchored" data-anchor-id="sec-measurablefunctionsrv">
+<span class="header-section-number">2.5</span> Measurable functions and random variables</h2>
 <p>So far, we only talked probability and measure of sets (events). As stochastic modeling is at the root of quantitative analysis, we introduce the notion of measurable function. This allows us handle numerical functions that map outcomes to <span class="math inline">\(\mathbb{R}\)</span> or <span class="math inline">\(\mathbb{R}^d\)</span>.</p>
 <p>Not every numerical function is measurable. To define what we call a measurable function, we need the notion of <em>inverse image</em> or <em>preimage</em>.</p>
 <div class="callout callout-style-simple callout-note no-icon">
@@ -787,8 +749,7 @@ f^{-1}(F \setminus A) &amp; =  f^{-1}(F) \setminus f^{-1}(A)
 </div>
 </div>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 <div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
@@ -797,13 +758,12 @@ f^{-1}(F \setminus A) &amp; =  f^{-1}(F) \setminus f^{-1}(A)
 </div>
 <div class="callout-body-container">
 <div id="exr-propinvimage" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 2.9</strong></span> Check Proposition <a href="#prp-propinvimage" class="quarto-xref">Proposition&nbsp;<span>2.2</span></a> from <a href="#sec-distribfun" class="quarto-xref"><span>Section 2.7</span></a></p>
+<p><span class="theorem-title"><strong>Exercise 2.9</strong></span> Check Proposition <a href="#prp-propinvimage" class="quarto-xref">Proposition <span>2.2</span></a> from <a href="#sec-distribfun" class="quarto-xref"><span>Section 2.7</span></a></p>
 </div>
 </div>
 </div>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 <div id="cor">
 <p>Taking the preimages of elements of a <span class="math inline">\(\sigma\)</span>-algebra defines a <span class="math inline">\(\sigma\)</span>-algebra.</p>
@@ -821,7 +781,8 @@ f^{-1}(F \setminus A) &amp; =  f^{-1}(F) \setminus f^{-1}(A)
 </div>
 </div>
 <p>
-</p><div class="callout callout-style-simple callout-note no-icon">
+</p>
+<div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -834,7 +795,8 @@ f^{-1}(F \setminus A) &amp; =  f^{-1}(F) \setminus f^{-1}(A)
 </div>
 </div>
 <p>
-</p><p>Under which condition on <span class="math inline">\(\mathcal{H}\)</span> is <span class="math inline">\(f\)</span> <span class="math inline">\(\mathcal{F}/\mathcal{G}\)</span>-measurable?</p>
+</p>
+<p>Under which condition on <span class="math inline">\(\mathcal{H}\)</span> is <span class="math inline">\(f\)</span> <span class="math inline">\(\mathcal{F}/\mathcal{G}\)</span>-measurable?</p>
 <div id="exm-hashing-measurable-functions" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2.6</strong></span> Recall the idealized hashing scenario from <a href="01-intro.html#sec-hashing" class="quarto-xref"><span>Section 1.1</span></a>.</p>
 </div>
@@ -875,20 +837,22 @@ f^{-1}(F \setminus A) &amp; =  f^{-1}(F) \setminus f^{-1}(A)
 </div>
 </div>
 <p>
-</p><div class="callout callout-style-simple callout-tip no-icon">
+</p>
+<div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
 <div id="exr-limmeasurable" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 2.13</strong></span> Prove Proposition <a href="#prp-limmeasurable" class="quarto-xref">Proposition&nbsp;<span>2.3</span></a></p>
+<p><span class="theorem-title"><strong>Exercise 2.13</strong></span> Prove Proposition <a href="#prp-limmeasurable" class="quarto-xref">Proposition <span>2.3</span></a></p>
 </div>
 </div>
 </div>
 </div>
 <p>
-</p><div class="callout callout-style-simple callout-note no-icon">
+</p>
+<div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -901,20 +865,22 @@ f^{-1}(F \setminus A) &amp; =  f^{-1}(F) \setminus f^{-1}(A)
 </div>
 </div>
 <p>
-</p><div class="callout callout-style-simple callout-tip no-icon">
+</p>
+<div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
 <div id="exr-summeasurable" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 2.14</strong></span> Prove Proposition <a href="#prp-summeasurable" class="quarto-xref">Proposition&nbsp;<span>2.4</span></a></p>
+<p><span class="theorem-title"><strong>Exercise 2.14</strong></span> Prove Proposition <a href="#prp-summeasurable" class="quarto-xref">Proposition <span>2.4</span></a></p>
 </div>
 </div>
 </div>
 </div>
 <p>
-</p><div class="callout callout-style-simple callout-note no-icon">
+</p>
+<div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -926,25 +892,23 @@ f^{-1}(F \setminus A) &amp; =  f^{-1}(F) \setminus f^{-1}(A)
 </div>
 </div>
 </div>
-<br>
-<p>
-</p><div class="callout callout-style-simple callout-tip no-icon">
+<br><p>
+</p>
+<div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
 <div id="exr-compmeasurable" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 2.15</strong></span> Prove Proposition <a href="#prp-compmeasurable" class="quarto-xref">Proposition&nbsp;<span>2.5</span></a></p>
+<p><span class="theorem-title"><strong>Exercise 2.15</strong></span> Prove Proposition <a href="#prp-compmeasurable" class="quarto-xref">Proposition <span>2.5</span></a></p>
 </div>
 </div>
 </div>
 </div>
-<br>
-<p>
-</p></section>
-<section id="sec-dynkin" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="sec-dynkin"><span class="header-section-number">2.6</span> The Monotone class theorem</h2>
+<br><p>
+</p></section><section id="sec-dynkin" class="level2" data-number="2.6"><h2 data-number="2.6" class="anchored" data-anchor-id="sec-dynkin">
+<span class="header-section-number">2.6</span> The Monotone class theorem</h2>
 <p>The monotone class theorem or lemma is a powerful example of the generating class arguments that can be used to prove that two probability measures or maybe two <span class="math inline">\(\sigma\)</span>-finite measures are equal.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -956,16 +920,19 @@ f^{-1}(F \setminus A) &amp; =  f^{-1}(F) \setminus f^{-1}(A)
 <p><span class="theorem-title"><strong>Definition 2.9 (<span class="math inline">\(\pi\)</span>-class)</strong></span> A collection <span class="math inline">\(\mathcal{G}\)</span> of subsets of <span class="math inline">\(\Omega\)</span> is said to be a <span class="math inline">\(\pi\)</span>-class if:</p>
 <ul>
 <li><span class="math inline">\(\Omega \in \mathcal{G}\)</span></li>
-<li>it is stable/closed by finite intersection <span class="math display">\[A, B \in \mathcal{G} \Rightarrow A \cap B \in \mathcal{G} \, .\]</span></li>
+<li>it is stable/closed by finite intersection <span class="math display">\[A, B \in \mathcal{G} \Rightarrow A \cap B \in \mathcal{G} \, .\]</span>
+</li>
 </ul>
 </div>
 </div>
 </div>
 </div>
 <p>
-</p><p>A <span class="math inline">\(\sigma\)</span>-algebra is a <span class="math inline">\(\pi\)</span> class, but the converse is false.</p>
+</p>
+<p>A <span class="math inline">\(\sigma\)</span>-algebra is a <span class="math inline">\(\pi\)</span> class, but the converse is false.</p>
 <p>
-</p><div class="callout callout-style-simple callout-note no-icon">
+</p>
+<div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -975,7 +942,8 @@ f^{-1}(F \setminus A) &amp; =  f^{-1}(F) \setminus f^{-1}(A)
 <p><span class="theorem-title"><strong>Definition 2.10 (Monotone class)</strong></span> A collection <span class="math inline">\(\mathcal{M}\)</span> of subsets of <span class="math inline">\(\Omega\)</span> is said to be a monotone class or a <span class="math inline">\(\lambda\)</span>-system if it satisfies the following properties:</p>
 <ul>
 <li><span class="math inline">\(\Omega \in \mathcal{M}\)</span></li>
-<li>If <span class="math inline">\(A, B \in \mathcal{M}\)</span>, and <span class="math inline">\(A \subseteq B\)</span> then <span class="math inline">\(B \setminus A \in \mathcal{M}\)</span></li>
+<li>If <span class="math inline">\(A, B \in \mathcal{M}\)</span>, and <span class="math inline">\(A \subseteq B\)</span> then <span class="math inline">\(B \setminus A \in \mathcal{M}\)</span>
+</li>
 <li>If <span class="math inline">\(A_n \in \mathcal{M}\)</span> and <span class="math inline">\(A_n \subseteq A_{n+1}\)</span> for every <span class="math inline">\(n \in \mathbb{N}\)</span> then <span class="math inline">\(\lim_n A_n = \cup_{n \in \mathbb{N}} A_n \in \mathcal{M}\)</span>.</li>
 </ul>
 </div>
@@ -983,11 +951,14 @@ f^{-1}(F \setminus A) &amp; =  f^{-1}(F) \setminus f^{-1}(A)
 </div>
 </div>
 <p>
-</p><p>A <span class="math inline">\(\sigma\)</span>-algebra is a <span class="math inline">\(\lambda\)</span>-system.</p>
+</p>
+<p>A <span class="math inline">\(\sigma\)</span>-algebra is a <span class="math inline">\(\lambda\)</span>-system.</p>
 <p>
-</p><p>The intersection of a collection of <span class="math inline">\(\lambda\)</span>-systems is a <span class="math inline">\(\lambda\)</span>-system. Hence, it makes sense to talk about the smallest <span class="math inline">\(\lambda\)</span>-system containing a collection of sets.</p>
+</p>
+<p>The intersection of a collection of <span class="math inline">\(\lambda\)</span>-systems is a <span class="math inline">\(\lambda\)</span>-system. Hence, it makes sense to talk about the smallest <span class="math inline">\(\lambda\)</span>-system containing a collection of sets.</p>
 <p>
-</p><p>The next easy proposition makes <span class="math inline">\(\lambda\)</span>-system very useful when we want to check that two probability distributions are equal.</p>
+</p>
+<p>The next easy proposition makes <span class="math inline">\(\lambda\)</span>-system very useful when we want to check that two probability distributions are equal.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -1049,8 +1020,7 @@ P(\cup_n A_n) = \lim_n \uparrow P(A_n) = \lim_n \uparrow Q(A_n) = Q(\cup_n A_n) 
 <p>
 </p>
 <p>What happens if we only assume that the two measures are <span class="math inline">\(\sigma\)</span>-finite?</p>
-<br>
-<p>
+<br><p>
 </p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -1090,12 +1060,10 @@ A \cap (C \setminus B) = \Big(\underbrace{A \cap C}_{\in \mathcal{M}}\Big) \setm
 <p>We just established that <span class="math inline">\(\mathcal{A} \subseteq \mathcal{M}^{\circ}\)</span>. Using the same line of reasoning allows us to check that <span class="math inline">\(\mathcal{M}^\circ\)</span> is also a monotone class. This shows that <span class="math inline">\(\mathcal{M}^\circ= \mathcal{M}\)</span>.</p>
 <p>We are done.</p>
 </div>
-<br>
-<p>
+<br><p>
 </p>
-<p>Combining <a href="#prp-keyobservation" class="quarto-xref">Proposition&nbsp;<span>2.6</span></a> and the Monotone Class Lemma (<a href="#thm-monotoneclasslemma" class="quarto-xref">Theorem&nbsp;<span>2.4</span></a>) leads to the next useful corollary.</p>
-<br>
-<p>
+<p>Combining <a href="#prp-keyobservation" class="quarto-xref">Proposition <span>2.6</span></a> and the Monotone Class Lemma (<a href="#thm-monotoneclasslemma" class="quarto-xref">Theorem <span>2.4</span></a>) leads to the next useful corollary.</p>
+<br><p>
 </p>
 <div id="cor">
 <p>If two probabilities <span class="math inline">\(P, Q\)</span> on <span class="math inline">\((\Omega, \mathcal{F})\)</span> coincide on a <span class="math inline">\(\pi\)</span>-system <span class="math inline">\(\mathcal{A}\)</span> that generates <span class="math inline">\(\mathcal{F}\)</span>:</p>
@@ -1106,9 +1074,8 @@ A \cap (C \setminus B) = \Big(\underbrace{A \cap C}_{\in \mathcal{M}}\Big) \setm
 </div>
 <p>
 </p>
-</section>
-<section id="sec-distribfun" class="level2" data-number="2.7">
-<h2 data-number="2.7" class="anchored" data-anchor-id="sec-distribfun"><span class="header-section-number">2.7</span> Probability distributions on the real line</h2>
+</section><section id="sec-distribfun" class="level2" data-number="2.7"><h2 data-number="2.7" class="anchored" data-anchor-id="sec-distribfun">
+<span class="header-section-number">2.7</span> Probability distributions on the real line</h2>
 <p>A probability distribution is a complex object: it maps a large collection of sets (a <span class="math inline">\(\sigma\)</span>-algebra) to <span class="math inline">\([0,1]\)</span>. Fortunately, it is possible to characterize a probability distribution by simpler object. If we focus on probability distributions over <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span>, they can be characterized by real functions on <span class="math inline">\(\mathbb{R}\)</span>.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -1136,9 +1103,12 @@ x \mapsto F(x) = P(-\infty, x].
 <p><span class="theorem-title"><strong>Proposition 2.7</strong></span> Let <span class="math inline">\(F\)</span> be a function from <span class="math inline">\(\mathbb{R}\)</span> to <span class="math inline">\([0,1]\)</span>.</p>
 <p>The function <span class="math inline">\(F\)</span> is the distribution function of a probability distribution on <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span>, iff the following five properties are satisfied:</p>
 <ol type="1">
-<li><span class="math inline">\(F\)</span> is non-decreasing,</li>
-<li><span class="math inline">\(F\)</span> is right-continuous</li>
-<li><span class="math inline">\(\lim_{y \nearrow x} F(y)\)</span> exists at every <span class="math inline">\(x \in \mathbb{R}\)</span> (<span class="math inline">\(F\)</span> has left-limits everywhere)</li>
+<li>
+<span class="math inline">\(F\)</span> is non-decreasing,</li>
+<li>
+<span class="math inline">\(F\)</span> is right-continuous</li>
+<li>
+<span class="math inline">\(\lim_{y \nearrow x} F(y)\)</span> exists at every <span class="math inline">\(x \in \mathbb{R}\)</span> (<span class="math inline">\(F\)</span> has left-limits everywhere)</li>
 <li><span class="math inline">\(\lim_{x \to -\infty}F(x)=0\)</span></li>
 <li><span class="math inline">\(\lim_{x \to \infty} F(x)= 1.\)</span></li>
 </ol>
@@ -1146,27 +1116,24 @@ x \mapsto F(x) = P(-\infty, x].
 </div>
 </div>
 </div>
-<p>This is a rephrasing of <a href="#thm-dudley3-1-3" class="quarto-xref">Theorem&nbsp;<span>2.3</span></a>.</p>
-<p>Figure <a href="#fig-distribpoisson" class="quarto-xref">Figure&nbsp;<span>2.1</span></a> shows the cumulative distribution function of Poisson distributions for different values of the parameter (see Sections <a href="01-intro.html#sec-conv2poisson" class="quarto-xref"><span>Section 1.4</span></a> and <a href="03-families.html#sec-poisson" class="quarto-xref"><span>Section 5.2</span></a> for more on Poisson distributions). For parameter <span class="math inline">\(\mu\)</span>, <span class="math inline">\(F_{\mu}(x) = \sum_{k \leq x}  \mathrm{e}^{-\mu} \frac{\mu^k}{k!}\)</span>.</p>
+<p>This is a rephrasing of <a href="#thm-dudley3-1-3" class="quarto-xref">Theorem <span>2.3</span></a>.</p>
+<p>Figure <a href="#fig-distribpoisson" class="quarto-xref">Figure <span>2.1</span></a> shows the cumulative distribution function of Poisson distributions for different values of the parameter (see Sections <a href="01-intro.html#sec-conv2poisson" class="quarto-xref"><span>Section 1.4</span></a> and <a href="03-families.html#sec-poisson" class="quarto-xref"><span>Section 5.2</span></a> for more on Poisson distributions). For parameter <span class="math inline">\(\mu\)</span>, <span class="math inline">\(F_{\mu}(x) = \sum_{k \leq x}  \mathrm{e}^{-\mu} \frac{\mu^k}{k!}\)</span>.</p>
 <!-- ::: {#fig-distribpoisson} -->
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-distribpoisson" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-distribpoisson-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-distribpoisson-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="02-language_files/figure-html/fig-distribpoisson-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-distribpoisson-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.1: Cumulative distribution functions for Poisson distributions with different parameters. Observe that, apparently, <span class="math inline">\(\mu \leq \nu \Rightarrow F_{\mu} \geq F_{\nu}\)</span>. How would you establish this domination property?
-</figcaption>
-</figure>
+Figure 2.1: Cumulative distribution functions for Poisson distributions with different parameters. Observe that, apparently, <span class="math inline">\(\mu \leq \nu \Rightarrow F_{\mu} \geq F_{\nu}\)</span>. How would you establish this domination property?
+</figcaption></figure>
 </div>
 </div>
 </div>
 <!-- ::: -->
-</section>
-<section id="sec-randomvariablesperse" class="level2" data-number="2.8">
-<h2 data-number="2.8" class="anchored" data-anchor-id="sec-randomvariablesperse"><span class="header-section-number">2.8</span> General random variables</h2>
+</section><section id="sec-randomvariablesperse" class="level2" data-number="2.8"><h2 data-number="2.8" class="anchored" data-anchor-id="sec-randomvariablesperse">
+<span class="header-section-number">2.8</span> General random variables</h2>
 <p>A real random variable is neither a variable, nor random. A real random variable is a measurable function from some measurable space to the real line endowed with the Borel <span class="math inline">\(\sigma\)</span>-algebra. There is nothing random in a random variable.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -1217,9 +1184,8 @@ X^{-1}(B) = \{ \omega : \omega \in \Omega, X(\omega) \in {B}\}
 </div>
 </div>
 </div>
-</section>
-<section id="bibliolanguage" class="level2" data-number="2.9">
-<h2 data-number="2.9" class="anchored" data-anchor-id="bibliolanguage"><span class="header-section-number">2.9</span> Bibliographic remarks</h2>
+</section><section id="bibliolanguage" class="level2" data-number="2.9"><h2 data-number="2.9" class="anchored" data-anchor-id="bibliolanguage">
+<span class="header-section-number">2.9</span> Bibliographic remarks</h2>
 <p>There are many beautiful books on Probability Theory. They are targetted at different audiences. Some may be more suited to the students of the dual curriculum <a href="http://master.math.univ-paris-diderot.fr/annee/m1-mi/">Mathématiques-Informatique</a>. I found the following ones particularly useful.</p>
 <p><a href="https://www.lpsm.paris/pageperso/youssef/Enseignement_files/M1-proba-2018.pdf">Youssef (2019)</a> is a clear and concise collection of class notes designed for a Master I-level Probability course that is substantially more ambitious than this minimal course.</p>
 <p><span class="citation" data-cites="MR1932358">Dudley (<a href="#ref-MR1932358" role="doc-biblioref">2002</a>)</span> delivers a self-contained course on Analysis and Probability. The book can serve both as an introduction and a reference book. Beyond cautious and transparent proofs, it contains historical notes that help understand the connections between landmark results.</p>
@@ -1234,10 +1200,7 @@ Dudley, R. M. (2002). <em>Real analysis and probability</em> (Vol. 74, p. x+555)
 Pollard, D. (2002). <em>A user’s guide to measure theoretic probability</em> (Vol. 8, p. xiv+351). Cambridge University Press, Cambridge.
 </div>
 </div>
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -1636,16 +1599,14 @@ Pollard, D. (2002). <em>A user’s guide to measure theoretic probability</em> (
       }
     }
   });
-  </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./01-intro.html" class="pagination-link" aria-label="Introduction">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>  <span class="chapter-title">Introduction</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./031-moments.html" class="pagination-link" aria-label="A modicum of integration">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">A modicum of integration</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">3</span>  <span class="chapter-title">A modicum of integration</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1654,4 +1615,9 @@ Pollard, D. (2002). <em>A user’s guide to measure theoretic probability</em> (
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/02-language.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/02-language.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li>
+</ul></div></div></div></footer>
+</body>
+</html>

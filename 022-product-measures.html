@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<link rel="alternate" hreflang="en" href="/022-product-measures.html" />
+<link rel="alternate" hreflang="fr" href="/fr/022-product-measures.fr.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.24">
-
+<meta name="generator" content="quarto-1.9.36">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>7&nbsp; Product distributions – MA1AY010 Class Notes</title>
+<title>7  Product distributions – MA1AY010 Class Notes</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -41,28 +44,13 @@ div.csl-right-inline {
 div.csl-indent {
   margin-left: 2em;
 }</style>
-
-
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script><script src="site_libs/quarto-nav/headroom.min.js"></script><script src="site_libs/clipboard/clipboard.min.js"></script><script src="site_libs/quarto-search/autocomplete.umd.js"></script><script src="site_libs/quarto-search/fuse.min.js"></script><script src="site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="./">
 <link href="./021-independence.html" rel="next">
 <link href="./0225-pgf.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-3a70adc2469c323d0515427c5f9cb542.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script><script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script><link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-eb98473aa13ec2f8694b0a204f8986fa.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -89,12 +77,7 @@ div.csl-indent {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
+}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
     // MathJax Typeset
@@ -120,18 +103,12 @@ window.Quarto = {
   typesetMath
 };
 </script>
-
 </head>
-
 <body class="nav-sidebar floating nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">MA1AY010 Class Notes</span>
     </a>
@@ -142,29 +119,21 @@ window.Quarto = {
 </div>
           <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
-    </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+    </nav><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./022-product-measures.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Product distributions</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./022-product-measures.html"><span class="chapter-number">7</span>  <span class="chapter-title">Product distributions</span></a></li></ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
-      </div>
-    <div class="sidebar-menu-container"> 
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="dropdown" id="languages-links-parent">
+<button class="btn btn-primary dropdown-toggle babelquarto-languages-button" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> Version in en</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="/fr/022-product-measures.fr.html" id="language-link-fr">Version in fr</a></li></ul>
+</div>
+<div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Warm up</span></a>
@@ -173,110 +142,108 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01-intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>  <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-language.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">A modicum of measure theory</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>  <span class="chapter-title">A modicum of measure theory</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./031-moments.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">A modicum of integration</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>  <span class="chapter-title">A modicum of integration</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./033-integration2moments.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">From integrals to expectation and moments</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>  <span class="chapter-title">From integrals to expectation and moments</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-families.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Families of discrete distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>  <span class="chapter-title">Families of discrete distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0225-pgf.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Characterizations of discrete probability distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>  <span class="chapter-title">Characterizations of discrete probability distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./022-product-measures.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Product distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>  <span class="chapter-title">Product distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./021-independence.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Independence and product spaces</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>  <span class="chapter-title">Independence and product spaces</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./032-acfamilies.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Absolutely continuous probability measures</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>  <span class="chapter-title">Absolutely continuous probability measures</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./023-discrete-condition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Discrete Conditioning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>  <span class="chapter-title">Discrete Conditioning</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06-conditioning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Conditioning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>  <span class="chapter-title">Conditioning</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-characterizations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Characterizations of probability distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>  <span class="chapter-title">Characterizations of probability distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./041-characterization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Quantile functions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>  <span class="chapter-title">Quantile functions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-convergences-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Convergences I : almost sure, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, in Probability</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>  <span class="chapter-title">Convergences I : almost sure, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, in Probability</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-convergence-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Convergence in distribution</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>  <span class="chapter-title">Convergence in distribution</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./09-gaussian-vectors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Gaussian vectors</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>  <span class="chapter-title">Gaussian vectors</span></span></a>
   </div>
 </li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#sec-algebras" id="toc-sec-algebras" class="nav-link active" data-scroll-target="#sec-algebras"><span class="header-section-number">7.1</span> Product <span class="math inline">\(\sigma\)</span>-algebras</a></li>
+<li><a href="#sec-algebras" id="toc-sec-algebras" class="nav-link active" data-scroll-target="#sec-algebras"><span class="header-section-number">7.1</span> Product <span class="math inline">\(\sigma\)</span>-algebras</a></li>
   <li><a href="#sec-productmeasures" id="toc-sec-productmeasures" class="nav-link" data-scroll-target="#sec-productmeasures"><span class="header-section-number">7.2</span> Product measures</a></li>
   <li><a href="#sec-tonellifubini" id="toc-sec-tonellifubini" class="nav-link" data-scroll-target="#sec-tonellifubini"><span class="header-section-number">7.3</span> Tonelli-Fubini theorem</a></li>
   <li><a href="#sec-indepproduct" id="toc-sec-indepproduct" class="nav-link" data-scroll-target="#sec-indepproduct"><span class="header-section-number">7.4</span> Joint distributions, independence and product distributions</a></li>
@@ -284,14 +251,14 @@ window.Quarto = {
   <li><a href="#sec-infproductspaces" id="toc-sec-infproductspaces" class="nav-link" data-scroll-target="#sec-infproductspaces"><span class="header-section-number">7.6</span> Infinite product spaces</a></li>
   <li><a href="#bibproduct" id="toc-bibproduct" class="nav-link" data-scroll-target="#bibproduct"><span class="header-section-number">7.7</span> Bibliographic remarks</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/022-product-measures.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
-    </div>
+<div class="toc-actions"><ul>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/022-product-measures.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li>
+</ul></div></nav>
+</div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title"><span id="sec-productdistributions" class="quarto-section-identifier"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Product distributions</span></span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title"><span id="sec-productdistributions" class="quarto-section-identifier"><span class="chapter-number">7</span>  <span class="chapter-title">Product distributions</span></span></h1>
 </div>
 
 
@@ -305,17 +272,14 @@ window.Quarto = {
   
 
 
-</header>
-
-
-<p>In this lesson, we construct <em>product measures</em>. We start with two measured spaces <span class="math inline">\((\mathcal{X}, \mathcal{F}, \mu)\)</span> and <span class="math inline">\((\mathcal{Y}, \mathcal{G}, \nu)\)</span>.</p>
+</header><p>In this lesson, we construct <em>product measures</em>. We start with two measured spaces <span class="math inline">\((\mathcal{X}, \mathcal{F}, \mu)\)</span> and <span class="math inline">\((\mathcal{Y}, \mathcal{G}, \nu)\)</span>.</p>
 <p>Our goal is to build a measure space <span class="math inline">\((\mathcal{X}\times \mathcal{Y}, \mathcal{H}, \rho)\)</span> and two measurable functions <span class="math inline">\(X : \mathcal{X}\times \mathcal{Y} \to \mathcal{X}\)</span> and <span class="math inline">\(Y : \mathcal{X}\times \mathcal{Y} \to \mathcal{Y}\)</span> with the additional requirements that</p>
 <p><span class="math display">\[\mu = \rho \circ X^{-1} \quad \text{and} \quad \nu = \rho \circ Y^{-1}\]</span></p>
 <p>as well as</p>
 <p><span class="math display">\[\rho(A \times B) =  \mu(A) \times \nu(B) \qquad \forall A \in \mathcal{F}, B\in \mathcal{G} \,.\]</span></p>
 <p>Note that requiring <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> to be measurable is prematurate: we have not defined the <span class="math inline">\(\sigma\)</span>-algebra <span class="math inline">\(\mathcal{H}\)</span> over <span class="math inline">\(\mathcal{X}\times \mathcal{Y}\)</span>.</p>
-<section id="sec-algebras" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="sec-algebras"><span class="header-section-number">7.1</span> Product <span class="math inline">\(\sigma\)</span>-algebras</h2>
+<section id="sec-algebras" class="level2" data-number="7.1"><h2 data-number="7.1" class="anchored" data-anchor-id="sec-algebras">
+<span class="header-section-number">7.1</span> Product <span class="math inline">\(\sigma\)</span>-algebras</h2>
 <p>In order to achieve our goal, we first define a <span class="math inline">\(\sigma\)</span>-algebra <span class="math inline">\(\mathcal{H}\)</span> of subsets of <span class="math inline">\(\mathcal{X} \times \mathcal{Y}\)</span>. We use the so-called <em>product <span class="math inline">\(\sigma\)</span>-algebra</em>.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -350,7 +314,7 @@ window.Quarto = {
 </div>
 <div class="callout-body-container">
 <div id="exr-prodsigmaalg-1" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 7.1</strong></span> Check <a href="#prp-prodsigmaalg-1" class="quarto-xref">Proposition&nbsp;<span>7.1</span></a>.</p>
+<p><span class="theorem-title"><strong>Exercise 7.1</strong></span> Check <a href="#prp-prodsigmaalg-1" class="quarto-xref">Proposition <span>7.1</span></a>.</p>
 </div>
 </div>
 </div>
@@ -367,11 +331,10 @@ window.Quarto = {
 </div>
 </div>
 </div>
-</section>
-<section id="sec-productmeasures" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="sec-productmeasures"><span class="header-section-number">7.2</span> Product measures</h2>
+</section><section id="sec-productmeasures" class="level2" data-number="7.2"><h2 data-number="7.2" class="anchored" data-anchor-id="sec-productmeasures">
+<span class="header-section-number">7.2</span> Product measures</h2>
 <p>Once we are equipped with the product <span class="math inline">\(\sigma\)</span>-algebras, we can proceed to the definition of product measures.</p>
-<p>Recall the definition of <span class="math inline">\(\sigma\)</span>-finite measures from <a href="02-language.html#sec-dynkin" class="quarto-xref">Section&nbsp;<span>2.6</span></a>).</p>
+<p>Recall the definition of <span class="math inline">\(\sigma\)</span>-finite measures from <a href="02-language.html#sec-dynkin" class="quarto-xref">Section <span>2.6</span></a>).</p>
 <p>A measure <span class="math inline">\(\mu\)</span> on <span class="math inline">\((\Omega, \mathcal{F})\)</span> is <em><span class="math inline">\(\sigma\)</span>-finite</em> iff there exists <span class="math inline">\((A_n)_n\)</span> with <span class="math inline">\(\Omega \subseteq \cup_n A_n\)</span> and <span class="math inline">\(\mu(A_n) &lt; \infty\)</span> for each <span class="math inline">\(n\)</span>.</p>
 <p>Finite measures (this encompasses probability measures) are <span class="math inline">\(\sigma\)</span>-finite. Lebesgue measure is <span class="math inline">\(\sigma\)</span>-finite. The counting measure on <span class="math inline">\(\mathbb{R}\)</span> is not <span class="math inline">\(\sigma\)</span>-finite.</p>
 <div class="callout callout-style-simple callout-note no-icon">
@@ -387,9 +350,11 @@ window.Quarto = {
 <p>Moreover, for all <span class="math inline">\(E \in \mathcal{F} \otimes \mathcal{G}\)</span>,</p>
 <ol type="1">
 <li>for each <span class="math inline">\(x \in \mathcal{X}\)</span>, <span class="math inline">\(y \mapsto \mathbb{I}_E(x,y)\)</span> is <span class="math inline">\(\mathcal{G}\)</span>-measurable;</li>
-<li><span class="math inline">\(x \mapsto \int_{\mathcal{Y}} \mathbb{I}_E(x,y) \, \mathrm{d} \nu(y)\)</span> is <span class="math inline">\(\mathcal{F}\)</span>-measurable;</li>
+<li>
+<span class="math inline">\(x \mapsto \int_{\mathcal{Y}} \mathbb{I}_E(x,y) \, \mathrm{d} \nu(y)\)</span> is <span class="math inline">\(\mathcal{F}\)</span>-measurable;</li>
 <li>for each <span class="math inline">\(y \in \mathcal{Y}\)</span>, <span class="math inline">\(x \mapsto \mathbb{I}_E(x,y)\)</span> is <span class="math inline">\(\mathcal{F}\)</span>-measurable;</li>
-<li><span class="math inline">\(y \mapsto \int_{\mathcal{X}}  \mathbb{I}_E(x,y) \,  \mathrm{d}\mu(x)\)</span> is <span class="math inline">\(\mathcal{G}\)</span>-measurable,</li>
+<li>
+<span class="math inline">\(y \mapsto \int_{\mathcal{X}}  \mathbb{I}_E(x,y) \,  \mathrm{d}\mu(x)\)</span> is <span class="math inline">\(\mathcal{G}\)</span>-measurable,</li>
 </ol>
 <p>and the following holds:</p>
 <p><span class="math display">\[\begin{align*}
@@ -403,8 +368,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 <div id="rem-prodmeas-1" class="proof remark">
 <p><span class="proof-title"><em>Remark 7.1</em>. </span>Assuming that both <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\nu\)</span> are <span class="math inline">\(\sigma\)</span>-finite is essential. Choose <span class="math inline">\(\mu\)</span> as the counting measure on <span class="math inline">\([0,1]\)</span> and <span class="math inline">\(\nu\)</span> as the Lebesgue measure on <span class="math inline">\([0,1]\)</span>. Consider the diagonal <span class="math inline">\(E = \{(x,x) : x \in [0,1]\}\)</span>. The set <span class="math inline">\(E\)</span> belongs to <span class="math inline">\(\mathcal{B}(\mathbb{R}) \otimes \mathcal{B}(\mathbb{R}) = \mathcal{B}(\mathbb{R}^2)\)</span> (check this). But interchanging the order of integration leads to different results:</p>
@@ -413,24 +377,22 @@ window.Quarto = {
 0      &amp; = \int_{[0,1]} \Big(\int_{[0,1]} \mathbb{I}_E (x,y) \, \mathrm{d}\nu(y)\Big) \, \mathrm{d}\mu(x)
 \end{array}\]</span></p>
 </div>
-<br>
-<p>
+<br><p>
 </p>
-<p><a href="#thm-prodmeas" class="quarto-xref">Theorem&nbsp;<span>7.1</span></a> contains three statements:</p>
+<p><a href="#thm-prodmeas" class="quarto-xref">Theorem <span>7.1</span></a> contains three statements:</p>
 <ol type="a">
 <li>existence of a measure over <span class="math inline">\((\mathcal{X} \times \mathcal{Y}, \mathcal{F} \otimes \mathcal{G})\)</span> that satisfies the product property over rectangles;</li>
 <li>uniqueness of this measure;</li>
 <li>the possibility of computing the measure of <span class="math inline">\(E \in \mathcal{F} \otimes \mathcal{G}\)</span> by iterated integration in arbitrary order.</li>
 </ol>
-<p>The first statement (existence) is proved using an extension theorem, the second statement (unicity) follows from a monotone class argument (<a href="02-language.html#thm-monotoneclasslemma" class="quarto-xref">Theorem&nbsp;<span>2.4</span></a>)): rectangles form a generating <span class="math inline">\(\pi\)</span>-class, so the case where both <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\nu\)</span> are finite measure is settled. If either <span class="math inline">\(\mu\)</span> or <span class="math inline">\(\nu\)</span> is just <span class="math inline">\(\sigma\)</span>-finite, consider restrictions to rectangles with finite measure, and proceed by approximation. The third statement trivially holds for rectangles.</p>
+<p>The first statement (existence) is proved using an extension theorem, the second statement (unicity) follows from a monotone class argument (<a href="02-language.html#thm-monotoneclasslemma" class="quarto-xref">Theorem <span>2.4</span></a>)): rectangles form a generating <span class="math inline">\(\pi\)</span>-class, so the case where both <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\nu\)</span> are finite measure is settled. If either <span class="math inline">\(\mu\)</span> or <span class="math inline">\(\nu\)</span> is just <span class="math inline">\(\sigma\)</span>-finite, consider restrictions to rectangles with finite measure, and proceed by approximation. The third statement trivially holds for rectangles.</p>
 <p><br></p>
 <div id="rem-product-probas" class="proof remark">
 <p><span class="proof-title"><em>Remark 7.2</em>. </span>If <span class="math inline">\(\mu, \nu\)</span> are probability measures, then the product measure <span class="math inline">\(\mu \otimes \nu\)</span> is a probability measures, it is called a product probability measure.</p>
 </div>
-</section>
-<section id="sec-tonellifubini" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="sec-tonellifubini"><span class="header-section-number">7.3</span> Tonelli-Fubini theorem</h2>
-<p>In this section, we consider product measures that are built from <span class="math inline">\(\sigma\)</span>-finite measures as in <a href="#thm-prodmeas" class="quarto-xref">Theorem&nbsp;<span>7.1</span></a>). The Tonelli-Fubini Theorem shows that (under mild conditions) integration with respect to a product measure reduces to iterated integration over the component measures.</p>
+</section><section id="sec-tonellifubini" class="level2" data-number="7.3"><h2 data-number="7.3" class="anchored" data-anchor-id="sec-tonellifubini">
+<span class="header-section-number">7.3</span> Tonelli-Fubini theorem</h2>
+<p>In this section, we consider product measures that are built from <span class="math inline">\(\sigma\)</span>-finite measures as in <a href="#thm-prodmeas" class="quarto-xref">Theorem <span>7.1</span></a>). The Tonelli-Fubini Theorem shows that (under mild conditions) integration with respect to a product measure reduces to iterated integration over the component measures.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -440,28 +402,28 @@ window.Quarto = {
 <div id="thm-tonelli" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 7.2 (Tonelli-Fubini)</strong></span> Let be <span class="math inline">\(( \mathcal{X}, \mathcal{A})\)</span> and <span class="math inline">\((\mathcal{Y}, \mathcal{B})\)</span> two measurable spaces, <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\nu\)</span> two <span class="math inline">\(\sigma\)</span>-finite measures on these spaces, <span class="math inline">\(\mu \otimes \nu\)</span> the product measure, and <span class="math inline">\(f\)</span> a <span class="math inline">\(\mathcal{A} \otimes \mathcal{B}\)</span>-measurable real function such as <span class="math inline">\(\int |f| \mathrm{d} \mu \otimes \nu &lt; 0\)</span>. The the following properties are satisfied:</p>
 <ol type="i">
-<li><span class="math inline">\(\forall x \in \mathcal{X}, \hspace{1em} y \mapsto f (x, y)\)</span> is <span class="math inline">\(\mathcal{B}\)</span>-measurable.</li>
+<li>
+<span class="math inline">\(\forall x \in \mathcal{X}, \hspace{1em} y \mapsto f (x, y)\)</span> is <span class="math inline">\(\mathcal{B}\)</span>-measurable.</li>
 <li>The function <span class="math inline">\(x \mapsto \int_{\mathcal{Y}} f (x, y) \mathrm{d}\nu(y)\)</span> is <span class="math inline">\(\mathcal{A}\)</span>-measurable, finite <span class="math inline">\(\mu\)</span>- almost everywhere and <span class="math display">\[\int_{\mathcal{X} \times \mathcal{Y}} f \mathrm{d} \mu \otimes \nu
 = \int_{\mathcal{X}} \left[ \int_{\mathcal{Y}} f (x, y) \mathrm{d} \nu (y)
-\right]  \mathrm{d} \mu (x)\]</span></li>
+\right]  \mathrm{d} \mu (x)\]</span>
+</li>
 </ol>
 </div>
 </div>
 </div>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>Proof can foud in</p>
 <p>The proof consists in establishing the statement for larger and larger classes of measurable functions.</p>
-<p>Note first that <a href="#thm-prodmeas" class="quarto-xref">Theorem&nbsp;<span>7.1</span></a> settles the case for indicators of measurable subsets of <span class="math inline">\(\mathcal{X}\times \mathcal{Y}\)</span>.</p>
-<p>From this observation, using linearity, simple positive functions are handled. Then settling the case of non-negative measurable functions over <span class="math inline">\(\mathcal{X}\times \mathcal{Y}\)</span> uses a monotone convergence argument (<a href="031-moments.html#thm-thmConvMonInt" class="quarto-xref">Theorem&nbsp;<span>3.1</span></a>).</p>
+<p>Note first that <a href="#thm-prodmeas" class="quarto-xref">Theorem <span>7.1</span></a> settles the case for indicators of measurable subsets of <span class="math inline">\(\mathcal{X}\times \mathcal{Y}\)</span>.</p>
+<p>From this observation, using linearity, simple positive functions are handled. Then settling the case of non-negative measurable functions over <span class="math inline">\(\mathcal{X}\times \mathcal{Y}\)</span> uses a monotone convergence argument (<a href="031-moments.html#thm-thmConvMonInt" class="quarto-xref">Theorem <span>3.1</span></a>).</p>
 <p>The general case is handled by decomposing the measurable function into the sum of a positive part and a negative part.</p>
 </div>
 <p>The following characterization of the expectation of non-negative random variables as the integral of the tail function is a simple consequence of the Tonelli-Fubini Theorem.</p>
-<br>
-<p>
+<br><p>
 </p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -476,8 +438,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<br>
-<p>
+<br><p>
 </p>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span><span class="math display">\[\begin{array}{rl}
@@ -488,12 +449,10 @@ window.Quarto = {
   &amp; =  \int_{[0,\infty)}  \Big( P\{ \omega : X(\omega) &gt; t \} \Big) \mathrm{d}t
 \end{array}\]</span></p>
 </div>
-<br>
-<p>
+<br><p>
 </p>
-</section>
-<section id="sec-indepproduct" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="sec-indepproduct"><span class="header-section-number">7.4</span> Joint distributions, independence and product distributions</h2>
+</section><section id="sec-indepproduct" class="level2" data-number="7.4"><h2 data-number="7.4" class="anchored" data-anchor-id="sec-indepproduct">
+<span class="header-section-number">7.4</span> Joint distributions, independence and product distributions</h2>
 <p>Let the two random variables <span class="math inline">\(X, Y\)</span> map <span class="math inline">\((\Omega, \mathcal{F})\)</span> to <span class="math inline">\((\mathcal{X}, \mathcal{G})\)</span> and <span class="math inline">\((\mathcal{Y}, \mathcal{H})\)</span>. Equip <span class="math inline">\((\Omega, \mathcal{F})\)</span> with probability distribution <span class="math inline">\(P\)</span>. Let <span class="math inline">\(Q_X = P \circ X^{-1}\)</span> and <span class="math inline">\(Q_Y =  P \circ Y^{-1}\)</span> be the two image distributions (called the <em>marginal</em> distributions). We may define a mapping <span class="math inline">\(Z: \Omega \to \mathcal{X} \times \mathcal{Y}\)</span> by <span class="math inline">\(Z(\omega) = (X(\omega), Y(\omega))\)</span>, this mapping is <span class="math inline">\(\mathcal{F}/\sigma(\mathcal{G}\times \mathcal{H})\)</span> mesurable.</p>
 <p>Let <span class="math inline">\(Q\)</span> be the <em>joint distribution</em> of <span class="math inline">\(Z = (X,Y)\)</span> under <span class="math inline">\(P\)</span>, that is the probability distribution over <span class="math inline">\(\mathcal{X} \times \mathcal{Y}\)</span> endowed with <span class="math inline">\(\sigma(\mathcal{G}\times \mathcal{H})\)</span> that is uniquely defined by</p>
 <p><span class="math display">\[Q( A \times B) = P\Big\{ \omega: X(\omega) \in A, Y(\omega) \in B \Big\} \, .\]</span></p>
@@ -506,27 +465,34 @@ window.Quarto = {
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>TODO: FIX THIS</p>
 </div>
-</section>
-<section id="sec-indepcollectionsalgebras" class="level2" data-number="7.5">
-<h2 data-number="7.5" class="anchored" data-anchor-id="sec-indepcollectionsalgebras"><span class="header-section-number">7.5</span> Independence of collections of <span class="math inline">\(\sigma\)</span>-algebras</h2>
+</section><section id="sec-indepcollectionsalgebras" class="level2" data-number="7.5"><h2 data-number="7.5" class="anchored" data-anchor-id="sec-indepcollectionsalgebras">
+<span class="header-section-number">7.5</span> Independence of collections of <span class="math inline">\(\sigma\)</span>-algebras</h2>
 <!-- TODO:  -->
 <!-- - independence of a family of $\sigma$-algebras -->
 <!--  -->
 <p>In many applications, independence between two <span class="math inline">\(\sigma\)</span>-algebras or a finite collection of <span class="math inline">\(\sigma\)</span>-algebras is not enough. This is the case when deriving or using laws of large numbers. We have to deal with a <em>countable collection of independent random variables</em>. In words, we have to work with a countable collection of <span class="math inline">\(\sigma\)</span>-algebras and we need to elaborate a notion of a countable collection of independent <span class="math inline">\(\sigma\)</span>-algebras.</p>
-<div id="def">
-<p>Let <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span> be a probability space. Let <span class="math inline">\(\mathcal{G_1}, \ldots, \mathcal{G}_n, \ldots\)</span> be a countable colletion of sub-<span class="math inline">\(\sigma\)</span>-algebras.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-indep-infinite-sigma-algebras" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 7.2</strong></span> Let <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span> be a probability space. Let <span class="math inline">\(\mathcal{G_1}, \ldots, \mathcal{G}_n, \ldots\)</span> be a countable colletion of sub-<span class="math inline">\(\sigma\)</span>-algebras.</p>
 <p>The collection <span class="math inline">\(\mathcal{G_1}, \ldots, \mathcal{G}_n, \ldots\)</span> is said to be independent under <span class="math inline">\(P\)</span></p>
 <p>if</p>
-<p>every finite sub-collection is independent under <span class="math inline">\(P\)</span>.</p>
+<p>every <em>finite</em> sub-collection is independent under <span class="math inline">\(P\)</span>.</p>
+</div>
+</div>
+</div>
 </div>
 <div id="exm-countable-collection-independent" class="theorem example">
 <p><span class="theorem-title"><strong>Example 7.1</strong></span> Consider the uniform probability distribution over <span class="math inline">\([0,1]\)</span>, define <span class="math inline">\(X_1, X_2, \ldots\)</span> by</p>
 <p><span class="math display">\[X_n(\omega) = \operatorname{sign}\Big(\sin\big(2^{n+1} \pi \omega \big)\Big)\]</span></p>
 <p>then <span class="math inline">\(X_1, \ldots, X_n, \ldots\)</span> form a countable independent collection of random variables.</p>
 </div>
-</section>
-<section id="sec-infproductspaces" class="level2" data-number="7.6">
-<h2 data-number="7.6" class="anchored" data-anchor-id="sec-infproductspaces"><span class="header-section-number">7.6</span> Infinite product spaces</h2>
+</section><section id="sec-infproductspaces" class="level2" data-number="7.6"><h2 data-number="7.6" class="anchored" data-anchor-id="sec-infproductspaces">
+<span class="header-section-number">7.6</span> Infinite product spaces</h2>
 <p>In many modeling scenarios (random walks, branching processes, asymptotic statistics, …), we rely on the availability of an infinite collection of independent random variables. While it is (relatively) easy to come up with the notion of finite product probability spaces, the notion of infinite product probability spaces is more puzzling. And this remains true even if the individual components are finite probability spaces (for example <span class="math inline">\(\{0, 1\}\)</span>, equiped with powerset and uniform distribution).</p>
 <p>Thinks of <span class="math inline">\(\Omega_i = \{0,1\}\)</span> and each <span class="math inline">\(P_i\)</span> has the balanced Bernoulli distribution. Let <span class="math inline">\(\omega\)</span> be an infinite sequence of <span class="math inline">\(o\)</span> and <span class="math inline">\(1\)</span>, <span class="math inline">\(\{\omega\} = \prod_{i=1}^\infty \{ \omega_i \}\)</span> is an infinite Cartesian product of events with probability <span class="math inline">\(1/2\)</span>. What should be its probability in the infinite product probability space? Is there a way to assign probabilities in a consistent way? If the answer is positive, is there a unique way to perform this operation?</p>
 <div class="callout callout-style-simple callout-note no-icon">
@@ -536,14 +502,14 @@ window.Quarto = {
 </div>
 <div class="callout-body-container">
 <div id="def-cylindrical" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 7.2 (Cylinder <span class="math inline">\(\sigma\)</span>-algebra)</strong></span> Let <span class="math inline">\((\Omega_n, \mathcal{F}_n)_n\)</span> be a countable collection of measurable spaces, the cylinder <span class="math inline">\(\sigma\)</span>-algebra is the <span class="math inline">\(\sigma\)</span>-algebra of subsets of <span class="math inline">\(\prod_{n=1}^\infty \Omega_n\)</span> that is generated by subsets of the form:</p>
+<p><span class="theorem-title"><strong>Definition 7.3 (Cylinder <span class="math inline">\(\sigma\)</span>-algebra)</strong></span> Let <span class="math inline">\((\Omega_n, \mathcal{F}_n)_n\)</span> be a countable collection of measurable spaces, the cylinder <span class="math inline">\(\sigma\)</span>-algebra is the <span class="math inline">\(\sigma\)</span>-algebra of subsets of <span class="math inline">\(\prod_{n=1}^\infty \Omega_n\)</span> that is generated by subsets of the form:</p>
 <p><span class="math display">\[\prod_{n=1}^m A_n \times \prod_{n=m+1}^\infty \Omega_n \qquad\text{with } A_n \in \mathcal{F}_n \text{ for } n \leq m\]</span></p>
 <p>where <span class="math inline">\(m\)</span> is any integer. The subsets are called <em>finite-dimensional rectangles</em> or <em>cylinders</em>.</p>
 </div>
 </div>
 </div>
 </div>
-<p>Observe that cylinders form a <span class="math inline">\(\pi\)</span>-class.</p>
+<p>Observe that cylinders form a <span class="math inline">\(\pi\)</span>-class (check the definition in <a href="02-language.html#sec-dynkin" class="quarto-xref"><span>Section 2.6</span></a>).</p>
 <p>If each <span class="math inline">\((\Omega_n, \mathcal{F}_n)\)</span> is endowed with a probability distribution, assigning a probability to cylinders looks straightforward: <span class="math display">\[\mathbb{P} \left( \prod_{n=1}^m A_n \times \prod_{n=m+1}^\infty \Omega_n \right) = \prod_{n=1}^m P_n(A_n) \times \prod_{n=m+1}^\infty P_n(\Omega_n) =
 \prod_{n=1}^m P_n(A_n) \, .\]</span></p>
 <p>The question is: does <span class="math inline">\(\mathbb{P}\)</span> extends to the cylinder <span class="math inline">\(\sigma\)</span>-algebra? If an extension exists, is it unique? The answer is yes.</p>
@@ -561,9 +527,8 @@ window.Quarto = {
 </div>
 </div>
 </div>
-</section>
-<section id="bibproduct" class="level2" data-number="7.7">
-<h2 data-number="7.7" class="anchored" data-anchor-id="bibproduct"><span class="header-section-number">7.7</span> Bibliographic remarks</h2>
+</section><section id="bibproduct" class="level2" data-number="7.7"><h2 data-number="7.7" class="anchored" data-anchor-id="bibproduct">
+<span class="header-section-number">7.7</span> Bibliographic remarks</h2>
 <p>This material covering this lesson can be found in any book on measure and integration theory. Section 4.4 from <span class="citation" data-cites="MR1932358">(<a href="#ref-MR1932358" role="doc-biblioref">Dudley, 2002</a>)</span> is dedicated to product measures.</p>
 <p>Complete proofs of the Tonelli-Fubini Theeorem can be found in <span class="citation" data-cites="MR1932358">(<a href="#ref-MR1932358" role="doc-biblioref">Dudley, 2002</a>)</span>.</p>
 <p>The existence theorem for infinite product probabilities is from Section 8.2 from <span class="citation" data-cites="MR1932358">(<a href="#ref-MR1932358" role="doc-biblioref">Dudley, 2002</a>)</span>. A full proof of the Theorem can be found there.</p>
@@ -574,10 +539,7 @@ window.Quarto = {
 Dudley, R. M. (2002). <em>Real analysis and probability</em> (Vol. 74, p. x+555). Cambridge: Cambridge University Press.
 </div>
 </div>
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -976,16 +938,14 @@ Dudley, R. M. (2002). <em>Real analysis and probability</em> (Vol. 74, p. x+555)
       }
     }
   });
-  </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./0225-pgf.html" class="pagination-link" aria-label="Characterizations of discrete probability distributions">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Characterizations of discrete probability distributions</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>  <span class="chapter-title">Characterizations of discrete probability distributions</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./021-independence.html" class="pagination-link" aria-label="Independence and product spaces">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Independence and product spaces</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">8</span>  <span class="chapter-title">Independence and product spaces</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -994,4 +954,9 @@ Dudley, R. M. (2002). <em>Real analysis and probability</em> (Vol. 74, p. x+555)
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/022-product-measures.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/022-product-measures.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li>
+</ul></div></div></div></footer>
+</body>
+</html>

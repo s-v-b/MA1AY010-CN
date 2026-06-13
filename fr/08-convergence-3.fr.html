@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
+<head>
+<link rel="alternate" hreflang="en" href="/08-convergence-3.html" />
+<link rel="alternate" hreflang="fr" href="/fr/08-convergence-3.fr.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.36">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="description" content="Notes du cours de Probabiltés M1 ISIFAR en français">
+<title>15  Convergence en loi – MA1AU015 Notes de cours en français</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+<script src="site_libs/quarto-nav/quarto-nav.js"></script><script src="site_libs/quarto-nav/headroom.min.js"></script><script src="site_libs/clipboard/clipboard.min.js"></script><script src="site_libs/quarto-search/autocomplete.umd.js"></script><script src="site_libs/quarto-search/fuse.min.js"></script><script src="site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="./">
+<link href="./09-gaussian-vectors.fr.html" rel="next">
+<link href="./05-convergences-1.fr.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script><script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script><link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-eb98473aa13ec2f8694b0a204f8986fa.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+</head>
+<body class="nav-sidebar floating nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">MA1AU015 Notes de cours en français</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+    <a href="https://github.com/s-v-b/MA1AY010-CN/" title="Code source" class="quarto-navigation-tool px-1" aria-label="Code source"><i class="bi bi-github"></i></a>
+    <a href="./MA1AU015-Notes-de-cours-en-fran%C3%A7ais.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+          <div id="quarto-search" class="" title="Recherche"></div>
+      </div> <!-- /container-fluid -->
+    </nav><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./08-convergence-3.fr.html"><span class="chapter-number">15</span>  <span class="chapter-title">Convergence en loi</span></a></li></ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="dropdown" id="languages-links-parent">
+<button class="btn btn-primary dropdown-toggle babelquarto-languages-button" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> Version in fr</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="/08-convergence-3.html" id="language-link-en">Version in en</a></li></ul>
+</div>
+<div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mise en route</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-intro.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>  <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-language.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>  <span class="chapter-title">Un minimum de théorie de la mesure</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./031-moments.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>  <span class="chapter-title">Un minimum d’intégration</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./033-integration2moments.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>  <span class="chapter-title">Des intégrales à l’espérance et aux moments</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-families.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>  <span class="chapter-title">Familles de lois discrètes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0225-pgf.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>  <span class="chapter-title">Caractérisations des lois de probabilité discrètes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./022-product-measures.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>  <span class="chapter-title">Lois produit</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./021-independence.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>  <span class="chapter-title">Indépendance et espaces produits</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./032-acfamilies.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>  <span class="chapter-title">Lois de probabilité absolument continues</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./023-discrete-condition.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>  <span class="chapter-title">Conditionnement discret</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-conditioning.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>  <span class="chapter-title">Conditionnement</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-characterizations.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>  <span class="chapter-title">Caractérisations des lois de probabilité</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./041-characterization.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>  <span class="chapter-title">Fonctions quantiles</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-convergences-1.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>  <span class="chapter-title">Convergences I : presque sûre, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, en probabilité</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-convergence-3.fr.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">15</span>  <span class="chapter-title">Convergence en loi</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-gaussian-vectors.fr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>  <span class="chapter-title">Vecteurs gaussiens</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Annexes</span></span>
+  </li>
+    </ul>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table des matières</h2>
+   
+  <ul>
+<li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation"><span class="header-section-number">15.1</span> Motivation</a></li>
+  <li><a href="#sec-weakandvague" id="toc-sec-weakandvague" class="nav-link" data-scroll-target="#sec-weakandvague"><span class="header-section-number">15.2</span> Convergence faible, convergence vague</a></li>
+  <li><a href="#sec-ConvDistribution" id="toc-sec-ConvDistribution" class="nav-link" data-scroll-target="#sec-ConvDistribution"><span class="header-section-number">15.3</span> Convergence en loi</a></li>
+  <li><a href="#sec-PortManteau" id="toc-sec-PortManteau" class="nav-link" data-scroll-target="#sec-PortManteau"><span class="header-section-number">15.4</span> Théorème de Portmanteau</a></li>
+  <li><a href="#sec-LevyCont" id="toc-sec-LevyCont" class="nav-link" data-scroll-target="#sec-LevyCont"><span class="header-section-number">15.5</span> Théorème de continuité de Lévy</a></li>
+  <li><a href="#sec-refineLevy" id="toc-sec-refineLevy" class="nav-link" data-scroll-target="#sec-refineLevy"><span class="header-section-number">15.6</span> Affiner le théorème de continuité</a></li>
+  <li><a href="#sec-relatconv" id="toc-sec-relatconv" class="nav-link" data-scroll-target="#sec-relatconv"><span class="header-section-number">15.7</span> Relations entre convergences</a></li>
+  <li><a href="#sec-clt" id="toc-sec-clt" class="nav-link" data-scroll-target="#sec-clt"><span class="header-section-number">15.8</span> Théorème central limite</a></li>
+  <li><a href="#sec-cramerwolddevice" id="toc-sec-cramerwolddevice" class="nav-link" data-scroll-target="#sec-cramerwolddevice"><span class="header-section-number">15.9</span> Dispositif de Cramér-Wold</a></li>
+  <li><a href="#sec-weakconvtransforms" id="toc-sec-weakconvtransforms" class="nav-link" data-scroll-target="#sec-weakconvtransforms"><span class="header-section-number">15.10</span> Convergence faible et transformations</a></li>
+  <li><a href="#sec-rem-biblio-conv-3" id="toc-sec-rem-biblio-conv-3" class="nav-link" data-scroll-target="#sec-rem-biblio-conv-3"><span class="header-section-number">15.11</span> Remarques bibliographiques</a></li>
+  </ul>
+<div class="toc-actions"><ul>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/08-convergence-3.fr.qmd" class="toc-action"><i class="bi bi-github"></i>Modifier cette page</a></li>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Faire part d'un problème</a></li>
+</ul></div></nav>
+</div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title"><span id="sec-chapweakdistrib" class="quarto-section-identifier"><span class="chapter-number">15</span>  <span class="chapter-title">Convergence en loi</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header><section id="motivation" class="level2" data-number="15.1"><h2 data-number="15.1" class="anchored" data-anchor-id="motivation">
+<span class="header-section-number">15.1</span> Motivation</h2>
+<p>Rappelons <a href="01-intro.fr.html" class="quarto-xref">Leçon <span>1</span></a>. Considérons des lois binomiales de paramètres <span class="math inline">\((n, \lambda/n)\)</span> et une loi de Poisson de paramètre <span class="math inline">\(\lambda\)</span>. L’inspection graphique des fonctions de masse suggère que, lorsque <span class="math inline">\(n\)</span> croît, les lois binomiales de paramètres <span class="math inline">\((n, \lambda/n)\)</span> ressemblent de plus en plus à la loi de Poisson de paramètre <span class="math inline">\(\lambda\)</span>. La comparaison des fonctions génératrices des probabilités est plus convaincante. La fonction génératrice des probabilités de la loi binomiale de paramètres <span class="math inline">\((n, \lambda/n)\)</span> est <span class="math inline">\(s \mapsto (1 +\lambda(s-1)/n )^n\)</span>. Lorsque <span class="math inline">\(n\)</span> tend vers l’infini, les fonctions génératrices des probabilités des binomiales convergent ponctuellement vers la fonction génératrice des probabilités de la loi de Poisson de moyenne $: $ <span class="math inline">\(s \mapsto \exp(\lambda(s-1))\)</span>. Dans <a href="01-intro.fr.html" class="quarto-xref">Leçon <span>1</span></a>, nous avons vu d’autres exemples de lois qui tendent à ressembler à certaines lois limites lorsque certains paramètres varient.</p>
+<p>Dans <a href="05-convergences-1.fr.html" class="quarto-xref">Leçon <span>14</span></a>, nous avons muni l’ensemble <span class="math inline">\(L_0(\Omega, \mathcal{F}, P)\)</span> de topologies (<span class="math inline">\(L_p\)</span>, convergence presque sûre, convergence en probabilité). Dans cette leçon, nous considérons l’ensemble des lois de probabilité sur un espace mesurable <span class="math inline">\((\Omega, \mathcal{F})\)</span>. Cet ensemble peut être muni de diverses topologies. Nous nous concentrerons sur la topologie définie par la <em>convergence en loi</em>, également appelée <em>convergence faible</em>.</p>
+<p>Dans <a href="#sec-weakandvague" class="quarto-xref">Section <span>15.2</span></a>), nous introduisons les convergences faible et vague pour des suites de lois de probabilité. Dans <a href="#sec-ConvDistribution" class="quarto-xref">Section <span>15.3</span></a>), la convergence faible induit la définition de la convergence en loi pour des variables aléatoires pouvant vivre sur des espaces de probabilité différents (comme nos scores d’occupation dans <a href="01-intro.fr.html" class="quarto-xref">Leçon <span>1</span></a>).</p>
+<p><a href="#sec-PortManteau" class="quarto-xref">Section <span>15.4</span></a>) est consacrée au théorème de Portmanteau. Ce théorème énumère plusieurs caractérisations alternatives et équivalentes de la convergence en loi. Des caractérisations alternatives sont utiles à deux titres : elles peuvent être plus faciles à vérifier que la caractérisation utilisée dans la définition ; elles peuvent offrir un champ d’applications plus large.</p>
+<p>Dans <a href="#sec-LevyCont" class="quarto-xref">Section <span>15.5</span></a>), nous énonçons et démontrons le théorème de continuité de Lévy. Le théorème de continuité de Lévy relie la convergence en loi à la convergence ponctuelle des fonctions caractéristiques : les fonctions caractéristiques nous permettent non seulement d’identifier les lois de probabilité, elles sont aussi déterminantes pour la convergence. Cela pourrait constituer une ligne de plus dans l’énoncé du <a href="#thm-portemanteau" class="quarto-xref">Théorème <span>15.1</span></a>). Mais le théorème de continuité de Lévy se distingue car il fournit une preuve concise du théorème central limite pour des sommes normalisées de variables aléatoires i.i.d. centrées. C’est le contenu de <a href="#sec-clt" class="quarto-xref">Section <span>15.8</span></a>).</p>
+</section><section id="sec-weakandvague" class="level2" data-number="15.2"><h2 data-number="15.2" class="anchored" data-anchor-id="sec-weakandvague">
+<span class="header-section-number">15.2</span> Convergence faible, convergence vague</h2>
+<p>La convergence faible de mesures de probabilité évalue la proximité de mesures de probabilité en comparant leur action sur une collection de fonctions tests.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-weak" class="theorem definition">
+<p><span class="theorem-title"><strong>Définition 15.1 (Convergence faible)</strong></span> Une suite de lois de probabilité <span class="math inline">\((P_n)_{n \in\mathbb{N}}\)</span> sur <span class="math inline">\(\mathbb{R}^k\)</span> converge <em>faiblement</em> vers la loi de probabilité <span class="math inline">\(P\)</span> (sur <span class="math inline">\(\mathbb{R}^k\)</span>)</p>
+<p>si et seulement si</p>
+<p>pour toute fonction <span class="math inline">\(f\)</span> bornée et continue de <span class="math inline">\(\mathbb{R}^k\)</span> vers <span class="math inline">\(\mathbb{R}\)</span>, la suite <span class="math inline">\((\mathbb{E}_{P_n} [f])_{n \in \mathbb{N}}\)</span> converge vers <span class="math inline">\(\mathbb{E}_P [f]\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="rem-vague" class="proof remark">
+<p><span class="proof-title"><em>Remarque 15.1</em>. </span>Nous verrons qu’il existe une certaine flexibilité dans le choix de la classe de fonctions tests.</p>
+<p>Mais ce choix n’est pas illimité.</p>
+<p>Si nous restreignons la collection de fonctions tests aux fonctions continues à <em>support compact</em> (qui sont toujours bornées), nous obtenons une notion de convergence différente.</p>
+</div>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-vagueconv" class="theorem definition">
+<p><span class="theorem-title"><strong>Définition 15.2 (Convergence vague)</strong></span> Une suite de lois de probabilité <span class="math inline">\((P_n)_{n \in
+\mathbb{N}}\)</span> sur <span class="math inline">\(\mathbb{R}^k\)</span> converge vaguement vers la mesure <span class="math inline">\(\mu\)</span> (sur <span class="math inline">\(\mathbb{R}^k\)</span>) si et seulement si pour toute fonction <span class="math inline">\(f\)</span> continue à support compact de <span class="math inline">\(\mathbb{R}^k\)</span> vers <span class="math inline">\(\mathbb{R}\)</span>, la suite <span class="math inline">\((\mathbb{E}_{P_n} [f])_{n \in \mathbb{N}}\)</span> converge vers <span class="math inline">\(\mathbb{E}_P [f]\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="exm-vague" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 15.1</strong></span> Considérons la suite de masses de probabilité sur les entiers <span class="math inline">\((\delta_n)_{n \in \mathbb{N}}\)</span>. Cette suite converge vaguement vers la mesure nulle. Elle ne converge pas faiblement.</p>
+</div>
+<p>La question suivante mérite réflexion.</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-conv-vague" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 15.1</strong></span> Si une suite de lois de probabilité sur <span class="math inline">\(\mathbb{R}^k\)</span> converge vaguement vers une mesure de probabilité, converge-t-elle aussi faiblement vers cette mesure de probabilité ?</p>
+</div>
+</div>
+</div>
+</div>
+</section><section id="sec-ConvDistribution" class="level2" data-number="15.3"><h2 data-number="15.3" class="anchored" data-anchor-id="sec-ConvDistribution">
+<span class="header-section-number">15.3</span> Convergence en loi</h2>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-weakcon" class="theorem definition">
+<p><span class="theorem-title"><strong>Définition 15.3 (Convergence en loi)</strong></span> Une suite <span class="math inline">\((X_n)_{n \in \mathbb{N}}\)</span> de variables aléatoires à valeurs dans <span class="math inline">\(\mathbb{R}^k\)</span>, définies sur une suite d’espaces de probabilité <span class="math inline">\((\Omega_n, \mathcal{F}_n, P_n)\)</span>, converge en loi si la suite <span class="math inline">\((P_n \circ X_n^{-1})_{n \in \mathbb{N}}\)</span> converge faiblement. On note <span class="math display">\[
+X_n \rightsquigarrow X \qquad \text{ou} \qquad  X_n \rightsquigarrow \mathcal{L}
+\]</span></p>
+<p>(<span class="math inline">\(\mathcal{L}\)</span> désigne une loi de probabilité), les espaces de probabilité sont définis implicitement</p>
+</div>
+</div>
+</div>
+</div>
+<p>Pour vérifier ou utiliser la convergence en loi, de nombreuses caractérisations équivalentes sont disponibles. Certaines d’entre elles sont énumérées dans le théorème de Portmanteau.</p>
+</section><section id="sec-PortManteau" class="level2" data-number="15.4"><h2 data-number="15.4" class="anchored" data-anchor-id="sec-PortManteau">
+<span class="header-section-number">15.4</span> Théorème de Portmanteau</h2>
+<p>La liste suivante de caractérisations équivalentes de la convergence faible n’est pas exhaustive.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-portemanteau" class="theorem">
+<p><span class="theorem-title"><strong>Théorème 15.1 (Théorème de Portmanteau)</strong></span> Une suite de lois de probabilité <span class="math inline">\((P_n)_{n \in \mathbb{N}}\)</span> sur <span class="math inline">\(\mathbb{R}^k\)</span> converge faiblement vers une loi de probabilité <span class="math inline">\(P\)</span> (sur <span class="math inline">\(\mathbb{R}^k\)</span>) si et seulement si l’une des propriétés équivalentes suivantes est satisfaite :</p>
+<ol type="1">
+<li>Pour toute fonction <span class="math inline">\(f\)</span> bornée continue de <span class="math inline">\(\mathbb{R}^k\)</span> vers <span class="math inline">\(\mathbb{R}\)</span>, la suite <span class="math inline">\(\mathbb{E}_{P_n} [f]\)</span> converge vers <span class="math inline">\(\mathbb{E}_P [f]\)</span>.</li>
+<li>Pour toute fonction <span class="math inline">\(f\)</span> bornée uniformément continue de <span class="math inline">\(\mathbb{R}^k\)</span> vers <span class="math inline">\(\mathbb{R}\)</span>, la suite <span class="math inline">\(\mathbb{E}_{P_n} [f]\)</span> converge vers <span class="math inline">\(\mathbb{E}_P [f]\)</span>.</li>
+<li>Pour toute fonction <span class="math inline">\(f\)</span> bornée lipschitzienne de <span class="math inline">\(\mathbb{R}^k\)</span> vers <span class="math inline">\(\mathbb{R}\)</span>, la suite <span class="math inline">\(\mathbb{E}_{P_n} [f]\)</span> converge vers <span class="math inline">\(\mathbb{E}_P [f]\)</span>.</li>
+<li>Pour toute fonction <span class="math inline">\(f\)</span> bornée <span class="math inline">\(P\)</span>-presque sûrement et continue de <span class="math inline">\(\mathbb{R}^k\)</span> vers <span class="math inline">\(\mathbb{R}\)</span>, la suite <span class="math inline">\((\mathbb{E}_{P_n} [f])\)</span> converge vers <span class="math inline">\(\mathbb{E}_P [f]\)</span>.</li>
+<li>Pour tout fermé <span class="math inline">\(F\)</span> de <span class="math inline">\(\mathbb{R}^k\)</span>, <span class="math inline">\(\limsup P_n (F) \leq  P(F).\)</span>
+</li>
+<li>Pour tout ouvert <span class="math inline">\(O\)</span> de <span class="math inline">\(\mathbb{R}^k\)</span>, <span class="math inline">\(\liminf P_n (O) \geq  P(O).\)</span>
+</li>
+<li>Pour tout borélien <span class="math inline">\(A\)</span> tel que <span class="math inline">\(P(A^\circ) = P(\overline{A})\)</span> (la frontière de <span class="math inline">\(A\)</span> est <span class="math inline">\(P\)</span>-négligeable), <span class="math inline">\(\lim_n P_n(A)=P(A)\)</span>.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<p>En anglais comme en français, un <em>portemanteau</em> est une valise.</p>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Les implications <span class="math inline">\(1) \Rightarrow 2) \Rightarrow 3)\)</span> sont évidentes. Le théorème de continuité de Lévy, résultat majeur de <a href="#sec-LevyCont" class="quarto-xref">Section <span>15.5</span></a>) entraîne que <span class="math inline">\(3) \Rightarrow 1)\)</span>.</p>
+<p><span class="math inline">\(4)\)</span>.</p>
+<p>Le fait que <span class="math inline">\(5) \Leftrightarrow 6)\)</span> découle du fait que le complémentaire d’un fermé est un ouvert.</p>
+<p><span class="math inline">\(5)\)</span> et <span class="math inline">\(6)\)</span> impliquent <span class="math inline">\(7)\)</span> : <span class="math display">\[
+\limsup_n P_n(\overline{A}) \leq P(\overline{A}) = P(A^\circ) \leq \liminf_n P_n(A^\circ) \, .
+\]</span> Par monotonie : <span class="math display">\[
+\liminf_n P_n(A^\circ) \leq \liminf_n P_n (A) \leq \limsup_n P_n(A) \leq \limsup_n P_n (\overline(A)) \, .
+\]</span> En combinant, on obtient <span class="math display">\[
+\lim_n P_n(A) = \liminf_n P_n (A) = \limsup_n P_n(A) = P(A^\circ) = P(\overline{A}) \, .
+\]</span></p>
+<p>Vérifions que <span class="math inline">\(3) \Rightarrow 5)\)</span>. Soit <span class="math inline">\(F\)</span> un fermé de <span class="math inline">\(\mathbb{R}^k\)</span>. Pour <span class="math inline">\(x\in \mathbb{R}^k\)</span>, notons <span class="math inline">\(\mathrm{d}(x,F)\)</span> la distance de <span class="math inline">\(x\)</span> à <span class="math inline">\(F\)</span>. Pour <span class="math inline">\(m \in \mathbb{N}\)</span>, posons <span class="math inline">\(f_m(x) = \big(1 - m \mathrm{d}(x, F)\big)_+\)</span>. La fonction <span class="math inline">\(f_m\)</span> est <span class="math inline">\(m\)</span>-lipschitzienne, minorée par <span class="math inline">\(\mathbb{I}_F\)</span>, et pour tout <span class="math inline">\(x \in \mathbb{R}^k\)</span>, <span class="math inline">\(\lim_m \downarrow f_m(x)= \mathbb{I}_F(x)\)</span>.</p>
+<p>La convergence faible de <span class="math inline">\(P_n\)</span> vers <span class="math inline">\(P\)</span> implique <span class="math display">\[
+\lim_n \mathbb{E}_{P_n} f_m = \mathbb{E}_P f_m
+\]</span> d’où, pour tout <span class="math inline">\(m \in \mathbb{N}\)</span>, <span class="math display">\[
+\limsup_n \mathbb{E}_{P_n} \mathbb{I}_F \leq \mathbb{E}_P f_m \, .
+\]</span> En prenant la limite du côté droit, on obtient <span class="math display">\[
+\limsup_n P_n(F) = \limsup_n \mathbb{E}_{P_n} \mathbb{I}_F \leq \lim_m \downarrow \mathbb{E}_P f_m = \mathbb{E}_P \mathbb{I_F} = P(F) \, .
+\]</span></p>
+<p>Supposons maintenant que <span class="math inline">\(7)\)</span> soit vérifiée. Montrons que cela entraîne <span class="math inline">\(1)\)</span>.</p>
+<p>Soit <span class="math inline">\(f\)</span> une fonction bornée continue. Sans perte de généralité, supposons que <span class="math inline">\(f\)</span> est non négative et majorée par <span class="math inline">\(1\)</span>. Rappelons que pour toute mesure <span class="math inline">\(\mu\)</span> <span class="math inline">\(\sigma\)</span>-finie <span class="math display">\[
+\int f \mathrm{d}\mu = \int_{[0,\infty)} \mu\{f &gt; t\} \mathrm{d}t \, .
+\]</span> Cela vaut pour toutes les <span class="math inline">\(P_n\)</span> et <span class="math inline">\(P\)</span>. Ainsi <span class="math display">\[
+\mathbb{E}_{P_n} f = \int_{[0,\infty)} P_n \{ f &gt; t \} \mathrm{d}t
+\]</span> Comme <span class="math inline">\(\overline{\{ f &gt; t\}}= \{ f \geq t\}\)</span>, <span class="math inline">\(\overline{\{ f &gt; t\}} \setminus \{ f &gt; t\}^\circ = \{ f = t\}\)</span>. L’ensemble des valeurs <span class="math inline">\(t\)</span> telles que <span class="math inline">\(P \{ f = t\}&gt;0\)</span> est au plus dénombrable et donc de mesure de Lebesgue négligeable. Soit <span class="math inline">\(E\)</span> son complémentaire. Pour <span class="math inline">\(t\in E\)</span>, <span class="math inline">\(\lim_n P_n\{ f&gt; t\} = P\{f &gt;t\}\)</span>. <span class="math display">\[\begin{align*}
+  \lim_n \mathbb{E}_{P_n} f
+    &amp; = \lim_n \int_{[0, 1]} P_n \{ f &gt;t \} \mathrm{d}t \\
+    &amp; = \lim_n \int_{[0, 1]} P_n \{ f &gt;t \} \mathbb{I}_E(t) \mathrm{d}t \\
+    &amp; = \int_{[0, 1]} \lim_n  P_n \{ f &gt;t \} \mathbb{I}_E(t) \mathrm{d}t \\
+    &amp; = \int_{[0,1]} P\{f &gt;t\}  \mathbb{I}_E(t) \mathrm{d}t \\
+    &amp; = \int_{[0,1]} P\{f &gt;t\}   \mathrm{d}t \\
+    &amp; = \mathbb{E}_P f \, .
+\end{align*}\]</span></p>
+</div>
+<p>Pour des mesures de probabilité sur <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span>, la convergence faible est déterminée par les fonctions de répartition cumulatives. C’est parfois pris comme définition de la convergence faible dans les ouvrages élémentaires.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="cor-weakconvecdf" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollaire 15.1</strong></span> Une suite de mesures de probabilité définies par leurs fonctions de répartition cumulatives <span class="math inline">\((F_n)_n\)</span> converge faiblement vers une mesure de probabilité définie par la fonction de répartition cumulative <span class="math inline">\(F\)</span> si et seulement si <span class="math inline">\(\lim_n F_n(x) = F(x)\)</span> en tout point <span class="math inline">\(x\)</span> de continuité de <span class="math inline">\(F\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>Pour des mesures de probabilité sur <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span>, la convergence faible est également déterminée par les fonctions quantiles.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-weakconvquantiles" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 15.1</strong></span> Une suite de mesures de probabilité définies par leurs fonctions quantiles <span class="math inline">\((F^\leftarrow_n)_n\)</span> converge faiblement vers une mesure de probabilité définie par la fonction quantile <span class="math inline">\(F^\leftarrow\)</span> si et seulement si <span class="math inline">\(\lim_n F_n^\leftarrow(x) = F^\leftarrow(x)\)</span> en tout point <span class="math inline">\(x\)</span> de continuité de <span class="math inline">\(F^\leftarrow\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="exr">
+<p>Démontrer la proposition <a href="#prp-weakconvquantiles" class="quarto-xref">Proposition <span>15.1</span></a>.</p>
+</div>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-asrepweakconv" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 15.2 (Représentation presque sûre)</strong></span> Si <span class="math inline">\((X_n)_n\)</span> converge en loi vers <span class="math inline">\(X\)</span>, alors il existe un espace de probabilité <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span> avec des variables aléatoires <span class="math inline">\((Y_n)_n\)</span> et <span class="math inline">\(Y\)</span> telles que <span class="math inline">\(X_n \sim Y_n\)</span> pour tout <span class="math inline">\(n\)</span>, <span class="math inline">\(X\sim Y\)</span>, et <span class="math display">\[
+Y_n \to Y \qquad P\text{-p.s.}
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div id="rem-alternative-universes" class="proof remark">
+<p><span class="proof-title"><em>Remarque 15.2</em>. </span>Les variables aléatoires <span class="math inline">\((X_n)_n\)</span> et <span class="math inline">\(X\)</span> peuvent vivre sur des espaces de probabilité différents.</p>
+</div>
+<p>Lorsque les variables aléatoires <span class="math inline">\(X_n\)</span> sont réelles, <a href="#prp-asrepweakconv" class="quarto-xref">Proposition <span>15.2</span></a> découle facilement de la proposition <a href="#prp-weakconvquantiles" class="quarto-xref">Proposition <span>15.1</span></a>.</p>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Posons <span class="math inline">\(\Omega= [0,1], \mathcal{F}=\mathcal{B}(\mathbb{R})\)</span> et soit <span class="math inline">\(\omega\)</span> uniformément distribué sur <span class="math inline">\(\Omega = [0,1]\)</span>. Posons <span class="math inline">\(Y_n = F_n^\leftarrow(\omega)\)</span> et <span class="math inline">\(Y = F^\leftarrow(\omega)\)</span>.</p>
+<p>Alors, pour chaque <span class="math inline">\(n\)</span>, <span class="math display">\[
+P \Big\{ Y_n \leq t \Big\} = P\Big\{\omega : F_n^\leftarrow(\omega) \leq t \Big\}
+= P\Big\{\omega : \omega \leq F_n(t) \Big\} = F_n(t)
+\]</span> de sorte que <span class="math inline">\(Y_n \sim F_n\)</span>. Et par le même argument, <span class="math inline">\(Y \sim F\)</span>.</p>
+<p>Comme une fonction non décroissante admet au plus dénombrablement de discontinuités, <span class="math display">\[
+P\Big\{\omega : F^\leftarrow\text{ est continue en }\omega \Big\}=1\,.
+\]</span> Supposons maintenant que <span class="math inline">\(\omega\)</span> soit un point de continuité de <span class="math inline">\(F^{\leftarrow}\)</span>. Alors, par la proposition <a href="#prp-weakconvquantiles" class="quarto-xref">Proposition <span>15.1</span></a>, <span class="math inline">\(\lim_n F_n^{\leftarrow}(\omega) = F^\leftarrow(\omega)\)</span>. Cela se traduit par <span class="math display">\[
+P \Big\{\omega :  \lim_n Y_n(\omega) =Y(\omega) \Big\} = 1 \, .
+\]</span></p>
+</div>
+</section><section id="sec-LevyCont" class="level2" data-number="15.5"><h2 data-number="15.5" class="anchored" data-anchor-id="sec-LevyCont">
+<span class="header-section-number">15.5</span> Théorème de continuité de Lévy</h2>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-thmlevycont" class="theorem">
+<p><span class="theorem-title"><strong>Théorème 15.2 (Théorème de continuité de Lévy)</strong></span> Une suite <span class="math inline">\((P_n)_n\)</span> de lois de probabilité sur <span class="math inline">\(\mathbb{R}^d\)</span> converge faiblement vers une loi de probabilité <span class="math inline">\(P\)</span> sur <span class="math inline">\(\mathbb{R}^d\)</span> si et seulement si la suite des fonctions caractéristiques converge ponctuellement vers la fonction caractéristique de <span class="math inline">\(P\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="rem-levycont1" class="proof remark">
+<p><span class="proof-title"><em>Remarque 15.3</em>. </span>Le <a href="#thm-thmlevycont" class="quarto-xref">Théorème <span>15.2</span></a> affirme que la convergence faible de mesures de probabilité est caractérisée par un très petit sous-ensemble de fonctions bornées continues. Pour garantir la convergence faible de <span class="math inline">\((P_n)_n\)</span> vers <span class="math inline">\(P\)</span>, il suffit de vérifier que <span class="math inline">\(\mathbb{E}_{P_n}f \to \mathbb{E}_Pf\)</span> pour les fonctions <span class="math inline">\(f\)</span> de la famille <span class="math inline">\(\{ \cos(t \cdot), \sin(t \cdot) : t \in \mathbb{R} \}\)</span>. Ces fonctions sont bornées et infiniment dérivables.</p>
+</div>
+<div id="lem">
+<p>Soient <span class="math inline">\((X_n)_n\)</span>, <span class="math inline">\(X\)</span> et <span class="math inline">\(Z\)</span> définies sur le même espace de probabilité. Si <span class="math inline">\((X_n)_n\)</span>, <span class="math inline">\(X\)</span> et <span class="math inline">\(Z\)</span> sont des variables aléatoires telles que pour tout <span class="math inline">\(\sigma&gt;0\)</span>, <span class="math inline">\(X_n + \sigma Z \rightsquigarrow X+\sigma Z\)</span>, alors <span class="math inline">\(X_n \rightsquigarrow X\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Soit <span class="math inline">\(h\)</span> bornée par <span class="math inline">\(1\)</span> et <span class="math inline">\(1\)</span>-lipschitzienne <span class="math display">\[\begin{align*}
+\Big| \mathbb{E} h(X_n) -h(X) \Big|
+&amp; \leq \Big| \mathbb{E} h(X_n) - h(X_n + \sigma Z) \Big| \\
+&amp; \qquad +  \Big| \mathbb{E} h(X_n + \sigma Z) - h(X + \sigma Z) \Big| \\
+&amp; \qquad +  \Big| \mathbb{E} h(X + \sigma Z) - h(X) \Big|
+\end{align*}\]</span> Le premier et le troisième terme se traitent de la même manière.</p>
+<p>Soit <span class="math inline">\(\epsilon &gt;0\)</span>, <span class="math display">\[\begin{align*}
+\Big| \mathbb{E} h(X_n) - h(X_n + \sigma Z) \Big|
+&amp; \leq \Big| \mathbb{E} (h(X_n) - h(X_n + \sigma Z)) \mathbb{I}_{\sigma |Z|&gt;\epsilon} \Big| \\
+&amp; \qquad + \Big| \mathbb{E} (h(X_n) - h(X_n + \sigma Z)) \mathbb{I}_{\sigma |Z|\leq\epsilon} \Big| \\
+&amp; \leq 2 P\{\sigma |Z|&gt;\epsilon\} + \epsilon \, .
+\end{align*}\]</span> En combinant les différentes majorations, on obtient <span class="math display">\[\begin{align*}
+  \Big| \mathbb{E} h(X_n) -h(X) \Big|
+  &amp; \leq  2  P\{\sigma |Z|&gt;\epsilon\} + \epsilon + \Big| \mathbb{E} h(X_n + \sigma Z) - h(X + \sigma Z) \Big|
+\end{align*}\]</span> Le dernier terme du membre de droite tend vers <span class="math inline">\(0\)</span> lorsque <span class="math inline">\(n\)</span> tend vers l’infini. Le premier terme tend vers <span class="math inline">\(0\)</span> lorsque <span class="math inline">\(\sigma\)</span> tend vers <span class="math inline">\(0\)</span>.</p>
+<p>Ainsi</p>
+<p><span class="math display">\[
+\limsup_n \Big| \mathbb{E} h(X_n) - h(X_n + \sigma Z) \Big| \leq \epsilon \, .
+\]</span></p>
+</div>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="lem-scheffe" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemme 15.1 (Lemme de Scheffé)</strong></span> Soit <span class="math inline">\((P_n)_n\)</span> une suite de lois de probabilité absolument continues de densités <span class="math inline">\((f_n)_n\)</span>. Si les densités <span class="math inline">\((f_n)_n\)</span> convergent ponctuellement vers la densité <span class="math inline">\(f\)</span> d’une certaine loi de probabilité <span class="math inline">\(P\)</span>, alors <span class="math inline">\(P_n \rightsquigarrow P\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span><span class="math display">\[\begin{align*}
+\int_{\mathbb{R}} |f_n(x) - f(x)| \mathrm{d}x
+&amp; = \int_{\mathbb{R}} (f(x) - f_n(x))_+  \mathrm{d}x + \int_{\mathbb{R}} (f(x) - f_n(x))_-  \mathrm{d}x \\
+&amp; = 2 \int_{\mathbb{R}} (f(x) - f_n(x))_+  \mathrm{d}x  \, .
+\end{align*}\]</span> Observons que <span class="math inline">\((f - f_n)_+ \leq f\)</span>, qui appartient à <span class="math inline">\(\mathcal{L}_1(\mathbb{R}, \mathcal{B}(\mathbb{R}), \text{Lebesgue})\)</span>. Et <span class="math inline">\((f-f_n)_+\)</span> converge ponctuellement vers <span class="math inline">\(0\)</span>. Par le théorème de convergence dominée, <span class="math inline">\(\lim_n \int_{\mathbb{R}} |f_n - f| \mathrm{d}x =0\)</span>.</p>
+<p>Pour tout <span class="math inline">\(A \in \mathcal{B}(\mathbb{R})\)</span>, <span class="math display">\[
+P_n(A) - P(A) = \int_{\mathbb{R}} \mathbb{I}_A (f_n -f) \leq \int_{\mathbb{R}} |f_n -f| \, .
+\]</span> Nous avons prouvé plus que la convergence faible, à savoir <span class="math display">\[
+\lim_n \sup_{A \in \mathcal{B}(\mathbb{R})} |P_n(A) - P(A)| = 0 \, .
+\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em> (Preuve du théorème de continuité). </span>Supposons que les fonctions caractéristiques de <span class="math inline">\((X_n)_n\)</span> convergent ponctuellement vers la fonction caractéristique de <span class="math inline">\(X\)</span>.</p>
+<p>Soit <span class="math inline">\(Z\)</span> une variable aléatoire gaussienne standard, indépendante de toutes les <span class="math inline">\((X_n)_n\)</span> et de <span class="math inline">\(X\)</span>. Pour <span class="math inline">\(\sigma&gt;0\)</span>, les lois de <span class="math inline">\(X_n + \sigma Z\)</span> et <span class="math inline">\(X + \sigma Z\)</span> ont des densités uniquement déterminées par les fonctions caractéristiques de <span class="math inline">\(X_n\)</span> et <span class="math inline">\(X\)</span>. De plus, un argument de convergence dominée montre que les densités de <span class="math inline">\(X_n + \sigma Z\)</span> convergent ponctuellement vers la densité de <span class="math inline">\(X + \sigma Z\)</span>. Par le lemme de Scheffé, cela entraîne que <span class="math inline">\(X_n + \sigma Z \rightsquigarrow X + \sigma Z\)</span>.</p>
+<p>Comme cela vaut pour tout <span class="math inline">\(\sigma&gt;0\)</span>, cela entraîne que <span class="math inline">\(X_n \rightsquigarrow X.\)</span></p>
+</div>
+</section><section id="sec-refineLevy" class="level2" data-number="15.6"><h2 data-number="15.6" class="anchored" data-anchor-id="sec-refineLevy">
+<span class="header-section-number">15.6</span> Affiner le théorème de continuité</h2>
+<p>Dans certaines situations, nous pouvons prouver qu’une suite de fonctions caractéristiques converge ponctuellement vers une certaine fonction, mais nous n’avons aucun candidat pour la loi limite. La question se pose de savoir si la limite ponctuelle des fonctions caractéristiques est la fonction caractéristique d’une certaine loi de probabilité ou autre chose.</p>
+<p>La réponse peut être négative : si <span class="math inline">\(P_n = \mathcal{N}(0, n)\)</span>, la suite de fonctions caractéristiques est <span class="math inline">\(\big(t \mapsto \exp(-nt^2/2)\big)_n\)</span>, qui converge ponctuellement vers <span class="math inline">\(0\)</span> sauf en <span class="math inline">\(0\)</span> où elle vaut <span class="math inline">\(1\)</span> tout au long. La limite n’est pas la fonction caractéristique d’une mesure de probabilité : elle n’est pas continue en <span class="math inline">\(0\)</span>.</p>
+<p>Le théorème suivant tranche la question.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-levycont2" class="theorem">
+<p><span class="theorem-title"><strong>Théorème 15.3 (Théorème de continuité de Lévy, deuxième forme)</strong></span> Une suite <span class="math inline">\((P_n)_n\)</span> de lois de probabilité sur <span class="math inline">\(\mathbb{R}\)</span> converge faiblement vers une loi de probabilité sur <span class="math inline">\(\mathbb{R}\)</span> si et seulement si la suite de fonctions caractéristiques converge ponctuellement vers une fonction continue en <span class="math inline">\(0\)</span>. La fonction limite est la fonction caractéristique d’une certaine loi de probabilité.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-utight" class="theorem definition">
+<p><span class="theorem-title"><strong>Définition 15.4 (Compacité uniforme)</strong></span> Une suite de mesures de probabilité <span class="math inline">\((P_n)_n\)</span> sur <span class="math inline">\(\mathbb{R}\)</span> est <em>uniformément tendue</em> si pour tout <span class="math inline">\(\epsilon &gt;0\)</span>, il existe un compact <span class="math inline">\(K \subseteq \mathbb{R}\)</span> tel que</p>
+<p><span class="math display">\[\forall n, \qquad P_n(K) \geq 1 - \epsilon\, .\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-utight-enough" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 15.2</strong></span> Pour établir la compacité uniforme de <span class="math inline">\((P_n)_n\)</span>, il suffit de montrer que pour tout <span class="math inline">\(\epsilon&gt;0\)</span>, il existe un certain <span class="math inline">\(n_0(\epsilon)\)</span> et un compact <span class="math inline">\(K \subseteq \mathbb{R}\)</span> tels que</p>
+<p><span class="math display">\[\forall n \geq n_(\epsilon), \qquad P_n(K) \geq 1 - \epsilon\, .\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<p>Nous admettons le théorème (important) suivant.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-plc" class="theorem">
+<p><span class="theorem-title"><strong>Théorème 15.4 (Prokhorov-Le Cam)</strong></span> Si <span class="math inline">\((P_n)_n\)</span> est une suite uniformément tendue de mesures de probabilité sur <span class="math inline">\(\mathbb{R}\)</span>, alors il existe une mesure de probabilité <span class="math inline">\(P\)</span> et une sous-suite <span class="math inline">\((P_{n(k)})_{k \in \mathbb{N}}\)</span> telle que</p>
+<p><span class="math display">\[P_{n(k)} \rightsquigarrow P \, .\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<p>Puis</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="lem-utl" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemme 15.2 (Lemme de compacité uniforme)</strong></span> Soit <span class="math inline">\((P_n)_n\)</span> une suite de lois de probabilité sur <span class="math inline">\(\mathbb{R}\)</span>, de fonctions caractéristiques <span class="math inline">\(\widehat{F}_n\)</span>. Si la suite <span class="math inline">\((\widehat{F}_n)_n\)</span> converge ponctuellement vers une fonction continue en <span class="math inline">\(0\)</span>, alors la suite <span class="math inline">\((P_n)_n\)</span> est <em>uniformément tendue</em>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>Nous utiliserons la majoration technique suivante, illustrée dans <a href="#fig-techdude" class="quarto-xref">Figure <span>15.1</span></a> :</p>
+<p><span class="math display">\[
+\forall t \in \mathbb{R} \setminus[-1,1], \qquad   \frac{\sin(t)}{t} \leq \sin(1) \leq \frac{6}{7}\, .
+\]</span></p>
+<!-- ::: {#fig-techdude} -->
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-techdude" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-techdude-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="08-convergence-3.fr_files/figure-html/fig-techdude-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-techdude-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 15.1: The proof of the truncation inequality takes advantage on easy bounds satisfied by the <span class="math inline">\(\operatorname{sinc}\)</span> function.
+</figcaption></figure>
+</div>
+</div>
+</div>
+<!-- ::: -->
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-trunc-lem" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 15.3 (Lemme de troncature)</strong></span> Soit <span class="math inline">\(\widehat{F}\)</span> la fonction caractéristique d’une mesure de probabilité <span class="math inline">\(P\)</span> sur la droite réelle, alors pour tout <span class="math inline">\(u &gt; 0\)</span> : <span class="math display">\[
+\frac{1}{u}\int_0^u \big(1 - \operatorname{Re}\widehat{F}(v)\big) \mathrm{d}v  \geq \frac{1}{7} P \Big[\frac{-1}{u}, \frac{1}{u}\Big]^c \, .
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em> (Preuve du lemme de troncature). </span><span class="math display">\[\begin{align*}
+\frac{1}{u}\int_0^u \big(1 - \operatorname{Re}\widehat{F}_n(v)\big) \mathrm{d}v
+  &amp; = \frac{1}{u}\int_0^u \Big(\int_{\mathbb{R}} \big(1 - \cos(v w)\big)\mathrm{d}F(w) \Big)\mathrm{d}v \\
+  &amp; =  \int_{\mathbb{R}}\int_0^u \frac{1}{u} \Big( \big(1 - \cos(v w)\big) \mathrm{d}v  \Big)\mathrm{d}F(w) \\
+  &amp; =  \int_{\mathbb{R}}  \Big( 1 - \frac{\sin(uw)}{uw}  \Big)\mathrm{d}F(w) \\
+  &amp; \geq  \int_{|uw| \geq 1}  \Big( 1 - \frac{\sin(uw)}{uw}  \Big)\mathrm{d}F_n(w) \\
+  &amp; \geq (1- \sin(1)) P \Big[\frac{-1}{u}, \frac{1}{u}\Big]^c \,
+\end{align*}\]</span> où les deux inégalités découlent des bornes sur la fonction <span class="math inline">\(\operatorname{sinc}\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em> (Preuve du lemme de compacité uniforme). </span>Supposons que la suite <span class="math inline">\((\widehat{F}_n)_n\)</span> converge ponctuellement vers une fonction <span class="math inline">\(\widehat{F}\)</span> continue en <span class="math inline">\(0\)</span>.</p>
+<p>Notons que <span class="math inline">\(\widehat{F}_n(0)=1\)</span> pour tout <span class="math inline">\(n\)</span>, d’où, trivialement, <span class="math inline">\(1 =\lim_n \widehat{F}_n(0) = \widehat{F}(0)\)</span>.</p>
+<p>Comme <span class="math inline">\(|\operatorname{Re}\widehat{F}_n(t)|\leq 1\)</span>, on a aussi <span class="math inline">\(|\operatorname{Re}\widehat{F}(t)|\leq 1\)</span>.</p>
+<p>Fixons <span class="math inline">\(\epsilon&gt;0\)</span>. Comme <span class="math inline">\(\widehat{F}\)</span> est continue en <span class="math inline">\(0\)</span>, pour un certain <span class="math inline">\(u&gt;0\)</span>, pour tout <span class="math inline">\(v \in [-u,u]\)</span>, <span class="math inline">\(0 \geq 1- \widehat{F}(u) \leq \epsilon/2.\)</span> Ainsi, <span class="math display">\[
+0 \leq \frac{1}{u}\int_0^u \big(1 - \operatorname{Re}\widehat{F}(v)\big) \mathrm{d}v \leq \epsilon/2 \, .
+\]</span></p>
+<p>Par convergence dominée, <span class="math display">\[
+\lim_n \frac{1}{u}\int_0^u \big(1 - \operatorname{Re}\widehat{F}_n(v)\big) \mathrm{d}v
+= \frac{1}{u}\int_0^u \big(1 - \operatorname{Re}\widehat{F}(v)\big) \mathrm{d}v  \leq \epsilon/2 \, .
+\]</span></p>
+<p>Pour <span class="math inline">\(n\)</span> suffisamment grand, <span class="math inline">\(0 \leq \frac{1}{u}\int_0^u \big(1 - \operatorname{Re}\widehat{F}_n(v)\big) \mathrm{d}v \leq \epsilon\)</span>.</p>
+<p>En appliquant le lemme de troncature, pour <span class="math inline">\(n\)</span> suffisamment grand, nous avons <span class="math display">\[
+P_n \Big[\frac{-1}{u}, \frac{1}{u}\Big]^c \leq 7 \epsilon \, .
+\]</span> L’intervalle <span class="math inline">\(\Big[\frac{-1}{u}, \frac{1}{u}\Big]\)</span> est compact.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em> (Preuve de la deuxième forme du théorème de continuité). </span>Nous combinons le lemme de compacité uniforme et le théorème de Prokhorov-Le Cam. Sous les hypothèses de la deuxième forme du théorème de continuité, il existe une mesure de probabilité <span class="math inline">\(P\)</span> (de fonction caractéristique <span class="math inline">\(\widehat{F}\)</span>) et une sous-suite <span class="math inline">\((P_{n(k)})_{k \in \mathbb{N}}\)</span> telle que <span class="math inline">\(P_{n(k)} \rightsquigarrow P \text{ lorsque } {k \to \infty}\)</span>. Cela entraîne <span class="math inline">\(\widehat{F}_{n(k)} \rightarrow \widehat{F} \text{ lorsque } {k \to \infty}\)</span> ponctuellement. Cela entraîne aussi que <span class="math inline">\(\widehat{F}_n \rightarrow \widehat{F}\)</span> ponctuellement pour toute la suite. Enfin, nous pouvons invoquer le <a href="#thm-thmlevycont" class="quarto-xref">Théorème <span>15.2</span></a>) pour conclure <span class="math inline">\(P_{n}\rightsquigarrow  P \text{ lorsque }{n \to \infty}\)</span>.</p>
+</div>
+<div id="rem-extension" class="proof remark">
+<p><span class="proof-title"><em>Remarque 15.4</em>. </span>Toutes les définitions et résultats de cette section peuvent être étendus au cadre <span class="math inline">\(k\)</span>-dimensionnel pour tout <span class="math inline">\(k \in \mathbb{N}\)</span>.</p>
+</div>
+</section><section id="sec-relatconv" class="level2" data-number="15.7"><h2 data-number="15.7" class="anchored" data-anchor-id="sec-relatconv">
+<span class="header-section-number">15.7</span> Relations entre convergences</h2>
+<p>Les caractérisations alternatives de la convergence faible fournies par le théorème de Portmanteau (<a href="#thm-portemanteau" class="quarto-xref">Théorème <span>15.1</span></a>) facilitent la preuve de la proposition suivante.</p>
+<div id="prp">
+<p>La convergence en probabilité implique la convergence en loi.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Supposons que <span class="math inline">\((X_n)_n\)</span> converge en probabilité vers <span class="math inline">\(X\)</span>.</p>
+<p>Soit <span class="math inline">\(h\)</span> une fonction bornée lipschitzienne. Sans perte de généralité, supposons que <span class="math inline">\(|f(x)|\leq 1\)</span> pour tout <span class="math inline">\(x\)</span> et <span class="math inline">\(|f(x)-f(y)|\leq \mathrm{d}(x,y)\)</span>.</p>
+<p>Soit <span class="math inline">\(\epsilon&gt;0\)</span>. <span class="math display">\[\begin{align*}
+\Big| \mathbb{E}h(X_n) - \mathbb{E}h(X)  \Big|
+&amp; = \Big| \mathbb{E}\Big[(h(X_n) - h(X) \mathbb{I}_{\mathrm{d}(X,X_n)&gt; \epsilon}\Big] \\
+&amp; \qquad  + \mathbb{E}\Big[(h(X_n) - h(X) \mathbb{I}_{\mathrm{d}(X,X_n)\leq \epsilon}\Big] \Big| \\
+&amp; \leq  \mathbb{E}\Big[2 \mathbb{I}_{\mathrm{d}(X,X_n)&gt; \epsilon} \Big] \\
+&amp; \qquad + \mathbb{E}\Big[ |h(X_n) - h(X)| \mathbb{I}_{\mathrm{d}(X,X_n)\leq \epsilon}\Big] \\
+&amp; \leq 2 P\big\{ \mathrm{d}(X,X_n)&gt; \epsilon \big\} + \epsilon \, .
+\end{align*}\]</span> La convergence en probabilité entraîne que <span class="math display">\[
+\limsup_n \Big| \mathbb{E}h(X_n) - \mathbb{E}h(X)  \Big| \leq \epsilon.
+\]</span> Comme cela vaut pour tout <span class="math inline">\(\epsilon &gt;0\)</span>, pour toute fonction bornée lipschitzienne <span class="math inline">\(h\)</span>, <span class="math inline">\(\lim_n \Big| \mathbb{E}h(X_n) - \mathbb{E}h(X)  \Big|=0\)</span>. Cela suffit à établir la convergence en loi de <span class="math inline">\((X_n)_n\)</span>.</p>
+</div>
+</section><section id="sec-clt" class="level2" data-number="15.8"><h2 data-number="15.8" class="anchored" data-anchor-id="sec-clt">
+<span class="header-section-number">15.8</span> Théorème central limite</h2>
+<p>Le théorème de continuité de Lévy (<a href="#thm-thmlevycont" class="quarto-xref">Théorème <span>15.2</span></a>) est la pierre angulaire d’une preuve très concise de la version la plus simple du théorème central limite (TCL). Sous l’hypothèse d’intégrabilité au carré, le TCL affine les lois des grands nombres. Il affirme que, lorsque <span class="math inline">\(n\)</span> tend vers l’infini, les fluctuations de la moyenne empirique <span class="math inline">\(\sum_{i=1}^n X_i/n\)</span> autour de son espérance sont d’ordre <span class="math inline">\(1/\sqrt{n}\)</span> et, une fois renormalisées, suivent une loi normale.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-cltbasics" class="theorem">
+<p><span class="theorem-title"><strong>Théorème 15.5</strong></span> Soient <span class="math inline">\(X_1, \ldots, X_n, \ldots\)</span> i.i.d. de variance finie <span class="math inline">\(\sigma^2\)</span> et d’espérance <span class="math inline">\(\mu\)</span>. Posons <span class="math inline">\(S_n = \sum_{i=1}^n X_i\)</span>.</p>
+<p><span class="math display">\[\sqrt{n} \left(\frac{S_n}{n} - \mu \right) \rightsquigarrow \mathcal{N}\big(0, \sigma^2 \big) \, .\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Notons <span class="math inline">\(\widehat{F}\)</span> la fonction caractéristique de la loi (commune) des variables aléatoires <span class="math inline">\(((X_i-\mu)/\sigma)_i\)</span>. Rappelons de <a href="04-characterizations.fr.html" class="quarto-xref">Leçon <span>12</span></a>, que les hypothèses de centrage et d’intégrabilité au carré impliquent que</p>
+<p><span class="math display">\[
+\widehat{F}(t) = \widehat{F}(0) + \widehat{F}'(0) t + \frac{\widehat{F}'(0)}{2} t^2
++ t^2 R(t)= 1 - \frac{t^2}{2} + t^2 R(t)
+\]</span> où <span class="math inline">\(\lim_{t \to 0} R(t)=0\)</span>. Notons <span class="math inline">\(\widehat{F}_n\)</span> la fonction caractéristique de <span class="math inline">\(\sqrt{n} \left(\frac{S_n}{n} - \mu \right)/\sigma\)</span>. Fixons <span class="math inline">\(t \in \mathbb{R}\)</span>, <span class="math display">\[
+\widehat{F}_n(t) = \Big(\widehat{F}(t/\sqrt{n})\Big)^n
+= \Big(1 - \frac{t^2}{2n} + \frac{t^2}{n} R(t/\sqrt{n})\Big)^n \, .
+\]</span> Lorsque <span class="math inline">\(n\to \infty\)</span>, <span class="math display">\[
+\lim_n \Big(1 - \frac{t^2}{2n} + \frac{t^2}{n} R(t/\sqrt{n})\Big)^n  = \mathrm{e}^{- \frac{t^2}{2}} \, .
+\]</span></p>
+<p>Au membre de droite, nous reconnaissons la fonction caractéristique de <span class="math inline">\(\mathcal{N}(0,1)\)</span>.</p>
+</div>
+<div id="rem-cond-proof" class="proof remark">
+<p><span class="proof-title"><em>Remarque 15.5</em>. </span>Les conditions de l’énoncé du théorème permettent une preuve courte. Elles ne sont nullement nécessaires. Les termes de la somme n’ont pas besoin d’être identiquement distribués. Les termes de la somme n’ont pas besoin d’être indépendants. Une version du théorème de Lindeberg-Feller affirme que, sous des hypothèses légères, des sommes centrées et normalisées de variables aléatoires indépendantes intégrables au carré convergent en loi vers une loi gaussienne.</p>
+</div>
+<!-- ::: {#fig-cltbinom} -->
+<!-- ::: -->
+</section><section id="sec-cramerwolddevice" class="level2" data-number="15.9"><h2 data-number="15.9" class="anchored" data-anchor-id="sec-cramerwolddevice">
+<span class="header-section-number">15.9</span> Dispositif de Cramér-Wold</h2>
+<p>Jusqu’ici, nous avons discuté des fonctions caractéristiques pour des variables aléatoires réelles. Mais les fonctions caractéristiques peuvent être définies pour des variables aléatoires vectorielles. Si <span class="math inline">\(X\)</span> est une variable aléatoire à valeurs dans <span class="math inline">\(\mathbb{R}^k\)</span>, sa fonction caractéristique applique <span class="math inline">\(\mathbb{R}^k\)</span> dans <span class="math inline">\(\mathbb{C}\)</span> : <span class="math display">\[\begin{align*}
+\mathbb{R}^k &amp; \to \mathbb{C} \\
+t &amp; \mapsto \mathbb{E}\mathrm{e}^{i \langle t, X\rangle} \, .
+\end{align*}\]</span></p>
+<p>L’importance des fonctions caractéristiques multivariées se reflète dans le dispositif suivant, dont la preuve est laissée au lecteur. Il consiste à adapter la preuve du <a href="04-characterizations.fr.html#thm-injeccharfunc" class="quarto-xref">Théorème <span>12.4</span></a>).</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-cramerwold" class="theorem">
+<p><span class="theorem-title"><strong>Théorème 15.6 (Cramér-Wold)</strong></span> La loi d’un vecteur aléatoire à valeurs dans <span class="math inline">\(\mathbb{R}^k\)</span>, <span class="math inline">\(X = (X_1, \ldots, X_k)^T\)</span>, est entièrement déterminée par la collection des lois des variables aléatoires univariées <span class="math inline">\(\langle t, X\rangle =\sum_{i=1}^n t_i X_i\)</span> où <span class="math inline">\((t_1, \ldots, t_n)^T\)</span> appartient à <span class="math inline">\(\mathbb{R}^n.\)</span></p>
+</div>
+</div>
+</div>
+</div>
+<p>Le <a href="#thm-cramerwold" class="quarto-xref">Théorème <span>15.6</span></a>) fournit un chemin court vers le théorème central limite multivarié.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-cltmuli" class="theorem">
+<p><span class="theorem-title"><strong>Théorème 15.7</strong></span> Soient <span class="math inline">\(X_1, \ldots, X_n, \ldots\)</span> des variables aléatoires vectorielles i.i.d. de covariance finie <span class="math inline">\(\Gamma\)</span> et d’espérance <span class="math inline">\(\mu\)</span>. Posons <span class="math inline">\(S_n = \sum_{i=1}^n X_i\)</span>. <span class="math display">\[
+\sqrt{n} \left(\frac{S_n}{n} - \mu \right) \rightsquigarrow \mathcal{N}\big(0, \Gamma\big) \, . s
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</section><section id="sec-weakconvtransforms" class="level2" data-number="15.10"><h2 data-number="15.10" class="anchored" data-anchor-id="sec-weakconvtransforms">
+<span class="header-section-number">15.10</span> Convergence faible et transformations</h2>
+<p>Dans Lesson <a href="04-characterizations.fr.html" class="quarto-xref"><span>Chapitre 12</span></a>, nous avons introduit différentes caractérisations des lois de probabilité : fonctions génératrices des probabilités, transformées de Laplace, transformées de Fourier (fonctions caractéristiques), fonctions de répartition cumulatives, fonctions quantiles. Dans leur domaine de validité, toutes ces transformations sont <em>déterminantes pour la convergence</em> : si une suite de lois de probabilité converge faiblement, il en est de même (ponctuellement) de la suite correspondante de transformations, au moins aux points de continuité de la transformation limite.</p>
+<p>Dans les deux théorèmes suivants, chaque variable aléatoire est supposée vivre sur un espace de probabilité (implicite).</p>
+<div id="thm">
+<p>Une suite de variables aléatoires <em>non négatives</em> <span class="math inline">\((X_n)_n\)</span> converge en loi vers la variable aléatoire <em>non négative</em> <span class="math inline">\(X\)</span> si et seulement si la suite des transformées de Laplace converge ponctuellement vers la transformée de Laplace de la loi de <span class="math inline">\(X\)</span>.</p>
+</div>
+<p>La preuve suit la dérivation du <a href="#thm-thmlevycont" class="quarto-xref">Théorème <span>15.2</span></a>).</p>
+<p>Comme les fonctions génératrices des probabilités permettent de retrouver les transformées de Laplace, le théorème suivant est un cas particulier de l’énoncé concernant les transformées de Laplace.</p>
+<div id="thm">
+<p>Une suite de variables aléatoires à valeurs entières <span class="math inline">\((X_n)_n\)</span> converge en loi vers la variable aléatoire à valeurs entières <span class="math inline">\(X\)</span> si et seulement si la suite des transformées de Laplace converge ponctuellement vers la transformée de Laplace de la loi de <span class="math inline">\(X\)</span>.</p>
+</div>
+</section><section id="sec-rem-biblio-conv-3" class="level2" data-number="15.11"><h2 data-number="15.11" class="anchored" data-anchor-id="sec-rem-biblio-conv-3">
+<span class="header-section-number">15.11</span> Remarques bibliographiques</h2>
+<p><span class="citation" data-cites="MR1932358">Dudley (<a href="#ref-MR1932358" role="doc-biblioref">2002</a>)</span> traite de la convergence en loi en deux chapitres : le premier est consacré aux lois sur <span class="math inline">\(\mathbb{R}^d\)</span> et au théorème central limite ; le second aborde des univers plus généraux. Dans le premier chapitre, le théorème central limite est étendu aux tableaux triangulaires, c’est-à-dire aux suites de variables aléatoires pas nécessairement identiquement distribuées (théorème de Lindeberg).</p>
+<p><span class="citation" data-cites="MR1932358">Dudley (<a href="#ref-MR1932358" role="doc-biblioref">2002</a>)</span> étudie la convergence en loi comme <em>convergence de lois sur des espaces métriques séparables</em>, c’est-à-dire dans un cadre beaucoup plus large que celui de ces notes. Le lecteur y trouvera une preuve complète du théorème de Prokhorov-Le Cam et une discussion approfondie de ses corollaires. Dans <span class="citation" data-cites="MR1932358">(<a href="#ref-MR1932358" role="doc-biblioref">Dudley, 2002</a>)</span>, une grande partie de l’effort est consacrée à la métrization de la topologie de convergence faible. Le lecteur y trouvera aussi un panorama complet des arguments de représentation presque sûre.</p>
+<p>La preuve du théorème de continuité de Lévy donnée ici est tirée de <span class="citation" data-cites="MR1873379">(<a href="#ref-MR1873379" role="doc-biblioref">Pollard, 2002</a>)</span>.</p>
+<p>L’utilisation de métrizations pour la convergence faible permet d’étudier la vitesse de convergence dans les théorèmes limites. Cela remonte au moins au théorème de Berry-Esseen (1942). Les approches quantitatives de la convergence faible ont pris un nouvel élan avec la popularisation de la méthode de Stein. Cette méthode vise des versions générales et quantitatives du théorème central limite <span class="citation" data-cites="MR2732624">(<a href="#ref-MR2732624" role="doc-biblioref">Chen, Goldstein, &amp; Shao, 2011</a>)</span>. Une introduction complète mais accessible à la méthode de Stein est <span class="citation" data-cites="MR2861132">(<a href="#ref-MR2861132" role="doc-biblioref">Ross, 2011</a>)</span>.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-MR2732624" class="csl-entry" role="listitem">
+Chen, L. H. Y., Goldstein, L., &amp; Shao, Q.-M. (2011). <em>Normal approximation by <span>S</span>tein’s method</em> (p. xii+405). Springer, Heidelberg. <a href="https://doi.org/10.1007/978-3-642-15007-4">https://doi.org/10.1007/978-3-642-15007-4</a>
+</div>
+<div id="ref-MR1932358" class="csl-entry" role="listitem">
+Dudley, R. M. (2002). <em>Real analysis and probability</em> (Vol. 74, p. x+555). Cambridge: Cambridge University Press.
+</div>
+<div id="ref-MR1873379" class="csl-entry" role="listitem">
+Pollard, D. (2002). <em>A user’s guide to measure theoretic probability</em> (Vol. 8, p. xiv+351). Cambridge University Press, Cambridge.
+</div>
+<div id="ref-MR2861132" class="csl-entry" role="listitem">
+Ross, N. (2011). Fundamentals of <span>S</span>tein’s method. <em>Probab. Surv.</em>, <em>8</em>, 210‑293. <a href="https://doi.org/10.1214/11-PS182">https://doi.org/10.1214/11-PS182</a>
+</div>
+</div>
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copié");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copié");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("\/fr");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="./05-convergences-1.fr.html" class="pagination-link" aria-label="Convergences I : presque sûre, $L_2$, $L_1$, en probabilité">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>  <span class="chapter-title">Convergences I : presque sûre, <span class="math inline">\(L_2\)</span>, <span class="math inline">\(L_1\)</span>, en probabilité</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./09-gaussian-vectors.fr.html" class="pagination-link" aria-label="Vecteurs gaussiens">
+        <span class="nav-page-text"><span class="chapter-number">16</span>  <span class="chapter-title">Vecteurs gaussiens</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/edit/main/08-convergence-3.fr.qmd" class="toc-action"><i class="bi bi-github"></i>Modifier cette page</a></li>
+<li><a href="https://github.com/s-v-b/MA1AY010-CN/issues/new" class="toc-action"><i class="bi empty"></i>Faire part d'un problème</a></li>
+</ul></div></div></div></footer>
+</body>
+</html>
