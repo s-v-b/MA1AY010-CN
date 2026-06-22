@@ -5,7 +5,7 @@ project:
 book:
   title: "MA1AY010 Class Notes"
   author: "Master I ISIFAR"
-  date: "2025-09-15"
+  date: "2026-06-15"
   downloads: [pdf]
   site-url: "https://s-v-b.github.io/MA1AY010-CN/"
   repo-url: https://github.com/s-v-b/MA1AY010-CN/
@@ -147,11 +147,11 @@ babelquarto:
     text: "Version in en"
   mainlanguage: 'en'
   languages: ['fr']
-  
+
 title-fr: MA1AU015 Notes de cours en français
-description-fr: Notes du cours de Probabiltés M1 ISIFAR en français
-abstract-fr: Résumé du cours de Probabiltés M1 ISIFAR en français
-author-fr: Enseignants du cours de Probabiltés M1 ISIFAR
+description-fr: Notes du cours de Probabilités M1 ISIFAR en français
+abstract-fr: Résumé du cours de Probabilités M1 ISIFAR en français
+author-fr: Enseignants du cours de Probabilités M1 ISIFAR
 lang: en
 
 
