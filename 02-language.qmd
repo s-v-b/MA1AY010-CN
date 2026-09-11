@@ -262,7 +262,7 @@ we are now equipped to define probability distributions and to manipulate them.
 
 
 
-## Probability distributions  {#sec-distribution}
+## Positive measures and probability distributions  {#sec-distribution}
 
 
 A _probability distribution_ maps a $\sigma$-algebra to $[0,1]$. It is
@@ -281,7 +281,7 @@ This motivates the definition of $\sigma$-additivity.
 ### Sigma-additivity
 
 Given  $\Omega$ and $\mathcal{A} \subseteq 2^\Omega$, a function $\mu$ mapping
-$\mathcal{A}$ to $[0,\infty)$ is said to be $\sigma$-additive  on $\mathcal{A}$ if for any countable collection of *pairwise disjoint* subsets $(A_n)_{n \in \mathbb{N}} \in \mathcal{A}$,
+$\mathcal{A}$ to $[0,\infty) \cup \{ \infty\}$ is said to be $\sigma$-additive  on $\mathcal{A}$ if for any countable collection of *pairwise disjoint* subsets $(A_n)_{n \in \mathbb{N}} \in \mathcal{A}$,
 with $\cup_n A_n \in \mathcal{A}$ we have
 $$\mu (\cup_{n \in \mathbb{N}} A_n) = \sum_{n \in \mathbb{N}} \mu(A_n)  \, .$$
 
@@ -294,18 +294,15 @@ $\sigma$-additivity fits well  with $\sigma$-algebras, but it makes sense to def
 
 ::: {#prp-sigma-add-continuity}
 
-Given  $\Omega$, a $\sigma$-algebra $\mathcal{A} \subseteq 2^\Omega$, a $\sigma$-additive function $\mu$ mapping $\mathcal{A}$ to $[0,\infty)$ satisfies 
+Given  $\Omega$, a $\sigma$-algebra $\mathcal{A} \subseteq 2^\Omega$, a $\sigma$-additive function $\mu$ mapping $\mathcal{A}$ to $[0,\infty) \cup \{\infty\}$ with $\mu(\emptyset)=0$ satisfies 
 
-a. for any increasing sequence $(A_n)_{n \in \mathbb{N}}$ of elements of $\mathcal{A}$
+a. for any *increasing* sequence $(A_n)_{n \in \mathbb{N}}$ of elements of $\mathcal{A}$
     
     $$\lim_n \mu(A_n) = \mu\left(\cup_{n} A_n\right)$$
 
-a. for any decreasing sequence $(A_n)_{n \in \mathbb{N}}$ of elements of $\mathcal{A}$
+a. for any *decreasing* sequence $(A_n)_{n \in \mathbb{N}}$ of elements of $\mathcal{A}$, if $\mu(A_n)< \infty$ for some $n$, 
 
     $$\lim_n \mu(A_n) = \mu\left(\cap_{n} A_n\right)$$
-
-a.
-    $$\mu(\emptyset) = 0$$
 
 :::
 
@@ -318,16 +315,20 @@ $$\sum_{n\leq m} \mu(B_n) = \mu\left(\cup_{n\leq m} B_m\right) = \mu(A_m)$$
 
 Hence $\lim_{m\to \infty} \mu(A_m) = \sum_{n\in \mathbb{N}} \mu(B_n)= \mu(\cup_n A_n)$
 
-b.) The second statement is proved in a similar way.
+b.) The second statement is proved in a similar way (but requires some more care). Without loss of generality, we assume $\mu(A_1)< \infty$. 
 
-c.) Let $(A_n)_n$  be such that $A_n = \emptyset$ for each $n$, this is a sequence of pairwise disjoint elements of $\mathcal{A}$, by $\sigma$-additivity, we have
+The sequence $(\mu(A_n))_n$ is non-negative and non-increasing, it has a non-negative limit $m$, and as $\cap_{n=1}^\infty A_n \subseteq A_m$ for every $m$,  $\mu(\cap_{n=1}^\infty) A_n) \leq m$.  It remains to check that equality holds. 
 
-$$\sum_{n\in \mathbb{N}} \mu(\emptyset) = \mu(\emptyset)$$
+Without loss of generality, we may further assume that $\cap_{n=1}^\infty A_n = \emptyset$, since removing $\cap_{n=1}^\infty A_n$ from each $A_n$ gives a decreasing sequence of  subsets with empty intersection. Now, for each $m$
+$$A_m = \cup_{n=m}^\infty (A_n \setminus A_{n+1})$$
+since every $\omega \in A_m$ has to belong to some $A_n \setminus A_{n+1}$ for some $n \geq m$.
 
-which implies $\mu(\emptyset)=0.$
+Hence, by $\sigma$-additivity,  $\sum_{n=1}^\infty \mu(A_n \setminus A_{n+1}) = \mu(A_1) < \infty$. 
+So, as residuals of a convergent series, $\mu(A_m) = \sum_{n=m}^\infty \mu(A_n \setminus A_{n+1})$, converge to $0$.
 
-
+We have established $\lim_{m \to \infty} \mu(A_m) = 0.$
   
+$\Box$
 
 :::
 
@@ -336,7 +337,7 @@ which implies $\mu(\emptyset)=0.$
 ### Positive measure
 
 Given a measurable space $(\Omega, \mathcal{F})$, a $\sigma$-additive function $\mu$ mapping
-$\mathcal{F}$ to $[0,\infty)$  is called a  _positive measure_ over $(\Omega, \mathcal{F})$, if $\mu(\emptyset)=0$.
+$\mathcal{F}$ to $[0,\infty)\cup \{\infty\}$  is called a  _positive measure_ over $(\Omega, \mathcal{F})$, if $\mu(\emptyset)=0$.
 
 The tuple $(\Omega, \mathcal{F}, \mu)$ is called a measured space.
 
@@ -388,6 +389,7 @@ If you think $(\mathbb{R}, 2^{\mathbb{R}})$ is a measurable space, define a $\si
 ::: {#rem-sigma-add} 
 
 The notion of $\sigma$-additivity is strictly stronger than finite additivity.
+
 Assuming the *Axiom of Choice* (as usual when working in Probability), there exists a function $\mu$
 that map  $2^{\mathbb{N}}$ to $[0,1]$, that is  additive ($\mu(A \cup B)= \mu(A) + \mu(B)$ for all $A, B, A\cap B=\emptyset$),
 zero on all finite subsets of $\mathbb{N}$ and such that $\mu(\mathbb{N})=1$. Such a function is not $\sigma$-additive.
@@ -417,17 +419,17 @@ such that $\ell((a, b]) = b - a$ for all finite $a < b$.
 [Theorem @thm-lebesgue] is typical of statements of measure theory. It defines a complex object
 (a measure) by its trace on a simple collection of sets (intervals).
 
-The proof of [Theorem @thm-lebesgue] can be cut in several meaningful pieces. First define a length function on intervals. Show that this function can be extended to an additive function on finite union, finite intersection and complements of intervals.
+The proofs of [Theorem @thm-lebesgue] can be cut in several meaningful pieces. One of them can be sketched as follows.  First define a length function on intervals. Show that this function can be extended to an additive function on finite union, finite intersection and complements of intervals.
 Then check that the extension is in fact $\sigma$-additive on the closure
 of  intervals under finite set-theoretical operations (which is not a $\sigma$-algebra).
 
 Once this additive extension is constructed, use Carathéodory's extension theorem below to prove that the length function can be extended to a $\sigma$-additive function on the $\sigma$-algebra generated by intervals (the Borel $\sigma$-algebra).
 
-Then it remains to check that the extension is unique. This can be done by a generating set argument, for example the _monotone class Lemma_ [Lemma @thm-monotoneclasslemma].
+Then it remains to check that the extension is unique. This can be done by a generating family argument, for example the _monotone class Lemma_ [Lemma @thm-monotoneclasslemma].
 
 ::: {#thm-caratheodory}
 
-### Carathéodory's extension theorem"
+### Carathéodory's extension theorem
 
 Let $\mathcal{A} \subseteq 2^{\Omega}$. Assume $\mathcal{A}$ contains $\emptyset, \Omega$, and is closed  under finite unions, and complementation. Assume $\rho : \mathcal{A} \to [0, \infty]$ is $\sigma$-additive on $\mathcal{A}$.
 
@@ -599,7 +601,8 @@ $\sigma$-algebra.
 
 :::
 
-Another useful proposition is the following:
+Another useful proposition is the following: the collection of images of a $\sigma$-algebra is a $\sigma$-algebra.
+This proposition greatly facilititates  solving  @exr-summeasurable,  @exr-compmeasurable, ...
 
 ::: {#prp-propinvimage-sigma-algebra}
 
@@ -623,27 +626,12 @@ $$\mathcal{B} = \left\{ B : B \subseteq \Omega', f^{-1}(B) \in \mathcal{F} \righ
 
 $\mathcal{B}$ has all properties of $\sigma$-algebras.
 
-:::
 
-
-::: {#exr-propinvimage-2}
-
-Check @prp-propinvimage-sigma-algebra .   
+$\Box$
 
 :::
 
-The next proposition greatly facilititates  solving  @exr-summeasurable,  @exr-compmeasurable, ...
 
-::: {#prp-preimage}
-
-Let $(\Omega, \mathcal{F})$ and $(\Omega', \mathcal{G})$ be two measurable spaces.
-Let $f$ map $\Omega$ to $\Omega'$, prove that
-$$\mathcal{H} = \Big\{ f^{-1}(B) : B \in \mathcal{G}\Big\}$$
-is a $\sigma$-algebra of subsets of $f^{-1}(\Omega')$.
-
-:::
-
-<p>
 
 
 ::: {#prp-preimage-generation}
@@ -663,7 +651,10 @@ The set
 $$\left\{ B : B \subseteq \Omega', f^{-1}(B) \in \mathcal{F} \right\}$$
 is a $\sigma$-algebra by @prp-propinvimage-sigma-algebra . This $\sigma$-algebra contains all elements of $\mathcal{B}$ and is thus larger than $\sigma(\mathcal{B})$.
 
+$\Box$
 :::
+
+We now define measurable functions. In Probability, *random variables* are *measurable functions*. 
 
 
 ::: {#def-measfunc} 
@@ -683,7 +674,8 @@ for all $B \in \mathcal{G}$, $f^{-1}(B) \in \mathcal{F}$.
 <p>
 
 
-Under which condition on $\mathcal{H}$ is $f$ $\mathcal{F}/\mathcal{G}$-measurable?
+We often face questions like: is some $f$ $\mathcal{F}/\mathcal{G}$-measurable?
+There are a lot of off-the-shelf sufficient conditions. 
 
 
 ::: {#exr-continuous-measurable}
@@ -697,7 +689,7 @@ is measurable.
 
 ::: {#exr-borel-continuous-measurable}
 
-If $\Omega=\mathbb{R}^d$ is the Borel $\sigma$-algebra, is it the smallest
+If $\Omega=\mathbb{R}^d$ is endowed  the Borel $\sigma$-algebra, is it the smallest
 $\sigma$-algebra that makes all continuous functions  measurable?
 
 :::
@@ -720,7 +712,7 @@ for every half-line $(-\infty, x[ \subseteq \mathbb{R}$, the set $f^{-1}((-\inft
 :::
 
 
-We will now state some properties of measurable functions. They are usually summarized by the vague statement *the set of measurable functions is closed under the usual operations of analysis*.
+We will now state some more properties of measurable functions. They are usually summarized by the vague statement *the set of measurable functions is closed under the usual operations of analysis*.
 
 
 ::: {#prp-limmeasurable}
@@ -751,7 +743,7 @@ to $(\mathbb{R}, \mathcal{B}(\mathbb{R}))$, then $a f + b g$ is a measurable fun
 
 :::
 
-<p>
+
 ::: {#exr-summeasurable}
 
 Prove @prp-summeasurable.
@@ -805,13 +797,14 @@ $$
 X^{-1}(B) = \{ \omega : \omega \in \Omega, X(\omega) \in {B}\}
 $$
 
-belongs to $\mathcal{F}$
+belongs to $\mathcal{F}$.
+
+A random variable is a $\mathbb{F}/\mathcal{B}(\mathbb{R})$ measurable function.
 
 :::
 
 
-Once a measurable space is endowed with a probability distribution,
-is it possible
+Once a measurable space is endowed with a probability distribution, is it possible
 to define the (probability) distribution of a random variable.
 
 
@@ -855,11 +848,12 @@ Real valued random variables map probability distributions to probability distri
 The next section is dedicated to specific constructions for probability distributions on the real line.
 
 <p><p>
+
 ## Probability distributions on the real line  {#sec-distribfun}
 
 A probability distribution is a complex object: it maps a large collection of
 sets (a $\sigma$-algebra) to $[0,1]$. Fortunately, it is possible
-to characterize a probability distribution by simpler object. If we focus on
+to characterize a probability distribution by simpler objects. If we focus on
 probability distributions over $(\mathbb{R}, \mathcal{B}(\mathbb{R}))$,
 they can be characterized by real functions on $\mathbb{R}$.
 
@@ -869,7 +863,7 @@ they can be characterized by real functions on $\mathbb{R}$.
 ### Cumulative Distribution function
 
 Given a probability distribution $P$ on $(\mathbb{R}, \mathcal{B}(\mathbb{R}))$,
-the cumulative distribution function
+the *cumulative distribution function*
 $F$ of $P$ maps $\mathbb{R}$ to $[0,1]$, it is defined by
 
 $$
@@ -899,6 +893,35 @@ The function $F$ is the distribution function of a probability distribution on $
 :::
 
 This is a rephrasing of @thm-dudley3-1-3.
+
+
+::: {.proof}  (only if part)
+
+Assume $F$ is the cumulative distribution function of some probability distribution $P$ over $(\mathbb{R}, \mathcal{B}(\mathbb{R}))$. 
+
+1. If $s \leq t$, $(-\infty, s] \subseteq (-\infty, t]$, so $F(s)=P(-\infty, s] \leq P(-\infty, t]=F(t)$.
+2. It is enough to check that $t_n \searrow_{n \to \infty} t$ entails $F(t_n) \searrow_{n \to \infty} F(t)$. This follows from part b) of @prp-sigma-add-continuity. 
+3. If $t_n \searrow_{n \to \infty} t$, $(F(t_n))_n$ is a bounded non-decreasing sequence, it has a finite limit which is equal to $P(-infty, t[ \leq F(t)$. This is a consequence of part a) of  @prp-sigma-add-continuity. Equality holds iff and only if $P(-\infty,t] - P(-\infty, P\{t\}=0$.
+4. This is a consequence of part b) of  @prp-sigma-add-continuity. 
+5. This is a consequence of part a) of  @prp-sigma-add-continuity. 
+
+$\Box$
+
+:::
+
+The proof of the *only if* part is postponed to the study of quantile functions in @sec-chap-quantiles. 
+
+As a  by-product of the proof of part 3) in @prp-prop-distrib-function, we obtain 
+
+::: {#cor-diffuse-distrib-function}
+
+Let $F$ be the cumulative distribution function of probability distribution $P$ on $(\mathbb{R}, \mathcal{B}(\mathbb{R})$.
+
+$F$ is continuous iff for all $x \in \mathbb{R}$, $P\{x\}=0$. 
+
+:::
+
+
 
 Figure @fig-distribpoisson shows the cumulative distribution function
 of Poisson distributions for different values of the parameter (see Sections @sec-conv2poisson
@@ -959,7 +982,7 @@ rm(df, lambdas, x)
 
 ## The Monotone class theorem  {#sec-dynkin}
 
-The monotone class theorem or lemma is a powerful example of the generating class argument.  It can be used to prove that two probability measures  measures are equal (among other things).
+The monotone class theorem/lemma (Dynkin's Theorem) is a powerful example of the *generating class argument*.  It can be used to prove that two probability measures  measures are equal (among other things).
 
 
 ::: {#def-pi-class} 
@@ -1185,20 +1208,24 @@ If two probabilities $P, Q$ on $(\mathbb{R}, \mathcal{B}(\mathbb{R}))$ have the 
 ## Bibliographic remarks  {#bibliolanguage}
 
 There are many beautiful books on Probability Theory. They are targetted at
-different audiences. Some may be more suited to the students of the dual curriculum
-[Mathématiques-Informatique ](http://master.math.univ-paris-diderot.fr/annee/m1-mi/).
-I found the following ones particularly useful.
+different audiences. I found the following ones particularly useful.
 
-[Youssef (2019)](https://www.lpsm.paris/pageperso/youssef/Enseignement_files/M1-proba-2018.pdf)
+<!-- [Youssef (2019)](https://www.lpsm.paris/pageperso/youssef/Enseignement_files/M1-proba-2018.pdf)
 is a clear and concise collection of class notes designed for a Master I-level Probability course
-that is substantially more ambitious than this minimal course.
+that is substantially more ambitious than this minimal course. -->
 
+@berger2021introduction takes a very step-by-step approach and includes many examples. It is recommended for students primarily interested in practical applications.
 
 @MR1932358 delivers a self-contained course on Analysis and Probability. The book can serve
 both as an introduction and a reference book. Beyond cautious and transparent proofs, it
 contains historical notes that help understand the connections between landmark results.
 
-
 @MR1873379 introduces measure and integration theory to an audience that has been
 exposed to discrete probability theory and that is familiar with probabilistic
 reasoning.
+
+@zbMATH06258045  is a thorough yet very readable treatment of measure and integration theory with chapters on Probability theory and Descriptive set theory. 
+
+@stein2009real  delivers a lively construction of measure and integration theory.
+
+@rudin1966  introduces measure and integration theory to an audience with strong background in Analysis, and interest in Functional Analysis. 

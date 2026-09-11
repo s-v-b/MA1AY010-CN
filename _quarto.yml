@@ -130,7 +130,7 @@ callouty-theorem:
   # theorems types not specified in the metadata will be rendered as is
 
 
-bibliography: ["stbib.bib", "book.bib", "packages.bib"]
+bibliography: ["references.bib", "stbib.bib", "book.bib", "packages.bib"]
 biblio-style: apalike
 link-citations: true
 csl: "style/apa.csl"

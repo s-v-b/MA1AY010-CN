@@ -1,3 +1,11 @@
+---
+nocite: |
+  @berger2021introduction, @MR1932358, @MR1873379, @zbMATH06258045, @stein2009real, @rudin1966  
+
+
+---
+
+
 # A modicum of integration  {#sec-moments}
 
 
@@ -622,7 +630,4 @@ Check that if $\mu(A)=0$, then $\nu(A)=0$ for every $A \in \mathcal{F}$.
 ## Bibliographic remarks {#bibmoments}
 
 
-@MR1932358 gives a self-contained and thorough treatment of
-measure and integration theory with probability theory in mind.
 
-@MR1261420 is an excellent and accessible reference on convexity.
