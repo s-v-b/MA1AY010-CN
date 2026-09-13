@@ -1,3 +1,8 @@
+---
+nocite: |
+  @berger2021introduction, @MR1932358, @MR1873379, @zbMATH06258045, @stein2009real, @rudin1966, @steele:1997  
+---
+
 
 # From integrals to expectation and moments {#sec-integrals-moments}
 
@@ -16,11 +21,11 @@ In @sec-jensensec, we state, prove and showcase Jensen's inequality. This inequa
 of real random variables. This is an opportunity to recall basics of convexity. 
 
 In @sec-variance, we pay special attention to the *variance*. We state
-several characterizations of the variance. 
+several characterizations of the variance. These alternative but equivalent characterizations of variance can be used in an opportunistic way in a wide range of applications. 
 
-In @sec-highermoments
+In @sec-highermoments, we look at higher powers of random variables. this is an opportunity to introduce important inequalities like Cauchy-Schwarz, Hölder, Lyapunov, an Minkowski. The ability to upper bound higher moments of random variables play the key role in the search for tail bounds.   
 
-In @sec-lpspaces
+In @sec-lpspaces, we focus on the fact  that expectations of higher moments of random variables define semi-norms on the space of sufficiently integrable random variables. indeed, one can check that random variables with integrable powers, form linear spaces endowed with semi-norms and that these linear spaces are complete for the topology induced by the semi-norms.  
 
 ## Expectation  {#sec-expectation}
 
@@ -1067,3 +1072,5 @@ This eventually allows us to invoke theorems from functional analysis.
 
 
 ## Bibliographical remarks {#sec-bib-033}
+
+
