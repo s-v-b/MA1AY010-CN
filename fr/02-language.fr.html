@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
 <head>
-<link rel="alternate" hreflang="en" href="https://s-v-b.github.io/MA1AY010-CN//02-language.html" />
-<link rel="alternate" hreflang="fr" href="https://s-v-b.github.io/MA1AY010-CN//fr/02-language.fr.html" />
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.36">
+<link rel="alternate" hreflang="en" href="/02-language.html" />
+<link rel="alternate" hreflang="fr" href="/fr/02-language.fr.html" />
+<meta charset="UTF-8">
+<meta name="generator" content="quarto-1.9.38">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<meta name="description" content="Notes du cours de Probabiltés M1 ISIFAR en français">
+<meta name="description" content="Notes du cours de Probabilités M1 ISIFAR en français">
 <title>2  Un minimum de théorie de la mesure – MA1AU015 Notes de cours en français</title>
 <style>
 /* Default styles provided by pandoc.
@@ -49,9 +48,9 @@ div.csl-indent {
 <link href="./031-moments.fr.html" rel="next">
 <link href="./01-intro.fr.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script><script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script><link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-eb98473aa13ec2f8694b0a204f8986fa.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b39c627e845492dcaad64520e1e2dc5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -130,7 +129,7 @@ window.Quarto = {
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="dropdown" id="languages-links-parent">
-<button class="btn btn-primary dropdown-toggle babelquarto-languages-button" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> Version in fr</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="https://s-v-b.github.io/MA1AY010-CN//02-language.html" id="language-link-en">Version in en</a></li></ul>
+<button class="btn btn-primary dropdown-toggle babelquarto-languages-button" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> Version in en</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="/02-language.html" id="language-link-en">Version in en</a></li></ul>
 </div>
 <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
@@ -249,18 +248,13 @@ window.Quarto = {
    
   <ul>
 <li><a href="#feuille-de-route" id="toc-feuille-de-route" class="nav-link active" data-scroll-target="#feuille-de-route"><span class="header-section-number">2.1</span> Feuille de route</a></li>
-  <li>
-<a href="#sec-tribe" id="toc-sec-tribe" class="nav-link" data-scroll-target="#sec-tribe"><span class="header-section-number">2.2</span> Univers, partie et <span class="math inline">\(\sigma\)</span>-algèbres</a>
-  <ul class="collapse">
-<li><a href="#sigma-alg%C3%A8bre-engendr%C3%A9e" id="toc-sigma-algèbre-engendrée" class="nav-link" data-scroll-target="#sigma-algèbre-engendrée"><span class="header-section-number">2.2.1</span> <span class="math inline">\(\sigma\)</span>-algèbre engendrée</a></li>
-  </ul>
-</li>
-  <li><a href="#sec-distribution" id="toc-sec-distribution" class="nav-link" data-scroll-target="#sec-distribution"><span class="header-section-number">2.3</span> Lois de probabilité</a></li>
+  <li><a href="#sec-tribe" id="toc-sec-tribe" class="nav-link" data-scroll-target="#sec-tribe"><span class="header-section-number">2.2</span> Univers, ensemble des parties et <span class="math inline">\(\sigma\)</span>-algèbres</a></li>
+  <li><a href="#sec-distribution" id="toc-sec-distribution" class="nav-link" data-scroll-target="#sec-distribution"><span class="header-section-number">2.3</span> Mesures positives et lois de probabilité</a></li>
   <li><a href="#sec-lebesgue" id="toc-sec-lebesgue" class="nav-link" data-scroll-target="#sec-lebesgue"><span class="header-section-number">2.4</span> Mesure de Lebesgue</a></li>
   <li><a href="#sec-measurablefunctionsrv" id="toc-sec-measurablefunctionsrv" class="nav-link" data-scroll-target="#sec-measurablefunctionsrv"><span class="header-section-number">2.5</span> Fonctions mesurables et variables aléatoires</a></li>
-  <li><a href="#sec-dynkin" id="toc-sec-dynkin" class="nav-link" data-scroll-target="#sec-dynkin"><span class="header-section-number">2.6</span> Le théorème des classes monotones</a></li>
+  <li><a href="#sec-randomvariablesperse" id="toc-sec-randomvariablesperse" class="nav-link" data-scroll-target="#sec-randomvariablesperse"><span class="header-section-number">2.6</span> Variables aléatoires générales</a></li>
   <li><a href="#sec-distribfun" id="toc-sec-distribfun" class="nav-link" data-scroll-target="#sec-distribfun"><span class="header-section-number">2.7</span> Lois de probabilité sur la droite réelle</a></li>
-  <li><a href="#sec-randomvariablesperse" id="toc-sec-randomvariablesperse" class="nav-link" data-scroll-target="#sec-randomvariablesperse"><span class="header-section-number">2.8</span> Variables aléatoires générales</a></li>
+  <li><a href="#sec-dynkin" id="toc-sec-dynkin" class="nav-link" data-scroll-target="#sec-dynkin"><span class="header-section-number">2.8</span> Le théorème de la classe monotone</a></li>
   <li><a href="#bibliolanguage" id="toc-bibliolanguage" class="nav-link" data-scroll-target="#bibliolanguage"><span class="header-section-number">2.9</span> Remarques bibliographiques</a></li>
   </ul>
 <div class="toc-actions"><ul>
@@ -288,24 +282,24 @@ window.Quarto = {
 
 </header><section id="feuille-de-route" class="level2" data-number="2.1"><h2 data-number="2.1" class="anchored" data-anchor-id="feuille-de-route">
 <span class="header-section-number">2.1</span> Feuille de route</h2>
-<p>Pour faire de la modélisation stochastique de manière confortable, il faut des fondements et une notation cohérents. Dans ce chapitre, nous posons les bases du développement à venir. La théorie des probabilités est née de l’interaction entre la combinatoire et les jeux de hasard (XVIIe siècle). À cette époque, l’ensemble des issues était fini, et il était légitime de penser que tout ensemble d’issues avait une probabilité bien définie. Lorsque les mathématiciens ont commencé à faire de la modélisation stochastique dans différentes branches des sciences (astronomie, thermodynamique, génétique, …), ils ont dû traiter des ensembles d’issues non dénombrables. Concevoir une définition rigoureuse de ce qu’est une loi de probabilité a pris du temps. Les progrès de l’intégration et de la théorie de la mesure au cours du XIXe siècle et des premières décennies du XXe siècle ont conduit aux fondements modernes de la théorie des probabilités, fondés sur la théorie de la mesure.</p>
+<p>Pour pratiquer la modélisation stochastique de façon confortable, il faut des fondations et des notations cohérentes. Dans ce chapitre, nous posons le cadre pour la suite. La théorie des probabilités est née de l’interaction entre la combinatoire et les jeux de hasard (XVIIe siècle). À cette époque, l’ensemble des issues était fini, et il était légitime de penser que tout ensemble d’issues possédait une probabilité bien définie. Lorsque les mathématiciens ont commencé à pratiquer la modélisation stochastique dans différentes branches des sciences (astronomie, thermodynamique, génétique, …), ils ont dû traiter des ensembles d’issues non dénombrables. Élaborer une définition solide de ce qu’est une loi de probabilité a pris du temps. Les progrès de la théorie de l’intégration et de la mesure au XIXe siècle et dans les premières décennies du XXe siècle ont conduit au fondement moderne de la théorie des probabilités, fondé sur la théorie de la mesure.</p>
 </section><section id="sec-tribe" class="level2" data-number="2.2"><h2 data-number="2.2" class="anchored" data-anchor-id="sec-tribe">
-<span class="header-section-number">2.2</span> Univers, partie et <span class="math inline">\(\sigma\)</span>-algèbres</h2>
-<p>Un <em>univers</em> est un ensemble (d’<em>issues</em> possibles) que nous décidons d’appeler univers. L’univers est souvent noté <span class="math inline">\(\Omega\)</span>. Les éléments génériques de <span class="math inline">\(\Omega\)</span> (les issues) sont notés <span class="math inline">\(\omega\)</span>.</p>
+<span class="header-section-number">2.2</span> Univers, ensemble des parties et <span class="math inline">\(\sigma\)</span>-algèbres</h2>
+<p>Un <em>univers</em> est un ensemble (d’<em>issues</em> possibles) que l’on décide d’appeler univers. L’univers est souvent noté <span class="math inline">\(\Omega\)</span>. Les éléments génériques de <span class="math inline">\(\Omega\)</span> (les issues) sont notés <span class="math inline">\(\omega\)</span>.</p>
 <br><p>
 </p>
 <div id="exm-universe" class="theorem example">
-<p><span class="theorem-title"><strong>Exemple 2.1</strong></span> Si l’on considère le lancer d’un dé comme un phénomène aléatoire, l’ensemble des issues est l’ensemble des étiquettes sur les faces <span class="math inline">\(\Omega = \{1, 2, 3, 4, 5, 6\}\)</span>. Si l’on lance deux dés, l’ensemble des issues est constitué de couples d’étiquettes <span class="math inline">\(\Omega' = \{(1,1), (1, 2), (1, 3), \ldots, (6,6)\} =\Omega^2\)</span>.</p>
+<p><span class="theorem-title"><strong>Exemple 2.1</strong></span> Si l’on pense au lancer d’un dé comme à un phénomène aléatoire, l’ensemble des issues est l’ensemble des étiquettes des faces <span class="math inline">\(\Omega = \{1, 2, 3, 4, 5, 6\}\)</span>. Si l’on lance deux dés, l’ensemble des issues est constitué des couples d’étiquettes <span class="math inline">\(\Omega' = \{(1,1), (1, 2), (1, 3), \ldots, (6,6)\} =\Omega^2\)</span>.</p>
 </div>
 <br><p>
 </p>
 <div id="exm-unverse-hashing" class="theorem example">
-<p><span class="theorem-title"><strong>Exemple 2.2</strong></span> Dans le problème idéalisé de hachage (<a href="01-intro.fr.html#sec-hashing" class="quarto-xref"><span>Section 1.1</span></a>), l’univers est l’ensemble des fonctions de <span class="math inline">\(1, \ldots, n\)</span> vers <span class="math inline">\(1, \ldots, m\)</span>. La taille de l’univers est <span class="math inline">\(m^n\)</span>.</p>
+<p><span class="theorem-title"><strong>Exemple 2.2</strong></span> Dans le problème de hachage idéalisé (<a href="01-intro.fr.html#sec-hashing" class="quarto-xref"><span>Section 1.1</span></a>), l’univers est l’ensemble des fonctions de <span class="math inline">\(1, \ldots, n\)</span> vers <span class="math inline">\(1, \ldots, m\)</span>. Le cardinal de l’univers est <span class="math inline">\(m^n\)</span>.</p>
 </div>
 <br><p>
 </p>
-<p>Un univers peut être fini ou dénombrable, ou non. Si l’univers est dénombrable, tous ses sous-ensembles peuvent être appelés <em>événements</em>. Des probabilités sont attribuées aux événements. Si l’univers est dénombrable, il est possible d’attribuer une probabilité à chacun de ses sous-ensembles. Lorsque l’univers n’est pas dénombrable (par exemple <span class="math inline">\(\mathbb{R}\)</span>), attribuer une probabilité à tous les sous-ensembles n’est pas possible. Il faut restreindre la collection de sous-ensembles afin d’attribuer des probabilités aux éléments de la collection de manière cohérente.</p>
-<p>Dans la suite, <span class="math inline">\(2^{\Omega}\)</span> désigne la collection de tous les sous-ensembles de <span class="math inline">\(\Omega\)</span> (la partie de <span class="math inline">\(\Omega\)</span>).</p>
+<p>Un univers peut être fini ou dénombrable, ou ne l’être pas. Si l’univers est dénombrable, tous ses sous-ensembles peuvent être appelés <em>événements</em>. On attribue des probabilités aux événements. Si l’univers est dénombrable, il est possible d’attribuer une probabilité à chacun de ses sous-ensembles. Lorsque l’univers n’est pas dénombrable (par exemple <span class="math inline">\(\mathbb{R}\)</span>), attribuer une probabilité à tous les sous-ensembles n’est pas possible. Il faut restreindre la collection de sous-ensembles afin d’attribuer des probabilités aux membres de cette collection de façon cohérente.</p>
+<p>Dans la suite, <span class="math inline">\(2^{\Omega}\)</span> désigne la collection de tous les sous-ensembles de <span class="math inline">\(\Omega\)</span> (l’ensemble des parties de <span class="math inline">\(\Omega\)</span>).</p>
 <p>Une collection raisonnable d’événements doit être une <span class="math inline">\(\sigma\)</span>-algèbre.</p>
 <br><p>
 </p>
@@ -316,10 +310,11 @@ window.Quarto = {
 </div>
 <div class="callout-body-container">
 <div id="def-sigalgebra" class="theorem definition">
-<p><span class="theorem-title"><strong>Définition 2.1 (<span class="math inline">\(\sigma\)</span>-algèbre”)</strong></span> Étant donné un ensemble <span class="math inline">\(\Omega\)</span>, une collection <span class="math inline">\(\mathcal{G}\)</span> de sous-ensembles de <span class="math inline">\(\Omega\)</span> (<span class="math inline">\(\mathcal{G} \subseteq 2^{\Omega}\)</span>) est appelée une <span class="math inline">\(\sigma\)</span>-algèbre (une sigma-algèbre) si et seulement si</p>
+<p><span class="theorem-title"><strong>Définition 2.1 (<span class="math inline">\(\sigma\)</span>-algèbre)</strong></span> Étant donné un ensemble <span class="math inline">\(\Omega\)</span>, une collection <span class="math inline">\(\mathcal{G}\)</span> de sous-ensembles de <span class="math inline">\(\Omega\)</span> (<span class="math inline">\(\mathcal{G} \subseteq 2^{\Omega}\)</span>) est appelée <span class="math inline">\(\sigma\)</span>-algèbre (une sigma-algèbre) si et seulement si</p>
 <ul>
 <li>
-<span class="math inline">\(\mathcal{G}\)</span> est stable par union dénombrable</li>
+<span class="math inline">\(\mathcal{G}\)</span> est stable par union <span class="math inline">\(dénombrable\)</span>
+</li>
 <li><span class="math inline">\(\emptyset \in \mathcal{G}\)</span></li>
 <li>
 <span class="math inline">\(\mathcal{G}\)</span> est stable par passage au complémentaire (<span class="math inline">\(A \in \mathcal{G} \Rightarrow A^c = \Omega \setminus A \in \mathcal{G}\)</span>)</li>
@@ -330,22 +325,40 @@ window.Quarto = {
 </div>
 <br><p>
 </p>
-<div id="exr">
-<p>Quelle est la plus petite <span class="math inline">\(\sigma\)</span>-algèbre (au sens de l’inclusion) qui contient le sous-ensemble <span class="math inline">\(A\)</span> de <span class="math inline">\(\Omega\)</span> ?</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-smallest-sigma-algebra-trivial" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 2.1</strong></span> Quelle est la plus petite <span class="math inline">\(\sigma\)</span>-algèbre (au sens de l’inclusion) qui contient un sous-ensemble <span class="math inline">\(A\)</span> de <span class="math inline">\(\Omega\)</span> ?</p>
+</div>
+</div>
+</div>
 </div>
 <br><p>
 </p>
-<p>La proposition suivante montre que les <span class="math inline">\(\sigma\)</span>-algèbres sont stables sous les opérations ensemblistes dénombrables. On aurait pu remplacer l’union dénombrable par l’intersection dénombrable dans la définition des <span class="math inline">\(\sigma\)</span>-algèbres. C’est une conséquence des lois de De Morgan :</p>
+<p>La proposition suivante montre que les <span class="math inline">\(\sigma\)</span>-algèbres sont stables par les opérations ensemblistes dénombrables. On aurait pu remplacer l’union dénombrable par l’intersection dénombrable dans la définition des <span class="math inline">\(\sigma\)</span>-algèbres. C’est une conséquence des lois de De Morgan :</p>
 <p><span class="math display">\[
-(A \cup B)^c  = A^c \cap B^c \qquad \text{and} (A \cap B)^c  = A^c \cup B^c
+(A \cup B)^c  = A^c \cap B^c \qquad \text{et} (A \cap B)^c  = A^c \cup B^c
 \]</span></p>
-<div id="prp">
-<p>Une <span class="math inline">\(\sigma\)</span>-algèbre de sous-ensembles est stable par intersections dénombrables.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-sigma-alg-intersections" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 2.1</strong></span> Une <span class="math inline">\(\sigma\)</span>-algèbre de sous-ensembles est stable par intersections dénombrables.</p>
+</div>
+</div>
+</div>
 </div>
 <br><p>
 </p>
 <div class="proof">
-<p><span class="proof-title"><em>Preuve</em>. </span>Pour <span class="math inline">\(A \subseteq \Omega\)</span>, posons <span class="math inline">\(A^c = \Omega \setminus A\)</span>. Soient <span class="math inline">\(A_1, \ldots, A_n, \ldots\)</span> des éléments de la <span class="math inline">\(\sigma\)</span>-algèbre <span class="math inline">\(\mathcal{G}\)</span> de sous-ensembles de <span class="math inline">\(\Omega\)</span>. Pour chaque <span class="math inline">\(n\)</span>, <span class="math inline">\(A_n^c \in \mathcal{G}\)</span>, par définition de <span class="math inline">\(\sigma\)</span>-algèbre, <span class="math display">\[\begin{align*}
+<p><span class="proof-title"><em>Preuve</em>. </span>Pour <span class="math inline">\(A \subseteq \Omega\)</span>, posons <span class="math inline">\(A^c = \Omega \setminus A\)</span>. Soient <span class="math inline">\(A_1, \ldots, A_n, \ldots\)</span> des éléments d’une <span class="math inline">\(\sigma\)</span>-algèbre <span class="math inline">\(\mathcal{G}\)</span> de sous-ensembles de <span class="math inline">\(\Omega\)</span>. Pour chaque <span class="math inline">\(n\)</span>, <span class="math inline">\(A_n^c \in \mathcal{G}\)</span>, par définition d’une <span class="math inline">\(\sigma\)</span>-algèbre, <span class="math display">\[\begin{align*}
 \cap_n A_n
 &amp; = \Big(\big(\cap_n A_n\big)^c\Big)^c \\
 &amp; = \Big(\cup_n A_n^c\Big)^c  \qquad \text{De Morgan} \, .
@@ -353,11 +366,20 @@ window.Quarto = {
 </div>
 <br><p>
 </p>
-<p>La proposition suivante nous permet de parler de la plus petite <span class="math inline">\(\sigma\)</span>-algèbre contenant une collection de sous-ensembles ; cela conduit à la notion de <span class="math inline">\(\sigma\)</span>-algèbre engendrée.</p>
+<p>La proposition suivante permet de parler de la plus petite <span class="math inline">\(\sigma\)</span>-algèbre contenant une collection de sous-ensembles ; cela mène à la notion de <span class="math inline">\(\sigma\)</span>-algèbre engendrée.</p>
 <br><p>
 </p>
-<div id="prp">
-<p>L’intersection de deux <span class="math inline">\(\sigma\)</span>-algèbres de sous-ensembles de <span class="math inline">\(\Omega\)</span> est une <span class="math inline">\(\sigma\)</span>-algèbre de sous-ensembles de <span class="math inline">\(\Omega\)</span>.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-intersection-sigma-algebras" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 2.2 (Intersection de <span class="math inline">\(\sigma\)</span>-algèbres)</strong></span> L’intersection de deux <span class="math inline">\(\sigma\)</span>-algèbres de sous-ensembles de <span class="math inline">\(\Omega\)</span> est une <span class="math inline">\(\sigma\)</span>-algèbre de sous-ensembles de <span class="math inline">\(\Omega\)</span>.</p>
+</div>
+</div>
+</div>
 </div>
 <br><p>
 </p>
@@ -369,12 +391,18 @@ window.Quarto = {
 </div>
 <br><p>
 </p>
-<p>En effet, l’intersection d’une collection éventuellement non dénombrable de <span class="math inline">\(\sigma\)</span>-algèbres est une <span class="math inline">\(\sigma\)</span>-algèbre (vérifier cela). Grâce à cette propriété, la notion de <span class="math inline">\(\sigma\)</span>-algèbre engendrée par une collection de sous-ensembles est bien fondée.</p>
-<div id="lem">
-<section id="sigma-algèbre-engendrée" class="level3" data-number="2.2.1"><h3 data-number="2.2.1" class="anchored" data-anchor-id="sigma-algèbre-engendrée">
-<span class="header-section-number">2.2.1</span> <span class="math inline">\(\sigma\)</span>-algèbre engendrée</h3>
-<p>Étant donné une collection <span class="math inline">\(\mathcal{C}\)</span> de sous-ensembles de <span class="math inline">\(\Omega\)</span>, il existe une <em>plus petite <span class="math inline">\(\sigma\)</span>-algèbre unique</em> contenant tous les sous-ensembles de <span class="math inline">\(\mathcal{C}\)</span> ; elle est appelée la <span class="math inline">\(\sigma\)</span>-algèbre engendrée par <span class="math inline">\(\mathcal{H}\)</span> et notée <span class="math inline">\(\sigma(\mathcal{C})\)</span>.</p>
-</section>
+<p>En fait, l’intersection d’une collection éventuellement non dénombrable de <span class="math inline">\(\sigma\)</span>-algèbres est une <span class="math inline">\(\sigma\)</span>-algèbre (le vérifier). Grâce à cette propriété, la notion de <span class="math inline">\(\sigma\)</span>-algèbre engendrée par une collection de sous-ensembles est bien fondée.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="lem-gen-sigma-algebra" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemme 2.1 (<span class="math inline">\(\sigma\)</span>-algèbre engendrée)</strong></span> Étant donnée une collection <span class="math inline">\(\mathcal{C}\)</span> de sous-ensembles de <span class="math inline">\(\Omega\)</span>, il existe une <em>unique plus petite <span class="math inline">\(\sigma\)</span>-algèbre</em> contenant tous les sous-ensembles de <span class="math inline">\(\mathcal{C}\)</span> ; on l’appelle la <span class="math inline">\(\sigma\)</span>-algèbre engendrée par <span class="math inline">\(\mathcal{H}\)</span> et on la note <span class="math inline">\(\sigma(\mathcal{C})\)</span>.</p>
+</div>
+</div>
+</div>
 </div>
 <br><p>
 </p>
@@ -385,7 +413,7 @@ window.Quarto = {
 </div>
 <div class="callout-body-container">
 <div id="exr-generated-sigma-algebra" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 2.1</strong></span> Vérifier la proposition précédente.</p>
+<p><span class="theorem-title"><strong>Exercice 2.2</strong></span> Vérifier la proposition précédente.</p>
 </div>
 </div>
 </div>
@@ -393,13 +421,13 @@ window.Quarto = {
 <br><p>
 </p>
 <div id="exm-sigma-dice" class="theorem example">
-<p><span class="theorem-title"><strong>Exemple 2.3</strong></span> Considérons le lancer d’un dé, <span class="math inline">\(\Omega = \{1, \ldots, 6\}\)</span>, et posons <span class="math display">\[\mathcal{H} = \Big\{\{1, 3, 5\}\Big\}\, .\]</span> Il s’agit d’une collection constituée d’un seul événement (l’issue est impaire). L’algèbre engendrée par <span class="math inline">\(\mathcal{H}\)</span> est <span class="math display">\[\sigma(\mathcal{H}) = \Big\{ \{1, 3, 5\}, \{2, 4, 6\}, \emptyset, \Omega \Big\} \, .\]</span></p>
+<p><span class="theorem-title"><strong>Exemple 2.3</strong></span> On lance un dé, <span class="math inline">\(\Omega = \{1, \ldots, 6\}\)</span>, et l’on pose <span class="math display">\[\mathcal{H} = \Big\{\{1, 3, 5\}\Big\}\, .\]</span> C’est une collection constituée d’un seul événement (l’issue est impaire). L’algèbre engendrée par <span class="math inline">\(\mathcal{H}\)</span> est <span class="math display">\[\sigma(\mathcal{H}) = \Big\{ \{1, 3, 5\}, \{2, 4, 6\}, \emptyset, \Omega \Big\} \, .\]</span></p>
 </div>
 <p>
 </p>
-<p>Deux types de <span class="math inline">\(\sigma\)</span>-algèbres jouent un rôle central dans un cours de probabilités de base :</p>
+<p>Deux types de <span class="math inline">\(\sigma\)</span>-algèbres jouent un rôle de premier plan dans un cours élémentaire de probabilités :</p>
 <ol type="1">
-<li>la partie des ensembles dénombrables ou finis.</li>
+<li>l’ensemble des parties des ensembles dénombrables ou finis.</li>
 <li>les <span class="math inline">\(\sigma\)</span>-algèbres boréliennes des espaces topologiques.</li>
 </ol>
 <p>
@@ -411,20 +439,20 @@ window.Quarto = {
 </div>
 <div class="callout-body-container">
 <div id="def-borel-sigma-algebra" class="theorem definition">
-<p><span class="theorem-title"><strong>Définition 2.2 (<span class="math inline">\(\sigma\)</span>-algèbre borélienne)</strong></span> La <span class="math inline">\(\sigma\)</span>-algèbre borélienne sur <span class="math inline">\(\mathbb{R}\)</span> est la <span class="math inline">\(\sigma\)</span>-algèbre engendrée par les ensembles <em>ouverts</em>. Elle est notée <span class="math inline">\(\mathcal{B}(\mathbb{R})\)</span>.</p>
+<p><span class="theorem-title"><strong>Définition 2.2 (<span class="math inline">\(\sigma\)</span>-algèbre borélienne)</strong></span> La <span class="math inline">\(\sigma\)</span>-algèbre borélienne sur <span class="math inline">\(\mathbb{R}\)</span> est la <span class="math inline">\(\sigma\)</span>-algèbre engendrée par les <em>ouverts</em>. On la note <span class="math inline">\(\mathcal{B}(\mathbb{R})\)</span>.</p>
 </div>
 </div>
 </div>
 </div>
 <p>
 </p>
-<p>Cette définition s’applique à tout espace topologique. Rappelons qu’une topologie sur un ensemble <span class="math inline">\(E\)</span> est définie par une collection <span class="math inline">\(\mathcal{E}\)</span> d’<em>ensembles ouverts</em>. Cette collection est caractérisée par les propriétés suivantes :</p>
+<p>Cette définition s’applique à tout espace topologique. Rappelons qu’une topologie sur un ensemble <span class="math inline">\(E\)</span> est définie par une collection <span class="math inline">\(\mathcal{E}\)</span> d’<em>ouverts</em>. Cette collection est définie par la liste de propriétés suivante :</p>
 <ul>
 <li><span class="math inline">\(\emptyset, E \in \mathcal{E}\)</span></li>
-<li>Une union (<em>éventuellement non dénombrable</em>) d’éléments de <span class="math inline">\(\mathcal{E}\)</span> (ensembles ouverts) appartient à <span class="math inline">\(\mathcal{E}\)</span> (est un ensemble ouvert)</li>
-<li>Une intersection finie d’ensembles ouverts est un ensemble ouvert.</li>
+<li>Une union (<em>éventuellement non dénombrable</em>) d’éléments de <span class="math inline">\(\mathcal{E}\)</span> (d’ouverts) appartient à <span class="math inline">\(\mathcal{E}\)</span> (est un ouvert)</li>
+<li>Une intersection finie d’ouverts est un ouvert.</li>
 </ul>
-<p>Dans la topologie usuelle sur <span class="math inline">\(\mathbb{R}\)</span>, un ensemble <span class="math inline">\(A\)</span> est ouvert si pour tout <span class="math inline">\(x \in A\)</span>, il existe un <span class="math inline">\(r&gt;0\)</span> tel que <span class="math inline">\(]x-r, x+r[ \subseteq A\)</span>. Tout intervalle de la forme <span class="math inline">\(]a,b[\)</span> est ouvert (ce sont les intervalles ouverts).</p>
+<p>Dans la topologie usuelle sur <span class="math inline">\(\mathbb{R}\)</span>, un ensemble <span class="math inline">\(A\)</span> est ouvert si pour tout <span class="math inline">\(x \in A\)</span>, il existe <span class="math inline">\(r&gt;0\)</span> tel que <span class="math inline">\(]x-r, x+r[ \subseteq A\)</span>. Tout intervalle de la forme <span class="math inline">\(]a,b[\)</span> est ouvert (ce sont les intervalles dits ouverts).</p>
 Cette topologie se généralise à toute dimension finie <span class="math inline">\(\mathbb{R}^d\)</span>.
 <p>
 </p>
@@ -435,7 +463,7 @@ Cette topologie se généralise à toute dimension finie <span class="math inlin
 </div>
 <div class="callout-body-container">
 <div id="exr-sigma-alg-open-inter" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 2.2</strong></span> Considérer la <span class="math inline">\(\sigma\)</span>-algèbre engendrée par les intervalles ouverts de <span class="math inline">\(\mathbb{R}\)</span>. S’agit-il de la <span class="math inline">\(\sigma\)</span>-algèbre borélienne ?</p>
+<p><span class="theorem-title"><strong>Exercice 2.3</strong></span> Considérer la <span class="math inline">\(\sigma\)</span>-algèbre engendrée par les intervalles ouverts de <span class="math inline">\(\mathbb{R}\)</span>. Est-ce la <span class="math inline">\(\sigma\)</span>-algèbre borélienne ?</p>
 </div>
 </div>
 </div>
@@ -447,7 +475,7 @@ Cette topologie se généralise à toute dimension finie <span class="math inlin
 </div>
 <div class="callout-body-container">
 <div id="exr-sigma-alge-inter-rational" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 2.3</strong></span> Considérer la <span class="math inline">\(\sigma\)</span>-algèbre engendrée par les intervalles ouverts de <span class="math inline">\(\mathbb{R}\)</span> à bornes rationnelles. S’agit-il de la <span class="math inline">\(\sigma\)</span>-algèbre borélienne ?</p>
+<p><span class="theorem-title"><strong>Exercice 2.4</strong></span> Considérer la <span class="math inline">\(\sigma\)</span>-algèbre engendrée par les intervalles ouverts de <span class="math inline">\(\mathbb{R}\)</span> à bornes rationnelles. Est-ce la <span class="math inline">\(\sigma\)</span>-algèbre borélienne ?</p>
 </div>
 </div>
 </div>
@@ -459,12 +487,12 @@ Cette topologie se généralise à toute dimension finie <span class="math inlin
 </div>
 <div class="callout-body-container">
 <div id="exr-sigma-open-balls" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 2.4</strong></span> Considérer un espace métrique <span class="math inline">\((E,d)\)</span> quelconque. La métrique <span class="math inline">\(d\)</span> définit une topologie sur <span class="math inline">\(E\)</span>. La <span class="math inline">\(\sigma\)</span>-algèbre borélienne sur <span class="math inline">\((E, d)\)</span> coïncide-t-elle avec la <span class="math inline">\(\sigma\)</span>-algèbre engendrée par les boules ouvertes <span class="math inline">\(B(x,r) = \Big\{  y : y\in E, d(x,y)&lt;r\Big\}\)</span> ?</p>
+<p><span class="theorem-title"><strong>Exercice 2.5</strong></span> Soit <span class="math inline">\((E,d)\)</span> un espace métrique quelconque. La métrique <span class="math inline">\(d\)</span> définit une topologie sur <span class="math inline">\(E\)</span>. La <span class="math inline">\(\sigma\)</span>-algèbre borélienne sur <span class="math inline">\((E, d)\)</span> coïncide-t-elle avec la <span class="math inline">\(\sigma\)</span>-algèbre engendrée par les boules ouvertes <span class="math inline">\(B(x,r) = \Big\{  y : y\in E, d(x,y)&lt;r\Big\}\)</span> ?</p>
 </div>
 </div>
 </div>
 </div>
-<p>Nous sommes maintenant prêts à poser le cadre de la modélisation stochastique. Le terrain de jeu consiste toujours en un espace mesurable.</p>
+<p>Nous sommes maintenant prêts à poser le cadre de la modélisation stochastique. L’espace de jeu est toujours un espace mesurable.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -472,7 +500,7 @@ Cette topologie se généralise à toute dimension finie <span class="math inlin
 </div>
 <div class="callout-body-container">
 <div id="def-measspace" class="theorem definition">
-<p><span class="theorem-title"><strong>Définition 2.3 (Espace mesurable)</strong></span> Un univers <span class="math inline">\(\Omega\)</span> muni d’une <span class="math inline">\(\sigma\)</span>-algèbre de sous-ensembles <span class="math inline">\(\mathcal{F}\)</span> est appelé un espace mesurable. Il est noté <span class="math inline">\((\Omega, \mathcal{F})\)</span>.</p>
+<p><span class="theorem-title"><strong>Définition 2.3 (Espace mesurable)</strong></span> Un univers <span class="math inline">\(\Omega\)</span> muni d’une <span class="math inline">\(\sigma\)</span>-algèbre de sous-ensembles <span class="math inline">\(\mathcal{F}\)</span> est appelé espace mesurable. On le note <span class="math inline">\((\Omega, \mathcal{F})\)</span>.</p>
 </div>
 </div>
 </div>
@@ -486,10 +514,10 @@ Cette topologie se généralise à toute dimension finie <span class="math inlin
 <li>Si <span class="math inline">\(\Omega=\mathbb{R}\)</span>, alors <span class="math inline">\((\mathbb{R}, \mathcal{B}({\mathbb{R}}))\)</span> est un espace mesurable.</li>
 </ul>
 </div>
-<p>Jusqu’ici, nous n’avons pas parlé de théorie des probabilités, mais nous sommes maintenant équipés pour définir des lois de probabilité et pour les manipuler.</p>
+<p>Jusqu’ici, nous n’avons pas parlé de théorie des probabilités, mais nous sommes maintenant en mesure de définir les lois de probabilité et de les manipuler.</p>
 </section><section id="sec-distribution" class="level2" data-number="2.3"><h2 data-number="2.3" class="anchored" data-anchor-id="sec-distribution">
-<span class="header-section-number">2.3</span> Lois de probabilité</h2>
-<p>Une <em>loi de probabilité</em> associe une <span class="math inline">\(\sigma\)</span>-algèbre à <span class="math inline">\([0,1]\)</span>. C’est un cas particulier d’un concept plus général appelé <em>mesure</em>. Nous énonçons ou rappelons des notions importantes de la théorie de la mesure. L’idée clé qui sous-tend l’élaboration de la théorie de la mesure est que l’on doit s’abstenir d’essayer de mesurer <em>tous</em> les sous-ensembles d’un univers (sauf si cet univers est dénombrable). Les tentatives de mesurer tous les sous-ensembles de <span class="math inline">\(\mathbb{R}\)</span> conduisent à des paradoxes et sont de peu d’utilité pratique. La théorie de la mesure commence par reconnaître les propriétés souhaitables que toute mesure utile devrait posséder, puis elle construit des objets satisfaisant ces propriétés sur des <span class="math inline">\(\sigma\)</span>-algèbres d’événements aussi larges que possible, par exemple sur les <span class="math inline">\(\sigma\)</span>-algèbres boréliennes.</p>
+<span class="header-section-number">2.3</span> Mesures positives et lois de probabilité</h2>
+<p>Une <em>loi de probabilité</em> envoie une <span class="math inline">\(\sigma\)</span>-algèbre dans <span class="math inline">\([0,1]\)</span>. C’est un cas particulier d’un concept plus général appelé <em>mesure</em>. Nous énonçons ou rappelons des notions importantes de la théorie de la mesure. L’idée clé sous-jacente à l’élaboration de la théorie de la mesure est qu’il faut se garder de vouloir mesurer <em>tous</em> les sous-ensembles d’un univers (sauf si cet univers est dénombrable). Les tentatives de mesurer tous les sous-ensembles de <span class="math inline">\(\mathbb{R}\)</span> mènent à des paradoxes et sont de peu d’utilité pratique. La théorie de la mesure commence par reconnaître les propriétés souhaitables que toute mesure utile doit posséder, puis elle construit des objets satisfaisant ces propriétés sur des <span class="math inline">\(\sigma\)</span>-algèbres d’événements aussi grandes que possible, par exemple sur les <span class="math inline">\(\sigma\)</span>-algèbres boréliennes.</p>
 <p>Cela motive la définition de la <span class="math inline">\(\sigma\)</span>-additivité.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -498,12 +526,12 @@ Cette topologie se généralise à toute dimension finie <span class="math inlin
 </div>
 <div class="callout-body-container">
 <div id="def-sigadd" class="theorem definition">
-<p><span class="theorem-title"><strong>Définition 2.4 (<span class="math inline">\(\sigma\)</span>-additivité)</strong></span> Étant donné <span class="math inline">\(\Omega\)</span> et <span class="math inline">\(\mathcal{A} \subseteq 2^\Omega\)</span>, une fonction <span class="math inline">\(\mu\)</span> de <span class="math inline">\(\mathcal{A}\)</span> vers <span class="math inline">\([0,\infty)\)</span> est dite <span class="math inline">\(\sigma\)</span>-<em>additive</em> sur <span class="math inline">\(\mathcal{A}\)</span> si pour toute collection dénombrable de sous-ensembles <em>deux à deux disjoints</em> <span class="math inline">\((A_n)_{n \in \mathbb{N}} \in \mathcal{A}\)</span>, avec <span class="math inline">\(\cup_n A_n \in \mathcal{A}\)</span>, on a <span class="math display">\[\mu (\cup_{n \in \mathbb{N}} A_n) = \sum_{n \in \mathbb{N}} \mu(A_n)  \, .\]</span></p>
+<p><span class="theorem-title"><strong>Définition 2.4 (<span class="math inline">\(\sigma\)</span>-additivité)</strong></span> Étant donnés <span class="math inline">\(\Omega\)</span> et <span class="math inline">\(\mathcal{A} \subseteq 2^\Omega\)</span>, une fonction <span class="math inline">\(\mu\)</span> envoyant <span class="math inline">\(\mathcal{A}\)</span> dans <span class="math inline">\([0,\infty) \cup \{ \infty\}\)</span> est dite <span class="math inline">\(\sigma\)</span>-additive sur <span class="math inline">\(\mathcal{A}\)</span> si pour toute collection dénombrable de sous-ensembles <em>deux à deux disjoints</em> <span class="math inline">\((A_n)_{n \in \mathbb{N}} \in \mathcal{A}\)</span>, avec <span class="math inline">\(\cup_n A_n \in \mathcal{A}\)</span>, on a <span class="math display">\[\mu (\cup_{n \in \mathbb{N}} A_n) = \sum_{n \in \mathbb{N}} \mu(A_n)  \, .\]</span></p>
 </div>
 </div>
 </div>
 </div>
-<p>Notons que si <span class="math inline">\(\mathcal{F}\)</span> est une <span class="math inline">\(\sigma\)</span>-algèbre, <span class="math inline">\(\Big(\cup_{n \in \mathbb{N}} A_n\Big) \in \mathcal{F}\)</span>. La <span class="math inline">\(\sigma\)</span>-additivité s’accorde bien avec les <span class="math inline">\(\sigma\)</span>-algèbres, mais il est pertinent de définir la <span class="math inline">\(\sigma\)</span>-additivité par rapport à des collections de sous-ensembles plus générales.</p>
+<p>Remarquons que si <span class="math inline">\(\mathcal{F}\)</span> est une <span class="math inline">\(\sigma\)</span>-algèbre, <span class="math inline">\(\Big(\cup_{n \in \mathbb{N}} A_n\Big) \in \mathcal{F}\)</span>. La <span class="math inline">\(\sigma\)</span>-additivité s’accorde bien avec les <span class="math inline">\(\sigma\)</span>-algèbres, mais il est légitime de définir la <span class="math inline">\(\sigma\)</span>-additivité par rapport à des collections de sous-ensembles plus générales.</p>
 <br><p>
 </p>
 <div class="callout callout-style-simple callout-note no-icon">
@@ -513,17 +541,16 @@ Cette topologie se généralise à toute dimension finie <span class="math inlin
 </div>
 <div class="callout-body-container">
 <div id="prp-sigma-add-continuity" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 2.1</strong></span> Étant donné <span class="math inline">\(\Omega\)</span>, une <span class="math inline">\(\sigma\)</span>-algèbre <span class="math inline">\(\mathcal{A} \subseteq 2^\Omega\)</span>, une fonction <span class="math inline">\(\sigma\)</span>-<em>additive</em> <span class="math inline">\(\mu\)</span> de <span class="math inline">\(\mathcal{A}\)</span> vers <span class="math inline">\([0,\infty)\)</span> satisfait</p>
+<p><span class="theorem-title"><strong>Proposition 2.3</strong></span> Étant donnés <span class="math inline">\(\Omega\)</span>, une <span class="math inline">\(\sigma\)</span>-algèbre <span class="math inline">\(\mathcal{A} \subseteq 2^\Omega\)</span>, une fonction <span class="math inline">\(\sigma\)</span>-additive <span class="math inline">\(\mu\)</span> envoyant <span class="math inline">\(\mathcal{A}\)</span> dans <span class="math inline">\([0,\infty) \cup \{\infty\}\)</span> avec <span class="math inline">\(\mu(\emptyset)=0\)</span> satisfait</p>
 <ol type="a">
 <li>
-<p>pour toute suite croissante <span class="math inline">\((A_n)_{n \in \mathbb{N}}\)</span> d’éléments de <span class="math inline">\(\mathcal{A}\)</span></p>
+<p>pour toute suite <em>croissante</em> <span class="math inline">\((A_n)_{n \in \mathbb{N}}\)</span> d’éléments de <span class="math inline">\(\mathcal{A}\)</span></p>
 <p><span class="math display">\[\lim_n \mu(A_n) = \mu\left(\cup_{n} A_n\right)\]</span></p>
 </li>
 <li>
-<p>pour toute suite décroissante <span class="math inline">\((A_n)_{n \in \mathbb{N}}\)</span> d’éléments de <span class="math inline">\(\mathcal{A}\)</span></p>
+<p>pour toute suite <em>décroissante</em> <span class="math inline">\((A_n)_{n \in \mathbb{N}}\)</span> d’éléments de <span class="math inline">\(\mathcal{A}\)</span>, si <span class="math inline">\(\mu(A_n)&lt; \infty\)</span> pour un certain <span class="math inline">\(n\)</span>,</p>
 <p><span class="math display">\[\lim_n \mu(A_n) = \mu\left(\cap_{n} A_n\right)\]</span></p>
 </li>
-<li><p><span class="math display">\[\mu(\emptyset) = 0\]</span></p></li>
 </ol>
 </div>
 </div>
@@ -533,10 +560,12 @@ Cette topologie se généralise à toute dimension finie <span class="math inlin
 <p><span class="proof-title"><em>Preuve</em>. </span>a.) Posons <span class="math inline">\(B_{1} = A_1\)</span>, et <span class="math inline">\(B_{n+1} =  A_{n+1} \setminus A_n\)</span> pour chaque <span class="math inline">\(n\)</span> ; alors <span class="math inline">\((B_n)_n\)</span> est une suite d’éléments de <span class="math inline">\(\mathcal{A}\)</span> deux à deux disjoints. On a <span class="math inline">\(\cup_n B_n = \cup_n A_n\)</span> et, par <span class="math inline">\(\sigma\)</span>-additivité, <span class="math inline">\(\mu(\cup_n A_n) = \sum_n \mu(B_n)\)</span></p>
 <p><span class="math display">\[\sum_{n\leq m} \mu(B_n) = \mu\left(\cup_{n\leq m} B_m\right) = \mu(A_m)\]</span></p>
 <p>D’où <span class="math inline">\(\lim_{m\to \infty} \mu(A_m) = \sum_{n\in \mathbb{N}} \mu(B_n)= \mu(\cup_n A_n)\)</span></p>
-<p>b.) Le second énoncé se démontre de manière analogue.</p>
-<p>c.) Soit <span class="math inline">\((A_n)_n\)</span> telle que <span class="math inline">\(A_n = \emptyset\)</span> pour chaque <span class="math inline">\(n\)</span> ; c’est une suite d’éléments de <span class="math inline">\(\mathcal{A}\)</span> deux à deux disjoints ; par <span class="math inline">\(\sigma\)</span>-additivité, on a</p>
-<p><span class="math display">\[\sum_{n\in \mathbb{N}} \mu(\emptyset) = \mu(\emptyset)\]</span></p>
-<p>ce qui implique <span class="math inline">\(\mu(\emptyset)=0.\)</span></p>
+<p>b.) Le second énoncé se démontre de façon analogue (mais demande un peu plus de soin). Sans perte de généralité, on suppose <span class="math inline">\(\mu(A_1)&lt; \infty\)</span>.</p>
+<p>La suite <span class="math inline">\((\mu(A_n))_n\)</span> est positive ou nulle et décroissante ; elle admet une limite positive ou nulle <span class="math inline">\(m\)</span>, et comme <span class="math inline">\(\cap_{n=1}^\infty A_n \subseteq A_m\)</span> pour tout <span class="math inline">\(m\)</span>, <span class="math inline">\(\mu(\cap_{n=1}^\infty) A_n) \leq m\)</span>. Il reste à vérifier que l’égalité a lieu.</p>
+<p>Sans perte de généralité, on peut de plus supposer que <span class="math inline">\(\cap_{n=1}^\infty A_n = \emptyset\)</span>, car en retranchant <span class="math inline">\(\cap_{n=1}^\infty A_n\)</span> de chaque <span class="math inline">\(A_n\)</span>, on obtient une suite décroissante de sous-ensembles d’intersection vide. Alors, pour chaque <span class="math inline">\(m\)</span> <span class="math display">\[A_m = \cup_{n=m}^\infty (A_n \setminus A_{n+1})\]</span> puisque tout <span class="math inline">\(\omega \in A_m\)</span> doit appartenir à un certain <span class="math inline">\(A_n \setminus A_{n+1}\)</span> pour un <span class="math inline">\(n \geq m\)</span>.</p>
+<p>D’où, par <span class="math inline">\(\sigma\)</span>-additivité, <span class="math inline">\(\sum_{n=1}^\infty \mu(A_n \setminus A_{n+1}) = \mu(A_1) &lt; \infty\)</span>. Ainsi, comme restes d’une série convergente, <span class="math inline">\(\mu(A_m) = \sum_{n=m}^\infty \mu(A_n \setminus A_{n+1})\)</span> tend vers <span class="math inline">\(0\)</span>.</p>
+<p>On a établi <span class="math inline">\(\lim_{m \to \infty} \mu(A_m) = 0.\)</span></p>
+<p><span class="math inline">\(\Box\)</span></p>
 </div>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -545,13 +574,13 @@ Cette topologie se généralise à toute dimension finie <span class="math inlin
 </div>
 <div class="callout-body-container">
 <div id="def-pmeasure" class="theorem definition">
-<p><span class="theorem-title"><strong>Définition 2.5 (Mesure positive)</strong></span> Étant donné un espace mesurable <span class="math inline">\((\Omega, \mathcal{F})\)</span>, une fonction <span class="math inline">\(\sigma\)</span>-additive <span class="math inline">\(\mu\)</span> de <span class="math inline">\(\mathcal{F}\)</span> vers <span class="math inline">\([0,\infty)\)</span> est appelée une <em>mesure positive</em> sur <span class="math inline">\((\Omega, \mathcal{F})\)</span>.</p>
-<p>Le triplet <span class="math inline">\((\Omega, \mathcal{F}, \mu)\)</span> est appelé un espace mesuré.</p>
+<p><span class="theorem-title"><strong>Définition 2.5 (Mesure positive)</strong></span> Étant donné un espace mesurable <span class="math inline">\((\Omega, \mathcal{F})\)</span>, une fonction <span class="math inline">\(\sigma\)</span>-additive <span class="math inline">\(\mu\)</span> envoyant <span class="math inline">\(\mathcal{F}\)</span> dans <span class="math inline">\([0,\infty)\cup \{\infty\}\)</span> est appelée <em>mesure positive</em> sur <span class="math inline">\((\Omega, \mathcal{F})\)</span> si <span class="math inline">\(\mu(\emptyset)=0\)</span>.</p>
+<p>Le triplet <span class="math inline">\((\Omega, \mathcal{F}, \mu)\)</span> est appelé espace mesuré.</p>
 </div>
 </div>
 </div>
 </div>
-<p>Par <a href="#prp-sigma-add-continuity" class="quarto-xref">Proposition <span>2.1</span></a>, pour toute mesure positive <span class="math inline">\(\mu\)</span>, on a <span class="math inline">\(\mu(\emptyset)=0\)</span>. Lorsque <span class="math inline">\(\mu(\Omega)\)</span> est fini, on dit que <span class="math inline">\(\mu\)</span> est une mesure positive <em>finie</em>.</p>
+<p>Lorsque <span class="math inline">\(\mu(\Omega)\)</span> est fini, on dit que <span class="math inline">\(\mu\)</span> est une mesure positive <em>finie</em>.</p>
 <div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -559,7 +588,7 @@ Cette topologie se généralise à toute dimension finie <span class="math inlin
 </div>
 <div class="callout-body-container">
 <div id="exr-fundspace" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 2.5</strong></span> Soit <span class="math inline">\(\Omega = \{0,1\}^*\)</span> l’ensemble des suites infinies de <span class="math inline">\(0\)</span> et <span class="math inline">\(1\)</span> (indexées à partir de <span class="math inline">\(1\)</span>). Soit <span class="math inline">\(\mathcal{F}_n \subseteq 2^\Omega\)</span> la <span class="math inline">\(\sigma\)</span>-algèbre engendrée par les événements de la forme suivante : <span class="math inline">\(\{ \omega : \omega \in \Omega, \omega_i = 1\}\)</span> pour <span class="math inline">\(1\leq i\leq n\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercice 2.6</strong></span> Soit <span class="math inline">\(\Omega = \{0,1\}^*\)</span> l’ensemble des suites infinies de <span class="math inline">\(0\)</span> et de <span class="math inline">\(1\)</span> (indicées à partir de <span class="math inline">\(1\)</span>). Soit <span class="math inline">\(\mathcal{F}_n \subseteq 2^\Omega\)</span> la <span class="math inline">\(\sigma\)</span>-algèbre engendrée par les événements de la forme : <span class="math inline">\(\{ \omega : \omega \in \Omega, \omega_i = 1\}\)</span> pour <span class="math inline">\(1\leq i\leq n\)</span>.</p>
 <ul>
 <li>Définir une fonction <span class="math inline">\(\sigma\)</span>-additive sur <span class="math inline">\((\Omega, \mathcal{F}_n)\)</span>.</li>
 <li>Quelle est la <span class="math inline">\(\sigma\)</span>-algèbre engendrée par <span class="math inline">\(\cup_{n\geq 1} \mathcal{F}_n\)</span> ?</li>
@@ -571,7 +600,7 @@ Cette topologie se généralise à toute dimension finie <span class="math inlin
 </div>
 <p>
 </p>
-<p>Une mesure positive <span class="math inline">\(\mu\)</span> n’est pas nécessairement une loi de probabilité. Par exemple, la <em>mesure de comptage</em> <span class="math inline">\(\mu\)</span> sur <span class="math inline">\(\mathbb{N}\)</span> satisfait <span class="math inline">\(\mu(A) = |A|\)</span> pour tout <span class="math inline">\(A \subseteq \mathbb{N}\)</span>, donc on a <span class="math inline">\(\mu(\mathbb{N})=\infty.\)</span></p>
+<p>Une mesure positive <span class="math inline">\(\mu\)</span> n’est pas nécessairement une loi de probabilité. Par exemple, la <em>mesure de comptage</em> <span class="math inline">\(\mu\)</span> sur <span class="math inline">\(\mathbb{N}\)</span> satisfait <span class="math inline">\(\mu(A) = |A|\)</span> pour tout <span class="math inline">\(A \subseteq \mathbb{N}\)</span>, si bien que <span class="math inline">\(\mu(\mathbb{N})=\infty.\)</span></p>
 <p>
 </p>
 <div class="callout callout-style-simple callout-note no-icon">
@@ -581,7 +610,7 @@ Cette topologie se généralise à toute dimension finie <span class="math inlin
 </div>
 <div class="callout-body-container">
 <div id="def-probmeasure" class="theorem definition">
-<p><span class="theorem-title"><strong>Définition 2.6 (Loi de probabilité)</strong></span> Étant donné un espace mesurable <span class="math inline">\((\Omega, \mathcal{F})\)</span>, une fonction <span class="math inline">\(\mu\)</span> de <span class="math inline">\(\mathcal{F}\)</span> vers <span class="math inline">\([0,\infty)\)</span> est une loi de probabilité sur <span class="math inline">\((\Omega, \mathcal{F})\)</span> si</p>
+<p><span class="theorem-title"><strong>Définition 2.6 (Loi de probabilité)</strong></span> Étant donné un espace mesurable <span class="math inline">\((\Omega, \mathcal{F})\)</span>, une fonction <span class="math inline">\(\mu\)</span> envoyant <span class="math inline">\(\mathcal{F}\)</span> dans <span class="math inline">\([0,\infty)\)</span> est une loi de probabilité sur <span class="math inline">\((\Omega, \mathcal{F})\)</span> si</p>
 <ol type="1">
 <li>
 <span class="math inline">\(\mu\)</span> est une mesure positive sur <span class="math inline">\((\Omega, \mathcal{F})\)</span> et</li>
@@ -599,19 +628,20 @@ Cette topologie se généralise à toute dimension finie <span class="math inlin
 </div>
 <div class="callout-body-container">
 <div id="exr-challenge" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 2.6</strong></span> Si l’on pense que <span class="math inline">\((\mathbb{R}, 2^{\mathbb{R}})\)</span> est un espace mesurable, définir une mesure <span class="math inline">\(\sigma\)</span>-additive sur celui-ci. Essayer même de définir une mesure de probabilité.</p>
+<p><span class="theorem-title"><strong>Exercice 2.7</strong></span> Si l’on pense que <span class="math inline">\((\mathbb{R}, 2^{\mathbb{R}})\)</span> est un espace mesurable, définir une mesure <span class="math inline">\(\sigma\)</span>-additive dessus. Tenter même de définir une mesure de probabilité.</p>
 </div>
 </div>
 </div>
 </div>
 <div id="rem-sigma-add" class="proof remark">
-<p><span class="proof-title"><em>Remarque 2.1</em>. </span>La notion de <span class="math inline">\(\sigma\)</span>-additivité est strictement plus forte que l’additivité finie. En supposant l’ (comme d’usage en analyse ou en probabilités), il existe une fonction <span class="math inline">\(\mu\)</span> qui associe à <span class="math inline">\(2^{\mathbb{N}}\)</span> des valeurs dans <span class="math inline">\([0,1]\)</span>, qui est additive (<span class="math inline">\(\mu(A \cup B)= \mu(A) + \mu(B)\)</span> pour tous <span class="math inline">\(A, B\)</span> tels que <span class="math inline">\(A\cap B=\emptyset\)</span>), nulle sur tous les sous-ensembles finis de <span class="math inline">\(\mathbb{N}\)</span> et telle que <span class="math inline">\(\mu(\mathbb{N})=1\)</span>. Une telle fonction n’est pas <span class="math inline">\(\sigma\)</span>-additive.</p>
+<p><span class="proof-title"><em>Remarque 2.1</em>. </span>La notion de <span class="math inline">\(\sigma\)</span>-additivité est strictement plus forte que l’additivité finie.</p>
+<p>En admettant l’<em>axiome du choix</em> (comme d’habitude en probabilités), il existe une fonction <span class="math inline">\(\mu\)</span> qui envoie <span class="math inline">\(2^{\mathbb{N}}\)</span> dans <span class="math inline">\([0,1]\)</span>, qui est additive (<span class="math inline">\(\mu(A \cup B)= \mu(A) + \mu(B)\)</span> pour tous <span class="math inline">\(A, B\)</span> avec <span class="math inline">\(A\cap B=\emptyset\)</span>), nulle sur tous les sous-ensembles finis de <span class="math inline">\(\mathbb{N}\)</span> et telle que <span class="math inline">\(\mu(\mathbb{N})=1\)</span>. Une telle fonction n’est pas <span class="math inline">\(\sigma\)</span>-additive.</p>
 </div>
 </section><section id="sec-lebesgue" class="level2" data-number="2.4"><h2 data-number="2.4" class="anchored" data-anchor-id="sec-lebesgue">
 <span class="header-section-number">2.4</span> Mesure de Lebesgue</h2>
 <p>
 </p>
-<p>Nous admettons l’existence de la mesure de Lebesgue. C’est le contenu du théorème suivant.</p>
+<p>Nous tenons pour acquise l’existence de la mesure de Lebesgue. C’est le contenu du théorème suivant.</p>
 <p>
 </p>
 <div class="callout callout-style-simple callout-note no-icon">
@@ -621,17 +651,17 @@ Cette topologie se généralise à toute dimension finie <span class="math inlin
 </div>
 <div class="callout-body-container">
 <div id="thm-lebesgue" class="theorem">
-<p><span class="theorem-title"><strong>Théorème 2.1 (Existence de la mesure de Lebesgue)</strong></span> Il existe une mesure <span class="math inline">\(\sigma\)</span>-additive unique <span class="math inline">\(\ell\)</span> sur <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span> telle que <span class="math inline">\(\ell((a, b]) = b - a\)</span> pour tous <span class="math inline">\(a &lt; b\)</span> finis.</p>
+<p><span class="theorem-title"><strong>Théorème 2.1 (Existence de la mesure de Lebesgue)</strong></span> Il existe une unique mesure <span class="math inline">\(\sigma\)</span>-additive <span class="math inline">\(\ell\)</span> sur <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span> telle que <span class="math inline">\(\ell((a, b]) = b - a\)</span> pour tous <span class="math inline">\(a &lt; b\)</span> finis.</p>
 </div>
 </div>
 </div>
 </div>
 <p>
 </p>
-<p><a href="#thm-lebesgue" class="quarto-xref">Le théorème <span>2.1</span></a> est typique des énoncés de la théorie de la mesure. Il définit un objet complexe (une mesure) par sa trace sur une collection simple d’ensembles (les intervalles).</p>
-<p>La démonstration de <a href="#thm-lebesgue" class="quarto-xref">le théorème <span>2.1</span></a> peut être découpée en plusieurs étapes significatives. D’abord définir une fonction de longueur sur les intervalles. Montrer que cette fonction peut être prolongée en une fonction additive sur les unions finies, intersections finies et complémentaires d’intervalles. Puis vérifier que le prolongement est en fait <span class="math inline">\(\sigma\)</span>-additif sur la fermeture des intervalles sous les opérations ensemblistes finies (qui n’est pas une <span class="math inline">\(\sigma\)</span>-algèbre).</p>
-<p>Une fois ce prolongement additif construit, utiliser le théorème de prolongement de Carathéodory ci-dessous pour prouver que la fonction de longueur peut être prolongée en une fonction <span class="math inline">\(\sigma\)</span>-additive sur la <span class="math inline">\(\sigma\)</span>-algèbre engendrée par les intervalles (la <span class="math inline">\(\sigma\)</span>-algèbre borélienne).</p>
-<p>Il reste alors à vérifier que le prolongement est unique. Cela peut se faire par un argument de classe engendrante, par exemple le <em>lemme des classes monotones</em> <a href="#thm-monotoneclasslemma" class="quarto-xref">lemme <span>2.4</span></a>.</p>
+<p>Le <a href="#thm-lebesgue" class="quarto-xref">Théorème <span>2.1</span></a> est typique des énoncés de la théorie de la mesure. Il définit un objet complexe (une mesure) par sa trace sur une collection simple d’ensembles (les intervalles).</p>
+<p>Les preuves du <a href="#thm-lebesgue" class="quarto-xref">Théorème <span>2.1</span></a> peuvent être découpées en plusieurs morceaux significatifs. L’un d’eux peut être esquissé comme suit. On définit d’abord une fonction longueur sur les intervalles. On montre que cette fonction se prolonge en une fonction additive sur les unions finies, les intersections finies et les complémentaires d’intervalles. On vérifie ensuite que le prolongement est en fait <span class="math inline">\(\sigma\)</span>-additif sur la clôture des intervalles sous les opérations ensemblistes finies (qui n’est pas une <span class="math inline">\(\sigma\)</span>-algèbre).</p>
+<p>Une fois ce prolongement additif construit, on utilise le théorème d’extension de Carathéodory ci-dessous pour montrer que la fonction longueur se prolonge en une fonction <span class="math inline">\(\sigma\)</span>-additive sur la <span class="math inline">\(\sigma\)</span>-algèbre engendrée par les intervalles (la <span class="math inline">\(\sigma\)</span>-algèbre borélienne).</p>
+<p>Il reste alors à vérifier que le prolongement est unique. Cela peut se faire par un argument de classe génératrice, par exemple le <em>lemme de la classe monotone</em> <a href="#thm-monotoneclasslemma" class="quarto-xref">Lemme <span>2.4</span></a>.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -639,7 +669,7 @@ Cette topologie se généralise à toute dimension finie <span class="math inlin
 </div>
 <div class="callout-body-container">
 <div id="thm-caratheodory" class="theorem">
-<p><span class="theorem-title"><strong>Théorème 2.2 (Théorème de prolongement de Carathéodory”)</strong></span> Soit <span class="math inline">\(\mathcal{A} \subseteq 2^{\Omega}\)</span>. Supposons que <span class="math inline">\(\mathcal{A}\)</span> contient <span class="math inline">\(\emptyset, \Omega\)</span>, et est stable par unions finies et par passage au complémentaire. Supposons que <span class="math inline">\(\rho : \mathcal{A} \to [0, \infty]\)</span> est <span class="math inline">\(\sigma\)</span>-additive sur <span class="math inline">\(\mathcal{A}\)</span>.</p>
+<p><span class="theorem-title"><strong>Théorème 2.2 (Théorème d’extension de Carathéodory)</strong></span> Soit <span class="math inline">\(\mathcal{A} \subseteq 2^{\Omega}\)</span>. On suppose que <span class="math inline">\(\mathcal{A}\)</span> contient <span class="math inline">\(\emptyset, \Omega\)</span>, et qu’elle est stable par unions finies et par passage au complémentaire. On suppose que <span class="math inline">\(\rho : \mathcal{A} \to [0, \infty]\)</span> est <span class="math inline">\(\sigma\)</span>-additive sur <span class="math inline">\(\mathcal{A}\)</span>.</p>
 <p>Alors il existe une mesure <span class="math inline">\(\mu\)</span> sur <span class="math inline">\(\sigma(\mathcal{A})\)</span> telle que <span class="math inline">\(\mu(A)=\rho(A)\)</span> pour tout <span class="math inline">\(A \in \mathcal{A}\)</span>.</p>
 </div>
 </div>
@@ -652,8 +682,8 @@ P(A) = \frac{\ell(A)}{b-a} = \frac{\ell(A)}{\ell([a,b])}
 <p>à tout <span class="math inline">\(A \in \mathcal{B}(\mathbb{R}) \cap [a,b]\)</span>.</p>
 <br><p>
 </p>
-<p>La loi uniforme sur <span class="math inline">\(([0,1], \mathcal{B}([0,1]))\)</span> peut sembler une curiosité académique sans utilité pratique. Cette opinion superficielle doit être écartée. À l’aide d’un générateur pour la loi uniforme, il est possible de construire un générateur pour toute loi de probabilité sur <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span>. Cela peut se faire à l’aide d’un procédé appelé la <em>transformation quantile</em>. En ce sens, la loi uniforme est la mère de toutes les lois.</p>
-<p>Une issue <span class="math inline">\(\omega\)</span> de la loi uniforme est un nombre réel. À quoi ressemble une issue typique ? Un nombre réel <span class="math inline">\(\omega \in [0,1]\)</span> admet des développements binaires : <span class="math inline">\(\omega = \sum_{i=1}^\infty b_i 2^{-1}\)</span> avec <span class="math inline">\(b_i \in \{0,1\}\)</span>. Quelle est la probabilité qu’il existe un développement binaire unique ? D’abord, vérifier si cette probabilité est bien définie. En supposant que le développement binaire est unique, on dit que <span class="math inline">\(\omega\)</span> est <em>normal</em> si <span class="math inline">\(\lim_n \frac{1}{n}\sum_{i=1}^n b_i(\omega) = 1/2\)</span>. La probabilité d’obtenir un nombre normal est-elle bien définie ? Si oui, la calculer.</p>
+<p>La loi uniforme sur <span class="math inline">\(([0,1], \mathcal{B}([0,1]))\)</span> a l’apparence d’une curiosité académique sans utilité pratique. Cette opinion superficielle doit être dissipée. À partir d’un générateur de la loi uniforme, il est possible de construire un générateur pour n’importe quelle loi de probabilité sur <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span>. Cela peut se faire à l’aide d’un procédé appelé <em>transformation quantile</em>. En ce sens, la loi uniforme est la mère de toutes les lois.</p>
+<p>Une issue <span class="math inline">\(\omega\)</span> de la loi uniforme est un nombre réel. À quoi ressemble une issue typique ? Un nombre réel <span class="math inline">\(\omega \in [0,1]\)</span> admet des développements binaires : <span class="math inline">\(\omega = \sum_{i=1}^\infty b_i 2^{-1}\)</span> avec <span class="math inline">\(b_i \in \{0,1\}\)</span>. Quelle est la probabilité qu’il existe un unique développement binaire ? Vérifier d’abord que cette probabilité est bien définie. En supposant que le développement binaire est unique, <span class="math inline">\(\omega\)</span> est dit <em>normal</em> si <span class="math inline">\(\lim_n \frac{1}{n}\sum_{i=1}^n b_i(\omega) = 1/2\)</span>. La probabilité d’obtenir un nombre normal est-elle bien définie ? Si oui, la calculer.</p>
 <br><p>
 </p>
 <div class="callout callout-style-simple callout-tip no-icon">
@@ -663,14 +693,14 @@ P(A) = \frac{\ell(A)}{b-a} = \frac{\ell(A)}{\ell([a,b])}
 </div>
 <div class="callout-body-container">
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 2.7</strong></span> Vérifier que <span class="math inline">\(\mathcal{B}(\mathbb{R}) \cap [a,b] =  \Big\{ A \cap [a,b] : A \in \mathcal{B}(\mathbb{R}) \Big\}\)</span> est la <span class="math inline">\(\sigma\)</span>-algèbre engendrée par la trace de la topologie usuelle de <span class="math inline">\(\mathbb{R}\)</span> sur <span class="math inline">\([a,b]\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercice 2.8</strong></span> Vérifier que <span class="math inline">\(\mathcal{B}(\mathbb{R}) \cap [a,b] =  \Big\{ A \cap [a,b] : A \in \mathcal{B}(\mathbb{R}) \Big\}\)</span> est la <span class="math inline">\(\sigma\)</span>-algèbre engendrée par la trace de la topologie usuelle de <span class="math inline">\(\mathbb{R}\)</span> sur <span class="math inline">\([a,b]\)</span>.</p>
 </div>
 </div>
 </div>
 </div>
-<p>Le théorème d’existence de Lebesgue peut être prolongé. En effet, toute définition raisonnable de la longueur d’un intervalle peut servir de point de départ.</p>
-<p>Rappelons qu’une fonction réelle est CADLAG si elle est continue à droite partout, et possède des limites à gauche partout.</p>
-<p>Le théorème suivant peut être établi d’une manière parallèle à la construction de la mesure de Lebesgue.</p>
+<p>Le théorème d’existence de Lebesgue peut être étendu. En effet, toute définition raisonnable de la longueur d’un intervalle peut servir de point de départ.</p>
+<p>Rappelons qu’une fonction réelle est càdlàg si elle est continue à droite en tout point et admet des limites à gauche en tout point.</p>
+<p>Le théorème suivant peut être établi d’une façon parallèle à la construction de la mesure de Lebesgue.</p>
 <br><p>
 </p>
 <div class="callout callout-style-simple callout-note no-icon">
@@ -680,7 +710,7 @@ P(A) = \frac{\ell(A)}{b-a} = \frac{\ell(A)}{\ell([a,b])}
 </div>
 <div class="callout-body-container">
 <div id="thm-dudley3-1-3" class="theorem">
-<p><span class="theorem-title"><strong>Théorème 2.3</strong></span> Toute fonction CADLAG non décroissante <span class="math inline">\(F\)</span> sur <span class="math inline">\(\mathbb{R}\)</span> définit une mesure <span class="math inline">\(\sigma\)</span>-additive <span class="math inline">\(\mu\)</span> sur <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span> qui satisfait :</p>
+<p><span class="theorem-title"><strong>Théorème 2.3</strong></span> Toute fonction càdlàg croissante <span class="math inline">\(F\)</span> sur <span class="math inline">\(\mathbb{R}\)</span> définit une mesure <span class="math inline">\(\sigma\)</span>-additive <span class="math inline">\(\mu\)</span> sur <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span> qui satisfait :</p>
 <p><span class="math display">\[
 \mu((a, b]) = F(b) - F(a)
 \]</span></p>
@@ -691,7 +721,7 @@ P(A) = \frac{\ell(A)}{b-a} = \frac{\ell(A)}{\ell([a,b])}
 <br><p>
 </p>
 <p>On retrouve le théorème d’existence de Lebesgue en prenant <span class="math inline">\(F(x)=x\)</span>.</p>
-<p>Si l’on se restreint aux fonctions <span class="math inline">\(F\)</span> qui satisfont <span class="math inline">\(\lim_{x \to -\infty} F(x)=0\)</span> et <span class="math inline">\(\lim_{x \to \infty} F(x)=1\)</span>, le théorème <a href="#thm-dudley3-1-3" class="quarto-xref">Théorème <span>2.3</span></a> définit des lois de probabilité par leurs <em>fonctions de répartition</em> (plus de détails à ce sujet dans <a href="#sec-distribfun" class="quarto-xref"><span>Section 2.7</span></a>).</p>
+<p>Si l’on se restreint aux fonctions <span class="math inline">\(F\)</span> qui satisfont <span class="math inline">\(\lim_{x \to -\infty} F(x)=0\)</span> et <span class="math inline">\(\lim_{x \to \infty} F(x)=1\)</span>, le Théorème <a href="#thm-dudley3-1-3" class="quarto-xref">Théorème <span>2.3</span></a> définit des lois de probabilité par l’intermédiaire de leurs <em>fonctions de répartition</em> (plus de détails sur ce sujet dans <a href="#sec-distribfun" class="quarto-xref"><span>Section 2.7</span></a>).</p>
 <br><p>
 </p>
 <div class="callout callout-style-simple callout-tip no-icon">
@@ -701,7 +731,7 @@ P(A) = \frac{\ell(A)}{b-a} = \frac{\ell(A)}{\ell([a,b])}
 </div>
 <div class="callout-body-container">
 <div id="exr-dudley3-1-3" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 2.8</strong></span> Faut-il vraiment supposer que la fonction <span class="math inline">\(F\)</span> possède des limites à gauche dans le théorème <a href="#thm-dudley3-1-3" class="quarto-xref">Théorème <span>2.3</span></a> ?</p>
+<p><span class="theorem-title"><strong>Exercice 2.9</strong></span> Faut-il vraiment supposer que la fonction <span class="math inline">\(F\)</span> admet des limites à gauche dans le Théorème <a href="#thm-dudley3-1-3" class="quarto-xref">Théorème <span>2.3</span></a> ?</p>
 </div>
 </div>
 </div>
@@ -710,8 +740,8 @@ P(A) = \frac{\ell(A)}{b-a} = \frac{\ell(A)}{\ell([a,b])}
 </p>
 </section><section id="sec-measurablefunctionsrv" class="level2" data-number="2.5"><h2 data-number="2.5" class="anchored" data-anchor-id="sec-measurablefunctionsrv">
 <span class="header-section-number">2.5</span> Fonctions mesurables et variables aléatoires</h2>
-<p>Jusqu’ici, nous n’avons parlé que de probabilités et de mesures d’ensembles (événements). Comme la modélisation stochastique est à la base de l’analyse quantitative, nous introduisons la notion de fonction mesurable. Cela nous permet de traiter des fonctions numériques qui associent des issues à <span class="math inline">\(\mathbb{R}\)</span> ou <span class="math inline">\(\mathbb{R}^d\)</span>.</p>
-<p>Toute fonction numérique n’est pas mesurable. Pour définir ce qu’on appelle une fonction mesurable, il faut la notion d’<em>image réciproque</em> ou de <em>préimage</em>.</p>
+<p>Jusqu’ici, nous n’avons parlé que de probabilités et de mesures d’ensembles (d’événements). Comme la modélisation stochastique est au fondement de l’analyse quantitative, nous introduisons la notion de fonction mesurable. Cela nous permet de traiter des fonctions numériques qui envoient les issues dans <span class="math inline">\(\mathbb{R}\)</span> ou <span class="math inline">\(\mathbb{R}^d\)</span>.</p>
+<p>Toute fonction numérique n’est pas mesurable. Pour définir ce que l’on appelle une fonction mesurable, nous avons besoin de la notion d’<em>image inverse</em> ou de <em>préimage</em>.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -719,22 +749,22 @@ P(A) = \frac{\ell(A)}{b-a} = \frac{\ell(A)}{\ell([a,b])}
 </div>
 <div class="callout-body-container">
 <div id="def-preimage" class="theorem definition">
-<p><span class="theorem-title"><strong>Définition 2.7 (Préimage)</strong></span> Soit <span class="math inline">\(f\)</span> une fonction de <span class="math inline">\(\mathcal{X}\)</span> vers <span class="math inline">\(\mathcal{Y}\)</span> ; on note <span class="math inline">\(f^{-1}\)</span> la fonction qui associe à <span class="math inline">\(2^{\mathcal{Y}}\)</span> un élément de <span class="math inline">\(2^{\mathcal{X}}\)</span> définie par</p>
+<p><span class="theorem-title"><strong>Définition 2.7 (Image inverse)</strong></span> Soit <span class="math inline">\(f\)</span> une fonction de <span class="math inline">\(\mathcal{X}\)</span> vers <span class="math inline">\(\mathcal{Y}\)</span>, on note <span class="math inline">\(f^{-1}\)</span> la fonction qui envoie <span class="math inline">\(2^{\mathcal{Y}}\)</span> dans <span class="math inline">\(2^{\mathcal{X}}\)</span> définie par</p>
 <p><span class="math display">\[\begin{align*}
 f^{-1}: \qquad 2^{\mathcal{Y}} &amp; \rightarrow  2^{\mathcal{X}} \\
 B &amp; \mapsto f^{-1}(B) = \Big\{ x : x \in \mathcal{X}, f(x) \in B \Big\} \, .
 \end{align*}\]</span></p>
-<p>L’ensemble <span class="math inline">\(f^{-1}(B)\)</span> est appelé la <em>préimage</em> ou l’<em>image réciproque</em> de <span class="math inline">\(B\)</span> sous <span class="math inline">\(f\)</span>.</p>
+<p>L’ensemble <span class="math inline">\(f^{-1}(B)\)</span> est appelé <em>préimage</em> ou <em>image inverse</em> de <span class="math inline">\(B\)</span> par <span class="math inline">\(f\)</span>.</p>
 </div>
 </div>
 </div>
 </div>
-<p>Notons que <span class="math inline">\(f^{-1}\)</span> ne désigne pas l’inverse de la fonction <span class="math inline">\(f\)</span>, qui peut ne pas être injective. Dans ce cours, <span class="math inline">\(f^{-1}\)</span> est une fonction d’ensembles de la partie du codomaine de <span class="math inline">\(f\)</span> vers la partie du domaine de <span class="math inline">\(f\)</span>. La fonction inverse, si elle existe (ou la fonction inverse généralisée), est notée <span class="math inline">\(f^\leftarrow\)</span>. La fonction inverse, lorsqu’elle existe, associe <span class="math inline">\(f(\mathcal{X})\subseteq \mathcal{Y}\)</span> à <span class="math inline">\(\mathcal{X}\)</span>.</p>
+<p>Remarquons que <span class="math inline">\(f^{-1}\)</span> ne désigne pas l’inverse de la fonction <span class="math inline">\(f\)</span>, qui peut ne pas être injective. Dans ce cours, <span class="math inline">\(f^{-1}\)</span> est une fonction d’ensembles de l’ensemble des parties de l’ensemble d’arrivée de <span class="math inline">\(f\)</span> vers l’ensemble des parties de l’ensemble de départ de <span class="math inline">\(f\)</span>. La fonction inverse, si elle existe (ou la fonction inverse généralisée) est notée <span class="math inline">\(f^\leftarrow\)</span>. La fonction inverse, lorsqu’elle existe, envoie <span class="math inline">\(f(\mathcal{X})\subseteq \mathcal{Y}\)</span> dans <span class="math inline">\(\mathcal{X}\)</span>.</p>
 <div id="exm-ideal-hashing" class="theorem example">
-<p><span class="theorem-title"><strong>Exemple 2.5</strong></span> Rappelons le cadre idéalisé du hachage de <a href="01-intro.fr.html#sec-hashing" class="quarto-xref"><span>Section 1.1</span></a>. Soit <span class="math inline">\(\Omega\)</span> l’ensemble des fonctions de <span class="math inline">\(1, \ldots, n\)</span> vers <span class="math inline">\(1, \ldots, m\)</span> (supposons <span class="math inline">\(n \leq m\)</span>). Pour <span class="math inline">\(\omega \in \Omega\)</span> (<span class="math inline">\(\omega\)</span> est une fonction, mais c’est aussi une suite de longueur <span class="math inline">\(n\)</span> à valeurs dans <span class="math inline">\(1, \ldots, m\)</span>), posons <span class="math inline">\(f(\omega)\)</span> égal au nombre de valeurs dans <span class="math inline">\(1, \ldots, m\)</span> qui n’apparaissent pas dans <span class="math inline">\(\omega\)</span> (le nombre de cases vides dans l’allocation définie par <span class="math inline">\(\omega\)</span>). La fonction <span class="math inline">\(f\)</span> est une fonction numérique qui associe à <span class="math inline">\(\Omega=\{1, \ldots, m\}^n\)</span> . Pour <span class="math inline">\(B \in \mathbb{N}\)</span>, <span class="math inline">\(f^{-1}(B)\)</span> est le sous-ensemble des allocations qui ont <span class="math inline">\(k\)</span> cases vides, <span class="math inline">\(k \in B\)</span>.</p>
+<p><span class="theorem-title"><strong>Exemple 2.5</strong></span> Rappelons le cadre du hachage idéalisé de <a href="01-intro.fr.html#sec-hashing" class="quarto-xref"><span>Section 1.1</span></a>. Soit <span class="math inline">\(\Omega\)</span> l’ensemble des fonctions de <span class="math inline">\(1, \ldots, n\)</span> vers <span class="math inline">\(1, \ldots, m\)</span> (on suppose <span class="math inline">\(n \leq m\)</span>). Pour <span class="math inline">\(\omega \in \Omega\)</span> (<span class="math inline">\(\omega\)</span> est une fonction, mais c’est aussi une suite de longueur <span class="math inline">\(n\)</span> à valeurs dans <span class="math inline">\(1, \ldots, m\)</span>), soit <span class="math inline">\(f(\omega)\)</span> le nombre de valeurs de <span class="math inline">\(1, \ldots, m\)</span> qui n’apparaissent pas dans <span class="math inline">\(\omega\)</span> (le nombre d’urnes vides dans l’allocation définie par <span class="math inline">\(\omega\)</span>). La fonction <span class="math inline">\(f\)</span> est une fonction numérique définie sur <span class="math inline">\(\Omega=\{1, \ldots, m\}^n\)</span>. Pour <span class="math inline">\(B \in \mathbb{N}\)</span>, <span class="math inline">\(f^{-1}(B)\)</span> est le sous-ensemble des allocations qui ont <span class="math inline">\(k\)</span> urnes vides, <span class="math inline">\(k \in B\)</span>.</p>
 </div>
-<p>L’opération de préimage s’accorde bien avec les opérations ensemblistes.</p>
-<p>Les propriétés élémentaires des fonctions mesurables découlent des propriétés des images réciproques. L’image réciproque préserve les opérations ensemblistes.</p>
+<p>L’opération d’image inverse se comporte bien vis-à-vis des opérations ensemblistes.</p>
+<p>Les propriétés élémentaires des fonctions mesurables découlent des propriétés des images inverses. L’image inverse préserve les opérations ensemblistes.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -742,7 +772,7 @@ B &amp; \mapsto f^{-1}(B) = \Big\{ x : x \in \mathcal{X}, f(x) \in B \Big\} \, .
 </div>
 <div class="callout-body-container">
 <div id="prp-propinvimage" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 2.2</strong></span> Soit <span class="math inline">\(f: E \mapsto F\)</span> ; pour <span class="math inline">\(A, B, A_1, \ldots,A_n , \ldots   \subseteq F\)</span>,</p>
+<p><span class="theorem-title"><strong>Proposition 2.4</strong></span> Soit <span class="math inline">\(f: E \mapsto F\)</span>, alors pour <span class="math inline">\(A, B, A_1, \ldots,A_n , \ldots   \subseteq F\)</span>,</p>
 <p><span class="math display">\[\begin{align*}
 f^{-1}(A \cup B) &amp; = f^{-1}(A) \cup f^{-1}(B) \\
 f^{-1}(A \cap B) &amp; = f^{-1}(A) \cap f^{-1}(B) \\
@@ -763,29 +793,12 @@ f^{-1}(F \setminus A) &amp; =  f^{-1}(F) \setminus f^{-1}(A)
 </div>
 <div class="callout-body-container">
 <div id="exr-propinvimage" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 2.9</strong></span> Vérifier la proposition <a href="#prp-propinvimage" class="quarto-xref">Proposition <span>2.2</span></a> de <a href="#sec-distribfun" class="quarto-xref"><span>Section 2.7</span></a></p>
+<p><span class="theorem-title"><strong>Exercice 2.10</strong></span> Vérifier <a href="#prp-propinvimage" class="quarto-xref">Proposition <span>2.4</span></a></p>
 </div>
 </div>
 </div>
 </div>
 <br><p>
-</p>
-<div id="cor">
-<p>Prendre les préimages des éléments d’une <span class="math inline">\(\sigma\)</span>-algèbre définit une <span class="math inline">\(\sigma\)</span>-algèbre.</p>
-</div>
-<div class="callout callout-style-simple callout-tip no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<div id="exr-preimage" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 2.10</strong></span> Soient <span class="math inline">\((\Omega, \mathcal{F})\)</span> et <span class="math inline">\((\Omega', \mathcal{G})\)</span> deux espaces mesurables. Soit <span class="math inline">\(f\)</span> une application de <span class="math inline">\(\Omega\)</span> vers <span class="math inline">\(\Omega'\)</span> ; prouver que <span class="math display">\[\mathcal{H} = \Big\{ f^{-1}(B) : B \in \mathcal{G}\Big\}\]</span> est une <span class="math inline">\(\sigma\)</span>-algèbre de sous-ensembles de <span class="math inline">\(f^{-1}(\Omega')\)</span>.</p>
-</div>
-</div>
-</div>
-</div>
-<p>
 </p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -793,18 +806,75 @@ f^{-1}(F \setminus A) &amp; =  f^{-1}(F) \setminus f^{-1}(A)
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
+<div id="cor-sigma-reimages" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollaire 2.1</strong></span> Prendre les images inverses des éléments d’une <span class="math inline">\(\sigma\)</span>-algèbre définit une <span class="math inline">\(\sigma\)</span>-algèbre.</p>
+</div>
+</div>
+</div>
+</div>
+<p>Une autre proposition utile est la suivante : la collection des images d’une <span class="math inline">\(\sigma\)</span>-algèbre est une <span class="math inline">\(\sigma\)</span>-algèbre. Cette proposition facilite grandement la résolution de <a href="#exr-summeasurable" class="quarto-xref">Exercice <span>2.14</span></a>, <a href="#exr-compmeasurable" class="quarto-xref">Exercice <span>2.15</span></a>, …</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-propinvimage-sigma-algebra" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 2.5</strong></span> Soit <span class="math inline">\((\Omega, \mathcal{F})\)</span> un espace mesurable et <span class="math inline">\(\Omega'\)</span> un ensemble, et soit <span class="math inline">\(f\)</span> une application de <span class="math inline">\(\Omega\)</span> dans <span class="math inline">\(\Omega'\)</span>. Alors <span class="math display">\[\left\{ B : B \subseteq \Omega', f^{-1}(B) \in \mathcal{F} \right\}\]</span> est une <span class="math inline">\(\sigma\)</span>-algèbre de sous-ensembles de <span class="math inline">\(\Omega'\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Soit <span class="math display">\[\mathcal{B} = \left\{ B : B \subseteq \Omega', f^{-1}(B) \in \mathcal{F} \right\}\]</span></p>
+<ul>
+<li>
+<span class="math inline">\(f^{-1}(\emptyset) = \emptyset \in \mathcal{F}\)</span>, <span class="math inline">\(\emptyset \in \mathcal{B}\)</span> ;</li>
+<li>
+<span class="math inline">\(f^{-1}(\Omega') = \Omega \in \mathcal{F}\)</span>, d’où <span class="math inline">\(\Omega'\in \mathcal{B}\)</span> ;</li>
+<li>Si <span class="math inline">\(B_1, \ldots, B_n, \ldots  \in \mathcal{B}\)</span>, alors <span class="math inline">\(f^{-1}(\cup_n B_n ) = \cup_n f^{-1}(B_n) \in \mathcal{F}\)</span> car <span class="math inline">\(\mathcal{F}\)</span> est une <span class="math inline">\(\sigma\)</span>-algèbre, d’où <span class="math inline">\(\cup_n B_n \in \mathcal{B}\)</span> ;</li>
+<li>Si <span class="math inline">\(B \in \mathcal{B}\)</span>, alors <span class="math inline">\(f^{-1}(\Omega' \setminus B) =  f^{-1}(\Omega') \setminus f^{-1}(B) = \Omega \setminus f^{-1}(B) \in \mathcal{F}\)</span> car <span class="math inline">\(\mathcal{F}\)</span> est une <span class="math inline">\(\sigma\)</span>-algèbre, d’où <span class="math inline">\(\Omega' \setminus B \in \mathcal{B}\)</span>.</li>
+</ul>
+<p><span class="math inline">\(\mathcal{B}\)</span> possède toutes les propriétés des <span class="math inline">\(\sigma\)</span>-algèbres.</p>
+<p><span class="math inline">\(\Box\)</span></p>
+</div>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-preimage-generation" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 2.6</strong></span> Soit <span class="math inline">\((\Omega, \mathcal{F})\)</span> un espace mesurable, soit <span class="math inline">\(\Omega'\)</span> un ensemble, soit <span class="math inline">\(\mathcal{B} \subseteq \mathcal{P}(\Omega')\)</span>.</p>
+<p>Soit <span class="math inline">\(f : \Omega \to \Omega'\)</span>.</p>
+<p>Si <span class="math inline">\(f^{-1}(B) \in \mathcal{F}\)</span> pour tout <span class="math inline">\(B \in \mathcal{B}\)</span>, alors <span class="math inline">\(f^{-1}(C) \in \mathcal{F}\)</span> pour tout <span class="math inline">\(C \in \sigma\left(\mathcal{B}\right)\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>L’ensemble <span class="math display">\[\left\{ B : B \subseteq \Omega', f^{-1}(B) \in \mathcal{F} \right\}\]</span> est une <span class="math inline">\(\sigma\)</span>-algèbre d’après <a href="#prp-propinvimage-sigma-algebra" class="quarto-xref">Proposition <span>2.5</span></a> . Cette <span class="math inline">\(\sigma\)</span>-algèbre contient tous les éléments de <span class="math inline">\(\mathcal{B}\)</span> et est donc plus grande que <span class="math inline">\(\sigma(\mathcal{B})\)</span>.</p>
+<p><span class="math inline">\(\Box\)</span></p>
+</div>
+<p>Nous définissons maintenant les fonctions mesurables. En probabilités, les <em>variables aléatoires</em> sont des <em>fonctions mesurables</em>.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="def-measfunc" class="theorem definition">
-<p><span class="theorem-title"><strong>Définition 2.8 (Fonctions mesurables)</strong></span> Soient <span class="math inline">\((\Omega, \mathcal{F})\)</span> et <span class="math inline">\((\Omega', \mathcal{G})\)</span> deux espaces mesurables. Une fonction <span class="math inline">\(f: \Omega \to \Omega'\)</span> est dite <span class="math inline">\(\mathcal{F}/\mathcal{G}\)</span>-mesurable si et seulement si pour tout <span class="math inline">\(B \in \mathcal{G}\)</span>, <span class="math inline">\(f^{-1}(B) \in \mathcal{F}\)</span>.</p>
+<p><span class="theorem-title"><strong>Définition 2.8 (Fonctions mesurables)</strong></span> Soient <span class="math inline">\((\Omega, \mathcal{F})\)</span> et <span class="math inline">\((\Omega', \mathcal{G})\)</span> deux espaces mesurables.</p>
+<p>Une fonction <span class="math inline">\(f: \Omega \to \Omega'\)</span> est dite <span class="math inline">\(\mathcal{F}/\mathcal{G}\)</span>-mesurable</p>
+<p>si et seulement si</p>
+<p>pour tout <span class="math inline">\(B \in \mathcal{G}\)</span>, <span class="math inline">\(f^{-1}(B) \in \mathcal{F}\)</span>.</p>
 </div>
 </div>
 </div>
 </div>
 <p>
 </p>
-<p>Sous quelle condition sur <span class="math inline">\(\mathcal{H}\)</span> la fonction <span class="math inline">\(f\)</span> est-elle <span class="math inline">\(\mathcal{F}/\mathcal{G}\)</span>-mesurable ?</p>
-<div id="exm-hashing-measurable-functions" class="theorem example">
-<p><span class="theorem-title"><strong>Exemple 2.6</strong></span> Rappelons le scénario idéalisé du hachage de <a href="01-intro.fr.html#sec-hashing" class="quarto-xref"><span>Section 1.1</span></a>.</p>
-</div>
+<p>On se trouve souvent face à des questions du type : une certaine <span class="math inline">\(f\)</span> est-elle <span class="math inline">\(\mathcal{F}/\mathcal{G}\)</span>-mesurable ? Il existe de nombreuses conditions suffisantes classiques.</p>
 <div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -824,11 +894,29 @@ f^{-1}(F \setminus A) &amp; =  f^{-1}(F) \setminus f^{-1}(A)
 </div>
 <div class="callout-body-container">
 <div id="exr-borel-continuous-measurable" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 2.12</strong></span> Si <span class="math inline">\(\Omega=\mathbb{R}^d\)</span> est muni de la <span class="math inline">\(\sigma\)</span>-algèbre borélienne, s’agit-il de la plus petite <span class="math inline">\(\sigma\)</span>-algèbre qui rend mesurables toutes les fonctions continues ?</p>
+<p><span class="theorem-title"><strong>Exercice 2.12</strong></span> Si <span class="math inline">\(\Omega=\mathbb{R}^d\)</span> est muni de la <span class="math inline">\(\sigma\)</span>-algèbre borélienne, est-ce la plus petite <span class="math inline">\(\sigma\)</span>-algèbre qui rende toutes les fonctions continues mesurables ?</p>
 </div>
 </div>
 </div>
 </div>
+<p>Afin de vérifier qu’une fonction de <span class="math inline">\(\Omega\)</span> vers <span class="math inline">\(\mathbb{R}\)</span> est <span class="math inline">\(\mathcal{F}/\mathcal{B}(\mathbb{R})\)</span>-mesurable, il suffit de vérifier que l’image inverse d’une famille génératrice de la <span class="math inline">\(\sigma\)</span>-algèbre borélienne est incluse dans <span class="math inline">\(\mathcal{F}\)</span> (d’après <a href="#prp-preimage-generation" class="quarto-xref">Proposition <span>2.6</span></a>).</p>
+<p>Comme les demi-droites engendrent la <span class="math inline">\(\sigma\)</span>-algèbre borélienne, on sera heureux d’invoquer le corollaire suivant.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="cor-checking-measurability" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollaire 2.2</strong></span> Soit <span class="math inline">\((\Omega, \mathcal{F})\)</span> un espace mesurable, soit <span class="math inline">\(f\)</span> une application de <span class="math inline">\(\Omega\)</span> dans <span class="math inline">\(\mathbb{R}\)</span>.</p>
+<p>Alors <span class="math inline">\(f\)</span> est <span class="math inline">\(\mathcal{F}/\mathcal{B}(\mathbb{R})\)</span>-mesurable</p>
+<p>si et seulement si</p>
+<p>pour toute demi-droite <span class="math inline">\((-\infty, x[ \subseteq \mathbb{R}\)</span>, l’ensemble <span class="math inline">\(f^{-1}((-\infty, x[)\)</span> appartient à <span class="math inline">\(\mathcal{F}\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>Nous énonçons maintenant quelques propriétés supplémentaires des fonctions mesurables. On les résume d’ordinaire par l’affirmation un peu vague <em>l’ensemble des fonctions mesurables est stable par les opérations usuelles de l’analyse</em>.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -836,7 +924,8 @@ f^{-1}(F \setminus A) &amp; =  f^{-1}(F) \setminus f^{-1}(A)
 </div>
 <div class="callout-body-container">
 <div id="prp-limmeasurable" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 2.3</strong></span> La limite ponctuelle de fonctions mesurables est une fonction mesurable : si <span class="math inline">\((f_n)_n\)</span> est une suite de fonctions mesurables de <span class="math inline">\((\Omega, \mathcal{F})\)</span> vers <span class="math inline">\((\mathcal{X}, \mathcal{G})\)</span>, et <span class="math inline">\(f_n \to f\)</span> ponctuellement, alors <span class="math inline">\(f\)</span> est une fonction mesurable.</p>
+<p><span class="theorem-title"><strong>Proposition 2.7</strong></span> La limite ponctuelle de fonctions mesurables est une fonction mesurable :</p>
+<p>si <span class="math inline">\((f_n)_n\)</span> est une suite de fonctions mesurables de <span class="math inline">\((\Omega, \mathcal{F})\)</span> vers <span class="math inline">\((\mathcal{X}, \mathcal{G})\)</span>, et <span class="math inline">\(f_n \to f\)</span> ponctuellement, alors <span class="math inline">\(f\)</span> est une fonction mesurable.</p>
 </div>
 </div>
 </div>
@@ -850,13 +939,14 @@ f^{-1}(F \setminus A) &amp; =  f^{-1}(F) \setminus f^{-1}(A)
 </div>
 <div class="callout-body-container">
 <div id="exr-limmeasurable" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 2.13</strong></span> Démontrer la proposition <a href="#prp-limmeasurable" class="quarto-xref">Proposition <span>2.3</span></a></p>
+<p><span class="theorem-title"><strong>Exercice 2.13</strong></span> Démontrer <a href="#prp-limmeasurable" class="quarto-xref">Proposition <span>2.7</span></a></p>
 </div>
 </div>
 </div>
 </div>
 <p>
 </p>
+<p>Si l’on considère des fonctions mesurables à valeurs réelles, on peut énoncer</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -864,13 +954,11 @@ f^{-1}(F \setminus A) &amp; =  f^{-1}(F) \setminus f^{-1}(A)
 </div>
 <div class="callout-body-container">
 <div id="prp-summeasurable" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 2.4</strong></span> La somme de fonctions mesurables est une fonction mesurable : si <span class="math inline">\(f, g\)</span> sont des fonctions mesurables de <span class="math inline">\((\Omega, \mathcal{F})\)</span> vers <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span>, alors <span class="math inline">\(a f + b g\)</span> est une fonction mesurable pour tous <span class="math inline">\(a,b \in \mathbb{R}\)</span>.</p>
+<p><span class="theorem-title"><strong>Proposition 2.8</strong></span> La somme de fonctions mesurables est une fonction mesurable : si <span class="math inline">\(f, g\)</span> sont des fonctions mesurables de <span class="math inline">\((\Omega, \mathcal{F})\)</span> vers <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span>, alors <span class="math inline">\(a f + b g\)</span> est une fonction mesurable pour tous <span class="math inline">\(a,b \in \mathbb{R}\)</span>.</p>
 </div>
 </div>
 </div>
 </div>
-<p>
-</p>
 <div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -878,7 +966,8 @@ f^{-1}(F \setminus A) &amp; =  f^{-1}(F) \setminus f^{-1}(A)
 </div>
 <div class="callout-body-container">
 <div id="exr-summeasurable" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 2.14</strong></span> Démontrer la proposition <a href="#prp-summeasurable" class="quarto-xref">Proposition <span>2.4</span></a></p>
+<p><span class="theorem-title"><strong>Exercice 2.14</strong></span> Démontrer <a href="#prp-summeasurable" class="quarto-xref">Proposition <span>2.8</span></a>.</p>
+<p>Indication : traiter d’abord le cas où <span class="math inline">\(f,g\)</span> sont à valeurs dans <span class="math inline">\([0,\infty)\)</span>, puis utiliser <a href="#cor-checking-measurability" class="quarto-xref">Corollaire <span>2.2</span></a>.</p>
 </div>
 </div>
 </div>
@@ -892,7 +981,8 @@ f^{-1}(F \setminus A) &amp; =  f^{-1}(F) \setminus f^{-1}(A)
 </div>
 <div class="callout-body-container">
 <div id="prp-compmeasurable" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 2.5</strong></span> La composition de fonctions mesurables est une fonction mesurable : si <span class="math inline">\(f\)</span> est une fonction mesurable de <span class="math inline">\((\Omega, \mathcal{F})\)</span> vers <span class="math inline">\((\mathcal{X}, \mathcal{G})\)</span>, et <span class="math inline">\(g\)</span> est une fonction mesurable de <span class="math inline">\((\mathcal{X}, \mathcal{G})\)</span> vers <span class="math inline">\((\mathcal{Y}, \mathcal{H})\)</span>, alors <span class="math inline">\(g \circ f\)</span> (<span class="math inline">\(g \circ f(\omega) = g(f(\omega))\)</span> pour tout <span class="math inline">\(\omega\)</span>) est une fonction mesurable de <span class="math inline">\((\Omega, \mathcal{F})\)</span> vers <span class="math inline">\((\mathcal{Y}, \mathcal{H})\)</span>.</p>
+<p><span class="theorem-title"><strong>Proposition 2.9</strong></span> La composition de fonctions mesurables est une fonction mesurable :</p>
+<p>si <span class="math inline">\(f\)</span> est une fonction mesurable de <span class="math inline">\((\Omega, \mathcal{F})\)</span> vers <span class="math inline">\((\mathcal{X}, \mathcal{G})\)</span>, et <span class="math inline">\(g\)</span> est une fonction mesurable de <span class="math inline">\((\mathcal{X}, \mathcal{G})\)</span> vers <span class="math inline">\((\mathcal{Y}, \mathcal{H})\)</span>, alors <span class="math inline">\(g \circ f\)</span> (<span class="math inline">\(g \circ f(\omega) = g(f(\omega))\)</span> pour tout <span class="math inline">\(\omega\)</span>) est une fonction mesurable de <span class="math inline">\((\Omega, \mathcal{F})\)</span> vers <span class="math inline">\((\mathcal{Y}, \mathcal{H})\)</span>.</p>
 </div>
 </div>
 </div>
@@ -906,15 +996,160 @@ f^{-1}(F \setminus A) &amp; =  f^{-1}(F) \setminus f^{-1}(A)
 </div>
 <div class="callout-body-container">
 <div id="exr-compmeasurable" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 2.15</strong></span> Démontrer la proposition <a href="#prp-compmeasurable" class="quarto-xref">Proposition <span>2.5</span></a></p>
+<p><span class="theorem-title"><strong>Exercice 2.15</strong></span> Démontrer <a href="#prp-compmeasurable" class="quarto-xref">Proposition <span>2.9</span></a>.</p>
 </div>
 </div>
 </div>
 </div>
 <br><p>
-</p></section><section id="sec-dynkin" class="level2" data-number="2.6"><h2 data-number="2.6" class="anchored" data-anchor-id="sec-dynkin">
-<span class="header-section-number">2.6</span> Le théorème des classes monotones</h2>
-<p>Le théorème (ou lemme) des classes monotones est un exemple puissant des arguments de classe engendrante qui peuvent servir à prouver que deux lois de probabilité, voire deux mesures <span class="math inline">\(\sigma\)</span>-finies, sont égales.</p>
+</p>
+<p>
+</p>
+</section><section id="sec-randomvariablesperse" class="level2" data-number="2.6"><h2 data-number="2.6" class="anchored" data-anchor-id="sec-randomvariablesperse">
+<span class="header-section-number">2.6</span> Variables aléatoires générales</h2>
+<p>Une variable aléatoire réelle n’est ni une variable, ni aléatoire. Une variable aléatoire réelle est une fonction mesurable d’un espace mesurable vers la droite réelle munie de la <span class="math inline">\(\sigma\)</span>-algèbre borélienne. Il n’y a rien d’aléatoire dans une variable aléatoire.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-realrv" class="theorem definition">
+<p><span class="theorem-title"><strong>Définition 2.9 (Variable aléatoire à valeurs réelles)</strong></span> Étant donné un espace mesurable <span class="math inline">\((\Omega, \mathbb{F})\)</span>, une application <span class="math inline">\(X\)</span> de <span class="math inline">\(\Omega\)</span> vers <span class="math inline">\(\mathbb{R}\)</span> est une variable aléatoire à valeurs réelles si pour tout <span class="math inline">\(B \in \mathcal{B}(\mathbb{R})\)</span> l’image inverse de <span class="math inline">\(B\)</span> :</p>
+<p><span class="math display">\[
+X^{-1}(B) = \{ \omega : \omega \in \Omega, X(\omega) \in {B}\}
+\]</span></p>
+<p>appartient à <span class="math inline">\(\mathcal{F}\)</span>.</p>
+<p>Une variable aléatoire est une fonction <span class="math inline">\(\mathbb{F}/\mathcal{B}(\mathbb{R})\)</span>-mesurable.</p>
+</div>
+</div>
+</div>
+</div>
+<p>Une fois qu’un espace mesurable est muni d’une loi de probabilité, il est possible de définir la loi (de probabilité) d’une variable aléatoire.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-disrv" class="theorem definition">
+<p><span class="theorem-title"><strong>Définition 2.10</strong></span> Étant donnés <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span> et une variable aléatoire réelle <span class="math inline">\(X\)</span>, la loi ou loi de probabilité de <span class="math inline">\(X\)</span>, notée <span class="math inline">\(P \circ X^{-1}\)</span>, est la loi de probabilité sur <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span> définie par</p>
+<p><span class="math display">\[
+(P \circ X^{-1})(B) =  P(X^{-1}(B)) \quad \text{pour tout } B \in \mathcal{B}(\mathbb{R}).
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<p>Les variables aléatoires peuvent être à valeurs vectorielles, à valeurs dans un espace de fonctions, <em>etc</em>. Les variables aléatoires générales sont définies comme des fonctions mesurables entre espaces mesurables.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-rv" class="theorem definition">
+<p><span class="theorem-title"><strong>Définition 2.11 (Variable aléatoire)</strong></span> Étant donnés deux espaces mesurables <span class="math inline">\((\Omega, \mathcal{F})\)</span> et <span class="math inline">\((\Omega', \mathcal{G})\)</span>, une application <span class="math inline">\(X\)</span> de <span class="math inline">\(\Omega\)</span> vers <span class="math inline">\(\Omega'\)</span> est une variable aléatoire <span class="math inline">\(\mathcal{F}/\mathcal{G}\)</span> si pour tout <span class="math inline">\(B \in \mathcal{G}\)</span> l’image inverse de <span class="math inline">\(B\)</span> :</p>
+<p><span class="math display">\[
+X^{-1}(B) = \{ \omega : \omega \in \Omega, X(\omega) \in {B}\}
+\]</span></p>
+<p>appartient à <span class="math inline">\(\mathcal{F}\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>Les variables aléatoires à valeurs réelles envoient des lois de probabilité vers des lois de probabilité sur la droite réelle. La section suivante est consacrée à des constructions spécifiques de lois de probabilité sur la droite réelle.</p>
+<p>
+</p>
+<p>
+</p></section><section id="sec-distribfun" class="level2" data-number="2.7"><h2 data-number="2.7" class="anchored" data-anchor-id="sec-distribfun">
+<span class="header-section-number">2.7</span> Lois de probabilité sur la droite réelle</h2>
+<p>Une loi de probabilité est un objet complexe : elle envoie une vaste collection d’ensembles (une <span class="math inline">\(\sigma\)</span>-algèbre) dans <span class="math inline">\([0,1]\)</span>. Heureusement, il est possible de caractériser une loi de probabilité par des objets plus simples. Si l’on se restreint aux lois de probabilité sur <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span>, elles peuvent être caractérisées par des fonctions réelles sur <span class="math inline">\(\mathbb{R}\)</span>.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-distrib-fun" class="theorem definition">
+<p><span class="theorem-title"><strong>Définition 2.12 (Fonction de répartition)</strong></span> Étant donnée une loi de probabilité <span class="math inline">\(P\)</span> sur <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span>, la <em>fonction de répartition</em> <span class="math inline">\(F\)</span> de <span class="math inline">\(P\)</span> envoie <span class="math inline">\(\mathbb{R}\)</span> dans <span class="math inline">\([0,1]\)</span> ; elle est définie par</p>
+<p><span class="math display">\[
+x \mapsto F(x) = P(-\infty, x].
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<p>Une loi de probabilité définit une unique fonction de répartition. Ce qui est peut-être surprenant, c’est qu’une fonction de répartition définit une unique loi de probabilité.</p>
+<p>La proposition suivante résume les propriétés caractéristiques des fonctions de répartition.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-prop-distrib-function" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 2.10</strong></span> Soit <span class="math inline">\(F\)</span> une fonction de <span class="math inline">\(\mathbb{R}\)</span> vers <span class="math inline">\([0,1]\)</span>.</p>
+<p>La fonction <span class="math inline">\(F\)</span> est la fonction de répartition d’une loi de probabilité sur <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span> si et seulement si les cinq propriétés suivantes sont satisfaites :</p>
+<ol type="1">
+<li>
+<span class="math inline">\(F\)</span> est croissante,</li>
+<li>
+<span class="math inline">\(F\)</span> est continue à droite</li>
+<li>
+<span class="math inline">\(\lim_{y \nearrow x} F(y)\)</span> existe en tout <span class="math inline">\(x \in \mathbb{R}\)</span> (<span class="math inline">\(F\)</span> admet des limites à gauche en tout point)</li>
+<li><span class="math inline">\(\lim_{x \to -\infty}F(x)=0\)</span></li>
+<li><span class="math inline">\(\lim_{x \to \infty} F(x)= 1.\)</span></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<p>C’est une reformulation de <a href="#thm-dudley3-1-3" class="quarto-xref">Théorème <span>2.3</span></a>.</p>
+<p>::: {.proof} (sens seulement si)</p>
+<p>Supposons que <span class="math inline">\(F\)</span> est la fonction de répartition d’une loi de probabilité <span class="math inline">\(P\)</span> sur <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span>.</p>
+<ol type="1">
+<li>Si <span class="math inline">\(s \leq t\)</span>, <span class="math inline">\((-\infty, s] \subseteq (-\infty, t]\)</span>, donc <span class="math inline">\(F(s)=P(-\infty, s] \leq P(-\infty, t]=F(t)\)</span>.</li>
+<li>Il suffit de vérifier que <span class="math inline">\(t_n \searrow_{n \to \infty} t\)</span> entraîne <span class="math inline">\(F(t_n) \searrow_{n \to \infty} F(t)\)</span>. Cela découle du point b) de <a href="#prp-sigma-add-continuity" class="quarto-xref">Proposition <span>2.3</span></a>.</li>
+<li>Si <span class="math inline">\(t_n \searrow_{n \to \infty} t\)</span>, <span class="math inline">\((F(t_n))_n\)</span> est une suite bornée croissante ; elle admet une limite finie égale à <span class="math inline">\(P(-infty, t[ \leq F(t)\)</span>. C’est une conséquence du point a) de <a href="#prp-sigma-add-continuity" class="quarto-xref">Proposition <span>2.3</span></a>. L’égalité a lieu si et seulement si <span class="math inline">\(P(-\infty,t] - P(-\infty, P\{t\}=0\)</span>.</li>
+<li>C’est une conséquence du point b) de <a href="#prp-sigma-add-continuity" class="quarto-xref">Proposition <span>2.3</span></a>.</li>
+<li>C’est une conséquence du point a) de <a href="#prp-sigma-add-continuity" class="quarto-xref">Proposition <span>2.3</span></a>.</li>
+</ol>
+<p><span class="math inline">\(\Box\)</span></p>
+<p>:::</p>
+<p>La preuve du sens <em>si</em> est reportée à l’étude des fonctions quantile dans <a href="041-characterization.fr.html" class="quarto-xref"><span>Chapitre 13</span></a>.</p>
+<p>Comme sous-produit de la preuve du point 3) dans <a href="#prp-prop-distrib-function" class="quarto-xref">Proposition <span>2.10</span></a>, on obtient</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="cor-diffuse-distrib-function" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollaire 2.3</strong></span> Soit <span class="math inline">\(F\)</span> la fonction de répartition d’une loi de probabilité <span class="math inline">\(P\)</span> sur <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R})\)</span>.</p>
+<p><span class="math inline">\(F\)</span> est continue si et seulement si pour tout <span class="math inline">\(x \in \mathbb{R}\)</span>, <span class="math inline">\(P\{x\}=0\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>La Figure <a href="#fig-distribpoisson" class="quarto-xref">Figure <span>2.1</span></a> montre la fonction de répartition des lois de Poisson pour différentes valeurs du paramètre (voir les Sections <a href="01-intro.fr.html#sec-conv2poisson" class="quarto-xref"><span>Section 1.4</span></a> et <a href="03-families.fr.html#sec-poisson" class="quarto-xref"><span>Section 5.2</span></a> pour plus de détails sur les lois de Poisson). Pour le paramètre <span class="math inline">\(\mu\)</span>, <span class="math inline">\(F_{\mu}(x) = \sum_{k \leq x}  \mathrm{e}^{-\mu} \frac{\mu^k}{k!}\)</span>.</p>
+<!-- ::: {#fig-distribpoisson} -->
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-distribpoisson" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-distribpoisson-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="02-language.fr_files/figure-html/fig-distribpoisson-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-distribpoisson-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 2.1: Fonctions de répartition de lois de Poisson pour différents paramètres. On observe que, apparemment, <span class="math inline">\(\mu \leq \nu \Rightarrow F_{\mu} \geq F_{\nu}\)</span>. Comment établiriez-vous cette propriété de domination ?
+</figcaption></figure>
+</div>
+</div>
+</div>
+<!-- ::: -->
+</section><section id="sec-dynkin" class="level2" data-number="2.8"><h2 data-number="2.8" class="anchored" data-anchor-id="sec-dynkin">
+<span class="header-section-number">2.8</span> Le théorème de la classe monotone</h2>
+<p>Le théorème/lemme de la classe monotone (théorème de Dynkin) est un exemple puissant d’<em>argument de classe génératrice</em>. Il peut servir à montrer que deux mesures de probabilité sont égales (entre autres choses).</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -922,10 +1157,10 @@ f^{-1}(F \setminus A) &amp; =  f^{-1}(F) \setminus f^{-1}(A)
 </div>
 <div class="callout-body-container">
 <div id="def-pi-class" class="theorem definition">
-<p><span class="theorem-title"><strong>Définition 2.9 (Classe <span class="math inline">\(\pi\)</span>)</strong></span> Une collection <span class="math inline">\(\mathcal{G}\)</span> de sous-ensembles de <span class="math inline">\(\Omega\)</span> est dite être une classe <span class="math inline">\(\pi\)</span> si :</p>
+<p><span class="theorem-title"><strong>Définition 2.13 (Classe <span class="math inline">\(\pi\)</span>)</strong></span> Une collection <span class="math inline">\(\mathcal{G}\)</span> de sous-ensembles de <span class="math inline">\(\Omega\)</span> est dite classe <span class="math inline">\(\pi\)</span> si :</p>
 <ul>
 <li><span class="math inline">\(\Omega \in \mathcal{G}\)</span></li>
-<li>elle est stable / fermée par intersection finie <span class="math display">\[A, B \in \mathcal{G} \Rightarrow A \cap B \in \mathcal{G} \, .\]</span>
+<li>elle est stable par intersection finie <span class="math display">\[A, B \in \mathcal{G} \Rightarrow A \cap B \in \mathcal{G} \, .\]</span>
 </li>
 </ul>
 </div>
@@ -944,10 +1179,10 @@ f^{-1}(F \setminus A) &amp; =  f^{-1}(F) \setminus f^{-1}(A)
 </div>
 <div class="callout-body-container">
 <div id="def-monotone-class" class="theorem definition">
-<p><span class="theorem-title"><strong>Définition 2.10 (Classe monotone)</strong></span> Une collection <span class="math inline">\(\mathcal{M}\)</span> de sous-ensembles de <span class="math inline">\(\Omega\)</span> est dite être une classe monotone ou un système <span class="math inline">\(\lambda\)</span> si elle satisfait les propriétés suivantes :</p>
+<p><span class="theorem-title"><strong>Définition 2.14 (Classe monotone)</strong></span> Une collection <span class="math inline">\(\mathcal{M}\)</span> de sous-ensembles de <span class="math inline">\(\Omega\)</span> est dite classe monotone ou <span class="math inline">\(\lambda\)</span>-système si elle satisfait les propriétés suivantes :</p>
 <ul>
 <li><span class="math inline">\(\Omega \in \mathcal{M}\)</span></li>
-<li>Si <span class="math inline">\(A, B \in \mathcal{M}\)</span>, et <span class="math inline">\(A \subseteq B\)</span>, alors <span class="math inline">\(B \setminus A \in \mathcal{M}\)</span>
+<li>Si <span class="math inline">\(A, B \in \mathcal{M}\)</span> et <span class="math inline">\(A \subseteq B\)</span>, alors <span class="math inline">\(B \setminus A \in \mathcal{M}\)</span>
 </li>
 <li>Si <span class="math inline">\(A_n \in \mathcal{M}\)</span> et <span class="math inline">\(A_n \subseteq A_{n+1}\)</span> pour tout <span class="math inline">\(n \in \mathbb{N}\)</span>, alors <span class="math inline">\(\lim_n A_n = \cup_{n \in \mathbb{N}} A_n \in \mathcal{M}\)</span>.</li>
 </ul>
@@ -957,13 +1192,13 @@ f^{-1}(F \setminus A) &amp; =  f^{-1}(F) \setminus f^{-1}(A)
 </div>
 <p>
 </p>
-<p>Une <span class="math inline">\(\sigma\)</span>-algèbre est un système <span class="math inline">\(\lambda\)</span>.</p>
+<p>Une <span class="math inline">\(\sigma\)</span>-algèbre est un <span class="math inline">\(\lambda\)</span>-système.</p>
 <p>
 </p>
-<p>L’intersection d’une collection de systèmes <span class="math inline">\(\lambda\)</span> est un système <span class="math inline">\(\lambda\)</span>. Il est donc pertinent de parler de la plus petite classe <span class="math inline">\(\lambda\)</span> contenant une collection d’ensembles.</p>
+<p>L’intersection d’une collection de <span class="math inline">\(\lambda\)</span>-systèmes est un <span class="math inline">\(\lambda\)</span>-système. Il est donc légitime de parler du plus petit <span class="math inline">\(\lambda\)</span>-système contenant une collection d’ensembles.</p>
 <p>
 </p>
-<p>La proposition facile suivante rend les systèmes <span class="math inline">\(\lambda\)</span> très utiles lorsque l’on veut vérifier que deux lois de probabilité sont égales.</p>
+<p>La proposition facile suivante rend les <span class="math inline">\(\lambda\)</span>-systèmes très utiles lorsque l’on veut vérifier que deux lois de probabilité sont égales.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -971,7 +1206,7 @@ f^{-1}(F \setminus A) &amp; =  f^{-1}(F) \setminus f^{-1}(A)
 </div>
 <div class="callout-body-container">
 <div id="prp-keyobservation" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 2.6</strong></span> La classe d’ensembles sur laquelle deux lois de probabilité coïncident est un système <span class="math inline">\(\lambda\)</span>.</p>
+<p><span class="theorem-title"><strong>Proposition 2.11</strong></span> La classe des ensembles sur lesquels deux lois de probabilité coïncident est un <span class="math inline">\(\lambda\)</span>-système.</p>
 </div>
 </div>
 </div>
@@ -979,21 +1214,21 @@ f^{-1}(F \setminus A) &amp; =  f^{-1}(F) \setminus f^{-1}(A)
 <p>
 </p>
 <div class="proof">
-<p><span class="proof-title"><em>Preuve</em>. </span>Soit <span class="math inline">\((\Omega, \mathcal{F})\)</span> un espace mesurable. Soient <span class="math inline">\(P, Q\)</span> deux lois de probabilité sur <span class="math inline">\((\Omega, \mathcal{F})\)</span>. Posons <span class="math inline">\(\mathcal{C} \subseteq \mathcal{F}\)</span> définie par</p>
+<p><span class="proof-title"><em>Preuve</em>. </span>Soit <span class="math inline">\((\Omega, \mathcal{F})\)</span> un espace mesurable. Soient <span class="math inline">\(P, Q\)</span> deux lois de probabilité sur <span class="math inline">\((\Omega, \mathcal{F})\)</span>. Soit <span class="math inline">\(\mathcal{C} \subseteq \mathcal{F}\)</span> définie par</p>
 <p><span class="math display">\[
 \mathcal{C} = \Big\{ A : A \in \mathcal{F},  P(A)=Q(A) \Big\} \, .
 \]</span></p>
-<p>Par la définition même des mesures, on a <span class="math inline">\(P(\Omega)=Q(\Omega)\)</span>, donc <span class="math inline">\(\Omega \in \mathcal{C}\)</span>.</p>
+<p>Par la définition même des mesures, on a <span class="math inline">\(P(\Omega)=Q(\Omega)\)</span>, d’où <span class="math inline">\(\Omega \in \mathcal{C}\)</span>.</p>
 <p>Si <span class="math inline">\(A \subseteq B\)</span> appartiennent tous deux à <span class="math inline">\(\mathcal{C}\)</span>, encore par la définition même des mesures,</p>
 <p><span class="math display">\[
 P (B \setminus A) = P(B) - P(A) = Q(B) - Q(A) = Q(B \setminus A) \, ,
 \]</span></p>
-<p>donc <span class="math inline">\(B\setminus A \subseteq \mathcal{C}\)</span>.</p>
+<p>d’où <span class="math inline">\(B\setminus A \subseteq \mathcal{C}\)</span>.</p>
 <p>Soit <span class="math inline">\(A_1 \subseteq A_2 \subseteq A_n \subseteq \ldots\)</span> une suite croissante d’éléments de <span class="math inline">\(\mathcal{C}\)</span> ; encore par la définition même des mesures,</p>
 <p><span class="math display">\[
 P(\cup_n A_n) = \lim_n \uparrow P(A_n) = \lim_n \uparrow Q(A_n) = Q(\cup_n A_n) \, .
 \]</span></p>
-<p>Donc <span class="math inline">\(\mathcal{C}\)</span> est fermée par limites monotones.</p>
+<p>Donc <span class="math inline">\(\mathcal{C}\)</span> est stable par limites monotones.</p>
 </div>
 <p>
 </p>
@@ -1004,7 +1239,7 @@ P(\cup_n A_n) = \lim_n \uparrow P(A_n) = \lim_n \uparrow Q(A_n) = Q(\cup_n A_n) 
 </div>
 <div class="callout-body-container">
 <div id="exr-keyobs" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 2.16</strong></span> Que se passe-t-il si l’on considère les collections d’ensembles mesurables sur lesquels deux mesures sont égales ? Que se passe-t-il si l’on suppose que les deux mesures sont finies ?</p>
+<p><span class="theorem-title"><strong>Exercice 2.16</strong></span> Que se passe-t-il si l’on considère les collections d’ensembles mesurables sur lesquels deux mesures sont égales ? Que se passe-t-il si l’on suppose que les deux mesures sont finies ? <span class="math inline">\(\sigma\)</span>-finies</p>
 </div>
 </div>
 </div>
@@ -1016,12 +1251,12 @@ P(\cup_n A_n) = \lim_n \uparrow P(A_n) = \lim_n \uparrow Q(A_n) = Q(\cup_n A_n) 
 </div>
 <div class="callout-body-container">
 <div id="def-sigfinite" class="theorem definition">
-<p><span class="theorem-title"><strong>Définition 2.11 (Mesures <span class="math inline">\(\sigma\)</span>-finies)</strong></span> Une mesure <span class="math inline">\(\mu\)</span> sur <span class="math inline">\((\Omega, \mathcal{F})\)</span> est <span class="math inline">\(\sigma\)</span>-finie si et seulement s’il existe <span class="math inline">\((A_n)_n\)</span> avec <span class="math inline">\(\Omega \subseteq \cup_n A_n\)</span> et <span class="math inline">\(\mu(A_n) &lt; \infty\)</span> pour chaque <span class="math inline">\(n\)</span>.</p>
+<p><span class="theorem-title"><strong>Définition 2.15 (Mesures <span class="math inline">\(\sigma\)</span>-finies)</strong></span> Une mesure <span class="math inline">\(\mu\)</span> sur <span class="math inline">\((\Omega, \mathcal{F})\)</span> est <span class="math inline">\(\sigma\)</span>-finie si et seulement s’il existe <span class="math inline">\((A_n)_n\)</span> avec <span class="math inline">\(\Omega \subseteq \cup_n A_n\)</span> et <span class="math inline">\(\mu(A_n) &lt; \infty\)</span> pour chaque <span class="math inline">\(n\)</span>.</p>
 </div>
 </div>
 </div>
 </div>
-<p>Les mesures finies (ce qui inclut les mesures de probabilité) sont <span class="math inline">\(\sigma\)</span>-finies. La mesure de Lebesgue est <span class="math inline">\(\sigma\)</span>-finie. La mesure de comptage sur <span class="math inline">\(\mathbb{R}\)</span> n’est pas <span class="math inline">\(\sigma\)</span>-finie.</p>
+<p>Les mesures finies (ce qui englobe les mesures de probabilité) sont <span class="math inline">\(\sigma\)</span>-finies. La mesure de comptage sur <span class="math inline">\(\mathbb{N}\)</span> est <span class="math inline">\(\sigma\)</span>-finie. La mesure de Lebesgue est <span class="math inline">\(\sigma\)</span>-finie. La mesure de comptage sur <span class="math inline">\(\mathbb{R}\)</span> n’est pas <span class="math inline">\(\sigma\)</span>-finie.</p>
 <p>
 </p>
 <p>Que se passe-t-il si l’on suppose seulement que les deux mesures sont <span class="math inline">\(\sigma\)</span>-finies ?</p>
@@ -1034,7 +1269,7 @@ P(\cup_n A_n) = \lim_n \uparrow P(A_n) = \lim_n \uparrow Q(A_n) = Q(\cup_n A_n) 
 </div>
 <div class="callout-body-container">
 <div id="thm-monotoneclasslemma" class="theorem">
-<p><span class="theorem-title"><strong>Théorème 2.4 (Lemme des classes monotones)</strong></span> Si <span class="math inline">\(\mathcal{A}\)</span> est un système <span class="math inline">\(\pi\)</span> dans <span class="math inline">\(\Omega\)</span> et <span class="math inline">\(\mathcal{M}\)</span> un système <span class="math inline">\(\lambda\)</span> dans <span class="math inline">\(\Omega\)</span> tels que <span class="math inline">\(\mathcal{A} \subseteq \mathcal{M}\)</span>, alors la <span class="math inline">\(\sigma\)</span>-algèbre engendrée par <span class="math inline">\(\mathcal{A}\)</span>, <span class="math inline">\(\sigma(A)\)</span>, est la plus petite classe <span class="math inline">\(\lambda\)</span> contenant <span class="math inline">\(\mathcal{A}\)</span> : <span class="math display">\[\sigma(\mathcal{A}) \subseteq \mathcal{M} \,.\]</span></p>
+<p><span class="theorem-title"><strong>Théorème 2.4 (Lemme de la classe monotone)</strong></span> Si <span class="math inline">\(\mathcal{A}\)</span> est un <span class="math inline">\(\pi\)</span>-système dans <span class="math inline">\(\Omega\)</span> et <span class="math inline">\(\mathcal{M}\)</span> un <span class="math inline">\(\lambda\)</span>-système dans <span class="math inline">\(\Omega\)</span> tels que <span class="math inline">\(\mathcal{A} \subseteq \mathcal{M}\)</span>, alors la <span class="math inline">\(\sigma\)</span>-algèbre engendrée par <span class="math inline">\(\mathcal{A}\)</span>, <span class="math inline">\(\sigma(A)\)</span>, est le plus petit <span class="math inline">\(\lambda\)</span>-système plus grand que <span class="math inline">\(\mathcal{A}\)</span> : <span class="math display">\[\sigma(\mathcal{A}) \subseteq \mathcal{M} \,.\]</span></p>
 </div>
 </div>
 </div>
@@ -1042,167 +1277,94 @@ P(\cup_n A_n) = \lim_n \uparrow P(A_n) = \lim_n \uparrow Q(A_n) = Q(\cup_n A_n) 
 <p>
 </p>
 <div class="proof">
-<p><span class="proof-title"><em>Preuve</em>. </span>Soit <span class="math inline">\(\mathcal{M}\)</span> l’intersection de toutes les classes monotones qui contiennent tyhe le système <span class="math inline">\(\pi\)</span> <span class="math inline">\(\mathcal{A}\)</span>. Comme une <span class="math inline">\(\sigma\)</span>-algèbre est une classe monotone (un système <span class="math inline">\(\lambda\)</span>), on a <span class="math inline">\(\mathcal{M} \subseteq \sigma(\mathcal{A})\)</span> ; le seul point à vérifier est <span class="math inline">\(\sigma(\mathcal{A}) \subseteq \mathcal{M}\)</span>. Il suffit de vérifier que <span class="math inline">\(\mathcal{M}\)</span> est bien une <span class="math inline">\(\sigma\)</span>-algèbre.</p>
-<p>Pour vérifier que <span class="math inline">\(\mathcal{M}\)</span> est une <span class="math inline">\(\sigma\)</span>-algèbre, il suffit de vérifier qu’elle est stable par union finie, ou de façon équivalente par intersection finie.</p>
-<p>Pour chaque <span class="math inline">\(A \in \mathcal{A}\)</span>, posons <span class="math inline">\(\mathcal{M}_A\)</span> définie par <span class="math display">\[
+<p><span class="proof-title"><em>Preuve</em>. </span>Soit <span class="math inline">\(\mathcal{M}\)</span> l’intersection de toutes les classes monotones qui contiennent le <span class="math inline">\(\pi\)</span>-système <span class="math inline">\(\mathcal{A}\)</span>. Comme une <span class="math inline">\(\sigma\)</span>-algèbre est une classe monotone (un <span class="math inline">\(\lambda\)</span>-système), on a <span class="math inline">\(\mathcal{M} \subseteq \sigma(\mathcal{A})\)</span> ; le seul point à vérifier est <span class="math inline">\(\sigma(\mathcal{A}) \subseteq \mathcal{M}\)</span>. Il suffit de vérifier que <span class="math inline">\(\mathcal{M}\)</span> est bien une <span class="math inline">\(\sigma\)</span>-algèbre.</p>
+<p>Afin de vérifier que <span class="math inline">\(\mathcal{M}\)</span> est une <span class="math inline">\(\sigma\)</span>-algèbre, il suffit de vérifier qu’elle est stable par union finie, ou de façon équivalente par intersection finie.</p>
+<p>Pour chaque <span class="math inline">\(A \in \mathcal{A}\)</span>, soit <span class="math inline">\(\mathcal{M}_A\)</span> définie par <span class="math display">\[
 \mathcal{M}_A = \Big\{ B : B \in \mathcal{M}, A \cap B \in \mathcal{M}\Big\} \, .
 \]</span></p>
-<p>Rappelons que <span class="math inline">\(\mathcal{A}\)</span> est un système <span class="math inline">\(\pi\)</span>, et <span class="math inline">\(\mathcal{A} \subseteq \mathcal{M}\)</span> ; on a <span class="math inline">\(\mathcal{A} \subseteq \mathcal{M}_A\)</span>. Pour montrer que <span class="math inline">\(\mathcal{M} = \mathcal{M}_A\)</span>, il suffit de montrer que <span class="math inline">\(\mathcal{M}_A\)</span> est une classe monotone.</p>
+<p>Rappelons que <span class="math inline">\(\mathcal{A}\)</span> est un <span class="math inline">\(\pi\)</span>-système, et <span class="math inline">\(\mathcal{A} \subseteq \mathcal{M}\)</span>, d’où <span class="math inline">\(\mathcal{A} \subseteq \mathcal{M}_A\)</span>. Pour montrer que <span class="math inline">\(\mathcal{M} = \mathcal{M}_A\)</span>, il suffit de montrer que <span class="math inline">\(\mathcal{M}_A\)</span> est une classe monotone.</p>
 <p>Si <span class="math inline">\((B_n)_n\)</span> est une suite croissante d’éléments de <span class="math inline">\(\mathcal{M}_A\)</span>, alors</p>
 <p><span class="math display">\[
 (\cup_n B_n) \cap A = \cup_n \Big(\underbrace{B_n \cap A }_{\in \mathcal{M}}\Big) \, ,
 \]</span></p>
-<p>le membre de droite appartient à <span class="math inline">\(\mathcal{M}\)</span> puisque <span class="math inline">\(\mathcal{M}\)</span> est monotone. Donc <span class="math inline">\(\mathcal{M}_A\)</span> est fermée par limite croissante monotone.</p>
-<p>Pour vérifier la stabilité par complémentaire, soient <span class="math inline">\(B \subseteq C\)</span> avec <span class="math inline">\(B, C \in \mathcal{M}_A\)</span>. Comme</p>
+<p>le membre de droite appartient à <span class="math inline">\(\mathcal{M}\)</span> car <span class="math inline">\(\mathcal{M}\)</span> est monotone. Donc <span class="math inline">\(\mathcal{M}_A\)</span> est stable par limite croissante monotone.</p>
+<p>Pour vérifier la stabilité par passage au complémentaire, soient <span class="math inline">\(B \subseteq C\)</span> avec <span class="math inline">\(B, C \in \mathcal{M}_A\)</span>. Comme</p>
 <p><span class="math display">\[
 A \cap (C \setminus B) = \Big(\underbrace{A \cap C}_{\in \mathcal{M}}\Big) \setminus \Big(\underbrace{A \cap B}_{\in \mathcal{M}}\Big)
 ) \,
 \]</span></p>
-<p>la stabilité de <span class="math inline">\(\mathcal{M}\)</span> par complémentaire implique <span class="math inline">\(A \cap (C \setminus B) \in \mathcal{M}\)</span> et <span class="math inline">\(C \setminus B  \in \mathcal{M}_A.\)</span></p>
-<p>Maintenant, posons <span class="math inline">\(\mathcal{M}^{\circ}\)</span> définie par <span class="math display">\[
+<p>la stabilité de <span class="math inline">\(\mathcal{M}\)</span> par passage au complémentaire entraîne <span class="math inline">\(A \cap (C \setminus B) \in \mathcal{M}\)</span> et <span class="math inline">\(C \setminus B  \in \mathcal{M}_A.\)</span></p>
+<p>Soit maintenant <span class="math inline">\(\mathcal{M}^{\circ}\)</span> définie par <span class="math display">\[
 \mathcal{M}^\circ = \Big\{  A : A \in \mathcal{M}, \forall B \in \mathcal{M},   A \cap B \in \mathcal{M} \Big\} \,.
 \]</span></p>
-<p>Nous venons d’établir que <span class="math inline">\(\mathcal{A} \subseteq \mathcal{M}^{\circ}\)</span>. Le même raisonnement permet de vérifier que <span class="math inline">\(\mathcal{M}^\circ\)</span> est aussi une classe monotone. Cela montre que <span class="math inline">\(\mathcal{M}^\circ= \mathcal{M}\)</span>.</p>
-<p>C’est terminé.</p>
+<p>On vient d’établir que <span class="math inline">\(\mathcal{A} \subseteq \mathcal{M}^{\circ}\)</span>. Le même raisonnement permet de vérifier que <span class="math inline">\(\mathcal{M}^\circ\)</span> est également une classe monotone. Cela montre que <span class="math inline">\(\mathcal{M}^\circ= \mathcal{M}\)</span>.</p>
+<p>Ceci achève la preuve.</p>
 </div>
 <br><p>
 </p>
-<p>En combinant <a href="#prp-keyobservation" class="quarto-xref">la proposition <span>2.6</span></a> et le lemme des classes monotones (<a href="#thm-monotoneclasslemma" class="quarto-xref">théorème <span>2.4</span></a>), on obtient le corollaire utile suivant.</p>
+<p>La combinaison de la <a href="#prp-keyobservation" class="quarto-xref">Proposition <span>2.11</span></a> et du lemme de la classe monotone (<a href="#thm-monotoneclasslemma" class="quarto-xref">Théorème <span>2.4</span></a>) mène au corollaire utile suivant.</p>
 <br><p>
 </p>
-<div id="cor">
-<p>Si deux probabilités <span class="math inline">\(P, Q\)</span> sur <span class="math inline">\((\Omega, \mathcal{F})\)</span> coïncident sur un système <span class="math inline">\(\pi\)</span> <span class="math inline">\(\mathcal{A}\)</span> qui engendre <span class="math inline">\(\mathcal{F}\)</span> :</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-charaterize-distrib" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 2.12 (Caractérisation des lois de probabilité)</strong></span> Si deux probabilités <span class="math inline">\(P, Q\)</span> sur <span class="math inline">\((\Omega, \mathcal{F})\)</span> coïncident sur un <span class="math inline">\(\pi\)</span>-système <span class="math inline">\(\mathcal{A}\)</span> qui engendre <span class="math inline">\(\mathcal{F}\)</span> :</p>
 <p><span class="math display">\[
-\mathcal{A} \subseteq \{ A : A \in \mathcal{F}  \text{ and } P(A)=Q(A)\} \qquad\text{and} \qquad \mathcal{F} \subseteq \sigma(\mathcal{A})
+\mathcal{A} \subseteq \{ A : A \in \mathcal{F}  \text{ et } P(A)=Q(A)\} \qquad\text{et} \qquad \mathcal{F} \subseteq \sigma(\mathcal{A})
 \]</span></p>
 <p>alors <span class="math inline">\(P, Q\)</span> coïncident sur <span class="math inline">\(\mathcal{F}\)</span>.</p>
 </div>
-<p>
-</p>
-</section><section id="sec-distribfun" class="level2" data-number="2.7"><h2 data-number="2.7" class="anchored" data-anchor-id="sec-distribfun">
-<span class="header-section-number">2.7</span> Lois de probabilité sur la droite réelle</h2>
-<p>Une loi de probabilité est un objet complexe : elle associe une grande collection d’ensembles (une <span class="math inline">\(\sigma\)</span>-algèbre) à <span class="math inline">\([0,1]\)</span>. Heureusement, il est possible de caractériser une loi de probabilité par un objet plus simple. Si l’on se restreint aux lois de probabilité sur <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span>, elles peuvent être caractérisées par des fonctions réelles sur <span class="math inline">\(\mathbb{R}\)</span>.</p>
+</div>
+</div>
+</div>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<div id="def-distrib-fun" class="theorem definition">
-<p><span class="theorem-title"><strong>Définition 2.12 (Fonction de répartition)</strong></span> Étant donné une loi de probabilité <span class="math inline">\(P\)</span> sur <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span>, la fonction de répartition <span class="math inline">\(F\)</span> de <span class="math inline">\(P\)</span> associe <span class="math inline">\(\mathbb{R}\)</span> à <span class="math inline">\([0,1]\)</span> ; elle est définie par</p>
-<p><span class="math display">\[
-x \mapsto F(x) = P(-\infty, x].
-\]</span></p>
-</div>
-</div>
-</div>
-</div>
-<p>Une loi de probabilité définit une fonction de répartition unique. Ce qui est peut-être surprenant, c’est qu’une fonction de répartition définit une loi de probabilité unique.</p>
-<div class="callout callout-style-simple callout-note no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<div id="prp-prop-distrib-function" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 2.7</strong></span> Soit <span class="math inline">\(F\)</span> une fonction de <span class="math inline">\(\mathbb{R}\)</span> vers <span class="math inline">\([0,1]\)</span>.</p>
-<p>La fonction <span class="math inline">\(F\)</span> est la fonction de répartition d’une loi de probabilité sur <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span> si et seulement si les cinq propriétés suivantes sont satisfaites :</p>
-<ol type="1">
-<li>
-<span class="math inline">\(F\)</span> est non décroissante,</li>
-<li>
-<span class="math inline">\(F\)</span> est continue à droite</li>
-<li>
-<span class="math inline">\(\lim_{y \nearrow x} F(y)\)</span> existe pour tout <span class="math inline">\(x \in \mathbb{R}\)</span> (<span class="math inline">\(F\)</span> possède des limites à gauche partout)</li>
-<li><span class="math inline">\(\lim_{x \to -\infty}F(x)=0\)</span></li>
-<li><span class="math inline">\(\lim_{x \to \infty} F(x)= 1.\)</span></li>
-</ol>
-</div>
-</div>
-</div>
-</div>
-<p>Il s’agit d’une reformulation de <a href="#thm-dudley3-1-3" class="quarto-xref">Théorème <span>2.3</span></a>.</p>
-<p>La figure <a href="#fig-distribpoisson" class="quarto-xref">Figure <span>2.1</span></a> montre la fonction de répartition des lois de Poisson pour différentes valeurs du paramètre (voir les sections <a href="01-intro.fr.html#sec-conv2poisson" class="quarto-xref"><span>Section 1.4</span></a> et <a href="03-families.fr.html#sec-poisson" class="quarto-xref"><span>Section 5.2</span></a> pour plus de détails sur les lois de Poisson). Pour le paramètre <span class="math inline">\(\mu\)</span>, <span class="math inline">\(F_{\mu}(x) = \sum_{k \leq x}  \mathrm{e}^{-\mu} \frac{\mu^k}{k!}\)</span>.</p>
-<!-- ::: {#fig-distribpoisson} -->
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-distribpoisson" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-distribpoisson-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="02-language.fr_files/figure-html/fig-distribpoisson-1.png" class="img-fluid figure-img" width="672">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-distribpoisson-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure 2.1: Cumulative distribution functions for Poisson distributions with different parameters. Observe that, apparently, <span class="math inline">\(\mu \leq \nu \Rightarrow F_{\mu} \geq F_{\nu}\)</span>. How would you establish this domination property?
-</figcaption></figure>
-</div>
-</div>
-</div>
-<!-- ::: -->
-</section><section id="sec-randomvariablesperse" class="level2" data-number="2.8"><h2 data-number="2.8" class="anchored" data-anchor-id="sec-randomvariablesperse">
-<span class="header-section-number">2.8</span> Variables aléatoires générales</h2>
-<p>Une variable aléatoire réelle n’est ni une variable, ni aléatoire. Une variable aléatoire réelle est une fonction mesurable d’un espace mesurable vers la droite réelle munie de la <span class="math inline">\(\sigma\)</span>-algèbre borélienne. Il n’y a rien d’aléatoire dans une variable aléatoire.</p>
-<div class="callout callout-style-simple callout-note no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<div id="def-realrv" class="theorem definition">
-<p><span class="theorem-title"><strong>Définition 2.13 (Variable aléatoire réelle)</strong></span> Étant donné un espace mesurable <span class="math inline">\((\Omega, \mathbb{F})\)</span>, une application <span class="math inline">\(X\)</span> de <span class="math inline">\(\Omega\)</span> vers <span class="math inline">\(\mathbb{R}\)</span> est une variable aléatoire réelle si pour tout <span class="math inline">\(B \in \mathcal{B}(\mathbb{R})\)</span> l’image réciproque de <span class="math inline">\(B\)</span> :</p>
-<p><span class="math display">\[
-X^{-1}(B) = \{ \omega : \omega \in \Omega, X(\omega) \in {B}\}
-\]</span></p>
-<p>appartient à <span class="math inline">\(\mathcal{F}\)</span></p>
-</div>
-</div>
-</div>
-</div>
-<p>Une fois qu’un espace mesurable est muni d’une loi de probabilité, il est possible de définir la loi (de probabilité) d’une variable aléatoire.</p>
-<div class="callout callout-style-simple callout-note no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<div id="def-disrv" class="theorem definition">
-<p><span class="theorem-title"><strong>Définition 2.14</strong></span> Étant donné <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span> et une variable aléatoire réelle <span class="math inline">\(X\)</span>, la loi ou loi de probabilité de <span class="math inline">\(X\)</span>, notée <span class="math inline">\(P \circ X^{-1}\)</span>, est la loi de probabilité sur <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span> définie par</p>
-<p><span class="math display">\[
-(P \circ X^{-1})(B) =  P(X^{-1}(B)) \quad \text{for all } B \in \mathcal{B}(\mathbb{R}).
-\]</span></p>
-</div>
-</div>
-</div>
-</div>
-<p>Les variables aléatoires peuvent être à valeurs vectorielles, à valeurs fonctionnelles, <em>etc</em>. Les variables aléatoires générales sont définies comme des fonctions mesurables entre espaces mesurables.</p>
-<div class="callout callout-style-simple callout-note no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<div id="def-rv" class="theorem definition">
-<p><span class="theorem-title"><strong>Définition 2.15 (Variable aléatoire)</strong></span> Étant donné deux espaces mesurables <span class="math inline">\((\Omega, \mathcal{F})\)</span> et <span class="math inline">\((\Omega', \mathcal{G})\)</span>, une application <span class="math inline">\(X\)</span> de <span class="math inline">\(\Omega\)</span> vers <span class="math inline">\(\Omega'\)</span> est une variable aléatoire <span class="math inline">\(\mathcal{F}/\mathcal{G}\)</span> si pour tout <span class="math inline">\(B \in \mathcal{G}\)</span> l’image réciproque de <span class="math inline">\(B\)</span> :</p>
-<p><span class="math display">\[
-X^{-1}(B) = \{ \omega : \omega \in \Omega, X(\omega) \in {B}\}
-\]</span></p>
-<p>appartient à <span class="math inline">\(\mathcal{F}\)</span>.</p>
+<div id="cor-cdf-charaterize-distrib" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollaire 2.4 (Les fonctions de répartition caractérisent les lois de probabilité)</strong></span> Si deux probabilités <span class="math inline">\(P, Q\)</span> sur <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span> ont la même fonction de répartition, alors <span class="math inline">\(P=Q\)</span>.</p>
 </div>
 </div>
 </div>
 </div>
 </section><section id="bibliolanguage" class="level2" data-number="2.9"><h2 data-number="2.9" class="anchored" data-anchor-id="bibliolanguage">
 <span class="header-section-number">2.9</span> Remarques bibliographiques</h2>
-<p>Il existe de nombreux beaux ouvrages sur la théorie des probabilités. Ils s’adressent à des publics différents. Certains peuvent convenir davantage aux étudiants du double cursus <a href="http://master.math.univ-paris-diderot.fr/annee/m1-mi/">Mathématiques-Informatique</a>. J’ai trouvé les ouvrages suivants particulièrement utiles.</p>
-<p><a href="https://www.lpsm.paris/pageperso/youssef/Enseignement_files/M1-proba-2018.pdf">Youssef (2019)</a> est une collection claire et concise de notes de cours conçues pour un cours de probabilités de niveau Master 1 nettement plus ambitieux que ce cours minimal.</p>
-<p><span class="citation" data-cites="MR1932358">Dudley (<a href="#ref-MR1932358" role="doc-biblioref">2002</a>)</span> propose un cours autonome d’analyse et de probabilités. L’ouvrage peut servir à la fois d’introduction et d’ouvrage de référence. Au-delà de démonstrations prudentes et transparentes, il contient des notes historiques qui aident à comprendre les liens entre les résultats fondamentaux.</p>
-<p><span class="citation" data-cites="MR1873379">Pollard (<a href="#ref-MR1873379" role="doc-biblioref">2002</a>)</span> introduit la théorie de la mesure et de l’intégration à un public qui a été exposé à la théorie des probabilités discrètes et qui est familier du raisonnement probabiliste.</p>
+<p>Il existe de nombreux beaux ouvrages de théorie des probabilités. Ils s’adressent à des publics différents. J’ai trouvé les suivants particulièrement utiles.</p>
+<!-- [Youssef (2019)](https://www.lpsm.paris/pageperso/youssef/Enseignement_files/M1-proba-2018.pdf)
+est un recueil clair et concis de notes de cours conçu pour un cours de Probabilités de niveau Master I
+substantiellement plus ambitieux que ce cours minimal. -->
+<p><span class="citation" data-cites="berger2021introduction">Berger, Caravenna, &amp; Dai Pra (<a href="#ref-berger2021introduction" role="doc-biblioref">2021</a>)</span> adopte une approche très progressive et comporte de nombreux exemples. Il est recommandé aux étudiants surtout intéressés par les applications pratiques.</p>
+<p><span class="citation" data-cites="MR1932358">Dudley (<a href="#ref-MR1932358" role="doc-biblioref">2002</a>)</span> propose un cours autonome d’analyse et de probabilités. L’ouvrage peut servir à la fois d’introduction et d’ouvrage de référence. Outre des preuves soigneuses et transparentes, il contient des notes historiques qui aident à comprendre les liens entre les résultats fondateurs.</p>
+<p><span class="citation" data-cites="MR1873379">Pollard (<a href="#ref-MR1873379" role="doc-biblioref">2002</a>)</span> introduit la théorie de la mesure et de l’intégration à un public qui a déjà été exposé à la théorie des probabilités discrètes et qui est familier du raisonnement probabiliste.</p>
+<p><span class="citation" data-cites="zbMATH06258045">Cohn (<a href="#ref-zbMATH06258045" role="doc-biblioref">2013</a>)</span> est un traitement approfondi et pourtant très lisible de la théorie de la mesure et de l’intégration, avec des chapitres sur la théorie des probabilités et la théorie descriptive des ensembles.</p>
+<p><span class="citation" data-cites="stein2009real">Stein &amp; Shakarchi (<a href="#ref-stein2009real" role="doc-biblioref">2009</a>)</span> propose une construction vivante de la théorie de la mesure et de l’intégration.</p>
+<p><span class="citation" data-cites="rudin1966">Rudin (<a href="#ref-rudin1966" role="doc-biblioref">1974</a>)</span> introduit la théorie de la mesure et de l’intégration à un public possédant un solide bagage d’analyse, et un intérêt pour l’analyse fonctionnelle.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-berger2021introduction" class="csl-entry" role="listitem">
+Berger, Q., Caravenna, F., &amp; Dai Pra, P. (2021). <em>Introduction aux probabilit<span>é</span>s</em>. Dunod.
+</div>
+<div id="ref-zbMATH06258045" class="csl-entry" role="listitem">
+Cohn, D. L. (2013). <em>Measure theory</em> (2nd revised ed.). New York, NY: Birkh<span>ä</span>user/Springer. <a href="https://doi.org/10.1007/978-1-4614-6956-8">https://doi.org/10.1007/978-1-4614-6956-8</a>
+</div>
 <div id="ref-MR1932358" class="csl-entry" role="listitem">
 Dudley, R. M. (2002). <em>Real analysis and probability</em> (Vol. 74, p. x+555). Cambridge: Cambridge University Press.
 </div>
 <div id="ref-MR1873379" class="csl-entry" role="listitem">
 Pollard, D. (2002). <em>A user’s guide to measure theoretic probability</em> (Vol. 8, p. xiv+351). Cambridge University Press, Cambridge.
+</div>
+<div id="ref-rudin1966" class="csl-entry" role="listitem">
+Rudin, W. (1974). Real and Complex Analysis. 1966. McGraw-Hill, New York.
+</div>
+<div id="ref-stein2009real" class="csl-entry" role="listitem">
+Stein, E. M., &amp; Shakarchi, R. (2009). <em>Real analysis: measure theory, integration, and Hilbert spaces</em>. Princeton University Press.
 </div>
 </div>
 </section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
@@ -1278,7 +1440,7 @@ Pollard, D. (2002). <em>A user’s guide to measure theoretic probability</em> (
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/s-v-b\.github\.io\/MA1AY010-CN\/fr");
+        var filterRegex = new RegExp("\/fr");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

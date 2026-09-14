@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<link rel="alternate" hreflang="en" href="https://s-v-b.github.io/MA1AY010-CN//033-integration2moments.html" />
-<link rel="alternate" hreflang="fr" href="https://s-v-b.github.io/MA1AY010-CN//fr/033-integration2moments.fr.html" />
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.36">
+<link rel="alternate" hreflang="en" href="/033-integration2moments.html" />
+<link rel="alternate" hreflang="fr" href="/fr/033-integration2moments.fr.html" />
+<meta charset="UTF-8">
+<meta name="generator" content="quarto-1.9.38">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>4  From integrals to expectation and moments – MA1AY010 Class Notes</title>
 <style>
@@ -23,14 +22,34 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 <script src="site_libs/quarto-nav/quarto-nav.js"></script><script src="site_libs/quarto-nav/headroom.min.js"></script><script src="site_libs/clipboard/clipboard.min.js"></script><script src="site_libs/quarto-search/autocomplete.umd.js"></script><script src="site_libs/quarto-search/fuse.min.js"></script><script src="site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="./">
 <link href="./03-families.html" rel="next">
 <link href="./031-moments.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script><script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script><link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-eb98473aa13ec2f8694b0a204f8986fa.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b39c627e845492dcaad64520e1e2dc5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -109,7 +128,7 @@ window.Quarto = {
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="dropdown" id="languages-links-parent">
-<button class="btn btn-primary dropdown-toggle babelquarto-languages-button" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> Version in en</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="https://s-v-b.github.io/MA1AY010-CN//fr/033-integration2moments.fr.html" id="language-link-fr">Version in fr</a></li></ul>
+<button class="btn btn-primary dropdown-toggle babelquarto-languages-button" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> Version in fr</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="/fr/033-integration2moments.fr.html" id="language-link-fr">Version in fr</a></li></ul>
 </div>
 <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
@@ -257,9 +276,9 @@ window.Quarto = {
 <span class="header-section-number">4.1</span> Roadmap</h2>
 <p>In <a href="#sec-expectation" class="quarto-xref">Section <span>4.2</span></a>), we relate the notion of <em>expectation</em> of a random variable and the notion of integral. The <em>Transfer Theorem</em> ( <a href="#thm-transfertheorem" class="quarto-xref">Theorem <span>4.1</span></a>) is a key instrument in the characterization of image distributions.</p>
 <p>In <a href="#sec-jensensec" class="quarto-xref"><span>Section 4.3</span></a>, we state, prove and showcase Jensen’s inequality. This inequality allows us to derive easy bounds on the expectation of convex functions of real random variables. This is an opportunity to recall basics of convexity.</p>
-<p>In <a href="#sec-variance" class="quarto-xref"><span>Section 4.4</span></a>, we pay special attention to the <em>variance</em>. We state several characterizations of the variance.</p>
-<p>In <a href="#sec-highermoments" class="quarto-xref"><span>Section 4.5</span></a></p>
-<p>In <a href="#sec-lpspaces" class="quarto-xref"><span>Section 4.7</span></a></p>
+<p>In <a href="#sec-variance" class="quarto-xref"><span>Section 4.4</span></a>, we pay special attention to the <em>variance</em>. We state several characterizations of the variance. These alternative but equivalent characterizations of variance can be used in an opportunistic way in a wide range of applications.</p>
+<p>In <a href="#sec-highermoments" class="quarto-xref"><span>Section 4.5</span></a>, we look at higher powers of random variables. this is an opportunity to introduce important inequalities like Cauchy-Schwarz, Hölder, Lyapunov, an Minkowski. The ability to upper bound higher moments of random variables play the key role in the search for tail bounds.</p>
+<p>In <a href="#sec-lpspaces" class="quarto-xref"><span>Section 4.7</span></a>, we focus on the fact that expectations of higher moments of random variables define semi-norms on the space of sufficiently integrable random variables. indeed, one can check that random variables with integrable powers, form linear spaces endowed with semi-norms and that these linear spaces are complete for the topology induced by the semi-norms.</p>
 </section><section id="sec-expectation" class="level2" data-number="4.2"><h2 data-number="4.2" class="anchored" data-anchor-id="sec-expectation">
 <span class="header-section-number">4.2</span> Expectation</h2>
 <p>The expectation of a real random variable is a (Lebesgue) integral with respect to a probability measure. We have to get familiar with probabilistic notation.</p>
@@ -1022,6 +1041,29 @@ P \left\{ \sum_n \mathbb{I}_{A_n}(\omega) = \infty\right\} = P(\cap_n \cup_{m\ge
 <span class="header-section-number">4.8</span> Bibliographical remarks</h2>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-berger2021introduction" class="csl-entry" role="listitem">
+Berger, Q., Caravenna, F., &amp; Dai Pra, P. (2021). <em>Introduction aux probabilit<span>é</span>s</em>. Dunod.
+</div>
+<div id="ref-zbMATH06258045" class="csl-entry" role="listitem">
+Cohn, D. L. (2013). <em>Measure theory</em> (2nd revised ed.). New York, NY: Birkh<span>ä</span>user/Springer. <a href="https://doi.org/10.1007/978-1-4614-6956-8">https://doi.org/10.1007/978-1-4614-6956-8</a>
+</div>
+<div id="ref-MR1932358" class="csl-entry" role="listitem">
+Dudley, R. M. (2002). <em>Real analysis and probability</em> (Vol. 74, p. x+555). Cambridge: Cambridge University Press.
+</div>
+<div id="ref-MR1873379" class="csl-entry" role="listitem">
+Pollard, D. (2002). <em>A user’s guide to measure theoretic probability</em> (Vol. 8, p. xiv+351). Cambridge University Press, Cambridge.
+</div>
+<div id="ref-rudin1966" class="csl-entry" role="listitem">
+Rudin, W. (1974). Real and complex analysis. 1966. McGraw-Hill, New York.
+</div>
+<div id="ref-steele:1997" class="csl-entry" role="listitem">
+Steele, J. M. (1977). <em>Probability theory and combinatorial optimization</em>. SIAM.
+</div>
+<div id="ref-stein2009real" class="csl-entry" role="listitem">
+Stein, E. M., &amp; Shakarchi, R. (2009). <em>Real analysis: Measure theory, integration, and hilbert spaces</em>. Princeton University Press.
+</div>
+</div>
 </section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

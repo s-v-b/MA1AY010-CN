@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<link rel="alternate" hreflang="en" href="https://s-v-b.github.io/MA1AY010-CN//06-conditioning.html" />
-<link rel="alternate" hreflang="fr" href="https://s-v-b.github.io/MA1AY010-CN//fr/06-conditioning.fr.html" />
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.36">
+<link rel="alternate" hreflang="en" href="/06-conditioning.html" />
+<link rel="alternate" hreflang="fr" href="/fr/06-conditioning.fr.html" />
+<meta charset="UTF-8">
+<meta name="generator" content="quarto-1.9.38">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>11  Conditioning – MA1AY010 Class Notes</title>
 <style>
@@ -48,9 +47,9 @@ div.csl-indent {
 <link href="./04-characterizations.html" rel="next">
 <link href="./023-discrete-condition.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script><script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script><link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-eb98473aa13ec2f8694b0a204f8986fa.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b39c627e845492dcaad64520e1e2dc5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -129,7 +128,7 @@ window.Quarto = {
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="dropdown" id="languages-links-parent">
-<button class="btn btn-primary dropdown-toggle babelquarto-languages-button" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> Version in en</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="https://s-v-b.github.io/MA1AY010-CN//fr/06-conditioning.fr.html" id="language-link-fr">Version in fr</a></li></ul>
+<button class="btn btn-primary dropdown-toggle babelquarto-languages-button" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> Version in fr</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="/fr/06-conditioning.fr.html" id="language-link-fr">Version in fr</a></li></ul>
 </div>
 <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
@@ -1057,7 +1056,7 @@ N (\cdot, B) = \mathbb{E}[\mathbb{I}_B \mid \mathcal{G}]\quad P-\text{a.s.}
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(\mathcal{C}\)</span> be the set formed by half-lines with rational endpoint, the empty set, and <span class="math inline">\(\mathbb{R}\)</span>: <span class="math display">\[
   \mathcal{C}  = \big\{ (-\infty, q]:  q \in \mathbb{Q} \big\} \cup \{\emptyset, \mathbb{R} \}\, .
-\]</span> This countable collection of half-lines is a <span class="math inline">\(\pi\)</span>-system (See <a href="02-language.html#sec-dynkin" class="quarto-xref">Section <span>2.6</span></a>)) that generates <span class="math inline">\(\mathcal{B}(\mathbb{R})\)</span>.</p>
+\]</span> This countable collection of half-lines is a <span class="math inline">\(\pi\)</span>-system (See <a href="02-language.html#sec-dynkin" class="quarto-xref">Section <span>2.8</span></a>)) that generates <span class="math inline">\(\mathcal{B}(\mathbb{R})\)</span>.</p>
 <p>For <span class="math inline">\(q &lt; q' \in \mathbb{Q},\)</span> we can choose versions of <span class="math inline">\(Y_q\)</span> and <span class="math inline">\(Y_{q'}\)</span> of the conditional expectations of <span class="math inline">\(\mathbb{I}_{(-
 \infty, q]}\)</span> and <span class="math inline">\(\mathbb{I}_{(- \infty, q']}\)</span> such that <span class="math display">\[
   Y_q &lt; Y_{q'} \qquad P\text{-a.s.}
@@ -1098,7 +1097,7 @@ B}\)</span> with respect to <span class="math inline">\(\mathcal{G}\)</span>, on
 \mathbb{E} \left[ \mathbb{I}_{B_n} \mid \mathcal{G} \right] =
 \lim_n \nu (\omega, B_n) = \nu (\omega, B) \, .
 \]</span> So <span class="math inline">\(B \in \mathcal{D}\)</span>.</p>
-<p>The Monotone class Theorem (<a href="02-language.html#sec-dynkin" class="quarto-xref">Section <span>2.6</span></a>)) tells us that <span class="math inline">\(\mathcal{F \subseteq \mathcal{D}}\)</span>.</p>
+<p>The Monotone class Theorem (<a href="02-language.html#sec-dynkin" class="quarto-xref">Section <span>2.8</span></a>)) tells us that <span class="math inline">\(\mathcal{F \subseteq \mathcal{D}}\)</span>.</p>
 </div>
 <div id="rem">
 <p>Working harder would allow us to show that the existence of regular conditional probabilities is guaranteed as soon as <span class="math inline">\(\Omega\)</span> can be endowed with a complete and separable metric space structure and that the <span class="math inline">\(\sigma\)</span>-algebra <span class="math inline">\(\mathcal{F}\)</span> is the Borelian <span class="math inline">\(\sigma\)</span>-algebra induced by this metric.</p>
