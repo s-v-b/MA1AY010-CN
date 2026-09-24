@@ -35,7 +35,7 @@ of $X,$ we first check that if there exist  different versions, they
 differ only up to a negligible event.
 
 
-::: {#prp}
+::: {#prp-conexp-unique-pp}
 
 Let $X \in \mathcal{L}_1 (\Omega, \mathcal{F}, P)$   and
 $\mathcal{G}$ a sub-$\sigma$-algebra of $\mathcal{F}$, then if $Y'$ and $Y$
@@ -76,7 +76,7 @@ We can conclude by proceeding in a similar way for event $\{Y<Y'\}$.
 Still postponing the  existence question, let us check now a few properties
 versions of conditional expectation of $X$ should satisfy.
 
-::: {#prp}
+::: {#prp-condexp-linearity}
 
 Let $X_1, X_2 \in \mathcal{L}_1 (\Omega,
 \mathcal{F}, P)$, $\mathcal{G}$ a sub-$\sigma$-algebra of  $\mathcal{F}$, $a_1, a_2$
@@ -172,7 +172,7 @@ $$
 
 
 
-::: {#exr}
+::: {#exr-condexp-generating-subalg}
 
 Let  $\mathcal{E}$ be a  $\pi$-system generating $\mathcal{G}$ and containing
 $\Omega$. Check that $\mathbb{E} \left[ X \mid \mathcal{G} \right]$ is the unique
@@ -189,7 +189,7 @@ $$
 For nested sub-$\sigma$-algebras, conditional expectations satisfy the
 tower property:
 
-::: {#prp}
+::: {#prp-condexp-tower}
 
 Let  $(\Omega, \mathcal{F}, P)$ be a probability space, and $\mathcal{G} \subseteq \mathcal{H} \subseteq \mathcal{F}$
 be  two nested sub-$\sigma$-algebras.
@@ -275,7 +275,7 @@ is an _inner product_ and $E$ is complete for the topology induced by the norm.
 :::
 
 
-::: {#thm}
+::: {#thm-L2-Hilbert}
 
 Let $(\Omega, \mathcal{F}, P)$ be a probability space, then the set $L_2(\Omega, \mathcal{F}, P)$  of equivalence classes of
 square integrable variables,
@@ -294,7 +294,7 @@ $$\langle X, Y \rangle  = \mathbb{E}\left[ XY \right] \, .$$
 From Hilbert space theory, the essential tool we shall use is the
 projection Theorem below. Our starting point is the next observation (that follows from results in @sec-moments).
 
-::: {#prp}
+::: {#prp-closed-subspaces-L2}
 
 Let $(\Omega, \mathcal{F}, P)$ be a probability space,
 let $\mathcal{G} \subseteq \mathcal{F}$  be a sub-$\sigma$-algebra, then
@@ -384,7 +384,7 @@ projection on a closed convex part of a Hilbert space
 gives the following corollary which matches the first statement in [Theorem @thm-l2condexp]).
 
 
-::: {#cor}
+::: {#cor-projection-L2-subsigmalagebra}
 
 Given $X \in \mathcal{L}_2 (\Omega, \mathcal{F}, P)$ and
 $\mathcal{G}$ a sub-$\sigma$-algebra of $\mathcal{F}$,
@@ -592,7 +592,7 @@ and a.s. means $P$-a.s.
 
 The easiest property is:
 
-::: {#prp}
+::: {#prp-condexp-exp}
 
 If $X \in \mathcal{L}_1 (\Omega, \mathcal{F}, P)$ then
 
@@ -606,7 +606,7 @@ Prove it.
 
 :::
 
-::: {#prp}
+::: {#prp-condexp-G-measurable}
 
 If $X \in \mathcal{L}_1 (\Omega, \mathcal{F}, P)$ and $X$ is
 $\mathcal{G}$-measurable then
@@ -624,7 +624,7 @@ Prove it.
 Using the definition of conditional expectation and monotone approximation by simple functions (see [Section @sec-simplefunctions])),
 we obtain an alternative characterization of conditional expectation.
 
-::: {#prp}
+::: {#prp-condexp-altercharac}
 
 Let  $X \in \mathcal{L}_1 (\Omega, \mathcal{F}, P)$
 and  $\mathcal{G} \subseteq \mathcal{F}$ be a sub-$\sigma$-algebra, then
@@ -768,7 +768,7 @@ $$\lim_k \uparrow \mathbb{E} \left[ Z_k \mid \mathcal{G} \right] \leq\liminf_n  
 
 
 
-::: {#thm}
+::: {#thm-condexp-dom-convergence}
 
 ### Dominated convergence
 
@@ -803,7 +803,7 @@ Jensen's inequality also has a conditional version. The proof
 relies again on the variational representation of convex lower semi-comntinuous
 functions and on the monotonicity property of conditional expectation ([Corollary @cor-monotonecond])).
 
-::: {#thm}
+::: {#thm-condexp-jensen}
 
 ### Jensen's inequality
 
@@ -880,7 +880,7 @@ $\mathbb{E} \left[ X \right] = \mathbb{E} \left[ X \mid\mathcal{G} \right]$.
 
 [Proposition @prp-condexpind] can be generalized to a more general setting.
 
-::: {#prp}
+::: {#prp-condexp-indep}
 
 If sub-$\sigma$-algebra $\mathcal{H}$ is  independent from   $\sigma (\mathcal{G}, \sigma (X))$ then
 
@@ -1000,7 +1000,9 @@ And we agree on $D =\{x : p_X (x) > 0\}$. This is the support of  the density  $
 the support of distribution $P \circ X^{- 1}$).
 
 ::: {#exr-cond-dens}
+
 Check that $p_X$ is the density of $P \circ X^{- 1}$.
+
 :::
 
 Having a density allows us to  calculate
@@ -1179,7 +1181,7 @@ to compute conditional expectations.
 
 
 
-::: {#thm}
+::: {#thm-charac-regular-cond-probability}
 
 Let  $(\Omega, \mathcal{F}, P)$ be a probability space
 and $\mathcal{G} \subseteq \mathcal{F}$ a sub-$\sigma$-algebra. Let $N$
@@ -1200,7 +1202,7 @@ $$
 
 :::
 
-::: {#rem-1}
+::: {#rem-1-condprob}
 
 The proof of $1) \Rightarrow 2)$ relies on  the usual machinery:
 approximation of  positive integrable functions by
@@ -1219,14 +1221,14 @@ We shall check  the existence of conditional probabilities in at least
 one  non-trivial case.
 
 
-::: {#thm}
+::: {#thm-existence-reg-cond-prob}
 Let  $P$ be a probability on $( \mathbb{R}, \mathcal{B} (
 \mathbb{R}))$ and $\mathcal{G} \subseteq \mathcal{B} (
 \mathbb{R})$, then there exists a regular conditional probability kernel
  with respect to $\mathcal{G}.$
 :::
 
-::: {#rem}
+::: {#rem-condprob-2}
 We take advantage of  the fact that
 $\mathcal{B} (\mathbb{R})$ is countably  generated.
 :::
@@ -1325,7 +1327,7 @@ The Monotone class Theorem ([Section @sec-dynkin])) tells us that $\mathcal{F \s
 
 :::
 
-::: {#rem}
+::: {#rem-working-harder}
 Working harder would allow us to show that the existence of regular
 conditional probabilities is guaranteed as soon as  $\Omega$
 can be endowed with a complete and separable metric space structure
@@ -1336,7 +1338,7 @@ and that the $\sigma$-algebra $\mathcal{F}$  is the Borelian $\sigma$-algebra in
 We often define a probability distribution starting from a marginal distribution
 and a kernel.
 
-::: {#prp}
+::: {#prp-condprob-kernel}
 
 Let  $(\Omega, \mathcal{F})$ be a measurable space,
 $X$ a random variable from $(\Omega, \mathcal{F})$,
@@ -1353,8 +1355,8 @@ $$
 
 :::
 
-The following theorem guarantees the existence
-of a regular conditional probability in all the scenarios we are interested in.
+<!-- The following theorem guarantees the existence
+of a regular conditional probability in all the scenarios we are interested in. -->
 
 
 

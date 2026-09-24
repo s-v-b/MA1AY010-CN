@@ -5,7 +5,8 @@ project:
 book:
   title: "MA1AY010 Class Notes"
   author: "Master I ISIFAR"
-  date: "2026-06-15"
+  date: today
+  date-format: long
   downloads: [pdf]
   site-url: "https://s-v-b.github.io/MA1AY010-CN/"
   repo-url: https://github.com/s-v-b/MA1AY010-CN/
