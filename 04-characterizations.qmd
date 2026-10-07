@@ -593,18 +593,30 @@ $$
 $$\begin{array}{rl}
 \mathbb{P}\big\{ Y + \sigma X \leq a \Big\}
     & = \int_{\mathbb{R}} \int_{\mathbb{R}} \mathbb{I}_{x \leq  \frac{a-y}{\sigma}} p_X(x) \mathrm{d}x \mathrm{d}P_Y(y) \\
-    & = \int_{(-\infty,a)} \int_{\mathbb{R}} \mathbb{I}_{x \leq  \frac{a-y}{\sigma}} p_X(x) \mathrm{d}x \mathrm{d}P_Y(y) \\
-    & + \int_{\mathbb{R}} \mathbb{I}_{x \leq  \frac{a-a}{\sigma}} p_X(x) \mathrm{d}x P_Y\{a\} \\
-    & + \int_{(a, \infty)} \int_{\mathbb{R}} \mathbb{I}_{x \leq  \frac{a-y}{\sigma}} p_X(x) \mathrm{d}x \mathrm{d}P_Y(y)
+    & = \int_{(-\infty,a)} \left(\int_{\mathbb{R}} \mathbb{I}_{x \leq  \frac{a-y}{\sigma}} p_X(x) \mathrm{d}x \right)\mathrm{d}P_Y(y) \\
+    & + \left(\int_{\mathbb{R}} \mathbb{I}_{x \leq  \frac{a-a}{\sigma}} p_X(x) \mathrm{d}x\right) P_Y\{a\} \\
+    & + \int_{(a, \infty)} \left(\int_{\mathbb{R}} \mathbb{I}_{x \leq  \frac{a-y}{\sigma}} p_X(x) \mathrm{d}x \right)\mathrm{d}P_Y(y)
 \end{array}
 $$
 
-By monotone convergence, the first and third integrals converge respectively to  $P_Y(-\infty, a)$  and $0$ while the second term equals $\alpha P_Y\{a\}$.
+By monotone convergence, for $y <a$
+$$\lim_{\sigma \searrow 0} \int_{\mathbb{R}} \mathbb{I}_{x \leq  \frac{a-y}{\sigma}} p_X(x) \mathrm{d}x = \int_{\mathbb{R}} 1\,  p_X(x) \mathrm{d}x = 1$$
+so that by monotone convergence (again)
+$$\lim_{\sigma \searrow 0} \int_{(-\infty,a)} \left(\int_{\mathbb{R}} \mathbb{I}_{x \leq  \frac{a-y}{\sigma}} p_X(x) \mathrm{d}x \right)\mathrm{d}P_Y(y) = \int_{(-\infty,a)} 1 \mathrm{d}P_Y(y) = P_Y(-\infty, a).$$ 
 
-  
+For the middle term, we have:
+$$\left(\int_{\mathbb{R}} \mathbb{I}_{x \leq  \frac{a-a}{\sigma}} p_X(x) \mathrm{d}x\right) P_Y\{a\} = P_X(-\infty,0 ] P_Y\{a\}$$
+
+By dominated convergence, for $y>a$,
+$$\lim_{\sigma \searrow 0} \left(\int_{\mathbb{R}} \mathbb{I}_{x \leq  \frac{a-y}{\sigma}} p_X(x) \mathrm{d}x \right)= \int_{\mathbb{R}} 0 p_X(x) \mathrm{d}x = 0$$
+And by dominated convergence again, 
+$$\lim_{\sigma \searrow 0} \int_{(a, \infty)} \left(\int_{\mathbb{R}} \mathbb{I}_{x \leq  \frac{a-y}{\sigma}} p_X(x) \mathrm{d}x \right)\mathrm{d}P_Y(y) = \int_{(a, \infty)} 0 \, \mathrm{d}P_Y(y) =0 \,.$$ 
+
+@prp-approxident follows by combining the limits for the three terms. 
 
 :::
 
+Note that we could have used the convergence theorems for the product measures, instead of iterating. 
 
 ### Injectivity Theorem and inversion formula  {#charinjectivity}
 
@@ -623,6 +635,7 @@ allows us to recover the cumulative distribution function at all its continuity 
 transform did). Again, as continuity points of
 cumulative distribution functions are dense on $\mathbb{R}$, this is enough.
 
+The next technical proposition provides us with an inversion device for  characteristic functions of probability distributions convolved with normal distributions.
 
 ::: {#prp-reginversion}
 
@@ -666,26 +679,29 @@ The characteristic function of $X+\sigma Z$  at $t$ is $\mathrm{e}^{- \frac{t^2 
 
 $$\begin{array}{rl}
 \mathbb{P}\Big\{ X+ \sigma Z \leq u\Big\}
-& = \int_{-\infty}^u \int_{\mathbb{R}} \frac{1}{\sigma} \phi\Big(\frac{y -x}{\sigma}\Big) \mathrm{d}F(x)  \mathrm{d}y \\
-& = \int_{-\infty}^u \int_{\mathbb{R}} \frac{1}{\sigma}
+& = \int_{\mathbb{R}}  \int_{\mathbb{R}} \mathbb{I}_{x + \sigma z \leq u} \phi(z) \mathrm{d}z \mathrm{d}F(x)   \\
+& \stackrel{(a)}{=} \int_{\mathbb{R}}  \int_{\mathbb{R}} \mathbb{I}_{y \leq u} \frac{1}{\sigma}\phi\left(\frac{y-x}{\sigma}\right) \mathrm{d}y \mathrm{d}F(x)  \\
+& \stackrel{(b)}{=} \int_{-\infty}^u \int_{\mathbb{R}} \frac{1}{\sigma} \phi\Big(\frac{y -x}{\sigma}\Big) \mathrm{d}F(x)  \mathrm{d}y \\
+& \stackrel{(c)}{=} \int_{-\infty}^u \int_{\mathbb{R}} \frac{1}{\sigma}
 \left(\frac{1}{{2 \pi}} \int_{\mathbb{R}} \mathrm{e}^{- \frac{t^2}{2}} \mathrm{e}^{-it 	\frac{y-x}{\sigma}} \mathrm{d}t\right)
 \mathrm{d}F(x)  \mathrm{d}y \\
-& = \int_{-\infty}^u \left(\int_{\mathbb{R}} \frac{1}{\sigma}
+& \stackrel{(d)}{=} \int_{-\infty}^u \left(\int_{\mathbb{R}} \frac{1}{\sigma}
 \frac{1}{{2 \pi}} \mathrm{e}^{- \frac{t^2}{2}} \mathrm{e}^{-\frac{ity}{\sigma}} \left(\int_{\mathbb{R}}  \mathrm{e}^{\frac{itx}{\sigma}} \mathrm{d}F(x)\right)  \mathrm{d}t\right)
  \mathrm{d}y \\
-& = \int_{-\infty}^u \left(\int_{\mathbb{R}} \frac{1}{\sigma}
+& \stackrel{(e)}{=} \int_{-\infty}^u \left(\int_{\mathbb{R}} \frac{1}{\sigma}
 \frac{1}{{2 \pi}} \mathrm{e}^{- \frac{t^2}{2}} \mathrm{e}^{-\frac{ity}{\sigma}} \widehat{F}(t/\sigma)  \mathrm{d}t\right)
  \mathrm{d}y \\
-& = \int_{-\infty}^u  \left( \frac{1}{{2 \pi}}\int_{\mathbb{R}} \mathrm{e}^{- \frac{t^2 \sigma^2}{2}}\mathrm{e}^{-ity} \widehat{F}(t)\mathrm{d}t   \right) \mathrm{d}y \,
+& \stackrel{(f)}{=} \int_{-\infty}^u  \left( \frac{1}{{2 \pi}}\int_{\mathbb{R}} \mathrm{e}^{- \frac{t^2 \sigma^2}{2}}\mathrm{e}^{-ity} \widehat{F}(t)\mathrm{d}t   \right) \mathrm{d}y \,
 \end{array}
 $$
 
 where 
 
-- first equality comes from the Tonelli-Fubini Theorem
-- second eqality comes from the integral representation for the Gaussian density
-- third equality comes from Tonelli-Fubini Theorem again
-- last equality follows by change of variable in the inner integral.
+- *(a)* comes from change of variable  $z \to \tfrac{y-x}{\sigma}$ in the inner integral
+- *(b)* comes from the Tonelli-Fubini Theorem
+- *(c)* comes from the integral representation for the Gaussian density
+- *(d)* comes from Tonelli-Fubini Theorem again
+- *(f)* comes from change of variable in the inner integral
 
 
 The quantity $\left( \frac{1}{{2 \pi}}\int_{\mathbb{R}} \mathrm{e}^{- \frac{t^2 \sigma^2}{2}}\mathrm{e}^{-ity} \widehat{F}(t)\mathrm{d}t   \right)$ is a version of the density of the distribution of $Y = X + \sigma Z$  (why?). Note that it is obtained from the same inversion formula that readily worked for the Gaussian density.
@@ -694,6 +710,12 @@ The quantity $\left( \frac{1}{{2 \pi}}\int_{\mathbb{R}} \mathrm{e}^{- \frac{t^2 
 
 :::
 
+
+::: {#exr-invformula-regularized}
+
+Show that $\widehat{F}_\sigma$ in @prp-reginversion is integrable  ($\int_{\mathbb{R}} |\widehat{F}_\sigma(t)| \mathrm{d}t < \infty$).
+
+::::
 
 Now we have to show that an inversion formula works for all probability distributions,
 not only for the smooth probability distributions obtained by adding Gaussian noise. We shall check
@@ -729,7 +751,7 @@ the right-continuous modification of $\widetilde{F}$: $u \mapsto \lim_{v \downar
 We have established [Theorem @thm-injeccharfunc]).
 
 
-When the distribution function is absolutely continuous, Fourier inversion is simpler.
+When the distribution function is absolutely continuous and the characteristic function is integrable, Fourier inversion is simpler.
 
 ::: {#thm-simple-inversion-densities}
 
@@ -766,6 +788,12 @@ where interversion of limit and integration is justified by dominated convergenc
 
 :::
 
+
+::: {#exr-invformula-alternative}
+
+Consider uniform distribution over $[-1,1]$. Compute the characteristic function. Is it integrable ? Could you have derived this without computing the characteristic function?
+
+:::
 
 We close this section by an alternative inversion formula.
 
@@ -835,9 +863,12 @@ The direct part follows by integration by parts.
 
 To check the converse, note that if $X$ satisfies the identity in the Theorem,
 then for all $t \in \mathbb{R}$, the functions $t \mapsto \mathbb{E} \cos(tX)$
-and $t \mapsto \mathbb{E} \sin(tX)$ satisfy the differential equation $g'(t) = t g(t)$
+and $t \mapsto \mathbb{E} \sin(tX)$ satisfy the differential equation 
+$$g'(t) = t g(t)$$
+
 with conditions $\mathbb{E} \cos(0X)=1$ and $\mathbb{E} \sin(0X) =0$.
-This entails $\mathbb{E} \mathrm{e}^{itX} = \exp\Big(-\frac{t^2}{2}\Big)$, that is
+
+This entails $\mathbb{E} \mathrm{e}^{itX} = \exp\Big(-\frac{t^2}{2}\Big)$. By @prp-gausscharfunc, this translates to
 $X \sim \mathcal{N}(0,1)$
 
   
@@ -863,21 +894,26 @@ differentiable at $0$ and the $p^{\text{th}}$ derivative equals $i^k \mathbb{E}X
 
 ::: {.proof}
 
-The proof relies on a Taylor expansion with remainder of $x \mapsto \mathrm{e}^{ix}$  at $x=0$: 
+The proof relies on a Taylor expansion with remainder of $x \mapsto \mathrm{e}^{ix}$  at $x=0$ (it can be checked by induction on $n): 
 
 $$
 \mathrm{e}^{ix} - \sum_{k=0}^n \frac{(ix)^k}{k!} = \frac{i^{n+1}}{n!} \int_0^x (x-s)^n \mathrm{e}^{is} \mathrm{d}s \, .
 $$
+
+
+
 The modulus of the right hand side can be upper-bounded in two different ways. 
 $$
 \frac{1}{n+!}\Big| \int_0^x (x-s)^n \mathrm{e}^{is} \mathrm{d}s \Big|
   \leq \frac{|x|^{n+1}}{(n+1)!}
 $$
-which is good when $|x|$ is small. To handle large values of $|x|$, integration by parts leads to 
+which is good when $|x|$ is small. 
+
+To handle large values of $|x|$, integration by parts leads to 
 $$
 \frac{i^{n+1}}{n!} \int_0^x (x-s)^n \mathrm{e}^{is} \mathrm{d}s =  \frac{i^{n}}{(n-1)!} \int_0^x (x-s)^{n-1} \left(\mathrm{e}^{is}-1\right) \mathrm{d}s \,.
 $$
-The modulus of the right hand side can be upper-bounded by $2|x|^n/n!$.
+The modulus of the right hand side can then be upper-bounded by $2|x|^n/n!$.
 
 Applying this Taylor expansion to $x=t X$, using the pointwise upper bounds and taking expectations leads to
 $$\begin{array}{rl}
@@ -1060,15 +1096,13 @@ The basic tools of characteristic functions theory allow us to
 
 :::{#rem-density-laplace}
 
-The density of the Laplace distribution is not differentiable at $0$, this is reflected in the fact that its Fourier transform (the characteristic function of the Laplace distribution) is not integrable.
-
-Conversely the lack of integrability of the Cauchy distribution is reflected in the non-differentiability of its characteristic function at $0$.
+The lack of integrability of the Cauchy distribution is reflected in the non-differentiability of its characteristic function at $0$.
 
 :::
 
 ::: {#exr-tent}
 
-Check that $\int_0^1 \cos(sx) (1-s) \mathrm{d}s\geq 0$ for all $x \in \mathbb{R}$.
+Check directly that $\int_0^1 \cos(sx) (1-s) \mathrm{d}s\geq 0$ for all $x \in \mathbb{R}$.
 
 *Hint:* Check that $t \mapsto \int_0^1 \cos(tw) (1-w) \mathrm{d}w$  is the characteristic function of the *tent* distribution which has density $(1-|w|)$ over $[-1,1]$. Check that this characteristic function is the squared modulus of another characteristic function. 
 
