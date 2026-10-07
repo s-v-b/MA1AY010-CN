@@ -3,18 +3,22 @@
 <head>
 <link rel="alternate" hreflang="en" href="/04-characterizations.html" />
 <link rel="alternate" hreflang="fr" href="/fr/04-characterizations.fr.html" />
-<meta charset="UTF-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>12  Characterizations of probability distributions – MA1AY010 Class Notes</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -47,9 +51,9 @@ div.csl-indent {
 <link href="./041-characterization.html" rel="next">
 <link href="./06-conditioning.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script><script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script><link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-b39c627e845492dcaad64520e1e2dc5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dfb3a1070b0a6e6f4540928b1652a92a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -76,7 +80,7 @@ div.csl-indent {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script><script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
     // MathJax Typeset
@@ -128,7 +132,7 @@ window.Quarto = {
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="dropdown" id="languages-links-parent">
-<button class="btn btn-primary dropdown-toggle babelquarto-languages-button" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> Version in fr</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="/fr/04-characterizations.fr.html" id="language-link-fr">Version in fr</a></li></ul>
+<button class="btn btn-primary dropdown-toggle babelquarto-languages-button" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> Version in en</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="/fr/04-characterizations.fr.html" id="language-link-fr">Version in fr</a></li></ul>
 </div>
 <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
@@ -287,7 +291,7 @@ window.Quarto = {
 
 </header><section id="sec-roadmapcharac" class="level2" data-number="12.1"><h2 data-number="12.1" class="anchored" data-anchor-id="sec-roadmapcharac">
 <span class="header-section-number">12.1</span> Motivation</h2>
-<p>In full generality, a probability distribution is a complex and opaque object. It is a <span class="math inline">\([0,1]\)</span>-valued function defined over a <span class="math inline">\(\sigma\)</span>-algebra of subsets of some universe. A concrete <span class="math inline">\(\sigma\)</span>-algebra, let alone the abstract notion of <span class="math inline">\(\sigma\)</span>-algebra, is not easily grasped. Hence, looking for simpler characterizations of probability distributions is a sensible goal. When facing questions like: <em>are two probability distributions equal?</em>, we know it suffices to check that the two distributions coincide on generating <span class="math inline">\(\pi\)</span>-classes (see <a href="06-conditioning.html#thm-cmon" class="quarto-xref">Theorem <span>11.4</span></a> and consequences). This makes Cumulative Distribution Functions (CDFs) precious tools. Cumulative Distribution Functions and their generalized inverse functions (quantile functions see <a href="041-characterization.html" class="quarto-xref"><span>Chapter 13</span></a>) are very convenient when handling maxima, minima, or more generally order statistics of collections of independent random variables, but when it comes to handling sums of independent random variables or branching processes, cumulative distribution functions are of moderate help.</p>
+<p>In full generality, a probability distribution is a complex and opaque object. It is a <span class="math inline">\([0,1]\)</span>-valued function defined over a <span class="math inline">\(\sigma\)</span>-algebra of subsets of some universe. A concrete <span class="math inline">\(\sigma\)</span>-algebra, let alone the abstract notion of <span class="math inline">\(\sigma\)</span>-algebra, is not easily grasped. Hence, looking for simpler characterizations of probability distributions is a sensible goal. When facing questions like: <em>are two probability distributions equal?</em>, we know it suffices to check that the two distributions coincide on generating <span class="math inline">\(\pi\)</span>-classes (see <a href="06-conditioning.html#thm-cmon" class="quarto-xref">Theorem <span>11.5</span></a> and consequences). This makes Cumulative Distribution Functions (CDFs) precious tools. Cumulative Distribution Functions and their generalized inverse functions (quantile functions see <a href="041-characterization.html" class="quarto-xref"><span>Chapter 13</span></a>) are very convenient when handling maxima, minima, or more generally order statistics of collections of independent random variables, but when it comes to handling sums of independent random variables or branching processes, cumulative distribution functions are of moderate help.</p>
 <p>In this lesson, we review two related ways of characterizing probability distributions through functions defined on the real line: Laplace transforms (<a href="#sec-laplace" class="quarto-xref"><span>Section 12.2</span></a>)) and characteristic functions which extend Fourier transforms to probability distributions (<a href="#sec-charfun" class="quarto-xref"><span>Section 12.3</span></a>). The two methods are distinct in scope but they rely on the same idea as Probability Generating Functions (<a href="0225-pgf.html" class="quarto-xref"><span>Chapter 6</span></a>) and share common features.</p>
 <p>Indeed, Probability Generating Functions can be seen as special case of Laplace transforms. The latter can be seen as special cases of Fourier transforms.All three methods do characterize probability distributions. They are equipped with inversion formulae. The three methods provide us with a seamless treatment of sums of independent random variables. All three methods relate the integrability of probability distributions and the smoothness of transforms.</p>
 <p>In the next lessons (<span class="quarto-unresolved-ref">?sec-chaprevisiCLT</span>), we shall see that the three transforms also characterize <em>convergence in distribution</em>.</p>
@@ -630,7 +634,7 @@ G_{X+Y}(\lambda)
 <ul>
 <li>
 <span class="math inline">\(|\widehat{F}(t)|\leq 1\)</span> for every <span class="math inline">\(t\in \mathbb{R}\)</span>;</li>
-<li></li>
+<li>
 </ul>
 </div>
 </div>
@@ -822,13 +826,17 @@ P \Big\{ X+Y  \in B\Big\}
 <p><span class="proof-title"><em>Proof</em>. </span><span class="math display">\[\begin{array}{rl}
 \mathbb{P}\big\{ Y + \sigma X \leq a \Big\}
     &amp; = \int_{\mathbb{R}} \int_{\mathbb{R}} \mathbb{I}_{x \leq  \frac{a-y}{\sigma}} p_X(x) \mathrm{d}x \mathrm{d}P_Y(y) \\
-    &amp; = \int_{(-\infty,a)} \int_{\mathbb{R}} \mathbb{I}_{x \leq  \frac{a-y}{\sigma}} p_X(x) \mathrm{d}x \mathrm{d}P_Y(y) \\
-    &amp; + \int_{\mathbb{R}} \mathbb{I}_{x \leq  \frac{a-a}{\sigma}} p_X(x) \mathrm{d}x P_Y\{a\} \\
-    &amp; + \int_{(a, \infty)} \int_{\mathbb{R}} \mathbb{I}_{x \leq  \frac{a-y}{\sigma}} p_X(x) \mathrm{d}x \mathrm{d}P_Y(y)
+    &amp; = \int_{(-\infty,a)} \left(\int_{\mathbb{R}} \mathbb{I}_{x \leq  \frac{a-y}{\sigma}} p_X(x) \mathrm{d}x \right)\mathrm{d}P_Y(y) \\
+    &amp; + \left(\int_{\mathbb{R}} \mathbb{I}_{x \leq  \frac{a-a}{\sigma}} p_X(x) \mathrm{d}x\right) P_Y\{a\} \\
+    &amp; + \int_{(a, \infty)} \left(\int_{\mathbb{R}} \mathbb{I}_{x \leq  \frac{a-y}{\sigma}} p_X(x) \mathrm{d}x \right)\mathrm{d}P_Y(y)
 \end{array}
 \]</span></p>
-<p>By monotone convergence, the first and third integrals converge respectively to <span class="math inline">\(P_Y(-\infty, a)\)</span> and <span class="math inline">\(0\)</span> while the second term equals <span class="math inline">\(\alpha P_Y\{a\}\)</span>.</p>
+<p>By monotone convergence, for <span class="math inline">\(y &lt;a\)</span> <span class="math display">\[\lim_{\sigma \searrow 0} \int_{\mathbb{R}} \mathbb{I}_{x \leq  \frac{a-y}{\sigma}} p_X(x) \mathrm{d}x = \int_{\mathbb{R}} 1\,  p_X(x) \mathrm{d}x = 1\]</span> so that by monotone convergence (again) <span class="math display">\[\lim_{\sigma \searrow 0} \int_{(-\infty,a)} \left(\int_{\mathbb{R}} \mathbb{I}_{x \leq  \frac{a-y}{\sigma}} p_X(x) \mathrm{d}x \right)\mathrm{d}P_Y(y) = \int_{(-\infty,a)} 1 \mathrm{d}P_Y(y) = P_Y(-\infty, a).\]</span></p>
+<p>For the middle term, we have: <span class="math display">\[\left(\int_{\mathbb{R}} \mathbb{I}_{x \leq  \frac{a-a}{\sigma}} p_X(x) \mathrm{d}x\right) P_Y\{a\} = P_X(-\infty,0 ] P_Y\{a\}\]</span></p>
+<p>By dominated convergence, for <span class="math inline">\(y&gt;a\)</span>, <span class="math display">\[\lim_{\sigma \searrow 0} \left(\int_{\mathbb{R}} \mathbb{I}_{x \leq  \frac{a-y}{\sigma}} p_X(x) \mathrm{d}x \right)= \int_{\mathbb{R}} 0 p_X(x) \mathrm{d}x = 0\]</span> And by dominated convergence again, <span class="math display">\[\lim_{\sigma \searrow 0} \int_{(a, \infty)} \left(\int_{\mathbb{R}} \mathbb{I}_{x \leq  \frac{a-y}{\sigma}} p_X(x) \mathrm{d}x \right)\mathrm{d}P_Y(y) = \int_{(a, \infty)} 0 \, \mathrm{d}P_Y(y) =0 \,.\]</span></p>
+<p><a href="#prp-approxident" class="quarto-xref">Proposition <span>12.7</span></a> follows by combining the limits for the three terms.</p>
 </div>
+<p>Note that we could have used the convergence theorems for the product measures, instead of iterating.</p>
 </section><section id="charinjectivity" class="level3" data-number="12.3.4"><h3 data-number="12.3.4" class="anchored" data-anchor-id="charinjectivity">
 <span class="header-section-number">12.3.4</span> Injectivity Theorem and inversion formula</h3>
 <p>The characteristic function maps probability measures to <span class="math inline">\(\mathbb{C}\)</span>-valued functions. The main result of this section is that characteristic functions/Fourier transforms define is an injective operator on the set of Probability measures on the real line.</p>
@@ -845,6 +853,7 @@ P \Big\{ X+Y  \in B\Big\}
 </div>
 </div>
 <p>The injectivity property follows from an explicit inversion recipe. The characteristic function allows us to recover the cumulative distribution function at all its continuity points (just as the Laplace transform did). Again, as continuity points of cumulative distribution functions are dense on <span class="math inline">\(\mathbb{R}\)</span>, this is enough.</p>
+<p>The next technical proposition provides us with an inversion device for characteristic functions of probability distributions convolved with normal distributions.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -889,27 +898,47 @@ P \Big\{ X+Y  \in B\Big\}
 <p>The characteristic function of <span class="math inline">\(X+\sigma Z\)</span> at <span class="math inline">\(t\)</span> is <span class="math inline">\(\mathrm{e}^{- \frac{t^2 \sigma^2}{2}} \widehat{F}(t)\)</span>.</p>
 <p><span class="math display">\[\begin{array}{rl}
 \mathbb{P}\Big\{ X+ \sigma Z \leq u\Big\}
-&amp; = \int_{-\infty}^u \int_{\mathbb{R}} \frac{1}{\sigma} \phi\Big(\frac{y -x}{\sigma}\Big) \mathrm{d}F(x)  \mathrm{d}y \\
-&amp; = \int_{-\infty}^u \int_{\mathbb{R}} \frac{1}{\sigma}
+&amp; = \int_{\mathbb{R}}  \int_{\mathbb{R}} \mathbb{I}_{x + \sigma z \leq u} \phi(z) \mathrm{d}z \mathrm{d}F(x)   \\
+&amp; \stackrel{(a)}{=} \int_{\mathbb{R}}  \int_{\mathbb{R}} \mathbb{I}_{y \leq u} \frac{1}{\sigma}\phi\left(\frac{y-x}{\sigma}\right) \mathrm{d}y \mathrm{d}F(x)  \\
+&amp; \stackrel{(b)}{=} \int_{-\infty}^u \int_{\mathbb{R}} \frac{1}{\sigma} \phi\Big(\frac{y -x}{\sigma}\Big) \mathrm{d}F(x)  \mathrm{d}y \\
+&amp; \stackrel{(c)}{=} \int_{-\infty}^u \int_{\mathbb{R}} \frac{1}{\sigma}
 \left(\frac{1}{{2 \pi}} \int_{\mathbb{R}} \mathrm{e}^{- \frac{t^2}{2}} \mathrm{e}^{-it  \frac{y-x}{\sigma}} \mathrm{d}t\right)
 \mathrm{d}F(x)  \mathrm{d}y \\
-&amp; = \int_{-\infty}^u \left(\int_{\mathbb{R}} \frac{1}{\sigma}
+&amp; \stackrel{(d)}{=} \int_{-\infty}^u \left(\int_{\mathbb{R}} \frac{1}{\sigma}
 \frac{1}{{2 \pi}} \mathrm{e}^{- \frac{t^2}{2}} \mathrm{e}^{-\frac{ity}{\sigma}} \left(\int_{\mathbb{R}}  \mathrm{e}^{\frac{itx}{\sigma}} \mathrm{d}F(x)\right)  \mathrm{d}t\right)
 \mathrm{d}y \\
-&amp; = \int_{-\infty}^u \left(\int_{\mathbb{R}} \frac{1}{\sigma}
+&amp; \stackrel{(e)}{=} \int_{-\infty}^u \left(\int_{\mathbb{R}} \frac{1}{\sigma}
 \frac{1}{{2 \pi}} \mathrm{e}^{- \frac{t^2}{2}} \mathrm{e}^{-\frac{ity}{\sigma}} \widehat{F}(t/\sigma)  \mathrm{d}t\right)
 \mathrm{d}y \\
-&amp; = \int_{-\infty}^u  \left( \frac{1}{{2 \pi}}\int_{\mathbb{R}} \mathrm{e}^{- \frac{t^2 \sigma^2}{2}}\mathrm{e}^{-ity} \widehat{F}(t)\mathrm{d}t   \right) \mathrm{d}y \,
+&amp; \stackrel{(f)}{=} \int_{-\infty}^u  \left( \frac{1}{{2 \pi}}\int_{\mathbb{R}} \mathrm{e}^{- \frac{t^2 \sigma^2}{2}}\mathrm{e}^{-ity} \widehat{F}(t)\mathrm{d}t   \right) \mathrm{d}y \,
 \end{array}
 \]</span></p>
 <p>where</p>
 <ul>
-<li>first equality comes from the Tonelli-Fubini Theorem</li>
-<li>second eqality comes from the integral representation for the Gaussian density</li>
-<li>third equality comes from Tonelli-Fubini Theorem again</li>
-<li>last equality follows by change of variable in the inner integral.</li>
+<li>
+<em>(a)</em> comes from change of variable <span class="math inline">\(z \to \tfrac{y-x}{\sigma}\)</span> in the inner integral</li>
+<li>
+<em>(b)</em> comes from the Tonelli-Fubini Theorem</li>
+<li>
+<em>(c)</em> comes from the integral representation for the Gaussian density</li>
+<li>
+<em>(d)</em> comes from Tonelli-Fubini Theorem again</li>
+<li>
+<em>(f)</em> comes from change of variable in the inner integral</li>
 </ul>
 <p>The quantity <span class="math inline">\(\left( \frac{1}{{2 \pi}}\int_{\mathbb{R}} \mathrm{e}^{- \frac{t^2 \sigma^2}{2}}\mathrm{e}^{-ity} \widehat{F}(t)\mathrm{d}t   \right)\)</span> is a version of the density of the distribution of <span class="math inline">\(Y = X + \sigma Z\)</span> (why?). Note that it is obtained from the same inversion formula that readily worked for the Gaussian density.</p>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-invformula-regularized" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 12.8</strong></span> Show that <span class="math inline">\(\widehat{F}_\sigma\)</span> in <a href="#prp-reginversion" class="quarto-xref">Proposition <span>12.8</span></a> is integrable (<span class="math inline">\(\int_{\mathbb{R}} |\widehat{F}_\sigma(t)| \mathrm{d}t &lt; \infty\)</span>).</p>
+</div>
+</div>
+</div>
 </div>
 <p>Now we have to show that an inversion formula works for all probability distributions, not only for the smooth probability distributions obtained by adding Gaussian noise. We shall check that we can recover the distribution function from the Fourier transform.</p>
 <div class="callout callout-style-simple callout-note no-icon">
@@ -934,7 +963,7 @@ F(u_-) = \lim_{v \uparrow u} F(v) = P(-\infty, u)\, .
 <p><span class="proof-title"><em>Proof</em>. </span>The proof consists in combining <a href="#prp-approxident" class="quarto-xref">Proposition <span>12.7</span></a> and <a href="#prp-reginversion" class="quarto-xref">Proposition <span>12.8</span></a>.</p>
 </div>
 <p>Note that <a href="#thm-invfourier1" class="quarto-xref">Theorem <span>12.5</span></a> does not deliver directly the distribution function <span class="math inline">\(F\)</span>. Indeed, if <span class="math inline">\(F\)</span> is not continuous, <span class="math inline">\(u \mapsto \widetilde{F}(u) = F(u_-) + \frac{1}{2} P\{u\}\)</span>, is not a distribution function. But the right-continuous modification of <span class="math inline">\(\widetilde{F}\)</span>: <span class="math inline">\(u \mapsto \lim_{v \downarrow u} \widetilde{F}(v)\)</span> coincides with <span class="math inline">\(F\)</span>. We have established <a href="#thm-injeccharfunc" class="quarto-xref">Theorem <span>12.4</span></a>).</p>
-<p>When the distribution function is absolutely continuous, Fourier inversion is simpler.</p>
+<p>When the distribution function is absolutely continuous and the characteristic function is integrable, Fourier inversion is simpler.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -967,6 +996,18 @@ F(u_-) = \lim_{v \uparrow u} F(v) = P(-\infty, u)\, .
 \end{array}
 \]</span></p>
 <p>where interversion of limit and integration is justified by dominated convergence.</p>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-invformula-alternative" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 12.9</strong></span> Consider uniform distribution over <span class="math inline">\([-1,1]\)</span>. Compute the characteristic function. Is it integrable ? Could you have derived this without computing the characteristic function?</p>
+</div>
+</div>
+</div>
 </div>
 <p>We close this section by an alternative inversion formula.</p>
 <div class="callout callout-style-simple callout-note no-icon">
@@ -1032,7 +1073,9 @@ F(u_-) = \lim_{v \uparrow u} F(v) = P(-\infty, u)\, .
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>The direct part follows by integration by parts.</p>
-<p>To check the converse, note that if <span class="math inline">\(X\)</span> satisfies the identity in the Theorem, then for all <span class="math inline">\(t \in \mathbb{R}\)</span>, the functions <span class="math inline">\(t \mapsto \mathbb{E} \cos(tX)\)</span> and <span class="math inline">\(t \mapsto \mathbb{E} \sin(tX)\)</span> satisfy the differential equation <span class="math inline">\(g'(t) = t g(t)\)</span> with conditions <span class="math inline">\(\mathbb{E} \cos(0X)=1\)</span> and <span class="math inline">\(\mathbb{E} \sin(0X) =0\)</span>. This entails <span class="math inline">\(\mathbb{E} \mathrm{e}^{itX} = \exp\Big(-\frac{t^2}{2}\Big)\)</span>, that is <span class="math inline">\(X \sim \mathcal{N}(0,1)\)</span></p>
+<p>To check the converse, note that if <span class="math inline">\(X\)</span> satisfies the identity in the Theorem, then for all <span class="math inline">\(t \in \mathbb{R}\)</span>, the functions <span class="math inline">\(t \mapsto \mathbb{E} \cos(tX)\)</span> and <span class="math inline">\(t \mapsto \mathbb{E} \sin(tX)\)</span> satisfy the differential equation <span class="math display">\[g'(t) = t g(t)\]</span></p>
+<p>with conditions <span class="math inline">\(\mathbb{E} \cos(0X)=1\)</span> and <span class="math inline">\(\mathbb{E} \sin(0X) =0\)</span>.</p>
+<p>This entails <span class="math inline">\(\mathbb{E} \mathrm{e}^{itX} = \exp\Big(-\frac{t^2}{2}\Big)\)</span>. By <a href="09-gaussian-vectors.html#prp-gausscharfunc" class="quarto-xref">Proposition <span>16.1</span></a>, this translates to <span class="math inline">\(X \sim \mathcal{N}(0,1)\)</span></p>
 </div>
 <br><p>
 </p>
@@ -1052,15 +1095,17 @@ F(u_-) = \lim_{v \uparrow u} F(v) = P(-\infty, u)\, .
 </div>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>The proof relies on a Taylor expansion with remainder of <span class="math inline">\(x \mapsto \mathrm{e}^{ix}\)</span> at <span class="math inline">\(x=0\)</span>:</p>
+<p><span class="proof-title"><em>Proof</em>. </span>The proof relies on a Taylor expansion with remainder of <span class="math inline">\(x \mapsto \mathrm{e}^{ix}\)</span> at <span class="math inline">\(x=0\)</span> (it can be checked by induction on $n):</p>
 <p><span class="math display">\[
 \mathrm{e}^{ix} - \sum_{k=0}^n \frac{(ix)^k}{k!} = \frac{i^{n+1}}{n!} \int_0^x (x-s)^n \mathrm{e}^{is} \mathrm{d}s \, .
-\]</span> The modulus of the right hand side can be upper-bounded in two different ways. <span class="math display">\[
+\]</span></p>
+<p>The modulus of the right hand side can be upper-bounded in two different ways. <span class="math display">\[
 \frac{1}{n+!}\Big| \int_0^x (x-s)^n \mathrm{e}^{is} \mathrm{d}s \Big|
   \leq \frac{|x|^{n+1}}{(n+1)!}
-\]</span> which is good when <span class="math inline">\(|x|\)</span> is small. To handle large values of <span class="math inline">\(|x|\)</span>, integration by parts leads to <span class="math display">\[
+\]</span> which is good when <span class="math inline">\(|x|\)</span> is small.</p>
+<p>To handle large values of <span class="math inline">\(|x|\)</span>, integration by parts leads to <span class="math display">\[
 \frac{i^{n+1}}{n!} \int_0^x (x-s)^n \mathrm{e}^{is} \mathrm{d}s =  \frac{i^{n}}{(n-1)!} \int_0^x (x-s)^{n-1} \left(\mathrm{e}^{is}-1\right) \mathrm{d}s \,.
-\]</span> The modulus of the right hand side can be upper-bounded by <span class="math inline">\(2|x|^n/n!\)</span>.</p>
+\]</span> The modulus of the right hand side can then be upper-bounded by <span class="math inline">\(2|x|^n/n!\)</span>.</p>
 <p>Applying this Taylor expansion to <span class="math inline">\(x=t X\)</span>, using the pointwise upper bounds and taking expectations leads to <span class="math display">\[\begin{array}{rl}
   \Big| \widehat{F}(t) - \sum_{k=0}^n \mathbb{E}\frac{(itX)^k}{k!}  \Big|
     &amp; \leq \mathbb{E} \Big[\min\Big( \frac{|tX|^{n+1}}{(n+1)!} ,2 \frac{|tX|^n}{n!}\Big)\Big] \\
@@ -1184,8 +1229,7 @@ X = \tan\left(\frac{\pi}{2} (2 \times U -1)\right)\, .
 <li>show that the Cauchy distribution is <span class="math inline">\(1\)</span>-stable.</li>
 </ul>
 <div id="rem-density-laplace" class="proof remark">
-<p><span class="proof-title"><em>Remark 12.5</em>. </span>The density of the Laplace distribution is not differentiable at <span class="math inline">\(0\)</span>, this is reflected in the fact that its Fourier transform (the characteristic function of the Laplace distribution) is not integrable.</p>
-<p>Conversely the lack of integrability of the Cauchy distribution is reflected in the non-differentiability of its characteristic function at <span class="math inline">\(0\)</span>.</p>
+<p><span class="proof-title"><em>Remark 12.5</em>. </span>The lack of integrability of the Cauchy distribution is reflected in the non-differentiability of its characteristic function at <span class="math inline">\(0\)</span>.</p>
 </div>
 <div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
@@ -1194,7 +1238,7 @@ X = \tan\left(\frac{\pi}{2} (2 \times U -1)\right)\, .
 </div>
 <div class="callout-body-container">
 <div id="exr-tent" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 12.8</strong></span> Check that <span class="math inline">\(\int_0^1 \cos(sx) (1-s) \mathrm{d}s\geq 0\)</span> for all <span class="math inline">\(x \in \mathbb{R}\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 12.10</strong></span> Check directly that <span class="math inline">\(\int_0^1 \cos(sx) (1-s) \mathrm{d}s\geq 0\)</span> for all <span class="math inline">\(x \in \mathbb{R}\)</span>.</p>
 <p><em>Hint:</em> Check that <span class="math inline">\(t \mapsto \int_0^1 \cos(tw) (1-w) \mathrm{d}w\)</span> is the characteristic function of the <em>tent</em> distribution which has density <span class="math inline">\((1-|w|)\)</span> over <span class="math inline">\([-1,1]\)</span>. Check that this characteristic function is the squared modulus of another characteristic function.</p>
 </div>
 </div>
