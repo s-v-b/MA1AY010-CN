@@ -53,7 +53,16 @@ format:
       - cosmo
       - brand
     favicon: images/UniversiteParis_monogramme_couleur_RVB.png
-    
+    html-math-method: mathjax
+    include-in-header:
+      text: |
+        <script>
+        window.MathJax = {
+          loader: { load: ['[tex]/mathtools'] },
+          tex: { packages: { '[+]': ['mathtools'] } }
+        };
+        </script>
+
   pdf:
     documentclass: memoir
     classoption: [11pt, a4paper, twoside]
@@ -69,6 +78,7 @@ format:
         \makeevenfoot{mystyle}{\scshape\small ma1ay010}{\thepage}{\scshape\small m1 isifar}
         \makeoddfoot{mystyle}{\scshape\small m1 isifar}{\thepage}{\scshape\small ma1ay010}
         \pagestyle{mystyle}
+        \usepackage{mathtools}
 
 filters:
   - callouty-theorem
