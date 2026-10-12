@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<link rel="alternate" hreflang="en" href="/041-characterization.html" />
-<link rel="alternate" hreflang="fr" href="/fr/041-characterization.fr.html" />
+<link rel="alternate" hreflang="en" href="https://s-v-b.github.io/MA1AY010-CN//041-characterization.html" />
+<link rel="alternate" hreflang="fr" href="https://s-v-b.github.io/MA1AY010-CN//fr/041-characterization.fr.html" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>13  Quantile functions – MA1AY010 Class Notes</title>
+<title>13  Quantile functions and order statistics – MA1AY010 Class Notes</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -60,7 +60,12 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script><script type="text/javascript">
+}</script><script>
+window.MathJax = {
+  loader: { load: ['[tex]/mathtools'] },
+  tex: { packages: { '[+]': ['mathtools'] } }
+};
+</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script><script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
     // MathJax Typeset
@@ -106,13 +111,13 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./041-characterization.html"><span class="chapter-number">13</span>  <span class="chapter-title">Quantile functions</span></a></li></ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./041-characterization.html"><span class="chapter-number">13</span>  <span class="chapter-title">Quantile functions and order statistics</span></a></li></ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="dropdown" id="languages-links-parent">
-<button class="btn btn-primary dropdown-toggle babelquarto-languages-button" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> Version in en</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="/fr/041-characterization.fr.html" id="language-link-fr">Version in fr</a></li></ul>
+<button class="btn btn-primary dropdown-toggle babelquarto-languages-button" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> Version in en</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="https://s-v-b.github.io/MA1AY010-CN//fr/041-characterization.fr.html" id="language-link-fr">Version in fr</a></li></ul>
 </div>
 <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
@@ -197,7 +202,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./041-characterization.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">13</span>  <span class="chapter-title">Quantile functions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>  <span class="chapter-title">Quantile functions and order statistics</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -238,7 +243,7 @@ window.Quarto = {
 </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title"><span id="sec-chap-quantiles" class="quarto-section-identifier"><span class="chapter-number">13</span>  <span class="chapter-title">Quantile functions</span></span></h1>
+<h1 class="title"><span id="sec-chap-quantiles" class="quarto-section-identifier"><span class="chapter-number">13</span>  <span class="chapter-title">Quantile functions and order statistics</span></span></h1>
 </div>
 
 
@@ -254,10 +259,10 @@ window.Quarto = {
 
 </header><p>So far we have seen several characterizations of probability distributions: cumulative distribution functions (CDFs), Laplace transforms for distributions supported on <span class="math inline">\([0, \infty)\)</span>, characteristic functions. The last characterization is praised for its behavior with respect to sums of independent random variables.</p>
 <p>For univariate distributions, a companion to the cumulative distribution function is the <em>quantile function</em>. It plays a significant role in simulations, statistics and risk theory.</p>
-<p>A cumulative distribution function <span class="math inline">\(F\)</span> is non-negative, <span class="math inline">\([0,1]\)</span>-valued, non-decreasing, right-continuous, with left-limit at any point. The cumulative distribution function of a diffuse probability measure is continuous at any point.</p>
+<p>Recall that a cumulative distribution function <span class="math inline">\(F\)</span> is non-negative, <span class="math inline">\([0,1]\)</span>-valued, non-decreasing, right-continuous, with left-limit at any point. The cumulative distribution function of a diffuse probability measure is continuous at any point.</p>
 <section id="sec-def-quantiles" class="level2" data-number="13.1"><h2 data-number="13.1" class="anchored" data-anchor-id="sec-def-quantiles">
 <span class="header-section-number">13.1</span> Definition</h2>
-<p>The quantile function <span class="math inline">\(F^{\leftarrow}\)</span> is defined as an extended inverse of the cumulative distribution function <span class="math inline">\(F\)</span>.</p>
+<p>The quantile function <span class="math inline">\(F^{\leftarrow}\)</span> is defined as an extended/generalized inverse of the cumulative distribution function <span class="math inline">\(F\)</span>.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -274,7 +279,61 @@ F^{\leftarrow} (p)
 </div>
 </div>
 </div>
-<p>The quantile function is non-decreasing and left-continuous. The interplay between the quantile and cumulative distribution functions is summarized in the next proposition.</p>
+<p>We first check that this definition makes sense, that is <span class="math inline">\(F^{\leftarrow} (p) \in \mathbb{R}\)</span> for every <span class="math inline">\(p \in (0,1)\)</span>. Indeed, we establish.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-quantiles" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 13.1</strong></span> Let <span class="math inline">\(F\)</span> be the Cumulative Distribution Function of some probability distribution over <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}) )\)</span></p>
+<p>For any <span class="math inline">\(p \in (0,1)\)</span>, <span class="math inline">\(\inf \{x : F(x) \geq p\} \in \mathbb{R}\)</span> and <span class="math inline">\(\inf \{x : F(x) \geq p\}= \min \{x : F(x) \geq p\}\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>For any <span class="math inline">\(p \in (0,1)\)</span>, the set <span class="math inline">\(\{x : F(x) \geq p\}\)</span> is non-empty. If it were empty, the sequence <span class="math inline">\((F(n))_{n \in \mathbb{N}}\)</span> would be bounded from above by <span class="math inline">\(p\)</span>.</p>
+<p>Having <span class="math inline">\(\inf \{x : F(x) \geq p\}=-\infty\)</span> would contradict <span class="math inline">\(\lim_{n \to \infty}F(-n)=0\)</span>. Hence the infimum of <span class="math inline">\(\{x : F(x) \geq p\}\)</span> belongs to <span class="math inline">\(\mathbb{R}\)</span>. Let <span class="math inline">\(m\)</span> denote this infimum. For <span class="math inline">\(n \in \mathbb{N}\)</span>, let <span class="math inline">\(t_n = m +1/n\)</span>. We have <span class="math inline">\(F(t_n)\geq p\)</span>, otherwise <span class="math inline">\(m\)</span> would not be the infimum of <span class="math inline">\(\{x : F(x) \geq p\}\)</span>. The sequence <span class="math inline">\((F(t_n))_{n \in \mathbb{N}}\)</span> converges to <span class="math inline">\(F(m)\)</span> (right-continuity of <span class="math inline">\(F\)</span>) and the limit is lower bounded by <span class="math inline">\(p\)</span>. Hence, <span class="math inline">\(F(m) \geq p\)</span>, so <span class="math inline">\(m \in \inf \{x : F(x) \geq p\}\)</span>. This means: <span class="math display">\[\inf \{x : F(x) \geq p\}= \min \{x : F(x) \geq p\} \, .\]</span></p>
+</div>
+<p><a href="#prp-quantiles" class="quarto-xref">Proposition <span>13.1</span></a> asserts that <a href="#def-quantfun" class="quarto-xref">Definition <span>13.1</span></a> is sound.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-quantile-properties" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 13.2</strong></span> A quantile function</p>
+<ol type="a">
+<li>is non-decreasing,</li>
+<li>is left-continuous at every point in <span class="math inline">\((0,1)\)</span>.</li>
+<li>has a limit on the right at every point in <span class="math inline">\((0,1)\)</span>.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span></p>
+<ol type="a">
+<li>
+<p>Let <span class="math inline">\(F\)</span> be the Cumulative Distribution Function of some probability distribution over <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}) )\)</span>. Let <span class="math inline">\(F^{\leftarrow}\)</span> be the associated quantile function.</p>
+<p>If <span class="math inline">\(0 &lt;p \leq p' &lt; 1\)</span>, <span class="math inline">\(\{ t : t \in \mathbb{R} F(t) \geq p'\} \subseteq \{ t : t \in \mathbb{R} F(t) \geq p\}\)</span>, hence <span class="math inline">\(F^\leftarrow(p') = \inf \{ t : t \in \mathbb{R} F(t) \geq p'\} \geq  \inf \{ t : t \in \mathbb{R} F(t) \geq p\} =F^\leftarrow(p)\)</span>.</p>
+</li>
+<li>
+<p>To check left-continuity of <span class="math inline">\(F^\leftarrow\)</span>, it is enough to check that for each <span class="math inline">\(u \in (0,1)\)</span>, for each increasing sequence <span class="math inline">\((u_n)_n\)</span> such that <span class="math inline">\(\lim_n u_n = u\)</span>, we have <span class="math inline">\(\lim_n F^\leftarrow(u_n) = F^\leftarrow(u)\)</span>.</p>
+<p>As <span class="math inline">\(F^\leftarrow\)</span> is non-decreasing, <span class="math inline">\((F^\leftarrow(u_n))_n\)</span> is a non-decreasing sequence bounded above by <span class="math inline">\(F^\leftarrow(u)\)</span>. Hence it converges to some limit <span class="math inline">\(\ell \leq F^\leftarrow(u)\)</span>.</p>
+<p>Suppose <span class="math inline">\(\ell &lt; F^\leftarrow(u)\)</span>. Then <span class="math inline">\(F(\ell) &lt; u\)</span> as <span class="math inline">\(F^\leftarrow(u)\)</span> is the infimum of the set <span class="math inline">\(\{x : F(x) \geq u\}\)</span>.</p>
+<p>But then <span class="math inline">\(u_n &gt; F(\ell)\)</span> and <span class="math inline">\(\ell &lt; F^\leftarrow(u_n)\)</span> for all <span class="math inline">\(n\)</span> large enough since <span class="math inline">\((u_n)_n\)</span> is an increasing sequence converging to <span class="math inline">\(u\)</span>, which contradicts the fact that <span class="math inline">\(\ell\)</span> is the monotone limit of <span class="math inline">\((F^\leftarrow(u_n))_n\)</span>.</p>
+<p>Thus <span class="math inline">\(\ell = F^\leftarrow(u)\)</span>.</p>
+</li>
+<li><p>To check the existence of the right-hand limit, it is enough to remember that a quantile function is non-decreasing.</p></li>
+</ol>
+</div>
+<p>Note that, as a non-decrasing function, a quantile function is always Borel-measurable.</p>
+<p>The interplay between the quantile and cumulative distribution functions is summarized in the next proposition.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -282,7 +341,7 @@ F^{\leftarrow} (p)
 </div>
 <div class="callout-body-container">
 <div id="prp-quantilekit" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 13.1</strong></span> If <span class="math inline">\(F\)</span> and <span class="math inline">\(F^\leftarrow\)</span> are the cumulative distribution function and the quantile function of (the distribution of) <span class="math inline">\(X\)</span>, the following statements hold for <span class="math inline">\(p \in] 0, 1 [\)</span>:</p>
+<p><span class="theorem-title"><strong>Proposition 13.3</strong></span> If <span class="math inline">\(F\)</span> and <span class="math inline">\(F^\leftarrow\)</span> are the cumulative distribution function and the quantile function of (the distribution of) <span class="math inline">\(X\)</span>, the following statements hold for <span class="math inline">\(p \in] 0, 1 [\)</span>:</p>
 <ol type="1">
 <li>
 <span class="math inline">\(p \leq  F (x)\)</span> iff <span class="math inline">\(F^\leftarrow (p) \leq  x\)</span>.</li>
@@ -290,7 +349,7 @@ F^{\leftarrow} (p)
 <span class="math inline">\(F \circ F^\leftarrow (p) \geq p\)</span> .</li>
 <li>
 <span class="math inline">\(F^\leftarrow \circ F (x) \leq  x\)</span> .</li>
-<li>If <span class="math inline">\(F\)</span> is absolutely continuous, then <span class="math inline">\(F \circ F^\leftarrow (p) = p\)</span>
+<li>If <span class="math inline">\(F\)</span> is continuous, then <span class="math inline">\(F \circ F^\leftarrow (p) = p\)</span>
 </li>
 </ol>
 </div>
@@ -301,13 +360,13 @@ F^{\leftarrow} (p)
 <p><span class="proof-title"><em>Proof</em>. </span>According to the definition of <span class="math inline">\(F^\leftarrow\)</span> if <span class="math inline">\(F (x) \geq p\)</span> then <span class="math inline">\(F^\leftarrow
 (p) \leq  x.\)</span></p>
 <p>To prove the converse, it suffices to check that <span class="math inline">\(F \circ F^\leftarrow (p) \geq p\)</span>.</p>
-<p>Indeed, if <span class="math inline">\(x \geq F^\leftarrow (p),\)</span> as <span class="math inline">\(F\)</span> is non-decreasing <span class="math inline">\(F (x) \geq F \circ F^\leftarrow (p)\)</span>. Si <span class="math inline">\(y = F^\leftarrow
-(p),\)</span> par definition de <span class="math inline">\(y = F^\leftarrow (p),\)</span> il existe une non-increasing sequence <span class="math inline">\((z_n)_{n \in \mathbb{N}}\)</span> which converges to <span class="math inline">\(y\)</span> such that <span class="math inline">\(F (z_n) \geq p .\)</span> Mais as <span class="math inline">\(F\)</span> is right-continuous <span class="math inline">\(\lim_n F
+<p>Indeed, if <span class="math inline">\(x \geq F^\leftarrow (p),\)</span> as <span class="math inline">\(F\)</span> is non-decreasing <span class="math inline">\(F (x) \geq F \circ F^\leftarrow (p)\)</span>. If <span class="math inline">\(y = F^\leftarrow
+(p),\)</span> by definition of <span class="math inline">\(y = F^\leftarrow (p),\)</span> there exists a non-increasing sequence <span class="math inline">\((z_n)_{n \in \mathbb{N}}\)</span> which converges to <span class="math inline">\(y\)</span> such that <span class="math inline">\(F (z_n) \geq p .\)</span> But as <span class="math inline">\(F\)</span> is right-continuous <span class="math inline">\(\lim_n F
 (z_n) = F (\lim_n z_n) = F (y) .\)</span> Hence <span class="math inline">\(F (y) \geq p\)</span>.</p>
 <p>We just proved 1. and 2.</p>
 <p>3.) is an immediate consequence de 1). Let <span class="math inline">\(p = F (x) .\)</span> Hence <span class="math inline">\(p \leq  F (x),\)</span> according to 1.) this is equivalent to <span class="math inline">\(F^\leftarrow (p)
 \leq  x,\)</span> that is <span class="math inline">\(F^\leftarrow \circ F (x) \leq  x.\)</span></p>
-<p>4.) For every <span class="math inline">\(p\)</span> in <span class="math inline">\(] 0, 1 [,\)</span> <span class="math inline">\(\{ x : p = F (x)\}\)</span> is non-empty (Mean value Theorem). Let <span class="math inline">\(y = \inf \{ x : p = F (x)\} =F^\leftarrow (p)\)</span>. According to <span class="math inline">\(1)\)</span>, <span class="math inline">\(F (y) \geq p\)</span>. Now, if <span class="math inline">\((z_n)_{n \in \mathbb{N}}\)</span> is an increasing sequence converging to <span class="math inline">\(y\)</span>, for every <span class="math inline">\(n\)</span>, <span class="math inline">\(F (z_n) &lt; p,\)</span> and, by left-continuity, <span class="math inline">\(F (y) = F (\lim_n z_n) = \lim_n F (z_n) \leq
+<p>4.) For <span class="math inline">\(p\)</span> in <span class="math inline">\(] 0, 1 [,\)</span> let <span class="math inline">\(y = \inf \{ x :  F (x)\geq p \} =F^\leftarrow (p)\)</span>. According to <span class="math inline">\(1)\)</span>, <span class="math inline">\(F (y) \geq p\)</span>. Now, if <span class="math inline">\((z_n)_{n \in \mathbb{N}}\)</span> is an increasing sequence converging to <span class="math inline">\(y\)</span>, for every <span class="math inline">\(n\)</span>, <span class="math inline">\(F (z_n) &lt; p,\)</span> and, by continuity, <span class="math inline">\(F (y) = F (\lim_n z_n) = \lim_n F (z_n) \leq
 p.\)</span> Hence <span class="math inline">\(F (y) = p,\)</span> that is <span class="math inline">\(F \circ F^\leftarrow (p) = p.\)</span></p>
 </div>
 <p><br></p>
@@ -320,7 +379,7 @@ p.\)</span> Hence <span class="math inline">\(F (y) = p,\)</span> that is <span 
 </div>
 <div class="callout-body-container">
 <div id="prp-quatile-transformation" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 13.2 (Quantile transformation)</strong></span> If <span class="math inline">\(U\)</span> is uniformly distributed on <span class="math inline">\((0,1)\)</span>, and <span class="math inline">\(F\)</span> is a cumulative distribution over <span class="math inline">\(\mathbb{R}\)</span>, <span class="math inline">\(F^{\leftarrow}(U)\)</span> has cumulative distribution <span class="math inline">\(F\)</span>.</p>
+<p><span class="theorem-title"><strong>Proposition 13.4 (Quantile transformation)</strong></span> If <span class="math inline">\(U\)</span> is uniformly distributed on <span class="math inline">\((0,1)\)</span>, and <span class="math inline">\(F\)</span> is a cumulative distribution over <span class="math inline">\(\mathbb{R}\)</span>, <span class="math inline">\(F^{\leftarrow}(U)\)</span> has cumulative distribution <span class="math inline">\(F\)</span>.</p>
 </div>
 </div>
 </div>
@@ -329,13 +388,13 @@ p.\)</span> Hence <span class="math inline">\(F (y) = p,\)</span> that is <span 
 <p><span class="proof-title"><em>Proof</em>. </span><span class="math display">\[\begin{array}{rl}
   P\Big\{ F^\leftarrow(U) \leq x \Big\}
   &amp; = P\Big\{ U \leq F(x) \Big\} \\
-  &amp; = F(x) \, .
-\end{array}\]</span></p>
+  &amp; = F(x) \,
+\end{array}\]</span> where the first equality follows from a) in <a href="#prp-quantilekit" class="quarto-xref">Proposition <span>13.3</span></a>.</p>
 </div>
 <div id="rem-quantile-transformation" class="proof remark">
 <p><span class="proof-title"><em>Remark 13.1</em>. </span>The quantile transformation works whatever the continuity properties of <span class="math inline">\(F\)</span>.</p>
 </div>
-<p>The quantile transformation has many applications. It can be used to show stochastic domination properties.</p>
+<p>The quantile transformation has many applications. It can be used to show stochastic domination properties. It can be used to build random generators once a uniform random generator is avalaible.</p>
 <div id="exm-exmples-quantiles" class="theorem example">
 <p><span class="theorem-title"><strong>Example 13.1</strong></span> In <a href="#fig-quantiles" class="quarto-xref">Figures <span>13.1</span></a> up to <a href="#fig-quantiles4" class="quarto-xref">Figure <span>13.4</span></a>, we illustrate quantile functions for discrete (binomial) distributions and for distributions that are neither discrete nor continuous. The quantile function of a discrete distribution is step function that jumps at the cumulative probability of every possible outcome. If a probability distribution is a mixture of a discrete distribution and a continuous distribution, the quantile function jumps at the cumulative probability of every possible outcome of the discrete component.</p>
 </div>
@@ -389,7 +448,7 @@ Figure 13.3: Cumulative distribution functions for the probability distribution
 <img src="041-characterization_files/figure-html/fig-quantiles4-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-quantiles4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure 13.4: Representation of <span class="math inline">\(F \circ F^{\leftarrow}\)</span> for the probability distributions illustrated in <a href="#fig-quantiles2" class="quarto-xref">Figures <span>13.2</span></a> and <a href="#fig-quantiles3" class="quarto-xref">Figure <span>13.3</span></a>. The function <span class="math inline">\(F \circ F^{\leftarrow}\)</span> always lies above the line <span class="math inline">\(y=x\)</span> (dotted line) as prescribed in <a href="#prp-quantilekit" class="quarto-xref">Proposition <span>13.1</span></a>. Plateaux that lie strictly above the dotted line are in correspondence with jumps of the quantile function.
+Figure 13.4: Representation of <span class="math inline">\(F \circ F^{\leftarrow}\)</span> for the probability distributions illustrated in <a href="#fig-quantiles2" class="quarto-xref">Figures <span>13.2</span></a> and <a href="#fig-quantiles3" class="quarto-xref">Figure <span>13.3</span></a>. The function <span class="math inline">\(F \circ F^{\leftarrow}\)</span> always lies above the line <span class="math inline">\(y=x\)</span> (dotted line) as prescribed in <a href="#prp-quantilekit" class="quarto-xref">Proposition <span>13.3</span></a>. Plateaux that lie strictly above the dotted line are in correspondence with jumps of the quantile function.
 </figcaption></figure>
 </div>
 </div>
@@ -435,6 +494,19 @@ Figure 13.5
 </div>
 </div>
 </div>
+<p>We conclude with the next remark. The quantile function characterizes the probability distribution.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="cor-quant-charac" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 13.2</strong></span> If two probability distributions <span class="math inline">\(P\)</span> and <span class="math inline">\(Q\)</span> over <span class="math inline">\((\mathbb{R}, \mathcal{B}(\mathbb{R}))\)</span> have the same quantile function, then <span class="math inline">\(P=Q\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
 </section><section id="sec-order-statistics" class="level2" data-number="13.3"><h2 data-number="13.3" class="anchored" data-anchor-id="sec-order-statistics">
 <span class="header-section-number">13.3</span> Order statistics</h2>
 <div class="callout callout-style-simple callout-note no-icon">
@@ -444,10 +516,41 @@ Figure 13.5
 </div>
 <div class="callout-body-container">
 <div id="def-order-statistics" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 13.2 (Order statistics)</strong></span>  </p>
+<p><span class="theorem-title"><strong>Definition 13.2 (Order statistics)</strong></span> The order statistics <span class="math inline">\(X_{1:n}\leq X_{2:n}\leq \cdots \leq X_{n:n}\)</span> of an i.i.d. sample <span class="math inline">\(X_1,\ldots,X_n\)</span> are obtained by sorting the sample in increasing order (by convention).</p>
 </div>
 </div>
 </div>
+</div>
+<p>When <span class="math inline">\(n\)</span> is clear from context, we may write <span class="math inline">\(X_{(1)} \leq \ldots \leq X_{(n)}\)</span>.</p>
+<p>Recall that a probability distribution <span class="math inline">\(P\)</span> over <span class="math inline">\(\mathbb{R}, \mathcal{B}(\mathbb{R})\)</span> is <em>diffuse</em> if and only if <span class="math inline">\(P\{x\}=0\)</span> for all <span class="math inline">\(x\in \mathbb{R}\)</span>. A probability distribution is diffuse iff its cumulative distribution function is continuous everywhere.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-pairwise-distinct-sample-points" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 13.5</strong></span> Let <span class="math inline">\(P\)</span> be a <em>diffuse</em> probability distribution on <span class="math inline">\(\mathbb{R}\)</span>. Let <span class="math inline">\(X_1, \ldots, X_n\)</span> be independent and identically distributed random variables with distribution <span class="math inline">\(P\)</span>. Let <span class="math inline">\(\mathbb{P}\)</span> be a shorthand for the product distribution <span class="math inline">\(P^{\otimes n}\)</span>. Then</p>
+<p><span class="math display">\[\mathbb{P} \left\{ \exists i,j  \leq n \text{ such that } X_i = X_j \text{ and } i\neq j\right\} =0\]</span></p>
+<p>In words, with probability <span class="math inline">\(1\)</span>, the sample points are pairwise distinct.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>We first observe that it is enough to check that <span class="math inline">\(\mathbb{P} \left\{ X_1 = X_2\right\}=0\)</span>. Under the stated conditions</p>
+<p><span class="math display">\[\begin{align*}
+\mathbb{P} \left\{ \cup_{i &lt; j}  X_i = X_j \right\}
+  &amp; \leq \sum_{i &lt; j} \mathbb{P} \left\{ X_i = X_j \right\} \\
+  &amp; = \binom{n}{2} \mathbb{P} \left\{ X_1 = X_2 \right\}
+\end{align*}\]</span> where inequality comes from union bound (subadditivity), and last equality comes from the fact that all pairs <span class="math inline">\(X_i, X_j\)</span> with <span class="math inline">\(i &lt;j\)</span> are distributed like <span class="math inline">\(X_1, X_2\)</span>.</p>
+<p>Now <span class="math display">\[\begin{align*}
+\mathbb{P} \left\{ X_1 = X_2 \right\}
+&amp; = \int_{\mathbb{R}^2}  \mathbb{I}_{x_1=x_2} \mathrm{d}P^{\otimes 2}(x_1,x_2) \\
+&amp; = \int_{\mathbb{R}}  \left(\int_{\mathbb{R}}  \mathbb{I}_{x_1=x_2} \mathrm{d}P(x_1) \right) \mathrm{d}P(x_2) \\
+&amp; = \int_{\mathbb{R}} \, 0 \, \mathrm{d}P(x_2)  \\
+&amp; = 0
+\end{align*}\]</span> where we have used <a href="022-product-measures.html#thm-tonelli" class="quarto-xref">Theorem <span>7.2</span></a> and then the fact that <span class="math inline">\(P\)</span> is diffuse.</p>
 </div>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
@@ -456,34 +559,154 @@ Figure 13.5
 </div>
 <div class="callout-body-container">
 <div id="prp-order-statistics-joint-density" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 13.3 (Joint density)</strong></span>  </p>
+<p><span class="theorem-title"><strong>Proposition 13.6 (Joint distribution of the order statistics)</strong></span> The joint distribution of the order statistics is absolutely continuous with respect to the sample distribution <span class="math inline">\(P^{\otimes n}\)</span>.</p>
+<p>If the distribution <span class="math inline">\(P\)</span> is absolutely continuous with density <span class="math inline">\(p\)</span>, then the joint distribution of the order statistics is absolutely continuous with respect to the Lebesgue measure on <span class="math inline">\(\mathbb{R}^n\)</span> with density:</p>
+<p><span class="math display">\[p_{X_{(1)},\ldots,X_{(n)}}(x_1,\ldots,x_n) = n! \prod_{i=1}^n p(x_i) \mathbb{I}_{x_1 &lt; x_2 &lt; \ldots &lt; x_n}\]</span></p>
 </div>
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-tip no-icon">
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(E \in \mathcal{B}(\mathbb{R}^n)\)</span> denote the event: <span class="math display">\[\left\{(x_1,\ldots,x_n) : \text{ for all } 1\leq i &lt; j \leq n, x_i \neq x_j\right\}\]</span></p>
+<p>By <a href="#prp-pairwise-distinct-sample-points" class="quarto-xref">Proposition <span>13.5</span></a>, we have <span class="math inline">\(\mathbb{P} \left\{E  \right\}=1\)</span>. If <span class="math inline">\((x_1,\ldots,x_n) \in E\)</span>, the <span class="math inline">\(n!\)</span> permutations of <span class="math inline">\((x_1,\ldots,x_n)\)</span> are pairwise distinct.</p>
+<p>In the sequel, <span class="math inline">\(S_n\)</span> denotes the set of all permutations of <span class="math inline">\(\{1, \ldots, n\}\)</span>.</p>
+<p>Let <span class="math inline">\(F \in \mathcal{B}(\mathbb{R}^n)\)</span> denote the event: <span class="math display">\[\left\{(x_1,\ldots,x_n) : \text{ for all } 1\leq i &lt; j \leq n, x_i &lt; x_j\right\}\]</span> Note that <span class="math inline">\(F \subset E\)</span> and <span class="math display">\[\mathbb{I}_{\left(x_{1},\ldots,x_{n}\right) \in F}=\mathbb{I}_{x_{1} &lt; \ldots &lt; x_{n}}\]</span></p>
+<p>Let <span class="math inline">\(A \in \mathcal{B}(\mathbb{R}^n)\)</span> be a Borel set. Then,</p>
+<p><span class="math display">\[\begin{align*}
+\mathbb{P} \left\{ (X_{(1)},\ldots,X_{(n)}) \in A \right\}
+&amp; = \mathbb{P} \left\{ (X_{(1)},\ldots,X_{(n)}) \in A \cap E \right\} + \mathbb{P} \left\{ (X_{(1)},\ldots,X_{(n)}) \in A \cap E^c \right\} \\
+&amp; = \mathbb{P} \left\{ (X_{(1)},\ldots,X_{(n)}) \in A \cap E \right\} \\
+&amp; = \sum_{\sigma \in S_n} \mathbb{P} \left\{ (X_{\sigma(1)},\ldots,X_{\sigma(n)}) \in A \cap F \right\} \\
+&amp; = \sum_{\sigma \in S_n} \int_{\mathbb{R^n}}\, \mathbb{I}_{\left(x_{\sigma(1)},\ldots,x_{\sigma(n)}\right) \in A \cap F} \prod_{i=1}^n   p(x_i) \, \mathrm{d}x_1\ldots\mathrm{d}x_n \\
+&amp; = \int_{\mathbb{R^n}}\, \mathbb{I}_{\left(x_{1},\ldots,x_{n}\right) \in A} \left(n!  \mathbb{I}_{\left(x_{1},\ldots,x_{n}\right) \in F} \prod_{i=1}^n   p(x_i) \right) \, \mathrm{d}x_1\ldots\mathrm{d}x_n
+\end{align*}\]</span> The parenthesized expression within the integrand is a density of the joint distribution of the order statistics.</p>
+</div>
+<div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<div id="exr-renyi-representation" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 13.2 (Rényi’s representation)</strong></span>  </p>
+<div id="prp-densite-kieme-stat-ordre" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 13.7</strong></span> If the distribution <span class="math inline">\(P\)</span> is absolutely continuous with density <span class="math inline">\(p\)</span> and cumulative distribution function <span class="math inline">\(F\)</span>, then the joint distribution of the <span class="math inline">\(k^{\text{th}}\)</span> order statistics is absolutely continuous with respect to the Lebesgue measure on <span class="math inline">\(\mathbb{R}^n\)</span> with density:</p>
+<p><span class="math display">\[x \mapsto k \binom{n}{k} F(x)^{k-1} f(x) (1-F(x))^{n-k}\]</span></p>
 </div>
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-tip no-icon">
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>The <span class="math inline">\(k^{\text{th}}\)</span> order statistic is smaller than <span class="math inline">\(x\)</span> if and only if at least <span class="math inline">\(k\)</span> of the <span class="math inline">\(X_i\)</span> are smaller than <span class="math inline">\(x\)</span>. Hence the event <span class="math inline">\(\{ X_{(k)} \leq x \}\)</span> is the disjoint union of the events <span class="math inline">\(\left\{ j =\sum_{i=1}^n \mathbb{I}_{X_i\leq x}\right\}\)</span> for <span class="math inline">\(j \in \{k, \ldots, n\}\)</span></p>
+<p>The cumulative distribution function of (the distribution of the <span class="math inline">\(k^{\text{th}}\)</span> order statistics) is:</p>
+<p><span class="math display">\[F_{X_{(k)}}(x) = \sum_{j=k}^n \binom{n}{j} F(x)^j (1-F(x))^{n-j}\]</span></p>
+<p>As <span class="math inline">\(F\)</span> is differentiable almost everywhere, <span class="math inline">\(F_{X_{(k)}}\)</span> is differentiable almost everywhere, and its derivative can be chosen as the density function in <a href="#prp-densite-kieme-stat-ordre" class="quarto-xref">Proposition <span>13.7</span></a>. Indeed</p>
+<p><span class="math display">\[\begin{align*}
+f_{X_{(k)}}(x)
+&amp; = \sum_{j=k}^n  \binom{n}{j} \left[ j F(x)^{j-1} f(x) (1-F(x))^{n-j} - (n-j) F(x)^j f(x) (1-F(x))^{n-j-1} \right]
+\end{align*}\]</span></p>
+<p>The summation on the right-hand side can be rearranged by combining the positive term and negative term <span class="math inline">\(F(x)^j f(x) (1-F(x))^{n-j-1}\)</span> with <span class="math inline">\(j\)</span> from <span class="math inline">\(k\)</span> to <span class="math inline">\(n-1\)</span>.</p>
+<p><span class="math display">\[\begin{align*}
+f_{X_{(k)}}(x)  
+  &amp; = \sum_{j=k}^{n-1} F(x)^j f(x) (1-F(x))^{n-j-1} \left((j+1) \binom{n}{j+1}  - (n-j)\binom{n}{j} \right) \\
+  &amp; \phantom{  } + \binom{n}{k} k F(x)^{k-1} f(x) (1-F(x))^{n-k} \\
+  &amp; = k \binom{n}{k} F(x)^{k-1} f(x) (1-F(x))^{n-k}
+\end{align*}\]</span> as <span class="math display">\[(j+1) \binom{n}{j+1}  - (n-j)\binom{n}{j}=0\]</span> for <span class="math inline">\(j\)</span> from <span class="math inline">\(k\)</span> to <span class="math inline">\(n-1\)</span>.</p>
+</div>
+<div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<div id="exr-uniform-order-statistics" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 13.3 (Order statistics of a uniform sample)</strong></span>  </p>
+<div id="prp-renyi-representation" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 13.8 (Rényi’s representation (Exponential samples))</strong></span> If <span class="math inline">\(X_1,\ldots,X_n\)</span> is an i.i.d. sample from the exponential distribution with mean <span class="math inline">\(1\)</span> (density <span class="math inline">\(\mathbb{I}_{x&gt;0} \mathrm{e}^{-x}\)</span>), and <span class="math inline">\(X_{n:n}\geq X_{n-1:n}\geq \ldots \geq X_{1:n}\)</span> are the corresponding order statistics, then:</p>
+<ol type="i">
+<li>with the convention <span class="math inline">\(X_{0:n}=0\)</span>, the <em>spacings</em> <span class="math inline">\((X_{i:n}-X_{i-1:n})_{1\leq i\leq n}\)</span> form a collection of independent random variables;</li>
+<li>for <span class="math inline">\(1\leq i\leq n\)</span>, the <span class="math inline">\(i^{\text{th}}\)</span> spacing <span class="math inline">\(X_{i:n}-X_{i-1:n}\)</span> is distributed according to the exponential distribution with mean <span class="math inline">\(\tfrac{1}{i}\)</span>.</li>
+</ol>
 </div>
 </div>
 </div>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>To establish i), it is enough to check that the joint density of the spacings has a product form.</p>
+<p>Let <span class="math inline">\(Y_i = X_{i:n} - X_{i-1:n}\)</span> for <span class="math inline">\(i=1,\ldots,n\)</span> denote the <span class="math inline">\(k\)</span>-th spacing. The spacings can be computed from the order statistics by a linear transformation: <span class="math display">\[\begin{bmatrix} Y_1 \\ \vdots \\ Y_n \end{bmatrix} = \begin{bmatrix} 1 &amp; 0 &amp; \cdots &amp; 0 \\ -1 &amp; 1 &amp; \cdots &amp; 0 \\ \vdots &amp; \ddots &amp; \ddots  &amp; \ddots \\ 0 &amp;  \cdots &amp; -1 &amp; 1 \end{bmatrix} \begin{bmatrix} X_{1:n} \\ \vdots \\ X_{n:n} \end{bmatrix}\]</span> with inverse <span class="math display">\[
+\begin{bmatrix} X_{1:n} \\ \vdots \\ X_{n:n} \end{bmatrix} =
+\begin{bmatrix}
+1 &amp; 1 &amp; 1 &amp; \cdots &amp; 1 \\
+0 &amp; 1 &amp; 1 &amp; \cdots &amp; 1 \\
+\vdots &amp; \ddots &amp; \ddots &amp; \ddots &amp; \vdots \\
+0 &amp; 0 &amp;  \cdots &amp; 0  &amp; 1 \end{bmatrix}
+\begin{bmatrix} Y_1 \\ \vdots \\ Y_n \end{bmatrix}
+\]</span> Both matrices have determinant <span class="math inline">\(1\)</span>.</p>
+<p>By <a href="032-acfamilies.html#thm-imagedensityformula" class="quarto-xref">Theorem <span>9.5</span></a>, the joint density of the spacings is <span class="math display">\[\begin{align*}
+f_{Y_1, \ldots, Y_n}(y_1, \ldots, y_n)
+&amp; = n!  \prod_{i=1}^n \mathbb{I}_{\sum_{j=1}^i y_j &gt; \sum_{j=1}^{i-1} y_j}\prod_{i=1}^n \mathrm{e}^{-\sum_{j=1}^i y_j} \\
+&amp; = n! \prod_{i=1}^n \mathbb{I}_{y_i &gt;0} \mathrm{e}^{- (n+1-i) y_i} \\
+&amp; = \prod_{i=1}^n \mathbb{I}_{y_i &gt;0} (n+1-i) \mathrm{e}^{- (n+1-i) y_i}
+\end{align*}\]</span> In the last expression, we recognize that the joint density is the product exponential densities with mean <span class="math inline">\(\tfrac{1}{n+1-i}\)</span> for <span class="math inline">\(i \in 1,\ldots,n\)</span>.</p>
+</div>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="prp-uniform-order-statistics" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 13.9 (Order statistics of a uniform sample)</strong></span> <span class="math inline">\(X_1,\ldots,X_n\)</span> is an i.i.d. sample from the uniform distribution on <span class="math inline">\([0,1]\)</span>, and <span class="math inline">\(X_{n:n}\geq X_{n-1:n}\geq \ldots \geq X_{1:n}\)</span> are the corresponding order statistics.</p>
+<p><span class="math inline">\(Y_1, \ldots, Y_{n+1} \sim_{\text{i.i.d}} \text{Exp}(1)\)</span>, where <span class="math inline">\(\text{Exp}(1)\)</span> denotes the exponential distribution with rate <span class="math inline">\(1\)</span>.</p>
+<p>Let <span class="math inline">\(S_k =\sum_{j=1}^k Y_j\)</span>, for <span class="math inline">\(k=1, \ldots, n+1\)</span>.</p>
+<ol type="i">
+<li>
+<span class="math inline">\(X_{1:n}, X_{2:n}, \ldots, X_{n:n}\)</span> is distributed as <span class="math inline">\(\left(\frac{S_1}{S_{n+1}}, \ldots, \frac{S_n}{S_{n+1}}\right)\)</span>.</li>
+<li>With the convention <span class="math inline">\(X_{0:n}=0\)</span>, the spacings <span class="math inline">\((X_{i:n}-X_{i-1:n})_{1\leq i\leq n}\)</span> (<em>spacings</em>) form a collection of identically distributed random variables;</li>
+<li>
+<span class="math inline">\(X_{i:n}\)</span> is distributed according to a Beta (Dirichlet) distribution with parameters <span class="math inline">\(i\)</span> and <span class="math inline">\(n-i+1\)</span>;</li>
+<li>
+<span class="math inline">\(X_{i:n}-X_{i-1:n}\)</span> is distributed according to a Beta distribution with parameters <span class="math inline">\(1\)</span> and <span class="math inline">\(n\)</span>.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>The random vector <span class="math display">\[
+\begin{bmatrix} V_1 \\ V_2 \\ \vdots \\ V_{n+1} \end{bmatrix} = \begin{bmatrix}\frac{S_1}{S_{n+1}} \\  \vdots \\  \frac{S_n}{S_{n+1}} \\ S_{n+1}\end{bmatrix}
+\]</span> is a differentiable bijective transform of <span class="math inline">\((Y_1, \ldots, Y_{n+1} )^\top\)</span> with inverse transform:</p>
+<p><span class="math display">\[\begin{bmatrix}Y_1 \\ \vdots \\ Y_{n+1}\end{bmatrix} = V_{n+1}\begin{bmatrix} V_1 \\ V_2 -V_1 \\ \vdots \\ V_n - V_{n-1} \\ 1 - V_n \end{bmatrix}\]</span></p>
+<p>The Jacobian matrix of the inverse transform is easily computed: <span class="math display">\[
+\begin{bmatrix}
+V_{n+1}  &amp; 0       &amp;  0       &amp; \ldots   &amp; V_1         \\
+-V_{n+1} &amp; V_{n+1} &amp;  0       &amp; \ddots   &amp; V_2-V_1     \\
+0        &amp; \ddots  &amp;  \ddots  &amp; \ddots   &amp; \vdots      \\
+0        &amp; \ddots  &amp; -V_{n+1} &amp; V_{n+1}  &amp; V_n-V_{n-1} \\
+0        &amp;         &amp; 0        &amp; -V_{n+1} &amp; 1 -V_n    
+\end{bmatrix}
+\]</span> The Jacobian determinant is equal to <span class="math display">\[
+V_{n+1}^n \times \operatorname{det} \begin{bmatrix}
+1  &amp; 0       &amp;  0       &amp; \ldots   &amp; V_1         \\
+-1 &amp; 1 &amp;  0       &amp; \ddots   &amp; V_2-V_1     \\
+0        &amp; \ddots  &amp;  \ddots  &amp; \ddots   &amp; \vdots      \\
+0        &amp; \ddots  &amp; -1 &amp; 1  &amp; V_n-V_{n-1} \\
+0        &amp;         &amp; 0        &amp; -1 &amp; 1 -V_n    
+\end{bmatrix}
+\]</span> which equals <span class="math display">\[
+V_{n+1}^n \times \operatorname{det} \begin{bmatrix}
+1  &amp; 0       &amp;  0       &amp; \ldots   &amp; V_1         \\
+0  &amp; 1 &amp;  0       &amp; \ddots   &amp;     V_2    \\
+0        &amp; \ddots  &amp;  \ddots  &amp; \ddots   &amp; \vdots      \\
+0        &amp; \ddots  &amp; 0 &amp; 1  &amp; V_n \\
+0        &amp;         &amp; 0        &amp; 0 &amp; 1     
+\end{bmatrix}
+\]</span> which equals <span class="math inline">\(V_{n+1}^n\)</span>.</p>
+<p>By <a href="032-acfamilies.html#thm-imagedensityformula" class="quarto-xref">Theorem <span>9.5</span></a>, the joint density of the distribution of <span class="math inline">\((V_1,V_2,\ldots,V_{n+1})^\top\)</span> at <span class="math inline">\((v_1,v_2,\ldots,v_{n+1})\)</span> is equal to:</p>
+<p><span class="math display">\[\frac{1}{\Gamma(n+1)} \mathbb{I}_{v_{n+1}&gt;0} v_{n+1}^n \mathrm{e}^{-v_{n+1}} n !\prod_{i=1}^{n-1} \mathbb{I}_{v_i&lt;v_{i+1}} \mathbb{I}_{0 &lt; v_1} \mathbb{I}_{v_n &lt; 1}\]</span></p>
+<p>We recognize <span class="math inline">\(\frac{1}{\Gamma(n+1)} \mathbb{I}_{v_{n+1}&gt;0} v_{n+1}^n \mathrm{e}^{-v_{n+1}}\)</span> as the density of a Gamma distribution with parameters <span class="math inline">\(n+1,1\)</span>.</p>
+<p>We recognize <span class="math inline">\(n! \mathbb{I}_{0&lt;v_1 &lt; \ldots &lt;v_n &lt;1}\)</span> as the joint density of the order statistics of sample of the uniform distribution over <span class="math inline">\([0,1]\)</span>.</p>
+<ol type="1">
+<li>The density of the distribution of <span class="math inline">\(\left(\frac{S_1}{S_{n+1}}, \ldots, \frac{S_n}{S_{n+1}}, S_{n+1}\right)\)</span> is the product of the joint density of <span class="math inline">\(\frac{S_1}{S_{n+1}}, \ldots, \frac{S_n}{S_{n+1}}\)</span> Beta-Dirichlet with parameters <span class="math inline">\(1,\ldots\)</span> and of a Gamma density with parameters <span class="math inline">\(n+1, 1\)</span>.</li>
+</ol>
+<p>As a consequence the <span class="math inline">\(k^{\text{th}}\)</span> order statistic of an <span class="math inline">\(n\)</span>-sample of the uniform distribution over <span class="math inline">\([0,1]\)</span> is distributed like <span class="math inline">\(\frac{S_k}{S_{n+1}}\)</span>. The latter random variiable is distributed according to a <span class="math inline">\(\operatorname{Beta}(k, n+1-k)\)</span> distribution with density <span class="math inline">\(x \mapsto \frac{\Gamma(n+1)}{\Gamma(k)\Gamma(n+1-k)} x^{k-1}(1-x)^{n-k}\)</span>. See <a href="032-acfamilies.html#prp-gammabeta" class="quarto-xref">Proposition <span>9.2</span></a>.</p>
+<p>All spacings are distributed like <span class="math inline">\(\frac{S_1}{S_{n+1}}\)</span>, that is according to a Beta distribution with parameters <span class="math inline">\(1\)</span> and <span class="math inline">\(n\)</span>, with density <span class="math inline">\(x \mapsto \frac{\Gamma(n+1)}{\Gamma(1)\Gamma(n)}(1-x)^{n-1} = n (1-x)^{n-1}\)</span>. See again <a href="032-acfamilies.html#prp-gammabeta" class="quarto-xref">Proposition <span>9.2</span></a>.</p>
 </div>
 </section><section id="sec-biblio-quantiles" class="level2" data-number="13.4"><h2 data-number="13.4" class="anchored" data-anchor-id="sec-biblio-quantiles">
 <span class="header-section-number">13.4</span> Bibliographical remarks</h2>
