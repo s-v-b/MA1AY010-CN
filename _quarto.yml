@@ -5,7 +5,7 @@ project:
 book:
   title: "MA1AY010 Class Notes"
   author: "Master I ISIFAR"
-  date: today
+  date: last-modified
   date-format: long
   downloads: [pdf]
   site-url: "https://s-v-b.github.io/MA1AY010-CN/"

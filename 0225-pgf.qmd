@@ -30,16 +30,12 @@ All  three methods are distinct in scope but they rely on the same idea and
 share common features. Indeed, probability generating functions can be seen as special case of
 Laplace transforms. The latter can be seen as special cases of Fourier transforms.
 
-All three methods do *characterize* probability distributions. They are equipped
-with *inversion formulae*. The three methods provide us with a seamless treatment
-of sums of independent random variables.
+All three methods do *characterize* probability distributions. They are equipped with *inversion formulae* , see @sec-invformula-pgf. The three methods provide us with a seamless treatment
+of sums of independent random variables, see @sec-pgf-sums.
 
-All three methods relate the integrability of probability distributions and the smoothness of transforms.
+All three methods relate the integrability of probability distributions and the smoothness of transforms, see @sec-smooth-integrable-pgf.
 
-Probability generating functions, Laplace transforms and characteristic functions
-deliver an important analytical machinery to Probability Theory. From Analysis,
-we get off-the-shelf arguments to establish smoothness properties of transforms,
-and with little more work, we can construct the inversion formulae.
+Probability generating functions, Laplace transforms and characteristic functions deliver an important analytical machinery to Probability Theory. From Analysis, we get off-the-shelf arguments to establish smoothness properties of transforms, and with little more work, we can construct the inversion formulae.
 
 ## Probability generating function  {#sec-PGF}
 
@@ -358,13 +354,13 @@ on the circle of convergence is not prescribed by general theory.
 
 ### Integrability and probability generating functions
 
-Let $X$  be an  integer-valued random variable, with probability generating functions $f$,
-then $\mathbb{E} X^p < \infty$ iff $f$ is $p$-times differentiable at $1$
+Let $X$  be an  integer-valued random variable, with probability generating functions $G_X$,
+then $\mathbb{E} X^k < \infty$ iff $G_X$ is $k$-times left-differentiable at $1$
 and
 $$
-f^{(p)}(1) = \mathbb{E}\left[X (X-1) \ldots (X-p+1)\right] \, .
+G_X^{(k)}(1) = \mathbb{E}\left[X (X-1) \ldots (X-k+1)\right] \, .
 $$
-
+The last quantity is called the *factorial moment* of order $k$ of $X$.  
 :::
 
 <br> <p> </p>
@@ -372,16 +368,40 @@ $$
 
 
 ::: {.proof}
-Assume that $G$ is $p$-times differentiable on the left at $1$.
 
-We need to establish that $|X|$ is $p$-integrable.
 
-Assume that $|X|$ is $p$-integrable.
+For $t \in [0,1]$, 
+$$G^{(k)}_X(t) = \mathbb{E} [t^{X-k} X (X-1)\ldots (X-k+1)]$$
 
-<!-- TODO: -->
+If defined,  
+$$G^{(k)}_X(1_-) = \mathbb{E} [t^{X-k} X (X-1)\ldots (X-k+1)]$$
 
-  
+
+Let us first check that left-differentiability of $G_X$  at $1$ in equivalent to integrability.
+
+For $t \in [0,1)$:
+$$G_X(1) - G_X(t) = \sum_{n\in \mathbb{N}} p_n (1-t^n)= (1-t) \sum_{n\in \mathbb{N}} p_n (1+t +\ldots+ t^{n-1})$$
+so that :
+$$\frac{G_X(1) - G_X(t)}{1-t} =  \sum_{n\in \mathbb{N}} p_n (1+t +\ldots+ t^{n-1})$$
+By monotone convergence,  if $t$ increases to $1$ the right hand-side converges to 
+$\sum_{n\in \mathbb{N}} p_n  n$. The last quantity is finite (and equal to $\mathbb{E}X$) iff $G_X$ is left-differentiable at $1$. If $\mathbb{E}X$ is finite, $G'_X(1_-)=\mathbb{E}X$. 
+
+To check the general case, we proceed by induction on $k$. Assume the equivalence holds for all $j \leq k$. 
+
+\begin{align*}
+G^{(k)}_X(1) - G^{(k)}_X(t) 
+& = \mathbb{E} \left[X(X-1)\ldots(X-k+1) \left(1 - t^{X-k}\right) \right]\\
+& = (1-t) \mathbb{E} \left[X(X-1)\ldots(X-k+1) \left(1 +t + \ldots + t^{X-k-1}\right) \right]
+\end{align*}
+which entails
+$$\frac{G^{(k)}_X(1) - G^{(k)}_X(t)}{1-t} =  \mathbb{E} \left[X(X-1)\ldots(X-k+1) \left(1 +t + \ldots + t^{X-k-1}\right) \right]$$
+By monotone convergence,  if $t$ increases to $1$ the right hand-side converges to $\mathbb{E} \left[X(X-1)\ldots(X-k+1)(X-k)\right]$. The last quantity is finite iff 
+$G_X$ is $k+1$-times left-differentiable at $1$.
+
+To conclude, recall that the $k$-th factorial moment of an $\mathbb{N}$-valued random variable is finite iff its  $k$-th moment  is finite. 
+
 :::
+
 
 <br> <p> </p>
 
@@ -390,7 +410,7 @@ This question is  addressed later in a broader perspective.
 
 
 
-:::::: {.content-hidden unless-profile"WIP"}
+:::::: {.content-hidden unless-profile="WIP"}
 
 ## PGF for joint distributions {#sec-multivariate=pgfs}
 
@@ -401,21 +421,50 @@ $$G_{X,Y}(s,t) = \mathbb{E} \left[s^Xt^Y\right] \qquad \text{for } s,t \in [0,1]
 
 :::
 
+::::::
 
 
+## Compound distributions {#sec-compound-distributions}
 
-## Conmpound distributions {#sec-compound-distributions}
+Probability Generating Functions are very convenient when investigating sums of independent random variables, see @sec-pgf-sums. They also prove very practical when handling sums of a random number of independent random variables. Such sums have so-called compound distributions, they play a prominent role in the analysis of branching processes. 
 
-::: {#def-compound-distrib  name="Compount distribution"} 
+::: {#prp-compound-distrib  name="Compound distribution"} 
 
+Let $X$ be an integer valued random variable, let $Z_1, Z_2, \ldots$ be independent, identically distributed integer valued random variables, independent from $X$. Let $Z$ be distributed as the $Z_i$'s. 
+
+Let 
 $$Y = \sum_{i=1}^X Z_i$$
-
+$Y$ has the compound distribution defined by $X$ and $Z$, with probability generating function:
 $$G_Y(s) = G_X \circ G_Z(s)$$
 
 :::
 
-Application Poisson thinning
+
+::: {.proof}
+
+\begin{align*}
+G_Y(s) 
+  & =  \mathbb{E} \left[s^{\sum_{i=1}^X Z_i} \right] \\
+  & =  \mathbb{E} \left[s^{\sum_{i=1}^X Z_i} \mid X \right] \\
+  & =  \mathbb{E} \left[\mathbb{E} \left[s^{\sum_{i=1}^X Z_i} \mid X \right]\right] \\
+  & =  \mathbb{E} \left[\mathbb{E} \left[\sum_{n=0}^\infty \mathbb{I}_{n=X}s^{\sum_{i=n}^X Z_i} \mid X \right]\right] \\
+  & =  \mathbb{E} \left[\sum_{n=0}^\infty \mathbb{I}_{n=X} \mathbb{E}  \left[s^{\sum_{i=0}^n Z_i} \mid X \right]\right] \\
+  & =  \mathbb{E}  \left[ \sum_{n=0}^\infty \mathbb{I}_{n=X} G_X(s)^n\right]\\
+  & =  \mathbb{E} \left[G_Z(s)^X\right] \\
+  & = G_X \circ G_Z(s)
+\end{align*}
+
+:::
+
+
+::: {#exm-poisson-thinning}
+
+With conventions from @prp-compound-distrib, let $X \sim \operatorname{Poi}(\lambda)$ and $Z_i \sim \operatorname{Ber}(p)$, and $Y=\sum_{i\leq X} Z_i$ then 
+$$G_Y(s) = G_X \circ G_Z(s) = \mathrm{e}^{\lambda p (s-1)}$$ 
+that is $Y \sim \operatorname{Poi}(\lambda p)$. This is called Poisson thinning. 
+
+What happens of $X \sim \operatorname{Binom}(n,q)$?
 
 
 
-:::::
+:::
