@@ -342,9 +342,8 @@ $(f^{*})^*$ is the largest convex minorant of $f$.
 ### Jensen's inequality
 
 
-Let $X$ be a real-valued random variable and $f: \mathbb{R} \to \mathbb{R}$ be
-_convex, lower-semi-continuous_ such that the closed set  $\text{Dom}(f) \subseteq \text{supp}(\mathcal{L}(X))$
-and $\mathbb{E} |f(X)|< \infty.$, then
+Let $X$ be an integrable  real-valued random variable and $f: \mathbb{R} \to \mathbb{R}$ be
+_convex, lower-semi-continuous_ such that the closed set  $\text{Dom}(f)$ satisfies  $\text{supp}(\mathcal{L}(X)) \subseteq \text{Dom}(f)$ and $\mathbb{E} |f(X)|< \infty.$, then
 
 $$f(\mathbb{E} X) \leq \mathbb{E} f(X) \, .$$
 

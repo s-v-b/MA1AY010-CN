@@ -23,6 +23,7 @@ book:
   
   chapters:
     - index.qmd
+    - pensum.qmd
     - 01-intro.qmd
     - 02-language.qmd
     - 031-moments.qmd
@@ -38,7 +39,6 @@ book:
     - 041-characterization.qmd
     - 05-convergences-1.qmd
     - 08-convergence-3.qmd
-#    - 08-convergence-3b.qmd
     - 09-gaussian-vectors.qmd
 
 #    - summary.qmd
